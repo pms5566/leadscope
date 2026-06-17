@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Business Lead Scanner — Scan & Discover Leads Without Websites</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-crosshairs"></i>
+        </div>
+        <div class="brand-text">
+          <h1>LeadScope</h1>
+          <p>Local Business Scanner</p>
+        </div>
+      </div>
+      
+      <div class="status-badge-container" id="statusBadgeContainer">
+        <!-- Will be loaded dynamically -->
+        <span class="badge badge-demo">
+          <i class="fa-solid fa-circle"></i> Checking Server Mode...
+        </span>
+      </div>
+    </header>
+
+    <!-- Control Panel -->
+    <section class="control-card">
+      <h2 class="control-title">
+        <i class="fa-solid fa-magnifying-glass-location"></i> Scan Parameters
+      </h2>
+      <form id="scanForm">
+        <div class="form-row">
+          <div class="input-group">
+            <label for="nicheInput">Niche / Business Type</label>
+            <div class="input-wrapper">
+              <input type="text" id="nicheInput" placeholder="e.g. bakery, dentist, gym, plumber" required>
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="locationInput">Location / City</label>
+            <div class="input-wrapper">
+              <input type="text" id="locationInput" placeholder="e.g. Paris, New York, London" required>
+              <i class="fa-solid fa-map-pin"></i>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn-search" id="btnSearch">
+            <i class="fa-solid fa-circle-notch fa-spin" style="display: none;" id="searchSpinner"></i>
+            <span id="searchText"><i class="fa-solid fa-radar"></i> Start Scan</span>
+          </button>
+        </div>
+        
+        <div class="options-row">
+          <label class="toggle-container">
+            <span class="toggle-label">Force Demo / Mock Mode</span>
+            <span class="switch">
+              <input type="checkbox" id="mockModeToggle">
+              <span class="slider"></span>
+            </span>
+          </label>
+        </div>
+      </form>
+    </section>
+
+    <!-- Loading Panel -->
+    <section class="loading-panel" id="loadingPanel">
+      <div class="glow-spinner"></div>
+      <div class="loading-steps">
+        <div class="step-item" id="step1">
+          <i class="fa-solid fa-circle-dot"></i> Connecting to Google Places API...
+        </div>
+        <div class="step-item" id="step2">
+          <i class="fa-solid fa-circle-dot"></i> Filtering out businesses with active websites...
+        </div>
+        <div class="step-item" id="step3">
+          <i class="fa-solid fa-circle-dot"></i> Resolving search engine queries for social channels...
+        </div>
+      </div>
+    </section>
+
+    <!-- Empty State -->
+    <section class="empty-state" id="emptyState">
+      <div class="empty-state-logo">
+        <i class="fa-solid fa-satellite-dish"></i>
+      </div>
+      <h3>Ready to Scan</h3>
+      <p>Enter a business niche and location above to identify local leads that don't have websites, then fetch their direct social links.</p>
+    </section>
+
+    <!-- Stats summary -->
+    <section class="stats-grid" id="statsGrid">
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-leads">
+          <i class="fa-solid fa-users-viewfinder"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="statTotalLeads">0</span>
+          <span class="stat-label">Total Leads Found</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-socials">
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="statSocialChannels">0</span>
+          <span class="stat-label">Social Pages Found</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="statWhatsApp">0</span>
+          <span class="stat-label">WhatsApp Leads</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Table -->
+    <section class="results-card" id="resultsCard">
+      <div class="results-header">
+        <h3 class="results-title">
+          <i class="fa-solid fa-list-check"></i> Scanned Leads without Websites
+        </h3>
+        <div class="actions-container">
+          <button class="btn-export btn-export-csv" id="btnExportCSV">
+            <i class="fa-solid fa-file-csv"></i> Export CSV
+          </button>
+          <button class="btn-export" id="btnExportJSON">
+            <i class="fa-solid fa-code"></i> Export JSON
+          </button>
+        </div>
+      </div>
+      
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Business Name</th>
+              <th>Phone & Address</th>
+              <th>Social Networks & Contact channels</th>
+            </tr>
+          </thead>
+          <tbody id="leadsTableBody">
+            <!-- Dynamically populated rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Outreach Pitch Modal -->
+  <div class="modal-overlay" id="pitchModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="modalBizName">Outreach Script Generator</h3>
+          <span style="font-size: 0.75rem; color: var(--text-secondary);" id="modalBizMeta">Customized Pitch</span>
+        </div>
+        <button class="modal-close" id="btnMinClose"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="instagram"><i class="fa-brands fa-instagram"></i> Instagram / FB DM</button>
+        <button class="modal-tab" data-tab="whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Chat</button>
+        <button class="modal-tab" data-tab="email"><i class="fa-solid fa-envelope"></i> Cold Email</button>
+      </div>
+      
+      <div class="modal-angle-selector">
+        <label for="pitchAngleSelect">
+          <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--color-purple);"></i> Pitch Strategy / Angle
+        </label>
+        <select id="pitchAngleSelect">
+          <option value="mockup">Offer Free Website Mockup (High Response Rate)</option>
+          <option value="reviews">Highlight Good Google Reviews (Social Proof Angle)</option>
+          <option value="competitor">Competitor Gap (FOMO / Competition Angle)</option>
+          <option value="seo">Local Search Discovery (SEO Traffic Opportunity)</option>
+          <option value="audit">Offer Free 45-Sec Video Audit (Value-First Offer)</option>
+        </select>
+      </div>
+      
+      <div class="modal-body">
+        <div class="tab-content active" id="tabContent_instagram">
+          <textarea id="scriptText_instagram" readonly></textarea>
+          <div class="tab-actions">
+            <button class="btn-action btn-copy" data-target="instagram"><i class="fa-solid fa-copy"></i> Copy Pitch</button>
+            <a href="#" target="_blank" class="btn-action btn-launch" id="btnLaunchInstagram"><i class="fa-brands fa-instagram"></i> Open Instagram Profile</a>
+          </div>
+        </div>
+        <div class="tab-content" id="tabContent_whatsapp">
+          <textarea id="scriptText_whatsapp" readonly></textarea>
+          <div class="tab-actions">
+            <button class="btn-action btn-copy" data-target="whatsapp"><i class="fa-solid fa-copy"></i> Copy Pitch</button>
+            <a href="#" target="_blank" class="btn-action btn-launch" id="btnLaunchWhatsApp"><i class="fa-brands fa-whatsapp"></i> Open WhatsApp Web</a>
+          </div>
+        </div>
+        <div class="tab-content" id="tabContent_email">
+          <textarea id="scriptText_email" readonly></textarea>
+          <div class="tab-actions">
+            <button class="btn-action btn-copy" data-target="email"><i class="fa-solid fa-copy"></i> Copy Pitch</button>
+            <a href="#" class="btn-action btn-launch" id="btnLaunchEmail"><i class="fa-solid fa-paper-plane"></i> Launch Email App</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn-close-modal" id="btnCloseModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
