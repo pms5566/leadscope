@@ -1,3 +1,13 @@
+---
+title: LeadScope
+emoji: 🎯
+colorFrom: purple
+colorTo: blue
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Local Business Lead Scanner (LeadScope)
 
 LeadScope is a powerful developer utility and web dashboard designed to identify local businesses globally that do not currently have a registered website, and automatically enrich them with direct social media profiles (Facebook, Instagram, LinkedIn, WhatsApp) and contact emails.
