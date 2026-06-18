@@ -159,6 +159,43 @@
         </table>
       </div>
     </section>
+
+    <!-- CRM Pipeline Card -->
+    <section class="results-card crm-card" id="crmCard" style="margin-top: 1.5rem;">
+      <div class="results-header">
+        <h3 class="results-title" style="color: var(--color-purple);">
+          <i class="fa-solid fa-users-rectangle"></i> CRM Outreach Tracker
+        </h3>
+        <div class="actions-container">
+          <select id="crmFilterStatus" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary); padding: 0.45rem 0.85rem; border-radius: 8px; font-family: var(--font-main); font-weight: 500; font-size: 0.85rem; outline: none; cursor: pointer;">
+            <option value="all">All Saved Leads</option>
+            <option value="new">Status: New</option>
+            <option value="pitched_ig">Status: Pitched (IG/FB)</option>
+            <option value="pitched_wa">Status: Pitched (WhatsApp)</option>
+            <option value="pitched_email">Status: Pitched (Email)</option>
+            <option value="interested">Status: Interested</option>
+            <option value="closed">Status: Closed Client</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Business Lead</th>
+              <th>Contact Details</th>
+              <th>Outreach Status</th>
+              <th>Outreach Notes</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="crmTableBody">
+            <!-- Dynamically populated tracked leads -->
+          </tbody>
+        </table>
+      </div>
+    </section>
   </div>
 
   <!-- Outreach Pitch Modal -->

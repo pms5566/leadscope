@@ -394,6 +394,56 @@ async function scrapePlacesWithPuppeteer(niche, location, browser) {
   return places;
 }
 
+function getInstagramUsername(url) {
+  if (!url) return null;
+  try {
+    let parsedUrl = url.trim();
+    if (!parsedUrl.startsWith('http://') && !parsedUrl.startsWith('https://')) {
+      parsedUrl = 'https://' + parsedUrl;
+    }
+    const urlObj = new URL(parsedUrl);
+    if (urlObj.hostname.includes('instagram.com')) {
+      const parts = urlObj.pathname.split('/').filter(p => p.length > 0);
+      if (parts.length > 0) {
+        return parts[0];
+      }
+    }
+  } catch (e) {
+    // Ignore
+  }
+  return null;
+}
+
+function getFacebookUsername(url) {
+  if (!url) return null;
+  try {
+    let parsedUrl = url.trim();
+    if (!parsedUrl.startsWith('http://') && !parsedUrl.startsWith('https://')) {
+      parsedUrl = 'https://' + parsedUrl;
+    }
+    const urlObj = new URL(parsedUrl);
+    if (urlObj.hostname.includes('facebook.com')) {
+      const parts = urlObj.pathname.split('/').filter(p => p.length > 0);
+      if (parts.length > 0) {
+        const first = parts[0];
+        if (first === 'profile.php') {
+          const id = urlObj.searchParams.get('id');
+          if (id) return id;
+        } else if (first === 'pages' && parts.length > 1) {
+          return parts[parts.length - 1];
+        } else if (['groups', 'sharer', 'search', 'notifications'].includes(first)) {
+          return null;
+        } else {
+          return first;
+        }
+      }
+    }
+  } catch (e) {
+    // Ignore
+  }
+  return null;
+}
+
 /**
  * Searches and scrapes social media links from Bing search page.
  */
@@ -476,6 +526,49 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
         }
       }
     }
+
+    // --- Deep Bio Scraper (Email Extraction Fallback) ---
+    if (!email && (instagram || facebook)) {
+      try {
+        let deepQuery = '';
+        if (instagram) {
+          const igUser = getInstagramUsername(instagram);
+          if (igUser) {
+            deepQuery += `site:instagram.com/${igUser} email OR "@"`;
+          }
+        }
+        if (facebook) {
+          const fbUser = getFacebookUsername(facebook);
+          if (fbUser) {
+            if (deepQuery) deepQuery += ' OR ';
+            deepQuery += `site:facebook.com/${fbUser} email OR "@"`;
+          }
+        }
+        
+        if (deepQuery) {
+          const deepUrl = `https://www.bing.com/search?q=${encodeURIComponent(deepQuery)}`;
+          await page.goto(deepUrl, { waitUntil: 'domcontentloaded' }).catch(() => {});
+          await new Promise(r => setTimeout(r, 1200)); // Let the page settle to avoid destroyed context
+          await page.waitForSelector('li.b_algo', { timeout: 3000 }).catch(() => {});
+          
+          const snippets = await page.evaluate(() => {
+            return Array.from(document.querySelectorAll('li.b_algo p')).map(p => p.innerText);
+          }).catch(() => []);
+          
+          for (const snippet of snippets) {
+            const emailMatch = snippet.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+            if (emailMatch) {
+              email = emailMatch[0];
+              console.log(`[Deep Scraper] Successfully extracted email "${email}" for "${name}" from social snippet!`);
+              break;
+            }
+          }
+        }
+      } catch (deepErr) {
+        console.error(`[Deep Scraper] Secondary email lookup failed: ${deepErr.message}`);
+      }
+    }
+
   } catch (err) {
     console.error(`[Puppeteer] Bing search error: ${err.message}`);
   }

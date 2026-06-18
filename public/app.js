@@ -26,8 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnExportCSV = document.getElementById('btnExportCSV');
   const btnExportJSON = document.getElementById('btnExportJSON');
   
+  // CRM Selectors
+  const crmCard = document.getElementById('crmCard');
+  const crmTableBody = document.getElementById('crmTableBody');
+  const crmFilterStatus = document.getElementById('crmFilterStatus');
+  
   let currentLeads = [];
   let isLiveMode = false;
+  let crmLeads = [];
 
   // Initialize and check configuration mode
   async function checkServerConfig() {
@@ -184,6 +190,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lead.whatsapp) { whatsappCount++; hasSocial = true; }
       if (hasSocial) { socialCount++; }
       
+      // Check if lead is already saved in CRM
+      const isSaved = crmLeads.some(l => l.name === lead.name && l.phone === lead.phone && l.phone !== 'N/A');
+      const crmButtonHtml = isSaved 
+        ? `<a href="#" class="social-pill crm-save saved" data-lead-index="${index}" title="Saved to CRM"><i class="fa-solid fa-folder-minus"></i></a>`
+        : `<a href="#" class="social-pill crm-save" data-lead-index="${index}" title="Save to CRM"><i class="fa-solid fa-folder-plus"></i></a>`;
+
       // Populate row
       const tr = document.createElement('tr');
       
@@ -208,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </td>
         <td>
           <div class="social-pill-container">
+            ${crmButtonHtml}
             <a href="#" class="social-pill pitch-gen" data-lead-index="${index}" title="Generate Outreach Pitch">
               <i class="fa-solid fa-paper-plane"></i>
             </a>
@@ -309,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeLead = null;
 
     // Event delegation on table body for dynamic pitch trigger clicks
-    leadsTableBody.addEventListener('click', (e) => {
+    leadsTableBody.addEventListener('click', async (e) => {
       const trigger = e.target.closest('.social-pill.pitch-gen');
       if (trigger) {
         e.preventDefault();
@@ -317,6 +330,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const lead = currentLeads[index];
         if (lead) {
           showPitchModal(lead);
+        }
+      }
+      
+      const saveBtn = e.target.closest('.social-pill.crm-save');
+      if (saveBtn) {
+        e.preventDefault();
+        const index = parseInt(saveBtn.getAttribute('data-lead-index'), 10);
+        const lead = currentLeads[index];
+        if (lead) {
+          if (saveBtn.classList.contains('saved')) {
+            alert(`"${lead.name}" is already saved in your CRM Tracker below.`);
+            return;
+          }
+          saveBtn.classList.add('saved');
+          saveBtn.innerHTML = '<i class="fa-solid fa-folder-minus"></i>';
+          saveBtn.title = 'Saved to CRM';
+          
+          await saveLeadToCrm(lead);
         }
       }
     });
@@ -573,6 +604,223 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Trigger config check on startup
+    // --- Outreach CRM Client-Side Handlers ---
+
+    // Fetch CRM leads on load
+    async function loadCrmLeads() {
+      try {
+        const response = await fetch('/api/crm');
+        const data = await response.json();
+        if (data.success) {
+          crmLeads = data.leads;
+          renderCrm();
+        }
+      } catch (error) {
+        console.error('Failed to load CRM leads:', error);
+      }
+    }
+
+    // Save lead to CRM API call
+    async function saveLeadToCrm(lead) {
+      try {
+        const response = await fetch('/api/crm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lead })
+        });
+        const data = await response.json();
+        if (data.success) {
+          await loadCrmLeads();
+        }
+      } catch (error) {
+        console.error('Error saving lead to CRM:', error);
+      }
+    }
+
+    // Update Status in CRM API call
+    async function updateCrmStatus(id, status) {
+      try {
+        const leadToUpdate = crmLeads.find(l => l.id === id);
+        if (!leadToUpdate) return;
+        
+        const response = await fetch('/api/crm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lead: { ...leadToUpdate, status } })
+        });
+        const data = await response.json();
+        if (data.success) {
+          const index = crmLeads.findIndex(l => l.id === id);
+          if (index !== -1) {
+            crmLeads[index] = data.lead;
+            renderCrm();
+          }
+        }
+      } catch (error) {
+        console.error('Error updating status in CRM:', error);
+      }
+    }
+
+    // Update Notes in CRM API call
+    async function updateCrmNotes(id, notes) {
+      try {
+        const leadToUpdate = crmLeads.find(l => l.id === id);
+        if (!leadToUpdate) return;
+        
+        const response = await fetch('/api/crm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lead: { ...leadToUpdate, notes } })
+        });
+        const data = await response.json();
+        if (data.success) {
+          const index = crmLeads.findIndex(l => l.id === id);
+          if (index !== -1) {
+            crmLeads[index] = data.lead;
+          }
+        }
+      } catch (error) {
+        console.error('Error updating notes in CRM:', error);
+      }
+    }
+
+    // Delete CRM lead
+    async function deleteCrmLead(id) {
+      if (!confirm('Are you sure you want to remove this lead from the CRM?')) return;
+      try {
+        const response = await fetch(`/api/crm/${id}`, {
+          method: 'DELETE'
+        });
+        const data = await response.json();
+        if (data.success) {
+          crmLeads = crmLeads.filter(l => l.id !== id);
+          renderCrm();
+          // Also refresh the results table to update folder buttons
+          renderResults();
+        }
+      } catch (error) {
+        console.error('Error deleting lead from CRM:', error);
+      }
+    }
+
+    // Render CRM pipeline list
+    function renderCrm() {
+      crmTableBody.innerHTML = '';
+      
+      const filter = crmFilterStatus.value;
+      const filteredLeads = crmLeads.filter(lead => {
+        if (filter === 'all') return true;
+        return lead.status === filter;
+      });
+      
+      if (filteredLeads.length === 0) {
+        crmTableBody.innerHTML = `
+          <tr>
+            <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 2rem;">
+              No leads in this status category. Click the folder icon on scanned results to add them!
+            </td>
+          </tr>
+        `;
+        return;
+      }
+      
+      filteredLeads.forEach(lead => {
+        const tr = document.createElement('tr');
+        
+        // Status formatting class
+        const statusClass = `status-${lead.status || 'new'}`;
+        
+        // Generate option values
+        const statuses = [
+          { val: 'new', label: 'New Lead' },
+          { val: 'pitched_ig', label: 'Pitched (IG/FB)' },
+          { val: 'pitched_wa', label: 'Pitched (WhatsApp)' },
+          { val: 'pitched_email', label: 'Pitched (Email)' },
+          { val: 'interested', label: 'Interested' },
+          { val: 'closed', label: 'Closed Client' }
+        ];
+        
+        const optionsHtml = statuses.map(s => 
+          `<option value="${s.val}" ${lead.status === s.val ? 'selected' : ''}>${s.label}</option>`
+        ).join('');
+
+        // Social links list
+        const fbHtml = lead.facebook ? `<a href="${lead.facebook}" target="_blank" class="social-pill fb" style="font-size:0.75rem;"><i class="fa-brands fa-facebook-f"></i></a>` : '';
+        const igHtml = lead.instagram ? `<a href="${lead.instagram}" target="_blank" class="social-pill ig" style="font-size:0.75rem;"><i class="fa-brands fa-instagram"></i></a>` : '';
+        const waHtml = lead.whatsapp ? `<a href="${lead.whatsapp}" target="_blank" class="social-pill wa" style="font-size:0.75rem;"><i class="fa-brands fa-whatsapp"></i></a>` : '';
+        const mailHtml = lead.email ? `<a href="mailto:${lead.email}" target="_blank" class="social-pill mail" style="font-size:0.75rem;"><i class="fa-solid fa-envelope"></i></a>` : '';
+
+        tr.innerHTML = `
+          <td>
+            <div class="biz-name">
+              <a href="${lead.googleMapsUri}" target="_blank" style="color: var(--color-purple); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;" title="View on Google Maps">
+                ${escapeHtml(lead.name)} <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75rem;"></i>
+              </a>
+            </div>
+            <div class="biz-meta">${escapeHtml(lead.address || 'No address')}</div>
+          </td>
+          <td>
+            <div style="font-size: 0.85rem; color: var(--text-primary);"><i class="fa-solid fa-phone" style="font-size:0.75rem; margin-right:4px;"></i> ${escapeHtml(lead.phone || 'N/A')}</div>
+            <div class="social-pill-container" style="margin-top: 0.35rem; gap: 0.25rem;">
+              ${fbHtml} ${igHtml} ${waHtml} ${mailHtml}
+            </div>
+          </td>
+          <td>
+            <select class="crm-status-select ${statusClass}" data-id="${lead.id}">
+              ${optionsHtml}
+            </select>
+          </td>
+          <td>
+            <textarea class="crm-notes-textarea" data-id="${lead.id}" placeholder="Type conversation logs or notes here...">${escapeHtml(lead.notes || '')}</textarea>
+          </td>
+          <td>
+            <button class="btn-delete-crm" data-id="${lead.id}"><i class="fa-solid fa-trash-can"></i> Remove</button>
+          </td>
+        `;
+        crmTableBody.appendChild(tr);
+      });
+    }
+
+    // Handle status select changes
+    crmTableBody.addEventListener('change', (e) => {
+      const select = e.target.closest('.crm-status-select');
+      if (select) {
+        const id = select.getAttribute('data-id');
+        const newStatus = select.value;
+        updateCrmStatus(id, newStatus);
+      }
+    });
+
+    // Handle notes textarea updates with debounce auto-save
+    let notesSaveTimeout = null;
+    crmTableBody.addEventListener('input', (e) => {
+      const textarea = e.target.closest('.crm-notes-textarea');
+      if (textarea) {
+        const id = textarea.getAttribute('data-id');
+        const notes = textarea.value;
+        
+        if (notesSaveTimeout) clearTimeout(notesSaveTimeout);
+        notesSaveTimeout = setTimeout(() => {
+          updateCrmNotes(id, notes);
+        }, 1000);
+      }
+    });
+
+    // Handle delete buttons
+    crmTableBody.addEventListener('click', (e) => {
+      const delBtn = e.target.closest('.btn-delete-crm');
+      if (delBtn) {
+        const id = delBtn.getAttribute('data-id');
+        deleteCrmLead(id);
+      }
+    });
+
+    // Handle crm filter selector
+    crmFilterStatus.addEventListener('change', () => {
+      renderCrm();
+    });
+
+    // Trigger config check and CRM load on startup
     checkServerConfig();
+    loadCrmLeads();
   });
