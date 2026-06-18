@@ -369,7 +369,10 @@ async function scrapePlacesWithPuppeteer(niche, location, browser) {
         const phoneEl = document.querySelector('button[data-item-id^="phone:tel:"]');
         const nationalPhoneNumber = phoneEl ? clean(phoneEl.innerText) : 'N/A';
         
-        return { name, formattedAddress, nationalPhoneNumber };
+        const webEl = document.querySelector('a[data-item-id="authority"]');
+        const websiteUri = webEl ? webEl.href : null;
+        
+        return { name, formattedAddress, nationalPhoneNumber, websiteUri };
       });
       
       return {
@@ -377,7 +380,7 @@ async function scrapePlacesWithPuppeteer(niche, location, browser) {
         displayName: { text: details.name || lead.name },
         formattedAddress: details.formattedAddress,
         nationalPhoneNumber: details.nationalPhoneNumber,
-        websiteUri: null, // Guaranteed null since we filtered them out
+        websiteUri: details.websiteUri,
         googleMapsUri: lead.url
       };
     } catch (e) {
