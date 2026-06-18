@@ -972,6 +972,10 @@ tr:hover td {
 }
 
 /* CRM Outreach Tracker Styles */
+.results-card.crm-card {
+  display: block;
+}
+
 .social-pill.crm-save {
   background: rgba(138, 43, 226, 0.12);
   color: #9370db;
