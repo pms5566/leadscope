@@ -447,6 +447,57 @@ function getFacebookUsername(url) {
   return null;
 }
 
+function checkIsSocialOrDirectory(url) {
+  if (!url) return true;
+  try {
+    let parsedUrl = url.trim();
+    if (!parsedUrl.startsWith('http://') && !parsedUrl.startsWith('https://')) {
+      parsedUrl = 'https://' + parsedUrl;
+    }
+    const urlObj = new URL(parsedUrl);
+    const hostname = urlObj.hostname.toLowerCase();
+    
+    const excludedHosts = [
+      'facebook.com', 'instagram.com', 'linkedin.com', 'twitter.com', 'x.com',
+      'youtube.com', 'whatsapp.com', 'wa.me', 'google.com', 'bing.com',
+      'yelp.com', 'tripadvisor.com', 'justdial.com', 'yellowpages.com',
+      'foursquare.com', 'mapquest.com', 'tiktok.com', 'pinterest.com',
+      'wix.com', 'wordpress.com', 'squarespace.com', 'weebly.com',
+      'groupon.com', 'apple.com', 'microsoft.com', 'yahoo.com', 'duckduckgo.com',
+      'github.com', 'reddit.com', 'tumblr.com', 'medium.com', 'wikipedia.org',
+      'indiamart.com', 'sulekha.com', 'dialme.com', 'dial.me', 'asklaila.com',
+      'local.google.com', 'maps.google.com', 'play.google.com', 't.me'
+    ];
+    
+    return excludedHosts.some(h => hostname === h || hostname.endsWith('.' + h));
+  } catch (e) {
+    return true;
+  }
+}
+
+function extractWebsiteFromSnippet(text) {
+  if (!text) return null;
+  const matches = text.match(/(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})/g);
+  if (matches) {
+    const excludedDomains = [
+      'facebook.com', 'instagram.com', 'linkedin.com', 'twitter.com', 'x.com',
+      'youtube.com', 'whatsapp.com', 'wa.me', 'google.com', 'bing.com',
+      'yelp.com', 'tripadvisor.com', 'justdial.com', 'yellowpages.com',
+      'foursquare.com', 'mapquest.com', 'tiktok.com', 'pinterest.com',
+      'wix.com', 'wordpress.com', 'squarespace.com', 'weebly.com',
+      'wikipedia.org', 't.me'
+    ];
+    for (const m of matches) {
+      const cleanDomain = m.replace(/https?:\/\//, '').replace('www.', '').split('/')[0].toLowerCase();
+      const isExcluded = excludedDomains.some(d => cleanDomain === d || cleanDomain.endsWith('.' + d));
+      if (!isExcluded) {
+        return m;
+      }
+    }
+  }
+  return null;
+}
+
 /**
  * Searches and scrapes social media links from Bing search page.
  */
@@ -459,6 +510,8 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
   let linkedin = null;
   let whatsapp = null;
   let email = null;
+  let hasWebsiteInBio = false;
+  let foundWebsiteUrl = null;
   
   try {
     await page.goto(url, { waitUntil: 'domcontentloaded' });
@@ -510,6 +563,20 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
             }
           }
         }
+      }
+      
+      // Check if this result is actually a custom website (not social or directory)
+      const isSocialOrDirectory = checkIsSocialOrDirectory(link);
+      if (!isSocialOrDirectory && !facebook && !instagram && !linkedin && !whatsapp && !email) {
+        hasWebsiteInBio = true;
+        foundWebsiteUrl = link;
+      }
+      
+      // Check if snippet contains custom website links
+      const websiteInSnippet = extractWebsiteFromSnippet(snippet);
+      if (websiteInSnippet) {
+        hasWebsiteInBio = true;
+        foundWebsiteUrl = websiteInSnippet;
       }
       
       if (link.includes("facebook.com/") && !facebook) {
@@ -576,7 +643,7 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
     console.error(`[Puppeteer] Bing search error: ${err.message}`);
   }
   
-  return { facebook, instagram, linkedin, whatsapp, email };
+  return { facebook, instagram, linkedin, whatsapp, email, hasWebsiteInBio, foundWebsiteUrl };
 }
 
 /**
@@ -714,6 +781,11 @@ async function scanLocalLeads(niche, location, forceMock = false) {
           }
         }
         
+        if (social.hasWebsiteInBio) {
+          console.log(`[Scanner] Filtering out "${name}" because website was found in social search: ${social.foundWebsiteUrl}`);
+          return null;
+        }
+
         return {
           id: place.id,
           name,
@@ -726,7 +798,7 @@ async function scanLocalLeads(niche, location, forceMock = false) {
       });
       
       const enrichedLeads = await runInBatches(enrichTasks, 6); // Batch size 6 for optimal concurrency
-      return enrichedLeads;
+      return enrichedLeads.filter(l => l !== null);
       
     } catch (error) {
       console.error(`[Scanner Error] Puppeteer execution failed. Falling back to Mock.`, error.message);
