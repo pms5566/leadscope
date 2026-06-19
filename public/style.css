@@ -1561,15 +1561,79 @@ tr:hover td {
 }
 
 /* Responsive grid overrides for sidebar layout */
+/* Mobile Header Styles */
+.mobile-header {
+  display: none;
+  background: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.mobile-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.mobile-brand i {
+  color: var(--color-cyan);
+  font-size: 1.25rem;
+}
+
+.menu-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.menu-toggle-btn:hover {
+  color: var(--color-cyan);
+}
+
+/* Responsive grid overrides for sidebar layout */
 @media (max-width: 1024px) {
+  .mobile-header {
+    display: flex;
+  }
   .app-layout {
     grid-template-columns: 1fr;
   }
   .sidebar {
-    display: none; /* can expand to modal/dropdown drawer in future if needed */
+    position: fixed;
+    top: 57px; /* Matches mobile-header height */
+    left: -280px; /* hidden off-screen by default */
+    bottom: 0;
+    width: 280px;
+    z-index: 999;
+    display: flex !important; /* override default hide */
+    flex-direction: column;
+    transition: left 0.3s ease;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+  }
+  .sidebar.active {
+    left: 0; /* slide in! */
   }
   .main-content {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 }
 
