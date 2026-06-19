@@ -466,6 +466,34 @@ app.get('/api/active-visits', (req, res) => {
   res.json({ success: true, visits: activeVisits });
 });
 
+// Endpoint to list template folders dynamically from GitHub API
+app.get('/api/templates', async (req, res) => {
+  const owner = process.env.GITHUB_USERNAME || 'parmeetsingh';
+  const repo = process.env.GITHUB_REPO || 'leadscope-templates';
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents`;
+  
+  const headers = {
+    'User-Agent': 'LeadScope-SaaS-App'
+  };
+  
+  if (process.env.GITHUB_TOKEN && process.env.GITHUB_TOKEN !== 'your_github_token_here') {
+    headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+  }
+  
+  try {
+    const response = await axios.get(url, { headers });
+    const directories = response.data
+      .filter(item => item.type === 'dir')
+      .map(item => item.name);
+      
+    res.json({ success: true, templates: directories });
+  } catch (err) {
+    console.warn('[GitHub Listing Fail]:', err.message);
+    // Return standard template presets if query fails (e.g. offline or unconfigured)
+    res.json({ success: true, templates: ['cafe', 'gym', 'bakery', 'dentist', 'plumber'] });
+  }
+});
+
 
 const server = app.listen(PORT, () => {
   console.log(`====================================================`);

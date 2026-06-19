@@ -34,6 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentLeads = [];
   let isLiveMode = false;
   let crmLeads = [];
+  let githubTemplates = [];
+
+  async function loadGithubTemplates() {
+    try {
+      const response = await fetch('/api/templates');
+      const data = await response.json();
+      if (data.success && data.templates) {
+        githubTemplates = data.templates;
+      }
+    } catch (error) {
+      console.warn('Failed to load GitHub templates:', error);
+      githubTemplates = ['cafe', 'gym', 'bakery', 'dentist', 'plumber'];
+    }
+  }
 
   // Initialize and check configuration mode
   async function checkServerConfig() {
@@ -240,9 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <i class="fa-solid fa-envelope"></i>
             </a>
           </div>
-          <div style="margin-top: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+          <div style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 4px;">
             <span style="font-size: 0.7rem; color: var(--text-secondary); white-space: nowrap;">Portfolio:</span>
-            <input type="text" class="crm-portfolio-input scan-portfolio-input" data-lead-index="${index}" placeholder="Custom portfolio/template link" value="${escapeHtml(lead.portfolioLink || '')}">
+            ${buildTemplateSelectorHtml(lead, false, index)}
           </div>
         </td>
       `;
@@ -311,6 +325,32 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/'/g, '&#039;');
   }
 
+  // Helper to build template selector dropdown HTML
+  function buildTemplateSelectorHtml(lead, isCrm = false, indexOrId = '') {
+    const currentVal = lead.portfolioLink || '';
+    const isCustomLink = currentVal.startsWith('http://') || currentVal.startsWith('https://');
+    const selectedTemplate = (!isCustomLink && currentVal) ? currentVal : '';
+    
+    const optionsHtml = githubTemplates.map(t => 
+      `<option value="${t}" ${selectedTemplate === t ? 'selected' : ''}>Template: ${t}</option>`
+    ).join('');
+
+    const dropdownClass = isCrm ? 'crm-template-select' : 'scan-template-select';
+    const inputClass = isCrm ? 'crm-portfolio-link-input' : 'scan-portfolio-input';
+    const dataAttr = isCrm ? `data-id="${indexOrId}"` : `data-lead-index="${indexOrId}"`;
+    
+    return `
+      <div class="template-selector-container" style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 4px;">
+        <select class="crm-portfolio-input ${dropdownClass}" ${dataAttr} style="font-size: 11px; padding: 4px 6px; cursor: pointer;">
+          <option value="" ${!currentVal ? 'selected' : ''}>-- Use Dynamic Match --</option>
+          ${optionsHtml}
+          <option value="custom" ${isCustomLink ? 'selected' : ''}>-- Custom Link... --</option>
+        </select>
+        <input type="text" class="crm-portfolio-input ${inputClass}" ${dataAttr} placeholder="Paste custom portfolio/template link" value="${isCustomLink ? escapeHtml(currentVal) : ''}" style="display: ${isCustomLink ? 'block' : 'none'}; font-size: 11px; padding: 4px 6px;">
+      </div>
+    `;
+  }
+
     // Modal Elements & Event Listeners
     const pitchModal = document.getElementById('pitchModal');
     const modalBizName = document.getElementById('modalBizName');
@@ -360,7 +400,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Handle scan table portfolio inputs
+    // Handle scan table template dropdown change
+    leadsTableBody.addEventListener('change', (e) => {
+      const select = e.target.closest('.scan-template-select');
+      if (select) {
+        const index = parseInt(select.getAttribute('data-lead-index'), 10);
+        const lead = currentLeads[index];
+        if (lead) {
+          const val = select.value;
+          const container = select.closest('.template-selector-container');
+          const input = container.querySelector('.scan-portfolio-input');
+          
+          if (val === 'custom') {
+            input.style.display = 'block';
+            lead.portfolioLink = input.value.trim();
+          } else {
+            input.style.display = 'none';
+            lead.portfolioLink = val;
+          }
+        }
+      }
+    });
+
+    // Handle scan table portfolio text inputs
     leadsTableBody.addEventListener('input', (e) => {
       const input = e.target.closest('.scan-portfolio-input');
       if (input) {
@@ -820,15 +882,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const mailHtml = lead.email ? `<a href="mailto:${lead.email}" target="_blank" class="social-pill mail" style="font-size:0.75rem;"><i class="fa-solid fa-envelope"></i></a>` : '';
 
         // Generate proposal and custom portfolio links
-        const nicheSlug = lead.niche || 'cafe';
-        const proposalUrl = lead.portfolioLink || `${window.location.origin}/preview/${nicheSlug}/${lead.id}`;
+        const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+        const proposalUrl = lead.portfolioLink || `${window.location.origin}/preview/${cleanNiche}/${lead.id}`;
         
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
             <a href="${proposalUrl}" target="_blank" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;" title="Preview proposal page">
               <i class="fa-solid fa-link"></i> Proposal Link <i class="fa-solid fa-up-right-from-square" style="font-size:0.6rem;"></i>
             </a>
-            <input type="text" class="crm-portfolio-input crm-portfolio-link-input" data-id="${lead.id}" placeholder="Or paste custom portfolio/template link" value="${escapeHtml(lead.portfolioLink || '')}">
+            ${buildTemplateSelectorHtml(lead, true, lead.id)}
           </div>
         `;
 
@@ -903,6 +965,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const select = e.target.closest('.crm-status-select');
       const dateInput = e.target.closest('.crm-followup-date-input');
       const checkbox = e.target.closest('.crm-audit-checkbox');
+      const templateSelect = e.target.closest('.crm-template-select');
       
       if (select) {
         const id = select.getAttribute('data-id');
@@ -917,6 +980,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const field = checkbox.getAttribute('data-field');
         const val = checkbox.checked;
         updateCrmField(id, { [field]: val });
+      } else if (templateSelect) {
+        const id = templateSelect.getAttribute('data-id');
+        const val = templateSelect.value;
+        const container = templateSelect.closest('.template-selector-container');
+        const input = container.querySelector('.crm-portfolio-link-input');
+        
+        if (val === 'custom') {
+          input.style.display = 'block';
+          updateCrmField(id, { portfolioLink: input.value.trim() });
+        } else {
+          input.style.display = 'none';
+          updateCrmField(id, { portfolioLink: val });
+        }
       }
     });
 
@@ -1085,7 +1161,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Trigger config check and CRM load on startup
     checkServerConfig();
-    loadCrmLeads();
+    loadGithubTemplates().then(() => {
+      loadCrmLeads();
+    });
     
     // Poll visitor tracking logs
     pollActiveVisits();
