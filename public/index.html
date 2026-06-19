@@ -3,199 +3,388 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Local Business Lead Scanner — Scan & Discover Leads Without Websites</title>
+  <title>LeadScope AI — Premium SaaS Local Lead Generation & Sales Spy</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="app-container">
-    <!-- Header -->
-    <header>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
       <div class="brand">
         <div class="brand-logo">
           <i class="fa-solid fa-crosshairs"></i>
         </div>
         <div class="brand-text">
-          <h1>LeadScope</h1>
-          <p>Local Business Scanner</p>
+          <h1>LeadScope AI</h1>
+          <p>SaaS Outreach Suite</p>
         </div>
       </div>
       
-      <div class="status-badge-container" id="statusBadgeContainer">
-        <!-- Will be loaded dynamically -->
-        <span class="badge badge-demo">
-          <i class="fa-solid fa-circle"></i> Checking Server Mode...
-        </span>
-      </div>
-    </header>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-screen="overview">
+          <i class="fa-solid fa-chart-line"></i> <span>Overview Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-screen="finder">
+          <i class="fa-solid fa-magnifying-glass-location"></i> <span>Lead Finder</span>
+        </a>
+        <a href="#" class="nav-item" data-screen="crm">
+          <i class="fa-solid fa-users-rectangle"></i> <span>CRM Outreach Tracker</span>
+        </a>
+        <a href="#" class="nav-item" data-screen="spy">
+          <i class="fa-solid fa-user-ninja"></i> <span>Live Sales Spy</span>
+        </a>
+        <a href="#" class="nav-item" data-screen="guide">
+          <i class="fa-solid fa-book-open"></i> <span>How It Works</span>
+        </a>
+      </nav>
 
-    <!-- Control Panel -->
-    <section class="control-card">
-      <h2 class="control-title">
-        <i class="fa-solid fa-magnifying-glass-location"></i> Scan Parameters
-      </h2>
-      <form id="scanForm">
-        <div class="form-row">
-          <div class="input-group">
-            <label for="nicheInput">Niche / Business Type</label>
-            <div class="input-wrapper">
-              <input type="text" id="nicheInput" placeholder="e.g. bakery, dentist, gym, plumber" required>
-              <i class="fa-solid fa-briefcase"></i>
-            </div>
-          </div>
-          
-          <div class="input-group">
-            <label for="locationInput">Location / City</label>
-            <div class="input-wrapper">
-              <input type="text" id="locationInput" placeholder="e.g. Paris, New York, London" required>
-              <i class="fa-solid fa-map-pin"></i>
-            </div>
-          </div>
-          
-          <button type="submit" class="btn-search" id="btnSearch">
-            <i class="fa-solid fa-circle-notch fa-spin" style="display: none;" id="searchSpinner"></i>
-            <span id="searchText"><i class="fa-solid fa-radar"></i> Start Scan</span>
-          </button>
+      <div class="sidebar-footer">
+        <div class="status-badge-container" id="statusBadgeContainer">
+          <span class="badge badge-demo">
+            <i class="fa-solid fa-circle"></i> Checking Server Mode...
+          </span>
         </div>
-        
-        <div class="options-row">
-          <label class="toggle-container">
-            <span class="toggle-label">Force Demo / Mock Mode</span>
-            <span class="switch">
-              <input type="checkbox" id="mockModeToggle">
-              <span class="slider"></span>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- SCREEN 1: OVERVIEW DASHBOARD -->
+      <div class="screen-view active" id="screen_overview">
+        <div class="welcome-banner">
+          <h2>Welcome back to LeadScope AI! 👋</h2>
+          <p>Scout local business leads without websites, launch personalized proposal previews directly from your GitHub templates, and track visitor heartbeats in real-time.</p>
+        </div>
+
+        <!-- Today's Agenda Follow-up Alert -->
+        <div class="ls-agenda-alert" id="crmAgendaAlert" style="display: none; margin-top: 1.25rem; margin-bottom: 0.5rem;">
+          <div class="agenda-icon"><i class="fa-solid fa-calendar-day"></i></div>
+          <div class="agenda-text" id="crmAgendaText">Today's Outreach Agenda: Loading follow-up tasks...</div>
+        </div>
+
+        <!-- Dashboard Stats Grid -->
+        <div class="dashboard-stats-grid">
+          <div class="d-stat-card">
+            <div class="d-stat-icon leads"><i class="fa-solid fa-users-viewfinder"></i></div>
+            <div class="d-stat-info">
+              <span class="d-stat-value" id="statCrmTotalLeads">0</span>
+              <span class="d-stat-label">Total CRM Leads</span>
+            </div>
+          </div>
+          <div class="d-stat-card">
+            <div class="d-stat-icon active-visits"><i class="fa-solid fa-eye"></i></div>
+            <div class="d-stat-info">
+              <span class="d-stat-value" id="statDashboardTotalVisits">0</span>
+              <span class="d-stat-label">Proposal Views</span>
+            </div>
+          </div>
+          <div class="d-stat-card">
+            <div class="d-stat-icon active-conversion"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="d-stat-info">
+              <span class="d-stat-value" id="statCrmClosedLeads">0</span>
+              <span class="d-stat-label">Closed Clients</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini Live Sales Spy Activity Stream -->
+        <div class="results-card mini-spy-card" style="margin-top: 1.5rem;">
+          <div class="results-header">
+            <h3 class="results-title" style="color: var(--color-cyan);">
+              <i class="fa-solid fa-user-ninja"></i> Recent Activity Stream
+            </h3>
+            <a href="#" class="btn-action view-all-spy" style="text-decoration: none; font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="document.querySelector('[data-screen=spy]').click()">
+              View All Spy <i class="fa-solid fa-chevron-right" style="font-size:0.6rem; margin-left:2px;"></i>
+            </a>
+          </div>
+          <div class="spy-feed-container" id="miniSpyFeedContainer">
+            <div style="color: var(--text-secondary); text-align: center; padding: 1.5rem; font-size: 0.9rem;">
+              <i class="fa-solid fa-satellite fa-spin" style="margin-right: 6px; color: var(--color-cyan);"></i> Waiting for visitor activity...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 2: LEAD FINDER (SCANNER) -->
+      <div class="screen-view" id="screen_finder">
+        <!-- Control Panel -->
+        <section class="control-card">
+          <h2 class="control-title">
+            <i class="fa-solid fa-magnifying-glass-location"></i> Scan Parameters
+          </h2>
+          <form id="scanForm">
+            <div class="form-row">
+              <div class="input-group">
+                <label for="nicheInput">Niche / Business Type</label>
+                <div class="input-wrapper">
+                  <input type="text" id="nicheInput" placeholder="e.g. bakery, dentist, gym, plumber" required>
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+              </div>
+              
+              <div class="input-group">
+                <label for="locationInput">Location / City</label>
+                <div class="input-wrapper">
+                  <input type="text" id="locationInput" placeholder="e.g. Paris, New York, London" required>
+                  <i class="fa-solid fa-map-pin"></i>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn-search" id="btnSearch">
+                <i class="fa-solid fa-circle-notch fa-spin" style="display: none;" id="searchSpinner"></i>
+                <span id="searchText"><i class="fa-solid fa-radar"></i> Start Scan</span>
+              </button>
+            </div>
+            
+            <div class="options-row">
+              <label class="toggle-container">
+                <span class="toggle-label">Force Demo / Mock Mode</span>
+                <span class="switch">
+                  <input type="checkbox" id="mockModeToggle">
+                  <span class="slider"></span>
+                </span>
+              </label>
+            </div>
+          </form>
+        </section>
+
+        <!-- Loading Panel -->
+        <section class="loading-panel" id="loadingPanel">
+          <div class="glow-spinner"></div>
+          <div class="loading-steps">
+            <div class="step-item" id="step1">
+              <i class="fa-solid fa-circle-dot"></i> Connecting to Google Places API...
+            </div>
+            <div class="step-item" id="step2">
+              <i class="fa-solid fa-circle-dot"></i> Filtering out businesses with active websites...
+            </div>
+            <div class="step-item" id="step3">
+              <i class="fa-solid fa-circle-dot"></i> Resolving search engine queries for social channels...
+            </div>
+          </div>
+        </section>
+
+        <!-- Empty State -->
+        <section class="empty-state" id="emptyState">
+          <div class="empty-state-logo">
+            <i class="fa-solid fa-satellite-dish"></i>
+          </div>
+          <h3>Ready to Scan</h3>
+          <p>Enter a business niche and location above to identify local leads that don't have websites, then fetch their direct social links.</p>
+        </section>
+
+        <!-- Stats summary -->
+        <section class="stats-grid" id="statsGrid" style="display: none;">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-leads">
+              <i class="fa-solid fa-users-viewfinder"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="statTotalLeads">0</span>
+              <span class="stat-label">Total Leads Found</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-socials">
+              <i class="fa-solid fa-share-nodes"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="statSocialChannels">0</span>
+              <span class="stat-label">Social Pages Found</span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="statWhatsApp">0</span>
+              <span class="stat-label">WhatsApp Leads</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Table -->
+        <section class="results-card" id="resultsCard" style="display: none; margin-top: 1.5rem;">
+          <div class="results-header">
+            <h3 class="results-title">
+              <i class="fa-solid fa-list-check"></i> Scanned Leads without Websites
+            </h3>
+            <div class="actions-container">
+              <button class="btn-export btn-export-csv" id="btnExportCSV">
+                <i class="fa-solid fa-file-csv"></i> Export CSV
+              </button>
+              <button class="btn-export" id="btnExportJSON">
+                <i class="fa-solid fa-code"></i> Export JSON
+              </button>
+            </div>
+          </div>
+          
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Business Name</th>
+                  <th>Phone & Address</th>
+                  <th>Social Networks & Contact channels</th>
+                </tr>
+              </thead>
+              <tbody id="leadsTableBody">
+                <!-- Dynamically populated rows -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- SCREEN 3: CRM OUTREACH PIPELINE -->
+      <div class="screen-view" id="screen_crm">
+        <section class="results-card crm-card">
+          <div class="results-header">
+            <h3 class="results-title" style="color: var(--color-purple);">
+              <i class="fa-solid fa-users-rectangle"></i> CRM Outreach Tracker
+            </h3>
+            <div class="actions-container">
+              <select id="crmFilterStatus" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary); padding: 0.45rem 0.85rem; border-radius: 8px; font-family: var(--font-main); font-weight: 500; font-size: 0.85rem; outline: none; cursor: pointer;">
+                <option value="all">All Saved Leads</option>
+                <option value="new">Status: New</option>
+                <option value="pitched_ig">Status: Pitched (IG/FB)</option>
+                <option value="pitched_wa">Status: Pitched (WhatsApp)</option>
+                <option value="pitched_email">Status: Pitched (Email)</option>
+                <option value="interested">Status: Interested</option>
+                <option value="closed">Status: Closed Client</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Business Lead</th>
+                  <th>Contact & Proposal Link</th>
+                  <th>Audit Checklist</th>
+                  <th>Follow-Up Date</th>
+                  <th>Outreach Status & Notes</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="crmTableBody">
+                <!-- Dynamically populated tracked leads -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- SCREEN 4: LIVE SALES SPY -->
+      <div class="screen-view" id="screen_spy">
+        <section class="results-card spy-card">
+          <div class="results-header">
+            <h3 class="results-title" style="color: var(--color-cyan);">
+              <i class="fa-solid fa-user-ninja"></i> Live Sales Spy (Real-Time Visitor Activity)
+            </h3>
+            <span class="badge badge-live" style="font-size: 0.75rem;">
+              <i class="fa-solid fa-circle fa-pulse"></i> Tracking Active
             </span>
-          </label>
-        </div>
-      </form>
-    </section>
+          </div>
+          
+          <div class="spy-feed-container" id="spyFeedContainer" style="max-height: 500px;">
+            <div style="color: var(--text-secondary); text-align: center; padding: 2rem; font-size: 0.9rem;">
+              <i class="fa-solid fa-satellite fa-spin" style="margin-right: 6px; color: var(--color-cyan);"></i> Waiting for visitor activity...
+            </div>
+          </div>
+        </section>
+      </div>
 
-    <!-- Loading Panel -->
-    <section class="loading-panel" id="loadingPanel">
-      <div class="glow-spinner"></div>
-      <div class="loading-steps">
-        <div class="step-item" id="step1">
-          <i class="fa-solid fa-circle-dot"></i> Connecting to Google Places API...
+      <!-- SCREEN 5: ONBOARDING GUIDE / WALKTHROUGH -->
+      <div class="screen-view" id="screen_guide">
+        <div class="welcome-banner" style="background: linear-gradient(135deg, rgba(117, 121, 255, 0.1) 0%, rgba(0, 242, 254, 0.05) 100%); border-color: rgba(117, 121, 255, 0.2);">
+          <h2>📖 LeadScope AI — Interactive User Guide</h2>
+          <p>Understand the 3-Step automated workflow cycle that powers LeadScope and helps you close local business clients with ease.</p>
         </div>
-        <div class="step-item" id="step2">
-          <i class="fa-solid fa-circle-dot"></i> Filtering out businesses with active websites...
-        </div>
-        <div class="step-item" id="step3">
-          <i class="fa-solid fa-circle-dot"></i> Resolving search engine queries for social channels...
-        </div>
-      </div>
-    </section>
 
-    <!-- Empty State -->
-    <section class="empty-state" id="emptyState">
-      <div class="empty-state-logo">
-        <i class="fa-solid fa-satellite-dish"></i>
-      </div>
-      <h3>Ready to Scan</h3>
-      <p>Enter a business niche and location above to identify local leads that don't have websites, then fetch their direct social links.</p>
-    </section>
+        <div class="guide-grid">
+          <!-- Step 1 Card -->
+          <div class="guide-card">
+            <div class="guide-step-num">01</div>
+            <h3>🔍 Scan & Discover Leads</h3>
+            <p>Enter a local business type (like <em>bakery</em>) and location (like <em>Paris</em>) in the <strong>Lead Finder</strong> screen.</p>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> Scrapes listings directly from Google Maps.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Automatically discards businesses that already have custom websites.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Enriches leads with contact channels (Facebook, Instagram, LinkedIn, WhatsApp).</li>
+              <li><i class="fa-solid fa-circle-check"></i> Queries search engines for public business emails directly.</li>
+            </ul>
+          </div>
 
-    <!-- Stats summary -->
-    <section class="stats-grid" id="statsGrid">
-      <div class="stat-card">
-        <div class="stat-icon stat-icon-leads">
-          <i class="fa-solid fa-users-viewfinder"></i>
-        </div>
-        <div class="stat-info">
-          <span class="stat-value" id="statTotalLeads">0</span>
-          <span class="stat-label">Total Leads Found</span>
-        </div>
-      </div>
-      
-      <div class="stat-card">
-        <div class="stat-icon stat-icon-socials">
-          <i class="fa-solid fa-share-nodes"></i>
-        </div>
-        <div class="stat-info">
-          <span class="stat-value" id="statSocialChannels">0</span>
-          <span class="stat-label">Social Pages Found</span>
-        </div>
-      </div>
-      
-      <div class="stat-card">
-        <div class="stat-icon stat-icon-whatsapp">
-          <i class="fa-brands fa-whatsapp"></i>
-        </div>
-        <div class="stat-info">
-          <span class="stat-value" id="statWhatsApp">0</span>
-          <span class="stat-label">WhatsApp Leads</span>
-        </div>
-      </div>
-    </section>
+          <!-- Step 2 Card -->
+          <div class="guide-card">
+            <div class="guide-step-num">02</div>
+            <h3>🌐 Pitch Dynamic Proposals</h3>
+            <p>Review results and pitch customized website templates. Link templates directly from your GitHub templates folder.</p>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> Typeless generation: templates load from your GitHub repo on-the-fly.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Automatically injects business contact details into placeholders.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Embeds a sticky checkout banner linking to your Fiverr and WhatsApp.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Adaptive pitching hooks built directly from your CRM checklist status.</li>
+            </ul>
+          </div>
 
-    <!-- Results Table -->
-    <section class="results-card" id="resultsCard">
-      <div class="results-header">
-        <h3 class="results-title">
-          <i class="fa-solid fa-list-check"></i> Scanned Leads without Websites
-        </h3>
-        <div class="actions-container">
-          <button class="btn-export btn-export-csv" id="btnExportCSV">
-            <i class="fa-solid fa-file-csv"></i> Export CSV
-          </button>
-          <button class="btn-export" id="btnExportJSON">
-            <i class="fa-solid fa-code"></i> Export JSON
-          </button>
+          <!-- Step 3 Card -->
+          <div class="guide-card">
+            <div class="guide-step-num">03</div>
+            <h3>🕵️ Smart Analytics Tracking</h3>
+            <p>Close deals by spying on how your leads interact with your proposal website concepts in real-time.</p>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Opened Alerts</strong>: Logs instantly when they open your proposal link.</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Heartbeats</strong>: Pings every 10 seconds to log reading duration.</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Scroll Depth</strong>: Monitors how far down the website they scroll.</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Checkout Clicks</strong>: Tracks clicks on checkout buttons.</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Business Name</th>
-              <th>Phone & Address</th>
-              <th>Social Networks & Contact channels</th>
-            </tr>
-          </thead>
-          <tbody id="leadsTableBody">
-            <!-- Dynamically populated rows -->
-          </tbody>
-        </table>
-      </div>
-    </section>
 
-    <!-- CRM Pipeline Card -->
-    <section class="results-card crm-card" id="crmCard" style="margin-top: 1.5rem;">
-      <div class="results-header">
-        <h3 class="results-title" style="color: var(--color-purple);">
-          <i class="fa-solid fa-users-rectangle"></i> CRM Outreach Tracker
-        </h3>
-        <div class="actions-container">
-          <select id="crmFilterStatus" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-primary); padding: 0.45rem 0.85rem; border-radius: 8px; font-family: var(--font-main); font-weight: 500; font-size: 0.85rem; outline: none; cursor: pointer;">
-            <option value="all">All Saved Leads</option>
-            <option value="new">Status: New</option>
-            <option value="pitched_ig">Status: Pitched (IG/FB)</option>
-            <option value="pitched_wa">Status: Pitched (WhatsApp)</option>
-            <option value="pitched_email">Status: Pitched (Email)</option>
-            <option value="interested">Status: Interested</option>
-            <option value="closed">Status: Closed Client</option>
-          </select>
+        <!-- Flow Visualizer -->
+        <div class="results-card" style="margin-top: 1.5rem; border-color: rgba(117, 121, 255, 0.15);">
+          <div class="results-header">
+            <h3 class="results-title" style="color: var(--color-purple);">
+              <i class="fa-solid fa-network-wired"></i> Workflow Lifecycle Diagram
+            </h3>
+          </div>
+          <div style="padding: 1.5rem; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; font-family: var(--font-main);">
+            <div class="flow-step">
+              <i class="fa-solid fa-satellite-dish" style="font-size: 24px; color: var(--color-cyan);"></i>
+              <h4>1. Find Targets</h4>
+              <p>Scan maps listings with zero website filters</p>
+            </div>
+            <div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+            <div class="flow-step">
+              <i class="fa-solid fa-share-nodes" style="font-size: 24px; color: var(--color-magenta);"></i>
+              <h4>2. Launch Outreach</h4>
+              <p>Send personalized GitHub templates via IG, WA or Email</p>
+            </div>
+            <div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+            <div class="flow-step">
+              <i class="fa-solid fa-user-ninja" style="font-size: 24px; color: #00f5a0;"></i>
+              <h4>3. Spy on Clicks</h4>
+              <p>Heartbeat scripts report visitor scroll and checkout clicks</p>
+            </div>
+            <div class="flow-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+            <div class="flow-step">
+              <i class="fa-solid fa-sack-dollar" style="font-size: 24px; color: #f5b000;"></i>
+              <h4>4. Secure Lead</h4>
+              <p>Follow up based on activity logs to close client</p>
+            </div>
+          </div>
         </div>
       </div>
-      
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Business Lead</th>
-              <th>Contact Details</th>
-              <th>Outreach Status</th>
-              <th>Outreach Notes</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="crmTableBody">
-            <!-- Dynamically populated tracked leads -->
-          </tbody>
-        </table>
-      </div>
-    </section>
+    </main>
   </div>
 
   <!-- Outreach Pitch Modal -->

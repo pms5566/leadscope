@@ -565,13 +565,6 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
         }
       }
       
-      // Check if this result is actually a custom website (not social or directory)
-      const isSocialOrDirectory = checkIsSocialOrDirectory(link);
-      if (!isSocialOrDirectory && !facebook && !instagram && !linkedin && !whatsapp && !email) {
-        hasWebsiteInBio = true;
-        foundWebsiteUrl = link;
-      }
-      
       // Check if snippet contains custom website links
       const websiteInSnippet = extractWebsiteFromSnippet(snippet);
       if (websiteInSnippet) {

@@ -240,6 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
               <i class="fa-solid fa-envelope"></i>
             </a>
           </div>
+          <div style="margin-top: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 0.7rem; color: var(--text-secondary); white-space: nowrap;">Portfolio:</span>
+            <input type="text" class="crm-portfolio-input scan-portfolio-input" data-lead-index="${index}" placeholder="Custom portfolio/template link" value="${escapeHtml(lead.portfolioLink || '')}">
+          </div>
         </td>
       `;
       leadsTableBody.appendChild(tr);
@@ -347,7 +351,22 @@ document.addEventListener('DOMContentLoaded', () => {
           saveBtn.innerHTML = '<i class="fa-solid fa-folder-minus"></i>';
           saveBtn.title = 'Saved to CRM';
           
+          // Enrich lead with search parameters
+          lead.niche = nicheInput.value.trim() || 'business';
+          lead.location = locationInput.value.trim() || 'your area';
+          
           await saveLeadToCrm(lead);
+        }
+      }
+    });
+
+    // Handle scan table portfolio inputs
+    leadsTableBody.addEventListener('input', (e) => {
+      const input = e.target.closest('.scan-portfolio-input');
+      if (input) {
+        const index = parseInt(input.getAttribute('data-lead-index'), 10);
+        if (currentLeads[index]) {
+          currentLeads[index].portfolioLink = input.value.trim();
         }
       }
     });
@@ -491,36 +510,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateAndRenderPitch(lead, angle) {
-      const niche = nicheInput.value.trim() || 'business';
-      const city = locationInput.value.trim() || 'your area';
+      const niche = lead.niche || nicheInput.value.trim() || 'business';
+      const city = lead.location || locationInput.value.trim() || 'your area';
       
       modalBizName.textContent = lead.name;
       modalBizMeta.textContent = `${niche.toUpperCase()} — ${city.toUpperCase()}`;
+      
+      // Determine what proposal link to pitch
+      let pitchLink = '';
+      if (lead.portfolioLink) {
+        pitchLink = lead.portfolioLink;
+      } else {
+        // Fallback to the dynamic preview route on this local server / ngrok tunnel!
+        const baseUrl = window.location.origin;
+        const cleanNiche = niche.toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+        pitchLink = `${baseUrl}/preview/${cleanNiche}/${lead.id}`;
+      }
+      
+      // Add custom hooks based on CRM Audit checklist choices
+      let customHook = '';
+      if (lead.auditNoWeb) {
+        customHook += ` I noticed your business doesn't have an active website online yet.`;
+      }
+      if (lead.auditNoEmail) {
+        customHook += ` I noticed you don't have a contact email address listed for customer inquiries.`;
+      }
+      if (lead.auditNoIgLink) {
+        customHook += ` I noticed your Instagram profile is missing a website link in your bio.`;
+      }
       
       let igScript = '';
       let whatsappScript = '';
       let emailScript = '';
       
       if (angle === 'mockup') {
-        igScript = `Hey ${lead.name}! Love your profile page. 📸 I noticed you have amazing reviews here in ${city} but don't have a website listed on your profile. I actually designed a quick, modern 1-page website mockup for you guys to show how you could get more direct bookings. Do you mind if I send you a quick preview link?`;
-        whatsappScript = `Hi ${lead.name}! 👋 Saw your business on Google Maps in ${city} and noticed you have a great local rating but no website yet. \n\nI'm a local web designer and built a quick demo layout showing how you could take orders/bookings directly via mobile. Do you mind if I share the link here? 😊`;
-        emailScript = `Subject: Quick website mockup for ${lead.name} in ${city}\n\nHi ${lead.name} Team,\n\nI was researching local ${niche} services in ${city} and came across your business. Your ratings are fantastic, but I noticed you don't have an active website yet.\n\nI went ahead and created a modern landing page draft for you to show how a clean digital presence could double your online bookings.\n\nWould you be open to reviewing the preview link? I'd love to get your feedback.\n\nBest regards,\n[Your Name]`;
+        igScript = `Hey ${lead.name}! Love your profile page. 📸 I noticed you have amazing reviews here in ${city} but don't have a website listed on your profile.${customHook} I actually designed a quick, modern 1-page website mockup for you: ${pitchLink}`;
+        whatsappScript = `Hi ${lead.name}! 👋 Saw your business on Google Maps in ${city} and noticed you have a great local rating but no website yet.${customHook}\n\nI'm a local web designer and built a quick demo layout showing how you could take bookings. Check it out here: ${pitchLink} 😊`;
+        emailScript = `Subject: Quick website mockup for ${lead.name} in ${city}\n\nHi ${lead.name} Team,\n\nI was researching local ${niche} services in ${city} and came across your business. Your ratings are fantastic, but I noticed you don't have an active website yet.${customHook}\n\nI went ahead and created a modern landing page draft for you to review:\n${pitchLink}\n\nI'd love to get your feedback.\n\nBest regards,\n[Your Name]`;
       } else if (angle === 'reviews') {
-        igScript = `Hey ${lead.name}! 🌟 I saw you guys have stellar reviews on Google Maps here in ${city}. You’re clearly the local favorite! I noticed there's no website listed on your profile to help turn that traffic into bookings. I put together a quick design showing how to turn your maps traffic into instant leads. Can I send it over?`;
-        whatsappScript = `Hi ${lead.name}! 👋 Congrats on the great Google reviews in ${city}. Since you guys are doing so well on Maps but don't have a website link listed, I created a quick mobile template to display your customer reviews and take bookings directly. Do you mind if I send you a quick screenshot?`;
-        emailScript = `Subject: Turning your Google Reviews into more customers for ${lead.name}\n\nHi ${lead.name} Team,\n\nI came across your business on Google Maps in ${city} and was blown away by your reviews. You guys are clearly delivering awesome service!\n\nHowever, I noticed that you don't have a website link listed on your Google business profile. Many local searchers look for a website to check prices or book immediately.\n\nI put together a quick demo website showing how you can display your great reviews and capture bookings directly. Would you be open to a quick look?\n\nBest regards,\n[Your Name]`;
+        igScript = `Hey ${lead.name}! 🌟 I saw you guys have stellar reviews on Google Maps here in ${city}.${customHook} I noticed there's no website listed on your profile to help turn that traffic into bookings. I put together a quick design to show your customer reviews: ${pitchLink}`;
+        whatsappScript = `Hi ${lead.name}! 👋 Congrats on the great Google reviews in ${city}.${customHook} Since you guys are doing so well on Maps but don't have a website link listed, I created a mobile template to display your reviews: ${pitchLink}`;
+        emailScript = `Subject: Displaying Google Reviews on a custom site for ${lead.name}\n\nHi ${lead.name} Team,\n\nI came across your business on Google Maps in ${city} and was blown away by your reviews. You guys are clearly delivering awesome service!\n\nHowever, I noticed that you don't have a website link listed on your Google business profile.${customHook}\n\nI put together a quick demo website showing how you can display your great reviews: ${pitchLink}\n\nWould you be open to a quick look?\n\nBest regards,\n[Your Name]`;
       } else if (angle === 'competitor') {
-        igScript = `Hey ${lead.name}! I was looking up ${niche} services in ${city} and noticed other local spots are capturing bookings online with websites, while your Google listing doesn't link to one yet. I created a mobile-friendly site mockup specifically for you guys to close this gap. Mind if I share a preview link?`;
-        whatsappScript = `Hi ${lead.name}! Saw your maps listing in ${city}. I noticed some other local ${niche} businesses are ranking high because of their websites, but you guys have better reviews! I drafted a quick 1-page site mockup to help you stand out. Do you mind if I share it here?`;
-        emailScript = `Subject: Website mockup to help ${lead.name} beat local competitors in ${city}\n\nHi ${lead.name} Team,\n\nI was reviewing local search rankings for ${niche} businesses in ${city}. Your reviews are top-tier, but you are currently losing out on Google search traffic because competitors have websites and you don't.\n\nI went ahead and drafted a high-converting landing page specifically tailored for your brand to help you capture those local leads.\n\nWould you be open to checking out the mockup? It takes 10 seconds to look at.\n\nBest regards,\n[Your Name]`;
+        igScript = `Hey ${lead.name}! I was looking up ${niche} services in ${city} and noticed other local spots are capturing bookings online with websites. I created a mobile-friendly site mockup specifically for you guys: ${pitchLink}`;
+        whatsappScript = `Hi ${lead.name}! Saw your maps listing in ${city}. I noticed some other local ${niche} businesses are ranking high because of their websites, but you guys have better reviews! I drafted a quick 1-page site mockup to help you stand out: ${pitchLink}`;
+        emailScript = `Subject: Website mockup to help ${lead.name} beat local competitors in ${city}\n\nHi ${lead.name} Team,\n\nI was reviewing local search rankings for ${niche} businesses in ${city}. Your reviews are top-tier, but you are currently losing out on Google search traffic because competitors have websites and you don't.${customHook}\n\nI went ahead and drafted a high-converting landing page specifically tailored for your brand to help you stand out. Here is the link:\n${pitchLink}\n\nWould you be open to checking out the mockup? It takes 10 seconds to look at.\n\nBest regards,\n[Your Name]`;
       } else if (angle === 'seo') {
-        igScript = `Hey ${lead.name}! 🔍 Did you know that when locals search Google for "${niche} in ${city}", Google prioritizes website links? I noticed you guys don't have one listed. I created a fast-loading mobile-friendly site template to help you rank higher. Can I send over a quick preview link?`;
-        whatsappScript = `Hi ${lead.name}! 👋 I was checking local SEO listings in ${city} and noticed you guys have amazing reviews but no website. Google ranks businesses with websites much higher. I put together a quick mobile-optimized demo site to show how we can boost your rankings. Mind if I share the link?`;
-        emailScript = `Subject: Google search traffic opportunity for ${lead.name} in ${city}\n\nHi ${lead.name} Team,\n\nI was analyzing Google search volume for "${niche} in ${city}" and noticed there are hundreds of searches monthly.\n\nSince your Google Maps listing doesn't have an active website link, you are missing out on this search traffic, which goes to competitors instead.\n\nI created a fast-loading, mobile-friendly landing page mockup for you to show how we can capture this local search traffic. Would you be open to reviewing the draft?\n\nBest regards,\n[Your Name]`;
+        igScript = `Hey ${lead.name}! 🔍 Did you know that when locals search Google for "${niche} in ${city}", Google prioritizes website links? I created a fast-loading mobile-friendly site template to help you rank higher: ${pitchLink}`;
+        whatsappScript = `Hi ${lead.name}! 👋 I was checking local SEO listings in ${city} and noticed you guys have amazing reviews but no website. Google ranks businesses with websites much higher. I put together a mobile-optimized demo site to show how: ${pitchLink}`;
+        emailScript = `Subject: Google search traffic opportunity for ${lead.name} in ${city}\n\nHi ${lead.name} Team,\n\nI was analyzing Google search volume for "${niche} in ${city}" and noticed there are hundreds of searches monthly.\n\nSince your Google Maps listing doesn't have an active website link, you are missing out on this search traffic.${customHook}\n\nI created a fast-loading, mobile-friendly landing page mockup for you to show how we can capture this local search traffic. Would you be open to reviewing the draft?\n${pitchLink}\n\nBest regards,\n[Your Name]`;
       } else if (angle === 'audit') {
-        igScript = `Hey ${lead.name}! Love your page. 📸 I recorded a quick 45-second screen recording showing 3 minor tweaks you can make to your Google business listing in ${city} to get more customers (including adding a simple website booking link). Mind if I drop the link to the video here?`;
-        whatsappScript = `Hi ${lead.name}! 👋 I recorded a short 45-second video overview showing how you guys can get more direct mobile bookings in ${city} without spending money on ads. It's completely free value. Do you mind if I share the link here? 😊`;
-        emailScript = `Subject: 45-second video audit for ${lead.name}\n\nHi ${lead.name} Team,\n\nI recorded a short 45-second screen recording showing 3 simple improvements you can make to your Google listing in ${city} to double your phone calls and bookings.\n\nOne of the recommendations is adding a fast, simple mobile booking page (I've included a free mockup in the video).\n\nWould it be okay if I sent over the quick video link?\n\nBest regards,\n[Your Name]`;
+        igScript = `Hey ${lead.name}! Love your page. 📸 I recorded a quick 45-second screen recording showing 3 minor tweaks you can make to your Google business listing (including adding this simple website booking link: ${pitchLink}). Mind if I drop the link to the video here?`;
+        whatsappScript = `Hi ${lead.name}! 👋 I recorded a short 45-second video overview showing how you guys can get more direct mobile bookings in ${city} without spending money on ads. You can see the mockup link: ${pitchLink} here. Do you mind if I share the video link? 😊`;
+        emailScript = `Subject: 45-second video audit for ${lead.name}\n\nHi ${lead.name} Team,\n\nI recorded a short 45-second screen recording showing 3 simple improvements you can make to your Google listing in ${city}. One of the recommendations is adding a fast mobile booking page (I've included a free mockup in the video).\n\nYou can view the demo concept here:\n${pitchLink}\n\nWould it be okay if I sent over the quick video link?\n\nBest regards,\n[Your Name]`;
       }
       
       // Assign scripts
@@ -542,66 +584,73 @@ document.addEventListener('DOMContentLoaded', () => {
         emailTextarea.value = `[⚠️ Email address not found. Recommended to contact via Instagram DM or WhatsApp instead]\n\nDraft:\n${emailScript}`;
       }
 
-      // --- Outreach Launcher Actions ---
-      
-      // 1. Instagram / FB DM Launcher
-      const btnLaunchInstagram = document.getElementById('btnLaunchInstagram');
-      if (lead.instagram) {
-        const username = getInstagramUsername(lead.instagram);
-        if (username) {
-          btnLaunchInstagram.href = `https://ig.me/m/${username}`;
-        } else {
-          btnLaunchInstagram.href = lead.instagram;
-        }
-        btnLaunchInstagram.innerHTML = '<i class="fa-brands fa-instagram"></i> Open Instagram DM';
-        btnLaunchInstagram.classList.remove('disabled');
-      } else if (lead.facebook) {
-        const fbUser = getFacebookUsername(lead.facebook);
-        if (fbUser) {
-          btnLaunchInstagram.href = `https://m.me/${fbUser}`;
-        } else {
-          btnLaunchInstagram.href = lead.facebook;
-        }
-        btnLaunchInstagram.innerHTML = '<i class="fa-brands fa-facebook-messenger"></i> Open Facebook DM';
-        btnLaunchInstagram.classList.remove('disabled');
-      } else {
-        btnLaunchInstagram.removeAttribute('href');
-        btnLaunchInstagram.innerHTML = '<i class="fa-brands fa-instagram"></i> Open DM (None)';
-        btnLaunchInstagram.classList.add('disabled');
-      }
-
-      // 2. WhatsApp Launcher
-      const btnLaunchWhatsApp = document.getElementById('btnLaunchWhatsApp');
-      if (lead.phone && lead.phone !== 'N/A') {
-        // Strip non-numbers except leading plus if any
-        const cleanPhone = lead.phone.replace(/[^0-9+]/g, '');
-        btnLaunchWhatsApp.href = `https://api.whatsapp.com/send?phone=${encodeURIComponent(cleanPhone)}&text=${encodeURIComponent(whatsappScript)}`;
-        btnLaunchWhatsApp.classList.remove('disabled');
-      } else {
-        btnLaunchWhatsApp.removeAttribute('href');
-        btnLaunchWhatsApp.classList.add('disabled');
-      }
-
-      // 3. Email Launcher
-      const btnLaunchEmail = document.getElementById('btnLaunchEmail');
-      if (lead.email) {
-        let emailSubject = `Quick website mockup for ${lead.name}`;
-        let emailBody = emailScript;
-        
-        if (emailScript.startsWith('Subject:')) {
-          const subjectMatch = emailScript.match(/^Subject:\s*(.*?)\n+(.*)$/s);
-          if (subjectMatch) {
-            emailSubject = subjectMatch[1];
-            emailBody = subjectMatch[2];
+      // Helper to update launcher links on-the-fly
+      function updateLaunchers() {
+        // 1. Instagram / FB DM Launcher
+        const btnLaunchInstagram = document.getElementById('btnLaunchInstagram');
+        if (lead.instagram) {
+          const username = getInstagramUsername(lead.instagram);
+          if (username) {
+            btnLaunchInstagram.href = `https://ig.me/m/${username}`;
+          } else {
+            btnLaunchInstagram.href = lead.instagram;
           }
+          btnLaunchInstagram.innerHTML = '<i class="fa-brands fa-instagram"></i> Open Instagram DM';
+          btnLaunchInstagram.classList.remove('disabled');
+        } else if (lead.facebook) {
+          const fbUser = getFacebookUsername(lead.facebook);
+          if (fbUser) {
+            btnLaunchInstagram.href = `https://m.me/${fbUser}`;
+          } else {
+            btnLaunchInstagram.href = lead.facebook;
+          }
+          btnLaunchInstagram.innerHTML = '<i class="fa-brands fa-facebook-messenger"></i> Open Facebook DM';
+          btnLaunchInstagram.classList.remove('disabled');
+        } else {
+          btnLaunchInstagram.removeAttribute('href');
+          btnLaunchInstagram.innerHTML = '<i class="fa-brands fa-instagram"></i> Open DM (None)';
+          btnLaunchInstagram.classList.add('disabled');
         }
-        
-        btnLaunchEmail.href = `mailto:${encodeURIComponent(lead.email)}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-        btnLaunchEmail.classList.remove('disabled');
-      } else {
-        btnLaunchEmail.removeAttribute('href');
-        btnLaunchEmail.classList.add('disabled');
+
+        // 2. WhatsApp Launcher
+        const btnLaunchWhatsApp = document.getElementById('btnLaunchWhatsApp');
+        if (lead.phone && lead.phone !== 'N/A') {
+          const cleanPhone = lead.phone.replace(/[^0-9+]/g, '');
+          btnLaunchWhatsApp.href = `https://api.whatsapp.com/send?phone=${encodeURIComponent(cleanPhone)}&text=${encodeURIComponent(waTextarea.value)}`;
+          btnLaunchWhatsApp.classList.remove('disabled');
+        } else {
+          btnLaunchWhatsApp.removeAttribute('href');
+          btnLaunchWhatsApp.classList.add('disabled');
+        }
+
+        // 3. Email Launcher
+        const btnLaunchEmail = document.getElementById('btnLaunchEmail');
+        if (lead.email) {
+          let emailSubject = `Quick website mockup for ${lead.name}`;
+          let emailBody = emailTextarea.value;
+          
+          if (emailTextarea.value.startsWith('Subject:')) {
+            const subjectMatch = emailTextarea.value.match(/^Subject:\s*(.*?)\n+(.*)$/s);
+            if (subjectMatch) {
+              emailSubject = subjectMatch[1];
+              emailBody = subjectMatch[2];
+            }
+          }
+          
+          btnLaunchEmail.href = `mailto:${encodeURIComponent(lead.email)}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+          btnLaunchEmail.classList.remove('disabled');
+        } else {
+          btnLaunchEmail.removeAttribute('href');
+          btnLaunchEmail.classList.add('disabled');
+        }
       }
+
+      // Initial launcher bindings
+      updateLaunchers();
+
+      // Bind input events to textareas for live launcher updates
+      waTextarea.oninput = updateLaunchers;
+      emailTextarea.oninput = updateLaunchers;
     }
 
     // --- Outreach CRM Client-Side Handlers ---
@@ -614,6 +663,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.success) {
           crmLeads = data.leads;
           renderCrm();
+          updateTodayAgenda();
+          updateDashboardStats();
         }
       } catch (error) {
         console.error('Failed to load CRM leads:', error);
@@ -637,51 +688,68 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Update Status in CRM API call
-    async function updateCrmStatus(id, status) {
+    // Update CRM lead fields dynamically
+    async function updateCrmField(id, fieldUpdates) {
       try {
         const leadToUpdate = crmLeads.find(l => l.id === id);
         if (!leadToUpdate) return;
         
+        // Optimistically update locally
+        Object.assign(leadToUpdate, fieldUpdates);
+        
         const response = await fetch('/api/crm', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ lead: { ...leadToUpdate, status } })
+          body: JSON.stringify({ lead: leadToUpdate })
         });
         const data = await response.json();
         if (data.success) {
           const index = crmLeads.findIndex(l => l.id === id);
           if (index !== -1) {
             crmLeads[index] = data.lead;
-            renderCrm();
+            
+            // If the followUpDate was modified, update Today's Agenda alert
+            if ('followUpDate' in fieldUpdates) {
+              updateTodayAgenda();
+            }
+            
+            // Recalculate stats
+            updateDashboardStats();
           }
         }
       } catch (error) {
-        console.error('Error updating status in CRM:', error);
+        console.error('Error updating CRM field:', error);
       }
     }
 
-    // Update Notes in CRM API call
-    async function updateCrmNotes(id, notes) {
-      try {
-        const leadToUpdate = crmLeads.find(l => l.id === id);
-        if (!leadToUpdate) return;
-        
-        const response = await fetch('/api/crm', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ lead: { ...leadToUpdate, notes } })
-        });
-        const data = await response.json();
-        if (data.success) {
-          const index = crmLeads.findIndex(l => l.id === id);
-          if (index !== -1) {
-            crmLeads[index] = data.lead;
-          }
-        }
-      } catch (error) {
-        console.error('Error updating notes in CRM:', error);
+    // Update Today's Agenda Follow-up Alert
+    function updateTodayAgenda() {
+      const localDate = new Date();
+      const year = localDate.getFullYear();
+      const month = String(localDate.getMonth() + 1).padStart(2, '0');
+      const day = String(localDate.getDate()).padStart(2, '0');
+      const todayStr = `${year}-${month}-${day}`;
+      
+      const todaysLeads = crmLeads.filter(lead => lead.followUpDate === todayStr);
+      const agendaAlert = document.getElementById('crmAgendaAlert');
+      const agendaText = document.getElementById('crmAgendaText');
+      
+      if (todaysLeads.length > 0) {
+        const names = todaysLeads.map(l => `<strong>${escapeHtml(l.name)}</strong>`).join(', ');
+        agendaText.innerHTML = `Today's Outreach Agenda: You have ${todaysLeads.length} follow-up${todaysLeads.length > 1 ? 's' : ''} scheduled for today: ${names}. Let's get pitching!`;
+        agendaAlert.style.display = 'flex';
+      } else {
+        agendaAlert.style.display = 'none';
       }
+    }
+
+    // Update Dashboard Metrics Overview
+    function updateDashboardStats() {
+      const totalLeadsEl = document.getElementById('statCrmTotalLeads');
+      const closedLeadsEl = document.getElementById('statCrmClosedLeads');
+      
+      if (totalLeadsEl) totalLeadsEl.textContent = crmLeads.length;
+      if (closedLeadsEl) closedLeadsEl.textContent = crmLeads.filter(l => l.status === 'closed').length;
     }
 
     // Delete CRM lead
@@ -704,6 +772,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Render CRM pipeline list
+    // Render CRM pipeline list
     function renderCrm() {
       crmTableBody.innerHTML = '';
       
@@ -716,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (filteredLeads.length === 0) {
         crmTableBody.innerHTML = `
           <tr>
-            <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 2rem;">
+            <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 2rem;">
               No leads in this status category. Click the folder icon on scanned results to add them!
             </td>
           </tr>
@@ -750,6 +819,49 @@ document.addEventListener('DOMContentLoaded', () => {
         const waHtml = lead.whatsapp ? `<a href="${lead.whatsapp}" target="_blank" class="social-pill wa" style="font-size:0.75rem;"><i class="fa-brands fa-whatsapp"></i></a>` : '';
         const mailHtml = lead.email ? `<a href="mailto:${lead.email}" target="_blank" class="social-pill mail" style="font-size:0.75rem;"><i class="fa-solid fa-envelope"></i></a>` : '';
 
+        // Generate proposal and custom portfolio links
+        const nicheSlug = lead.niche || 'cafe';
+        const proposalUrl = lead.portfolioLink || `${window.location.origin}/preview/${nicheSlug}/${lead.id}`;
+        
+        const proposalLinkHtml = `
+          <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
+            <a href="${proposalUrl}" target="_blank" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;" title="Preview proposal page">
+              <i class="fa-solid fa-link"></i> Proposal Link <i class="fa-solid fa-up-right-from-square" style="font-size:0.6rem;"></i>
+            </a>
+            <input type="text" class="crm-portfolio-input crm-portfolio-link-input" data-id="${lead.id}" placeholder="Or paste custom portfolio/template link" value="${escapeHtml(lead.portfolioLink || '')}">
+          </div>
+        `;
+
+        const checklistHtml = `
+          <div class="crm-checklist">
+            <label class="crm-checklist-item">
+              <input type="checkbox" class="crm-audit-checkbox" data-id="${lead.id}" data-field="auditNoWeb" ${lead.auditNoWeb ? 'checked' : ''}>
+              <span>No Web</span>
+            </label>
+            <label class="crm-checklist-item">
+              <input type="checkbox" class="crm-audit-checkbox" data-id="${lead.id}" data-field="auditNoEmail" ${lead.auditNoEmail ? 'checked' : ''}>
+              <span>No Email</span>
+            </label>
+            <label class="crm-checklist-item">
+              <input type="checkbox" class="crm-audit-checkbox" data-id="${lead.id}" data-field="auditNoIgLink" ${lead.auditNoIgLink ? 'checked' : ''}>
+              <span>No IG Link</span>
+            </label>
+          </div>
+        `;
+
+        const datepickerHtml = `
+          <input type="date" class="crm-datepicker crm-followup-date-input" data-id="${lead.id}" value="${lead.followUpDate || ''}">
+        `;
+
+        const statusNotesHtml = `
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <select class="crm-status-select ${statusClass}" data-id="${lead.id}">
+              ${optionsHtml}
+            </select>
+            <textarea class="crm-notes-textarea" data-id="${lead.id}" placeholder="Type conversation logs or notes here...">${escapeHtml(lead.notes || '')}</textarea>
+          </div>
+        `;
+
         tr.innerHTML = `
           <td>
             <div class="biz-name">
@@ -762,16 +874,21 @@ document.addEventListener('DOMContentLoaded', () => {
           <td>
             <div style="font-size: 0.85rem; color: var(--text-primary);"><i class="fa-solid fa-phone" style="font-size:0.75rem; margin-right:4px;"></i> ${escapeHtml(lead.phone || 'N/A')}</div>
             <div class="social-pill-container" style="margin-top: 0.35rem; gap: 0.25rem;">
+              <a href="#" class="social-pill crm-pitch-gen" data-id="${lead.id}" title="Generate Outreach Pitch" style="background: rgba(186, 36, 239, 0.15); color: var(--color-magenta); border-color: var(--color-magenta); font-size: 0.75rem;">
+                <i class="fa-solid fa-paper-plane"></i>
+              </a>
               ${fbHtml} ${igHtml} ${waHtml} ${mailHtml}
             </div>
+            ${proposalLinkHtml}
           </td>
           <td>
-            <select class="crm-status-select ${statusClass}" data-id="${lead.id}">
-              ${optionsHtml}
-            </select>
+            ${checklistHtml}
           </td>
           <td>
-            <textarea class="crm-notes-textarea" data-id="${lead.id}" placeholder="Type conversation logs or notes here...">${escapeHtml(lead.notes || '')}</textarea>
+            ${datepickerHtml}
+          </td>
+          <td>
+            ${statusNotesHtml}
           </td>
           <td>
             <button class="btn-delete-crm" data-id="${lead.id}"><i class="fa-solid fa-trash-can"></i> Remove</button>
@@ -781,37 +898,66 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Handle status select changes
+    // Handle status select, date picker, and audit checkbox changes (one-off selections)
     crmTableBody.addEventListener('change', (e) => {
       const select = e.target.closest('.crm-status-select');
+      const dateInput = e.target.closest('.crm-followup-date-input');
+      const checkbox = e.target.closest('.crm-audit-checkbox');
+      
       if (select) {
         const id = select.getAttribute('data-id');
         const newStatus = select.value;
-        updateCrmStatus(id, newStatus);
+        updateCrmField(id, { status: newStatus });
+      } else if (dateInput) {
+        const id = dateInput.getAttribute('data-id');
+        const followUpDate = dateInput.value;
+        updateCrmField(id, { followUpDate });
+      } else if (checkbox) {
+        const id = checkbox.getAttribute('data-id');
+        const field = checkbox.getAttribute('data-field');
+        const val = checkbox.checked;
+        updateCrmField(id, { [field]: val });
       }
     });
 
-    // Handle notes textarea updates with debounce auto-save
-    let notesSaveTimeout = null;
+    // Handle notes and portfolio link inputs with debounce auto-save (keystrokes)
+    let crmInputSaveTimeout = null;
     crmTableBody.addEventListener('input', (e) => {
       const textarea = e.target.closest('.crm-notes-textarea');
+      const portfolioInput = e.target.closest('.crm-portfolio-link-input');
+      
       if (textarea) {
         const id = textarea.getAttribute('data-id');
         const notes = textarea.value;
-        
-        if (notesSaveTimeout) clearTimeout(notesSaveTimeout);
-        notesSaveTimeout = setTimeout(() => {
-          updateCrmNotes(id, notes);
+        if (crmInputSaveTimeout) clearTimeout(crmInputSaveTimeout);
+        crmInputSaveTimeout = setTimeout(() => {
+          updateCrmField(id, { notes });
+        }, 1000);
+      } else if (portfolioInput) {
+        const id = portfolioInput.getAttribute('data-id');
+        const portfolioLink = portfolioInput.value.trim();
+        if (crmInputSaveTimeout) clearTimeout(crmInputSaveTimeout);
+        crmInputSaveTimeout = setTimeout(() => {
+          updateCrmField(id, { portfolioLink });
         }, 1000);
       }
     });
 
-    // Handle delete buttons
+    // Handle delete buttons & pitch gen click events
     crmTableBody.addEventListener('click', (e) => {
       const delBtn = e.target.closest('.btn-delete-crm');
+      const pitchBtn = e.target.closest('.crm-pitch-gen');
+      
       if (delBtn) {
         const id = delBtn.getAttribute('data-id');
         deleteCrmLead(id);
+      } else if (pitchBtn) {
+        e.preventDefault();
+        const id = pitchBtn.getAttribute('data-id');
+        const lead = crmLeads.find(l => l.id === id);
+        if (lead) {
+          showPitchModal(lead);
+        }
       }
     });
 
@@ -820,7 +966,128 @@ document.addEventListener('DOMContentLoaded', () => {
       renderCrm();
     });
 
+    // Long poll active visitor tracker
+    const spyFeedContainer = document.getElementById('spyFeedContainer');
+
+    async function pollActiveVisits() {
+      try {
+        const response = await fetch('/api/active-visits');
+        const data = await response.json();
+        if (data.success && data.visits) {
+          renderActiveVisits(data.visits);
+        }
+      } catch (error) {
+        console.warn('Failed to fetch active visitor logs:', error);
+      }
+    }
+
+    const miniSpyFeedContainer = document.getElementById('miniSpyFeedContainer');
+
+    function renderActiveVisits(visits) {
+      // Update proposal views count
+      const viewsEl = document.getElementById('statDashboardTotalVisits');
+      if (viewsEl) {
+        // Count unique leads viewed
+        const uniqueLeadsViewed = new Set(visits.map(v => v.leadId)).size;
+        viewsEl.textContent = uniqueLeadsViewed;
+      }
+
+      // Render main Sales Spy feed
+      if (spyFeedContainer) {
+        renderVisitsList(spyFeedContainer, visits);
+      }
+      
+      // Render mini Overview dashboard feed (limited to top 5)
+      if (miniSpyFeedContainer) {
+        renderVisitsList(miniSpyFeedContainer, visits, 5);
+      }
+    }
+
+    function renderVisitsList(container, visits, limit = null) {
+      const list = limit ? visits.slice(0, limit) : visits;
+      
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div style="color: var(--text-secondary); text-align: center; padding: 1.5rem; font-size: 0.9rem;">
+            <i class="fa-solid fa-satellite fa-spin" style="margin-right: 6px; color: var(--color-cyan);"></i> Waiting for visitor activity...
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = '';
+      
+      list.forEach(visit => {
+        const item = document.createElement('div');
+        item.className = 'spy-log-item';
+        
+        let icon = '';
+        let text = '';
+        
+        if (visit.event === 'open') {
+          icon = `<i class="fa-solid fa-door-open" style="color: var(--color-cyan);"></i>`;
+          text = `opened proposal page`;
+        } else if (visit.event === 'fiverr_click') {
+          icon = `<i class="fa-solid fa-cart-shopping" style="color: #10b981;"></i>`;
+          text = `<span style="color: #10b981; font-weight: 700;">Clicked "Secure Order on Fiverr"</span>`;
+        } else if (visit.event === 'whatsapp_click') {
+          icon = `<i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>`;
+          text = `<span style="color: #25d366; font-weight: 700;">Clicked "Custom Modifications" (WhatsApp)</span>`;
+        } else if (visit.event === 'heartbeat') {
+          icon = `<i class="fa-solid fa-heartbeat" style="color: #ff5e97; font-size: 0.75rem;"></i>`;
+          const scrollPct = visit.details.scrollPercent || 0;
+          text = `still viewing proposal (Scroll depth: ${scrollPct}%)`;
+        } else {
+          icon = `<i class="fa-solid fa-magnifying-glass" style="color: var(--color-purple);"></i>`;
+          text = `triggered event "${visit.event}"`;
+        }
+        
+        const deviceIcon = (visit.details && visit.details.device === 'mobile') 
+          ? `<i class="fa-solid fa-mobile-screen-button" title="Mobile Device"></i>`
+          : `<i class="fa-solid fa-desktop" title="Desktop Device"></i>`;
+          
+        item.innerHTML = `
+          <div class="spy-log-item-details">
+            ${icon}
+            <span><strong>${escapeHtml(visit.name)}</strong> ${text}</span>
+          </div>
+          <div class="spy-log-item-meta">
+            <span>${deviceIcon}</span>
+            <span>•</span>
+            <span>${escapeHtml(visit.timeStr)}</span>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    // Sidebar navigation logic
+    const navItems = document.querySelectorAll('.nav-item');
+    const screenViews = document.querySelectorAll('.screen-view');
+    
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetScreen = item.getAttribute('data-screen');
+        
+        navItems.forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
+        
+        screenViews.forEach(view => {
+          if (view.id === `screen_${targetScreen}`) {
+            view.classList.add('active');
+          } else {
+            view.classList.remove('active');
+          }
+        });
+      });
+    });
+
     // Trigger config check and CRM load on startup
     checkServerConfig();
     loadCrmLeads();
+    
+    // Poll visitor tracking logs
+    pollActiveVisits();
+    setInterval(pollActiveVisits, 3000);
   });
