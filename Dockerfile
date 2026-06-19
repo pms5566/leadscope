@@ -1,4 +1,4 @@
-FROM node:18-slim
+FROM node:22-slim
 
 # Install system dependencies needed for Chromium/Puppeteer to run in headless mode
 RUN apt-get update && apt-get install -y \
