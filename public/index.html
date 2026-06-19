@@ -432,6 +432,19 @@
                     <span class="input-help">Used to fetch local businesses from Google Maps via official Place Search.</span>
                   </div>
 
+                  <!-- Serper.dev API Key -->
+                  <div class="input-group" style="margin-bottom: 1.25rem;">
+                    <label for="serperKeyInput">Serper.dev API Key (Recommended Option A)</label>
+                    <div class="input-wrapper">
+                      <input type="password" id="serperKeyInput" placeholder="Enter Serper.dev API Key">
+                      <i class="fa-solid fa-bolt" style="color: var(--color-cyan);"></i>
+                      <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('serperKeyInput')">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                    </div>
+                    <span class="input-help">Recommended drop-in Search API. Register at <a href="https://serper.dev/" target="_blank" style="color: var(--color-cyan); text-decoration: underline;">serper.dev</a> (2,500 free queries, no Google Cloud setup needed).</span>
+                  </div>
+
                   <!-- Google Search API Key -->
                   <div class="input-group" style="margin-bottom: 1.25rem;">
                     <label for="searchKeyInput">Google Custom Search API Key (Option A)</label>
@@ -536,6 +549,16 @@
                   </div>
                   <p class="diag-desc" id="descPlaces">Keys not saved or loaded. Scanner will fall back to Puppeteer maps scraping.</p>
                   <button type="button" class="btn-diag-test" id="btnTestPlaces">Test Connection</button>
+                </div>
+
+                <!-- Serper.dev API Status -->
+                <div class="diagnostic-item" id="diagSerper">
+                  <div class="diag-header">
+                    <span class="diag-title"><i class="fa-solid fa-bolt" style="color: var(--color-cyan);"></i> Serper.dev Search API</span>
+                    <span class="diag-badge badge-missing" id="badgeSerper">Missing</span>
+                  </div>
+                  <p class="diag-desc" id="descSerper">Serper API Key not set. Recommended drop-in search provider for Option A.</p>
+                  <button type="button" class="btn-diag-test" id="btnTestSerper">Test Connection</button>
                 </div>
 
                 <!-- Custom Search Status (Option A) -->

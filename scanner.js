@@ -121,20 +121,16 @@ function getMockSocialMedia(name, location) {
  */
 function isLiveModeConfigured() {
   const placesKey = process.env.GOOGLE_PLACES_API_KEY;
+  const serperKey = process.env.SERPER_API_KEY;
   const searchKey = process.env.GOOGLE_SEARCH_API_KEY;
   const cxId = process.env.GOOGLE_SEARCH_ENGINE_ID;
   
-  return (
-    placesKey && 
-    placesKey !== "your_google_places_api_key_here" && 
-    placesKey.trim() !== "" &&
-    searchKey && 
-    searchKey !== "your_google_search_api_key_here" &&
-    searchKey.trim() !== "" &&
-    cxId &&
-    cxId !== "your_google_search_engine_id_here" &&
-    cxId.trim() !== ""
-  );
+  const hasPlaces = placesKey && placesKey !== "your_google_places_api_key_here" && placesKey.trim() !== "";
+  const hasSerper = serperKey && serperKey !== "your_serper_api_key_here" && serperKey.trim() !== "";
+  const hasGoogleSearch = searchKey && searchKey !== "your_google_search_api_key_here" && searchKey.trim() !== "" &&
+                         cxId && cxId !== "your_google_search_engine_id_here" && cxId.trim() !== "";
+                         
+  return hasPlaces && (hasSerper || hasGoogleSearch);
 }
 
 /**
@@ -162,23 +158,40 @@ async function fetchLivePlaces(niche, location) {
  * Search social media URLs and contact details for a business using Google Custom Search API.
  */
 async function searchLiveSocialMedia(businessName, location) {
-  const apiKey = process.env.GOOGLE_SEARCH_API_KEY;
+  const serperKey = process.env.SERPER_API_KEY;
+  const googleKey = process.env.GOOGLE_SEARCH_API_KEY;
   const cx = process.env.GOOGLE_SEARCH_ENGINE_ID;
   
-  // Search query focusing on finding social pages
   const query = `"${businessName}" ${location} (site:facebook.com OR site:instagram.com OR site:linkedin.com OR site:whatsapp.com OR site:wa.me)`;
-  const url = "https://www.googleapis.com/customsearch/v1";
+  let items = [];
   
-  const response = await axios.get(url, {
-    params: {
-      key: apiKey,
-      cx: cx,
-      q: query,
-      num: 5 // Retrieve top 5 search results
+  try {
+    if (serperKey && serperKey !== "your_serper_api_key_here" && serperKey.trim() !== "") {
+      const url = "https://google.serper.dev/search";
+      const headers = {
+        "X-API-KEY": serperKey,
+        "Content-Type": "application/json"
+      };
+      const payload = { q: query, num: 5 };
+      console.log(`[Scanner] Fetching social media search via Serper.dev API...`);
+      const response = await axios.post(url, payload, { headers });
+      items = response.data.organic || [];
+    } else if (googleKey && googleKey !== "your_google_search_api_key_here" && cx && cx !== "your_google_search_engine_id_here") {
+      const url = "https://www.googleapis.com/customsearch/v1";
+      console.log(`[Scanner] Fetching social media search via Google Custom Search API...`);
+      const response = await axios.get(url, {
+        params: {
+          key: googleKey,
+          cx: cx,
+          q: query,
+          num: 5
+        }
+      });
+      items = response.data.items || [];
     }
-  });
-  
-  const items = response.data.items || [];
+  } catch (err) {
+    console.error(`[Search API Error] Failed search query:`, err.message);
+  }
   
   let facebook = null;
   let instagram = null;
@@ -827,9 +840,12 @@ async function scanLocalLeads(niche, location, forceMock = false) {
         let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, email: null };
         
         try {
-          // If Google Search API keys are configured, use the fast API instead of Puppeteer scraping!
-          if (process.env.GOOGLE_SEARCH_API_KEY && process.env.GOOGLE_SEARCH_ENGINE_ID) {
-            console.log(`[Scanner] Enriching "${name}" using Google Custom Search API...`);
+          const hasSerper = process.env.SERPER_API_KEY && process.env.SERPER_API_KEY !== "your_serper_api_key_here" && process.env.SERPER_API_KEY.trim() !== "";
+          const hasGoogleSearch = process.env.GOOGLE_SEARCH_API_KEY && process.env.GOOGLE_SEARCH_API_KEY !== "your_google_search_api_key_here" && process.env.GOOGLE_SEARCH_ENGINE_ID;
+
+          // If Search API keys are configured, use the fast API instead of Puppeteer scraping!
+          if (hasSerper || hasGoogleSearch) {
+            console.log(`[Scanner] Enriching "${name}" using Search API...`);
             social = await searchLiveSocialMedia(name, location);
           } else {
             console.log(`[Scanner] Enriching "${name}" using Puppeteer scraper fallback...`);

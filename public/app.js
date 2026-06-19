@@ -1188,6 +1188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubSettingsForm = document.getElementById('githubSettingsForm');
     
     const placesKeyInput = document.getElementById('placesKeyInput');
+    const serperKeyInput = document.getElementById('serperKeyInput');
     const searchKeyInput = document.getElementById('searchKeyInput');
     const searchEngineIdInput = document.getElementById('searchEngineIdInput');
     
@@ -1200,6 +1201,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const badgePlaces = document.getElementById('badgePlaces');
     const descPlaces = document.getElementById('descPlaces');
     const btnTestPlaces = document.getElementById('btnTestPlaces');
+
+    const badgeSerper = document.getElementById('badgeSerper');
+    const descSerper = document.getElementById('descSerper');
+    const btnTestSerper = document.getElementById('btnTestSerper');
     
     const badgeSearch = document.getElementById('badgeSearch');
     const descSearch = document.getElementById('descSearch');
@@ -1216,6 +1221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Populate inputs (masked value or empty)
         if (data.placesKey) placesKeyInput.value = data.placesKey;
+        if (data.serperKey) serperKeyInput.value = data.serperKey;
         if (data.searchKey) searchKeyInput.value = data.searchKey;
         if (data.searchEngineId) searchEngineIdInput.value = data.searchEngineId;
         
@@ -1242,6 +1248,17 @@ document.addEventListener('DOMContentLoaded', () => {
         badgePlaces.className = "diag-badge badge-missing";
         badgePlaces.textContent = "Missing";
         descPlaces.textContent = "Google Places API key is not configured. Fallback: Puppeteer scraper.";
+      }
+
+      // Serper.dev API Status
+      if (config.serperKeyConfigured) {
+        badgeSerper.className = "diag-badge badge-connected";
+        badgeSerper.textContent = "Configured";
+        descSerper.textContent = "Serper.dev Search API is loaded. Fast, captcha-free social enrichment active.";
+      } else {
+        badgeSerper.className = "diag-badge badge-missing";
+        badgeSerper.textContent = "Missing";
+        descSerper.textContent = "Serper API key is not configured. Fallback: Google Custom Search API or Puppeteer.";
       }
       
       // Search API Status (Option A)
@@ -1273,6 +1290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const payload = {
           placesKey: placesKeyInput.value.trim(),
+          serperKey: serperKeyInput.value.trim(),
           searchKey: searchKeyInput.value.trim(),
           searchEngineId: searchEngineIdInput.value.trim()
         };
@@ -1366,6 +1384,46 @@ document.addEventListener('DOMContentLoaded', () => {
         } finally {
           btnTestPlaces.textContent = originalText;
           btnTestPlaces.disabled = false;
+        }
+      });
+    }
+
+    // Test Serper.dev Connection
+    if (btnTestSerper) {
+      btnTestSerper.addEventListener('click', async () => {
+        const originalText = btnTestSerper.textContent;
+        btnTestSerper.textContent = "Testing...";
+        btnTestSerper.disabled = true;
+        badgeSerper.className = "diag-badge badge-testing";
+        badgeSerper.textContent = "Testing...";
+        
+        try {
+          const res = await fetch('/api/config/test', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type: 'serper' })
+          });
+          const result = await res.json();
+          if (result.success) {
+            badgeSerper.className = "diag-badge badge-connected";
+            badgeSerper.textContent = "Success";
+            descSerper.textContent = "Serper.dev Search API connection test successful! Ready for live social enrichment.";
+            alert('Serper.dev API connection test succeeded!');
+          } else {
+            badgeSerper.className = "diag-badge badge-missing";
+            badgeSerper.textContent = "Error";
+            descSerper.textContent = "Connection test failed: " + result.error;
+            alert('Serper.dev API connection test failed: ' + result.error);
+          }
+        } catch (error) {
+          console.error(error);
+          badgeSerper.className = "diag-badge badge-missing";
+          badgeSerper.textContent = "Error";
+          descSerper.textContent = "Network error during diagnostic test.";
+          alert('Network error testing Serper.dev API.');
+        } finally {
+          btnTestSerper.textContent = originalText;
+          btnTestSerper.disabled = false;
         }
       });
     }
