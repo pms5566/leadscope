@@ -827,10 +827,16 @@ async function scanLocalLeads(niche, location, forceMock = false) {
       
       console.log(`[Scanner] Scraping social links in parallel batches for ${leadsWithoutWebsite.length} leads...`);
       
+      const hasSerper = process.env.SERPER_API_KEY && process.env.SERPER_API_KEY !== "your_serper_api_key_here" && process.env.SERPER_API_KEY.trim() !== "";
+      const hasGoogleSearch = process.env.GOOGLE_SEARCH_API_KEY && process.env.GOOGLE_SEARCH_API_KEY !== "your_google_search_api_key_here" && process.env.GOOGLE_SEARCH_ENGINE_ID;
+      const hasSearchAPI = hasSerper || hasGoogleSearch;
+
       const enrichTasks = leadsWithoutWebsite.map((place, index) => async () => {
-        // Stagger requests within the same batch to prevent simultaneous Bing searches
-        const staggerDelay = (index % 2) * (800 + Math.floor(Math.random() * 800));
-        await new Promise(r => setTimeout(r, staggerDelay));
+        // Stagger requests within the same batch to prevent simultaneous Bing searches (only if using scraper)
+        const staggerDelay = hasSearchAPI ? 0 : ((index % 2) * (800 + Math.floor(Math.random() * 800)));
+        if (staggerDelay > 0) {
+          await new Promise(r => setTimeout(r, staggerDelay));
+        }
 
         const name = place.displayName?.text || "Unknown Business";
         const address = place.formattedAddress || "N/A";
@@ -840,11 +846,8 @@ async function scanLocalLeads(niche, location, forceMock = false) {
         let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, email: null };
         
         try {
-          const hasSerper = process.env.SERPER_API_KEY && process.env.SERPER_API_KEY !== "your_serper_api_key_here" && process.env.SERPER_API_KEY.trim() !== "";
-          const hasGoogleSearch = process.env.GOOGLE_SEARCH_API_KEY && process.env.GOOGLE_SEARCH_API_KEY !== "your_google_search_api_key_here" && process.env.GOOGLE_SEARCH_ENGINE_ID;
-
           // If Search API keys are configured, use the fast API instead of Puppeteer scraping!
-          if (hasSerper || hasGoogleSearch) {
+          if (hasSearchAPI) {
             console.log(`[Scanner] Enriching "${name}" using Search API...`);
             social = await searchLiveSocialMedia(name, location);
           } else {
@@ -896,8 +899,10 @@ async function scanLocalLeads(niche, location, forceMock = false) {
         };
       });
       
-      // Use batch size of 2 and a 2.5-second delay between batches to avoid triggering Bing captchas/rate-limits
-      const enrichedLeads = await runInBatches(enrichTasks, 2, 2500);
+      // Use batch size of 10 and a 100ms delay if Search API is active, otherwise fallback to batch size of 2 and a 2.5-second delay
+      const batchSize = hasSearchAPI ? 10 : 2;
+      const batchDelay = hasSearchAPI ? 100 : 2500;
+      const enrichedLeads = await runInBatches(enrichTasks, batchSize, batchDelay);
       return enrichedLeads.filter(l => l !== null);
       
     } catch (error) {
