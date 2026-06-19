@@ -34,11 +34,172 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+function maskKey(key) {
+  if (!key || key === "your_google_places_api_key_here" || key === "your_google_search_api_key_here" || key === "your_google_search_engine_id_here" || key === "your_github_token_here") {
+    return "";
+  }
+  if (key.length <= 8) return "***";
+  return key.substring(0, 6) + "..." + key.substring(key.length - 4);
+}
+
 // API Endpoint to check configuration status
 app.get('/api/config', (req, res) => {
   res.json({
-    liveModeAvailable: isLiveModeConfigured()
+    liveModeAvailable: isLiveModeConfigured(),
+    placesKeyConfigured: !!(process.env.GOOGLE_PLACES_API_KEY && process.env.GOOGLE_PLACES_API_KEY !== "your_google_places_api_key_here" && process.env.GOOGLE_PLACES_API_KEY.trim() !== ""),
+    searchKeyConfigured: !!(process.env.GOOGLE_SEARCH_API_KEY && process.env.GOOGLE_SEARCH_API_KEY !== "your_google_search_api_key_here" && process.env.GOOGLE_SEARCH_API_KEY.trim() !== ""),
+    searchEngineIdConfigured: !!(process.env.GOOGLE_SEARCH_ENGINE_ID && process.env.GOOGLE_SEARCH_ENGINE_ID !== "your_google_search_engine_id_here" && process.env.GOOGLE_SEARCH_ENGINE_ID.trim() !== ""),
+    githubConfigured: !!(process.env.GITHUB_USERNAME && process.env.GITHUB_USERNAME !== "your_github_username" && process.env.GITHUB_USERNAME.trim() !== ""),
+    placesKey: maskKey(process.env.GOOGLE_PLACES_API_KEY),
+    searchKey: maskKey(process.env.GOOGLE_SEARCH_API_KEY),
+    searchEngineId: maskKey(process.env.GOOGLE_SEARCH_ENGINE_ID),
+    githubUsername: process.env.GITHUB_USERNAME === "your_github_username" ? "" : (process.env.GITHUB_USERNAME || ""),
+    githubRepo: process.env.GITHUB_REPO === "your_templates_repo_name" ? "" : (process.env.GITHUB_REPO || ""),
+    githubBranch: process.env.GITHUB_BRANCH || "main",
+    githubToken: maskKey(process.env.GITHUB_TOKEN)
   });
+});
+
+// API Endpoint to save configuration
+app.post('/api/config', async (req, res) => {
+  const { placesKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken } = req.body;
+  
+  try {
+    let envContent = "";
+    try {
+      envContent = await fs.readFile(path.join(__dirname, '.env'), 'utf8');
+    } catch (e) {
+      // If file doesn't exist, we start empty
+    }
+    
+    // Parse envContent into key-value pairs
+    const lines = envContent.split('\n');
+    const envObj = {};
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed && !trimmed.startsWith('#')) {
+        const parts = trimmed.split('=');
+        if (parts.length >= 2) {
+          const key = parts[0].trim();
+          const value = parts.slice(1).join('=').trim();
+          envObj[key] = value;
+        }
+      }
+    }
+    
+    // Helper to check if input is a masked key representation
+    const isMasked = (val) => val && val.includes('...');
+    
+    // Only update if value is provided and NOT masked (since masked values are just sent back for show)
+    if (placesKey !== undefined && !isMasked(placesKey)) envObj['GOOGLE_PLACES_API_KEY'] = placesKey;
+    if (searchKey !== undefined && !isMasked(searchKey)) envObj['GOOGLE_SEARCH_API_KEY'] = searchKey;
+    if (searchEngineId !== undefined && !isMasked(searchEngineId)) envObj['GOOGLE_SEARCH_ENGINE_ID'] = searchEngineId;
+    if (githubUsername !== undefined) envObj['GITHUB_USERNAME'] = githubUsername;
+    if (githubRepo !== undefined) envObj['GITHUB_REPO'] = githubRepo;
+    if (githubBranch !== undefined) envObj['GITHUB_BRANCH'] = githubBranch;
+    if (githubToken !== undefined && !isMasked(githubToken)) envObj['GITHUB_TOKEN'] = githubToken;
+    
+    // Re-serialize
+    let newEnvContent = "";
+    newEnvContent += "# Google Places API Key\n";
+    newEnvContent += `GOOGLE_PLACES_API_KEY=${envObj['GOOGLE_PLACES_API_KEY'] || 'your_google_places_api_key_here'}\n\n`;
+    newEnvContent += "# Google Custom Search JSON API Key & Search Engine ID\n";
+    newEnvContent += `GOOGLE_SEARCH_API_KEY=${envObj['GOOGLE_SEARCH_API_KEY'] || 'your_google_search_api_key_here'}\n`;
+    newEnvContent += `GOOGLE_SEARCH_ENGINE_ID=${envObj['GOOGLE_SEARCH_ENGINE_ID'] || 'your_google_search_engine_id_here'}\n\n`;
+    newEnvContent += "# Server Configuration\n";
+    newEnvContent += `PORT=${envObj['PORT'] || '3000'}\n\n`;
+    newEnvContent += "# GitHub Templates Repository Configurations\n";
+    newEnvContent += `GITHUB_USERNAME=${envObj['GITHUB_USERNAME'] || 'your_github_username'}\n`;
+    newEnvContent += `GITHUB_REPO=${envObj['GITHUB_REPO'] || 'your_templates_repo_name'}\n`;
+    newEnvContent += `GITHUB_BRANCH=${envObj['GITHUB_BRANCH'] || 'main'}\n`;
+    newEnvContent += `GITHUB_TOKEN=${envObj['GITHUB_TOKEN'] || 'your_github_token_here'}\n`;
+    
+    await fs.writeFile(path.join(__dirname, '.env'), newEnvContent, 'utf8');
+    
+    // Reload process.env values in runtime!
+    if (placesKey !== undefined && !isMasked(placesKey)) process.env.GOOGLE_PLACES_API_KEY = placesKey;
+    if (searchKey !== undefined && !isMasked(searchKey)) process.env.GOOGLE_SEARCH_API_KEY = searchKey;
+    if (searchEngineId !== undefined && !isMasked(searchEngineId)) process.env.GOOGLE_SEARCH_ENGINE_ID = searchEngineId;
+    if (githubUsername !== undefined) process.env.GITHUB_USERNAME = githubUsername;
+    if (githubRepo !== undefined) process.env.GITHUB_REPO = githubRepo;
+    if (githubBranch !== undefined) process.env.GITHUB_BRANCH = githubBranch;
+    if (githubToken !== undefined && !isMasked(githubToken)) process.env.GITHUB_TOKEN = githubToken;
+    
+    res.json({
+      success: true,
+      message: 'Configuration updated successfully and reloaded into runtime.',
+      liveModeAvailable: isLiveModeConfigured()
+    });
+  } catch (error) {
+    console.error('[API Error] Update configuration failed:', error.message);
+    res.status(500).json({ error: 'Failed to update configuration: ' + error.message });
+  }
+});
+
+// API Endpoint to test configuration connections
+app.post('/api/config/test', async (req, res) => {
+  const { type } = req.body;
+  
+  try {
+    if (type === 'places') {
+      const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+      if (!apiKey || apiKey === "your_google_places_api_key_here" || apiKey.trim() === "") {
+        return res.json({ success: false, error: 'Places API key is not configured.' });
+      }
+      
+      const url = "https://places.googleapis.com/v1/places:searchText";
+      const headers = {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": apiKey,
+        "X-Goog-FieldMask": "places.displayName,places.id"
+      };
+      
+      const payload = {
+        textQuery: "coffee in Paris",
+        pageSize: 1
+      };
+      
+      console.log(`[Config Test] Testing Google Places API connection...`);
+      const testRes = await axios.post(url, payload, { headers, timeout: 5000 });
+      if (testRes.status === 200) {
+        return res.json({ success: true, message: 'Google Places API connection successful!' });
+      }
+    } else if (type === 'search') {
+      const apiKey = process.env.GOOGLE_SEARCH_API_KEY;
+      const cx = process.env.GOOGLE_SEARCH_ENGINE_ID;
+      
+      if (!apiKey || apiKey === "your_google_search_api_key_here" || apiKey.trim() === "") {
+        return res.json({ success: false, error: 'Custom Search API Key is not configured.' });
+      }
+      if (!cx || cx === "your_google_search_engine_id_here" || cx.trim() === "") {
+        return res.json({ success: false, error: 'Custom Search Engine ID (CX ID) is not configured.' });
+      }
+      
+      const url = "https://www.googleapis.com/customsearch/v1";
+      console.log(`[Config Test] Testing Google Custom Search API connection (Option A)...`);
+      const testRes = await axios.get(url, {
+        params: {
+          key: apiKey,
+          cx: cx,
+          q: "test",
+          num: 1
+        },
+        timeout: 5000
+      });
+      
+      if (testRes.status === 200) {
+        return res.json({ success: true, message: 'Google Custom Search API connection successful!' });
+      }
+    } else {
+      return res.status(400).json({ error: 'Invalid test type specified.' });
+    }
+  } catch (error) {
+    console.error('[API Error] Connection test failed:', error.message);
+    const details = error.response && error.response.data && error.response.data.error 
+      ? error.response.data.error.message 
+      : error.message;
+    return res.json({ success: false, error: `Connection failed: ${details}` });
+  }
 });
 
 // API Endpoint to scan local leads

@@ -49,6 +49,9 @@
         <a href="#" class="nav-item" data-screen="guide">
           <i class="fa-solid fa-book-open"></i> <span>How It Works</span>
         </a>
+        <a href="#" class="nav-item" data-screen="settings">
+          <i class="fa-solid fa-gears"></i> <span>Settings & API Config</span>
+        </a>
       </nav>
 
       <div class="sidebar-footer">
@@ -391,6 +394,209 @@
               <i class="fa-solid fa-sack-dollar" style="font-size: 24px; color: #f5b000;"></i>
               <h4>4. Secure Lead</h4>
               <p>Follow up based on activity logs to close client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 6: SETTINGS & API CONFIGURATION -->
+      <div class="screen-view" id="screen_settings">
+        <div class="welcome-banner" style="background: linear-gradient(135deg, rgba(123, 97, 255, 0.2) 0%, rgba(0, 245, 160, 0.15) 100%); border-color: rgba(123, 97, 255, 0.3);">
+          <h2>Settings & API Configuration ⚙️</h2>
+          <p>Configure your Google API and GitHub credentials to enable Live lead searching, social enrichment, and custom proposal template lists.</p>
+        </div>
+
+        <div class="settings-grid">
+          <!-- Left Column: Forms -->
+          <div class="settings-main-panel">
+            
+            <!-- Card 1: Google Places & Search API -->
+            <div class="results-card" style="margin-bottom: 1.5rem;">
+              <div class="results-header">
+                <h3 class="results-title" style="color: var(--color-cyan);">
+                  <i class="fa-solid fa-cloud-bolt"></i> Google Cloud API Configuration
+                </h3>
+              </div>
+              <div style="padding: 1.5rem;">
+                <form id="googleSettingsForm">
+                  <!-- Places API Key -->
+                  <div class="input-group" style="margin-bottom: 1.25rem;">
+                    <label for="placesKeyInput">Google Places API Key (New)</label>
+                    <div class="input-wrapper">
+                      <input type="password" id="placesKeyInput" placeholder="Enter Places API Key (AIzaSy...)">
+                      <i class="fa-solid fa-key"></i>
+                      <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('placesKeyInput')">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                    </div>
+                    <span class="input-help">Used to fetch local businesses from Google Maps via official Place Search.</span>
+                  </div>
+
+                  <!-- Google Search API Key -->
+                  <div class="input-group" style="margin-bottom: 1.25rem;">
+                    <label for="searchKeyInput">Google Custom Search API Key (Option A)</label>
+                    <div class="input-wrapper">
+                      <input type="password" id="searchKeyInput" placeholder="Enter Custom Search API Key (AIzaSy...)">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('searchKeyInput')">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                    </div>
+                    <span class="input-help">Required for ultra-fast, captcha-free social enrichment queries (Option A).</span>
+                  </div>
+
+                  <!-- Google Search Engine ID -->
+                  <div class="input-group" style="margin-bottom: 1.5rem;">
+                    <label for="searchEngineIdInput">Google Search Engine ID (CX ID)</label>
+                    <div class="input-wrapper">
+                      <input type="text" id="searchEngineIdInput" placeholder="Enter Search Engine ID (e.g. 3a7b9c...)">
+                      <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <span class="input-help">Identifies your Programmable Search Engine configured to search the entire web.</span>
+                  </div>
+
+                  <button type="submit" class="btn-action" style="width: 100%; justify-content: center;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Google API Settings
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Card 2: GitHub Proposal Template Lister -->
+            <div class="results-card">
+              <div class="results-header">
+                <h3 class="results-title" style="color: var(--color-purple);">
+                  <i class="fa-brands fa-github"></i> GitHub Proposal Templates Configuration
+                </h3>
+              </div>
+              <div style="padding: 1.5rem;">
+                <form id="githubSettingsForm">
+                  <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                    <div class="input-group">
+                      <label for="githubUsernameInput">GitHub Username</label>
+                      <div class="input-wrapper">
+                        <input type="text" id="githubUsernameInput" placeholder="e.g. pms5566" required>
+                        <i class="fa-solid fa-user"></i>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <label for="githubRepoInput">Templates Repo Name</label>
+                      <div class="input-wrapper">
+                        <input type="text" id="githubRepoInput" placeholder="e.g. leadscope-templates" required>
+                        <i class="fa-solid fa-folder-open"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row" style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div class="input-group">
+                      <label for="githubBranchInput">Default Branch</label>
+                      <div class="input-wrapper">
+                        <input type="text" id="githubBranchInput" placeholder="main" value="main">
+                        <i class="fa-solid fa-code-branch"></i>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <label for="githubTokenInput">Personal Access Token (PAT) <span style="font-size:0.75rem; opacity:0.6;">(Optional)</span></label>
+                      <div class="input-wrapper">
+                        <input type="password" id="githubTokenInput" placeholder="ghp_...">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('githubTokenInput')">
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn-action" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-magenta) 100%);">
+                    <i class="fa-solid fa-floppy-disk"></i> Save GitHub Settings
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Status Panel & Diagnostic Steps -->
+          <div class="settings-side-panel">
+            <!-- Card 3: Connection Diagnostics -->
+            <div class="results-card" style="margin-bottom: 1.5rem; height: auto;">
+              <div class="results-header">
+                <h3 class="results-title" style="color: #00f5a0;">
+                  <i class="fa-solid fa-circle-nodes"></i> Connection Diagnostics
+                </h3>
+              </div>
+              <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                
+                <!-- Places Status -->
+                <div class="diagnostic-item" id="diagPlaces">
+                  <div class="diag-header">
+                    <span class="diag-title"><i class="fa-solid fa-map-location-dot"></i> Google Places API</span>
+                    <span class="diag-badge badge-missing" id="badgePlaces">Missing</span>
+                  </div>
+                  <p class="diag-desc" id="descPlaces">Keys not saved or loaded. Scanner will fall back to Puppeteer maps scraping.</p>
+                  <button type="button" class="btn-diag-test" id="btnTestPlaces">Test Connection</button>
+                </div>
+
+                <!-- Custom Search Status (Option A) -->
+                <div class="diagnostic-item" id="diagSearch">
+                  <div class="diag-header">
+                    <span class="diag-title"><i class="fa-solid fa-globe"></i> Google Custom Search API</span>
+                    <span class="diag-badge badge-missing" id="badgeSearch">Missing</span>
+                  </div>
+                  <p class="diag-desc" id="descSearch">Option A keys not set. Social media discovery will run via Puppeteer search scraper (slow/captchas).</p>
+                  <button type="button" class="btn-diag-test" id="btnTestSearch">Test Connection</button>
+                </div>
+
+                <!-- GitHub Templates Status -->
+                <div class="diagnostic-item" id="diagGithub">
+                  <div class="diag-header">
+                    <span class="diag-title"><i class="fa-brands fa-github-alt"></i> GitHub Templates Repo</span>
+                    <span class="diag-badge badge-missing" id="badgeGithub">Offline Presets</span>
+                  </div>
+                  <p class="diag-desc" id="descGithub">Repository configurations empty. Standard offline template presets will be used.</p>
+                  <button type="button" class="btn-diag-test" id="btnTestGithub">Reload Templates</button>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Card 4: How to Obtain Credentials -->
+            <div class="results-card" style="background: rgba(10, 10, 20, 0.55); border-color: rgba(255, 255, 255, 0.055);">
+              <div class="results-header" style="background: transparent;">
+                <h3 class="results-title" style="color: var(--text-secondary); font-size: 0.9rem;">
+                  <i class="fa-solid fa-circle-question"></i> Help: Getting Google API Keys
+                </h3>
+              </div>
+              <div class="help-scroll" style="padding: 0 1.25rem 1.25rem 1.25rem; font-size: 0.8rem; line-height: 1.4; color: var(--text-secondary); max-height: 380px; overflow-y: auto;">
+                <h4 style="color: var(--text-primary); margin-top: 0; margin-bottom: 0.4rem;">Option A: Google Custom Search API</h4>
+                <ol style="margin-top: 0; padding-left: 1.2rem;">
+                  <li style="margin-bottom: 0.4rem;">Enable the <strong>Custom Search API</strong> in your <a href="https://console.cloud.google.com/" target="_blank" style="color: var(--color-cyan); text-decoration: underline;">Google Cloud Console</a>, create an API key, and paste it into the <em>Google Custom Search API Key</em> input.</li>
+                  <li style="margin-bottom: 0.4rem;">Go to the <a href="https://cse.google.com/" target="_blank" style="color: var(--color-cyan); text-decoration: underline;">Google Programmable Search Console</a> and create a search engine.</li>
+                  <li style="margin-bottom: 0.4rem;">In the search engine dashboard, <strong>turn ON "Search the entire web"</strong>.</li>
+                  <li style="margin-bottom: 0.4rem;">Copy the <strong>Search Engine ID (CX ID)</strong> and paste it into the input.</li>
+                </ol>
+
+                <h4 style="color: var(--text-primary); margin-top: 0.8rem; margin-bottom: 0.4rem;">Google Places API</h4>
+                <ol style="margin-top: 0; padding-left: 1.2rem;">
+                  <li style="margin-bottom: 0.4rem;">Go to the <a href="https://console.cloud.google.com/" target="_blank" style="color: var(--color-cyan); text-decoration: underline;">Google Cloud Console</a>.</li>
+                  <li style="margin-bottom: 0.4rem;">Enable the <strong>Places API (New)</strong>.</li>
+                  <li style="margin-bottom: 0.4rem;">Go to <strong>APIs & Services > Credentials</strong>, create an API Key, and paste it into the <em>Places API Key</em> input.</li>
+                </ol>
+
+                <h4 style="color: var(--text-primary); margin-top: 0.8rem; margin-bottom: 0.4rem;">🚀 Deploying on Hugging Face</h4>
+                <p style="margin-top: 0; margin-bottom: 0.4rem;">Because Hugging Face Space deployments are ephemeral, saved <code>.env</code> files do not persist across builds.</p>
+                <p style="margin-top: 0; margin-bottom: 0.4rem;">Configure your keys under <strong>Settings > Variables and Secrets</strong> in your Hugging Face Space dashboard as:</p>
+                <ul style="padding-left: 1.2rem; margin-top: 0;">
+                  <li><code>GOOGLE_PLACES_API_KEY</code></li>
+                  <li><code>GOOGLE_SEARCH_API_KEY</code></li>
+                  <li><code>GOOGLE_SEARCH_ENGINE_ID</code></li>
+                  <li><code>GITHUB_USERNAME</code></li>
+                  <li><code>GITHUB_REPO</code></li>
+                  <li><code>GITHUB_BRANCH</code></li>
+                  <li><code>GITHUB_TOKEN</code></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

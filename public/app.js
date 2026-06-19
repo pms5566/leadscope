@@ -1183,8 +1183,268 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Settings elements
+    const googleSettingsForm = document.getElementById('googleSettingsForm');
+    const githubSettingsForm = document.getElementById('githubSettingsForm');
+    
+    const placesKeyInput = document.getElementById('placesKeyInput');
+    const searchKeyInput = document.getElementById('searchKeyInput');
+    const searchEngineIdInput = document.getElementById('searchEngineIdInput');
+    
+    const githubUsernameInput = document.getElementById('githubUsernameInput');
+    const githubRepoInput = document.getElementById('githubRepoInput');
+    const githubBranchInput = document.getElementById('githubBranchInput');
+    const githubTokenInput = document.getElementById('githubTokenInput');
+    
+    // Diagnostic Badges & Descs
+    const badgePlaces = document.getElementById('badgePlaces');
+    const descPlaces = document.getElementById('descPlaces');
+    const btnTestPlaces = document.getElementById('btnTestPlaces');
+    
+    const badgeSearch = document.getElementById('badgeSearch');
+    const descSearch = document.getElementById('descSearch');
+    const btnTestSearch = document.getElementById('btnTestSearch');
+    
+    const badgeGithub = document.getElementById('badgeGithub');
+    const descGithub = document.getElementById('descGithub');
+    const btnTestGithub = document.getElementById('btnTestGithub');
+
+    async function loadConfigSettings() {
+      try {
+        const response = await fetch('/api/config');
+        const data = await response.json();
+        
+        // Populate inputs (masked value or empty)
+        if (data.placesKey) placesKeyInput.value = data.placesKey;
+        if (data.searchKey) searchKeyInput.value = data.searchKey;
+        if (data.searchEngineId) searchEngineIdInput.value = data.searchEngineId;
+        
+        if (data.githubUsername) githubUsernameInput.value = data.githubUsername;
+        if (data.githubRepo) githubRepoInput.value = data.githubRepo;
+        if (data.githubBranch) githubBranchInput.value = data.githubBranch;
+        if (data.githubToken) githubTokenInput.value = data.githubToken;
+        
+        // Update diagnostic statuses
+        updateDiagnosticUI(data);
+        
+      } catch (error) {
+        console.error('Failed to load settings configuration:', error);
+      }
+    }
+
+    function updateDiagnosticUI(config) {
+      // Places API Status
+      if (config.placesKeyConfigured) {
+        badgePlaces.className = "diag-badge badge-connected";
+        badgePlaces.textContent = "Configured";
+        descPlaces.textContent = "Google Places API key is loaded. Live Places searches are enabled.";
+      } else {
+        badgePlaces.className = "diag-badge badge-missing";
+        badgePlaces.textContent = "Missing";
+        descPlaces.textContent = "Google Places API key is not configured. Fallback: Puppeteer scraper.";
+      }
+      
+      // Search API Status (Option A)
+      if (config.searchKeyConfigured && config.searchEngineIdConfigured) {
+        badgeSearch.className = "diag-badge badge-connected";
+        badgeSearch.textContent = "Configured";
+        descSearch.textContent = "Google Custom Search (Option A) is loaded. Fast, captcha-free social enrichment active.";
+      } else {
+        badgeSearch.className = "diag-badge badge-missing";
+        badgeSearch.textContent = "Missing";
+        descSearch.textContent = "Option A keys not set. Social enrichment will fall back to Puppeteer scraper (slow).";
+      }
+      
+      // GitHub Status
+      if (config.githubConfigured) {
+        badgeGithub.className = "diag-badge badge-connected";
+        badgeGithub.textContent = "Active";
+        descGithub.textContent = `Connected to repository "${config.githubUsername}/${config.githubRepo}".`;
+      } else {
+        badgeGithub.className = "diag-badge badge-missing";
+        badgeGithub.textContent = "Presets Mode";
+        descGithub.textContent = "GitHub details missing. Standard presets (cafe, gym, bakery, etc.) are in use.";
+      }
+    }
+
+    // Save Google Settings
+    if (googleSettingsForm) {
+      googleSettingsForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const payload = {
+          placesKey: placesKeyInput.value.trim(),
+          searchKey: searchKeyInput.value.trim(),
+          searchEngineId: searchEngineIdInput.value.trim()
+        };
+        
+        try {
+          const res = await fetch('/api/config', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const result = await res.json();
+          if (result.success) {
+            alert('Google API keys saved successfully!');
+            await checkServerConfig();
+            await loadConfigSettings();
+          } else {
+            alert('Failed to save settings: ' + result.error);
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Error saving Google API settings.');
+        }
+      });
+    }
+
+    // Save GitHub Settings
+    if (githubSettingsForm) {
+      githubSettingsForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const payload = {
+          githubUsername: githubUsernameInput.value.trim(),
+          githubRepo: githubRepoInput.value.trim(),
+          githubBranch: githubBranchInput.value.trim(),
+          githubToken: githubTokenInput.value.trim()
+        };
+        
+        try {
+          const res = await fetch('/api/config', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const result = await res.json();
+          if (result.success) {
+            alert('GitHub templates configuration saved!');
+            await loadGithubTemplates();
+            await loadConfigSettings();
+          } else {
+            alert('Failed to save GitHub settings: ' + result.error);
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Error saving GitHub settings.');
+        }
+      });
+    }
+
+    // Test Places Connection
+    if (btnTestPlaces) {
+      btnTestPlaces.addEventListener('click', async () => {
+        const originalText = btnTestPlaces.textContent;
+        btnTestPlaces.textContent = "Testing...";
+        btnTestPlaces.disabled = true;
+        badgePlaces.className = "diag-badge badge-testing";
+        badgePlaces.textContent = "Testing...";
+        
+        try {
+          const res = await fetch('/api/config/test', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type: 'places' })
+          });
+          const result = await res.json();
+          if (result.success) {
+            badgePlaces.className = "diag-badge badge-connected";
+            badgePlaces.textContent = "Success";
+            descPlaces.textContent = "Google Places API connection test successful! Ready to query Places.";
+            alert('Places API connection test succeeded!');
+          } else {
+            badgePlaces.className = "diag-badge badge-missing";
+            badgePlaces.textContent = "Error";
+            descPlaces.textContent = "Connection test failed: " + result.error;
+            alert('Places API connection test failed: ' + result.error);
+          }
+        } catch (error) {
+          console.error(error);
+          badgePlaces.className = "diag-badge badge-missing";
+          badgePlaces.textContent = "Error";
+          descPlaces.textContent = "Network error during diagnostic test.";
+          alert('Network error testing Places API.');
+        } finally {
+          btnTestPlaces.textContent = originalText;
+          btnTestPlaces.disabled = false;
+        }
+      });
+    }
+
+    // Test Search Connection (Option A)
+    if (btnTestSearch) {
+      btnTestSearch.addEventListener('click', async () => {
+        const originalText = btnTestSearch.textContent;
+        btnTestSearch.textContent = "Testing...";
+        btnTestSearch.disabled = true;
+        badgeSearch.className = "diag-badge badge-testing";
+        badgeSearch.textContent = "Testing...";
+        
+        try {
+          const res = await fetch('/api/config/test', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type: 'search' })
+          });
+          const result = await res.json();
+          if (result.success) {
+            badgeSearch.className = "diag-badge badge-connected";
+            badgeSearch.textContent = "Success";
+            descSearch.textContent = "Google Custom Search API connection test successful! Ready for live social enrichment.";
+            alert('Custom Search API connection test succeeded!');
+          } else {
+            badgeSearch.className = "diag-badge badge-missing";
+            badgeSearch.textContent = "Error";
+            descSearch.textContent = "Connection test failed: " + result.error;
+            alert('Custom Search API connection test failed: ' + result.error);
+          }
+        } catch (error) {
+          console.error(error);
+          badgeSearch.className = "diag-badge badge-missing";
+          badgeSearch.textContent = "Error";
+          descSearch.textContent = "Network error during diagnostic test.";
+          alert('Network error testing Custom Search API.');
+        } finally {
+          btnTestSearch.textContent = originalText;
+          btnTestSearch.disabled = false;
+        }
+      });
+    }
+
+    // Reload GitHub Templates (Test)
+    if (btnTestGithub) {
+      btnTestGithub.addEventListener('click', async () => {
+        const originalText = btnTestGithub.textContent;
+        btnTestGithub.textContent = "Reloading...";
+        btnTestGithub.disabled = true;
+        badgeGithub.className = "diag-badge badge-testing";
+        badgeGithub.textContent = "Reloading...";
+        
+        try {
+          await loadGithubTemplates();
+          const response = await fetch('/api/config');
+          const config = await response.json();
+          updateDiagnosticUI(config);
+          
+          if (config.githubConfigured) {
+            alert('GitHub templates reloaded successfully!');
+          } else {
+            alert('Reloaded presets. Setup GitHub repository configuration to use custom template lists.');
+          }
+        } catch (error) {
+          console.error(error);
+          badgeGithub.className = "diag-badge badge-missing";
+          badgeGithub.textContent = "Error";
+          alert('Failed to reload GitHub templates.');
+        } finally {
+          btnTestGithub.textContent = originalText;
+          btnTestGithub.disabled = false;
+        }
+      });
+    }
+
     // Trigger config check and CRM load on startup
     checkServerConfig();
+    loadConfigSettings();
     loadGithubTemplates().then(() => {
       loadCrmLeads();
     });
@@ -1193,3 +1453,18 @@ document.addEventListener('DOMContentLoaded', () => {
     pollActiveVisits();
     setInterval(pollActiveVisits, 3000);
   });
+
+  // Global helper for toggling input type (password/text)
+  window.togglePasswordVisibility = function(inputId) {
+    const input = document.getElementById(inputId);
+    const wrapper = input.closest('.input-wrapper');
+    const icon = wrapper.querySelector('.btn-toggle-visibility i');
+    
+    if (input.type === "password") {
+      input.type = "text";
+      icon.className = "fa-solid fa-eye-slash";
+    } else {
+      input.type = "password";
+      icon.className = "fa-solid fa-eye";
+    }
+  };
