@@ -212,14 +212,14 @@ async function searchLiveSocialMedia(businessName, location) {
       foundWebsiteUrl = websiteInSnippet;
     }
     
-    // Parse social links
-    if (link.includes("facebook.com/") && !facebook) {
+    // Parse social links (validated to exclude generic platform links)
+    if (link.includes("facebook.com/") && !facebook && isValidSocialUrl(link)) {
       facebook = link;
-    } else if (link.includes("instagram.com/") && !instagram) {
+    } else if (link.includes("instagram.com/") && !instagram && isValidSocialUrl(link)) {
       instagram = link;
-    } else if ((link.includes("linkedin.com/company/") || link.includes("linkedin.com/in/")) && !linkedin) {
+    } else if ((link.includes("linkedin.com/company/") || link.includes("linkedin.com/in/")) && !linkedin && isValidSocialUrl(link)) {
       linkedin = link;
-    } else if ((link.includes("wa.me/") || link.includes("api.whatsapp.com/")) && !whatsapp) {
+    } else if ((link.includes("wa.me/") || link.includes("api.whatsapp.com/")) && !whatsapp && isValidSocialUrl(link)) {
       whatsapp = link;
     }
     
@@ -502,6 +502,58 @@ function checkIsSocialOrDirectory(url) {
   }
 }
 
+function isValidSocialUrl(url) {
+  if (!url) return false;
+  try {
+    const lower = url.toLowerCase();
+    
+    // Ignore generic/auth/sharing/post/hashtag/directory links
+    const invalidPatterns = [
+      '/login',
+      '/signup',
+      '/register',
+      '/r.php',
+      '/recover',
+      '/sharer',
+      '/share.php',
+      '/pages/category',
+      '/directory/',
+      '/hashtag/',
+      '/explore/',
+      '/about',
+      '/help',
+      '/terms',
+      '/privacy',
+      '/cookies',
+      'instagram.com/p/',
+      'instagram.com/reel/',
+      'facebook.com/groups',
+      'facebook.com/events',
+      'facebook.com/photo',
+      'facebook.com/watch',
+      'facebook.com/story.php',
+      'linkedin.com/feed',
+      'linkedin.com/jobs',
+      'linkedin.com/learning'
+    ];
+    
+    const isInvalid = invalidPatterns.some(pattern => lower.includes(pattern));
+    if (isInvalid) return false;
+    
+    // Make sure the link is not just the domain itself
+    const urlObj = new URL(url.startsWith('http') ? url : 'https://' + url);
+    const pathname = urlObj.pathname;
+    
+    if (!pathname || pathname === '/' || pathname.length < 3) {
+      return false;
+    }
+    
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function extractWebsiteFromSnippet(text) {
   if (!text) return null;
   const matches = text.match(/(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})/g);
@@ -673,13 +725,13 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
         foundWebsiteUrl = websiteInSnippet;
       }
       
-      if (link.includes("facebook.com/") && !facebook) {
+      if (link.includes("facebook.com/") && !facebook && isValidSocialUrl(link)) {
         facebook = link;
-      } else if (link.includes("instagram.com/") && !instagram) {
+      } else if (link.includes("instagram.com/") && !instagram && isValidSocialUrl(link)) {
         instagram = link;
-      } else if ((link.includes("linkedin.com/company/") || link.includes("linkedin.com/in/")) && !linkedin) {
+      } else if ((link.includes("linkedin.com/company/") || link.includes("linkedin.com/in/")) && !linkedin && isValidSocialUrl(link)) {
         linkedin = link;
-      } else if ((link.includes("wa.me/") || link.includes("api.whatsapp.com/")) && !whatsapp) {
+      } else if ((link.includes("wa.me/") || link.includes("api.whatsapp.com/")) && !whatsapp && isValidSocialUrl(link)) {
         whatsapp = link;
       }
       
