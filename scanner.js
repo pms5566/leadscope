@@ -827,19 +827,26 @@ async function scanLocalLeads(niche, location, forceMock = false) {
         let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, email: null };
         
         try {
-          socialPage = await browser.newPage();
-          await socialPage.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36');
-          await socialPage.setRequestInterception(true);
-          socialPage.on('request', (req) => {
-            const type = req.resourceType();
-            if (['image', 'font', 'media'].includes(type)) {
-              req.abort();
-            } else {
-              req.continue();
-            }
-          });
-          
-          social = await scrapeSocialLinksWithPuppeteer(name, location, socialPage);
+          // If Google Search API keys are configured, use the fast API instead of Puppeteer scraping!
+          if (process.env.GOOGLE_SEARCH_API_KEY && process.env.GOOGLE_SEARCH_ENGINE_ID) {
+            console.log(`[Scanner] Enriching "${name}" using Google Custom Search API...`);
+            social = await searchLiveSocialMedia(name, location);
+          } else {
+            console.log(`[Scanner] Enriching "${name}" using Puppeteer scraper fallback...`);
+            socialPage = await browser.newPage();
+            await socialPage.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36');
+            await socialPage.setRequestInterception(true);
+            socialPage.on('request', (req) => {
+              const type = req.resourceType();
+              if (['image', 'font', 'media'].includes(type)) {
+                req.abort();
+              } else {
+                req.continue();
+              }
+            });
+            
+            social = await scrapeSocialLinksWithPuppeteer(name, location, socialPage);
+          }
         } catch (error) {
           console.error(`[Scanner Error] Failed to enrich details for "${name}":`, error.message);
         } finally {
