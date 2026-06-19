@@ -198,10 +198,19 @@ async function searchLiveSocialMedia(businessName, location) {
   let linkedin = null;
   let whatsapp = null;
   let email = null;
+  let hasWebsiteInBio = false;
+  let foundWebsiteUrl = null;
   
   for (const item of items) {
     const link = item.link || "";
     const snippet = item.snippet || "";
+    
+    // Check if snippet contains custom website links
+    const websiteInSnippet = extractWebsiteFromSnippet(snippet);
+    if (websiteInSnippet) {
+      hasWebsiteInBio = true;
+      foundWebsiteUrl = websiteInSnippet;
+    }
     
     // Parse social links
     if (link.includes("facebook.com/") && !facebook) {
@@ -223,7 +232,7 @@ async function searchLiveSocialMedia(businessName, location) {
     }
   }
   
-  return { facebook, instagram, linkedin, whatsapp, email };
+  return { facebook, instagram, linkedin, whatsapp, email, hasWebsiteInBio, foundWebsiteUrl };
 }
 
 /**
@@ -789,7 +798,7 @@ async function scanLocalLeads(niche, location, forceMock = false) {
       const name = place.displayName?.text || "Unknown Business";
       const address = place.formattedAddress || "N/A";
       const phone = place.nationalPhoneNumber || "N/A";
-      let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, email: null };
+      let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, email: null, hasWebsiteInBio: false, foundWebsiteUrl: null };
       
       try {
         social = await searchLiveSocialMedia(name, location);
@@ -798,13 +807,28 @@ async function scanLocalLeads(niche, location, forceMock = false) {
         console.error(`[Scanner Error] Failed to enrich details for "${name}":`, error.message);
       }
       
+      if (social.hasWebsiteInBio) {
+        console.log(`[Scanner] Filtering out "${name}" because website was found in social search: ${social.foundWebsiteUrl}`);
+        continue;
+      }
+      
+      // Auto-generate WhatsApp link if not found but phone is present
+      let whatsapp = social.whatsapp;
+      if (!whatsapp && phone && phone !== 'N/A') {
+        const cleanPhone = phone.replace(/[^0-9]/g, '');
+        if (cleanPhone.length >= 10) {
+          whatsapp = `https://wa.me/${cleanPhone}`;
+        }
+      }
+
       enrichedLeads.push({
         id: place.id,
         name,
         address,
         phone,
         googleMapsUri: place.googleMapsUri || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}&query_place_id=${place.id}`,
-        ...social
+        ...social,
+        whatsapp
       });
     }
     return enrichedLeads;
