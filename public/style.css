@@ -1790,3 +1790,10 @@ tr:hover td {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Force results-card to display on non-scanner screens */
+#screen_overview .results-card,
+#screen_settings .results-card,
+#screen_guide .results-card {
+  display: block;
+}
+
