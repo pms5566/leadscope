@@ -219,9 +219,14 @@ async function searchLiveSocialMedia(businessName, location) {
 /**
  * Run an array of promise-returning functions in batches of a given size.
  */
-async function runInBatches(tasks, batchSize = 6) {
+async function runInBatches(tasks, batchSize = 6, batchDelayMs = 0) {
   const results = [];
   for (let i = 0; i < tasks.length; i += batchSize) {
+    if (i > 0 && batchDelayMs > 0) {
+      const jitter = Math.floor(Math.random() * 1000);
+      console.log(`[Scanner] Waiting ${batchDelayMs + jitter}ms before next batch to prevent rate limiting...`);
+      await new Promise(r => setTimeout(r, batchDelayMs + jitter));
+    }
     const batch = tasks.slice(i, i + batchSize);
     const batchResults = await Promise.all(batch.map(task => task()));
     results.push(...batchResults);
@@ -499,11 +504,10 @@ function extractWebsiteFromSnippet(text) {
 }
 
 /**
- * Searches and scrapes social media links from Bing search page.
+ * Searches and scrapes social media links using DuckDuckGo with fallback to Bing.
  */
 async function scrapeSocialLinksWithPuppeteer(name, location, page) {
   const query = `"${name}" ${location} facebook instagram`;
-  const url = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
   
   let facebook = null;
   let instagram = null;
@@ -514,56 +518,131 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
   let foundWebsiteUrl = null;
   
   try {
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('li.b_algo', { timeout: 4000 }).catch(() => {});
+    // 1. DuckDuckGo Search (HTML-only search page - very low bot detection, highly reliable)
+    const ddgUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`;
+    await page.goto(ddgUrl, { waitUntil: 'domcontentloaded' });
     
-    const linksAndTexts = await page.evaluate(() => {
-      const results = [];
-      const links = document.querySelectorAll('li.b_algo h2 a');
-      const snippets = document.querySelectorAll('li.b_algo p');
-      
-      for (let i = 0; i < links.length; i++) {
-        results.push({
-          link: links[i].href || '',
-          snippet: snippets[i] ? snippets[i].innerText : ''
+    let hasDdgResults = false;
+    try {
+      await page.waitForSelector('.result', { timeout: 3500 });
+      hasDdgResults = true;
+    } catch (e) {
+      // DuckDuckGo failed or was empty, will fall back to Bing
+    }
+    
+    let linksAndTexts = [];
+    
+    if (hasDdgResults) {
+      const ddgRawResults = await page.evaluate(() => {
+        const results = [];
+        const cards = document.querySelectorAll('.result');
+        
+        cards.forEach(card => {
+          const linkEl = card.querySelector('.result__title a, a.result__url');
+          const snippetEl = card.querySelector('.result__snippet');
+          if (!linkEl) return;
+          
+          results.push({
+            link: linkEl.href || '',
+            snippet: snippetEl ? snippetEl.innerText.trim() : ''
+          });
         });
-      }
-      return results;
-    });
-    
-    for (const item of linksAndTexts) {
-      let link = item.link;
-      const snippet = item.snippet;
+        return results;
+      });
       
-      // Decode Bing redirect wrapper (u parameter containing base64)
-      if (link.includes('/ck/a?!') && link.includes('&u=')) {
-        try {
-          const urlObj = new URL(link);
-          let u = urlObj.searchParams.get('u');
-          if (u && u.startsWith('a1')) {
-            u = u.substring(2);
-            // Replace url safe characters and pad
-            u = u.replace(/-/g, '+').replace(/_/g, '/');
-            while (u.length % 4 !== 0) {
-              u += '=';
-            }
-            link = Buffer.from(u, 'base64').toString('utf-8');
-          }
-        } catch (e) {
-          const parts = link.split('&u=');
-          if (parts.length > 1) {
-            let uPart = parts[1].split('&')[0];
-            if (uPart.startsWith('a1')) {
-              uPart = uPart.substring(2);
-              uPart = uPart.replace(/-/g, '+').replace(/_/g, '/');
-              while (uPart.length % 4 !== 0) {
-                uPart += '=';
-              }
-              link = Buffer.from(uPart, 'base64').toString('utf-8');
+      // Decode DuckDuckGo redirect wrappers (uddg parameter containing raw URL)
+      linksAndTexts = ddgRawResults.map(item => {
+        let decodedLink = item.link;
+        if (decodedLink.includes('uddg=')) {
+          try {
+            const urlObj = new URL(decodedLink);
+            const uddg = urlObj.searchParams.get('uddg');
+            if (uddg) decodedLink = decodeURIComponent(uddg);
+          } catch (e) {
+            const parts = decodedLink.split('uddg=');
+            if (parts.length > 1) {
+              decodedLink = decodeURIComponent(parts[1].split('&')[0]);
             }
           }
         }
+        return { link: decodedLink, snippet: item.snippet };
+      });
+    }
+    
+    // 2. Fallback to Bing Search if DuckDuckGo failed
+    if (linksAndTexts.length === 0) {
+      console.log(`[Scanner] DuckDuckGo returned no results for "${name}". Falling back to Bing...`);
+      const bingUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+      await page.goto(bingUrl, { waitUntil: 'domcontentloaded' });
+      
+      // Check for captcha or bot block page
+      const pageTitle = await page.title().catch(() => '');
+      const pageContent = await page.content().catch(() => '');
+      if (pageTitle.includes('Security') || pageContent.includes('Verification') || pageContent.includes('challenge') || pageContent.includes('solve the challenge') || pageContent.includes('ref=Help') || pageContent.includes('IdentityVerification')) {
+        console.warn(`[Scanner Warning] Bing rate limit or captcha detected for "${name}". Skipping social enrich fallback.`);
+      } else {
+        try {
+          await page.waitForSelector('li.b_algo', { timeout: 3500 });
+          
+          const bingRawResults = await page.evaluate(() => {
+            const results = [];
+            const cards = document.querySelectorAll('li.b_algo');
+            
+            cards.forEach(card => {
+              const linkEl = card.querySelector('h2 a');
+              if (!linkEl) return;
+              
+              const paragraphs = Array.from(card.querySelectorAll('p, .b_caption, .b_snippet'));
+              const snippetText = paragraphs
+                .map(p => p.innerText.trim())
+                .filter(Boolean)
+                .join(' ');
+                
+              results.push({
+                link: linkEl.href || '',
+                snippet: snippetText
+              });
+            });
+            return results;
+          });
+          
+          // Decode Bing redirect wrappers (u parameter containing base64)
+          linksAndTexts = bingRawResults.map(item => {
+            let link = item.link;
+            if (link.includes('/ck/a?!') && link.includes('&u=')) {
+              try {
+                const urlObj = new URL(link);
+                let u = urlObj.searchParams.get('u');
+                if (u && u.startsWith('a1')) {
+                  u = u.substring(2);
+                  u = u.replace(/-/g, '+').replace(/_/g, '/');
+                  while (u.length % 4 !== 0) u += '=';
+                  link = Buffer.from(u, 'base64').toString('utf-8');
+                }
+              } catch (e) {
+                const parts = link.split('&u=');
+                if (parts.length > 1) {
+                  let uPart = parts[1].split('&')[0];
+                  if (uPart.startsWith('a1')) {
+                    uPart = uPart.substring(2).replace(/-/g, '+').replace(/_/g, '/');
+                    while (uPart.length % 4 !== 0) uPart += '=';
+                    link = Buffer.from(uPart, 'base64').toString('utf-8');
+                  }
+                }
+              }
+            }
+            return { link, snippet: item.snippet };
+          });
+        } catch (e) {
+          console.warn(`[Scanner Warning] Both DuckDuckGo and Bing search failed or timed out for "${name}".`);
+        }
       }
+    }
+    
+    // 3. Process extracted links and snippets
+    for (const item of linksAndTexts) {
+      const link = item.link;
+      const snippet = item.snippet;
       
       // Check if snippet contains custom website links
       const websiteInSnippet = extractWebsiteFromSnippet(snippet);
@@ -589,8 +668,8 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
         }
       }
     }
-
-    // --- Deep Bio Scraper (Email Extraction Fallback) ---
+    
+    // --- Deep Bio Scraper (Email Extraction Fallback using DuckDuckGo) ---
     if (!email && (instagram || facebook)) {
       try {
         let deepQuery = '';
@@ -609,13 +688,13 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
         }
         
         if (deepQuery) {
-          const deepUrl = `https://www.bing.com/search?q=${encodeURIComponent(deepQuery)}`;
+          const deepUrl = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(deepQuery)}`;
           await page.goto(deepUrl, { waitUntil: 'domcontentloaded' }).catch(() => {});
-          await new Promise(r => setTimeout(r, 1200)); // Let the page settle to avoid destroyed context
-          await page.waitForSelector('li.b_algo', { timeout: 3000 }).catch(() => {});
+          await new Promise(r => setTimeout(r, 1200));
+          await page.waitForSelector('.result', { timeout: 3000 }).catch(() => {});
           
           const snippets = await page.evaluate(() => {
-            return Array.from(document.querySelectorAll('li.b_algo p')).map(p => p.innerText);
+            return Array.from(document.querySelectorAll('.result__snippet')).map(s => s.innerText);
           }).catch(() => []);
           
           for (const snippet of snippets) {
@@ -631,9 +710,9 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
         console.error(`[Deep Scraper] Secondary email lookup failed: ${deepErr.message}`);
       }
     }
-
+    
   } catch (err) {
-    console.error(`[Puppeteer] Bing search error: ${err.message}`);
+    console.error(`[Puppeteer] Social search error for "${name}": ${err.message}`);
   }
   
   return { facebook, instagram, linkedin, whatsapp, email, hasWebsiteInBio, foundWebsiteUrl };
@@ -735,7 +814,11 @@ async function scanLocalLeads(niche, location, forceMock = false) {
       
       console.log(`[Scanner] Scraping social links in parallel batches for ${leadsWithoutWebsite.length} leads...`);
       
-      const enrichTasks = leadsWithoutWebsite.map((place) => async () => {
+      const enrichTasks = leadsWithoutWebsite.map((place, index) => async () => {
+        // Stagger requests within the same batch to prevent simultaneous Bing searches
+        const staggerDelay = (index % 2) * (800 + Math.floor(Math.random() * 800));
+        await new Promise(r => setTimeout(r, staggerDelay));
+
         const name = place.displayName?.text || "Unknown Business";
         const address = place.formattedAddress || "N/A";
         const phone = place.nationalPhoneNumber || "N/A";
@@ -790,7 +873,8 @@ async function scanLocalLeads(niche, location, forceMock = false) {
         };
       });
       
-      const enrichedLeads = await runInBatches(enrichTasks, 6); // Batch size 6 for optimal concurrency
+      // Use batch size of 2 and a 2.5-second delay between batches to avoid triggering Bing captchas/rate-limits
+      const enrichedLeads = await runInBatches(enrichTasks, 2, 2500);
       return enrichedLeads.filter(l => l !== null);
       
     } catch (error) {
