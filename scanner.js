@@ -579,15 +579,23 @@ function isValidSocialUrl(url) {
 
 function extractWebsiteFromSnippet(text) {
   if (!text) return null;
-  const matches = text.match(/(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})/g);
+  
+  // 1. Strip email addresses first to prevent email domains (e.g. info@domain.com) from being treated as websites
+  const textWithoutEmails = text.replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '');
+  
+  // 2. Match potential domains/URLs
+  const matches = textWithoutEmails.match(/(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})/g);
   if (matches) {
+    // 3. Exclude directories, social networks, link-in-bio services, and email providers
     const excludedDomains = [
       'facebook.com', 'instagram.com', 'linkedin.com', 'twitter.com', 'x.com',
       'youtube.com', 'whatsapp.com', 'wa.me', 'google.com', 'bing.com',
       'yelp.com', 'tripadvisor.com', 'justdial.com', 'yellowpages.com',
       'foursquare.com', 'mapquest.com', 'tiktok.com', 'pinterest.com',
       'wix.com', 'wordpress.com', 'squarespace.com', 'weebly.com',
-      'wikipedia.org', 't.me'
+      'wikipedia.org', 't.me',
+      'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com', 'proton.me', 'protonmail.com', 'mail.com', // email domains
+      'linktr.ee', 'campsite.bio', 'bio.link', 'solo.to', 'linktree' // link-in-bio services
     ];
     for (const m of matches) {
       const cleanDomain = m.replace(/https?:\/\//, '').replace('www.', '').split('/')[0].toLowerCase();
