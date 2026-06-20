@@ -111,6 +111,7 @@ function getMockSocialMedia(name, location) {
     facebook: Math.random() > 0.3 ? `https://facebook.com/${cleanName}-${locSuffix}` : null,
     instagram: Math.random() > 0.5 ? `https://instagram.com/${cleanName}` : null,
     linkedin: Math.random() > 0.8 ? `https://linkedin.com/company/${cleanName}` : null,
+    tiktok: Math.random() > 0.6 ? `https://tiktok.com/@${cleanName}` : null,
     whatsapp: Math.random() > 0.6 ? `https://wa.me/${Math.floor(10000000000 + Math.random() * 90000000000)}` : null,
     email: Math.random() > 0.7 ? `contact@${cleanName}.com` : null
   };
@@ -155,6 +156,20 @@ async function fetchLivePlaces(niche, location) {
 }
 
 /**
+ * Helper to clean business names for reliable search engine matching.
+ * Splits on common dividers like hyphens/pipes, removes legal entities (LLC, Inc),
+ * and returns a clean search string.
+ */
+function cleanBusinessNameForSearch(name) {
+  if (!name) return "";
+  let clean = name.split(/[-|:]/)[0].trim();
+  clean = clean.replace(/\b(llc|inc|ltd|co|corp|gmbh|sa|srl|pty)\b/gi, '').trim();
+  clean = clean.replace(/['"]/g, '').trim();
+  clean = clean.replace(/\s+/g, ' ').trim();
+  return clean || name;
+}
+
+/**
  * Search social media URLs and contact details for a business using Google Custom Search API.
  */
 async function searchLiveSocialMedia(businessName, location) {
@@ -162,7 +177,8 @@ async function searchLiveSocialMedia(businessName, location) {
   const googleKey = process.env.GOOGLE_SEARCH_API_KEY;
   const cx = process.env.GOOGLE_SEARCH_ENGINE_ID;
   
-  const query = `"${businessName}" ${location} (site:facebook.com OR site:instagram.com OR site:linkedin.com OR site:whatsapp.com OR site:wa.me)`;
+  const cleanName = cleanBusinessNameForSearch(businessName);
+  const query = `"${cleanName}" ${location} (site:facebook.com OR site:instagram.com OR site:linkedin.com OR site:tiktok.com OR site:whatsapp.com OR site:wa.me)`;
   let items = [];
   
   try {
@@ -197,6 +213,7 @@ async function searchLiveSocialMedia(businessName, location) {
   let instagram = null;
   let linkedin = null;
   let whatsapp = null;
+  let tiktok = null;
   let email = null;
   let hasWebsiteInBio = false;
   let foundWebsiteUrl = null;
@@ -219,6 +236,8 @@ async function searchLiveSocialMedia(businessName, location) {
       instagram = link;
     } else if ((link.includes("linkedin.com/company/") || link.includes("linkedin.com/in/")) && !linkedin && isValidSocialUrl(link)) {
       linkedin = link;
+    } else if (link.includes("tiktok.com/") && !tiktok && isValidSocialUrl(link)) {
+      tiktok = link;
     } else if ((link.includes("wa.me/") || link.includes("api.whatsapp.com/")) && !whatsapp && isValidSocialUrl(link)) {
       whatsapp = link;
     }
@@ -232,7 +251,7 @@ async function searchLiveSocialMedia(businessName, location) {
     }
   }
   
-  return { facebook, instagram, linkedin, whatsapp, email, hasWebsiteInBio, foundWebsiteUrl };
+  return { facebook, instagram, linkedin, whatsapp, tiktok, email, hasWebsiteInBio, foundWebsiteUrl };
 }
 
 /**
@@ -534,7 +553,11 @@ function isValidSocialUrl(url) {
       'facebook.com/story.php',
       'linkedin.com/feed',
       'linkedin.com/jobs',
-      'linkedin.com/learning'
+      'linkedin.com/learning',
+      'tiktok.com/tag/',
+      'tiktok.com/music/',
+      'tiktok.com/embed/',
+      '/public/'
     ];
     
     const isInvalid = invalidPatterns.some(pattern => lower.includes(pattern));
@@ -581,12 +604,14 @@ function extractWebsiteFromSnippet(text) {
  * Searches and scrapes social media links using DuckDuckGo with fallback to Bing.
  */
 async function scrapeSocialLinksWithPuppeteer(name, location, page) {
-  const query = `"${name}" ${location} facebook instagram`;
+  const cleanName = cleanBusinessNameForSearch(name);
+  const query = `"${cleanName}" ${location} (facebook OR instagram OR linkedin OR tiktok OR whatsapp)`;
   
   let facebook = null;
   let instagram = null;
   let linkedin = null;
   let whatsapp = null;
+  let tiktok = null;
   let email = null;
   let hasWebsiteInBio = false;
   let foundWebsiteUrl = null;
@@ -731,6 +756,8 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
         instagram = link;
       } else if ((link.includes("linkedin.com/company/") || link.includes("linkedin.com/in/")) && !linkedin && isValidSocialUrl(link)) {
         linkedin = link;
+      } else if (link.includes("tiktok.com/") && !tiktok && isValidSocialUrl(link)) {
+        tiktok = link;
       } else if ((link.includes("wa.me/") || link.includes("api.whatsapp.com/")) && !whatsapp && isValidSocialUrl(link)) {
         whatsapp = link;
       }
@@ -789,7 +816,7 @@ async function scrapeSocialLinksWithPuppeteer(name, location, page) {
     console.error(`[Puppeteer] Social search error for "${name}": ${err.message}`);
   }
   
-  return { facebook, instagram, linkedin, whatsapp, email, hasWebsiteInBio, foundWebsiteUrl };
+  return { facebook, instagram, linkedin, whatsapp, tiktok, email, hasWebsiteInBio, foundWebsiteUrl };
 }
 
 /**
@@ -850,7 +877,7 @@ async function scanLocalLeads(niche, location, forceMock = false) {
       const name = place.displayName?.text || "Unknown Business";
       const address = place.formattedAddress || "N/A";
       const phone = place.nationalPhoneNumber || "N/A";
-      let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, email: null, hasWebsiteInBio: false, foundWebsiteUrl: null };
+      let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, tiktok: null, email: null, hasWebsiteInBio: false, foundWebsiteUrl: null };
       
       try {
         social = await searchLiveSocialMedia(name, location);
@@ -919,7 +946,7 @@ async function scanLocalLeads(niche, location, forceMock = false) {
         const phone = place.nationalPhoneNumber || "N/A";
         
         let socialPage = null;
-        let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, email: null };
+        let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, tiktok: null, email: null };
         
         try {
           // If Search API keys are configured, use the fast API instead of Puppeteer scraping!

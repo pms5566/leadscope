@@ -201,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lead.facebook) { hasSocial = true; }
       if (lead.instagram) { hasSocial = true; }
       if (lead.linkedin) { hasSocial = true; }
+      if (lead.tiktok) { hasSocial = true; }
       if (lead.whatsapp) { whatsappCount++; hasSocial = true; }
       if (hasSocial) { socialCount++; }
       
@@ -247,6 +248,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="${lead.linkedin || '#'}" target="_blank" class="social-pill in ${lead.linkedin ? '' : 'inactive'}" title="LinkedIn">
               <i class="fa-brands fa-linkedin-in"></i>
             </a>
+            <a href="${lead.tiktok || '#'}" target="_blank" class="social-pill tt ${lead.tiktok ? '' : 'inactive'}" title="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
             <a href="${lead.whatsapp || '#'}" target="_blank" class="social-pill wa ${lead.whatsapp ? '' : 'inactive'}" title="WhatsApp">
               <i class="fa-brands fa-whatsapp"></i>
             </a>
@@ -276,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
   btnExportCSV.addEventListener('click', () => {
     if (currentLeads.length === 0) return;
     
-    const headers = ['Name', 'Google Maps Link', 'Address', 'Phone', 'Facebook', 'Instagram', 'LinkedIn', 'WhatsApp', 'Email'];
+    const headers = ['Name', 'Google Maps Link', 'Address', 'Phone', 'Facebook', 'Instagram', 'LinkedIn', 'TikTok', 'WhatsApp', 'Email'];
     const rows = currentLeads.map(lead => [
       `"${lead.name.replace(/"/g, '""')}"`,
       `"${lead.googleMapsUri.replace(/"/g, '""')}"`,
@@ -285,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `"${(lead.facebook || '').replace(/"/g, '""')}"`,
       `"${(lead.instagram || '').replace(/"/g, '""')}"`,
       `"${(lead.linkedin || '').replace(/"/g, '""')}"`,
+      `"${(lead.tiktok || '').replace(/"/g, '""')}"`,
       `"${(lead.whatsapp || '').replace(/"/g, '""')}"`,
       `"${(lead.email || '').replace(/"/g, '""')}"`
     ]);
@@ -864,7 +869,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Generate option values
         const statuses = [
           { val: 'new', label: 'New Lead' },
-          { val: 'pitched_ig', label: 'Pitched (IG/FB)' },
+          { val: 'pitched_ig', label: 'Pitched (IG/FB/TikTok)' },
           { val: 'pitched_wa', label: 'Pitched (WhatsApp)' },
           { val: 'pitched_email', label: 'Pitched (Email)' },
           { val: 'interested', label: 'Interested' },
@@ -878,6 +883,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Social links list
         const fbHtml = lead.facebook ? `<a href="${lead.facebook}" target="_blank" class="social-pill fb" style="font-size:0.75rem;"><i class="fa-brands fa-facebook-f"></i></a>` : '';
         const igHtml = lead.instagram ? `<a href="${lead.instagram}" target="_blank" class="social-pill ig" style="font-size:0.75rem;"><i class="fa-brands fa-instagram"></i></a>` : '';
+        const inHtml = lead.linkedin ? `<a href="${lead.linkedin}" target="_blank" class="social-pill in" style="font-size:0.75rem;"><i class="fa-brands fa-linkedin-in"></i></a>` : '';
+        const ttHtml = lead.tiktok ? `<a href="${lead.tiktok}" target="_blank" class="social-pill tt" style="font-size:0.75rem;"><i class="fa-brands fa-tiktok"></i></a>` : '';
         const waHtml = lead.whatsapp ? `<a href="${lead.whatsapp}" target="_blank" class="social-pill wa" style="font-size:0.75rem;"><i class="fa-brands fa-whatsapp"></i></a>` : '';
         const mailHtml = lead.email ? `<a href="mailto:${lead.email}" target="_blank" class="social-pill mail" style="font-size:0.75rem;"><i class="fa-solid fa-envelope"></i></a>` : '';
 
@@ -939,7 +946,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <a href="#" class="social-pill crm-pitch-gen" data-id="${lead.id}" title="Generate Outreach Pitch" style="background: rgba(186, 36, 239, 0.15); color: var(--color-magenta); border-color: var(--color-magenta); font-size: 0.75rem;">
                 <i class="fa-solid fa-paper-plane"></i>
               </a>
-              ${fbHtml} ${igHtml} ${waHtml} ${mailHtml}
+              ${fbHtml} ${igHtml} ${inHtml} ${ttHtml} ${waHtml} ${mailHtml}
             </div>
             ${proposalLinkHtml}
           </td>

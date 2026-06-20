@@ -624,6 +624,7 @@ tr:hover td {
 .social-pill.fb:hover { background: #1877f2; }
 .social-pill.ig:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
 .social-pill.in:hover { background: #0a66c2; }
+.social-pill.tt:hover { background: #010101; border-color: #010101; color: #ffffff; }
 .social-pill.wa:hover { background: #25d366; }
 .social-pill.mail:hover { background: #ea4335; }
 
