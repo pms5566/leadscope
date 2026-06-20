@@ -528,42 +528,34 @@
               </div>
             </div>
 
-            <!-- Card 3: Real-time Telegram Phone Notifications (Spy Alerts) -->
+            <!-- Card 3: Real-time Discord Phone Notifications (Spy Alerts) -->
             <div class="results-card" style="margin-top: 1.5rem;">
               <div class="results-header">
                 <h3 class="results-title" style="color: var(--color-green);">
-                  <i class="fa-brands fa-telegram" style="color: #24A1DE;"></i> Telegram Phone Notifications (Spy Alerts)
+                  <i class="fa-brands fa-discord" style="color: #7289DA;"></i> Discord Phone Notifications (Spy Alerts)
                 </h3>
               </div>
               <div style="padding: 1.5rem;">
-                <form id="telegramSettingsForm">
-                  <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-                    <div class="input-group">
-                      <label for="telegramTokenInput">Telegram Bot Token</label>
-                      <div class="input-wrapper">
-                        <input type="password" id="telegramTokenInput" placeholder="Enter Bot Token (e.g. 123456:ABC...)">
-                        <i class="fa-solid fa-key"></i>
-                        <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('telegramTokenInput')">
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="input-group">
-                      <label for="telegramChatIdInput">Telegram Chat ID</label>
-                      <div class="input-wrapper">
-                        <input type="text" id="telegramChatIdInput" placeholder="Enter Chat ID (e.g. 98765432)">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                      </div>
+                <form id="discordSettingsForm">
+                  <div class="input-group" style="margin-bottom: 1.25rem;">
+                    <label for="discordWebhookInput">Discord Webhook URL</label>
+                    <div class="input-wrapper">
+                      <input type="password" id="discordWebhookInput" placeholder="Enter Webhook URL (https://discord.com/api/webhooks/...)">
+                      <i class="fa-solid fa-link"></i>
+                      <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('discordWebhookInput')">
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
                     </div>
                   </div>
                   <span class="input-help" style="display: block; margin-top: -0.75rem; margin-bottom: 1.5rem; line-height: 1.4;">
-                    1. Create a bot by messaging <a href="https://t.me/BotFather" target="_blank" style="color: var(--color-green); text-decoration: underline;">@BotFather</a> on Telegram, send <code>/newbot</code>, and copy the Token.<br>
-                    2. Search for <a href="https://t.me/userinfobot" target="_blank" style="color: var(--color-green); text-decoration: underline;">@userinfobot</a> on Telegram, start a chat, and copy your numeric <b>Id</b>.<br>
-                    3. <b>Important:</b> Start your newly created bot (click <b>/start</b>) so it has permission to message you.
+                    1. Create a Discord server or open one you own (takes 10 seconds).<br>
+                    2. Go to your channel settings -> **Integrations** -> **Webhooks** -> click **Create Webhook**.<br>
+                    3. Click **Copy Webhook URL** and paste it above.<br>
+                    4. Install the Discord mobile app on your phone so you receive instant push notifications!
                   </span>
 
                   <button type="submit" class="btn-action" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--color-green) 0%, #00d9f5 100%); color: #07080d; font-weight: 700;">
-                    <i class="fa-solid fa-floppy-disk"></i> Save Telegram Settings
+                    <i class="fa-solid fa-floppy-disk"></i> Save Discord Settings
                   </button>
                 </form>
               </div>
@@ -622,14 +614,14 @@
                   <button type="button" class="btn-diag-test" id="btnTestGithub">Reload Templates</button>
                 </div>
 
-                <!-- Telegram Alerts Status -->
-                <div class="diagnostic-item" id="diagTelegram">
+                <!-- Discord Alerts Status -->
+                <div class="diagnostic-item" id="diagDiscord">
                   <div class="diag-header">
-                    <span class="diag-title"><i class="fa-brands fa-telegram" style="color: #24A1DE;"></i> Telegram Spy Alerts</span>
-                    <span class="diag-badge badge-missing" id="badgeTelegram">Inactive</span>
+                    <span class="diag-title"><i class="fa-brands fa-discord" style="color: #7289DA;"></i> Discord Spy Alerts</span>
+                    <span class="diag-badge badge-missing" id="badgeDiscord">Inactive</span>
                   </div>
-                  <p class="diag-desc" id="descTelegram">Telegram Bot credentials not configured. Save them to receive instant phone notifications.</p>
-                  <button type="button" class="btn-diag-test" id="btnTestTelegram">Test Telegram Push</button>
+                  <p class="diag-desc" id="descDiscord">Discord Webhook URL not configured. Save it to receive instant Discord channel push alerts.</p>
+                  <button type="button" class="btn-diag-test" id="btnTestDiscord">Test Discord Push</button>
                 </div>
 
               </div>

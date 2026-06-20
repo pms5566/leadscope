@@ -1193,7 +1193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Settings elements
     const googleSettingsForm = document.getElementById('googleSettingsForm');
     const githubSettingsForm = document.getElementById('githubSettingsForm');
-    const telegramSettingsForm = document.getElementById('telegramSettingsForm');
+    const discordSettingsForm = document.getElementById('discordSettingsForm');
     
     const placesKeyInput = document.getElementById('placesKeyInput');
     const serperKeyInput = document.getElementById('serperKeyInput');
@@ -1205,8 +1205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubBranchInput = document.getElementById('githubBranchInput');
     const githubTokenInput = document.getElementById('githubTokenInput');
 
-    const telegramTokenInput = document.getElementById('telegramTokenInput');
-    const telegramChatIdInput = document.getElementById('telegramChatIdInput');
+    const discordWebhookInput = document.getElementById('discordWebhookInput');
     
     // Diagnostic Badges & Descs
     const badgePlaces = document.getElementById('badgePlaces');
@@ -1225,9 +1224,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const descGithub = document.getElementById('descGithub');
     const btnTestGithub = document.getElementById('btnTestGithub');
 
-    const badgeTelegram = document.getElementById('badgeTelegram');
-    const descTelegram = document.getElementById('descTelegram');
-    const btnTestTelegram = document.getElementById('btnTestTelegram');
+    const badgeDiscord = document.getElementById('badgeDiscord');
+    const descDiscord = document.getElementById('descDiscord');
+    const btnTestDiscord = document.getElementById('btnTestDiscord');
 
     async function loadConfigSettings() {
       try {
@@ -1245,8 +1244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.githubBranch) githubBranchInput.value = data.githubBranch;
         if (data.githubToken) githubTokenInput.value = data.githubToken;
 
-        if (data.telegramToken) telegramTokenInput.value = data.telegramToken;
-        if (data.telegramChatId) telegramChatIdInput.value = data.telegramChatId;
+        if (data.discordWebhookUrl) discordWebhookInput.value = data.discordWebhookUrl;
         
         // Update diagnostic statuses
         updateDiagnosticUI(data);
@@ -1301,15 +1299,15 @@ document.addEventListener('DOMContentLoaded', () => {
         descGithub.textContent = "GitHub details missing. Standard presets (cafe, gym, bakery, etc.) are in use.";
       }
 
-      // Telegram Status
-      if (config.telegramConfigured) {
-        badgeTelegram.className = "diag-badge badge-connected";
-        badgeTelegram.textContent = "Active";
-        descTelegram.textContent = `Telegram notifications configured (Chat ID: ${config.telegramChatId}). Ready to push alerts.`;
+      // Discord Status
+      if (config.discordConfigured) {
+        badgeDiscord.className = "diag-badge badge-connected";
+        badgeDiscord.textContent = "Active";
+        descDiscord.textContent = "Discord webhook notifications configured. Ready to push alerts.";
       } else {
-        badgeTelegram.className = "diag-badge badge-missing";
-        badgeTelegram.textContent = "Inactive";
-        descTelegram.textContent = "Telegram bot credentials not configured. Setup to receive real-time phone push alerts.";
+        badgeDiscord.className = "diag-badge badge-missing";
+        badgeDiscord.textContent = "Inactive";
+        descDiscord.textContent = "Discord webhook URL not configured. Setup to receive real-time phone push alerts.";
       }
     }
 
@@ -1377,13 +1375,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Save Telegram Settings
-    if (telegramSettingsForm) {
-      telegramSettingsForm.addEventListener('submit', async (e) => {
+    // Save Discord Settings
+    if (discordSettingsForm) {
+      discordSettingsForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const payload = {
-          telegramToken: telegramTokenInput.value.trim(),
-          telegramChatId: telegramChatIdInput.value.trim()
+          discordWebhookUrl: discordWebhookInput.value.trim()
         };
         
         try {
@@ -1394,14 +1391,14 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           const result = await res.json();
           if (result.success) {
-            alert('Telegram notification settings saved successfully!');
+            alert('Discord notification settings saved successfully!');
             await loadConfigSettings();
           } else {
-            alert('Failed to save Telegram settings: ' + result.error);
+            alert('Failed to save Discord settings: ' + result.error);
           }
         } catch (error) {
           console.error(error);
-          alert('Error saving Telegram settings.');
+          alert('Error saving Discord settings.');
         }
       });
     }
@@ -1558,42 +1555,42 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Test Telegram Connection
-    if (btnTestTelegram) {
-      btnTestTelegram.addEventListener('click', async () => {
-        const originalText = btnTestTelegram.textContent;
-        btnTestTelegram.textContent = "Testing...";
-        btnTestTelegram.disabled = true;
-        badgeTelegram.className = "diag-badge badge-testing";
-        badgeTelegram.textContent = "Testing...";
+    // Test Discord Connection
+    if (btnTestDiscord) {
+      btnTestDiscord.addEventListener('click', async () => {
+        const originalText = btnTestDiscord.textContent;
+        btnTestDiscord.textContent = "Testing...";
+        btnTestDiscord.disabled = true;
+        badgeDiscord.className = "diag-badge badge-testing";
+        badgeDiscord.textContent = "Testing...";
         
         try {
           const res = await fetch('/api/config/test', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type: 'telegram' })
+            body: JSON.stringify({ type: 'discord' })
           });
           const result = await res.json();
           if (result.success) {
-            badgeTelegram.className = "diag-badge badge-connected";
-            badgeTelegram.textContent = "Success";
-            descTelegram.textContent = "Telegram test message sent successfully! Check your phone.";
-            alert('Telegram test alert sent successfully! Check your phone.');
+            badgeDiscord.className = "diag-badge badge-connected";
+            badgeDiscord.textContent = "Success";
+            descDiscord.textContent = "Discord test message sent successfully! Check your phone.";
+            alert('Discord test alert sent successfully! Check your phone.');
           } else {
-            badgeTelegram.className = "diag-badge badge-missing";
-            badgeTelegram.textContent = "Error";
-            descTelegram.textContent = "Connection test failed: " + result.error;
-            alert('Telegram connection test failed: ' + result.error);
+            badgeDiscord.className = "diag-badge badge-missing";
+            badgeDiscord.textContent = "Error";
+            descDiscord.textContent = "Connection test failed: " + result.error;
+            alert('Discord connection test failed: ' + result.error);
           }
         } catch (error) {
           console.error(error);
-          badgeTelegram.className = "diag-badge badge-missing";
-          badgeTelegram.textContent = "Error";
-          descTelegram.textContent = "Network error during diagnostic test.";
-          alert('Network error testing Telegram connection.');
+          badgeDiscord.className = "diag-badge badge-missing";
+          badgeDiscord.textContent = "Error";
+          descDiscord.textContent = "Network error during diagnostic test.";
+          alert('Network error testing Discord connection.');
         } finally {
-          btnTestTelegram.textContent = originalText;
-          btnTestTelegram.disabled = false;
+          btnTestDiscord.textContent = originalText;
+          btnTestDiscord.disabled = false;
         }
       });
     }

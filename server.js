@@ -46,7 +46,8 @@ function maskKey(key) {
       key === "your_google_search_engine_id_here" || 
       key === "your_github_token_here" || 
       key === "your_serper_api_key_here" ||
-      key === "your_telegram_bot_token_here") {
+      key === "your_telegram_bot_token_here" ||
+      key === "your_discord_webhook_url_here") {
     return "";
   }
   if (key.length <= 8) return "***";
@@ -63,6 +64,7 @@ app.get('/api/config', (req, res) => {
     searchEngineIdConfigured: !!(process.env.GOOGLE_SEARCH_ENGINE_ID && process.env.GOOGLE_SEARCH_ENGINE_ID !== "your_google_search_engine_id_here" && process.env.GOOGLE_SEARCH_ENGINE_ID.trim() !== ""),
     githubConfigured: !!(process.env.GITHUB_USERNAME && process.env.GITHUB_USERNAME !== "your_github_username" && process.env.GITHUB_USERNAME.trim() !== ""),
     telegramConfigured: !!(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_BOT_TOKEN !== "your_telegram_bot_token_here" && process.env.TELEGRAM_BOT_TOKEN.trim() !== "" && process.env.TELEGRAM_CHAT_ID && process.env.TELEGRAM_CHAT_ID !== "your_telegram_chat_id_here" && process.env.TELEGRAM_CHAT_ID.trim() !== ""),
+    discordConfigured: !!(process.env.DISCORD_WEBHOOK_URL && process.env.DISCORD_WEBHOOK_URL !== "your_discord_webhook_url_here" && process.env.DISCORD_WEBHOOK_URL.trim() !== ""),
     placesKey: maskKey(process.env.GOOGLE_PLACES_API_KEY),
     serperKey: maskKey(process.env.SERPER_API_KEY),
     searchKey: maskKey(process.env.GOOGLE_SEARCH_API_KEY),
@@ -72,13 +74,14 @@ app.get('/api/config', (req, res) => {
     githubBranch: process.env.GITHUB_BRANCH || "main",
     githubToken: maskKey(process.env.GITHUB_TOKEN),
     telegramToken: maskKey(process.env.TELEGRAM_BOT_TOKEN),
-    telegramChatId: process.env.TELEGRAM_CHAT_ID === "your_telegram_chat_id_here" ? "" : (process.env.TELEGRAM_CHAT_ID || "")
+    telegramChatId: process.env.TELEGRAM_CHAT_ID === "your_telegram_chat_id_here" ? "" : (process.env.TELEGRAM_CHAT_ID || ""),
+    discordWebhookUrl: maskKey(process.env.DISCORD_WEBHOOK_URL)
   });
 });
 
 // API Endpoint to save configuration
 app.post('/api/config', async (req, res) => {
-  const { placesKey, serperKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId } = req.body;
+  const { placesKey, serperKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl } = req.body;
   
   try {
     let envContent = "";
@@ -117,6 +120,7 @@ app.post('/api/config', async (req, res) => {
     if (githubToken !== undefined && !isMasked(githubToken)) envObj['GITHUB_TOKEN'] = githubToken;
     if (telegramToken !== undefined && !isMasked(telegramToken)) envObj['TELEGRAM_BOT_TOKEN'] = telegramToken;
     if (telegramChatId !== undefined) envObj['TELEGRAM_CHAT_ID'] = telegramChatId;
+    if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) envObj['DISCORD_WEBHOOK_URL'] = discordWebhookUrl;
     
     // Re-serialize
     let newEnvContent = "";
@@ -136,7 +140,9 @@ app.post('/api/config', async (req, res) => {
     newEnvContent += `GITHUB_TOKEN=${envObj['GITHUB_TOKEN'] || 'your_github_token_here'}\n\n`;
     newEnvContent += "# Telegram Phone Notifications Configuration\n";
     newEnvContent += `TELEGRAM_BOT_TOKEN=${envObj['TELEGRAM_BOT_TOKEN'] || 'your_telegram_bot_token_here'}\n`;
-    newEnvContent += `TELEGRAM_CHAT_ID=${envObj['TELEGRAM_CHAT_ID'] || 'your_telegram_chat_id_here'}\n`;
+    newEnvContent += `TELEGRAM_CHAT_ID=${envObj['TELEGRAM_CHAT_ID'] || 'your_telegram_chat_id_here'}\n\n`;
+    newEnvContent += "# Discord Webhook Notifications Configuration\n";
+    newEnvContent += `DISCORD_WEBHOOK_URL=${envObj['DISCORD_WEBHOOK_URL'] || 'your_discord_webhook_url_here'}\n`;
     
     await fs.writeFile(path.join(__dirname, '.env'), newEnvContent, 'utf8');
     
@@ -151,6 +157,7 @@ app.post('/api/config', async (req, res) => {
     if (githubToken !== undefined && !isMasked(githubToken)) process.env.GITHUB_TOKEN = githubToken;
     if (telegramToken !== undefined && !isMasked(telegramToken)) process.env.TELEGRAM_BOT_TOKEN = telegramToken;
     if (telegramChatId !== undefined) process.env.TELEGRAM_CHAT_ID = telegramChatId;
+    if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) process.env.DISCORD_WEBHOOK_URL = discordWebhookUrl;
     
     res.json({
       success: true,
@@ -238,31 +245,21 @@ app.post('/api/config/test', async (req, res) => {
       if (testRes.status === 200) {
         return res.json({ success: true, message: 'Google Custom Search API connection successful!' });
       }
-    } else if (type === 'telegram') {
-      const rawToken = process.env.TELEGRAM_BOT_TOKEN;
-      const rawChatId = process.env.TELEGRAM_CHAT_ID;
+    } else if (type === 'discord') {
+      const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
       
-      if (!rawToken || rawToken === "your_telegram_bot_token_here" || rawToken.trim() === "") {
-        return res.json({ success: false, error: 'Telegram Bot Token is not configured.' });
-      }
-      if (!rawChatId || rawChatId === "your_telegram_chat_id_here" || rawChatId.trim() === "") {
-        return res.json({ success: false, error: 'Telegram Chat ID is not configured.' });
+      if (!webhookUrl || webhookUrl === "your_discord_webhook_url_here" || webhookUrl.trim() === "") {
+        return res.json({ success: false, error: 'Discord Webhook URL is not configured.' });
       }
       
-      const token = rawToken.replace(/\s+/g, '');
-      const chatId = rawChatId.replace(/\s+/g, '');
+      console.log(`[Config Test] Sending test Discord notification...`);
       
-      const url = `https://api.telegram.org/bot${token}/sendMessage`;
-      console.log(`[Config Test] Sending test Telegram notification to ${chatId}...`);
-      
-      const testRes = await axios.post(url, {
-        chat_id: chatId,
-        text: "🔔 <b>Spy Alert Test</b>\nYour Lead Tracker notification integration is working successfully! You will now receive real-time notifications on your phone.",
-        parse_mode: 'HTML'
+      const testRes = await axios.post(webhookUrl, {
+        content: "🔔 **Spy Alert Test**\nYour Lead Tracker notification integration is working successfully! You will now receive real-time notifications on your phone."
       }, { timeout: 5000 });
       
-      if (testRes.status === 200) {
-        return res.json({ success: true, message: 'Telegram test message sent successfully! Check your phone.' });
+      if (testRes.status === 200 || testRes.status === 204) {
+        return res.json({ success: true, message: 'Discord test message sent successfully! Check your phone.' });
       }
     } else {
       return res.status(400).json({ error: 'Invalid test type specified.' });
@@ -635,27 +632,9 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
 
 // Send real-time phone notifications via Telegram Bot or Discord Webhook
 async function sendPhoneNotification(message) {
-  const rawTelegramToken = process.env.TELEGRAM_BOT_TOKEN;
-  const rawTelegramChatId = process.env.TELEGRAM_CHAT_ID;
   const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
-  // 1. Telegram Notification
-  if (rawTelegramToken && rawTelegramToken !== 'your_telegram_bot_token_here' && rawTelegramChatId && rawTelegramChatId !== 'your_telegram_chat_id_here') {
-    try {
-      const telegramToken = rawTelegramToken.replace(/\s+/g, '');
-      const telegramChatId = rawTelegramChatId.replace(/\s+/g, '');
-      const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-      await axios.post(url, {
-        chat_id: telegramChatId,
-        text: message,
-        parse_mode: 'HTML'
-      }, { timeout: 4000 });
-    } catch (err) {
-      console.error('[Notification Error] Telegram delivery failed:', err.message);
-    }
-  }
-
-  // 2. Discord Notification (Discord uses Markdown, so we convert basic HTML tags to Markdown)
+  // Discord Notification (Discord uses Markdown, so we convert basic HTML tags to Markdown)
   if (discordWebhookUrl && discordWebhookUrl !== 'your_discord_webhook_url_here' && discordWebhookUrl.trim() !== '') {
     try {
       let discordMsg = message
