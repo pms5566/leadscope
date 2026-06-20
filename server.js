@@ -239,15 +239,18 @@ app.post('/api/config/test', async (req, res) => {
         return res.json({ success: true, message: 'Google Custom Search API connection successful!' });
       }
     } else if (type === 'telegram') {
-      const token = process.env.TELEGRAM_BOT_TOKEN;
-      const chatId = process.env.TELEGRAM_CHAT_ID;
+      const rawToken = process.env.TELEGRAM_BOT_TOKEN;
+      const rawChatId = process.env.TELEGRAM_CHAT_ID;
       
-      if (!token || token === "your_telegram_bot_token_here" || token.trim() === "") {
+      if (!rawToken || rawToken === "your_telegram_bot_token_here" || rawToken.trim() === "") {
         return res.json({ success: false, error: 'Telegram Bot Token is not configured.' });
       }
-      if (!chatId || chatId === "your_telegram_chat_id_here" || chatId.trim() === "") {
+      if (!rawChatId || rawChatId === "your_telegram_chat_id_here" || rawChatId.trim() === "") {
         return res.json({ success: false, error: 'Telegram Chat ID is not configured.' });
       }
+      
+      const token = rawToken.replace(/\s+/g, '');
+      const chatId = rawChatId.replace(/\s+/g, '');
       
       const url = `https://api.telegram.org/bot${token}/sendMessage`;
       console.log(`[Config Test] Sending test Telegram notification to ${chatId}...`);
@@ -632,13 +635,15 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
 
 // Send real-time phone notifications via Telegram Bot or Discord Webhook
 async function sendPhoneNotification(message) {
-  const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
-  const telegramChatId = process.env.TELEGRAM_CHAT_ID;
+  const rawTelegramToken = process.env.TELEGRAM_BOT_TOKEN;
+  const rawTelegramChatId = process.env.TELEGRAM_CHAT_ID;
   const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
   // 1. Telegram Notification
-  if (telegramToken && telegramToken !== 'your_telegram_bot_token_here' && telegramChatId && telegramChatId !== 'your_telegram_chat_id_here') {
+  if (rawTelegramToken && rawTelegramToken !== 'your_telegram_bot_token_here' && rawTelegramChatId && rawTelegramChatId !== 'your_telegram_chat_id_here') {
     try {
+      const telegramToken = rawTelegramToken.replace(/\s+/g, '');
+      const telegramChatId = rawTelegramChatId.replace(/\s+/g, '');
       const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
       await axios.post(url, {
         chat_id: telegramChatId,
