@@ -255,7 +255,10 @@ app.post('/api/config/test', async (req, res) => {
       console.log(`[Config Test] Sending test Discord notification...`);
       
       const testRes = await axios.post(webhookUrl, {
-        content: "🔔 **Spy Alert Test**\nYour Lead Tracker notification integration is working successfully! You will now receive real-time notifications on your phone."
+        content: "@everyone 🔔 **Spy Alert Test**\nYour Lead Tracker notification integration is working successfully! You will now receive real-time notifications on your phone.",
+        allowed_mentions: {
+          parse: ["everyone"]
+        }
       }, { timeout: 5000 });
       
       if (testRes.status === 200 || testRes.status === 204) {
@@ -641,7 +644,10 @@ async function sendPhoneNotification(message) {
         .replace(/<b>/g, '**').replace(/<\/b>/g, '**')
         .replace(/<i>/g, '*').replace(/<\/i>/g, '*');
       await axios.post(discordWebhookUrl, {
-        content: discordMsg
+        content: discordMsg,
+        allowed_mentions: {
+          parse: ["everyone"]
+        }
       }, { timeout: 4000 });
     } catch (err) {
       console.error('[Notification Error] Discord delivery failed:', err.message);
