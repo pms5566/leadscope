@@ -178,7 +178,7 @@ async function searchLiveSocialMedia(businessName, location) {
   const cx = process.env.GOOGLE_SEARCH_ENGINE_ID;
   
   const cleanName = cleanBusinessNameForSearch(businessName);
-  const query = `"${cleanName}" ${location} (site:facebook.com OR site:instagram.com OR site:linkedin.com OR site:tiktok.com OR site:whatsapp.com OR site:wa.me)`;
+  const query = `${cleanName} ${location} (site:facebook.com OR site:instagram.com OR site:linkedin.com OR site:tiktok.com OR site:whatsapp.com OR site:wa.me)`;
   let items = [];
   
   try {
@@ -583,8 +583,8 @@ function extractWebsiteFromSnippet(text) {
   // 1. Strip email addresses first to prevent email domains (e.g. info@domain.com) from being treated as websites
   const textWithoutEmails = text.replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '');
   
-  // 2. Match potential domains/URLs
-  const matches = textWithoutEmails.match(/(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})/g);
+  // 2. Match potential domains/URLs with a TLD restriction to avoid false positives like 'us.See' or 'chowk.Watch'
+  const matches = textWithoutEmails.match(/\b[a-zA-Z0-9-]+\.(?:com|net|org|edu|gov|mil|biz|info|us|ca|uk|in|co|np|me|xyz|online|site|store|tech|club|app|tv|cc|io|co\.[a-z]{2}|org\.[a-z]{2})\b/gi);
   if (matches) {
     // 3. Exclude directories, social networks, link-in-bio services, and email providers
     const excludedDomains = [
@@ -613,7 +613,7 @@ function extractWebsiteFromSnippet(text) {
  */
 async function scrapeSocialLinksWithPuppeteer(name, location, page) {
   const cleanName = cleanBusinessNameForSearch(name);
-  const query = `"${cleanName}" ${location} (facebook OR instagram OR linkedin OR tiktok OR whatsapp)`;
+  const query = `${cleanName} ${location} (facebook OR instagram OR linkedin OR tiktok OR whatsapp)`;
   
   let facebook = null;
   let instagram = null;
