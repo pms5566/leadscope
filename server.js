@@ -637,7 +637,7 @@ async function sendPhoneNotification(message) {
   // Discord Notification (Discord uses Markdown, so we convert basic HTML tags to Markdown)
   if (discordWebhookUrl && discordWebhookUrl !== 'your_discord_webhook_url_here' && discordWebhookUrl.trim() !== '') {
     try {
-      let discordMsg = message
+      let discordMsg = '@everyone ' + message
         .replace(/<b>/g, '**').replace(/<\/b>/g, '**')
         .replace(/<i>/g, '*').replace(/<\/i>/g, '*');
       await axios.post(discordWebhookUrl, {
