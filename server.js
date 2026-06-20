@@ -5,7 +5,7 @@ const { scanLocalLeads, isLiveModeConfigured } = require('./scanner');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT, 10) || 3000;
 
 // In-memory cache for latest scanned leads and visitor tracking
 let latestScannedLeads = [];
@@ -842,11 +842,11 @@ app.get('/api/templates', async (req, res) => {
 });
 
 
-const server = app.listen(PORT, () => {
+const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`====================================================`);
   console.log(`        LOCAL BUSINESS LEAD SCANNER SERVER`);
   console.log(`====================================================`);
-  console.log(`Server is running at: http://localhost:${PORT}`);
+  console.log(`Server is running at: http://0.0.0.0:${PORT}`);
   console.log(`Live mode configured: ${isLiveModeConfigured() ? 'Yes' : 'No (falling back to Mock Mode)'}`);
   console.log(`====================================================`);
 });
