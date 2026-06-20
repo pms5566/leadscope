@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{BUSINESS_NAME}} - Metropolitan Luxury Yacht Charters</title>
+  <meta name="description" content="Bespoke Ocean Yacht Charters & Sunset Cruises">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0b3c5d',
+            secondary: '#f0f8ff',
+            accent: '#328cc1',
+            neutral: '#0d2731'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen pb-16 md:pb-0">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-100">
+    <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="text-2xl font-bold text-neutral flex items-center gap-2">
+        <i class="fa-solid fa-house-medical text-primary"></i>
+        <span>{{BUSINESS_NAME}}</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="text-sm font-semibold text-slate-600 hover:text-primary">Services</a>
+        <a href="#about" class="text-sm font-semibold text-slate-600 hover:text-primary">About Us</a>
+        <a href="#contact" class="text-sm font-semibold text-slate-600 hover:text-primary">Contact</a>
+      </div>
+      <a href="tel:{{PHONE}}" class="hidden md:inline-flex btn bg-primary hover:bg-opacity-95 text-white border-none px-6 py-2 rounded-lg font-semibold items-center gap-2 shadow-md">
+        <i class="fa-solid fa-phone"></i> {{PHONE}}
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  
+      <section class="py-16 md:py-24 bg-[#fffdfa]">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6">
+            <span class="text-primary text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-leaf"></i> Hospitality & Leisure
+            </span>
+            <h1 class="font-serif font-bold text-4xl lg:text-5xl text-neutral leading-tight">
+              Bespoke Ocean Yacht Charters & Sunset Cruises
+            </h1>
+            <p class="text-slate-600 text-lg leading-relaxed">
+              Sail away in luxury. We host private island tours, business corporate events, and sunset champagne cruises on premium yachts.
+            </p>
+            <div class="pt-4 flex items-center gap-6">
+              <a href="#menu" class="btn btn-primary bg-primary text-white border-none hover:bg-opacity-90 px-8 py-3 rounded-full shadow-lg font-semibold">
+                Book Yacht Charter
+              </a>
+              <a href="#story" class="text-neutral font-semibold hover:underline flex items-center gap-2">
+                Our Story <i class="fa-solid fa-chevron-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="w-full h-[500px] overflow-hidden rounded-t-[250px] rounded-b-2xl shadow-xl">
+              <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80" alt="Metropolitan Luxury Yacht Charters" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+      </section>
+    
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 md:py-24 bg-slate-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+        <span class="text-primary text-xs font-bold uppercase tracking-wider">What We Offer</span>
+        <h2 class="text-3xl md:text-4xl text-neutral font-black">Our Professional Services</h2>
+        <p class="text-slate-500">Highly qualified technicians and specialized treatments customized for your immediate requirements.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+            <div class="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-ship text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-neutral mb-3">Private Day Charters</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Bespoke ocean cruises complete with jet skis and captain crews.</p>
+          </div>
+        
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+            <div class="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-glass-water text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-neutral mb-3">Sunset Champagne Parties</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Sip cold champagne while watching the ocean sun dip below horizons.</p>
+          </div>
+        
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+            <div class="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-anchor text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-neutral mb-3">Multi-Day Island Cruises</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Immersive island hopping routes with luxury stateroom beds.</p>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 md:py-24 bg-white border-y border-slate-100">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1">
+        <img src="https://images.unsplash.com/photo-15522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="About Us" class="w-full h-[400px] object-cover rounded-2xl shadow-md">
+      </div>
+      <div class="space-y-6 order-1 md:order-2">
+        <span class="text-primary text-xs font-bold uppercase tracking-wider">Our Story</span>
+        <h2 class="text-3xl md:text-4xl text-neutral font-black">Why Choose {{BUSINESS_NAME}}?</h2>
+        <p class="text-slate-600 leading-relaxed">
+          We have served our community for years, providing reliable local solutions. Every member of our team is fully vetted, licensed, and trained to the highest safety and visual standards.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-slate-700">
+            <i class="fa-solid fa-check text-green-500"></i> Local, community-trusted business
+          </li>
+          <li class="flex items-center gap-3 text-slate-700">
+            <i class="fa-solid fa-check text-green-500"></i> Certified experts and state-of-the-art tooling
+          </li>
+          <li class="flex items-center gap-3 text-slate-700">
+            <i class="fa-solid fa-check text-green-500"></i> Full satisfaction guarantee and robust warranties
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 md:py-24 bg-slate-50">
+    <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <span class="text-primary text-xs font-bold uppercase tracking-wider">Get In Touch</span>
+          <h2 class="text-3xl md:text-4xl text-neutral font-black">Reach Out To Us Today</h2>
+          <p class="text-slate-500">Need immediate help or looking to book a service estimate? Fill out our form, or call directly!</p>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-primary">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-400">Phone Support</p>
+              <a href="tel:{{PHONE}}" class="font-bold text-neutral hover:underline">{{PHONE}}</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-primary">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-400">Email Address</p>
+              <a href="mailto:{{EMAIL}}" class="font-bold text-neutral hover:underline">{{EMAIL}}</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-primary">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-400">Office Location</p>
+              <p class="font-bold text-neutral">{{ADDRESS}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+        <h3 class="text-xl font-bold text-neutral">Send Us A Message</h3>
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Personalized demo mode: Form input active!');">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1">Your Name</label>
+              <input type="text" placeholder="John Doe" class="w-full px-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-primary" required>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-500 mb-1">Phone Number</label>
+              <input type="tel" placeholder="(555) 000-0000" class="w-full px-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-primary" required>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1">Email Address</label>
+            <input type="email" placeholder="john@example.com" class="w-full px-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-primary" required>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-500 mb-1">How can we help?</label>
+            <textarea placeholder="Tell us about your requirements..." rows="4" class="w-full px-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-primary" required></textarea>
+          </div>
+          <button type="submit" class="w-full btn btn-primary bg-primary text-white border-none hover:bg-opacity-95 py-3 rounded-lg font-bold shadow-md">
+            Submit Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral text-white py-12 border-t border-white/5">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left space-y-2">
+        <p class="text-xl font-bold">{{BUSINESS_NAME}}</p>
+        <p class="text-xs text-slate-400">Bespoke Ocean Yacht Charters & Sunset Cruises</p>
+      </div>
+      <p class="text-xs text-slate-500">&copy; 2026 {{BUSINESS_NAME}}. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bottom Mobile Sticky Call CTA -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/95 backdrop-blur border-t border-slate-100 md:hidden flex justify-between items-center shadow-lg">
+    <div class="text-xs font-semibold text-slate-800">Need immediate help?</div>
+    <a href="tel:{{PHONE}}" class="btn btn-sm btn-primary bg-primary text-white border-none flex items-center gap-2">
+      <i class="fa-solid fa-phone"></i> Call Now
+    </a>
+  </div>
+
+</body>
+</html>
