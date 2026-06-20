@@ -1206,6 +1206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubTokenInput = document.getElementById('githubTokenInput');
 
     const discordWebhookInput = document.getElementById('discordWebhookInput');
+    const discordUserIdInput = document.getElementById('discordUserIdInput');
     
     // Diagnostic Badges & Descs
     const badgePlaces = document.getElementById('badgePlaces');
@@ -1245,6 +1246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.githubToken) githubTokenInput.value = data.githubToken;
 
         if (data.discordWebhookUrl) discordWebhookInput.value = data.discordWebhookUrl;
+        if (data.discordUserId) discordUserIdInput.value = data.discordUserId;
         
         // Update diagnostic statuses
         updateDiagnosticUI(data);
@@ -1380,7 +1382,8 @@ document.addEventListener('DOMContentLoaded', () => {
       discordSettingsForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const payload = {
-          discordWebhookUrl: discordWebhookInput.value.trim()
+          discordWebhookUrl: discordWebhookInput.value.trim(),
+          discordUserId: discordUserIdInput.value.trim()
         };
         
         try {

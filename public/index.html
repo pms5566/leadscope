@@ -547,11 +547,17 @@
                       </button>
                     </div>
                   </div>
+                  <div class="input-group" style="margin-bottom: 1.25rem;">
+                    <label for="discordUserIdInput">Discord User ID <span style="font-size:0.75rem; opacity:0.6;">(Optional - For direct mobile pings)</span></label>
+                    <div class="input-wrapper">
+                      <input type="text" id="discordUserIdInput" placeholder="Enter your 18-digit Discord User ID (e.g. 123456789012345678)">
+                      <i class="fa-solid fa-user-tag"></i>
+                    </div>
+                  </div>
                   <span class="input-help" style="display: block; margin-top: -0.75rem; margin-bottom: 1.5rem; line-height: 1.4;">
                     1. Create a Discord server or open one you own (takes 10 seconds).<br>
-                    2. Go to your channel settings -> **Integrations** -> **Webhooks** -> click **Create Webhook**.<br>
-                    3. Click **Copy Webhook URL** and paste it above.<br>
-                    4. Install the Discord mobile app on your phone so you receive instant push notifications!
+                    2. Go to your channel settings -> **Integrations** -> **Webhooks** -> click **Create Webhook** -> copy the Webhook URL above.<br>
+                    3. **Recommended for Phone Alerts**: Turn on **Developer Mode** in Discord Settings -> Advanced. Right-click your profile picture/name in a chat and click **Copy User ID**, then paste it above to get prioritized direct mobile notifications that bypass background sleep!
                   </span>
 
                   <button type="submit" class="btn-action" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--color-green) 0%, #00d9f5 100%); color: #07080d; font-weight: 700;">

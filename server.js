@@ -75,13 +75,14 @@ app.get('/api/config', (req, res) => {
     githubToken: maskKey(process.env.GITHUB_TOKEN),
     telegramToken: maskKey(process.env.TELEGRAM_BOT_TOKEN),
     telegramChatId: process.env.TELEGRAM_CHAT_ID === "your_telegram_chat_id_here" ? "" : (process.env.TELEGRAM_CHAT_ID || ""),
-    discordWebhookUrl: maskKey(process.env.DISCORD_WEBHOOK_URL)
+    discordWebhookUrl: maskKey(process.env.DISCORD_WEBHOOK_URL),
+    discordUserId: process.env.DISCORD_USER_ID || ""
   });
 });
 
 // API Endpoint to save configuration
 app.post('/api/config', async (req, res) => {
-  const { placesKey, serperKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl } = req.body;
+  const { placesKey, serperKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId } = req.body;
   
   try {
     let envContent = "";
@@ -121,6 +122,7 @@ app.post('/api/config', async (req, res) => {
     if (telegramToken !== undefined && !isMasked(telegramToken)) envObj['TELEGRAM_BOT_TOKEN'] = telegramToken;
     if (telegramChatId !== undefined) envObj['TELEGRAM_CHAT_ID'] = telegramChatId;
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) envObj['DISCORD_WEBHOOK_URL'] = discordWebhookUrl;
+    if (discordUserId !== undefined) envObj['DISCORD_USER_ID'] = discordUserId;
     
     // Re-serialize
     let newEnvContent = "";
@@ -143,6 +145,7 @@ app.post('/api/config', async (req, res) => {
     newEnvContent += `TELEGRAM_CHAT_ID=${envObj['TELEGRAM_CHAT_ID'] || 'your_telegram_chat_id_here'}\n\n`;
     newEnvContent += "# Discord Webhook Notifications Configuration\n";
     newEnvContent += `DISCORD_WEBHOOK_URL=${envObj['DISCORD_WEBHOOK_URL'] || 'your_discord_webhook_url_here'}\n`;
+    newEnvContent += `DISCORD_USER_ID=${envObj['DISCORD_USER_ID'] || ''}\n`;
     
     await fs.writeFile(path.join(__dirname, '.env'), newEnvContent, 'utf8');
     
@@ -158,6 +161,7 @@ app.post('/api/config', async (req, res) => {
     if (telegramToken !== undefined && !isMasked(telegramToken)) process.env.TELEGRAM_BOT_TOKEN = telegramToken;
     if (telegramChatId !== undefined) process.env.TELEGRAM_CHAT_ID = telegramChatId;
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) process.env.DISCORD_WEBHOOK_URL = discordWebhookUrl;
+    if (discordUserId !== undefined) process.env.DISCORD_USER_ID = discordUserId;
     
     res.json({
       success: true,
@@ -253,11 +257,13 @@ app.post('/api/config/test', async (req, res) => {
       }
       
       console.log(`[Config Test] Sending test Discord notification...`);
+      const userId = process.env.DISCORD_USER_ID;
+      const mention = (userId && userId.trim() !== "") ? `<@${userId.trim()}>` : "@everyone";
       
       const testRes = await axios.post(webhookUrl, {
-        content: "@everyone 🔔 **Spy Alert Test**\nYour Lead Tracker notification integration is working successfully! You will now receive real-time notifications on your phone.",
+        content: `${mention} 🔔 **Spy Alert Test**\nYour Lead Tracker notification integration is working successfully! You will now receive real-time notifications on your phone.`,
         allowed_mentions: {
-          parse: ["everyone"]
+          parse: ["everyone", "users"]
         }
       }, { timeout: 5000 });
       
@@ -636,17 +642,19 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
 // Send real-time phone notifications via Telegram Bot or Discord Webhook
 async function sendPhoneNotification(message) {
   const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
+  const userId = process.env.DISCORD_USER_ID;
 
   // Discord Notification (Discord uses Markdown, so we convert basic HTML tags to Markdown)
   if (discordWebhookUrl && discordWebhookUrl !== 'your_discord_webhook_url_here' && discordWebhookUrl.trim() !== '') {
     try {
-      let discordMsg = '@everyone ' + message
+      const mention = (userId && userId.trim() !== "") ? `<@${userId.trim()}>` : "@everyone";
+      let discordMsg = mention + ' ' + message
         .replace(/<b>/g, '**').replace(/<\/b>/g, '**')
         .replace(/<i>/g, '*').replace(/<\/i>/g, '*');
       await axios.post(discordWebhookUrl, {
         content: discordMsg,
         allowed_mentions: {
-          parse: ["everyone"]
+          parse: ["everyone", "users"]
         }
       }, { timeout: 4000 });
     } catch (err) {
