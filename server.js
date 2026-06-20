@@ -314,6 +314,15 @@ async function readDb() {
     const data = await fs.readFile(DB_PATH, 'utf8');
     return JSON.parse(data);
   } catch (error) {
+    if (error.code === 'ENOENT') {
+      const defaultDb = { leads: [] };
+      try {
+        await fs.writeFile(DB_PATH, JSON.stringify(defaultDb, null, 2), 'utf8');
+      } catch (writeErr) {
+        console.error('Failed to initialize empty leads_db.json:', writeErr);
+      }
+      return defaultDb;
+    }
     console.error('Failed to read leads_db.json:', error);
     return { leads: [] };
   }
