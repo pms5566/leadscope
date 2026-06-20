@@ -16,7 +16,13 @@ async function fetchFromGithub(pathWithinRepo, responseType = 'text') {
   const owner = process.env.GITHUB_USERNAME || 'parmeetsingh';
   const repo = process.env.GITHUB_REPO || 'leadscope-templates';
   const branch = process.env.GITHUB_BRANCH || 'main';
-  const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${pathWithinRepo}`;
+  
+  // If the repository is 'leadscope', prepend 'my_raw_templates/' to the path
+  const adjustedPath = (repo === 'leadscope' && !pathWithinRepo.startsWith('my_raw_templates/'))
+    ? `my_raw_templates/${pathWithinRepo}`
+    : pathWithinRepo;
+    
+  const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${adjustedPath}`;
   
   const headers = {};
   if (process.env.GITHUB_TOKEN && process.env.GITHUB_TOKEN !== 'your_github_token_here') {
@@ -351,6 +357,24 @@ app.get('/preview/:niche/*', async (req, res, next) => {
     return next(); // Fall through to index.html lead preview route
   }
   
+  // Try local filesystem first
+  try {
+    const fs = require('fs').promises;
+    const localAssetPath = path.join(__dirname, 'my_raw_templates', niche, filePath);
+    const content = await fs.readFile(localAssetPath);
+    
+    // Set headers
+    if (filePath.endsWith('.css')) res.setHeader('Content-Type', 'text/css');
+    else if (filePath.endsWith('.js')) res.setHeader('Content-Type', 'application/javascript');
+    else if (filePath.endsWith('.png')) res.setHeader('Content-Type', 'image/png');
+    else if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg')) res.setHeader('Content-Type', 'image/jpeg');
+    else if (filePath.endsWith('.svg')) res.setHeader('Content-Type', 'image/svg+xml');
+    
+    return res.send(content);
+  } catch (localErr) {
+    // If not found locally, fall through to GitHub
+  }
+  
   try {
     const fileContent = await fetchFromGithub(`${niche}/${filePath}`, 'arraybuffer');
     
@@ -363,7 +387,7 @@ app.get('/preview/:niche/*', async (req, res, next) => {
     
     res.send(fileContent);
   } catch (err) {
-    console.warn(`[GitHub Asset Load Fail] ${niche}/${filePath}:`, err.message);
+    console.warn(`[GitHub/Local Asset Load Fail] ${niche}/${filePath}:`, err.message);
     res.status(404).send('Asset not found');
   }
 });
@@ -384,13 +408,19 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       return res.status(404).send('<h1>Lead Proposal Not Found</h1><p>Ensure the scan was run or the lead is saved in CRM.</p>');
     }
     
-    // 2. Fetch index.html from GitHub
+    // 2. Fetch index.html (Try local filesystem first, fallback to GitHub)
     let html;
     try {
-      html = await fetchFromGithub(`${niche}/index.html`, 'utf8');
-    } catch (githubErr) {
-      console.error(`[GitHub Fetch Fail] ${niche}/index.html:`, githubErr.message);
-      return res.status(404).send(`<h1>Template Not Found on GitHub</h1><p>Ensure the folder <strong>"${niche}"</strong> exists in your templates repository on GitHub and contains <strong>index.html</strong>.</p>`);
+      const fs = require('fs').promises;
+      const localHtmlPath = path.join(__dirname, 'my_raw_templates', niche, 'index.html');
+      html = await fs.readFile(localHtmlPath, 'utf8');
+    } catch (localErr) {
+      try {
+        html = await fetchFromGithub(`${niche}/index.html`, 'utf8');
+      } catch (githubErr) {
+        console.error(`[Template Load Fail] ${niche}/index.html:`, githubErr.message);
+        return res.status(404).send(`<h1>Template Not Found</h1><p>Ensure the folder <strong>"${niche}"</strong> exists locally in <strong>my_raw_templates</strong> or in your templates repository on GitHub and contains <strong>index.html</strong>.</p>`);
+      }
     }
     
     // 3. Replace placeholders
@@ -656,9 +686,25 @@ app.get('/api/active-visits', (req, res) => {
 
 // Endpoint to list template folders dynamically from GitHub API
 app.get('/api/templates', async (req, res) => {
+  // Try local first
+  try {
+    const fs = require('fs').promises;
+    const localPath = path.join(__dirname, 'my_raw_templates');
+    const files = await fs.readdir(localPath, { withFileTypes: true });
+    const localTemplates = files
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
+    if (localTemplates.length > 0) {
+      return res.json({ success: true, templates: localTemplates });
+    }
+  } catch (localErr) {
+    // Fall back to GitHub listing
+  }
+
   const owner = process.env.GITHUB_USERNAME || 'parmeetsingh';
   const repo = process.env.GITHUB_REPO || 'leadscope-templates';
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents`;
+  const pathPrefix = repo === 'leadscope' ? '/my_raw_templates' : '';
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents${pathPrefix}`;
   
   const headers = {
     'User-Agent': 'LeadScope-SaaS-App'
