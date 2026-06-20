@@ -188,7 +188,7 @@ async function searchLiveSocialMedia(businessName, location) {
         "X-API-KEY": serperKey,
         "Content-Type": "application/json"
       };
-      const payload = { q: query, num: 5 };
+      const payload = { q: query, num: 10 };
       console.log(`[Scanner] Fetching social media search via Serper.dev API...`);
       const response = await axios.post(url, payload, { headers });
       items = response.data.organic || [];
@@ -200,7 +200,7 @@ async function searchLiveSocialMedia(businessName, location) {
           key: googleKey,
           cx: cx,
           q: query,
-          num: 5
+          num: 10
         }
       });
       items = response.data.items || [];
@@ -247,6 +247,50 @@ async function searchLiveSocialMedia(businessName, location) {
       const emailMatch = snippet.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
       if (emailMatch) {
         email = emailMatch[0];
+      }
+    }
+  }
+  
+  // Secondary Email Lookup if not found in primary search snippets
+  if (!email && (instagram || facebook)) {
+    let deepQuery = '';
+    if (instagram) {
+      const igUser = getInstagramUsername(instagram);
+      if (igUser) deepQuery += `site:instagram.com/${igUser} (email OR "@")`;
+    }
+    if (facebook) {
+      const fbUser = getFacebookUsername(facebook);
+      if (fbUser) {
+        if (deepQuery) deepQuery += ' OR ';
+        deepQuery += `site:facebook.com/${fbUser} (email OR "@")`;
+      }
+    }
+    
+    if (deepQuery) {
+      try {
+        let deepItems = [];
+        if (serperKey && serperKey !== "your_serper_api_key_here" && serperKey.trim() !== "") {
+          const url = "https://google.serper.dev/search";
+          const headers = { "X-API-KEY": serperKey, "Content-Type": "application/json" };
+          const response = await axios.post(url, { q: deepQuery, num: 3 }, { headers });
+          deepItems = response.data.organic || [];
+        } else if (googleKey && googleKey !== "your_google_search_api_key_here" && cx) {
+          const url = "https://www.googleapis.com/customsearch/v1";
+          const response = await axios.get(url, { params: { key: googleKey, cx, q: deepQuery, num: 3 } });
+          deepItems = response.data.items || [];
+        }
+        
+        for (const item of deepItems) {
+          const snippet = item.snippet || "";
+          const emailMatch = snippet.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+          if (emailMatch) {
+            email = emailMatch[0];
+            console.log(`[Search API Deep Scraper] Successfully extracted email "${email}" from deep search!`);
+            break;
+          }
+        }
+      } catch (err) {
+        console.warn(`[Search API Deep Scraper] Secondary email lookup failed:`, err.message);
       }
     }
   }
@@ -557,7 +601,12 @@ function isValidSocialUrl(url) {
       'tiktok.com/tag/',
       'tiktok.com/music/',
       'tiktok.com/embed/',
-      '/public/'
+      '/public/',
+      '/posts/',
+      '/videos/',
+      '/video/',
+      '/discover/',
+      'tiktok.com/t/'
     ];
     
     const isInvalid = invalidPatterns.some(pattern => lower.includes(pattern));
