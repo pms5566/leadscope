@@ -174,6 +174,25 @@ app.post('/api/config', async (req, res) => {
   }
 });
 
+// Helper to post to Discord with automatic proxy fallback for cloud-hosted environments (e.g. Hugging Face)
+async function postDiscordWebhook(webhookUrl, payload, options) {
+  try {
+    return await axios.post(webhookUrl, payload, options);
+  } catch (err) {
+    if (webhookUrl.includes('discord.com')) {
+      const proxyUrl = webhookUrl.replace('discord.com', 'webhook.lewisakura.moe');
+      console.warn(`[Discord Webhook] Direct call failed (${err.message}). Retrying via proxy...`);
+      try {
+        return await axios.post(proxyUrl, payload, options);
+      } catch (proxyErr) {
+        console.error(`[Discord Webhook] Proxy fallback failed:`, proxyErr.message);
+        throw proxyErr;
+      }
+    }
+    throw err;
+  }
+}
+
 // API Endpoint to test configuration connections
 app.post('/api/config/test', async (req, res) => {
   const { type } = req.body;
@@ -260,7 +279,7 @@ app.post('/api/config/test', async (req, res) => {
       const userId = process.env.DISCORD_USER_ID;
       const mention = (userId && userId.trim() !== "") ? `<@${userId.trim()}>` : "@everyone";
       
-      const testRes = await axios.post(webhookUrl, {
+      const testRes = await postDiscordWebhook(webhookUrl, {
         content: `${mention} 🔔 **Spy Alert Test**\nYour Lead Tracker notification integration is working successfully! You will now receive real-time notifications on your phone.`,
         allowed_mentions: {
           parse: ["everyone", "users"]
@@ -660,7 +679,7 @@ async function sendPhoneNotification(message) {
       let discordMsg = mention + ' ' + message
         .replace(/<b>/g, '**').replace(/<\/b>/g, '**')
         .replace(/<i>/g, '*').replace(/<\/i>/g, '*');
-      await axios.post(discordWebhookUrl, {
+      await postDiscordWebhook(discordWebhookUrl, {
         content: discordMsg,
         allowed_mentions: {
           parse: ["everyone", "users"]
