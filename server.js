@@ -33,6 +33,19 @@ async function fetchFromGithub(pathWithinRepo, responseType = 'text') {
   return response.data;
 }
 
+function getCommonPrefixLength(str1, str2) {
+  let len = 0;
+  const minLen = Math.min(str1.length, str2.length);
+  for (let i = 0; i < minLen; i++) {
+    if (str1[i] === str2[i]) {
+      len++;
+    } else {
+      break;
+    }
+  }
+  return len;
+}
+
 let nicheTemplatesCache = null;
 async function findNicheTemplate(niche) {
   const cleanNiche = niche.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
@@ -102,7 +115,36 @@ async function findNicheTemplate(niche) {
     }
   }
   
-  // 4. Try word-based overlap match
+  // 4. Try prefix-overlap matching (e.g. "plumber" shares prefix "plumb" with "plumbing")
+  const requestedWords = cleanNiche.split('_').filter(w => w.length >= 3);
+  if (requestedWords.length > 0) {
+    let bestMatch = null;
+    let maxPrefixScore = 0;
+    
+    for (const key of Object.keys(nicheTemplatesCache)) {
+      const templateWords = key.split('_').filter(w => w.length >= 3);
+      let prefixScore = 0;
+      for (const reqWord of requestedWords) {
+        for (const tempWord of templateWords) {
+          const commonLen = getCommonPrefixLength(reqWord, tempWord);
+          if (commonLen >= 4 || (reqWord.length === 3 && reqWord === tempWord)) {
+            prefixScore += commonLen;
+          }
+        }
+      }
+      if (prefixScore > maxPrefixScore) {
+        maxPrefixScore = prefixScore;
+        bestMatch = nicheTemplatesCache[key];
+      }
+    }
+    
+    if (maxPrefixScore > 0) {
+      console.log(`[Template Match] Prefix-overlap match: "${niche}" mapped to "${bestMatch}" with prefix score ${maxPrefixScore}`);
+      return bestMatch;
+    }
+  }
+  
+  // 5. Try word-based overlap match
   const cleanWords = cleanNiche.split('_').filter(w => w.length > 2);
   if (cleanWords.length > 0) {
     let bestMatch = null;
