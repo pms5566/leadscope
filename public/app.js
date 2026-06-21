@@ -591,7 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fallback to the dynamic preview route on this local server / ngrok tunnel!
         const baseUrl = window.location.origin;
         const cleanNiche = niche.toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
-        pitchLink = `${baseUrl}/preview/${cleanNiche}/${lead.id}`;
+        pitchLink = `${baseUrl}/preview/${cleanNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
       }
       
       // Add custom hooks based on CRM Audit checklist choices
@@ -890,7 +890,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Generate proposal and custom portfolio links
         const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
-        const proposalUrl = lead.portfolioLink || `${window.location.origin}/preview/${cleanNiche}/${lead.id}`;
+        const proposalUrl = lead.portfolioLink || `${window.location.origin}/preview/${cleanNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
         
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">

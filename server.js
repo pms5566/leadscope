@@ -479,6 +479,16 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       lead = db.leads.find(l => l.id === leadId);
     }
     
+    // Stateless fallback: if lead is not found, check if business details are supplied in query params
+    if (!lead && req.query.name) {
+      lead = {
+        id: leadId,
+        name: req.query.name,
+        phone: req.query.phone || 'N/A',
+        address: req.query.address || 'N/A'
+      };
+    }
+    
     if (!lead) {
       return res.status(404).send('<h1>Lead Proposal Not Found</h1><p>Ensure the scan was run or the lead is saved in CRM.</p>');
     }
@@ -608,6 +618,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       <script>
         (function() {
           const leadId = ${JSON.stringify(leadId)};
+          const leadName = ${JSON.stringify(businessName)};
           const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
           
           async function sendEvent(event, details = {}) {
@@ -615,7 +626,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
               await fetch('/api/track', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ leadId, event, details: { device, ...details } })
+                body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
               });
             } catch (err) {}
           }
@@ -699,7 +710,7 @@ async function sendPhoneNotification(message) {
 
 // Analytics tracking logs receiver
 app.post('/api/track', async (req, res) => {
-  const { leadId, event, details } = req.body;
+  const { leadId, leadName: payloadLeadName, event, details } = req.body;
   if (!leadId) {
     return res.status(400).json({ error: 'Lead ID is required.' });
   }
@@ -707,7 +718,7 @@ app.post('/api/track', async (req, res) => {
   try {
     const db = await readDb();
     const leadIndex = db.leads.findIndex(l => l.id === leadId);
-    let leadName = 'Unknown Lead';
+    let leadName = payloadLeadName || 'Unknown Lead';
     
     if (leadIndex !== -1) {
       leadName = db.leads[leadIndex].name;

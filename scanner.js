@@ -976,7 +976,13 @@ async function scanLocalLeads(niche, location, forceMock = false) {
       console.log(`[Scanner] Initializing Puppeteer browser...`);
       browser = await puppeteer.launch({
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu'
+        ]
       });
       
       // Fetch places using Puppeteer (passing the browser object to run tasks in parallel)

@@ -1,7 +1,8 @@
 FROM node:22-slim
 
-# Install system dependencies needed for Chromium/Puppeteer to run in headless mode
+# Install system dependencies and Chromium/Puppeteer
 RUN apt-get update && apt-get install -y \
+    chromium \
     unzip \
     tar \
     wget \
@@ -43,6 +44,10 @@ RUN apt-get update && apt-get install -y \
     libnss3 \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
+
+# Tell Puppeteer to use the system-installed Chromium
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 WORKDIR /app
 
