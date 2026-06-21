@@ -175,15 +175,30 @@ app.post('/api/config', async (req, res) => {
 });
 
 // Helper to post to Discord with automatic proxy fallback for cloud-hosted environments (e.g. Hugging Face)
-async function postDiscordWebhook(webhookUrl, payload, options) {
+async function postDiscordWebhook(webhookUrl, payload, options = {}) {
+  // Ensure we have headers and a realistic browser User-Agent to prevent Cloudflare blocks on proxy servers
+  const headers = {
+    'Content-Type': 'application/json',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    ...(options.headers || {})
+  };
+
+  const reqOptions = {
+    ...options,
+    headers
+  };
+
   try {
-    return await axios.post(webhookUrl, payload, options);
+    return await axios.post(webhookUrl, payload, reqOptions);
   } catch (err) {
-    if (webhookUrl.includes('discord.com')) {
-      const proxyUrl = webhookUrl.replace('discord.com', 'webhook.lewisakura.moe');
+    if (webhookUrl.includes('discord.com') || webhookUrl.includes('discordapp.com')) {
+      const proxyUrl = webhookUrl
+        .replace('discord.com', 'webhook.lewisakura.moe')
+        .replace('discordapp.com', 'webhook.lewisakura.moe');
+        
       console.warn(`[Discord Webhook] Direct call failed (${err.message}). Retrying via proxy...`);
       try {
-        return await axios.post(proxyUrl, payload, options);
+        return await axios.post(proxyUrl, payload, reqOptions);
       } catch (proxyErr) {
         console.error(`[Discord Webhook] Proxy fallback failed:`, proxyErr.message);
         throw proxyErr;
