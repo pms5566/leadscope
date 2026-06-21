@@ -824,7 +824,7 @@ app.get('/api/templates', async (req, res) => {
     const localPath = path.join(__dirname, 'my_raw_templates');
     const files = await fs.readdir(localPath, { withFileTypes: true });
     const localTemplates = files
-      .filter(dirent => dirent.isDirectory())
+      .filter(dirent => dirent.isDirectory() && !dirent.name.startsWith('.') && !dirent.name.endsWith('-src'))
       .map(dirent => dirent.name);
     if (localTemplates.length > 0) {
       return res.json({ success: true, templates: localTemplates });
@@ -849,7 +849,7 @@ app.get('/api/templates', async (req, res) => {
   try {
     const response = await axios.get(url, { headers });
     const directories = response.data
-      .filter(item => item.type === 'dir')
+      .filter(item => item.type === 'dir' && !item.name.startsWith('.') && !item.name.endsWith('-src'))
       .map(item => item.name);
       
     res.json({ success: true, templates: directories });
