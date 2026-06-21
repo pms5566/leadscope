@@ -13,8 +13,8 @@ let activeVisits = [];
 
 // Helper to fetch files from configured GitHub repository
 async function fetchFromGithub(pathWithinRepo, responseType = 'text') {
-  const owner = process.env.GITHUB_USERNAME || 'parmeetsingh';
-  const repo = process.env.GITHUB_REPO || 'leadscope-templates';
+  const owner = process.env.GITHUB_USERNAME || 'pms5566';
+  const repo = process.env.GITHUB_REPO || 'my-leadscope-templates';
   const branch = process.env.GITHUB_BRANCH || 'main';
   
   // If the repository is 'leadscope', prepend 'my_raw_templates/' to the path
@@ -833,8 +833,8 @@ app.get('/api/templates', async (req, res) => {
     // Fall back to GitHub listing
   }
 
-  const owner = process.env.GITHUB_USERNAME || 'parmeetsingh';
-  const repo = process.env.GITHUB_REPO || 'leadscope-templates';
+  const owner = process.env.GITHUB_USERNAME || 'pms5566';
+  const repo = process.env.GITHUB_REPO || 'my-leadscope-templates';
   const pathPrefix = repo === 'leadscope' ? '/my_raw_templates' : '';
   const url = `https://api.github.com/repos/${owner}/${repo}/contents${pathPrefix}`;
   
