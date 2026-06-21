@@ -509,7 +509,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     
     // 4. Inject Sticky Top Banner & Analytics heart-beat script
     const whatsappPhone = process.env.AGENCY_WHATSAPP_PHONE || '919999999999';
-    const fiverrUrl = process.env.AGENCY_FIVERR_URL || 'https://www.fiverr.com';
+    const fiverrUrl = process.env.AGENCY_FIVERR_URL || 'https://www.fiverr.com/s/gDeZRvL';
     const waText = encodeURIComponent(`Hi! I am looking at the custom website proposal for my business, "${businessName}". I would like to request some custom modifications!`);
     const waLink = `https://wa.me/${whatsappPhone}?text=${waText}`;
     
