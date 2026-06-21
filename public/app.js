@@ -1116,6 +1116,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (visit.event === 'whatsapp_click') {
           icon = `<i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>`;
           text = `<span style="color: #25d366; font-weight: 700;">Clicked "Custom Modifications" (WhatsApp)</span>`;
+        } else if (visit.event === 'email_click') {
+          icon = `<i class="fa-solid fa-envelope" style="color: #3b82f6;"></i>`;
+          text = `<span style="color: #3b82f6; font-weight: 700;">Clicked "Direct Email"</span>`;
         } else if (visit.event === 'heartbeat') {
           icon = `<i class="fa-solid fa-heartbeat" style="color: #ff5e97; font-size: 0.75rem;"></i>`;
           const scrollPct = visit.details.scrollPercent || 0;

@@ -1036,7 +1036,8 @@ app.post('/api/track', async (req, res) => {
         timeSpent: 0,
         maxScroll: 0,
         fiverrClicked: 'No',
-        whatsappClicked: 'No'
+        whatsappClicked: 'No',
+        emailClicked: 'No'
       };
       
       analytics.opened = 'Yes';
@@ -1055,6 +1056,8 @@ app.post('/api/track', async (req, res) => {
         analytics.fiverrClicked = 'Yes';
       } else if (event === 'whatsapp_click') {
         analytics.whatsappClicked = 'Yes';
+      } else if (event === 'email_click') {
+        analytics.emailClicked = 'Yes';
       }
       
       let newLog = `[${timeStr}] `;
@@ -1071,6 +1074,10 @@ app.post('/api/track', async (req, res) => {
       } else if (event === 'whatsapp_click') {
         newLog += 'Clicked WhatsApp Contact CTA';
         notificationMsg = `💬 <b>Lead Action!</b>\n"${leadName}" clicked your <b>WhatsApp Contact</b> CTA button!`;
+        shouldNotify = true;
+      } else if (event === 'email_click') {
+        newLog += 'Clicked Direct Email CTA';
+        notificationMsg = `📧 <b>Lead Action!</b>\n"${leadName}" clicked your <b>Direct Email</b> CTA button!`;
         shouldNotify = true;
       } else {
         newLog += `Triggered event: ${event}`;
@@ -1094,6 +1101,9 @@ app.post('/api/track', async (req, res) => {
         shouldNotify = true;
       } else if (event === 'whatsapp_click') {
         notificationMsg = `💬 <b>Lead Action (Scanned Cache)!</b>\n"${leadName}" clicked your <b>WhatsApp Contact</b> CTA button!`;
+        shouldNotify = true;
+      } else if (event === 'email_click') {
+        notificationMsg = `📧 <b>Lead Action (Scanned Cache)!</b>\n"${leadName}" clicked your <b>Direct Email</b> CTA button!`;
         shouldNotify = true;
       }
     }
