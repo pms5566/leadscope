@@ -929,11 +929,11 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         }
         
         // 4. Replace email links
-        const mailLink = document.querySelector('a[href^="mailto:"]');
+        const mailLink = document.querySelector('a[href^="mailto:"]:not(#ls-email-lnk)');
         if (mailLink) {
           const mockEmail = mailLink.getAttribute('href').replace('mailto:', '').trim();
           const realEmail = 'contact@' + realName.toLowerCase().replace(/[^a-z0-9]/g, '') + '.com';
-          document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+          document.querySelectorAll('a[href^="mailto:"]:not(#ls-email-lnk)').forEach(el => {
             el.href = 'mailto:' + realEmail;
             if (el.innerText.includes('@')) {
               el.innerText = realEmail;
