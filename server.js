@@ -33,6 +33,57 @@ async function fetchFromGithub(pathWithinRepo, responseType = 'text') {
   return response.data;
 }
 
+let nicheTemplatesCache = null;
+async function findNicheTemplate(niche) {
+  const cleanNiche = niche.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
+  
+  if (!nicheTemplatesCache) {
+    nicheTemplatesCache = {};
+    const fs = require('fs').promises;
+    
+    // 1. Try local sites directory
+    try {
+      const sitesDir = path.join(__dirname, 'my_raw_templates', 'sites');
+      const files = await fs.readdir(sitesDir);
+      for (const file of files) {
+        if (file.endsWith('.html')) {
+          const baseName = file.replace(/^\d+_/, '').replace(/\.html$/, '');
+          const normalizedBase = baseName.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
+          nicheTemplatesCache[normalizedBase] = file;
+        }
+      }
+    } catch (err) {
+      console.warn('[Template Loader] Local sites directory not found or unreadable, will fall back to GitHub contents lookup:', err.message);
+      
+      // 2. Try GitHub Contents API fallback
+      try {
+        const owner = process.env.GITHUB_USERNAME || 'pms5566';
+        const repo = process.env.GITHUB_REPO || 'my-leadscope-templates';
+        const branch = process.env.GITHUB_BRANCH || 'main';
+        const url = `https://api.github.com/repos/${owner}/${repo}/contents/sites?ref=${branch}`;
+        const headers = {};
+        if (process.env.GITHUB_TOKEN && process.env.GITHUB_TOKEN !== 'your_github_token_here') {
+          headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+        }
+        const response = await axios.get(url, { headers });
+        if (Array.isArray(response.data)) {
+          for (const item of response.data) {
+            if (item.name.endsWith('.html')) {
+              const baseName = item.name.replace(/^\d+_/, '').replace(/\.html$/, '');
+              const normalizedBase = baseName.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
+              nicheTemplatesCache[normalizedBase] = item.name;
+            }
+          }
+        }
+      } catch (gitErr) {
+        console.error('[Template Loader] Failed to fetch sites list from GitHub:', gitErr.message);
+      }
+    }
+  }
+  
+  return nicheTemplatesCache[cleanNiche] || null;
+}
+
 // Enable JSON parsing
 app.use(express.json());
 
@@ -508,19 +559,47 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       return res.status(404).send('<h1>Lead Proposal Not Found</h1><p>Ensure the scan was run or the lead is saved in CRM.</p>');
     }
     
-    // 2. Fetch index.html (Try local filesystem first, fallback to GitHub)
+    // 2. Fetch template HTML (Try local folder, local sites file, or GitHub fallback)
     let html;
     try {
+      // a. Try custom local folder (e.g. garage, gym)
       const fs = require('fs').promises;
       const localHtmlPath = path.join(__dirname, 'my_raw_templates', niche, 'index.html');
       html = await fs.readFile(localHtmlPath, 'utf8');
     } catch (localErr) {
+      // b. Try matching one of the 500 template files in local sites folder
+      const matchedFile = await findNicheTemplate(niche);
+      if (matchedFile) {
+        try {
+          const fs = require('fs').promises;
+          const sitesHtmlPath = path.join(__dirname, 'my_raw_templates', 'sites', matchedFile);
+          html = await fs.readFile(sitesHtmlPath, 'utf8');
+        } catch (sitesErr) {
+          // Fall through to GitHub fallback for sites/
+        }
+      }
+    }
+
+    if (!html) {
       try {
+        // c. Fallback: Try custom folder on GitHub
         html = await fetchFromGithub(`${niche}/index.html`, 'utf8');
       } catch (githubErr) {
-        console.error(`[Template Load Fail] ${niche}/index.html:`, githubErr.message);
-        return res.status(404).send(`<h1>Template Not Found</h1><p>Ensure the folder <strong>"${niche}"</strong> exists locally in <strong>my_raw_templates</strong> or in your templates repository on GitHub and contains <strong>index.html</strong>.</p>`);
+        // d. Fallback: Try matching site file on GitHub sites/ folder
+        const matchedFile = await findNicheTemplate(niche);
+        if (matchedFile) {
+          try {
+            html = await fetchFromGithub(`sites/${matchedFile}`, 'utf8');
+          } catch (githubSitesErr) {
+            console.error(`[Template Load Fail] GitHub sites/${matchedFile}:`, githubSitesErr.message);
+          }
+        }
       }
+    }
+
+    if (!html) {
+      console.error(`[Template Load Fail] No template found for "${niche}" locally or on GitHub.`);
+      return res.status(404).send(`<h1>Template Not Found</h1><p>Ensure the template for niche <strong>"${niche}"</strong> exists locally or in your GitHub repository.</p>`);
     }
     
     // 3. Replace placeholders
@@ -669,28 +748,110 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
               maxScroll = scrollPercent;
             }
             
-            sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll });
-          }, 10000);
-        })();
-      </script>
-    `;
-    
-    // Inject stylesheet inside head tag
-    html = html.replace('</head>', `${bannerStyle}</head>`);
-    
-    // Inject banner HTML right below body tag
-    const bodyOpenIndex = html.indexOf('<body');
-    if (bodyOpenIndex !== -1) {
-      const bodyCloseIndex = html.indexOf('>', bodyOpenIndex);
-      if (bodyCloseIndex !== -1) {
-        html = html.substring(0, bodyCloseIndex + 1) + bannerHtml + html.substring(bodyCloseIndex + 1);
-      }
-    } else {
-      html = bannerHtml + html;
+          sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll });
+        }, 10000);
+      })();
+    </script>
+  `;
+
+  const personalizationScript = `
+    <script>
+      (function() {
+        const realName = ${JSON.stringify(businessName)};
+        const realPhone = ${JSON.stringify(phone)};
+        const realAddress = ${JSON.stringify(address)};
+        
+        // 1. Traverse and replace business name
+        const logoEl = document.querySelector('header .navbar-start a.font-bold, header a.font-bold');
+        if (logoEl) {
+          const mockName = logoEl.innerText.trim();
+          if (mockName && realName && mockName !== realName) {
+            function replaceText(node) {
+              if (node.nodeType === Node.TEXT_NODE) {
+                if (node.nodeValue.includes(mockName)) {
+                  node.nodeValue = node.nodeValue.replaceAll(mockName, realName);
+                }
+              } else if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
+                for (let child of node.childNodes) {
+                  replaceText(child);
+                }
+              }
+            }
+            replaceText(document.body);
+            document.title = document.title.replaceAll(mockName, realName);
+          }
+        }
+        
+        // 2. Replace phone links and plain text phone numbers
+        const telLink = document.querySelector('a[href^="tel:"]');
+        if (telLink) {
+          const mockPhone = telLink.getAttribute('href').replace('tel:', '').trim();
+          document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+            el.href = 'tel:' + realPhone;
+            if (/\\d/.test(el.innerText)) {
+              el.innerText = realPhone;
+            }
+          });
+          if (mockPhone && realPhone && mockPhone !== realPhone) {
+            function replacePhone(node) {
+              if (node.nodeType === Node.TEXT_NODE) {
+                if (node.nodeValue.includes(mockPhone)) {
+                  node.nodeValue = node.nodeValue.replaceAll(mockPhone, realPhone);
+                }
+              } else if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
+                for (let child of node.childNodes) {
+                  replacePhone(child);
+                }
+              }
+            }
+            replacePhone(document.body);
+          }
+        }
+        
+        // 3. Replace address text and update maps iframe
+        if (realAddress && realAddress !== 'N/A' && realAddress !== 'Our Location') {
+          const addressSpan = document.querySelector('span.text-primary.not-italic');
+          if (addressSpan) {
+            addressSpan.innerText = realAddress;
+          }
+          const mapIframe = document.querySelector('iframe[src*="google.com/maps"]');
+          if (mapIframe) {
+            mapIframe.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(realAddress) + '&t=&z=13&ie=UTF8&iwloc=&output=embed';
+          }
+        }
+        
+        // 4. Replace email links
+        const mailLink = document.querySelector('a[href^="mailto:"]');
+        if (mailLink) {
+          const mockEmail = mailLink.getAttribute('href').replace('mailto:', '').trim();
+          const realEmail = 'contact@' + realName.toLowerCase().replace(/[^a-z0-9]/g, '') + '.com';
+          document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+            el.href = 'mailto:' + realEmail;
+            if (el.innerText.includes('@')) {
+              el.innerText = realEmail;
+            }
+          });
+        }
+      })();
+    </script>
+  `;
+  
+  // Inject stylesheet inside head tag
+  html = html.replace('</head>', `${bannerStyle}</head>`);
+  
+  // Inject banner HTML right below body tag
+  const bodyOpenIndex = html.indexOf('<body');
+  if (bodyOpenIndex !== -1) {
+    const bodyCloseIndex = html.indexOf('>', bodyOpenIndex);
+    if (bodyCloseIndex !== -1) {
+      html = html.substring(0, bodyCloseIndex + 1) + bannerHtml + html.substring(bodyCloseIndex + 1);
     }
-    
-    // Inject script tag before body close
-    html = html.replace('</body>', `${trackingScript}</body>`);
+  } else {
+    html = bannerHtml + html;
+  }
+  
+  // Inject script tag before body close
+  html = html.replace('</body>', `${personalizationScript}${trackingScript}</body>`);
     
     res.send(html);
   } catch (err) {
