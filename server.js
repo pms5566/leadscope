@@ -81,8 +81,58 @@ async function findNicheTemplate(niche) {
     }
   }
   
-  return nicheTemplatesCache[cleanNiche] || null;
+  // 1. Try exact match
+  if (nicheTemplatesCache[cleanNiche]) {
+    return nicheTemplatesCache[cleanNiche];
+  }
+  
+  // 2. Try substring match (check if a cache key contains the requested cleanNiche)
+  for (const key of Object.keys(nicheTemplatesCache)) {
+    if (key.includes(cleanNiche)) {
+      console.log(`[Template Match] Substring match: "${niche}" mapped to "${nicheTemplatesCache[key]}"`);
+      return nicheTemplatesCache[key];
+    }
+  }
+  
+  // 3. Try inverse substring match (check if the cleanNiche contains a cache key)
+  for (const key of Object.keys(nicheTemplatesCache)) {
+    if (cleanNiche.includes(key)) {
+      console.log(`[Template Match] Inverse match: "${niche}" mapped to "${nicheTemplatesCache[key]}"`);
+      return nicheTemplatesCache[key];
+    }
+  }
+  
+  // 4. Try word-based overlap match
+  const cleanWords = cleanNiche.split('_').filter(w => w.length > 2);
+  if (cleanWords.length > 0) {
+    let bestMatch = null;
+    let maxOverlap = 0;
+    
+    for (const key of Object.keys(nicheTemplatesCache)) {
+      let overlap = 0;
+      for (const word of cleanWords) {
+        if (key.includes(word)) overlap++;
+      }
+      if (overlap > maxOverlap) {
+        maxOverlap = overlap;
+        bestMatch = nicheTemplatesCache[key];
+      }
+    }
+    
+    if (maxOverlap > 0) {
+      console.log(`[Template Match] Fuzzy match: "${niche}" mapped to "${bestMatch}" with ${maxOverlap} overlapping words`);
+      return bestMatch;
+    }
+  }
+  
+  return null;
 }
+
+// Request logger middleware
+app.use((req, res, next) => {
+  console.log(`[HTTP] ${req.method} ${req.url}`);
+  next();
+});
 
 // Enable JSON parsing
 app.use(express.json());
