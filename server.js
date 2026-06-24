@@ -93,6 +93,59 @@ async function resolveLocalNicheFolder(niche) {
 }
 
 let nicheTemplatesCache = null;
+
+// Resolve a URL slug to the actual folder name inside the GitHub templates repo
+let githubFolderCache = null;
+async function resolveGithubNicheFolder(niche) {
+  const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
+  const cleanNiche = normalize(niche);
+
+  // Build cache of all root folders in the GitHub repo once
+  if (!githubFolderCache) {
+    githubFolderCache = {};
+    try {
+      const owner = process.env.GITHUB_USERNAME || 'pms5566';
+      const repo = process.env.GITHUB_REPO || 'my-leadscope-templates';
+      const branch = process.env.GITHUB_BRANCH || 'main';
+      const headers = {};
+      if (process.env.GITHUB_TOKEN && process.env.GITHUB_TOKEN !== 'your_github_token_here') {
+        headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+      }
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents?ref=${branch}`;
+      const response = await axios.get(url, { headers });
+      if (Array.isArray(response.data)) {
+        for (const item of response.data) {
+          if (item.type === 'dir') {
+            githubFolderCache[normalize(item.name)] = item.name;
+          }
+        }
+      }
+      console.log('[GitHub Folder Cache] Loaded', Object.keys(githubFolderCache).length, 'folders from GitHub templates repo.');
+    } catch (e) {
+      console.warn('[GitHub Folder Cache] Failed to load:', e.message);
+    }
+  }
+
+  // 1. Exact normalized match
+  if (githubFolderCache[cleanNiche]) return githubFolderCache[cleanNiche];
+
+  // 2. Substring match
+  for (const [key, folder] of Object.entries(githubFolderCache)) {
+    if (key.includes(cleanNiche) || cleanNiche.includes(key)) return folder;
+  }
+
+  // 3. Word overlap match
+  const words = cleanNiche.split('_').filter(w => w.length > 2);
+  let bestFolder = null, bestScore = 0;
+  for (const [key, folder] of Object.entries(githubFolderCache)) {
+    let score = 0;
+    for (const w of words) { if (key.includes(w)) score++; }
+    if (score > bestScore) { bestScore = score; bestFolder = folder; }
+  }
+  if (bestScore > 0) return bestFolder;
+
+  return null;
+}
 async function findNicheTemplate(niche) {
   const cleanNiche = niche.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
   
@@ -627,6 +680,17 @@ app.delete('/api/crm/:id', async (req, res) => {
   }
 });
 
+// Helper: set correct Content-Type and send asset buffer
+function sendAsset(res, filePath, content) {
+  if (filePath.endsWith('.css')) res.setHeader('Content-Type', 'text/css');
+  else if (filePath.endsWith('.js')) res.setHeader('Content-Type', 'application/javascript');
+  else if (filePath.endsWith('.png')) res.setHeader('Content-Type', 'image/png');
+  else if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg')) res.setHeader('Content-Type', 'image/jpeg');
+  else if (filePath.endsWith('.svg')) res.setHeader('Content-Type', 'image/svg+xml');
+  else if (filePath.endsWith('.webp')) res.setHeader('Content-Type', 'image/webp');
+  res.send(content);
+}
+
 // Dynamic Asset Proxy from GitHub Templates Repository
 app.get('/preview/:niche/*', async (req, res, next) => {
   const { niche } = req.params;
@@ -642,31 +706,24 @@ app.get('/preview/:niche/*', async (req, res, next) => {
     const resolvedFolder = await resolveLocalNicheFolder(niche);
     const localAssetPath = path.join(__dirname, 'my_raw_templates', resolvedFolder || niche, filePath);
     const content = await fs.readFile(localAssetPath);
-    
-    // Set headers
-    if (filePath.endsWith('.css')) res.setHeader('Content-Type', 'text/css');
-    else if (filePath.endsWith('.js')) res.setHeader('Content-Type', 'application/javascript');
-    else if (filePath.endsWith('.png')) res.setHeader('Content-Type', 'image/png');
-    else if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg')) res.setHeader('Content-Type', 'image/jpeg');
-    else if (filePath.endsWith('.svg')) res.setHeader('Content-Type', 'image/svg+xml');
-    
-    return res.send(content);
+    return sendAsset(res, filePath, content);
   } catch (localErr) {
     // If not found locally, fall through to GitHub
   }
   
   try {
     const fileContent = await fetchFromGithub(`${niche}/${filePath}`, 'arraybuffer');
-    
-    // Set headers
-    if (filePath.endsWith('.css')) res.setHeader('Content-Type', 'text/css');
-    else if (filePath.endsWith('.js')) res.setHeader('Content-Type', 'application/javascript');
-    else if (filePath.endsWith('.png')) res.setHeader('Content-Type', 'image/png');
-    else if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg')) res.setHeader('Content-Type', 'image/jpeg');
-    else if (filePath.endsWith('.svg')) res.setHeader('Content-Type', 'image/svg+xml');
-    
-    res.send(fileContent);
+    // If the above failed due to wrong folder name, try resolving the GitHub folder
+    return sendAsset(res, filePath, fileContent);
   } catch (err) {
+    // Try with resolved GitHub folder name
+    try {
+      const resolvedFolder = await resolveGithubNicheFolder(niche);
+      if (resolvedFolder && resolvedFolder !== niche) {
+        const fileContent = await fetchFromGithub(`${resolvedFolder}/${filePath}`, 'arraybuffer');
+        return sendAsset(res, filePath, fileContent);
+      }
+    } catch (e2) { /* ignore */ }
     console.warn(`[GitHub/Local Asset Load Fail] ${niche}/${filePath}:`, err.message);
     res.status(404).send('Asset not found');
   }
@@ -726,8 +783,13 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
 
     if (!html) {
       try {
-        // c. Fallback: Try custom folder on GitHub
-        html = await fetchFromGithub(`${niche}/index.html`, 'utf8');
+        // c. Fallback: Try custom folder on GitHub — with fuzzy folder name resolution
+        const resolvedGithubFolder = await resolveGithubNicheFolder(niche);
+        const githubFolder = resolvedGithubFolder || niche;
+        if (resolvedGithubFolder) {
+          console.log(`[Template Loader] GitHub folder match: "${niche}" → "${resolvedGithubFolder}"`);
+        }
+        html = await fetchFromGithub(`${githubFolder}/index.html`, 'utf8');
       } catch (githubErr) {
         // d. Fallback: Try matching site file on GitHub sites/ folder
         const matchedFile = await findNicheTemplate(niche);
