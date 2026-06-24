@@ -46,6 +46,52 @@ function getCommonPrefixLength(str1, str2) {
   return len;
 }
 
+// Resolve a URL slug (e.g. "commercial-espresso-machine-distributors") to the
+// actual folder name inside my_raw_templates (e.g. "Commercial Espresso Machine Distributors")
+let localFolderCache = null;
+async function resolveLocalNicheFolder(niche) {
+  const fs = require('fs').promises;
+  const templatesDir = path.join(__dirname, 'my_raw_templates');
+
+  // Normalize helper: lowercase, replace non-alphanumeric with underscore
+  const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
+  const cleanNiche = normalize(niche);
+
+  // Build cache of all local folders once
+  if (!localFolderCache) {
+    localFolderCache = {};
+    try {
+      const folders = await fs.readdir(templatesDir);
+      for (const folder of folders) {
+        const stat = await fs.stat(path.join(templatesDir, folder)).catch(() => null);
+        if (stat && stat.isDirectory()) {
+          localFolderCache[normalize(folder)] = folder;
+        }
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  // 1. Exact normalized match
+  if (localFolderCache[cleanNiche]) return localFolderCache[cleanNiche];
+
+  // 2. Substring match
+  for (const [key, folder] of Object.entries(localFolderCache)) {
+    if (key.includes(cleanNiche) || cleanNiche.includes(key)) return folder;
+  }
+
+  // 3. Word overlap match
+  const words = cleanNiche.split('_').filter(w => w.length > 2);
+  let bestFolder = null, bestScore = 0;
+  for (const [key, folder] of Object.entries(localFolderCache)) {
+    let score = 0;
+    for (const w of words) { if (key.includes(w)) score++; }
+    if (score > bestScore) { bestScore = score; bestFolder = folder; }
+  }
+  if (bestScore > 0) return bestFolder;
+
+  return null;
+}
+
 let nicheTemplatesCache = null;
 async function findNicheTemplate(niche) {
   const cleanNiche = niche.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
@@ -590,10 +636,11 @@ app.get('/preview/:niche/*', async (req, res, next) => {
     return next(); // Fall through to index.html lead preview route
   }
   
-  // Try local filesystem first
+  // Try local filesystem first (with fuzzy folder resolution)
   try {
     const fs = require('fs').promises;
-    const localAssetPath = path.join(__dirname, 'my_raw_templates', niche, filePath);
+    const resolvedFolder = await resolveLocalNicheFolder(niche);
+    const localAssetPath = path.join(__dirname, 'my_raw_templates', resolvedFolder || niche, filePath);
     const content = await fs.readFile(localAssetPath);
     
     // Set headers
@@ -653,13 +700,18 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     
     // 2. Fetch template HTML (Try local folder, local sites file, or GitHub fallback)
     let html;
+    let resolvedLocalFolder = null;
     try {
-      // a. Try custom local folder (e.g. garage, gym)
+      // a. Try custom local folder — with fuzzy folder name resolution
       const fs = require('fs').promises;
-      const localHtmlPath = path.join(__dirname, 'my_raw_templates', niche, 'index.html');
-      html = await fs.readFile(localHtmlPath, 'utf8');
+      resolvedLocalFolder = await resolveLocalNicheFolder(niche);
+      if (resolvedLocalFolder) {
+        const localHtmlPath = path.join(__dirname, 'my_raw_templates', resolvedLocalFolder, 'index.html');
+        html = await fs.readFile(localHtmlPath, 'utf8');
+        console.log(`[Template Loader] Local folder match: "${niche}" → "${resolvedLocalFolder}"`);
+      }
     } catch (localErr) {
-      // b. Try matching one of the 500 template files in local sites folder
+      // b. Try matching one of the template files in local sites folder
       const matchedFile = await findNicheTemplate(niche);
       if (matchedFile) {
         try {
