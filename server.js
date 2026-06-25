@@ -598,7 +598,7 @@ app.get('/api/test-discord-hf', async (req, res) => {
     };
   }
 
-  // 2. Proxy Call
+  // 2. Proxy Call (lewisakura.moe)
   if (webhookUrl.includes('discord.com') || webhookUrl.includes('discordapp.com')) {
     const proxyUrl = webhookUrl
       .replace('discord.com', 'webhook.lewisakura.moe')
@@ -606,7 +606,7 @@ app.get('/api/test-discord-hf', async (req, res) => {
     try {
       const t0 = Date.now();
       const proxyRes = await axios.post(proxyUrl, {
-        content: '🔔 **Hugging Face Proxy Webhook Test**'
+        content: '🔔 **Hugging Face Lewisakura Proxy Webhook Test**'
       }, {
         headers: {
           'Content-Type': 'application/json',
@@ -621,6 +621,37 @@ app.get('/api/test-discord-hf', async (req, res) => {
       };
     } catch (err) {
       results.proxy = {
+        success: false,
+        message: err.message,
+        status: err.response ? err.response.status : null,
+        data: err.response ? err.response.data : null
+      };
+    }
+  }
+
+  // 3. Proxy Call (tmyt105.com)
+  if (webhookUrl.includes('discord.com') || webhookUrl.includes('discordapp.com')) {
+    const proxyUrl = webhookUrl
+      .replace('discord.com', 'proxy.tmyt105.com')
+      .replace('discordapp.com', 'proxy.tmyt105.com');
+    try {
+      const t0 = Date.now();
+      const proxyRes = await axios.post(proxyUrl, {
+        content: '🔔 **Hugging Face Tmyt105 Proxy Webhook Test**'
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        },
+        timeout: 3000
+      });
+      results.proxy_tmyt105 = {
+        success: true,
+        status: proxyRes.status,
+        timeMs: Date.now() - t0
+      };
+    } catch (err) {
+      results.proxy_tmyt105 = {
         success: false,
         message: err.message,
         status: err.response ? err.response.status : null,
