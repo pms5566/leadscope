@@ -834,16 +834,17 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           top: 0 !important;
           left: 0 !important;
           width: 100% !important;
-          height: 55px !important;
+          min-height: 50px !important;
           background: rgba(15, 23, 42, 0.95) !important;
           backdrop-filter: blur(8px) !important;
+          -webkit-backdrop-filter: blur(8px) !important;
           border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
           display: flex !important;
           justify-content: space-between !important;
           align-items: center !important;
-          padding: 0 25px !important;
+          padding: 8px 24px !important;
           z-index: 2147483647 !important;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
           color: #f8fafc !important;
           font-size: 14px !important;
@@ -853,50 +854,119 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           box-sizing: border-box !important;
         }
         .ls-banner-title {
-          font-weight: 600 !important;
+          font-weight: 500 !important;
           display: flex !important;
           align-items: center !important;
           gap: 6px !important;
+          white-space: nowrap !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          max-width: 50% !important;
+        }
+        .ls-banner-title strong {
+          color: #fff !important;
+          font-weight: 700 !important;
         }
         .ls-banner-ctas {
           display: flex !important;
           align-items: center !important;
-          gap: 12px !important;
+          gap: 8px !important;
+          flex-shrink: 0 !important;
         }
         .ls-banner-btn {
           display: inline-flex !important;
           align-items: center !important;
+          justify-content: center !important;
           gap: 6px !important;
-          padding: 8px 14px !important;
-          border-radius: 6px !important;
-          font-size: 12px !important;
-          font-weight: 700 !important;
+          padding: 8px 16px !important;
+          border-radius: 9999px !important;
+          font-size: 13px !important;
+          font-weight: 600 !important;
           text-decoration: none !important;
           cursor: pointer !important;
-          transition: transform 0.2s !important;
+          transition: all 0.2s ease !important;
+          white-space: nowrap !important;
+        }
+        .ls-banner-btn:hover {
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
         }
         .ls-banner-btn:active {
-          transform: scale(0.97) !important;
+          transform: translateY(0) !important;
         }
         .ls-btn-fiv {
-          background: #10b981 !important;
+          background: #1dbf73 !important;
           color: #fff !important;
         }
-        .ls-btn-fiv:hover { background: #059669 !important; }
+        .ls-btn-fiv:hover {
+          background: #10a862 !important;
+          box-shadow: 0 0 12px rgba(29, 191, 115, 0.4) !important;
+        }
         .ls-btn-wa {
           background: #25d366 !important;
           color: #fff !important;
         }
-        .ls-btn-wa:hover { background: #20ba5a !important; }
+        .ls-btn-wa:hover {
+          background: #1ebe57 !important;
+          box-shadow: 0 0 12px rgba(37, 211, 102, 0.4) !important;
+        }
         .ls-btn-email {
           background: #3b82f6 !important;
           color: #fff !important;
         }
-        .ls-btn-email:hover { background: #2563eb !important; }
+        .ls-btn-email:hover {
+          background: #1d4ed8 !important;
+          box-shadow: 0 0 12px rgba(59, 130, 246, 0.4) !important;
+        }
         
-        /* Offset page layout so sticky banner doesn't cover top links */
+        .ls-btn-text-mobile {
+          display: none !important;
+        }
+        
+        /* Offset page layout initially so sticky banner doesn't cover top links */
         body {
-          padding-top: 55px !important;
+          padding-top: 50px !important;
+        }
+
+        /* Mobile styling */
+        @media (max-width: 768px) {
+          .ls-proposal-banner {
+            padding: 8px 16px !important;
+          }
+          .ls-banner-title {
+            font-size: 13px !important;
+            max-width: 40% !important;
+          }
+          .ls-banner-btn {
+            padding: 7px 12px !important;
+            font-size: 12px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .ls-btn-text-desktop {
+            display: none !important;
+          }
+          .ls-btn-text-mobile {
+            display: inline-block !important;
+          }
+          .ls-banner-title {
+            display: none !important;
+          }
+          .ls-proposal-banner {
+            justify-content: center !important;
+            padding: 8px 10px !important;
+          }
+          .ls-banner-ctas {
+            width: 100% !important;
+            justify-content: space-between !important;
+            gap: 6px !important;
+          }
+          .ls-banner-btn {
+            flex: 1 1 auto !important;
+            justify-content: center !important;
+            padding: 6px 10px !important;
+            font-size: 12px !important;
+          }
         }
       </style>
     `;
@@ -904,26 +974,29 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     const bannerHtml = `
       <div class="ls-proposal-banner">
         <div class="ls-banner-title">
-          <span>☕ Custom Website Concept for <strong>${businessName}</strong></span>
+          <span>☕ Concept Website Proposal for <strong>${businessName}</strong></span>
         </div>
         <div class="ls-banner-ctas">
           <a href="${fiverrUrl}" target="_blank" class="ls-banner-btn ls-btn-fiv" id="ls-fiverr-lnk">
-            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle; margin-right: 6px;" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg">
               <path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/>
             </svg>
-            Secure Order on Fiverr
+            <span class="ls-btn-text-desktop">Order on Fiverr</span>
+            <span class="ls-btn-text-mobile">Fiverr</span>
           </a>
           <a href="${waLink}" target="_blank" class="ls-banner-btn ls-btn-wa" id="ls-whatsapp-lnk">
-            <svg viewBox="0 0 448 512" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle; margin-right: 6px;" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 448 512" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg">
               <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
             </svg>
-            Custom Modifications
+            <span class="ls-btn-text-desktop">Request Changes</span>
+            <span class="ls-btn-text-mobile">WhatsApp</span>
           </a>
           <a href="${emailLink}" target="_blank" class="ls-banner-btn ls-btn-email" id="ls-email-lnk">
-            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle; margin-right: 6px;" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg">
               <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67zM22.5 6.908V6a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.908l9.714 5.978a1 1 0 0 0 1.048 0L22.5 6.908z"/>
             </svg>
-            Direct Email
+            <span class="ls-btn-text-desktop">Email Us</span>
+            <span class="ls-btn-text-mobile">Email</span>
           </a>
         </div>
       </div>
@@ -1072,8 +1145,56 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     html = bannerHtml + html;
   }
   
+  // Layout adjustment script to prevent banner from overlapping fixed/sticky navbars
+  const layoutScript = `
+    <script>
+      (function() {
+        const banner = document.querySelector('.ls-proposal-banner');
+        if (banner) {
+          const adjustLayout = () => {
+            const bannerHeight = banner.offsetHeight;
+            document.body.style.setProperty('padding-top', bannerHeight + 'px', 'important');
+            
+            const allElems = document.querySelectorAll('*');
+            for (let el of allElems) {
+              if (el === banner || banner.contains(el)) continue;
+              const style = window.getComputedStyle(el);
+              if (style.position === 'fixed' || style.position === 'sticky') {
+                if (el.dataset.lsOriginalTop === undefined) {
+                  el.dataset.lsOriginalTop = el.style.top || 'auto';
+                }
+                
+                const rect = el.getBoundingClientRect();
+                // Check if the element resides in the top half of the screen
+                const isTopAligned = rect.top < (window.innerHeight / 2);
+                
+                // Only adjust if it's top-aligned, not styled at the bottom, and top is 0/auto/unset
+                if (isTopAligned && style.bottom === 'auto') {
+                  const originalTop = el.dataset.lsOriginalTop;
+                  const parsedTop = parseFloat(originalTop);
+                  const isAtTopCSS = originalTop === 'auto' || originalTop === '' || 
+                    (!isNaN(parsedTop) && originalTop.endsWith('px') && parsedTop < 10);
+                  
+                  if (isAtTopCSS) {
+                    const topVal = originalTop === 'auto' || originalTop === '' ? 0 : parsedTop;
+                    el.style.setProperty('top', (topVal + bannerHeight) + 'px', 'important');
+                  }
+                }
+              }
+            }
+          };
+          
+          adjustLayout();
+          // Execute after images and resources load to get accurate layout
+          window.addEventListener('load', adjustLayout);
+          window.addEventListener('resize', adjustLayout);
+        }
+      })();
+    </script>
+  `;
+  
   // Inject script tag before body close
-  html = html.replace('</body>', `${personalizationScript}${trackingScript}</body>`);
+  html = html.replace('</body>', `${personalizationScript}${trackingScript}${layoutScript}</body>`);
     
     res.send(html);
   } catch (err) {
