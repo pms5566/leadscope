@@ -1149,63 +1149,72 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
   const layoutScript = `
     <script>
       (function() {
-        const banner = document.querySelector('.ls-proposal-banner');
-        if (banner) {
-          const adjustLayout = () => {
-            const bannerHeight = banner.offsetHeight;
-            document.body.style.setProperty('padding-top', bannerHeight + 'px', 'important');
-            
-            const allElems = document.querySelectorAll('*');
-            for (let el of allElems) {
-              if (el === banner || banner.contains(el)) continue;
-              const style = window.getComputedStyle(el);
-              const isFixedOrSticky = style.position === 'fixed' || style.position === 'sticky';
-              
-              if (isFixedOrSticky) {
-                if (el.dataset.lsOriginalTop === undefined) {
-                  el.dataset.lsOriginalTop = el.style.top || 'auto';
-                }
+        try {
+          const banner = document.querySelector('.ls-proposal-banner');
+          if (banner) {
+            const adjustLayout = () => {
+              try {
+                const bannerHeight = banner.offsetHeight;
+                document.body.style.setProperty('padding-top', bannerHeight + 'px', 'important');
                 
-                const rect = el.getBoundingClientRect();
-                const isTopAligned = rect.top < (window.innerHeight / 2);
+                // Select only candidate header/navbar/menu elements for safety and speed
+                const selectors = 'header, nav, .header, .navbar, #header, #navbar, .nav-container, [class*="nav-menu"], [class*="nav-bar"], [class*="header"]';
+                const allElems = document.querySelectorAll(selectors);
                 
-                if (isTopAligned && style.bottom === 'auto') {
-                  const originalTop = el.dataset.lsOriginalTop;
-                  const parsedTop = parseFloat(originalTop);
-                  const isAtTopCSS = originalTop === 'auto' || originalTop === '' || 
-                    (!isNaN(parsedTop) && parsedTop < 15);
+                for (let el of allElems) {
+                  if (el === banner || banner.contains(el)) continue;
+                  const style = window.getComputedStyle(el);
+                  if (!style) continue;
                   
-                  if (isAtTopCSS) {
-                    const topVal = originalTop === 'auto' || originalTop === '' ? 0 : parsedTop;
-                    el.style.setProperty('top', (topVal + bannerHeight) + 'px', 'important');
-                    el.dataset.lsOffsetAdjusted = 'true';
+                  const isFixedOrSticky = style.position === 'fixed' || style.position === 'sticky';
+                  if (isFixedOrSticky) {
+                    if (el.dataset.lsOriginalTop === undefined) {
+                      el.dataset.lsOriginalTop = el.style.top || 'auto';
+                    }
+                    
+                    if (style.bottom === 'auto') {
+                      const originalTop = el.dataset.lsOriginalTop;
+                      const parsedTop = parseFloat(originalTop);
+                      const isAtTopCSS = originalTop === 'auto' || originalTop === '' || 
+                        (!isNaN(parsedTop) && parsedTop < 15);
+                      
+                      if (isAtTopCSS) {
+                        const topVal = originalTop === 'auto' || originalTop === '' ? 0 : parsedTop;
+                        el.style.setProperty('top', (topVal + bannerHeight) + 'px', 'important');
+                        el.dataset.lsOffsetAdjusted = 'true';
+                      }
+                    }
+                  } else if (el.dataset.lsOffsetAdjusted === 'true') {
+                    if (el.dataset.lsOriginalTop === 'auto' || el.dataset.lsOriginalTop === '') {
+                      el.style.removeProperty('top');
+                    } else {
+                      el.style.setProperty('top', el.dataset.lsOriginalTop);
+                    }
+                    delete el.dataset.lsOffsetAdjusted;
+                    delete el.dataset.lsOriginalTop;
                   }
                 }
-              } else if (el.dataset.lsOffsetAdjusted === 'true') {
-                if (el.dataset.lsOriginalTop === 'auto' || el.dataset.lsOriginalTop === '') {
-                  el.style.removeProperty('top');
-                } else {
-                  el.style.setProperty('top', el.dataset.lsOriginalTop);
-                }
-                delete el.dataset.lsOffsetAdjusted;
-                delete el.dataset.lsOriginalTop;
+              } catch (err) {
+                console.error('[Layout Offset Error]', err);
               }
-            }
-          };
-          
-          // Initial run and event bindings
-          adjustLayout();
-          window.addEventListener('load', adjustLayout);
-          window.addEventListener('resize', adjustLayout);
-          window.addEventListener('scroll', adjustLayout);
-          
-          // Fallback timers for lazy stylesheets & reflows
-          setTimeout(adjustLayout, 50);
-          setTimeout(adjustLayout, 150);
-          setTimeout(adjustLayout, 300);
-          setTimeout(adjustLayout, 600);
-          setTimeout(adjustLayout, 1200);
-          setTimeout(adjustLayout, 2500);
+            };
+            
+            // Initial run and event bindings
+            adjustLayout();
+            window.addEventListener('load', adjustLayout);
+            window.addEventListener('resize', adjustLayout);
+            window.addEventListener('scroll', adjustLayout);
+            
+            // Fallback timers for lazy stylesheets & reflows
+            setTimeout(adjustLayout, 50);
+            setTimeout(adjustLayout, 150);
+            setTimeout(adjustLayout, 300);
+            setTimeout(adjustLayout, 600);
+            setTimeout(adjustLayout, 1200);
+            setTimeout(adjustLayout, 2500);
+          }
+        } catch (e) {
+          console.error('[Layout Init Error]', e);
         }
       })();
     </script>
