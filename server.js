@@ -558,6 +558,80 @@ app.post('/api/config/test', async (req, res) => {
   }
 });
 
+// Temporary diagnostics endpoint for troubleshooting Discord webhook on Hugging Face
+app.get('/api/test-discord-hf', async (req, res) => {
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+  const results = {
+    webhookUrlConfigured: !!webhookUrl,
+    webhookUrlMasked: webhookUrl ? webhookUrl.substring(0, 25) + '...' : null,
+    direct: {},
+    proxy: {}
+  };
+  
+  if (!webhookUrl) {
+    return res.json({ error: 'DISCORD_WEBHOOK_URL environment variable is not defined.' });
+  }
+
+  // 1. Direct Call
+  try {
+    const t0 = Date.now();
+    const directRes = await axios.post(webhookUrl, {
+      content: '🔔 **Hugging Face Direct Webhook Test**'
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      },
+      timeout: 3000
+    });
+    results.direct = {
+      success: true,
+      status: directRes.status,
+      timeMs: Date.now() - t0
+    };
+  } catch (err) {
+    results.direct = {
+      success: false,
+      message: err.message,
+      status: err.response ? err.response.status : null,
+      data: err.response ? err.response.data : null
+    };
+  }
+
+  // 2. Proxy Call
+  if (webhookUrl.includes('discord.com') || webhookUrl.includes('discordapp.com')) {
+    const proxyUrl = webhookUrl
+      .replace('discord.com', 'webhook.lewisakura.moe')
+      .replace('discordapp.com', 'webhook.lewisakura.moe');
+    try {
+      const t0 = Date.now();
+      const proxyRes = await axios.post(proxyUrl, {
+        content: '🔔 **Hugging Face Proxy Webhook Test**'
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        },
+        timeout: 3000
+      });
+      results.proxy = {
+        success: true,
+        status: proxyRes.status,
+        timeMs: Date.now() - t0
+      };
+    } catch (err) {
+      results.proxy = {
+        success: false,
+        message: err.message,
+        status: err.response ? err.response.status : null,
+        data: err.response ? err.response.data : null
+      };
+    }
+  }
+
+  res.json(results);
+});
+
 // API Endpoint to scan local leads
 app.post('/api/scan', async (req, res) => {
   const { niche, location, forceMock } = req.body;
