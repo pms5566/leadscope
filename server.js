@@ -1172,7 +1172,10 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
                       el.dataset.lsOriginalTop = el.style.top || 'auto';
                     }
                     
-                    if (style.bottom === 'auto') {
+                    const rect = el.getBoundingClientRect();
+                    const isBottomAnchored = rect.top > (window.innerHeight * 0.75);
+                    
+                    if (!isBottomAnchored) {
                       const originalTop = el.dataset.lsOriginalTop;
                       const parsedTop = parseFloat(originalTop);
                       const isAtTopCSS = originalTop === 'auto' || originalTop === '' || 
