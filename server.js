@@ -1159,35 +1159,53 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
             for (let el of allElems) {
               if (el === banner || banner.contains(el)) continue;
               const style = window.getComputedStyle(el);
-              if (style.position === 'fixed' || style.position === 'sticky') {
+              const isFixedOrSticky = style.position === 'fixed' || style.position === 'sticky';
+              
+              if (isFixedOrSticky) {
                 if (el.dataset.lsOriginalTop === undefined) {
                   el.dataset.lsOriginalTop = el.style.top || 'auto';
                 }
                 
                 const rect = el.getBoundingClientRect();
-                // Check if the element resides in the top half of the screen
                 const isTopAligned = rect.top < (window.innerHeight / 2);
                 
-                // Only adjust if it's top-aligned, not styled at the bottom, and top is 0/auto/unset
                 if (isTopAligned && style.bottom === 'auto') {
                   const originalTop = el.dataset.lsOriginalTop;
                   const parsedTop = parseFloat(originalTop);
                   const isAtTopCSS = originalTop === 'auto' || originalTop === '' || 
-                    (!isNaN(parsedTop) && originalTop.endsWith('px') && parsedTop < 10);
+                    (!isNaN(parsedTop) && parsedTop < 15);
                   
                   if (isAtTopCSS) {
                     const topVal = originalTop === 'auto' || originalTop === '' ? 0 : parsedTop;
                     el.style.setProperty('top', (topVal + bannerHeight) + 'px', 'important');
+                    el.dataset.lsOffsetAdjusted = 'true';
                   }
                 }
+              } else if (el.dataset.lsOffsetAdjusted === 'true') {
+                if (el.dataset.lsOriginalTop === 'auto' || el.dataset.lsOriginalTop === '') {
+                  el.style.removeProperty('top');
+                } else {
+                  el.style.setProperty('top', el.dataset.lsOriginalTop);
+                }
+                delete el.dataset.lsOffsetAdjusted;
+                delete el.dataset.lsOriginalTop;
               }
             }
           };
           
+          // Initial run and event bindings
           adjustLayout();
-          // Execute after images and resources load to get accurate layout
           window.addEventListener('load', adjustLayout);
           window.addEventListener('resize', adjustLayout);
+          window.addEventListener('scroll', adjustLayout);
+          
+          // Fallback timers for lazy stylesheets & reflows
+          setTimeout(adjustLayout, 50);
+          setTimeout(adjustLayout, 150);
+          setTimeout(adjustLayout, 300);
+          setTimeout(adjustLayout, 600);
+          setTimeout(adjustLayout, 1200);
+          setTimeout(adjustLayout, 2500);
         }
       })();
     </script>
