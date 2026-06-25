@@ -943,18 +943,20 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           }
         }
         @media (max-width: 600px) {
-          .ls-btn-text-desktop {
-            display: none !important;
-          }
-          .ls-btn-text-mobile {
-            display: inline-block !important;
+          .ls-proposal-banner {
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 8px 12px !important;
+            gap: 6px !important;
           }
           .ls-banner-title {
-            display: none !important;
-          }
-          .ls-proposal-banner {
+            display: flex !important;
+            max-width: 100% !important;
+            font-size: 11px !important;
+            text-align: center !important;
             justify-content: center !important;
-            padding: 8px 10px !important;
+            margin-bottom: 2px !important;
           }
           .ls-banner-ctas {
             width: 100% !important;
@@ -964,8 +966,14 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           .ls-banner-btn {
             flex: 1 1 auto !important;
             justify-content: center !important;
-            padding: 6px 10px !important;
-            font-size: 12px !important;
+            padding: 6px 8px !important;
+            font-size: 11px !important;
+          }
+          .ls-btn-text-desktop {
+            display: none !important;
+          }
+          .ls-btn-text-mobile {
+            display: inline-block !important;
           }
         }
       </style>
