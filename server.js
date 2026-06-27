@@ -11,6 +11,27 @@ const PORT = parseInt(process.env.PORT, 10) || 3000;
 let latestScannedLeads = [];
 let activeVisits = [];
 
+// Niche alias mapping for matching synonyms/sub-niches to template folder names
+const NICHE_ALIASES = {
+  'vinyl_wrapping': 'auto_detailing_ceramic_coating_shops',
+  'vinyl_wrapping_ppf': 'auto_detailing_ceramic_coating_shops',
+  'vinyl_wrapping_and_ppf': 'auto_detailing_ceramic_coating_shops',
+  'ppf': 'auto_detailing_ceramic_coating_shops',
+  'paint_protection_film': 'auto_detailing_ceramic_coating_shops',
+  'window_tinting': 'auto_detailing_ceramic_coating_shops',
+  'detailing': 'auto_detailing_ceramic_coating_shops',
+  'car_detailing': 'auto_detailing_ceramic_coating_shops',
+  'auto_detailing': 'auto_detailing_ceramic_coating_shops',
+  'ceramic_coating': 'auto_detailing_ceramic_coating_shops',
+  'caterers': 'luxury_event_caterers_staffing',
+  'catering': 'luxury_event_caterers_staffing',
+  'caterer': 'luxury_event_caterers_staffing',
+  'wedding_planners': 'luxury_yacht_wedding_planners',
+  'wedding_planner': 'luxury_yacht_wedding_planners',
+  'yacht_weddings': 'luxury_yacht_wedding_planners',
+  'yacht_wedding': 'luxury_yacht_wedding_planners'
+};
+
 // Helper to fetch files from configured GitHub repository
 async function fetchFromGithub(pathWithinRepo, responseType = 'text') {
   const owner = process.env.GITHUB_USERNAME || 'pms5566';
@@ -54,7 +75,12 @@ async function resolveLocalNicheFolder(niche) {
 
   // Normalize helper: lowercase, replace non-alphanumeric with underscore
   const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
-  const cleanNiche = normalize(niche);
+  let cleanNiche = normalize(niche);
+
+  // Apply alias mapping if present
+  if (NICHE_ALIASES[cleanNiche]) {
+    cleanNiche = NICHE_ALIASES[cleanNiche];
+  }
 
   // Read directory dynamically to detect new templates instantly
   const localFolderCache = {};
@@ -95,7 +121,12 @@ let nicheTemplatesCache = null;
 let githubFolderCache = null;
 async function resolveGithubNicheFolder(niche) {
   const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
-  const cleanNiche = normalize(niche);
+  let cleanNiche = normalize(niche);
+
+  // Apply alias mapping if present
+  if (NICHE_ALIASES[cleanNiche]) {
+    cleanNiche = NICHE_ALIASES[cleanNiche];
+  }
 
   // Build cache of all root folders in the GitHub repo once
   if (!githubFolderCache) {
