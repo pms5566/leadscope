@@ -48,7 +48,6 @@ function getCommonPrefixLength(str1, str2) {
 
 // Resolve a URL slug (e.g. "commercial-espresso-machine-distributors") to the
 // actual folder name inside my_raw_templates (e.g. "Commercial Espresso Machine Distributors")
-let localFolderCache = null;
 async function resolveLocalNicheFolder(niche) {
   const fs = require('fs').promises;
   const templatesDir = path.join(__dirname, 'my_raw_templates');
@@ -57,19 +56,17 @@ async function resolveLocalNicheFolder(niche) {
   const normalize = str => str.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
   const cleanNiche = normalize(niche);
 
-  // Build cache of all local folders once
-  if (!localFolderCache) {
-    localFolderCache = {};
-    try {
-      const folders = await fs.readdir(templatesDir);
-      for (const folder of folders) {
-        const stat = await fs.stat(path.join(templatesDir, folder)).catch(() => null);
-        if (stat && stat.isDirectory()) {
-          localFolderCache[normalize(folder)] = folder;
-        }
+  // Read directory dynamically to detect new templates instantly
+  const localFolderCache = {};
+  try {
+    const folders = await fs.readdir(templatesDir);
+    for (const folder of folders) {
+      const stat = await fs.stat(path.join(templatesDir, folder)).catch(() => null);
+      if (stat && stat.isDirectory()) {
+        localFolderCache[normalize(folder)] = folder;
       }
-    } catch (e) { /* ignore */ }
-  }
+    }
+  } catch (e) { /* ignore */ }
 
   // 1. Exact normalized match
   if (localFolderCache[cleanNiche]) return localFolderCache[cleanNiche];
