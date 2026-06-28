@@ -59,6 +59,7 @@ const NICHE_ALIASES = {
   'student_pg': 'student_pg_accommodation',
   'pg_accommodation': 'student_pg_accommodation',
   'paying_guest': 'student_pg_accommodation',
+  'paying_guest_hostel': 'student_pg_accommodation',
   'pg_hostel': 'student_pg_accommodation',
   'student_accommodation': 'student_pg_accommodation',
   'student_hostel': 'student_pg_accommodation',
