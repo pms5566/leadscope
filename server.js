@@ -13,6 +13,7 @@ let activeVisits = [];
 
 // Niche alias mapping for matching synonyms/sub-niches to template folder names
 const NICHE_ALIASES = {
+  // ── Auto Detailing & Ceramic Coating Shops ──────────────────────────────────
   'vinyl_wrapping': 'auto_detailing_ceramic_coating_shops',
   'vinyl_wrapping_ppf': 'auto_detailing_ceramic_coating_shops',
   'vinyl_wrapping_and_ppf': 'auto_detailing_ceramic_coating_shops',
@@ -31,13 +32,39 @@ const NICHE_ALIASES = {
   'car_wrapping': 'auto_detailing_ceramic_coating_shops',
   'car_wrap': 'auto_detailing_ceramic_coating_shops',
   'car_wraps': 'auto_detailing_ceramic_coating_shops',
+  // ── Luxury Event Caterers & Staffing ────────────────────────────────────────
   'caterers': 'luxury_event_caterers_staffing',
   'catering': 'luxury_event_caterers_staffing',
   'caterer': 'luxury_event_caterers_staffing',
+  // ── Luxury Yacht Wedding Planners ────────────────────────────────────────────
   'wedding_planners': 'luxury_yacht_wedding_planners',
   'wedding_planner': 'luxury_yacht_wedding_planners',
   'yacht_weddings': 'luxury_yacht_wedding_planners',
-  'yacht_wedding': 'luxury_yacht_wedding_planners'
+  'yacht_wedding': 'luxury_yacht_wedding_planners',
+  // ── Aesthetic & Anti-Aging Medicine ─────────────────────────────────────────
+  'aesthetic_clinic': 'aesthetic_anti_aging_medicine',
+  'aesthetic_medicine': 'aesthetic_anti_aging_medicine',
+  'anti_aging': 'aesthetic_anti_aging_medicine',
+  'anti_aging_clinic': 'aesthetic_anti_aging_medicine',
+  'medispa': 'aesthetic_anti_aging_medicine',
+  'med_spa': 'aesthetic_anti_aging_medicine',
+  'medspa': 'aesthetic_anti_aging_medicine',
+  'botox_clinic': 'aesthetic_anti_aging_medicine',
+  'botox': 'aesthetic_anti_aging_medicine',
+  'filler_clinic': 'aesthetic_anti_aging_medicine',
+  'skin_clinic': 'aesthetic_anti_aging_medicine',
+  'dermatology_clinic': 'aesthetic_anti_aging_medicine',
+  'aesthetic_anti_aging': 'aesthetic_anti_aging_medicine',
+  // ── Student PG Accommodation ─────────────────────────────────────────────────
+  'student_pg': 'student_pg_accommodation',
+  'pg_accommodation': 'student_pg_accommodation',
+  'paying_guest': 'student_pg_accommodation',
+  'pg_hostel': 'student_pg_accommodation',
+  'student_accommodation': 'student_pg_accommodation',
+  'student_hostel': 'student_pg_accommodation',
+  'pg_rooms': 'student_pg_accommodation',
+  'pg': 'student_pg_accommodation',
+  'hostel': 'student_pg_accommodation'
 };
 
 // Helper to fetch files from configured GitHub repository
