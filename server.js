@@ -65,7 +65,17 @@ const NICHE_ALIASES = {
   'student_hostel': 'student_pg_accommodation',
   'pg_rooms': 'student_pg_accommodation',
   'pg': 'student_pg_accommodation',
-  'hostel': 'student_pg_accommodation'
+  'hostel': 'student_pg_accommodation',
+  // ── Dermatologist ─────────────────────────────────────────────────────────────
+  'dermatologist': 'dermatologist',
+  'dermatology': 'dermatologist',
+  'skin_doctor': 'dermatologist',
+  'skin_specialist': 'dermatologist',
+  'skin_care_clinic': 'dermatologist',
+  'derma_clinic': 'dermatologist',
+  'acne_treatment': 'dermatologist',
+  'laser_skin_clinic': 'dermatologist',
+  'cosmetic_dermatologist': 'dermatologist'
 };
 
 // Helper to fetch files from configured GitHub repository
