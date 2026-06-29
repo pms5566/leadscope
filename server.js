@@ -75,7 +75,20 @@ const NICHE_ALIASES = {
   'derma_clinic': 'dermatologist',
   'acne_treatment': 'dermatologist',
   'laser_skin_clinic': 'dermatologist',
-  'cosmetic_dermatologist': 'dermatologist'
+  'cosmetic_dermatologist': 'dermatologist',
+  // ── Dentist ───────────────────────────────────────────────────────────────────
+  'dentist': 'dentist',
+  'dental_clinic': 'dentist',
+  'dental': 'dentist',
+  'teeth_whitening': 'dentist',
+  'cosmetic_dentistry': 'dentist',
+  'orthodontist': 'dentist',
+  'braces_clinic': 'dentist',
+  'dental_implants': 'dentist',
+  'family_dentist': 'dentist',
+  'tooth_clinic': 'dentist',
+  'oral_care': 'dentist',
+  'smile_clinic': 'dentist'
 };
 
 // Helper to fetch files from configured GitHub repository
