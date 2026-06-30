@@ -678,6 +678,113 @@
           </div>
         </div>
       </div>
+      <!-- SCREEN 7: LINK GENERATOR -->
+      <div class="screen-view" id="screen_linkgen" style="padding: 2rem;">
+        <div class="welcome-banner" style="background: linear-gradient(135deg, rgba(0,210,255,0.18) 0%, rgba(0,102,255,0.13) 100%); border-color: rgba(0,210,255,0.35); margin-bottom: 2rem;">
+          <h2>🔗 Proposal Link Generator</h2>
+          <p>Fill in the business details below to instantly generate a personalized proposal preview link you can share via WhatsApp, Email, or anywhere.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1100px;">
+
+          <!-- LEFT: Input Form -->
+          <div class="results-card" style="padding: 2rem;">
+            <h3 style="color: var(--color-cyan); margin-bottom: 1.5rem;"><i class="fa-solid fa-pen-to-square"></i> Enter Business Details</h3>
+
+            <div class="input-group" style="margin-bottom: 1.25rem;">
+              <label for="lg_niche">Niche / Template</label>
+              <div class="input-wrapper">
+                <select id="lg_niche" onchange="generateLink()" style="width:100%; background: var(--color-surface); color: var(--color-text-primary); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.95rem; outline: none;">
+                  <option value="dentist">🦷 Dentist</option>
+                  <option value="dermatologist">🩺 Dermatologist</option>
+                  <option value="aesthetic clinic">💉 Aesthetic &amp; Anti-Aging Medicine</option>
+                  <option value="student pg">🏠 Student PG Accommodation</option>
+                  <option value="auto detailing">🚗 Auto Detailing &amp; Ceramic Coating</option>
+                  <option value="Luxury Yacht Wedding Planners">⛵ Luxury Yacht Wedding Planners</option>
+                  <option value="Luxury Event Caterers &amp; Staffing">🍽️ Luxury Event Caterers &amp; Staffing</option>
+                  <option value="gym">🏋️ Gym</option>
+                  <option value="jewelry">💎 Jewelry</option>
+                  <option value="roofing contractors">🏠 Roofing Contractors</option>
+                  <option value="garage">🔧 Garage</option>
+                  <option value="doctor">👨‍⚕️ Doctor</option>
+                  <option value="Artificial Turf Installation">🌿 Artificial Turf Installation</option>
+                  <option value="Commercial Espresso Machine Distributors">☕ Commercial Espresso Machine Distributors</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 1.25rem;">
+              <label for="lg_name">Business Name</label>
+              <div class="input-wrapper">
+                <input type="text" id="lg_name" placeholder="e.g. City Dental Care" oninput="generateLink()">
+                <i class="fa-solid fa-building"></i>
+              </div>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 1.25rem;">
+              <label for="lg_phone">Phone Number</label>
+              <div class="input-wrapper">
+                <input type="text" id="lg_phone" placeholder="e.g. +91 98765 43210" oninput="generateLink()">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 1.75rem;">
+              <label for="lg_address">Address</label>
+              <div class="input-wrapper">
+                <input type="text" id="lg_address" placeholder="e.g. 12 MG Road, Bangalore" oninput="generateLink()">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+            </div>
+
+            <button class="btn-search" onclick="generateLink()" style="width: 100%;">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Link
+            </button>
+          </div>
+
+          <!-- RIGHT: Output -->
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+            <!-- Generated Link Card -->
+            <div class="results-card" style="padding: 2rem;">
+              <h3 style="color: var(--color-green); margin-bottom: 1rem;"><i class="fa-solid fa-link"></i> Generated Preview Link</h3>
+              <div id="lg_output_wrap" style="background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 1rem; word-break: break-all; font-family: monospace; font-size: 0.82rem; color: var(--color-text-secondary); min-height: 60px; margin-bottom: 1rem;">
+                <span id="lg_output" style="color: var(--color-cyan);">Fill in the form to generate your link...</span>
+              </div>
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <button id="lg_btn_copy" class="btn-action btn-copy" onclick="copyProposalLink()" disabled style="flex:1; justify-content:center;">
+                  <i class="fa-solid fa-copy"></i> Copy Link
+                </button>
+                <a id="lg_btn_open" href="#" target="_blank" class="btn-action btn-launch" style="flex:1; justify-content:center; pointer-events:none; opacity:0.4;">
+                  <i class="fa-solid fa-eye"></i> Preview
+                </a>
+              </div>
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="results-card" style="padding: 2rem;">
+              <h3 style="color: var(--color-purple); margin-bottom: 1rem;"><i class="fa-solid fa-share-nodes"></i> Share Instantly</h3>
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <a id="lg_whatsapp" href="#" target="_blank" class="btn-action" style="background: #16a34a; color:#fff; justify-content:center; pointer-events:none; opacity:0.4;">
+                  <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+                </a>
+                <a id="lg_email" href="#" class="btn-action" style="background: rgba(123,97,255,0.2); border:1px solid rgba(123,97,255,0.4); color:#a78bfa; justify-content:center; pointer-events:none; opacity:0.4;">
+                  <i class="fa-solid fa-envelope"></i> Send via Email
+                </a>
+                <a id="lg_sms" href="#" class="btn-action" style="background: rgba(0,210,255,0.1); border:1px solid rgba(0,210,255,0.3); color:#67e8f9; justify-content:center; pointer-events:none; opacity:0.4;">
+                  <i class="fa-solid fa-comment-sms"></i> Send via SMS
+                </a>
+              </div>
+            </div>
+
+            <!-- Tip Card -->
+            <div style="background: rgba(250,204,21,0.08); border: 1px solid rgba(250,204,21,0.25); border-radius: 12px; padding: 1.25rem;">
+              <p style="color: #fde68a; font-size: 0.88rem; margin:0;"><i class="fa-solid fa-lightbulb" style="color:#facc15;"></i> <strong>Tip:</strong> Send this link to a prospect before your pitch call. When they open it, you'll see a live notification in the <strong>Live Sales Spy</strong> tab!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </main>
   </div>
 
@@ -741,112 +848,6 @@
     </div>
   </div>
 
-  <!-- SCREEN 7: LINK GENERATOR -->
-  <div class="screen-view" id="screen_linkgen" style="padding: 2rem;">
-    <div class="welcome-banner" style="background: linear-gradient(135deg, rgba(0,210,255,0.18) 0%, rgba(0,102,255,0.13) 100%); border-color: rgba(0,210,255,0.35); margin-bottom: 2rem;">
-      <h2>🔗 Proposal Link Generator</h2>
-      <p>Fill in the business details below to instantly generate a personalized proposal preview link you can share via WhatsApp, Email, or anywhere.</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1100px;">
-
-      <!-- LEFT: Input Form -->
-      <div class="results-card" style="padding: 2rem;">
-        <h3 style="color: var(--color-cyan); margin-bottom: 1.5rem;"><i class="fa-solid fa-pen-to-square"></i> Enter Business Details</h3>
-
-        <div class="input-group" style="margin-bottom: 1.25rem;">
-          <label for="lg_niche">Niche / Template</label>
-          <div class="input-wrapper">
-            <select id="lg_niche" onchange="generateLink()" style="width:100%; background: var(--color-surface); color: var(--color-text-primary); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.95rem; outline: none;">
-              <option value="dentist">🦷 Dentist</option>
-              <option value="dermatologist">🩺 Dermatologist</option>
-              <option value="aesthetic clinic">💉 Aesthetic &amp; Anti-Aging Medicine</option>
-              <option value="student pg">🏠 Student PG Accommodation</option>
-              <option value="auto detailing">🚗 Auto Detailing &amp; Ceramic Coating</option>
-              <option value="Luxury Yacht Wedding Planners">⛵ Luxury Yacht Wedding Planners</option>
-              <option value="Luxury Event Caterers &amp; Staffing">🍽️ Luxury Event Caterers &amp; Staffing</option>
-              <option value="gym">🏋️ Gym</option>
-              <option value="jewelry">💎 Jewelry</option>
-              <option value="roofing contractors">🏠 Roofing Contractors</option>
-              <option value="garage">🔧 Garage</option>
-              <option value="doctor">👨‍⚕️ Doctor</option>
-              <option value="Artificial Turf Installation">🌿 Artificial Turf Installation</option>
-              <option value="Commercial Espresso Machine Distributors">☕ Commercial Espresso Machine Distributors</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="input-group" style="margin-bottom: 1.25rem;">
-          <label for="lg_name">Business Name</label>
-          <div class="input-wrapper">
-            <input type="text" id="lg_name" placeholder="e.g. City Dental Care" oninput="generateLink()">
-            <i class="fa-solid fa-building"></i>
-          </div>
-        </div>
-
-        <div class="input-group" style="margin-bottom: 1.25rem;">
-          <label for="lg_phone">Phone Number</label>
-          <div class="input-wrapper">
-            <input type="text" id="lg_phone" placeholder="e.g. +91 98765 43210" oninput="generateLink()">
-            <i class="fa-solid fa-phone"></i>
-          </div>
-        </div>
-
-        <div class="input-group" style="margin-bottom: 1.75rem;">
-          <label for="lg_address">Address</label>
-          <div class="input-wrapper">
-            <input type="text" id="lg_address" placeholder="e.g. 12 MG Road, Bangalore" oninput="generateLink()">
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
-        </div>
-
-        <button class="btn-search" onclick="generateLink()" style="width: 100%;">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Link
-        </button>
-      </div>
-
-      <!-- RIGHT: Output -->
-      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-
-        <!-- Generated Link Card -->
-        <div class="results-card" style="padding: 2rem;">
-          <h3 style="color: var(--color-green); margin-bottom: 1rem;"><i class="fa-solid fa-link"></i> Generated Preview Link</h3>
-          <div id="lg_output_wrap" style="background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 1rem; word-break: break-all; font-family: monospace; font-size: 0.82rem; color: var(--color-text-secondary); min-height: 60px; margin-bottom: 1rem;">
-            <span id="lg_output" style="color: var(--color-cyan);">Fill in the form to generate your link...</span>
-          </div>
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <button id="lg_btn_copy" class="btn-action btn-copy" onclick="copyProposalLink()" disabled style="flex:1; justify-content:center;">
-              <i class="fa-solid fa-copy"></i> Copy Link
-            </button>
-            <a id="lg_btn_open" href="#" target="_blank" class="btn-action btn-launch" style="flex:1; justify-content:center; pointer-events:none; opacity:0.4;">
-              <i class="fa-solid fa-eye"></i> Preview
-            </a>
-          </div>
-        </div>
-
-        <!-- Share Buttons -->
-        <div class="results-card" style="padding: 2rem;">
-          <h3 style="color: var(--color-purple); margin-bottom: 1rem;"><i class="fa-solid fa-share-nodes"></i> Share Instantly</h3>
-          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <a id="lg_whatsapp" href="#" target="_blank" class="btn-action" style="background: #16a34a; color:#fff; justify-content:center; pointer-events:none; opacity:0.4;">
-              <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
-            </a>
-            <a id="lg_email" href="#" class="btn-action" style="background: rgba(123,97,255,0.2); border:1px solid rgba(123,97,255,0.4); color:#a78bfa; justify-content:center; pointer-events:none; opacity:0.4;">
-              <i class="fa-solid fa-envelope"></i> Send via Email
-            </a>
-            <a id="lg_sms" href="#" class="btn-action" style="background: rgba(0,210,255,0.1); border:1px solid rgba(0,210,255,0.3); color:#67e8f9; justify-content:center; pointer-events:none; opacity:0.4;">
-              <i class="fa-solid fa-comment-sms"></i> Send via SMS
-            </a>
-          </div>
-        </div>
-
-        <!-- Tip Card -->
-        <div style="background: rgba(250,204,21,0.08); border: 1px solid rgba(250,204,21,0.25); border-radius: 12px; padding: 1.25rem;">
-          <p style="color: #fde68a; font-size: 0.88rem; margin:0;"><i class="fa-solid fa-lightbulb" style="color:#facc15;"></i> <strong>Tip:</strong> Send this link to a prospect before your pitch call. When they open it, you'll see a live notification in the <strong>Live Sales Spy</strong> tab!</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="app.js"></script>
 </body>
