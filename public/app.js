@@ -1627,3 +1627,87 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.className = "fa-solid fa-eye";
     }
   };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LINK GENERATOR — generate & share personalised proposal preview links
+// ─────────────────────────────────────────────────────────────────────────────
+window.generateLink = function () {
+  const niche   = (document.getElementById('lg_niche')   || {}).value   || '';
+  const name    = (document.getElementById('lg_name')    || {}).value   || '';
+  const phone   = (document.getElementById('lg_phone')   || {}).value   || '';
+  const address = (document.getElementById('lg_address') || {}).value   || '';
+
+  const outputEl    = document.getElementById('lg_output');
+  const copyBtn     = document.getElementById('lg_btn_copy');
+  const openBtn     = document.getElementById('lg_btn_open');
+  const waBtn       = document.getElementById('lg_whatsapp');
+  const emailBtn    = document.getElementById('lg_email');
+  const smsBtn      = document.getElementById('lg_sms');
+
+  if (!niche || !name) {
+    if (outputEl) outputEl.textContent = 'Please enter at least a Niche and Business Name.';
+    return;
+  }
+
+  const base      = window.location.origin;
+  const leadId    = 'preview_' + Date.now();
+  const url       = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+
+  // Display the link
+  if (outputEl) outputEl.textContent = url;
+
+  // Enable copy & open
+  if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = url; }
+  if (openBtn) { openBtn.href = url; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
+
+  // WhatsApp
+  const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${url}`;
+  if (waBtn) {
+    waBtn.href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
+    waBtn.style.pointerEvents = 'auto';
+    waBtn.style.opacity = '1';
+  }
+
+  // Email
+  const emailSubject = `Your Free Website Demo — ${name}`;
+  const emailBody    = `Hi,\n\nI've created a personalised website demo for ${name}. Click the link below to view it:\n\n${url}\n\nLet me know what you think!\n\nBest regards`;
+  if (emailBtn) {
+    emailBtn.href = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    emailBtn.style.pointerEvents = 'auto';
+    emailBtn.style.opacity = '1';
+  }
+
+  // SMS
+  const smsMsg = `Hi! Here's your free website demo: ${url}`;
+  if (smsBtn) {
+    smsBtn.href = `sms:?body=${encodeURIComponent(smsMsg)}`;
+    smsBtn.style.pointerEvents = 'auto';
+    smsBtn.style.opacity = '1';
+  }
+};
+
+window.copyProposalLink = function () {
+  const copyBtn = document.getElementById('lg_btn_copy');
+  const url = (copyBtn || {}).dataset.url || document.getElementById('lg_output').textContent;
+  if (!url || url.startsWith('Fill') || url.startsWith('Please')) return;
+
+  navigator.clipboard.writeText(url).then(() => {
+    const orig = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+    copyBtn.style.background = 'rgba(0,245,160,0.2)';
+    setTimeout(() => {
+      copyBtn.innerHTML = orig;
+      copyBtn.style.background = '';
+    }, 2000);
+  }).catch(() => {
+    // Fallback for non-HTTPS
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+    setTimeout(() => { copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Link'; }, 2000);
+  });
+};
