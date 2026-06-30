@@ -1649,7 +1649,8 @@ window.generateLink = function () {
     return;
   }
 
-  const base      = window.location.origin;
+  // Always use the public Hugging Face URL so clients can open the link
+  const base      = 'https://parmeet123-leadscope.hf.space';
   const leadId    = 'preview_' + Date.now();
   const url       = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
 
