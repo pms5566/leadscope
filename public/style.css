@@ -1795,7 +1795,8 @@ tr:hover td {
 #screen_overview .results-card,
 #screen_settings .results-card,
 #screen_guide .results-card,
-#screen_spy .results-card {
+#screen_spy .results-card,
+#screen_linkgen .results-card {
   display: block;
 }
 
