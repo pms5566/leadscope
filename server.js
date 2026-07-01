@@ -154,6 +154,7 @@ async function resolveLocalNicheFolder(niche) {
   if (NICHE_ALIASES[cleanNiche]) {
     cleanNiche = NICHE_ALIASES[cleanNiche];
   }
+  cleanNiche = normalize(cleanNiche);
 
   // Read directory dynamically to detect new templates instantly
   const localFolderCache = {};
