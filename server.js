@@ -88,7 +88,21 @@ const NICHE_ALIASES = {
   'family_dentist': 'dentist',
   'tooth_clinic': 'dentist',
   'oral_care': 'dentist',
-  'smile_clinic': 'dentist'
+  'smile_clinic': 'dentist',
+  // ── Luxurious Salon Website ──────────────────────────────────────────────────
+  'luxurious_salon': 'luxurious-salon-website',
+  'salon': 'luxurious-salon-website',
+  'beauty_salon': 'luxurious-salon-website',
+  'hair_salon': 'luxurious-salon-website',
+  'nail_salon': 'luxurious-salon-website',
+  'spa': 'luxurious-salon-website',
+  'beauty_spa': 'luxurious-salon-website',
+  'massage_center': 'luxurious-salon-website',
+  'hair_styling': 'luxurious-salon-website',
+  'skincare_clinic': 'luxurious-salon-website',
+  'luxury_salon': 'luxurious-salon-website',
+  'atelier': 'luxurious-salon-website',
+  'salon_website': 'luxurious-salon-website'
 };
 
 // Helper to fetch files from configured GitHub repository
