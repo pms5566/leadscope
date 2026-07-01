@@ -201,6 +201,7 @@ async function resolveGithubNicheFolder(niche) {
   if (NICHE_ALIASES[cleanNiche]) {
     cleanNiche = NICHE_ALIASES[cleanNiche];
   }
+  cleanNiche = normalize(cleanNiche);
 
   // Build cache of all root folders in the GitHub repo once
   if (!githubFolderCache) {
