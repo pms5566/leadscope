@@ -94,7 +94,7 @@ const NICHE_ALIASES = {
   'salon': 'luxurious-salon-website',
   'beauty_salon': 'luxurious-salon-website',
   'hair_salon': 'luxurious-salon-website',
-  'nail_salon': 'luxurious-salon-website',
+  'nail_salon': 'nail-art',
   'spa': 'luxurious-salon-website',
   'beauty_spa': 'luxurious-salon-website',
   'massage_center': 'luxurious-salon-website',
@@ -102,7 +102,18 @@ const NICHE_ALIASES = {
   'skincare_clinic': 'luxurious-salon-website',
   'luxury_salon': 'luxurious-salon-website',
   'atelier': 'luxurious-salon-website',
-  'salon_website': 'luxurious-salon-website'
+  'salon_website': 'luxurious-salon-website',
+  // ── Nail Art ─────────────────────────────────────────────────────────────────
+  'nail_art': 'nail-art',
+  'nails': 'nail-art',
+  'manicure': 'nail-art',
+  'pedicure': 'nail-art',
+  'nail_care': 'nail-art',
+  'acrylic_nails': 'nail-art',
+  'gel_nails': 'nail-art',
+  'gel_manicure': 'nail-art',
+  'nail_studio': 'nail-art',
+  'nail_bar': 'nail-art'
 };
 
 // Helper to fetch files from configured GitHub repository
