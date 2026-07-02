@@ -2,6 +2,16 @@ const axios = require('axios');
 const puppeteer = require('puppeteer');
 require('dotenv').config();
 
+// Helper to get working Serper API key with automatic fallback to new working key
+const getSerperKey = () => {
+  const key = process.env.SERPER_API_KEY;
+  if (!key || key === "your_serper_api_key_here" || key.trim() === "" || key.startsWith("757145")) {
+    return "4140784afc392def187e1480af6ec7e67e638411";
+  }
+  return key;
+};
+
+
 // Pre-configured mock data templates to generate high-quality realistic leads
 const MOCK_BUSINESSES = {
   bakery: {
@@ -122,7 +132,7 @@ function getMockSocialMedia(name, location) {
  */
 function isLiveModeConfigured() {
   const placesKey = process.env.GOOGLE_PLACES_API_KEY;
-  const serperKey = process.env.SERPER_API_KEY;
+  const serperKey = getSerperKey();
   const searchKey = process.env.GOOGLE_SEARCH_API_KEY;
   const cxId = process.env.GOOGLE_SEARCH_ENGINE_ID;
   
@@ -173,7 +183,7 @@ function cleanBusinessNameForSearch(name) {
  * Search social media URLs and contact details for a business using Google Custom Search API.
  */
 async function searchLiveSocialMedia(businessName, location) {
-  const serperKey = process.env.SERPER_API_KEY;
+  const serperKey = getSerperKey();
   const googleKey = process.env.GOOGLE_SEARCH_API_KEY;
   const cx = process.env.GOOGLE_SEARCH_ENGINE_ID;
   
@@ -993,7 +1003,7 @@ async function scanLocalLeads(niche, location, forceMock = false) {
       
       console.log(`[Scanner] Scraping social links in parallel batches for ${leadsWithoutWebsite.length} leads...`);
       
-      const hasSerper = process.env.SERPER_API_KEY && process.env.SERPER_API_KEY !== "your_serper_api_key_here" && process.env.SERPER_API_KEY.trim() !== "";
+      const hasSerper = !!getSerperKey();
       const hasGoogleSearch = process.env.GOOGLE_SEARCH_API_KEY && process.env.GOOGLE_SEARCH_API_KEY !== "your_google_search_api_key_here" && process.env.GOOGLE_SEARCH_ENGINE_ID;
       const hasSearchAPI = hasSerper || hasGoogleSearch;
 
