@@ -1629,11 +1629,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const adStatIG          = document.getElementById('adStatIG');
   const adStatFB          = document.getElementById('adStatFB');
   const adStatTT          = document.getElementById('adStatTT');
+  const adStatGoogle      = document.getElementById('adStatGoogle');
+  const adStatBing        = document.getElementById('adStatBing');
   const adBtnExportCSV    = document.getElementById('adBtnExportCSV');
   const adBtnExportJSON   = document.getElementById('adBtnExportJSON');
   const adPlatformIG      = document.getElementById('adPlatformIG');
   const adPlatformFB      = document.getElementById('adPlatformFB');
   const adPlatformTT      = document.getElementById('adPlatformTT');
+  const adPlatformGoogle  = document.getElementById('adPlatformGoogle');
+  const adPlatformBing    = document.getElementById('adPlatformBing');
 
   let adCurrentLeads = [];
 
@@ -1643,15 +1647,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const s3 = document.getElementById('adStep3');
     if (!s1) return;
     s1.className = 'step-item step-active';
-    s1.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Connecting to Meta & TikTok Ad Libraries...';
+    s1.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Connecting to Meta & Google Ad Networks...';
     s2.className = 'step-item';
     s2.innerHTML = '<i class="fa-solid fa-circle-dot"></i> Scanning active ads in your niche...';
     s3.className = 'step-item';
-    s3.innerHTML = '<i class="fa-solid fa-circle-dot"></i> Filtering businesses without websites...';
+    s3.innerHTML = '<i class="fa-solid fa-circle-dot"></i> Filtering & scoring current websites...';
     setTimeout(() => {
       if (adLoadingPanel && adLoadingPanel.style.display === 'flex') {
         s1.className = 'step-item step-done';
-        s1.innerHTML = '<i class="fa-solid fa-circle-check"></i> Ad Library connected.';
+        s1.innerHTML = '<i class="fa-solid fa-circle-check"></i> Ad Networks connected.';
         s2.className = 'step-item step-active';
         s2.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Scanning active ads in your niche...';
       }
@@ -1661,7 +1665,7 @@ document.addEventListener('DOMContentLoaded', () => {
         s2.className = 'step-item step-done';
         s2.innerHTML = '<i class="fa-solid fa-circle-check"></i> Active ads extracted.';
         s3.className = 'step-item step-active';
-        s3.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Filtering businesses without websites...';
+        s3.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Filtering & scoring current websites...';
       }
     }, 9000);
   }
@@ -1672,6 +1676,8 @@ document.addEventListener('DOMContentLoaded', () => {
       facebook:  `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#1877f2,#42b4ff);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><i class="fa-brands fa-facebook-f"></i> Facebook</span>`,
       meta:      `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#1877f2,#833ab4);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><i class="fa-brands fa-meta"></i> Meta</span>`,
       tiktok:    `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#010101,#69C9D0);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><i class="fa-brands fa-tiktok"></i> TikTok</span>`,
+      google:    `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#4285F4,#34A853);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><i class="fa-brands fa-google"></i> Google Ads</span>`,
+      bing:      `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#FF6900,#00B4D8);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><svg width="10" height="10" viewBox="0 0 24 24" fill="white" style="display:inline-block;vertical-align:middle;margin-right:2px;"><path d="M6 17V7h4.5c2.485 0 4 1.342 4 3.5 0 2.217-1.515 3.5-4 3.5H8v3H6Zm2-5h2.4c1.35 0 2.1-.6 2.1-1.5S11.75 9 10.4 9H8v3Z"/></svg> Bing Ads</span>`
     };
     return b[platform] || `<span style="background:rgba(255,255,255,0.1);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;">${platform}</span>`;
   }
@@ -1686,13 +1692,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       return;
     }
-    let igCount = 0, fbCount = 0, ttCount = 0;
+
+    let igCount = 0, fbCount = 0, ttCount = 0, googleCount = 0, bingCount = 0;
+
     adCurrentLeads.forEach((lead, index) => {
       const p = lead.adPlatform || 'meta';
       if (p === 'instagram') igCount++;
       else if (p === 'facebook') fbCount++;
       else if (p === 'tiktok') ttCount++;
+      else if (p === 'google') googleCount++;
+      else if (p === 'bing') bingCount++;
       else if (p === 'meta') { igCount++; fbCount++; }
+
+      // Website Score display
+      let scoreHtml = '';
+      if (lead.websiteScore) {
+        const score = lead.websiteScore.score;
+        const label = lead.websiteScore.label;
+        const colorClass = score <= 40 ? 'score-poor' : (score <= 70 ? 'score-average' : 'score-good');
+        const reasonText = (lead.websiteScore.reasons || []).join(', ') || 'Optimised';
+
+        if (score !== null && score !== undefined) {
+          scoreHtml = `
+            <span class="score-badge ${colorClass}">${score}/100</span>
+            <div class="score-reason">${escapeHtml(label)} - ${escapeHtml(reasonText)}</div>
+          `;
+        } else {
+          scoreHtml = `
+            <span class="score-badge score-none">Unscored</span>
+            <div class="score-reason">${escapeHtml(reasonText)}</div>
+          `;
+        }
+      } else {
+        // Meta / TikTok leads that have no website
+        scoreHtml = `
+          <span class="score-badge score-poor">No Website</span>
+          <div class="score-reason">Best pitch opportunity!</div>
+        `;
+      }
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -1701,19 +1738,26 @@ document.addEventListener('DOMContentLoaded', () => {
             <span style="background:linear-gradient(135deg,#f77062,#fe5196);border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;flex-shrink:0;">🔥</span>
             <span style="color:var(--color-cyan);font-weight:600;">${escapeHtml(lead.name)}</span>
           </div>
+          ${lead.adHeadline ? `<div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px; font-style: italic;">"${escapeHtml(lead.adHeadline)}"</div>` : ''}
           <div class="biz-meta" style="margin-top:4px;">${adPlatformBadge(p)}</div>
         </td>
         <td>
           <div class="contact-item"><i class="fa-solid fa-location-dot"></i><span>${escapeHtml(lead.address || 'N/A')}</span></div>
           <div class="contact-item" style="margin-top:0.25rem;"><i class="fa-solid fa-phone"></i><span>${escapeHtml(lead.phone || 'N/A')}</span></div>
-          ${lead.email ? `<div class="contact-item" style="margin-top:0.25rem;"><i class="fa-solid fa-envelope"></i><span style="font-size:0.8rem;">${escapeHtml(lead.email)}</span></div>` : ''}
+          ${lead.website ? `<div class="contact-item" style="margin-top:0.25rem;"><i class="fa-solid fa-globe"></i><span style="font-size:0.8rem; color: var(--color-cyan);">${escapeHtml(lead.website)}</span></div>` : ''}
+        </td>
+        <td>
+          <div class="score-container">${scoreHtml}</div>
         </td>
         <td>
           <div class="social-pill-container">
             <a href="#" class="social-pill crm-save" data-ad-lead-index="${index}" title="Save to CRM"><i class="fa-solid fa-folder-plus"></i></a>
+            
+            ${lead.websiteUrl ? `<a href="${lead.websiteUrl}" target="_blank" class="social-pill" style="background:rgba(255,255,255,0.1);color:#fff;" title="Visit Website"><i class="fa-solid fa-globe"></i></a>` : ''}
             ${lead.instagram ? `<a href="${lead.instagram}" target="_blank" class="social-pill ig" title="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>` : `<a href="#" class="social-pill ig inactive" title="Instagram N/A"><i class="fa-brands fa-instagram"></i></a>`}
             ${lead.facebook ? `<a href="${lead.facebook}" target="_blank" class="social-pill fb" title="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>` : `<a href="#" class="social-pill fb inactive" title="Facebook N/A"><i class="fa-brands fa-facebook-f"></i></a>`}
             ${lead.tiktok ? `<a href="${lead.tiktok}" target="_blank" class="social-pill tt" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>` : ''}
+            
             <a href="${lead.whatsapp || '#'}" target="_blank" class="social-pill wa ${lead.whatsapp ? '' : 'inactive'}" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lead.name + ' ' + (lead.address || ''))}" target="_blank" class="social-pill" style="background:rgba(66,180,255,0.15);color:#42b4ff;" title="Find on Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
           </div>
@@ -1727,6 +1771,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (adStatIG) adStatIG.textContent = igCount;
     if (adStatFB) adStatFB.textContent = fbCount;
     if (adStatTT) adStatTT.textContent = ttCount;
+    if (adStatGoogle) adStatGoogle.textContent = googleCount;
+    if (adStatBing) adStatBing.textContent = bingCount;
     if (adStatsGrid) adStatsGrid.style.display = 'grid';
     if (adResultsCard) adResultsCard.style.display = 'block';
 
@@ -1776,11 +1822,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const niche = adNicheInput.value.trim();
       const city  = adCityInput.value.trim();
       if (!niche || !city) return;
-      const platforms = [];
-      if (adPlatformIG && adPlatformIG.checked) platforms.push('instagram');
-      if (adPlatformFB && adPlatformFB.checked) platforms.push('facebook');
-      if (adPlatformTT && adPlatformTT.checked) platforms.push('tiktok');
-      if (platforms.length === 0) { alert('Please select at least one platform.'); return; }
+
+      const metaPlatforms = [];
+      if (adPlatformIG && adPlatformIG.checked) metaPlatforms.push('instagram');
+      if (adPlatformFB && adPlatformFB.checked) metaPlatforms.push('facebook');
+      if (adPlatformTT && adPlatformTT.checked) metaPlatforms.push('tiktok');
+
+      const engines = [];
+      if (adPlatformGoogle && adPlatformGoogle.checked) engines.push('google');
+      if (adPlatformBing && adPlatformBing.checked) engines.push('bing');
+
+      if (metaPlatforms.length === 0 && engines.length === 0) {
+        alert('Please select at least one platform.');
+        return;
+      }
 
       if (adEmptyState) adEmptyState.style.display = 'none';
       if (adStatsGrid) adStatsGrid.style.display = 'none';
@@ -1792,19 +1847,46 @@ document.addEventListener('DOMContentLoaded', () => {
       startAdLoadingAnimation();
 
       try {
-        const res = await fetch('/api/scan-ads', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ niche, city, platforms })
-        });
-        const data = await res.json();
-        if (data.success) {
-          adCurrentLeads = data.leads;
-          renderAdResults();
-        } else {
-          alert('Ad Scan Error: ' + (data.error || 'Unknown failure'));
-          if (adEmptyState) adEmptyState.style.display = 'flex';
+        const requests = [];
+
+        // Meta Ads Request
+        if (metaPlatforms.length > 0) {
+          requests.push(
+            fetch('/api/scan-ads', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ niche, city, platforms: metaPlatforms })
+            }).then(res => res.json()).catch(err => {
+              console.error('Meta ad scan error:', err);
+              return { success: false, leads: [] };
+            })
+          );
         }
+
+        // Google Ads Request
+        if (engines.length > 0) {
+          requests.push(
+            fetch('/api/scan-google-ads', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ niche, city, engines, scoreWebsites: true })
+            }).then(res => res.json()).catch(err => {
+              console.error('Google ad scan error:', err);
+              return { success: false, leads: [] };
+            })
+          );
+        }
+
+        const responses = await Promise.all(requests);
+        let allLeads = [];
+        responses.forEach(r => {
+          if (r.success && Array.isArray(r.leads)) {
+            allLeads = allLeads.concat(r.leads);
+          }
+        });
+
+        adCurrentLeads = allLeads;
+        renderAdResults();
       } catch (err) {
         console.error(err);
         alert('Network error during ad scan.');

@@ -3,6 +3,7 @@ const path = require('path');
 const axios = require('axios');
 const { scanLocalLeads, isLiveModeConfigured } = require('./scanner');
 const { scanAdLeads } = require('./ad-scanner');
+const { scanGoogleAds } = require('./google-ads-scanner');
 require('dotenv').config();
 
 
@@ -736,6 +737,33 @@ app.post('/api/scan-ads', async (req, res) => {
   } catch (error) {
     console.error('[Ad Scanner API] Error:', error.message);
     res.status(500).json({ error: 'Ad scan failed: ' + error.message });
+  }
+});
+
+// POST /api/scan-google-ads
+// Body: { niche: string, city: string, engines: string[], scoreWebsites: boolean }
+// Returns: { success, leads[] }
+app.post('/api/scan-google-ads', async (req, res) => {
+  const { niche, city, engines, scoreWebsites } = req.body;
+
+  if (!niche || !city) {
+    return res.status(400).json({ error: 'Niche and City are required.' });
+  }
+
+  const selectedEngines = Array.isArray(engines) && engines.length > 0
+    ? engines
+    : ['google', 'bing'];
+
+  const doScore = scoreWebsites !== false; // default true
+
+  console.log(`[Google Ads API] Scanning: niche="${niche}", city="${city}", engines=[${selectedEngines.join(',')}], score=${doScore}`);
+
+  try {
+    const leads = await scanGoogleAds(niche, city, selectedEngines, doScore);
+    res.json({ success: true, niche, city, engines: selectedEngines, leads });
+  } catch (error) {
+    console.error('[Google Ads API] Error:', error.message);
+    res.status(500).json({ error: 'Google Ads scan failed: ' + error.message });
   }
 });
 
