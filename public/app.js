@@ -1694,10 +1694,6 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (p === 'tiktok') ttCount++;
       else if (p === 'meta') { igCount++; fbCount++; }
 
-      const adLink = lead.instagram || lead.facebook || lead.tiktok || null;
-      const adIcon = p === 'tiktok' ? 'tiktok' : p === 'instagram' ? 'instagram' : 'facebook-f';
-      const adClass = p === 'tiktok' ? 'tt' : p === 'instagram' ? 'ig' : 'fb';
-
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>
@@ -1715,7 +1711,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>
           <div class="social-pill-container">
             <a href="#" class="social-pill crm-save" data-ad-lead-index="${index}" title="Save to CRM"><i class="fa-solid fa-folder-plus"></i></a>
-            ${adLink ? `<a href="${adLink}" target="_blank" class="social-pill ${adClass}" title="View Ad Page"><i class="fa-brands fa-${adIcon}"></i></a>` : ''}
+            ${lead.instagram ? `<a href="${lead.instagram}" target="_blank" class="social-pill ig" title="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>` : `<a href="#" class="social-pill ig inactive" title="Instagram N/A"><i class="fa-brands fa-instagram"></i></a>`}
+            ${lead.facebook ? `<a href="${lead.facebook}" target="_blank" class="social-pill fb" title="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>` : `<a href="#" class="social-pill fb inactive" title="Facebook N/A"><i class="fa-brands fa-facebook-f"></i></a>`}
+            ${lead.tiktok ? `<a href="${lead.tiktok}" target="_blank" class="social-pill tt" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>` : ''}
             <a href="${lead.whatsapp || '#'}" target="_blank" class="social-pill wa ${lead.whatsapp ? '' : 'inactive'}" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lead.name + ' ' + (lead.address || ''))}" target="_blank" class="social-pill" style="background:rgba(66,180,255,0.15);color:#42b4ff;" title="Find on Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
           </div>
