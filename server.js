@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const axios = require('axios');
 const { scanLocalLeads, isLiveModeConfigured } = require('./scanner');
+const { scanAdLeads } = require('./ad-scanner');
 require('dotenv').config();
 
 
@@ -703,6 +704,38 @@ app.post('/api/scan', async (req, res) => {
   } catch (error) {
     console.error('[API Error] Scan failed:', error.message);
     res.status(500).json({ error: 'An error occurred during the local scan: ' + error.message });
+  }
+});
+
+// ─── Ad Scanner API Endpoint ──────────────────────────────────────────────────
+// POST /api/scan-ads
+// Body: { niche: string, city: string, platforms: string[] }
+// Returns: { success, niche, city, platforms, leads[] }
+app.post('/api/scan-ads', async (req, res) => {
+  const { niche, city, platforms } = req.body;
+
+  if (!niche || !city) {
+    return res.status(400).json({ error: 'Niche and City are required.' });
+  }
+
+  const selectedPlatforms = Array.isArray(platforms) && platforms.length > 0
+    ? platforms
+    : ['instagram', 'facebook', 'tiktok'];
+
+  console.log(`[Ad Scanner API] Scanning: niche="${niche}", city="${city}", platforms=[${selectedPlatforms.join(',')}]`);
+
+  try {
+    const leads = await scanAdLeads(niche, city, selectedPlatforms);
+    res.json({
+      success: true,
+      niche,
+      city,
+      platforms: selectedPlatforms,
+      leads
+    });
+  } catch (error) {
+    console.error('[Ad Scanner API] Error:', error.message);
+    res.status(500).json({ error: 'Ad scan failed: ' + error.message });
   }
 });
 

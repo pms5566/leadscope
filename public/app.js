@@ -1712,3 +1712,227 @@ window.copyProposalLink = function () {
     setTimeout(() => { copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Link'; }, 2000);
   });
 };
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // AD SCANNER — Frontend Logic
+  // ═══════════════════════════════════════════════════════════════════════
+  const adScanForm        = document.getElementById('adScanForm');
+  const adNicheInput      = document.getElementById('adNicheInput');
+  const adCityInput       = document.getElementById('adCityInput');
+  const adBtnSearch       = document.getElementById('adBtnSearch');
+  const adSearchSpinner   = document.getElementById('adSearchSpinner');
+  const adSearchText      = document.getElementById('adSearchText');
+  const adLoadingPanel    = document.getElementById('adLoadingPanel');
+  const adEmptyState      = document.getElementById('adEmptyState');
+  const adStatsGrid       = document.getElementById('adStatsGrid');
+  const adResultsCard     = document.getElementById('adResultsCard');
+  const adLeadsTableBody  = document.getElementById('adLeadsTableBody');
+  const adStatTotal       = document.getElementById('adStatTotal');
+  const adStatIG          = document.getElementById('adStatIG');
+  const adStatFB          = document.getElementById('adStatFB');
+  const adStatTT          = document.getElementById('adStatTT');
+  const adBtnExportCSV    = document.getElementById('adBtnExportCSV');
+  const adBtnExportJSON   = document.getElementById('adBtnExportJSON');
+  const adPlatformIG      = document.getElementById('adPlatformIG');
+  const adPlatformFB      = document.getElementById('adPlatformFB');
+  const adPlatformTT      = document.getElementById('adPlatformTT');
+
+  let adCurrentLeads = [];
+
+  function startAdLoadingAnimation() {
+    const s1 = document.getElementById('adStep1');
+    const s2 = document.getElementById('adStep2');
+    const s3 = document.getElementById('adStep3');
+    if (!s1) return;
+    s1.className = 'step-item step-active';
+    s1.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Connecting to Meta & TikTok Ad Libraries...';
+    s2.className = 'step-item';
+    s2.innerHTML = '<i class="fa-solid fa-circle-dot"></i> Scanning active ads in your niche...';
+    s3.className = 'step-item';
+    s3.innerHTML = '<i class="fa-solid fa-circle-dot"></i> Filtering businesses without websites...';
+    setTimeout(() => {
+      if (adLoadingPanel && adLoadingPanel.style.display === 'flex') {
+        s1.className = 'step-item step-done';
+        s1.innerHTML = '<i class="fa-solid fa-circle-check"></i> Ad Library connected.';
+        s2.className = 'step-item step-active';
+        s2.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Scanning active ads in your niche...';
+      }
+    }, 4000);
+    setTimeout(() => {
+      if (adLoadingPanel && adLoadingPanel.style.display === 'flex') {
+        s2.className = 'step-item step-done';
+        s2.innerHTML = '<i class="fa-solid fa-circle-check"></i> Active ads extracted.';
+        s3.className = 'step-item step-active';
+        s3.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Filtering businesses without websites...';
+      }
+    }, 9000);
+  }
+
+  function adPlatformBadge(platform) {
+    const b = {
+      instagram: `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#e1306c,#833ab4);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><i class="fa-brands fa-instagram"></i> Instagram</span>`,
+      facebook:  `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#1877f2,#42b4ff);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><i class="fa-brands fa-facebook-f"></i> Facebook</span>`,
+      meta:      `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#1877f2,#833ab4);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><i class="fa-brands fa-meta"></i> Meta</span>`,
+      tiktok:    `<span style="display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#010101,#69C9D0);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;font-weight:600;"><i class="fa-brands fa-tiktok"></i> TikTok</span>`,
+    };
+    return b[platform] || `<span style="background:rgba(255,255,255,0.1);color:#fff;border-radius:6px;padding:2px 8px;font-size:0.72rem;">${platform}</span>`;
+  }
+
+  function renderAdResults() {
+    if (!adLeadsTableBody) return;
+    adLeadsTableBody.innerHTML = '';
+    if (adCurrentLeads.length === 0) {
+      if (adEmptyState) {
+        adEmptyState.innerHTML = `<div class="empty-state-logo"><i class="fa-solid fa-circle-info"></i></div><h3>No Ad Leads Found</h3><p>Try a different niche or city.</p>`;
+        adEmptyState.style.display = 'flex';
+      }
+      return;
+    }
+    let igCount = 0, fbCount = 0, ttCount = 0;
+    adCurrentLeads.forEach((lead, index) => {
+      const p = lead.adPlatform || 'meta';
+      if (p === 'instagram') igCount++;
+      else if (p === 'facebook') fbCount++;
+      else if (p === 'tiktok') ttCount++;
+      else if (p === 'meta') { igCount++; fbCount++; }
+
+      const adLink = lead.instagram || lead.facebook || lead.tiktok || null;
+      const adIcon = p === 'tiktok' ? 'tiktok' : p === 'instagram' ? 'instagram' : 'facebook-f';
+      const adClass = p === 'tiktok' ? 'tt' : p === 'instagram' ? 'ig' : 'fb';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>
+          <div class="biz-name" style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="background:linear-gradient(135deg,#f77062,#fe5196);border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;flex-shrink:0;">🔥</span>
+            <span style="color:var(--color-cyan);font-weight:600;">${escapeHtml(lead.name)}</span>
+          </div>
+          <div class="biz-meta" style="margin-top:4px;">${adPlatformBadge(p)}</div>
+        </td>
+        <td>
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i><span>${escapeHtml(lead.address || 'N/A')}</span></div>
+          <div class="contact-item" style="margin-top:0.25rem;"><i class="fa-solid fa-phone"></i><span>${escapeHtml(lead.phone || 'N/A')}</span></div>
+          ${lead.email ? `<div class="contact-item" style="margin-top:0.25rem;"><i class="fa-solid fa-envelope"></i><span style="font-size:0.8rem;">${escapeHtml(lead.email)}</span></div>` : ''}
+        </td>
+        <td>
+          <div class="social-pill-container">
+            <a href="#" class="social-pill crm-save" data-ad-lead-index="${index}" title="Save to CRM"><i class="fa-solid fa-folder-plus"></i></a>
+            ${adLink ? `<a href="${adLink}" target="_blank" class="social-pill ${adClass}" title="View Ad Page"><i class="fa-brands fa-${adIcon}"></i></a>` : ''}
+            <a href="${lead.whatsapp || '#'}" target="_blank" class="social-pill wa ${lead.whatsapp ? '' : 'inactive'}" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lead.name + ' ' + (lead.address || ''))}" target="_blank" class="social-pill" style="background:rgba(66,180,255,0.15);color:#42b4ff;" title="Find on Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
+          </div>
+          <div style="margin-top:0.5rem;">${buildTemplateSelectorHtml(lead, false, index)}</div>
+        </td>
+      `;
+      adLeadsTableBody.appendChild(tr);
+    });
+
+    if (adStatTotal) adStatTotal.textContent = adCurrentLeads.length;
+    if (adStatIG) adStatIG.textContent = igCount;
+    if (adStatFB) adStatFB.textContent = fbCount;
+    if (adStatTT) adStatTT.textContent = ttCount;
+    if (adStatsGrid) adStatsGrid.style.display = 'grid';
+    if (adResultsCard) adResultsCard.style.display = 'block';
+
+    // Wire CRM save buttons
+    adLeadsTableBody.querySelectorAll('.crm-save[data-ad-lead-index]').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const idx = parseInt(btn.getAttribute('data-ad-lead-index'));
+        const lead = adCurrentLeads[idx];
+        if (lead) await saveToCRM(lead, btn);
+      });
+    });
+
+    // Wire template launch buttons
+    adLeadsTableBody.querySelectorAll('.btn-launch[data-lead-index]').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const idx = parseInt(btn.getAttribute('data-lead-index'));
+        const lead = adCurrentLeads[idx];
+        const selEl = adLeadsTableBody.querySelector(`select[data-lead-index="${idx}"]`);
+        if (lead && selEl) await handleLaunchPreview(lead, selEl.value, btn);
+      });
+    });
+  }
+
+  if (adScanForm) {
+    adScanForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const niche = adNicheInput.value.trim();
+      const city  = adCityInput.value.trim();
+      if (!niche || !city) return;
+      const platforms = [];
+      if (adPlatformIG && adPlatformIG.checked) platforms.push('instagram');
+      if (adPlatformFB && adPlatformFB.checked) platforms.push('facebook');
+      if (adPlatformTT && adPlatformTT.checked) platforms.push('tiktok');
+      if (platforms.length === 0) { alert('Please select at least one platform.'); return; }
+
+      if (adEmptyState) adEmptyState.style.display = 'none';
+      if (adStatsGrid) adStatsGrid.style.display = 'none';
+      if (adResultsCard) adResultsCard.style.display = 'none';
+      if (adLoadingPanel) adLoadingPanel.style.display = 'flex';
+      adBtnSearch.disabled = true;
+      adSearchSpinner.style.display = 'inline-block';
+      adSearchText.textContent = 'Scanning...';
+      startAdLoadingAnimation();
+
+      try {
+        const res = await fetch('/api/scan-ads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ niche, city, platforms })
+        });
+        const data = await res.json();
+        if (data.success) {
+          adCurrentLeads = data.leads;
+          renderAdResults();
+        } else {
+          alert('Ad Scan Error: ' + (data.error || 'Unknown failure'));
+          if (adEmptyState) adEmptyState.style.display = 'flex';
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Network error during ad scan.');
+        if (adEmptyState) adEmptyState.style.display = 'flex';
+      } finally {
+        if (adLoadingPanel) adLoadingPanel.style.display = 'none';
+        adBtnSearch.disabled = false;
+        adSearchSpinner.style.display = 'none';
+        adSearchText.innerHTML = '<i class="fa-solid fa-satellite-dish"></i> Scan Ads';
+      }
+    });
+  }
+
+  if (adBtnExportCSV) {
+    adBtnExportCSV.addEventListener('click', () => {
+      if (!adCurrentLeads.length) return;
+      const hdr = ['Name','City','Phone','Email','Ad Platform','Facebook','Instagram','TikTok','WhatsApp'];
+      const rows = adCurrentLeads.map(l => [
+        `"${(l.name||'').replace(/"/g,'""')}"`, `"${(l.address||'').replace(/"/g,'""')}"`,
+        `"${(l.phone||'').replace(/"/g,'""')}"`, `"${(l.email||'').replace(/"/g,'""')}"`,
+        `"${(l.adPlatform||'').replace(/"/g,'""')}"`, `"${(l.facebook||'').replace(/"/g,'""')}"`,
+        `"${(l.instagram||'').replace(/"/g,'""')}"`, `"${(l.tiktok||'').replace(/"/g,'""')}"`,
+        `"${(l.whatsapp||'').replace(/"/g,'""')}"`
+      ]);
+      const csv = "data:text/csv;charset=utf-8," + [hdr.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const a = document.createElement('a');
+      a.setAttribute('href', encodeURI(csv));
+      a.setAttribute('download', `ad_leads_${adNicheInput.value}_${adCityInput.value}.csv`);
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+  }
+
+  if (adBtnExportJSON) {
+    adBtnExportJSON.addEventListener('click', () => {
+      if (!adCurrentLeads.length) return;
+      const j = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(adCurrentLeads, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute('href', j);
+      a.setAttribute('download', `ad_leads_${adNicheInput.value}_${adCityInput.value}.json`);
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+  }
+  // ═══ END AD SCANNER ════════════════════════════════════════════════════
+
+});

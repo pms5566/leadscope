@@ -40,6 +40,9 @@
         <a href="#" class="nav-item" data-screen="finder">
           <i class="fa-solid fa-magnifying-glass-location"></i> <span>Lead Finder</span>
         </a>
+        <a href="#" class="nav-item" data-screen="adscanner">
+          <i class="fa-solid fa-rectangle-ad"></i> <span>Ad Lead Scanner</span>
+        </a>
         <a href="#" class="nav-item" data-screen="crm">
           <i class="fa-solid fa-users-rectangle"></i> <span>CRM Outreach Tracker</span>
         </a>
@@ -258,6 +261,174 @@
           </div>
         </section>
       </div>
+
+      <!-- SCREEN: AD LEAD SCANNER -->
+      <div class="screen-view" id="screen_adscanner">
+
+        <!-- Control Panel -->
+        <section class="control-card">
+          <h2 class="control-title">
+            <i class="fa-solid fa-rectangle-ad"></i> Ad Lead Scanner
+            <span class="badge badge-live" style="font-size:0.68rem; margin-left:0.75rem; vertical-align:middle; padding:0.25rem 0.6rem;">🔥 Hot Leads</span>
+          </h2>
+          <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:1.25rem;line-height:1.6;">Find businesses <strong style="color:var(--color-cyan)">actively spending on ads</strong> but with no proper website. These are your highest-converting leads.</p>
+
+          <form id="adScanForm">
+            <div class="form-row">
+              <div class="input-group">
+                <label for="adNicheInput">Niche / Business Type</label>
+                <div class="input-wrapper">
+                  <input type="text" id="adNicheInput" placeholder="e.g. dentist, dermatologist, nail salon" required>
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="adCityInput">City</label>
+                <div class="input-wrapper">
+                  <input type="text" id="adCityInput" placeholder="e.g. Mumbai, Dubai, London" required>
+                  <i class="fa-solid fa-map-pin"></i>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-search" id="adBtnSearch" style="background: linear-gradient(135deg, #f77062 0%, #fe5196 100%);">
+                <i class="fa-solid fa-circle-notch fa-spin" style="display: none;" id="adSearchSpinner"></i>
+                <span id="adSearchText"><i class="fa-solid fa-satellite-dish"></i> Scan Ads</span>
+              </button>
+            </div>
+
+            <!-- Platform Checkboxes -->
+            <div class="options-row" style="gap:1.25rem; flex-wrap:wrap;">
+              <label class="toggle-container" style="gap:0.5rem;">
+                <span class="toggle-label" style="display:flex;align-items:center;gap:0.4rem;">
+                  <i class="fa-brands fa-instagram" style="color:#e1306c;"></i> Instagram
+                </span>
+                <span class="switch">
+                  <input type="checkbox" id="adPlatformIG" checked>
+                  <span class="slider"></span>
+                </span>
+              </label>
+              <label class="toggle-container" style="gap:0.5rem;">
+                <span class="toggle-label" style="display:flex;align-items:center;gap:0.4rem;">
+                  <i class="fa-brands fa-facebook-f" style="color:#1877f2;"></i> Facebook
+                </span>
+                <span class="switch">
+                  <input type="checkbox" id="adPlatformFB" checked>
+                  <span class="slider"></span>
+                </span>
+              </label>
+              <label class="toggle-container" style="gap:0.5rem;">
+                <span class="toggle-label" style="display:flex;align-items:center;gap:0.4rem;">
+                  <i class="fa-brands fa-tiktok" style="color:#69C9D0;"></i> TikTok
+                </span>
+                <span class="switch">
+                  <input type="checkbox" id="adPlatformTT" checked>
+                  <span class="slider"></span>
+                </span>
+              </label>
+            </div>
+          </form>
+        </section>
+
+        <!-- Loading Panel -->
+        <section class="loading-panel" id="adLoadingPanel">
+          <div class="glow-spinner" style="background: linear-gradient(135deg, #f77062 0%, #fe5196 100%);"></div>
+          <div class="loading-steps">
+            <div class="step-item" id="adStep1">
+              <i class="fa-solid fa-circle-dot"></i> Connecting to Ad Libraries...
+            </div>
+            <div class="step-item" id="adStep2">
+              <i class="fa-solid fa-circle-dot"></i> Scanning for active ads in your niche...
+            </div>
+            <div class="step-item" id="adStep3">
+              <i class="fa-solid fa-circle-dot"></i> Filtering businesses without websites...
+            </div>
+          </div>
+        </section>
+
+        <!-- Empty State -->
+        <section class="empty-state" id="adEmptyState">
+          <div class="empty-state-logo" style="background: linear-gradient(135deg, #f77062 0%, #fe5196 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <i class="fa-solid fa-rectangle-ad"></i>
+          </div>
+          <h3>Ready to Scan Ads</h3>
+          <p>Enter a niche and city to find businesses running Instagram, Facebook or TikTok ads — but with no website. These are your hottest leads.</p>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid" id="adStatsGrid" style="display: none;">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-leads" style="background: linear-gradient(135deg, #f77062 0%, #fe5196 100%);">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="adStatTotal">0</span>
+              <span class="stat-label">Ad-Active Leads</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #e1306c 0%, #833ab4 100%);">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="adStatIG">0</span>
+              <span class="stat-label">Instagram Leads</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #1877f2 0%, #42b4ff 100%);">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="adStatFB">0</span>
+              <span class="stat-label">Facebook Leads</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #010101 0%, #69C9D0 100%);">
+              <i class="fa-brands fa-tiktok"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="adStatTT">0</span>
+              <span class="stat-label">TikTok Leads</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Table -->
+        <section class="results-card" id="adResultsCard" style="display: none; margin-top: 1.5rem;">
+          <div class="results-header">
+            <h3 class="results-title" style="color: #fe5196;">
+              <i class="fa-solid fa-fire"></i> Ad-Active Leads — No Website Found
+            </h3>
+            <div class="actions-container">
+              <button class="btn-export btn-export-csv" id="adBtnExportCSV">
+                <i class="fa-solid fa-file-csv"></i> Export CSV
+              </button>
+              <button class="btn-export" id="adBtnExportJSON">
+                <i class="fa-solid fa-code"></i> Export JSON
+              </button>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Business Name</th>
+                  <th>City & Contact</th>
+                  <th>Ad Platform & Channels</th>
+                </tr>
+              </thead>
+              <tbody id="adLeadsTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+      <!-- END SCREEN: AD LEAD SCANNER -->
 
       <!-- SCREEN 3: CRM OUTREACH PIPELINE -->
       <div class="screen-view" id="screen_crm">
