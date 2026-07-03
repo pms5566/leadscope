@@ -1,6 +1,7 @@
 'use strict';
 const puppeteer = require('puppeteer');
 const https = require('https');
+const axios = require('axios');
 
 // ─── Launch Browser ─────────────────────────────────────────────────────────
 async function launchBrowser() {
@@ -19,6 +20,53 @@ async function launchBrowser() {
 const delay = (min, max) => new Promise(r =>
   setTimeout(r, Math.floor(Math.random() * (max - min + 1)) + min)
 );
+
+// ─── Social Media Link Extractor ──────────────────────────────────────────────
+async function extractSocialsFromWebsite(url) {
+  const socials = { facebook: null, instagram: null, tiktok: null };
+  if (!url) return socials;
+
+  let cleanUrl = url.trim();
+  if (!cleanUrl.startsWith('http')) cleanUrl = 'https://' + cleanUrl;
+
+  try {
+    const res = await axios.get(cleanUrl, {
+      timeout: 5000,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5'
+      },
+      validateStatus: () => true
+    });
+
+    if (typeof res.data !== 'string') return socials;
+    const html = res.data;
+
+    // Use regular expressions to extract social handles from links
+    // e.g. facebook.com/pagename or instagram.com/username
+    const fbMatch = html.match(/href="([^"]*facebook\.com\/[A-Za-z0-9_.-]+)/i);
+    const igMatch = html.match(/href="([^"]*instagram\.com\/[A-Za-z0-9_.-]+)/i);
+    const ttMatch = html.match(/href="([^"]*tiktok\.com\/@[A-Za-z0-9_.-]+)/i);
+
+    if (fbMatch) {
+      socials.facebook = fbMatch[1];
+      // Strip query parameters
+      if (socials.facebook.includes('?')) socials.facebook = socials.facebook.split('?')[0];
+    }
+    if (igMatch) {
+      socials.instagram = igMatch[1];
+      if (socials.instagram.includes('?')) socials.instagram = socials.instagram.split('?')[0];
+    }
+    if (ttMatch) {
+      socials.tiktok = ttMatch[1];
+      if (socials.tiktok.includes('?')) socials.tiktok = socials.tiktok.split('?')[0];
+    }
+  } catch (err) {
+    // Ignore connectivity/SSL/timeout errors
+  }
+  return socials;
+}
 
 // ─── Website Quality Scorer ───────────────────────────────────────────────────
 async function scoreWebsite(url) {
@@ -328,12 +376,27 @@ async function scanGoogleAds(niche, city, engines = ['google', 'bing'], scoreWeb
 
   console.log(`[Google Ads Scanner] ${leads.length} unique leads before scoring`);
 
-  // Score websites (max 8 to keep response time reasonable)
+  // Enrich website details (score + socials in parallel)
   if (scoreWebsites && leads.length > 0) {
     const toScore = leads.slice(0, 8);
-    const scores = await Promise.all(toScore.map(l => scoreWebsite(l.websiteUrl)));
-    toScore.forEach((lead, i) => { lead.websiteScore = scores[i]; });
-    // Leads beyond 8 get null score
+    await Promise.all(toScore.map(async (lead) => {
+      try {
+        const [score, socials] = await Promise.all([
+          scoreWebsite(lead.websiteUrl),
+          extractSocialsFromWebsite(lead.websiteUrl)
+        ]);
+        lead.websiteScore = score;
+        lead.facebook = socials.facebook;
+        lead.instagram = socials.instagram;
+        lead.tiktok = socials.tiktok;
+        // Update whatsapp if a phone is found in the social scraper
+        if (lead.phone === 'N/A' && socials.whatsapp) {
+          lead.whatsapp = socials.whatsapp;
+        }
+      } catch (err) {
+        console.error(`[Google Ads Scanner] Enrichment failed for ${lead.name}:`, err.message);
+      }
+    }));
   }
 
   // Fallback to high-quality mock data if search engines block or return 0 ads
