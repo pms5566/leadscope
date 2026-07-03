@@ -43,6 +43,12 @@
         <a href="#" class="nav-item" data-screen="adscanner">
           <i class="fa-solid fa-rectangle-ad"></i> <span>Ad Lead Scanner</span>
         </a>
+        <a href="#" class="nav-item" data-screen="dirscanner">
+          <i class="fa-solid fa-address-book"></i> <span>Directory Finder</span>
+        </a>
+        <a href="#" class="nav-item" data-screen="dirscanner">
+          <i class="fa-solid fa-address-book"></i> <span>Directory Finder</span>
+        </a>
         <a href="#" class="nav-item" data-screen="crm">
           <i class="fa-solid fa-users-rectangle"></i> <span>CRM Outreach Tracker</span>
         </a>
@@ -468,6 +474,148 @@
 
       </div>
       <!-- END SCREEN: AD LEAD SCANNER -->
+
+      <!-- SCREEN: DIRECTORY LEAD SCANNER -->
+      <div class="screen-view" id="screen_dirscanner">
+
+        <!-- Control Panel -->
+        <section class="control-card">
+          <h2 class="control-title">
+            <i class="fa-solid fa-address-book"></i> Directory Finder
+            <span class="badge badge-live" style="font-size:0.68rem; margin-left:0.75rem; vertical-align:middle; padding:0.25rem 0.6rem; background: linear-gradient(135deg, #11998e, #38ef7d);">📖 Yelp & Justdial</span>
+          </h2>
+          <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:1.25rem;line-height:1.6;">Find successful, highly-reviewed local businesses on <strong style="color:var(--color-cyan)">Justdial & Yelp</strong> that lack a website. These are high-budget, ready-to-close clients.</p>
+
+          <form id="dirScanForm">
+            <div class="form-row">
+              <div class="input-group">
+                <label for="dirNicheInput">Niche / Business Type</label>
+                <div class="input-wrapper">
+                  <input type="text" id="dirNicheInput" placeholder="e.g. nail salon, caterers, car wash" required>
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="dirCityInput">City</label>
+                <div class="input-wrapper">
+                  <input type="text" id="dirCityInput" placeholder="e.g. Chandigarh, Mumbai, London" required>
+                  <i class="fa-solid fa-map-pin"></i>
+                </div>
+              </div>
+
+              <div class="input-group" style="flex: 0.5;">
+                <label for="dirMinReviews">Min Reviews</label>
+                <div class="input-wrapper" style="display:flex;align-items:center;padding-left:0.75rem;">
+                  <select id="dirMinReviews" style="background:none; border:none; color:var(--text-primary); font-family:var(--font-main); font-size:0.9rem; outline:none; width:100%; cursor:pointer;">
+                    <option value="0" style="background:#131526;">All Ratings</option>
+                    <option value="10" style="background:#131526;">10+ Reviews</option>
+                    <option value="20" style="background:#131526;" selected>20+ Reviews</option>
+                    <option value="50" style="background:#131526;">50+ Reviews</option>
+                  </select>
+                  <i class="fa-solid fa-star" style="margin-left:auto;margin-right:0.75rem;"></i>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-search" id="dirBtnSearch" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                <i class="fa-solid fa-circle-notch fa-spin" style="display: none;" id="dirSearchSpinner"></i>
+                <span id="dirSearchText"><i class="fa-solid fa-magnifying-glass"></i> Search Listings</span>
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Loading Panel -->
+        <section class="loading-panel" id="dirLoadingPanel" style="display:none;">
+          <div class="glow-spinner" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);"></div>
+          <div class="loading-steps">
+            <div class="step-item" id="dirStep1">
+              <i class="fa-solid fa-circle-dot"></i> Connecting to Business Directories...
+            </div>
+            <div class="step-item" id="dirStep2">
+              <i class="fa-solid fa-circle-dot"></i> Fetching active listings & reviews...
+            </div>
+            <div class="step-item" id="dirStep3">
+              <i class="fa-solid fa-circle-dot"></i> Filtering out businesses that own websites...
+            </div>
+          </div>
+        </section>
+
+        <!-- Empty State -->
+        <section class="empty-state" id="dirEmptyState">
+          <div class="empty-state-logo" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <i class="fa-solid fa-address-book"></i>
+          </div>
+          <h3>Ready to Search Directories</h3>
+          <p>Scan Yelp and Justdial for popular businesses with high review counts that do not have their own websites.</p>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid" id="dirStatsGrid" style="display: none;">
+          <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+              <i class="fa-solid fa-check-to-slot"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="dirStatTotal">0</span>
+              <span class="stat-label">Total Leads Found</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #FF9F1C 0%, #F85A3E 100%);">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="dirStatAvgRating">0</span>
+              <span class="stat-label">Avg Rating</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value" id="dirStatDirectoryOnly">0</span>
+              <span class="stat-label">No Website Rate</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Card -->
+        <section class="results-card" id="dirResultsCard" style="display: none; margin-top: 1.5rem;">
+          <div class="results-header">
+            <h3 class="results-title" style="color: #38ef7d;">
+              <i class="fa-solid fa-circle-check"></i> High-Intent Directory Leads — No Website
+            </h3>
+            <div class="actions-container">
+              <button class="btn-export btn-export-csv" id="dirBtnExportCSV">
+                <i class="fa-solid fa-file-csv"></i> Export CSV
+              </button>
+              <button class="btn-export" id="dirBtnExportJSON">
+                <i class="fa-solid fa-code"></i> Export JSON
+              </button>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Business Name &amp; Rating</th>
+                  <th>City &amp; Contact</th>
+                  <th>Website Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="dirLeadsTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+      <!-- END SCREEN: DIRECTORY LEAD SCANNER -->
 
       <!-- SCREEN 3: CRM OUTREACH PIPELINE -->
       <div class="screen-view" id="screen_crm">

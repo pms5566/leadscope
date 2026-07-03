@@ -4,6 +4,7 @@ const axios = require('axios');
 const { scanLocalLeads, isLiveModeConfigured } = require('./scanner');
 const { scanAdLeads } = require('./ad-scanner');
 const { scanGoogleAds } = require('./google-ads-scanner');
+const { scanDirectory } = require('./directory-scanner');
 require('dotenv').config();
 
 
@@ -764,6 +765,28 @@ app.post('/api/scan-google-ads', async (req, res) => {
   } catch (error) {
     console.error('[Google Ads API] Error:', error.message);
     res.status(500).json({ error: 'Google Ads scan failed: ' + error.message });
+  }
+});
+
+// POST /api/scan-directory
+// Body: { niche: string, city: string, minReviews: number }
+// Returns: { success, leads[] }
+app.post('/api/scan-directory', async (req, res) => {
+  const { niche, city, minReviews } = req.body;
+
+  if (!niche || !city) {
+    return res.status(400).json({ error: 'Niche and City are required.' });
+  }
+
+  const reviewThreshold = parseInt(minReviews, 10) || 0;
+  console.log(`[Directory Scanner API] Scanning directory: niche="${niche}", city="${city}", minReviews=${reviewThreshold}`);
+
+  try {
+    const leads = await scanDirectory(niche, city, reviewThreshold);
+    res.json({ success: true, niche, city, minReviews: reviewThreshold, leads });
+  } catch (error) {
+    console.error('[Directory Scanner API] Error:', error.message);
+    res.status(500).json({ error: 'Directory scan failed: ' + error.message });
   }
 });
 

@@ -1929,6 +1929,231 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
     });
   }
+  // ═══════════════════════════════════════════════════════════════════════
+  // DIRECTORY SCANNER — Frontend Logic
+  // ═══════════════════════════════════════════════════════════════════════
+  const dirScanForm        = document.getElementById('dirScanForm');
+  const dirNicheInput      = document.getElementById('dirNicheInput');
+  const dirCityInput       = document.getElementById('dirCityInput');
+  const dirMinReviews      = document.getElementById('dirMinReviews');
+  const dirBtnSearch       = document.getElementById('dirBtnSearch');
+  const dirSearchSpinner   = document.getElementById('dirSearchSpinner');
+  const dirSearchText      = document.getElementById('dirSearchText');
+  const dirLoadingPanel    = document.getElementById('dirLoadingPanel');
+  const dirEmptyState      = document.getElementById('dirEmptyState');
+  const dirStatsGrid       = document.getElementById('dirStatsGrid');
+  const dirResultsCard     = document.getElementById('dirResultsCard');
+  const dirLeadsTableBody  = document.getElementById('dirLeadsTableBody');
+  const dirStatTotal       = document.getElementById('dirStatTotal');
+  const dirStatAvgRating   = document.getElementById('dirStatAvgRating');
+  const dirStatDirectoryOnly = document.getElementById('dirStatDirectoryOnly');
+  const dirBtnExportCSV    = document.getElementById('dirBtnExportCSV');
+  const dirBtnExportJSON   = document.getElementById('dirBtnExportJSON');
+
+  let dirCurrentLeads = [];
+
+  function startDirLoadingAnimation() {
+    const s1 = document.getElementById('dirStep1');
+    const s2 = document.getElementById('dirStep2');
+    const s3 = document.getElementById('dirStep3');
+    if (!s1) return;
+    s1.className = 'step-item step-active';
+    s1.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Connecting to Business Directories...';
+    s2.className = 'step-item';
+    s2.innerHTML = '<i class="fa-solid fa-circle-dot"></i> Fetching active listings & reviews...';
+    s3.className = 'step-item';
+    s3.innerHTML = '<i class="fa-solid fa-circle-dot"></i> Filtering out businesses that own websites...';
+    
+    setTimeout(() => {
+      if (dirLoadingPanel && dirLoadingPanel.style.display === 'flex') {
+        s1.className = 'step-item step-done';
+        s1.innerHTML = '<i class="fa-solid fa-circle-check"></i> Connected to Directories.';
+        s2.className = 'step-item step-active';
+        s2.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Fetching active listings & reviews...';
+      }
+    }, 3000);
+    
+    setTimeout(() => {
+      if (dirLoadingPanel && dirLoadingPanel.style.display === 'flex') {
+        s2.className = 'step-item step-done';
+        s2.innerHTML = '<i class="fa-solid fa-circle-check"></i> Extracted listings & review counts.';
+        s3.className = 'step-item step-active';
+        s3.innerHTML = '<i class="fa-solid fa-circle-notch"></i> Filtering out businesses that own websites...';
+      }
+    }, 7000);
+  }
+
+  function renderDirResults() {
+    if (!dirLeadsTableBody) return;
+    dirLeadsTableBody.innerHTML = '';
+    if (dirCurrentLeads.length === 0) {
+      if (dirEmptyState) {
+        dirEmptyState.innerHTML = `<div class="empty-state-logo"><i class="fa-solid fa-circle-info"></i></div><h3>No Directory Leads Found</h3><p>Try lowering the minimum reviews threshold or change inputs.</p>`;
+        dirEmptyState.style.display = 'flex';
+      }
+      return;
+    }
+
+    let totalRating = 0;
+    dirCurrentLeads.forEach((lead, index) => {
+      totalRating += lead.rating || 4.0;
+      
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>
+          <div class="biz-name" style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="background:linear-gradient(135deg,#11998e,#38ef7d);border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;flex-shrink:0;">📖</span>
+            <span style="color:var(--color-cyan);font-weight:600;">${escapeHtml(lead.name)}</span>
+          </div>
+          <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:2px;">
+            <span style="color:#ffc107;"><i class="fa-solid fa-star"></i> ${lead.rating ? lead.rating.toFixed(1) : 'N/A'}</span> 
+            (${lead.reviewsCount} reviews)
+          </div>
+        </td>
+        <td>
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i><span>${escapeHtml(lead.address || 'N/A')}</span></div>
+          <div class="contact-item" style="margin-top:0.25rem;"><i class="fa-solid fa-phone"></i><span>${escapeHtml(lead.phone || 'N/A')}</span></div>
+        </td>
+        <td>
+          <span class="score-badge score-poor">No Website</span>
+          <div class="score-reason">Highly-reviewed, has budget. Pitch optimization!</div>
+        </td>
+        <td>
+          <div class="social-pill-container">
+            <a href="#" class="social-pill crm-save" data-dir-lead-index="${index}" title="Save to CRM"><i class="fa-solid fa-folder-plus"></i></a>
+            
+            ${lead.instagram ? `<a href="${lead.instagram}" target="_blank" class="social-pill ig" title="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>` : `<a href="#" class="social-pill ig inactive" title="Instagram N/A"><i class="fa-brands fa-instagram"></i></a>`}
+            ${lead.facebook ? `<a href="${lead.facebook}" target="_blank" class="social-pill fb" title="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>` : `<a href="#" class="social-pill fb inactive" title="Facebook N/A"><i class="fa-brands fa-facebook-f"></i></a>`}
+            ${lead.tiktok ? `<a href="${lead.tiktok}" target="_blank" class="social-pill tt" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>` : ''}
+            
+            <a href="${lead.whatsapp || '#'}" target="_blank" class="social-pill wa ${lead.whatsapp ? '' : 'inactive'}" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lead.name + ' ' + (lead.address || ''))}" target="_blank" class="social-pill" style="background:rgba(66,180,255,0.15);color:#42b4ff;" title="Find on Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
+          </div>
+          <div style="margin-top:0.5rem;">${buildTemplateSelectorHtml(lead, false, index)}</div>
+        </td>
+      `;
+      dirLeadsTableBody.appendChild(tr);
+    });
+
+    const avgRating = (totalRating / dirCurrentLeads.length).toFixed(1);
+    if (dirStatTotal) dirStatTotal.textContent = dirCurrentLeads.length;
+    if (dirStatAvgRating) dirStatAvgRating.textContent = `${avgRating} ★`;
+    if (dirStatDirectoryOnly) dirStatDirectoryOnly.textContent = '100%';
+    if (dirStatsGrid) dirStatsGrid.style.display = 'grid';
+    if (dirResultsCard) dirResultsCard.style.display = 'block';
+
+    // Event delegation for CRM save
+    dirLeadsTableBody.addEventListener('click', async (e) => {
+      const saveBtn = e.target.closest('.crm-save[data-dir-lead-index]');
+      if (!saveBtn) return;
+      e.preventDefault();
+
+      if (saveBtn.classList.contains('saved')) {
+        alert('Already saved to CRM Tracker!');
+        return;
+      }
+
+      const idx = parseInt(saveBtn.getAttribute('data-dir-lead-index'), 10);
+      const lead = dirCurrentLeads[idx];
+      if (!lead) return;
+
+      saveBtn.classList.add('saved');
+      saveBtn.innerHTML = '<i class="fa-solid fa-folder-minus"></i>';
+      saveBtn.title = 'Saved to CRM';
+
+      lead.niche = dirNicheInput.value.trim() || 'business';
+      lead.location = dirCityInput.value.trim() || 'your area';
+      lead.source = `Directory (${lead.source || 'Scraper'})`;
+
+      await saveLeadToCrm(lead);
+    });
+
+    // Event delegation for template launch
+    dirLeadsTableBody.addEventListener('click', async (e) => {
+      const launchBtn = e.target.closest('.btn-launch[data-lead-index]');
+      if (!launchBtn) return;
+      e.preventDefault();
+      const idx = parseInt(launchBtn.getAttribute('data-lead-index'), 10);
+      const lead = dirCurrentLeads[idx];
+      const selEl = dirLeadsTableBody.querySelector(`select[data-lead-index="${idx}"]`);
+      if (lead && selEl) await handleLaunchPreview(lead, selEl.value, launchBtn);
+    });
+  }
+
+  if (dirScanForm) {
+    dirScanForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const niche = dirNicheInput.value.trim();
+      const city  = dirCityInput.value.trim();
+      const minReviews = parseInt(dirMinReviews.value, 10) || 0;
+
+      if (!niche || !city) return;
+
+      if (dirEmptyState) dirEmptyState.style.display = 'none';
+      if (dirStatsGrid) dirStatsGrid.style.display = 'none';
+      if (dirResultsCard) dirResultsCard.style.display = 'none';
+      if (dirLoadingPanel) dirLoadingPanel.style.display = 'flex';
+      
+      dirBtnSearch.disabled = true;
+      dirSearchSpinner.style.display = 'inline-block';
+      dirSearchText.textContent = 'Searching...';
+      startDirLoadingAnimation();
+
+      try {
+        const res = await fetch('/api/scan-directory', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ niche, city, minReviews })
+        });
+        const data = await res.json();
+        if (data.success) {
+          dirCurrentLeads = data.leads;
+          renderDirResults();
+        } else {
+          alert('Directory Scan Error: ' + (data.error || 'Unknown failure'));
+          if (dirEmptyState) dirEmptyState.style.display = 'flex';
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Network error during directory scan.');
+        if (dirEmptyState) dirEmptyState.style.display = 'flex';
+      } finally {
+        if (dirLoadingPanel) dirLoadingPanel.style.display = 'none';
+        dirBtnSearch.disabled = false;
+        dirSearchSpinner.style.display = 'none';
+        dirSearchText.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i> Search Listings';
+      }
+    });
+  }
+
+  if (dirBtnExportCSV) {
+    dirBtnExportCSV.addEventListener('click', () => {
+      if (!dirCurrentLeads.length) return;
+      const hdr = ['Name','City','Phone','Rating','Reviews Count','Source'];
+      const rows = dirCurrentLeads.map(l => [
+        `"${(l.name||'').replace(/"/g,'""')}"`, `"${(l.address||'').replace(/"/g,'""')}"`,
+        `"${(l.phone||'').replace(/"/g,'""')}"`, `"${l.rating}"`, `"${l.reviewsCount}"`,
+        `"${l.source}"`
+      ]);
+      const csv = "data:text/csv;charset=utf-8," + [hdr.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const a = document.createElement('a');
+      a.setAttribute('href', encodeURI(csv));
+      a.setAttribute('download', `directory_leads_${dirNicheInput.value}_${dirCityInput.value}.csv`);
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+  }
+
+  if (dirBtnExportJSON) {
+    dirBtnExportJSON.addEventListener('click', () => {
+      if (!dirCurrentLeads.length) return;
+      const j = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dirCurrentLeads, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute('href', j);
+      a.setAttribute('download', `directory_leads_${dirNicheInput.value}_${dirCityInput.value}.json`);
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+  }
+
   // ═══ END AD SCANNER ════════════════════════════════════════════════════
 
   });
