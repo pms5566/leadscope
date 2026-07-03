@@ -101,7 +101,10 @@ async function scrapeMetaAdLeads(niche, city, platform = 'both') {
         'see all results', 'see more', 'load more', 'show more',
         'facebook', 'meta', 'instagram', 'messenger', 'whatsapp',
         'report a problem', 'language', 'people', 'pages', 'groups',
-        'search', 'marketplace', 'watch', 'memory'
+        'search', 'marketplace', 'watch', 'memory',
+        'english (uk)', 'english (us)', 'english', 'हिन्दी', 'français',
+        'español', 'deutsch', 'português', 'italiano', 'arabic',
+        'more', 'back', 'next', 'previous', 'close', 'cancel'
       ]);
 
       const JUNK_URLS = [
@@ -154,6 +157,13 @@ async function scrapeMetaAdLeads(niche, city, platform = 'both') {
       const item = rawAds.pageLinks[i];
       const clean = cleanAdPageUrl(item.url);
       if (!clean || seenUrls.has(clean) || !item.name || item.name.length < 2) continue;
+
+      // Skip if name looks like a language switcher or pure numeric Facebook ID used as name
+      const nameLower = item.name.toLowerCase().trim();
+      if (/^[\d\s]+$/.test(item.name)) continue;           // pure numbers
+      if (nameLower.includes('(uk)') || nameLower.includes('(us)') || nameLower.includes('(in)')) continue;  // language strings
+      if (nameLower.startsWith('english') || nameLower.startsWith('español') || nameLower.startsWith('français')) continue;
+
       seenUrls.add(clean);
 
       const lead = {
