@@ -1730,25 +1730,43 @@ document.addEventListener('DOMContentLoaded', () => {
     if (adStatsGrid) adStatsGrid.style.display = 'grid';
     if (adResultsCard) adResultsCard.style.display = 'block';
 
-    // Wire CRM save buttons
-    adLeadsTableBody.querySelectorAll('.crm-save[data-ad-lead-index]').forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const idx = parseInt(btn.getAttribute('data-ad-lead-index'));
-        const lead = adCurrentLeads[idx];
-        if (lead) await saveToCRM(lead, btn);
-      });
+    // Wire CRM save buttons — use event delegation on the table body
+    adLeadsTableBody.addEventListener('click', async (e) => {
+      const saveBtn = e.target.closest('.crm-save[data-ad-lead-index]');
+      if (!saveBtn) return;
+      e.preventDefault();
+
+      if (saveBtn.classList.contains('saved')) {
+        alert('Already saved to CRM Tracker!');
+        return;
+      }
+
+      const idx = parseInt(saveBtn.getAttribute('data-ad-lead-index'), 10);
+      const lead = adCurrentLeads[idx];
+      if (!lead) return;
+
+      // Mark button saved immediately
+      saveBtn.classList.add('saved');
+      saveBtn.innerHTML = '<i class="fa-solid fa-folder-minus"></i>';
+      saveBtn.title = 'Saved to CRM';
+
+      // Enrich with niche/location from form
+      lead.niche = adNicheInput.value.trim() || 'business';
+      lead.location = adCityInput.value.trim() || 'your area';
+      lead.source = 'Ad Scanner';
+
+      await saveLeadToCrm(lead);
     });
 
-    // Wire template launch buttons
-    adLeadsTableBody.querySelectorAll('.btn-launch[data-lead-index]').forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const idx = parseInt(btn.getAttribute('data-lead-index'));
-        const lead = adCurrentLeads[idx];
-        const selEl = adLeadsTableBody.querySelector(`select[data-lead-index="${idx}"]`);
-        if (lead && selEl) await handleLaunchPreview(lead, selEl.value, btn);
-      });
+    // Wire template launch buttons — event delegation
+    adLeadsTableBody.addEventListener('click', async (e) => {
+      const launchBtn = e.target.closest('.btn-launch[data-lead-index]');
+      if (!launchBtn) return;
+      e.preventDefault();
+      const idx = parseInt(launchBtn.getAttribute('data-lead-index'), 10);
+      const lead = adCurrentLeads[idx];
+      const selEl = adLeadsTableBody.querySelector(`select[data-lead-index="${idx}"]`);
+      if (lead && selEl) await handleLaunchPreview(lead, selEl.value, launchBtn);
     });
   }
 
