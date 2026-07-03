@@ -91,28 +91,53 @@ async function scrapeMetaAdLeads(niche, city, platform = 'both') {
 
     const rawAds = await page.evaluate(() => {
       const allLinks = Array.from(document.querySelectorAll('a[href]'));
-      const allText = document.body.innerText;
       const pageLinks = new Set();
+
+      // Blacklist Meta's own UI links that appear in the page
+      const JUNK_NAMES = new Set([
+        'log in', 'login', 'sign up', 'sign in', 'create account',
+        'about ads and data use', 'about ads', 'about meta',
+        'ad choices', 'privacy', 'terms', 'cookies', 'help center',
+        'see all results', 'see more', 'load more', 'show more',
+        'facebook', 'meta', 'instagram', 'messenger', 'whatsapp',
+        'report a problem', 'language', 'people', 'pages', 'groups',
+        'search', 'marketplace', 'watch', 'memory'
+      ]);
+
+      const JUNK_URLS = [
+        '/ads/library', '/login', '/help', '/sharer', '/privacy',
+        '/policies', '/terms', '/about', 'l.facebook.com',
+        '/ads/about', 'facebook.com/ads', 'facebook.com/help',
+        'facebook.com/privacy', 'facebook.com/terms',
+        'facebook.com/policies', 'facebook.com/people',
+        'facebook.com/groups', 'facebook.com/marketplace',
+        'facebook.com/watch', 'facebook.com/gaming',
+        'facebook.com/fundraisers', 'facebook.com/events',
+        'instagram.com', 'messenger.com', 'whatsapp.com'
+      ];
 
       allLinks.forEach(link => {
         const href = link.href || '';
         const text = (link.textContent || '').trim();
+        const textLower = text.toLowerCase();
+
         if (
           href.includes('facebook.com/') &&
-          !href.includes('/ads/library') &&
-          !href.includes('/login') &&
-          !href.includes('/help') &&
-          !href.includes('/sharer') &&
-          !href.includes('l.facebook.com') &&
-          !href.includes('/privacy') &&
-          !href.includes('/policies') &&
-          text.length > 1 && text.length < 80
+          !JUNK_URLS.some(j => href.toLowerCase().includes(j)) &&
+          text.length > 1 && text.length < 80 &&
+          !JUNK_NAMES.has(textLower) &&
+          !textLower.startsWith('see ') &&
+          !textLower.startsWith('load ') &&
+          !textLower.startsWith('show ')
         ) {
           pageLinks.add(JSON.stringify({ url: href, name: text }));
         }
       });
 
-      const phones = (allText.match(/(\+?\d[\d\s\-().]{8,14}\d)/g) || []).slice(0, 15);
+      // Only extract real phone numbers — must have spaces/dashes/brackets
+      // This avoids picking up numeric Facebook page IDs
+      const allText = document.body.innerText;
+      const phones = (allText.match(/(\+?[0-9]{1,4}[\s\-().][0-9]{2,5}[\s\-().][0-9]{3,10})/g) || []).slice(0, 10);
       const emails = (allText.match(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g) || []).slice(0, 10);
 
       return {
