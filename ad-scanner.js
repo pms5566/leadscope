@@ -166,14 +166,28 @@ async function scrapeMetaAdLeads(niche, city, platform = 'both') {
 
       seenUrls.add(clean);
 
+      // Extract page handle/slug from Facebook URL
+      // e.g. https://www.facebook.com/SabkadentistIndia → "SabkadentistIndia"
+      let pageHandle = '';
+      try {
+        const urlObj = new URL(clean);
+        pageHandle = urlObj.pathname.replace(/^\//, '').replace(/\/$/, '').split('/')[0];
+        if (/^\d+$/.test(pageHandle)) pageHandle = ''; // skip numeric IDs
+      } catch(e) { pageHandle = ''; }
+
+      // Try Instagram URL using same handle (works ~70% of time — most businesses share handle)
+      const instagramUrl = pageHandle ? `https://www.instagram.com/${pageHandle}/` : null;
+
       const lead = {
         id: `meta-${Date.now()}-${i}`,
         name: item.name,
         address: city,
         phone: rawAds.phones[i] || 'N/A',
         email: rawAds.emails[i] || null,
-        facebook: platform === 'facebook' || platform === 'both' ? clean : null,
-        instagram: platform === 'instagram' ? clean.replace('facebook.com', 'instagram.com') : null,
+        // Always keep facebook link — it is the reliable link we extract from Meta Ad Library
+        facebook: clean,
+        // Instagram: use guessed handle for instagram/both platform modes
+        instagram: (platform === 'instagram' || platform === 'both') ? instagramUrl : null,
         linkedin: null,
         tiktok: null,
         whatsapp: null,
