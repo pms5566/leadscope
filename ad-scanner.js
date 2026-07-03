@@ -8,16 +8,37 @@ const puppeteer = require('puppeteer');
 
 // ─── Country Code Resolver ─────────────────────────────────────────────────
 const CITY_TO_COUNTRY = {
+  // India — major + Punjab cities
   'mumbai': 'IN', 'delhi': 'IN', 'bangalore': 'IN', 'bengaluru': 'IN',
   'hyderabad': 'IN', 'chennai': 'IN', 'kolkata': 'IN', 'pune': 'IN',
   'ahmedabad': 'IN', 'jaipur': 'IN', 'surat': 'IN', 'lucknow': 'IN',
-  'chandigarh': 'IN', 'amritsar': 'IN', 'india': 'IN',
+  'chandigarh': 'IN', 'amritsar': 'IN', 'ludhiana': 'IN', 'jalandhar': 'IN',
+  'patiala': 'IN', 'rajpura': 'IN', 'mohali': 'IN', 'zirakpur': 'IN',
+  'bathinda': 'IN', 'moga': 'IN', 'pathankot': 'IN', 'gurdaspur': 'IN',
+  'nagpur': 'IN', 'indore': 'IN', 'bhopal': 'IN', 'visakhapatnam': 'IN',
+  'agra': 'IN', 'varanasi': 'IN', 'patna': 'IN', 'ranchi': 'IN',
+  'bhubaneswar': 'IN', 'coimbatore': 'IN', 'madurai': 'IN', 'kochi': 'IN',
+  'thiruvananthapuram': 'IN', 'guwahati': 'IN', 'dehradun': 'IN',
+  'jodhpur': 'IN', 'udaipur': 'IN', 'ajmer': 'IN', 'bikaner': 'IN',
+  'noida': 'IN', 'gurgaon': 'IN', 'gurugram': 'IN', 'faridabad': 'IN',
+  'ghaziabad': 'IN', 'meerut': 'IN', 'kanpur': 'IN',
+  'vadodara': 'IN', 'rajkot': 'IN', 'gandhinagar': 'IN',
+  'mysore': 'IN', 'mysuru': 'IN', 'hubli': 'IN', 'mangalore': 'IN',
+  'india': 'IN',
+  // UAE
   'dubai': 'AE', 'abu dhabi': 'AE', 'sharjah': 'AE', 'uae': 'AE',
+  'ajman': 'AE', 'fujairah': 'AE', 'ras al khaimah': 'AE',
+  // USA
   'new york': 'US', 'los angeles': 'US', 'chicago': 'US', 'houston': 'US',
-  'dallas': 'US', 'miami': 'US', 'san francisco': 'US', 'usa': 'US', 'us': 'US',
+  'dallas': 'US', 'miami': 'US', 'san francisco': 'US', 'seattle': 'US',
+  'boston': 'US', 'atlanta': 'US', 'usa': 'US', 'us': 'US',
+  // UK
   'london': 'GB', 'manchester': 'GB', 'birmingham': 'GB', 'uk': 'GB',
-  'sydney': 'AU', 'melbourne': 'AU', 'brisbane': 'AU', 'australia': 'AU',
+  // Australia
+  'sydney': 'AU', 'melbourne': 'AU', 'brisbane': 'AU', 'perth': 'AU', 'australia': 'AU',
+  // Canada
   'toronto': 'CA', 'vancouver': 'CA', 'montreal': 'CA', 'canada': 'CA',
+  // Singapore, Saudi, Pakistan
   'singapore': 'SG',
   'riyadh': 'SA', 'jeddah': 'SA', 'saudi': 'SA',
   'karachi': 'PK', 'lahore': 'PK', 'islamabad': 'PK', 'pakistan': 'PK',
@@ -28,7 +49,8 @@ function getCountryCode(location) {
   for (const [key, code] of Object.entries(CITY_TO_COUNTRY)) {
     if (lower.includes(key)) return code;
   }
-  return lower.slice(0, 2).toUpperCase();
+  // Fallback to India — default use case. Avoids garbage like 'RA' for 'Rajpura'
+  return 'IN';
 }
 
 const SOCIAL_DOMAINS = ['facebook.com', 'instagram.com', 'wa.me', 'tiktok.com', 'whatsapp.com'];
