@@ -21,6 +21,36 @@ const delay = (min, max) => new Promise(r =>
   setTimeout(r, Math.floor(Math.random() * (max - min + 1)) + min)
 );
 
+// Helper to clean Google redirect URLs
+function cleanGoogleUrl(url) {
+  if (!url) return '';
+  if (url.includes('google.com/url?')) {
+    try {
+      const qParam = new URL(url).searchParams.get('q');
+      if (qParam) return qParam;
+    } catch (e) {}
+  }
+  return url;
+}
+
+// Helper to clean Bing redirect URLs
+function cleanBingUrl(url) {
+  if (!url) return '';
+  if (url.includes('bing.com/ck/a?!')) {
+    try {
+      const uParam = new URL(url).searchParams.get('u');
+      if (uParam) {
+        // Strip prefix (e.g. 'a1')
+        const base64Str = uParam.slice(2);
+        const padded = base64Str.padEnd(base64Str.length + (4 - base64Str.length % 4) % 4, '=');
+        const decoded = Buffer.from(padded, 'base64').toString('utf8');
+        return decoded;
+      }
+    } catch (e) {}
+  }
+  return url;
+}
+
 // ─── Social Media Link Extractor ──────────────────────────────────────────────
 async function extractSocialsFromWebsite(url) {
   const socials = { facebook: null, instagram: null, tiktok: null };
@@ -145,7 +175,7 @@ async function scrapeGoogleAds(niche, city) {
     await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await delay(2000, 3500);
 
-    const ads = await page.evaluate(() => {
+    let ads = await page.evaluate(() => {
       const results = [];
       const JUNK_TITLES = [
         'places', 'map of', 'sponsored', 'people also ask', 
@@ -153,19 +183,16 @@ async function scrapeGoogleAds(niche, city) {
         'feedback', 'directions', 'website', 'call', 'share'
       ];
 
-      // Google ads have data-text-ad attribute or are inside #tads / .uEierd
       const adContainers = [
         ...Array.from(document.querySelectorAll('[data-text-ad]')),
         ...Array.from(document.querySelectorAll('#tads .uEierd')),
         ...Array.from(document.querySelectorAll('.uEierd')),
       ];
 
-      // Also look for any block containing "Sponsored" text (that is not the map pack)
       const allDivs = Array.from(document.querySelectorAll('div[data-hveid]'));
       allDivs.forEach(div => {
         const text = div.innerText || '';
         if (text.includes('Sponsored') && div.querySelector('a[href]')) {
-          // Avoid map/local packs
           if (!div.querySelector('.VkGZof') && !div.id.includes('local') && !div.className.includes('local')) {
             adContainers.push(div);
           }
@@ -184,7 +211,6 @@ async function scrapeGoogleAds(niche, city) {
         const title = (titleEl?.innerText || '').trim();
         let href = linkEl?.href || '';
         
-        // Clean Google redirect URLs
         if (href.startsWith('/aclk') || href.includes('google.com/aclk')) {
           try {
             const urlParam = new URLSearchParams(href.split('?')[1] || '').get('adurl');
@@ -195,10 +221,8 @@ async function scrapeGoogleAds(niche, city) {
         const displayUrl = (urlEl?.innerText || '').trim().replace(/^https?:\/\//, '').split('/')[0];
         const phone = (phoneEl?.innerText || '').trim();
         const headline = (descEl?.innerText || '').trim().slice(0, 120);
-
         const titleLower = title.toLowerCase();
         
-        // Filter out junk
         if (
           title && 
           title.length > 2 && 
@@ -209,7 +233,7 @@ async function scrapeGoogleAds(niche, city) {
           !seenLinks.has(href)
         ) {
           seenLinks.add(href);
-          results.push({ title, href, displayUrl, phone, headline });
+          results.push({ title, href, displayUrl, phone, headline, isOrganic: false });
         }
       });
 
@@ -218,27 +242,75 @@ async function scrapeGoogleAds(niche, city) {
 
     console.log(`[Google Ads] Found ${ads.length} sponsored results`);
 
+    // Fallback: If no sponsored ads are found, scrape organic search results
+    if (ads.length === 0) {
+      console.log('[Google Ads] No sponsored ads found. Scraping organic search results as fallback...');
+      ads = await page.evaluate(() => {
+        const results = [];
+        const seenLinks = new Set();
+        const h3Headers = Array.from(document.querySelectorAll('h3'));
+        
+        h3Headers.forEach(h3 => {
+          const linkEl = h3.closest('a');
+          if (!linkEl) return;
+          
+          const title = h3.innerText.trim();
+          let href = linkEl.href;
+          
+          // Clean Google redirect URL inside browser context
+          if (href.includes('google.com/url?')) {
+            try {
+              const urlObj = new URL(href);
+              const qParam = urlObj.searchParams.get('q');
+              if (qParam) href = qParam;
+            } catch(e) {}
+          }
+          
+          const hrefLower = href.toLowerCase();
+          const isDirectory = [
+            'justdial.com', 'practo.com', 'wikipedia.org', 'quora.com', 'reddit.com', 
+            'yelp.com', 'yellowpages.com', 'facebook.com', 'instagram.com', 
+            'linkedin.com', 'twitter.com', 'youtube.com', 'github.com', 'pinterest.com',
+            'tripadvisor.com', 'indiamart.com', 'sulekha.com', 'local.google.com', 
+            'google.com', 'gstatic.com'
+          ].some(dir => hrefLower.includes(dir));
+          
+          if (!isDirectory && href.startsWith('http') && !seenLinks.has(href)) {
+            seenLinks.add(href);
+            const displayUrl = href.replace(/^https?:\/\//, '').split('/')[0];
+            results.push({ title, href, displayUrl, phone: '', headline: '', isOrganic: true });
+          }
+        });
+        return results;
+      });
+      console.log(`[Google Ads] Extracted ${ads.length} organic fallback results`);
+    }
+
     for (const ad of ads.slice(0, 12)) {
-      const website = ad.displayUrl || (ad.href ? new URL(ad.href).hostname.replace('www.', '') : '');
+      const finalUrl = cleanGoogleUrl(ad.href);
+      let website = ad.displayUrl || '';
+      if (!website && finalUrl) {
+        try { website = new URL(finalUrl).hostname.replace('www.', ''); } catch(e) {}
+      }
       if (!website) continue;
 
       leads.push({
-        id: `google-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        id: `${ad.isOrganic ? 'organic' : 'google'}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
         name: ad.title,
         address: city,
         phone: ad.phone || 'N/A',
         email: null,
         website: website,
-        websiteUrl: ad.href || `https://${website}`,
+        websiteUrl: finalUrl || ad.href || `https://${website}`,
         adHeadline: ad.headline || '',
         facebook: null,
         instagram: null,
         tiktok: null,
         whatsapp: ad.phone ? `https://wa.me/${ad.phone.replace(/[^0-9]/g, '')}` : null,
         adPlatform: 'google',
-        adActive: true,
-        source: 'Google Ads',
-        websiteScore: null  // filled in below
+        adActive: !ad.isOrganic,
+        source: ad.isOrganic ? 'Google Search' : 'Google Ads',
+        websiteScore: null
       });
     }
   } catch (err) {
@@ -275,11 +347,10 @@ async function scrapeBingAds(niche, city) {
     await page.goto(searchUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await delay(1500, 2500);
 
-    const ads = await page.evaluate(() => {
+    let ads = await page.evaluate(() => {
       const results = [];
       const JUNK_TITLES = ['sponsored', 'feedback', 'directions', 'website', 'call', 'share'];
 
-      // Bing ads can be under .b_ad, .sb_add, .pa_c, etc.
       const adBlocks = [
         ...Array.from(document.querySelectorAll('.b_ad li')),
         ...Array.from(document.querySelectorAll('.b_ad')),
@@ -300,7 +371,6 @@ async function scrapeBingAds(niche, city) {
         const displayUrl = (urlEl?.innerText || '').trim().replace(/^https?:\/\//, '').split('/')[0];
         const phone      = (phoneEl?.innerText || '').trim();
         const headline   = (descEl?.innerText || '').trim().slice(0, 120);
-
         const titleLower = title.toLowerCase();
 
         if (
@@ -313,7 +383,7 @@ async function scrapeBingAds(niche, city) {
           !seenLinks.has(href)
         ) {
           seenLinks.add(href);
-          results.push({ title, href, displayUrl, phone, headline });
+          results.push({ title, href, displayUrl, phone, headline, isOrganic: false });
         }
       });
       return results;
@@ -321,26 +391,81 @@ async function scrapeBingAds(niche, city) {
 
     console.log(`[Google Ads] Found ${ads.length} Bing ad results`);
 
+    // Fallback: If no sponsored ads are found on Bing, scrape organic search results
+    if (ads.length === 0) {
+      console.log('[Google Ads] No Bing sponsored ads found. Scraping organic search results as fallback...');
+      ads = await page.evaluate(() => {
+        const results = [];
+        const seenLinks = new Set();
+        const h2Headers = Array.from(document.querySelectorAll('h2'));
+        
+        h2Headers.forEach(h2 => {
+          const linkEl = h2.querySelector('a') || h2.closest('a');
+          if (!linkEl) return;
+          
+          const title = h2.innerText.trim();
+          let href = linkEl.href;
+          
+          // Clean Bing redirect URL inside browser context
+          if (href.includes('bing.com/ck/a?!')) {
+            try {
+              const urlObj = new URL(href);
+              const uParam = urlObj.searchParams.get('u');
+              if (uParam) {
+                const base64Str = uParam.slice(2);
+                const padded = base64Str.padEnd(base64Str.length + (4 - base64Str.length % 4) % 4, '=');
+                
+                // Native atob is available in browser context!
+                const decoded = atob(padded.replace(/_/g, '/').replace(/-/g, '+'));
+                if (decoded) href = decoded;
+              }
+            } catch(e) {}
+          }
+          
+          const hrefLower = href.toLowerCase();
+          const isDirectory = [
+            'justdial.com', 'practo.com', 'wikipedia.org', 'quora.com', 'reddit.com', 
+            'yelp.com', 'yellowpages.com', 'facebook.com', 'instagram.com', 
+            'linkedin.com', 'twitter.com', 'youtube.com', 'github.com', 'pinterest.com',
+            'tripadvisor.com', 'indiamart.com', 'sulekha.com', 'local.google.com', 
+            'bing.com', 'microsoft.com'
+          ].some(dir => hrefLower.includes(dir));
+          
+          if (!isDirectory && href.startsWith('http') && !seenLinks.has(href)) {
+            seenLinks.add(href);
+            const displayUrl = href.replace(/^https?:\/\//, '').split('/')[0];
+            results.push({ title, href, displayUrl, phone: '', headline: '', isOrganic: true });
+          }
+        });
+        return results;
+      });
+      console.log(`[Google Ads] Extracted ${ads.length} Bing organic fallback results`);
+    }
+
     for (const ad of ads.slice(0, 10)) {
-      const website = ad.displayUrl || (ad.href ? new URL(ad.href).hostname.replace('www.', '') : '');
+      const finalUrl = cleanBingUrl(ad.href);
+      let website = ad.displayUrl || '';
+      if (!website && finalUrl) {
+        try { website = new URL(finalUrl).hostname.replace('www.', ''); } catch(e) {}
+      }
       if (!website) continue;
 
       leads.push({
-        id: `bing-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        id: `${ad.isOrganic ? 'organic' : 'bing'}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
         name: ad.title,
         address: city,
         phone: ad.phone || 'N/A',
         email: null,
         website: website,
-        websiteUrl: ad.href || `https://${website}`,
+        websiteUrl: finalUrl || ad.href || `https://${website}`,
         adHeadline: ad.headline || '',
         facebook: null,
         instagram: null,
         tiktok: null,
         whatsapp: ad.phone ? `https://wa.me/${ad.phone.replace(/[^0-9]/g, '')}` : null,
         adPlatform: 'bing',
-        adActive: true,
-        source: 'Bing Ads',
+        adActive: !ad.isOrganic,
+        source: ad.isOrganic ? 'Bing Search' : 'Bing Ads',
         websiteScore: null
       });
     }
