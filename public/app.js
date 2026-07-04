@@ -2599,6 +2599,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.generateLink = function () {
   const niche   = (document.getElementById('lg_niche')   || {}).value   || '';
   const name    = (document.getElementById('lg_name')    || {}).value   || '';
+  const tag     = (document.getElementById('lg_tag')     || {}).value   || '';
   const phone   = (document.getElementById('lg_phone')   || {}).value   || '';
   const address = (document.getElementById('lg_address') || {}).value   || '';
 
@@ -2616,8 +2617,9 @@ window.generateLink = function () {
 
   // Use configured public sharing domain or default to local host origin
   const base      = getPreviewBaseUrl();
-  const leadId    = 'preview_' + Date.now();
-  const url       = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+  const leadId    = 'preview_' + niche.replace(/\s+/g, '_') + '_' + Date.now();
+  const fullName  = tag ? `${name} - ${tag}` : name;
+  const url       = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
 
   // Display the link
   if (outputEl) outputEl.textContent = url;
@@ -2680,6 +2682,7 @@ window.copyProposalLink = function () {
 
 window.generateAllLinks = function () {
   const name    = (document.getElementById('lg_name')    || {}).value   || '';
+  const tag     = (document.getElementById('lg_tag')     || {}).value   || '';
   const phone   = (document.getElementById('lg_phone')   || {}).value   || '';
   const address = (document.getElementById('lg_address') || {}).value   || '';
 
@@ -2693,7 +2696,6 @@ window.generateAllLinks = function () {
 
   // Fallback to global window function resolution
   const base = typeof window.getPreviewBaseUrl === 'function' ? window.getPreviewBaseUrl() : window.location.origin;
-  const leadId = 'preview_' + Date.now();
 
   const nicheSelect = document.getElementById('lg_niche');
   if (!nicheSelect) return;
@@ -2701,13 +2703,18 @@ window.generateAllLinks = function () {
   const options = Array.from(nicheSelect.options);
   tbody.innerHTML = '';
 
+  const fullName = tag ? `${name} - ${tag}` : name;
+  const timestamp = Date.now();
+
   options.forEach(opt => {
     const val = opt.value;
     const label = opt.text;
 
     if (val === 'custom') return;
 
-    const url = `${base}/preview/${encodeURIComponent(val)}/${leadId}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+    // Suffix leadId with template name so each row tracks as a distinct dashboard session
+    const leadId = 'preview_' + val.replace(/\s+/g, '_') + '_' + timestamp;
+    const url = `${base}/preview/${encodeURIComponent(val)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
 
     const tr = document.createElement('tr');
     tr.style.borderBottom = '1px solid rgba(255,255,255,0.06)';

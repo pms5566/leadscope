@@ -1400,7 +1400,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       <script>
         (function() {
           const leadId = ${JSON.stringify(leadId)};
-          const leadName = ${JSON.stringify(businessName)};
+          const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
           const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
           
           async function sendEvent(event, details = {}) {
