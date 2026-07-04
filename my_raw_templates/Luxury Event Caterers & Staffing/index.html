@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{BUSINESS_NAME}} | Luxury Event Caterers & Staffing</title>
+    <meta name="description" content="{{BUSINESS_NAME}} offers premium event catering and elite staffing services. Experience culinary artistry, immaculate service, and a high-end concierge event planning process." />
+    <meta name="keywords" content="luxury catering, event staffing, fine dining caterer, private chef, wedding catering, corporate gala staffing, yacht charter events" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              charcoal: '#121212',
+              champagne: '#D4AF37',
+              cream: '#FDFBF7',
+              'muted-gold': '#AA7C11',
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Custom luxury scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FDFBF7;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D4AF37;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #AA7C11;
+      }
+
+      /* Custom utility styles */
+      .glassmorphism {
+        background: rgba(253, 251, 247, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+      }
+
+      .glassmorphism-dark {
+        background: rgba(18, 18, 18, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+      }
+
+      .text-shadow-subtle {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      }
+
+      /* Transitions */
+      .fade-transition {
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-cream text-charcoal font-sans overflow-x-hidden selection:bg-champagne selection:text-cream">
+    
+    <!-- NAVIGATION HEADER -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+        <!-- Logo -->
+        <div onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="cursor-pointer group flex flex-col z-50">
+          <span class="font-serif text-lg md:text-2xl font-light tracking-[0.25em] text-charcoal transition-colors group-hover:text-champagne">
+            {{BUSINESS_NAME}}
+          </span>
+          <span class="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-champagne/80 font-sans -mt-1 pl-0.5">
+            Luxury Catering &amp; Staffing
+          </span>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.25em] font-sans font-medium">
+          <a href="#philosophy" class="text-charcoal/80 hover:text-champagne transition-colors duration-300">Philosophy</a>
+          <a href="#menus" class="text-charcoal/80 hover:text-champagne transition-colors duration-300">Menus</a>
+          <a href="#staffing" class="text-charcoal/80 hover:text-champagne transition-colors duration-300">Staffing</a>
+          <a href="#experiences" class="text-charcoal/80 hover:text-champagne transition-colors duration-300">Experiences</a>
+        </nav>
+
+        <!-- Right actions -->
+        <div class="flex items-center space-x-4 z-50">
+          <a href="#concierge" class="hidden sm:inline-block px-6 py-2.5 border border-champagne text-charcoal hover:text-cream bg-transparent hover:bg-champagne transition-all duration-300 text-xs uppercase tracking-[0.2em] font-sans font-semibold rounded-none">
+            Inquire Now
+          </a>
+
+          <!-- Hamburger Button -->
+          <button id="menu-toggle" class="md:hidden p-2 text-charcoal hover:text-champagne focus:outline-none cursor-pointer" aria-label="Toggle menu">
+            <div class="w-6 h-5 flex flex-col justify-between relative">
+              <span id="hamburger-top" class="w-full h-[1px] bg-current transition-all duration-300 origin-left"></span>
+              <span id="hamburger-middle" class="w-full h-[1px] bg-current transition-all duration-300"></span>
+              <span id="hamburger-bottom" class="w-full h-[1px] bg-current transition-all duration-300 origin-left"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Fullscreen Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-cream z-40 md:hidden flex flex-col justify-center items-center px-8 opacity-0 pointer-events-none transition-all duration-500 ease-in-out">
+      <nav class="flex flex-col space-y-8 text-center text-sm uppercase tracking-[0.3em] font-sans font-medium text-charcoal">
+        <a href="#philosophy" onclick="toggleMobileMenu(false)" class="hover:text-champagne transition-colors duration-300 text-lg">Philosophy</a>
+        <a href="#menus" onclick="toggleMobileMenu(false)" class="hover:text-champagne transition-colors duration-300 text-lg">Menus</a>
+        <a href="#staffing" onclick="toggleMobileMenu(false)" class="hover:text-champagne transition-colors duration-300 text-lg">Staffing</a>
+        <a href="#experiences" onclick="toggleMobileMenu(false)" class="hover:text-champagne transition-colors duration-300 text-lg">Experiences</a>
+        <a href="#concierge" onclick="toggleMobileMenu(false)" class="mt-8 px-8 py-3.5 border border-champagne text-charcoal hover:text-cream bg-transparent hover:bg-champagne transition-all duration-300 text-xs uppercase tracking-[0.2em] font-sans font-semibold rounded-none">
+          Inquire Now
+        </a>
+      </nav>
+      <div class="absolute bottom-12 text-center text-[10px] uppercase tracking-[0.4em] text-champagne/80 font-sans">
+        ✦ {{BUSINESS_NAME}} ✦
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-screen pt-20 flex flex-col lg:flex-row bg-cream text-charcoal">
+      <div class="flex-grow flex-1 flex flex-col justify-center px-6 md:px-16 lg:px-24 py-12 lg:py-0">
+        <div class="max-w-xl">
+          <p class="text-xs uppercase tracking-[0.4em] text-champagne font-semibold mb-4">
+            Curated Concierge Events
+          </p>
+          <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-light leading-[1.1] mb-6 text-shadow-subtle">
+            Culinary Artistry.<br />
+            Flawless Execution.<br />
+            <span class="italic font-normal text-champagne">Immaculate Service.</span>
+          </h1>
+          <p class="text-charcoal/70 text-sm md:text-base leading-relaxed tracking-wide font-sans mb-10 max-w-lg">
+            {{BUSINESS_NAME}} raises the bar for luxury private dining, grand galas, and yacht charters. We synthesize gastronomy with meticulous service to orchestrate unforgettable concierge experiences.
+          </p>
+          <a href="#concierge" class="group inline-block px-8 py-4 bg-champagne hover:bg-muted-gold text-cream font-sans text-xs uppercase tracking-[0.25em] font-bold transition-all duration-300 shadow-md hover:shadow-lg">
+            Design Your Event
+            <span class="inline-block transition-transform duration-300 group-hover:translate-x-2 ml-2">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex-grow flex-1 relative h-[50vh] lg:h-auto overflow-hidden">
+        <div class="absolute inset-0 bg-charcoal/10 z-10 pointer-events-none"></div>
+        <img
+          src="gourmet_dish.png"
+          alt="Luxury Michelin-style plated seared scallops on charcoal slate"
+          class="w-full h-full object-cover transform scale-100 hover:scale-105 transition-transform duration-10000 ease-out"
+        />
+        <div class="absolute bottom-6 right-6 border border-champagne/30 p-4 z-20 hidden md:block bg-charcoal/40 backdrop-blur-sm">
+          <p class="text-[10px] uppercase tracking-[0.3em] text-cream">
+            Signature Presentation
+          </p>
+          <p class="font-serif italic text-xs text-champagne mt-1">
+            Seared Scallops, Gold Saffron Nectar
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CULINARY & MIXOLOGY GALLERY (Interactive Portfolio) -->
+    <section id="menus" class="py-24 md:py-32 bg-cream text-charcoal border-b border-champagne/10">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <p class="text-xs uppercase tracking-[0.4em] text-champagne font-semibold mb-3">
+            Epicurean Collections
+          </p>
+          <h2 class="font-serif text-4xl md:text-5xl font-light tracking-wide mb-6">
+            Bespoke Culinary Menus
+          </h2>
+          <div class="h-[1px] w-20 bg-champagne mx-auto mb-6"></div>
+          <p className="text-charcoal/70 text-sm md:text-base tracking-wide">
+            Explore sample pairings crafted by Michelin-trained chefs. Every single menu is custom-designed around your event theme, dietary requirements, and seasonal availability.
+          </p>
+        </div>
+
+        <!-- Tab Selector -->
+        <div class="flex justify-center space-x-6 md:space-x-12 mb-16 border-b border-charcoal/10 pb-4 text-xs md:text-sm uppercase tracking-[0.25em] font-sans font-medium">
+          <button onclick="switchTab('canapes')" id="tab-canapes" class="pb-4 transition-all duration-300 relative text-champagne font-semibold">
+            Canapés
+            <span id="indicator-canapes" class="absolute bottom-[-1px] left-0 w-full h-[2px] bg-champagne"></span>
+          </button>
+          <button onclick="switchTab('plated')" id="tab-plated" class="pb-4 transition-all duration-300 relative text-charcoal/50 hover:text-charcoal">
+            Plated Dinners
+            <span id="indicator-plated" class="absolute bottom-[-1px] left-0 w-full h-[2px] bg-champagne hidden"></span>
+          </button>
+          <button onclick="switchTab('mixology')" id="tab-mixology" class="pb-4 transition-all duration-300 relative text-charcoal/50 hover:text-charcoal">
+            Mixology
+            <span id="indicator-mixology" class="absolute bottom-[-1px] left-0 w-full h-[2px] bg-champagne hidden"></span>
+          </button>
+        </div>
+
+        <!-- Tab Content Showrooms -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Canapés Panel -->
+          <div id="panel-canapes" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center fade-transition">
+            <div class="lg:col-span-6 group relative h-[450px] overflow-hidden shadow-xl border border-champagne/10">
+              <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?q=80&w=600&auto=format&fit=crop" alt="Canapés" class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out" />
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+              <div class="absolute top-6 left-6 z-20">
+                <span class="px-3 py-1 bg-champagne text-cream text-[10px] uppercase tracking-[0.2em] font-medium">Chef's Signature</span>
+              </div>
+              <div class="absolute bottom-0 left-0 w-full p-8 z-20 flex flex-col justify-end">
+                <h3 class="font-serif text-3xl text-cream font-light mb-2">Artisanal Canapés</h3>
+                <p class="text-cream/80 text-xs italic tracking-widest font-serif mb-4">Exquisite bite-sized masterpieces</p>
+                <div class="pt-4 border-t border-cream/20 flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 border border-champagne text-champagne text-[9px] uppercase tracking-[0.2em] font-sans">✦ Locally Sourced</span>
+                  <span class="px-2.5 py-1 border border-champagne text-champagne text-[9px] uppercase tracking-[0.2em] font-sans">✦ Sustainable Seafood</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 flex flex-col justify-center space-y-8 lg:pl-6">
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">Osetra Caviar Blinis</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Crème fraîche, delicate gold leaf infusion</p>
+              </div>
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">Wagyu Beef Tartare</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Truffle aioli, toasted brioche shard</p>
+              </div>
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">Lobster &amp; Mango Spoons</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Kaffir lime dressing, micro cilantro</p>
+              </div>
+              <p class="text-[10px] uppercase tracking-[0.3em] text-charcoal/45 italic pt-4">* Vegetarian, Vegan, and Gluten-Free alternatives curated on request.</p>
+            </div>
+          </div>
+
+          <!-- Plated Dinner Panel -->
+          <div id="panel-plated" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center fade-transition hidden">
+            <div class="lg:col-span-6 group relative h-[450px] overflow-hidden shadow-xl border border-champagne/10">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop" alt="Plated Dinners" class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out" />
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+              <div class="absolute top-6 left-6 z-20">
+                <span class="px-3 py-1 bg-champagne text-cream text-[10px] uppercase tracking-[0.2em] font-medium">Seasonal Harvest</span>
+              </div>
+              <div class="absolute bottom-0 left-0 w-full p-8 z-20 flex flex-col justify-end">
+                <h3 class="font-serif text-3xl text-cream font-light mb-2">Plated Gastronomy</h3>
+                <p class="text-cream/80 text-xs italic tracking-widest font-serif mb-4">Michelin-inspired multi-course dining</p>
+                <div class="pt-4 border-t border-cream/20 flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 border border-champagne text-champagne text-[9px] uppercase tracking-[0.2em] font-sans">✦ 100% Organic</span>
+                  <span class="px-2.5 py-1 border border-champagne text-champagne text-[9px] uppercase tracking-[0.2em] font-sans">✦ Farm-to-Table</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 flex flex-col justify-center space-y-8 lg:pl-6">
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">Dry-Aged Duck Breast</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Spiced plum reduction, parsnip purée</p>
+              </div>
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">Miso-Glazed Chilean Sea Bass</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Ginger-infused dashi, sea succulents</p>
+              </div>
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">Perigord Truffle Gnocchi</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Wild chanterelles, aged parmigiano foam</p>
+              </div>
+              <p class="text-[10px] uppercase tracking-[0.3em] text-charcoal/45 italic pt-4">* Vegetarian, Vegan, and Gluten-Free alternatives curated on request.</p>
+            </div>
+          </div>
+
+          <!-- Mixology Panel -->
+          <div id="panel-mixology" class="lg:col-span-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center fade-transition hidden">
+            <div class="lg:col-span-6 group relative h-[450px] overflow-hidden shadow-xl border border-champagne/10">
+              <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=600&auto=format&fit=crop" alt="Mixology" class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out" />
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+              <div class="absolute top-6 left-6 z-20">
+                <span class="px-3 py-1 bg-champagne text-cream text-[10px] uppercase tracking-[0.2em] font-medium">Sommelier Choice</span>
+              </div>
+              <div class="absolute bottom-0 left-0 w-full p-8 z-20 flex flex-col justify-end">
+                <h3 class="font-serif text-3xl text-cream font-light mb-2">Curated Mixology</h3>
+                <p class="text-cream/80 text-xs italic tracking-widest font-serif mb-4">Bespoke elixirs &amp; sommelier pairings</p>
+                <div class="pt-4 border-t border-cream/20 flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 border border-champagne text-champagne text-[9px] uppercase tracking-[0.2em] font-sans">✦ Bespoke Blends</span>
+                  <span class="px-2.5 py-1 border border-champagne text-champagne text-[9px] uppercase tracking-[0.2em] font-sans">✦ Artisanal Bitters</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 flex flex-col justify-center space-y-8 lg:pl-6">
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">The Golden Saffron Elixir</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Champagne, botanical gin, saffron honey</p>
+              </div>
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">Rosemary Smoked Old Fashioned</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Small-batch bourbon, aromatic bitters</p>
+              </div>
+              <div class="border-b border-charcoal/10 pb-6 group hover:border-champagne/45 transition-colors duration-300">
+                <div class="flex justify-between items-baseline mb-2">
+                  <h4 class="font-serif text-lg md:text-xl font-light text-charcoal group-hover:text-champagne transition-colors duration-300">Lavender &amp; Pear Collins</h4>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-sans">concierge menu</span>
+                </div>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans tracking-wide">Cold-pressed pear nectar, organic soda</p>
+              </div>
+              <p class="text-[10px] uppercase tracking-[0.3em] text-charcoal/45 italic pt-4">* Vegetarian, Vegan, and Gluten-Free alternatives curated on request.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- THE STANDARDS (Staffing Spotlight) -->
+    <section id="staffing" class="py-24 md:py-32 bg-charcoal text-cream relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-champagne/2 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-muted-gold/2 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        
+        <div class="text-center max-w-2xl mx-auto mb-20">
+          <p class="text-xs uppercase tracking-[0.4em] text-champagne font-semibold mb-3">
+            Impeccable Hospitality
+          </p>
+          <h2 class="font-serif text-4xl md:text-5xl font-light tracking-wide mb-6">
+            The Standards of Service
+          </h2>
+          <div class="h-[1px] w-20 bg-champagne mx-auto mb-6"></div>
+          <p class="text-cream/70 text-sm md:text-base tracking-wide leading-relaxed">
+            Staffing is not an afterthought; it is the cornerstone of the Epicurean experience. Our staff are vetted, polished, and synchronized to execute flawless hospitality.
+          </p>
+        </div>
+
+        <!-- Standards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          
+          <!-- Card 1 -->
+          <div class="group p-8 md:p-10 bg-charcoal border border-champagne/10 hover:border-champagne/40 transition-all duration-500 rounded-none flex flex-col justify-between h-full hover:-translate-y-2 shadow-2xl relative">
+            <div class="absolute top-0 left-0 w-0 h-[2px] bg-champagne group-hover:w-full transition-all duration-500"></div>
+            <div>
+              <div class="mb-8 p-4 border border-champagne/15 w-16 h-16 flex items-center justify-center group-hover:bg-champagne/10 transition-colors duration-500">
+                <svg class="w-8 h-8 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-2xl font-light text-cream tracking-wide mb-4 group-hover:text-champagne transition-colors duration-300">
+                Synchronized Service
+              </h3>
+              <p class="text-cream/60 text-xs md:text-sm font-sans tracking-wide leading-relaxed">
+                Choreographed fine dining service where dishes are laid and lifted in perfect, silent unison. Creates a seamless flow that never interrupts the room’s conversation.
+              </p>
+            </div>
+            <div class="text-right text-[10px] uppercase tracking-[0.25em] text-champagne/40 mt-8 font-sans">
+              standard 1
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="group p-8 md:p-10 bg-charcoal border border-champagne/10 hover:border-champagne/40 transition-all duration-500 rounded-none flex flex-col justify-between h-full hover:-translate-y-2 shadow-2xl relative">
+            <div class="absolute top-0 left-0 w-0 h-[2px] bg-champagne group-hover:w-full transition-all duration-500"></div>
+            <div>
+              <div class="mb-8 p-4 border border-champagne/15 w-16 h-16 flex items-center justify-center group-hover:bg-champagne/10 transition-colors duration-500">
+                <svg class="w-8 h-8 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 15.546c0.563-.186 1-.726 1-1.36V7.813c0-1.104-.896-2-2-2H4c-1.104 0-2 .896-2 2v6.373c0 .634.437 1.174 1 1.36v2.72c0 1.104.896 2 2 2h14c1.104 0 2-.896 2-2v-2.72z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 5.813v5M8 10.813l4 4 4-4" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-2xl font-light text-cream tracking-wide mb-4 group-hover:text-champagne transition-colors duration-300">
+                Immaculate Grooming
+              </h3>
+              <p class="text-cream/60 text-xs md:text-sm font-sans tracking-wide leading-relaxed">
+                Strict uniform standards combining classic butler attire with modern refinement. Crisp tailoring, white-glove presentation, and polished professional conduct.
+              </p>
+            </div>
+            <div class="text-right text-[10px] uppercase tracking-[0.25em] text-champagne/40 mt-8 font-sans">
+              standard 2
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="group p-8 md:p-10 bg-charcoal border border-champagne/10 hover:border-champagne/40 transition-all duration-500 rounded-none flex flex-col justify-between h-full hover:-translate-y-2 shadow-2xl relative">
+            <div class="absolute top-0 left-0 w-0 h-[2px] bg-champagne group-hover:w-full transition-all duration-500"></div>
+            <div>
+              <div class="mb-8 p-4 border border-champagne/15 w-16 h-16 flex items-center justify-center group-hover:bg-champagne/10 transition-colors duration-500">
+                <svg class="w-8 h-8 text-champagne" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-2xl font-light text-cream tracking-wide mb-4 group-hover:text-champagne transition-colors duration-300">
+                Certified Expertise
+              </h3>
+              <p class="text-cream/60 text-xs md:text-sm font-sans tracking-wide leading-relaxed">
+                A roster curated from Michelin-starred kitchens and 5-star estates. Includes WSET-certified sommeliers, artisanal mixologists, and dedicated event captains.
+              </p>
+            </div>
+            <div class="text-right text-[10px] uppercase tracking-[0.25em] text-champagne/40 mt-8 font-sans">
+              standard 3
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Philosophy quote -->
+        <div id="philosophy" class="mt-20 p-8 md:p-12 border border-champagne/20 bg-charcoal/50 max-w-4xl mx-auto text-center">
+          <p class="font-serif italic text-lg md:text-xl text-cream/90 leading-relaxed">
+            "Fine dining is an art, but hospitality is a choreography. Our team does not merely serve; they compose the rhythm of the event."
+          </p>
+          <p class="text-[10px] uppercase tracking-[0.3em] text-champagne font-semibold mt-4">
+            — {{BUSINESS_NAME}} Concierge philosophy
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CLIENT CASE STUDIES (Experiences) -->
+    <section id="experiences" class="py-24 md:py-32 bg-charcoal text-cream relative overflow-hidden border-b border-champagne/10">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <p class="text-xs uppercase tracking-[0.4em] text-champagne font-semibold mb-3">
+            Concierge Portfolios
+          </p>
+          <h2 class="font-serif text-4xl md:text-5xl font-light tracking-wide mb-6">
+            Client Experiences
+          </h2>
+          <div class="h-[1px] w-20 bg-champagne mx-auto mb-6"></div>
+          <p class="text-cream/70 text-sm md:text-base tracking-wide">
+            Read case studies of recent high-society events, private estates, and luxury yacht charters serviced by our staff.
+          </p>
+        </div>
+
+        <!-- Carousel Showcase -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-charcoal border border-champagne/15 p-8 md:p-12">
+          
+          <!-- Image -->
+          <div class="lg:col-span-6 relative h-[300px] md:h-[400px] overflow-hidden">
+            <div class="absolute inset-0 bg-charcoal/10 z-10"></div>
+            <img id="carousel-img" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop" alt="Case Study" class="w-full h-full object-cover transform scale-100 hover:scale-105 transition-transform duration-700 ease-out" />
+            <div id="carousel-logo" class="absolute bottom-4 left-4 z-20 bg-charcoal/80 border border-champagne/20 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-champagne font-semibold font-sans">
+              ✦ VANGUARD
+            </div>
+          </div>
+
+          <!-- Narrative -->
+          <div class="lg:col-span-6 flex flex-col justify-between h-full py-4 lg:pl-6">
+            <div>
+              <span id="carousel-client" class="text-[10px] uppercase tracking-[0.3em] text-champagne font-bold block mb-2">
+                Vanguard Fine Art Foundation
+              </span>
+              <h3 id="carousel-title" class="font-serif text-3xl font-light text-cream tracking-wide mb-2">
+                The Solstice Gala
+              </h3>
+              <p id="carousel-location" class="text-[10px] uppercase tracking-[0.2em] text-cream/50 font-sans mb-6">
+                Modern Art Pavilion &bull; 250 guests
+              </p>
+
+              <blockquote class="font-serif italic text-base md:text-lg text-cream/90 leading-relaxed border-l-2 border-champagne pl-6 mb-6">
+                <span id="carousel-quote">"{{BUSINESS_NAME}} didn't just cater our gala; they curated a culinary journey. The synchronized service was breathtaking—250 plates landed in absolute silence, in unison."</span>
+              </blockquote>
+              
+              <cite id="carousel-author" class="font-sans text-xs uppercase tracking-widest text-champagne not-italic font-semibold">
+                — Elena Rostova, Executive Director
+              </cite>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex space-x-4 mt-12 items-center">
+              <button onclick="navigateCarousel(-1)" class="w-10 h-10 border border-champagne/20 hover:border-champagne flex items-center justify-center text-champagne hover:bg-champagne/10 transition-colors" aria-label="Previous Experience">
+                &larr;
+              </button>
+              <span id="carousel-indicator" class="text-xs uppercase tracking-[0.25em] text-cream/40 font-sans font-semibold">
+                1 / 3
+              </span>
+              <button onclick="navigateCarousel(1)" class="w-10 h-10 border border-champagne/20 hover:border-champagne flex items-center justify-center text-champagne hover:bg-champagne/10 transition-colors" aria-label="Next Experience">
+                &rarr;
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE DIGITAL CONCIERGE (Interactive Planner Form) -->
+    <section id="concierge" class="py-24 md:py-32 bg-cream text-charcoal border-b border-champagne/10 relative">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <p class="text-xs uppercase tracking-[0.4em] text-champagne font-semibold mb-3">
+            Digital Booking Consultant
+          </p>
+          <h2 class="font-serif text-4xl md:text-5xl font-light tracking-wide mb-6">
+            The Digital Concierge
+          </h2>
+          <div class="h-[1px] w-20 bg-champagne mx-auto mb-6"></div>
+          <p class="text-charcoal/70 text-sm md:text-base tracking-wide">
+            Design your bespoke gastronomic event in seconds. Our interactive planner calculates service and staffing compositions tailored to your headcount and vision.
+          </p>
+        </div>
+
+        <!-- Dynamic Form Container -->
+        <div id="planner-box" class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-cream border border-champagne/15 shadow-2xl">
+          
+          <!-- Left Column Blueprint Summary -->
+          <div class="lg:col-span-4 bg-charcoal text-cream p-8 md:p-12 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-champagne font-bold block mb-4">
+                Itinerary Blueprint
+              </span>
+              <h3 class="font-serif text-3xl font-light mb-8 tracking-wide">
+                Your Event Estimate
+              </h3>
+
+              <div class="space-y-6 text-xs text-cream/70 font-sans tracking-wide">
+                <div class="pb-4 border-b border-cream/10">
+                  <p class="text-champagne text-[9px] uppercase tracking-[0.2em] mb-1">Event Service</p>
+                  <p id="summary-event" class="text-sm font-serif font-light text-cream">Grand Gala</p>
+                </div>
+                <div class="pb-4 border-b border-cream/10">
+                  <p class="text-champagne text-[9px] uppercase tracking-[0.2em] mb-1">Guests &amp; Format</p>
+                  <p id="summary-guests" class="text-sm font-serif font-light text-cream">50 guests &bull; Plated Dinner</p>
+                </div>
+                <div class="pb-4 border-b border-cream/10">
+                  <p class="text-champagne text-[9px] uppercase tracking-[0.2em] mb-1">Concierge Staffing</p>
+                  <p id="summary-staffing" class="text-sm font-serif font-light text-cream">Chefs, Mixologists</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12 pt-6 border-t border-cream/10 text-[10px] uppercase tracking-[0.25em] text-champagne font-semibold font-sans">
+              ✦ concierges standing by
+            </div>
+          </div>
+
+          <!-- Right Column Steps Panel Form -->
+          <div class="lg:col-span-8 p-8 md:p-12 flex flex-col justify-between">
+            
+            <!-- Indicators -->
+            <div class="flex justify-between items-center mb-12">
+              <div class="flex items-center flex-1">
+                <div id="step-indicator-1" class="w-8 h-8 rounded-full border border-champagne bg-champagne text-cream flex items-center justify-center text-xs font-semibold">1</div>
+                <div id="step-line-1" class="h-[1px] flex-1 mx-4 bg-charcoal/10"></div>
+              </div>
+              <div class="flex items-center flex-1">
+                <div id="step-indicator-2" class="w-8 h-8 rounded-full border border-charcoal/20 text-charcoal/40 flex items-center justify-center text-xs font-semibold">2</div>
+                <div id="step-line-2" class="h-[1px] flex-1 mx-4 bg-charcoal/10"></div>
+              </div>
+              <div class="flex items-center flex-1">
+                <div id="step-indicator-3" class="w-8 h-8 rounded-full border border-charcoal/20 text-charcoal/40 flex items-center justify-center text-xs font-semibold">3</div>
+                <div id="step-line-3" class="h-[1px] flex-1 mx-4 bg-charcoal/10"></div>
+              </div>
+              <div class="flex items-center">
+                <div id="step-indicator-4" class="w-8 h-8 rounded-full border border-charcoal/20 text-charcoal/40 flex items-center justify-center text-xs font-semibold">4</div>
+              </div>
+            </div>
+
+            <!-- Steps contents -->
+            <div class="min-h-[250px] mb-8">
+              
+              <!-- STEP 1 -->
+              <div id="step-content-1" class="space-y-6">
+                <h4 class="font-serif text-2xl font-light text-charcoal mb-6">Step 1: Choose Your Event Profile</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <button type="button" onclick="selectEvent('gala')" id="btn-event-gala" class="p-5 text-left border border-champagne bg-champagne/5 flex items-center space-x-4 transition-all duration-300">
+                    <span class="text-2xl">🍷</span>
+                    <span class="font-sans text-xs md:text-sm uppercase tracking-widest font-semibold">Grand Gala</span>
+                  </button>
+                  <button type="button" onclick="selectEvent('wedding')" id="btn-event-wedding" class="p-5 text-left border border-charcoal/10 hover:border-champagne/30 flex items-center space-x-4 transition-all duration-300">
+                    <span class="text-2xl">💍</span>
+                    <span class="font-sans text-xs md:text-sm uppercase tracking-widest font-semibold">Luxury Wedding</span>
+                  </button>
+                  <button type="button" onclick="selectEvent('estate')" id="btn-event-estate" class="p-5 text-left border border-charcoal/10 hover:border-champagne/30 flex items-center space-x-4 transition-all duration-300">
+                    <span class="text-2xl">🏡</span>
+                    <span class="font-sans text-xs md:text-sm uppercase tracking-widest font-semibold">Private Estate Dinner</span>
+                  </button>
+                  <button type="button" onclick="selectEvent('corporate')" id="btn-event-corporate" class="p-5 text-left border border-charcoal/10 hover:border-champagne/30 flex items-center space-x-4 transition-all duration-300">
+                    <span class="text-2xl">💼</span>
+                    <span class="font-sans text-xs md:text-sm uppercase tracking-widest font-semibold">Corporate Reception</span>
+                  </button>
+                  <button type="button" onclick="selectEvent('yacht')" id="btn-event-yacht" class="p-5 text-left border border-charcoal/10 hover:border-champagne/30 flex items-center space-x-4 transition-all duration-300 col-span-1 sm:col-span-2">
+                    <span class="text-2xl">⚓</span>
+                    <span class="font-sans text-xs md:text-sm uppercase tracking-widest font-semibold">Yacht Charter</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 2 -->
+              <div id="step-content-2" class="space-y-8 hidden">
+                <div>
+                  <h4 class="font-serif text-2xl font-light text-charcoal mb-6">Step 2: Guest Count &amp; Culinary Format</h4>
+                  <div class="flex justify-between items-center mb-3">
+                    <label class="font-sans text-xs uppercase tracking-widest text-charcoal/70">Headcount / Guest Count</label>
+                    <span id="slider-val" class="font-serif text-2xl text-champagne font-semibold">50 guests</span>
+                  </div>
+                  <input id="guest-slider" type="range" min="10" max="500" step="5" value="50" oninput="updateSlider(this.value)" class="w-full h-1 bg-charcoal/10 rounded-lg appearance-none cursor-pointer accent-champagne" />
+                  <div class="flex justify-between text-[10px] uppercase text-charcoal/40 mt-1 font-sans">
+                    <span>10 Guests</span>
+                    <span>250 Guests</span>
+                    <span>500+ Guests</span>
+                  </div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-charcoal/5">
+                  <label class="font-sans text-xs uppercase tracking-widest text-charcoal/70 block mb-2">Serving &amp; Culinary Format</label>
+                  <label id="lbl-format-plated" class="flex items-center space-x-3 p-4 border border-champagne bg-champagne/5 cursor-pointer transition-all duration-300">
+                    <input type="radio" name="serviceFormat" value="plated" checked onclick="selectFormat('plated')" class="accent-champagne" />
+                    <span class="font-sans text-xs md:text-sm tracking-wide text-charcoal">Plated Dinner (Multi-Course)</span>
+                  </label>
+                  <label id="lbl-format-buffet" class="flex items-center space-x-3 p-4 border border-charcoal/10 cursor-pointer transition-all duration-300">
+                    <input type="radio" name="serviceFormat" value="buffet" onclick="selectFormat('buffet')" class="accent-champagne" />
+                    <span class="font-sans text-xs md:text-sm tracking-wide text-charcoal">Luxury Buffet Showcases</span>
+                  </label>
+                  <label id="lbl-format-canapes" class="flex items-center space-x-3 p-4 border border-charcoal/10 cursor-pointer transition-all duration-300">
+                    <input type="radio" name="serviceFormat" value="canapes" onclick="selectFormat('canapes')" class="accent-champagne" />
+                    <span class="font-sans text-xs md:text-sm tracking-wide text-charcoal">Passing Canapés &amp; Hors d’oeuvres</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- STEP 3 -->
+              <div id="step-content-3" class="space-y-6 hidden">
+                <h4 class="font-serif text-2xl font-light text-charcoal mb-4">Step 3: Elite Service Staffing</h4>
+                <p class="text-charcoal/60 text-xs md:text-sm font-sans mb-6">Add Michelin-trained hospitality specialists to execute your menu flawlessly. Select as many roles as your concept requires.</p>
+                <div class="space-y-3">
+                  <label id="lbl-staff-chef" class="flex items-center justify-between p-4 border border-champagne bg-champagne/5 cursor-pointer transition-all duration-300">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="staff-chef" checked onclick="toggleStaff('chef')" class="accent-champagne" />
+                      <span class="font-sans text-xs md:text-sm tracking-wide text-charcoal">Michelin-Trained Head Chefs</span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-champagne/80">concierge staff</span>
+                  </label>
+                  <label id="lbl-staff-butler" class="flex items-center justify-between p-4 border border-charcoal/10 cursor-pointer transition-all duration-300">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="staff-butler" onclick="toggleStaff('butler')" class="accent-champagne" />
+                      <span class="font-sans text-xs md:text-sm tracking-wide text-charcoal">Butler &amp; Silver Service Staff</span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-champagne/80">concierge staff</span>
+                  </label>
+                  <label id="lbl-staff-bartender" class="flex items-center justify-between p-4 border border-charcoal/10 cursor-pointer transition-all duration-300">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="staff-bartender" onclick="toggleStaff('bartender')" class="accent-champagne" />
+                      <span class="font-sans text-xs md:text-sm tracking-wide text-charcoal">Professional Event Bartenders</span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-champagne/80">concierge staff</span>
+                  </label>
+                  <label id="lbl-staff-mixologist" class="flex items-center justify-between p-4 border border-champagne bg-champagne/5 cursor-pointer transition-all duration-300">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="staff-mixologist" checked onclick="toggleStaff('mixologist')" class="accent-champagne" />
+                      <span class="font-sans text-xs md:text-sm tracking-wide text-charcoal">Artisanal Cocktail Mixologists</span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-champagne/80">concierge staff</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- STEP 4 -->
+              <div id="step-content-4" class="space-y-6 hidden">
+                <h4 class="font-serif text-2xl font-light text-charcoal mb-4">Step 4: Contact &amp; Schedule</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="font-sans text-[10px] uppercase tracking-widest text-charcoal/70 block mb-2">Your Name</label>
+                    <input id="input-name" type="text" oninput="validateInput()" placeholder="e.g. Charlotte Astley" class="w-full p-3 border border-charcoal/15 bg-transparent focus:outline-none focus:border-champagne text-sm" />
+                  </div>
+                  <div>
+                    <label class="font-sans text-[10px] uppercase tracking-widest text-charcoal/70 block mb-2">Email Address</label>
+                    <input id="input-email" type="email" oninput="validateInput()" placeholder="e.g. charlotte@estate.com" class="w-full p-3 border border-charcoal/15 bg-transparent focus:outline-none focus:border-champagne text-sm" />
+                  </div>
+                </div>
+                <div>
+                  <label class="font-sans text-[10px] uppercase tracking-widest text-charcoal/70 block mb-2">Event Date</label>
+                  <input id="input-date" type="date" oninput="validateInput()" class="w-full p-3 border border-charcoal/15 bg-transparent focus:outline-none focus:border-champagne text-sm" />
+                </div>
+                <div>
+                  <label class="font-sans text-[10px] uppercase tracking-widest text-charcoal/70 block mb-2">Additional Notes (Optional)</label>
+                  <textarea id="input-notes" rows="2" placeholder="Detail dietary wishes or specific mixology inspirations..." class="w-full p-3 border border-charcoal/15 bg-transparent focus:outline-none focus:border-champagne text-sm"></textarea>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Footer Controls -->
+            <div class="flex justify-between items-center pt-8 border-t border-charcoal/10 font-sans text-xs uppercase tracking-[0.2em] font-semibold">
+              <button type="button" id="btn-back" onclick="navigateStep(-1)" disabled class="px-4 py-2 border border-charcoal/20 transition-all opacity-30 cursor-not-allowed">
+                &larr; Back
+              </button>
+              <button type="button" id="btn-next" onclick="navigateStep(1)" class="px-6 py-3.5 bg-charcoal text-cream hover:bg-champagne transition-all">
+                Next Step &rarr;
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Success Message (Initially Hidden) -->
+        <div id="success-box" class="max-w-2xl mx-auto border border-champagne p-12 bg-cream shadow-2xl text-center hidden animate-fade-in">
+          <div class="w-16 h-16 border border-champagne flex items-center justify-center mx-auto mb-6 text-2xl text-champagne">✓</div>
+          <h3 class="font-serif text-3xl font-light mb-4">Inquiry Received</h3>
+          <p class="text-charcoal/70 text-sm md:text-base mb-8 max-w-md mx-auto">Your gourmet event itinerary has been sent to our concierge desk. A culinary consultant will review your specifications and contact you within 2 hours.</p>
+          <div class="bg-charcoal/5 p-6 border-l-2 border-champagne mb-8 text-left text-xs space-y-2">
+            <p><strong>Lead Event Planner:</strong> {{BUSINESS_NAME}} Concierge Desk</p>
+            <p><strong>Proposed Date:</strong> <span id="success-date">2026-09-15</span></p>
+            <p><strong>Event Profile:</strong> <span id="success-profile">Grand Gala</span></p>
+            <p><strong>Catering Format:</strong> <span id="success-format">Plated Dinner</span></p>
+          </div>
+          <button onclick="resetPlanner()" class="px-8 py-3 bg-champagne hover:bg-muted-gold text-cream uppercase tracking-[0.2em] font-sans text-xs font-semibold">
+            Configure Another Event
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-charcoal text-cream pt-20 pb-12 border-t border-champagne/10 relative">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div class="md:col-span-2">
+            <span class="font-serif text-2xl font-light tracking-[0.25em] text-cream block mb-2">{{BUSINESS_NAME}}</span>
+            <span class="text-[10px] uppercase tracking-[0.4em] text-champagne block mb-6">Luxury Catering &amp; Staffing</span>
+            <p class="text-cream/50 text-xs md:text-sm font-sans tracking-wide leading-relaxed max-w-sm mb-6">
+              Orchestrating bespoke fine dining and silver-service staffing solutions for grand events, private estates, and luxury marine charters.
+            </p>
+            <div class="flex gap-4 items-center">
+              <div class="border border-champagne/20 px-3 py-1.5 text-[8px] uppercase tracking-[0.2em] text-champagne">★ Food Hygiene Rating 5</div>
+              <div class="border border-champagne/20 px-3 py-1.5 text-[8px] uppercase tracking-[0.2em] text-champagne">★ ISO 9001 Certified</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-sans text-[10px] uppercase tracking-[0.3em] text-champagne font-bold mb-6">Concierge Desk</h4>
+            <ul class="space-y-4 text-xs font-sans text-cream/70 tracking-widest">
+              <li><span class="block text-cream/40 text-[9px] uppercase tracking-[0.2em] mb-0.5">inquires</span><a href="mailto:concierge@auraepicure.com" class="hover:text-champagne transition-colors duration-300">concierge@auraepicure.com</a></li>
+              <li><span class="block text-cream/40 text-[9px] uppercase tracking-[0.2em] mb-0.5">direct line</span><a href="tel:{{PHONE}}" class="hover:text-champagne transition-colors duration-300">{{PHONE}}</a></li>
+              <li><span class="block text-cream/40 text-[9px] uppercase tracking-[0.2em] mb-0.5">headquarters</span>{{ADDRESS}}</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-sans text-[10px] uppercase tracking-[0.3em] text-champagne font-bold mb-6">Venue Partners</h4>
+            <ul class="space-y-2 text-xs font-sans text-cream/60 tracking-wider">
+              <li class="hover:text-champagne transition-colors duration-300">✦ Somerset House Pavilions</li>
+              <li class="hover:text-champagne transition-colors duration-300">✦ The Royal Botanical Glasshouses</li>
+              <li class="hover:text-champagne transition-colors duration-300">✦ Mayfair Private Hall</li>
+              <li class="hover:text-champagne transition-colors duration-300">✦ Port of Monaco Yacht Club</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-cream/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.3em] text-cream/40 font-sans">
+          <p class="mb-4 md:mb-0">&copy; 2026 {{BUSINESS_NAME}}. All rights reserved.</p>
+          <div class="flex space-x-6">
+            <a href="#" class="hover:text-champagne transition-colors duration-300">instagram</a>
+            <a href="#" class="hover:text-champagne transition-colors duration-300">linkedin</a>
+            <a href="#" class="hover:text-champagne transition-colors duration-300">vimeo</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+      // 1. NAVBAR SCROLL EFFECT
+      window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('glassmorphism', 'py-4', 'shadow-sm');
+          navbar.classList.remove('py-6');
+        } else {
+          navbar.classList.remove('glassmorphism', 'py-4', 'shadow-sm');
+          navbar.classList.add('py-6');
+        }
+      });
+
+      // 2. MOBILE MENU DRAWER
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const hTop = document.getElementById('hamburger-top');
+      const hMiddle = document.getElementById('hamburger-middle');
+      const hBottom = document.getElementById('hamburger-bottom');
+      let isMobileMenuOpen = false;
+
+      menuToggle.addEventListener('click', () => {
+        toggleMobileMenu(!isMobileMenuOpen);
+      });
+
+      function toggleMobileMenu(isOpen) {
+        isMobileMenuOpen = isOpen;
+        if (isOpen) {
+          mobileMenu.classList.remove('opacity-0', 'pointer-events-none', 'invisible');
+          mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'visible');
+          hTop.classList.add('rotate-45', 'translate-x-1');
+          hMiddle.classList.add('opacity-0');
+          hBottom.classList.add('-rotate-45', 'translate-x-1');
+        } else {
+          mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'invisible');
+          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'visible');
+          hTop.classList.remove('rotate-45', 'translate-x-1');
+          hMiddle.classList.remove('opacity-0');
+          hBottom.classList.remove('-rotate-45', 'translate-x-1');
+        }
+      }
+
+      // 3. CULINARY GALLERY TABS
+      function switchTab(tabId) {
+        const tabs = ['canapes', 'plated', 'mixology'];
+        tabs.forEach(t => {
+          const btn = document.getElementById(`tab-${t}`);
+          const ind = document.getElementById(`indicator-${t}`);
+          const panel = document.getElementById(`panel-${t}`);
+          
+          if (t === tabId) {
+            btn.classList.add('text-champagne', 'font-semibold');
+            btn.classList.remove('text-charcoal/50');
+            ind.classList.remove('hidden');
+            panel.classList.remove('hidden');
+          } else {
+            btn.classList.remove('text-champagne', 'font-semibold');
+            btn.classList.add('text-charcoal/50');
+            ind.classList.add('hidden');
+            panel.classList.add('hidden');
+          }
+        });
+      }
+
+      // 4. CLIENT CASE STUDIES CAROUSEL
+      const CASE_STUDIES = [
+        {
+          title: 'The Solstice Gala',
+          client: 'Vanguard Fine Art Foundation',
+          location: 'Modern Art Pavilion',
+          guests: 250,
+          quote: "{{BUSINESS_NAME}} didn't just cater our gala; they curated a culinary journey. The synchronized service was breathtaking—250 plates landed in absolute silence, in unison.",
+          author: 'Elena Rostova, Executive Director',
+          image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop',
+          logo: '✦ VANGUARD'
+        },
+        {
+          title: 'An Emerald Coast Soirée',
+          client: 'Oceanic Elite Charters',
+          location: 'Superyacht Chronos',
+          guests: 60,
+          quote: "Orchestrating Michelin-caliber plates in a moving galley is no small feat. {{BUSINESS_NAME}}’s chefs and sommeliers delivered a world-class tasting menu that our charter guests are still talking about.",
+          author: 'Captain Marcus Sterling',
+          image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=600&auto=format&fit=crop',
+          logo: '⚓ OCEANIC'
+        },
+        {
+          title: 'High-Society Nuptials',
+          client: 'The Kensington-Vance Wedding',
+          location: 'Vance Manor Estate',
+          guests: 180,
+          quote: "Every detail was flawless. The butler staff were groomed to perfection and pre-empted every guest need. The bespoke mixology bar was the highlight of the reception.",
+          author: 'Lady Victoria Vance',
+          image: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=600&auto=format&fit=crop',
+          logo: '⚜ K&V ESTATE'
+        }
+      ];
+      let carouselIndex = 0;
+
+      function navigateCarousel(dir) {
+        carouselIndex += dir;
+        if (carouselIndex < 0) carouselIndex = CASE_STUDIES.length - 1;
+        if (carouselIndex >= CASE_STUDIES.length) carouselIndex = 0;
+
+        const data = CASE_STUDIES[carouselIndex];
+        
+        // Apply fade-out/fade-in
+        const img = document.getElementById('carousel-img');
+        img.style.opacity = 0;
+        setTimeout(() => {
+          img.src = data.image;
+          img.style.opacity = 1;
+        }, 150);
+
+        document.getElementById('carousel-logo').textContent = data.logo;
+        document.getElementById('carousel-client').textContent = data.client;
+        document.getElementById('carousel-title').textContent = data.title;
+        document.getElementById('carousel-location').innerHTML = `${data.location} &bull; ${data.guests} guests`;
+        document.getElementById('carousel-quote').textContent = data.quote;
+        document.getElementById('carousel-author').textContent = `— ${data.author}`;
+        document.getElementById('carousel-indicator').textContent = `${carouselIndex + 1} / ${CASE_STUDIES.length}`;
+      }
+
+      // 5. DIGITAL CONCIERGE EVENT PLANNER FORM
+      let currentStep = 1;
+      const formState = {
+        eventType: 'gala',
+        guestCount: 50,
+        serviceFormat: 'plated',
+        staffing: {
+          chef: true,
+          butler: false,
+          bartender: false,
+          mixologist: true
+        },
+        name: '',
+        email: '',
+        date: ''
+      };
+
+      const EVENT_MAP = {
+        gala: 'Grand Gala',
+        wedding: 'Luxury Wedding',
+        estate: 'Private Estate Dinner',
+        corporate: 'Corporate Reception',
+        yacht: 'Yacht Charter'
+      };
+
+      const FORMAT_MAP = {
+        plated: 'Plated Dinner',
+        buffet: 'Luxury Buffet',
+        canapes: 'Passing Canapés'
+      };
+
+      const STAFF_MAP = {
+        chef: 'Chefs',
+        butler: 'Butlers',
+        bartender: 'Bartenders',
+        mixologist: 'Mixologists'
+      };
+
+      function selectEvent(eventId) {
+        formState.eventType = eventId;
+        const events = ['gala', 'wedding', 'estate', 'corporate', 'yacht'];
+        events.forEach(e => {
+          const btn = document.getElementById(`btn-event-${e}`);
+          if (e === eventId) {
+            btn.classList.add('border-champagne', 'bg-champagne/5');
+            btn.classList.remove('border-charcoal/10');
+          } else {
+            btn.classList.remove('border-champagne', 'bg-champagne/5');
+            btn.classList.add('border-charcoal/10');
+          }
+        });
+        updateBlueprint();
+      }
+
+      function updateSlider(val) {
+        formState.guestCount = val;
+        document.getElementById('slider-val').textContent = `${val} guests`;
+        updateBlueprint();
+      }
+
+      function selectFormat(formatId) {
+        formState.serviceFormat = formatId;
+        const formats = ['plated', 'buffet', 'canapes'];
+        formats.forEach(f => {
+          const lbl = document.getElementById(`lbl-format-${f}`);
+          if (f === formatId) {
+            lbl.classList.add('border-champagne', 'bg-champagne/5');
+            lbl.classList.remove('border-charcoal/10');
+          } else {
+            lbl.classList.remove('border-champagne', 'bg-champagne/5');
+            lbl.classList.add('border-charcoal/10');
+          }
+        });
+        updateBlueprint();
+      }
+
+      function toggleStaff(staffId) {
+        const checkbox = document.getElementById(`staff-${staffId}`);
+        formState.staffing[staffId] = checkbox.checked;
+        
+        const lbl = document.getElementById(`lbl-staff-${staffId}`);
+        if (checkbox.checked) {
+          lbl.classList.add('border-champagne', 'bg-champagne/5');
+          lbl.classList.remove('border-charcoal/10');
+        } else {
+          lbl.classList.remove('border-champagne', 'bg-champagne/5');
+          lbl.classList.add('border-charcoal/10');
+        }
+        updateBlueprint();
+      }
+
+      function validateInput() {
+        formState.name = document.getElementById('input-name').value;
+        formState.email = document.getElementById('input-email').value;
+        formState.date = document.getElementById('input-date').value;
+        
+        const btnNext = document.getElementById('btn-next');
+        if (currentStep === 4) {
+          const isValid = formState.name.trim() !== '' && formState.email.trim() !== '' && formState.date !== '';
+          if (isValid) {
+            btnNext.disabled = false;
+            btnNext.classList.remove('opacity-50', 'cursor-not-allowed');
+          } else {
+            btnNext.disabled = true;
+            btnNext.classList.add('opacity-50', 'cursor-not-allowed');
+          }
+        }
+      }
+
+      function updateBlueprint() {
+        // Update Event
+        document.getElementById('summary-event').textContent = EVENT_MAP[formState.eventType];
+        // Update Guest/Format
+        document.getElementById('summary-guests').textContent = `${formState.guestCount} guests • ${FORMAT_MAP[formState.serviceFormat]}`;
+        // Update Staffing
+        const selectedStaff = [];
+        for (const [key, active] of Object.entries(formState.staffing)) {
+          if (active) {
+            selectedStaff.push(STAFF_MAP[key]);
+          }
+        }
+        document.getElementById('summary-staffing').textContent = selectedStaff.length > 0 ? selectedStaff.join(', ') : 'No staff selected';
+      }
+
+      function navigateStep(dir) {
+        // If we are at step 4 and clicking next, we submit!
+        if (currentStep === 4 && dir === 1) {
+          submitInquiry();
+          return;
+        }
+
+        // Hide current panel
+        document.getElementById(`step-content-${currentStep}`).classList.add('hidden');
+        
+        // Update index
+        currentStep += dir;
+        
+        // Show new panel
+        document.getElementById(`step-content-${currentStep}`).classList.remove('hidden');
+
+        // Update Indicators
+        for (let i = 1; i <= 4; i++) {
+          const indicator = document.getElementById(`step-indicator-${i}`);
+          const line = document.getElementById(`step-line-${i}`);
+          
+          if (i === currentStep) {
+            indicator.className = "w-8 h-8 rounded-full border border-champagne bg-champagne text-cream flex items-center justify-center text-xs font-semibold";
+          } else if (i < currentStep) {
+            indicator.className = "w-8 h-8 rounded-full border border-champagne/40 bg-champagne/10 text-champagne flex items-center justify-center text-xs font-semibold";
+            if (line) line.classList.replace('bg-charcoal/10', 'bg-champagne');
+          } else {
+            indicator.className = "w-8 h-8 rounded-full border border-charcoal/20 text-charcoal/40 flex items-center justify-center text-xs font-semibold";
+            if (line) line.classList.replace('bg-champagne', 'bg-charcoal/10');
+          }
+        }
+
+        // Update Buttons
+        const btnBack = document.getElementById('btn-back');
+        const btnNext = document.getElementById('btn-next');
+        
+        if (currentStep === 1) {
+          btnBack.disabled = true;
+          btnBack.classList.add('opacity-30', 'cursor-not-allowed');
+        } else {
+          btnBack.disabled = false;
+          btnBack.classList.remove('opacity-30', 'cursor-not-allowed');
+        }
+
+        if (currentStep === 4) {
+          btnNext.innerHTML = "✦ Submit Inquiry";
+          validateInput();
+        } else {
+          btnNext.innerHTML = "Next Step &rarr;";
+          btnNext.disabled = false;
+          btnNext.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+      }
+
+      function submitInquiry() {
+        // Fill success details
+        document.getElementById('success-date').textContent = formState.date;
+        document.getElementById('success-profile').textContent = `${EVENT_MAP[formState.eventType]} for ${formState.guestCount} guests`;
+        document.getElementById('success-format').textContent = FORMAT_MAP[formState.serviceFormat];
+
+        // Toggle boxes
+        document.getElementById('planner-box').classList.add('hidden');
+        document.getElementById('success-box').classList.remove('hidden');
+      }
+
+      function resetPlanner() {
+        currentStep = 1;
+        formState.eventType = 'gala';
+        formState.guestCount = 50;
+        formState.serviceFormat = 'plated';
+        formState.staffing.chef = true;
+        formState.staffing.butler = false;
+        formState.staffing.bartender = false;
+        formState.staffing.mixologist = true;
+        formState.name = '';
+        formState.email = '';
+        formState.date = '';
+
+        // Reset DOM elements
+        document.getElementById('input-name').value = '';
+        document.getElementById('input-email').value = '';
+        document.getElementById('input-date').value = '';
+        document.getElementById('input-notes').value = '';
+        document.getElementById('guest-slider').value = 50;
+        document.getElementById('slider-val').textContent = '50 guests';
+        
+        document.getElementById('staff-chef').checked = true;
+        document.getElementById('staff-butler').checked = false;
+        document.getElementById('staff-bartender').checked = false;
+        document.getElementById('staff-mixologist').checked = true;
+
+        selectEvent('gala');
+        selectFormat('plated');
+        toggleStaff('chef');
+        toggleStaff('mixologist');
+        
+        // Hide other panels
+        for (let i = 2; i <= 4; i++) {
+          document.getElementById(`step-content-${i}`).classList.add('hidden');
+        }
+        document.getElementById('step-content-1').classList.remove('hidden');
+
+        // Reset indicators
+        for (let i = 1; i <= 4; i++) {
+          const indicator = document.getElementById(`step-indicator-${i}`);
+          const line = document.getElementById(`step-line-${i}`);
+          if (i === 1) {
+            indicator.className = "w-8 h-8 rounded-full border border-champagne bg-champagne text-cream flex items-center justify-center text-xs font-semibold";
+          } else {
+            indicator.className = "w-8 h-8 rounded-full border border-charcoal/20 text-charcoal/40 flex items-center justify-center text-xs font-semibold";
+            if (line) line.classList.replace('bg-champagne', 'bg-charcoal/10');
+          }
+        }
+
+        const btnBack = document.getElementById('btn-back');
+        const btnNext = document.getElementById('btn-next');
+        btnBack.disabled = true;
+        btnBack.classList.add('opacity-30', 'cursor-not-allowed');
+        btnNext.innerHTML = "Next Step &rarr;";
+        btnNext.disabled = false;
+        btnNext.classList.remove('opacity-50', 'cursor-not-allowed');
+
+        document.getElementById('success-box').classList.add('hidden');
+        document.getElementById('planner-box').classList.remove('hidden');
+        
+        updateBlueprint();
+      }
+
+      // Initialize estimate blueprint
+      updateBlueprint();
+    </script>
+  </body>
+</html>

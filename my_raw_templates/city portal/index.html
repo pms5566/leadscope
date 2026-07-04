@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyRajpura.com - Central Rajpura Community Portal</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Read Rajpura local news, browse verified local businesses, find active jobs, view upcoming events, and submit listings on Rajpura's premier city portal.">
+  
+  <!-- CSS Stylesheets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome & Icon Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind Theme Configurations -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#132c4c',
+            brandGold: '#f59e0b',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="transition-theme">
+
+  <!-- STICKY HEADER -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#1e293b] shadow-md border-b border-slate-200 dark:border-slate-800 transition-theme py-4">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2 group cursor-pointer" onclick="navigateTo('home')">
+        <div class="w-10 h-10 rounded-lg bg-brandGold flex items-center justify-center text-black font-extrabold text-xl font-headings transition-transform group-hover:scale-105">
+          MR
+        </div>
+        <span class="text-xl font-bold font-headings tracking-wider text-[#0f172a] dark:text-white group-hover:text-brandGold transition-colors" id="header-logo-text">
+          MYRAJPURA
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-wide uppercase text-slate-700 dark:text-slate-300">
+        <a href="#home" class="nav-link hover:text-brandGold transition-colors active text-brandGold" onclick="navigateTo('home')">Home</a>
+        <a href="#news" class="nav-link hover:text-brandGold transition-colors" onclick="navigateTo('news')">News</a>
+        <a href="#directory" class="nav-link hover:text-brandGold transition-colors" onclick="navigateTo('directory')">Directory</a>
+        <a href="#jobs" class="nav-link hover:text-brandGold transition-colors" onclick="navigateTo('jobs')">Jobs</a>
+        <a href="#events" class="nav-link hover:text-brandGold transition-colors" onclick="navigateTo('events')">Events</a>
+        <a href="#contribute" class="nav-link hover:text-brandGold transition-colors" onclick="navigateTo('contribute')">Contribute</a>
+      </nav>
+
+      <!-- Right Header Actions (Dark Mode, Submit, Mobile Hamburger) -->
+      <div class="flex items-center gap-4">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-brandGold hover:border-brandGold dark:hover:text-brandGold dark:hover:border-brandGold transition-colors" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon text-lg" id="theme-toggle-icon"></i>
+        </button>
+
+        <!-- Submit Button (Desktop) -->
+        <button class="hidden sm:inline-flex btn-gold text-sm shadow-md" onclick="navigateTo('contribute')">
+          <i class="fa-solid fa-plus-circle mr-2"></i>Submit Listing
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="hamburger-btn" class="lg:hidden flex flex-col justify-between w-6 h-4 text-[#0f172a] dark:text-white" aria-label="Toggle Navigation Menu">
+          <span class="w-full h-[2px] bg-current transition-all duration-300"></span>
+          <span class="w-full h-[2px] bg-current transition-all duration-300"></span>
+          <span class="w-full h-[2px] bg-current transition-all duration-300"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden absolute top-full left-0 right-0 bg-white dark:bg-[#1e293b] border-t border-slate-200 dark:border-slate-700 shadow-xl py-6 px-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-center text-sm font-semibold tracking-widest uppercase text-slate-700 dark:text-slate-300">
+        <a href="#home" class="py-2 hover:text-brandGold" onclick="navigateTo('home')">Home</a>
+        <a href="#news" class="py-2 hover:text-brandGold" onclick="navigateTo('news')">News</a>
+        <a href="#directory" class="py-2 hover:text-brandGold" onclick="navigateTo('directory')">Directory</a>
+        <a href="#jobs" class="py-2 hover:text-brandGold" onclick="navigateTo('jobs')">Jobs</a>
+        <a href="#events" class="py-2 hover:text-brandGold" onclick="navigateTo('events')">Events</a>
+        <a href="#contribute" class="py-2 hover:text-brandGold" onclick="navigateTo('contribute')">Contribute</a>
+        <button class="btn-gold mt-4 w-full" onclick="navigateTo('contribute')">
+          <i class="fa-solid fa-plus-circle mr-2"></i>Submit Listing
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SPA CONTENT VIEWS -->
+  <main class="min-h-screen pt-[76px] pb-16">
+
+    <!-- 1. HOME VIEW -->
+    <section id="home-view" class="page-view active">
+      <!-- Cinematic Hero Section with Framed Slideshow (inspired by d24f16...) -->
+      <div class="relative w-full bg-[#132c4c] dark:bg-[#0b192e] py-16 md:py-24 border-b border-slate-800 overflow-hidden">
+        <!-- Full-Bleed Blurred Slideshow Background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-100 bg-cover bg-center filter blur-[60px] opacity-[0.18] scale-110" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Gateway_of_Punjab-Rajpura.jpg');" data-bg-slide="0"></div>
+          <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 bg-cover bg-center filter blur-[60px] opacity-[0.18] scale-110" style="background-image: url('fwara_chowk_original.png');" data-bg-slide="1"></div>
+          <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 opacity-0 bg-cover bg-center filter blur-[60px] opacity-[0.18] scale-110" style="background-image: url('https://i.ytimg.com/vi/CMuUMtQgLyc/maxresdefault.jpg');" data-bg-slide="2"></div>
+        </div>
+        <!-- Subtle background pattern/glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.08),transparent_50%)] pointer-events-none z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          <!-- Left Column: Content -->
+          <div class="lg:col-span-7 flex flex-col justify-center text-left">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl text-white font-extrabold tracking-tight leading-none mb-6 uppercase">
+              Community <span class="text-brandGold">First</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 font-light mb-8 max-w-xl">
+              Welcome to the central portal of Rajpura. Access verified local businesses, read real-time news updates, search active career listings, and discover local community events.
+            </p>
+            <div class="flex flex-wrap gap-4 mb-10">
+              <button class="btn-gold px-6 py-3 shadow-lg" onclick="navigateTo('directory')">Explore Directory</button>
+              <button class="border border-white/20 text-white hover:bg-white/10 hover:border-white px-6 py-3 rounded-md font-semibold transition-colors" onclick="navigateTo('news')">Latest News</button>
+            </div>
+            
+            <!-- Stats Bar widget -->
+            <div class="flex gap-8 bg-black/40 backdrop-blur-md border border-slate-700/50 p-6 rounded-lg text-white max-w-md">
+              <div>
+                <div class="text-3xl font-extrabold text-brandGold font-headings">150K+</div>
+                <div class="text-xs text-slate-400 font-medium uppercase mt-1">Population</div>
+              </div>
+              <div class="w-[1px] bg-slate-700"></div>
+              <div>
+                <div class="text-3xl font-extrabold text-brandGold font-headings">500+</div>
+                <div class="text-xs text-slate-400 font-medium uppercase mt-1">Shops Listed</div>
+              </div>
+              <div class="w-[1px] bg-slate-700"></div>
+              <div>
+                <div class="text-3xl font-extrabold text-brandGold font-headings">100%</div>
+                <div class="text-xs text-slate-400 font-medium uppercase mt-1">Local News</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column: Framed Image Slideshow -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md aspect-[4/3] bg-black/50 backdrop-blur-md border-2 border-slate-700/60 rounded-2xl shadow-2xl overflow-hidden pulse-glow">
+              <!-- Slideshow container -->
+              <div class="absolute inset-0" id="hero-slideshow">
+                <!-- Slide 1: Gateway of Punjab -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100 bg-contain bg-center bg-no-repeat" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Gateway_of_Punjab-Rajpura.jpg');" data-slide="0"></div>
+                <!-- Slide 2: Fwara Chowk (Fountain) -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 bg-contain bg-center bg-no-repeat" style="background-image: url('fwara_chowk_original.png');" data-slide="1"></div>
+                <!-- Slide 3: YouTube Street View -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 bg-contain bg-center bg-no-repeat" style="background-image: url('https://i.ytimg.com/vi/CMuUMtQgLyc/maxresdefault.jpg');" data-slide="2"></div>
+              </div>
+              
+              <!-- Subtle decorative label at the bottom of the card -->
+              <div class="absolute bottom-0 left-0 right-0 bg-black/70 backdrop-blur-sm border-t border-slate-700/50 py-3 px-4 flex items-center justify-between text-xs text-slate-300 font-medium z-20">
+                <span class="flex items-center gap-1.5">
+                  <i class="fa-solid fa-camera text-brandGold"></i>
+                  Rajpura Landmarks
+                </span>
+                <span class="text-slate-400 text-[10px]">Auto-Slideshow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillars Section with Interactive Hover Previews (inspired by d24f16...) -->
+      <div class="bg-[#111827] dark:bg-[#020617] text-white py-20 border-b border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Side: Numbered list menu -->
+            <div class="lg:col-span-6 flex flex-col">
+              <span class="text-brandGold text-sm tracking-widest font-semibold uppercase mb-4">Core Directory Services</span>
+              <h2 class="text-4xl md:text-5xl mb-8 leading-tight font-headings uppercase">Everything Rajpura In One Single Place</h2>
+              
+              <div class="flex flex-col">
+                <!-- Pillar 1 -->
+                <div class="pillar-item group flex items-center justify-between py-6 border-b border-slate-800 hover:border-brandGold cursor-pointer transition-all duration-300" onmouseover="changePillarPreview(0)" onclick="navigateTo('news')">
+                  <div class="flex items-center gap-6">
+                    <span class="text-xl font-bold text-slate-600 group-hover:text-brandGold font-headings transition-colors">01</span>
+                    <h3 class="text-2xl font-bold group-hover:translate-x-2 transition-transform duration-300">Local News & Bulletins</h3>
+                  </div>
+                  <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-brandGold transition-colors"></i>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="pillar-item group flex items-center justify-between py-6 border-b border-slate-800 hover:border-brandGold cursor-pointer transition-all duration-300" onmouseover="changePillarPreview(1)" onclick="navigateTo('directory')">
+                  <div class="flex items-center gap-6">
+                    <span class="text-xl font-bold text-slate-600 group-hover:text-brandGold font-headings transition-colors">02</span>
+                    <h3 class="text-2xl font-bold group-hover:translate-x-2 transition-transform duration-300">Business & Service Directory</h3>
+                  </div>
+                  <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-brandGold transition-colors"></i>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="pillar-item group flex items-center justify-between py-6 border-b border-slate-800 hover:border-brandGold cursor-pointer transition-all duration-300" onmouseover="changePillarPreview(2)" onclick="navigateTo('jobs')">
+                  <div class="flex items-center gap-6">
+                    <span class="text-xl font-bold text-slate-600 group-hover:text-brandGold font-headings transition-colors">03</span>
+                    <h3 class="text-2xl font-bold group-hover:translate-x-2 transition-transform duration-300">Local Job & Vacancy Board</h3>
+                  </div>
+                  <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-brandGold transition-colors"></i>
+                </div>
+                <!-- Pillar 4 -->
+                <div class="pillar-item group flex items-center justify-between py-6 border-b border-slate-800 hover:border-brandGold cursor-pointer transition-all duration-300" onmouseover="changePillarPreview(3)" onclick="navigateTo('events')">
+                  <div class="flex items-center gap-6">
+                    <span class="text-xl font-bold text-slate-600 group-hover:text-brandGold font-headings transition-colors">04</span>
+                    <h3 class="text-2xl font-bold group-hover:translate-x-2 transition-transform duration-300">Upcoming Events & Calendar</h3>
+                  </div>
+                  <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-brandGold transition-colors"></i>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right Side: Rounded Preview Display -->
+            <div class="lg:col-span-6 flex justify-center">
+              <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-[#1e293b]">
+                <img id="pillar-preview-img" class="w-full h-full object-cover transition-opacity duration-300 opacity-90" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800" alt="Local News Preview">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                  <span class="bg-brandGold text-black font-semibold text-xs px-2.5 py-1 rounded-md uppercase" id="pillar-preview-badge">NEWS</span>
+                  <h4 class="text-xl font-bold text-white mt-2 leading-tight" id="pillar-preview-title">Breaking News & Local Incidents</h4>
+                  <p class="text-sm text-slate-300 mt-1" id="pillar-preview-desc">Stay informed about construction, municipal updates, and emergency bulletins around Rajpura.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Skyline Silhouette Graphic Separator -->
+      <div class="w-full bg-[#111827] dark:bg-[#020617] h-12 overflow-hidden flex items-end">
+        <svg class="w-full text-[#f8fafc] dark:text-[#0f172a] fill-current" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="skyline-path" d="M0,80 L1440,80 L1440,65 L1420,65 L1420,40 L1400,40 L1400,60 L1380,60 L1380,25 L1350,25 L1350,65 L1330,65 L1330,50 L1300,50 L1300,60 L1280,60 L1280,10 L1240,10 L1240,65 L1210,65 L1210,35 L1190,35 L1190,55 L1150,55 L1150,30 L1120,30 L1120,65 L1080,65 L1080,45 L1060,45 L1060,60 L1020,60 L1020,5 L980,5 L980,65 L950,65 L950,20 L920,20 L920,55 L880,55 L880,40 L850,40 L850,65 L800,65 L800,15 L760,15 L760,65 L730,65 L730,35 L700,35 L700,55 L650,55 L650,10 L610,10 L610,65 L580,65 L580,30 L550,30 L550,50 L500,50 L500,40 L480,40 L480,65 L430,65 L430,20 L400,20 L400,55 L350,55 L350,15 L320,15 L320,65 L280,65 L280,35 L260,35 L260,50 L200,50 L200,8 L160,8 L160,65 L130,65 L130,25 L100,25 L100,55 L50,55 L50,40 L30,40 L30,80 Z"></path>
+        </svg>
+      </div>
+
+      <!-- Quick Services Directory section (inspired by 000.webp) -->
+      <div class="max-w-7xl mx-auto px-4 md:px-8 py-20">
+        <div class="flex justify-between items-end mb-10">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-headings uppercase">Explore Local Services</h2>
+            <p class="text-slate-500 dark:text-slate-400 mt-1">Browse verified categories to find businesses in Rajpura.</p>
+          </div>
+          <button class="text-brandBlue dark:text-brandGold hover:underline font-semibold flex items-center gap-2" onclick="navigateTo('directory')">
+            All Categories <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="home-services-categories">
+          <!-- Food Category -->
+          <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm flex transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer" onclick="openCategoryInDirectory('Food & Dining')">
+            <img class="w-1/3 object-cover" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=300" alt="Restaurants">
+            <div class="p-6 w-2/3 flex flex-col justify-center">
+              <h3 class="text-xl font-bold">Food & Dining</h3>
+              <ul class="text-sm text-slate-500 dark:text-slate-400 mt-2 space-y-1">
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Restaurants</li>
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Sweets & Bakeries</li>
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Cafes & Fast Food</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Shopping Category -->
+          <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm flex transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer" onclick="openCategoryInDirectory('Shops & Retail')">
+            <img class="w-1/3 object-cover" src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=300" alt="Shops">
+            <div class="p-6 w-2/3 flex flex-col justify-center">
+              <h3 class="text-xl font-bold">Shops & Retail</h3>
+              <ul class="text-sm text-slate-500 dark:text-slate-400 mt-2 space-y-1">
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Clothing Stores</li>
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Electronics & Mobiles</li>
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Jewellers</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Health Category -->
+          <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm flex transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer" onclick="openCategoryInDirectory('Health & Medical')">
+            <img class="w-1/3 object-cover" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=300" alt="Health">
+            <div class="p-6 w-2/3 flex flex-col justify-center">
+              <h3 class="text-xl font-bold">Health & Medical</h3>
+              <ul class="text-sm text-slate-500 dark:text-slate-400 mt-2 space-y-1">
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Hospitals & Clinics</li>
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Chemists / Pharmacies</li>
+                <li><i class="fa-solid fa-chevron-right mr-1.5 text-brandGold text-[10px]"></i>Diagnostic Labs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before/After Siding Comparison Feature Section -->
+      <div class="bg-slate-100 dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 transition-colors py-20">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span class="bg-brandGold/20 text-brandGold dark:text-brandGold text-xs font-semibold px-2.5 py-1 rounded-md uppercase tracking-wider">Before & After Showcase</span>
+              <h2 class="text-4xl mt-3 font-headings uppercase">Modernizing Rajpura's Infrastructure</h2>
+              <p class="text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+                See the transformational changes across local commercial facades, municipal developments, and siding installations. Slider comparison of structural renovation at the main market square facade.
+              </p>
+              
+              <!-- 3-Step Process timeline widget -->
+              <div class="mt-8 space-y-6">
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brandBlue text-white flex items-center justify-center font-bold">1</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Detailed Inspection</h4>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Assess local architectural structures and siding safety standards.</p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brandBlue text-white flex items-center justify-center font-bold">2</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Precision Installation</h4>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Mount fiber cement, metal cladding, or eco-friendly weather rainscreens.</p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brandBlue text-white flex items-center justify-center font-bold">3</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Quality Assurance</h4>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Complete final tests for thermal performance and storm durability.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Before/After Interactive Sliding Module -->
+            <div class="flex justify-center">
+              <div class="w-full max-w-lg aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 before-after-container" id="before-after-slider">
+                <!-- Before image (underneath) -->
+                <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1590069261209-f8e9b8642343?q=80&w=600&auto=format&fit=crop" alt="Before Renovation">
+                
+                <!-- After image (overlay with dynamic clipping width) -->
+                <div class="before-after-overlay" id="slider-overlay" style="width: 50%;">
+                  <img class="absolute inset-0 w-full h-full object-cover max-w-none" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" alt="After Renovation" style="width: 500px;">
+                </div>
+                
+                <!-- Sliding handle line -->
+                <div class="before-after-handle" id="slider-handle" style="left: 50%;">
+                  <div class="before-after-button">
+                    <i class="fa-solid fa-arrows-left-right"></i>
+                  </div>
+                </div>
+
+                <!-- Labels -->
+                <span class="absolute top-4 left-4 bg-black/60 text-white text-xs px-2.5 py-1 rounded font-semibold uppercase backdrop-blur select-none">Before</span>
+                <span class="absolute top-4 right-4 bg-brandGold text-black text-xs px-2.5 py-1 rounded font-semibold uppercase select-none">After</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Events spotlight & News (inspired by 000.webp) -->
+      <div class="max-w-7xl mx-auto px-4 md:px-8 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- News Column -->
+          <div class="lg:col-span-8">
+            <div class="flex justify-between items-end mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
+              <h2 class="text-3xl font-headings uppercase">Recent City News</h2>
+              <button class="text-brandBlue dark:text-brandGold text-sm font-semibold hover:underline" onclick="navigateTo('news')">View All News</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="home-news-grid">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Events Column -->
+          <div class="lg:col-span-4">
+            <div class="flex justify-between items-end mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
+              <h2 class="text-3xl font-headings uppercase">Upcoming Events</h2>
+              <button class="text-brandBlue dark:text-brandGold text-sm font-semibold hover:underline" onclick="navigateTo('events')">Calendar</button>
+            </div>
+            <div class="space-y-6" id="home-events-list">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 2. LOCAL NEWS VIEW (Inspired by original-39ef1...) -->
+    <section id="news-view" class="page-view">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Left Column: Filters -->
+          <div class="lg:col-span-3">
+            <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm sticky top-[96px]">
+              <h3 class="text-xl font-bold mb-4 font-headings uppercase">Filter News</h3>
+              
+              <!-- Checkboxes -->
+              <div class="space-y-3">
+                <label class="flex items-center gap-3 cursor-pointer text-sm">
+                  <input type="checkbox" id="filter-news-all" checked class="w-4 h-4 rounded accent-brandGold text-black">
+                  <span>Show All News</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer text-sm">
+                  <input type="checkbox" value="Alert" class="news-filter-checkbox w-4 h-4 rounded accent-brandGold text-black">
+                  <span class="text-red-500 font-semibold">🚨 Public Alerts</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer text-sm">
+                  <input type="checkbox" value="Municipal" class="news-filter-checkbox w-4 h-4 rounded accent-brandGold text-black">
+                  <span>🏛️ Civic & Wards</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer text-sm">
+                  <input type="checkbox" value="Business" class="news-filter-checkbox w-4 h-4 rounded accent-brandGold text-black">
+                  <span>🛍️ Shops & Business</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer text-sm">
+                  <input type="checkbox" value="Sports" class="news-filter-checkbox w-4 h-4 rounded accent-brandGold text-black">
+                  <span>🏆 Sports & Tournaments</span>
+                </label>
+              </div>
+
+              <!-- Button actions -->
+              <div class="flex gap-2 mt-6">
+                <button class="btn-gold flex-1 text-xs" onclick="applyNewsFilters()">Apply</button>
+                <button class="border border-slate-300 dark:border-slate-700 text-xs px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 flex-1" onclick="resetNewsFilters()">Reset</button>
+              </div>
+
+              <!-- Tip Call-to-action button -->
+              <button class="btn-gold w-full mt-6 text-sm py-3 flex items-center justify-center gap-2 pulse-glow" onclick="openContributeTab('news')">
+                <i class="fa-solid fa-bullhorn text-xs"></i>Submit a News Tip
+              </button>
+            </div>
+          </div>
+
+          <!-- Center Column: Core News Feed -->
+          <div class="lg:col-span-6 flex flex-col gap-6">
+            <!-- Search & Views Bar -->
+            <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm flex items-center justify-between gap-4">
+              <div class="relative flex-1">
+                <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="news-search-input" placeholder="Search local news headlines..." class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-md py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-brandGold" onkeyup="searchNews()">
+              </div>
+              <div class="flex items-center border border-slate-200 dark:border-slate-800 rounded-md p-1">
+                <button id="btn-news-grid" class="p-2 rounded bg-slate-200 dark:bg-slate-700 text-brandBlue dark:text-brandGold" onclick="toggleNewsLayout('grid')">
+                  <i class="fa-solid fa-grip-vertical"></i>
+                </button>
+                <button id="btn-news-list" class="p-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400" onclick="toggleNewsLayout('list')">
+                  <i class="fa-solid fa-list"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Top Lead Story Banner -->
+            <div id="news-lead-story" class="relative w-full aspect-[2/1] rounded-xl overflow-hidden shadow-md cursor-pointer" onclick="openNewsDetailModal(1)">
+              <!-- Loaded Dynamically via JS -->
+            </div>
+
+            <!-- Feed Header -->
+            <div class="flex items-center justify-between">
+              <h2 class="text-2xl font-bold font-headings uppercase" id="news-feed-title">All Local News</h2>
+              <span class="text-xs font-semibold text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded" id="news-feed-count">10 articles</span>
+            </div>
+
+            <!-- News Cards Feed Container -->
+            <div id="news-feed-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Right Column: Simulated Live Community Board -->
+          <div class="lg:col-span-3">
+            <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm sticky top-[96px] overflow-hidden flex flex-col h-[70vh]">
+              <!-- Header -->
+              <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50">
+                <div class="flex items-center gap-2">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <h3 class="font-bold text-sm font-headings uppercase">Rajpura Community Buzz</h3>
+                </div>
+                <span class="text-[10px] bg-brandGold/20 text-brandGold font-semibold px-2 py-0.5 rounded">LIVE CHAT</span>
+              </div>
+
+              <!-- Message Stream -->
+              <div id="community-buzz-stream" class="flex-1 overflow-y-auto p-4 space-y-4 text-xs">
+                <!-- Chat bubbles dynamically generated -->
+              </div>
+
+              <!-- Message Submission Box -->
+              <div class="buzz-input-wrapper p-3 bg-slate-50 dark:bg-slate-800/40">
+                <form id="buzz-send-form" class="flex gap-2" onsubmit="sendBuzzMessage(event)">
+                  <input type="text" id="buzz-input" placeholder="Share local update or alert..." class="flex-1 bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-1.5 px-3 focus:outline-none focus:border-brandGold" required>
+                  <button type="submit" class="bg-brandBlue text-white hover:bg-brandBlue/90 dark:bg-brandGold dark:text-black dark:hover:bg-brandGold-hover p-2 rounded transition-colors flex items-center justify-center w-8">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 3. BUSINESS DIRECTORY VIEW (Inspired by Rodeo Ten 12, 23, 34, 45) -->
+    <section id="directory-view" class="page-view">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+        
+        <!-- Premium Dual-Input Search Header (inspired by 23/45) -->
+        <div class="bg-[#111827] dark:bg-[#020617] border border-slate-800 rounded-2xl p-8 mb-8 text-white">
+          <div class="max-w-3xl mx-auto text-center mb-6">
+            <h2 class="text-3xl md:text-4xl font-headings uppercase text-brandGold">Verified Business Directory</h2>
+            <p class="text-slate-400 text-sm mt-1">Find and connect with trusted local shops, clinics, restaurants, and craftsmen in Rajpura.</p>
+          </div>
+          
+          <div class="flex flex-col md:flex-row gap-4 max-w-4xl mx-auto">
+            <div class="flex-1 relative text-black">
+              <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+              <input type="text" id="directory-search-input" placeholder="Search shops, sweet stores, repair clinics..." class="w-full bg-white border border-slate-700 rounded-md py-3 pl-11 pr-4 focus:outline-none focus:ring-2 focus:ring-brandGold">
+            </div>
+            <div class="md:w-1/3 relative text-black">
+              <i class="fa-solid fa-map-location absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+              <select id="directory-ward-select" class="w-full bg-white border border-slate-700 rounded-md py-3 pl-11 pr-4 focus:outline-none focus:ring-2 focus:ring-brandGold appearance-none">
+                <option value="All">All Locations</option>
+                <option value="Kasturba Road">Kasturba Road Markets</option>
+                <option value="Town Hall">Town Hall Area</option>
+                <option value="Focal Point">Focal Point Industrial Zone</option>
+                <option value="Calibre Market">Calibre Market</option>
+                <option value="Nehru Market">Nehru Market</option>
+              </select>
+              <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
+            </div>
+            <button class="btn-gold py-3 px-8 text-sm uppercase" onclick="searchDirectory()">Search</button>
+          </div>
+        </div>
+
+        <!-- Horizontal Category Filters -->
+        <div class="flex items-center gap-3 overflow-x-auto pb-4 mb-8 border-b border-slate-200 dark:border-slate-800" id="directory-categories-bar">
+          <button class="category-filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-brandGold hover:text-brandGold text-xs font-semibold uppercase flex items-center gap-2 whitespace-nowrap active bg-brandBlue text-white dark:bg-brandGold dark:text-black" onclick="filterDirectoryCategory('All', this)">
+            All Listings
+          </button>
+          <button class="category-filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-brandGold hover:text-brandGold text-xs font-semibold uppercase flex items-center gap-2 whitespace-nowrap" onclick="filterDirectoryCategory('Food & Dining', this)">
+            🍽️ Food & Dining
+          </button>
+          <button class="category-filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-brandGold hover:text-brandGold text-xs font-semibold uppercase flex items-center gap-2 whitespace-nowrap" onclick="filterDirectoryCategory('Shops & Retail', this)">
+            🛍️ Shops & Retail
+          </button>
+          <button class="category-filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-brandGold hover:text-brandGold text-xs font-semibold uppercase flex items-center gap-2 whitespace-nowrap" onclick="filterDirectoryCategory('Health & Medical', this)">
+            🏥 Health & Clinics
+          </button>
+          <button class="category-filter-btn px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-brandGold hover:text-brandGold text-xs font-semibold uppercase flex items-center gap-2 whitespace-nowrap" onclick="filterDirectoryCategory('Professional Services', this)">
+            🛠️ Professional Services
+          </button>
+        </div>
+
+        <!-- Listing Count Header -->
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-bold font-headings uppercase" id="directory-grid-title">All Shops & Services</h3>
+          <span class="text-xs text-slate-500 font-semibold" id="directory-grid-count">8 businesses listed</span>
+        </div>
+
+        <!-- 3-Column Business Listings Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="directory-grid-container">
+          <!-- Dynamically populated via JS (Rodeo Ten style card layout) -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 4. JOB BOARD VIEW (Inspired by Yoda 00–04) -->
+    <section id="jobs-view" class="page-view">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+        
+        <!-- Job Board Dashboard Wrapper -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Left Column: Filters (Yoda inspired) -->
+          <div class="lg:col-span-3">
+            <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm sticky top-[96px]">
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold font-headings uppercase">Filters</h3>
+                <button class="text-xs text-slate-500 hover:text-brandGold" onclick="resetJobFilters()">Clean All</button>
+              </div>
+
+              <!-- Search input inside filters -->
+              <div class="relative mb-6">
+                <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="job-search-input" placeholder="Search job title..." class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-2 pl-9 pr-3 text-xs focus:outline-none focus:border-brandGold" onkeyup="applyJobFilters()">
+              </div>
+
+              <!-- Job Type -->
+              <div class="mb-6">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Job Type</h4>
+                <div class="space-y-2 text-sm">
+                  <label class="flex items-center gap-2.5 cursor-pointer">
+                    <input type="checkbox" value="Full-Time" class="job-filter-checkbox w-4 h-4 rounded accent-brandGold text-black" onchange="applyJobFilters()">
+                    <span>Full-Time</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 cursor-pointer">
+                    <input type="checkbox" value="Part-Time" class="job-filter-checkbox w-4 h-4 rounded accent-brandGold text-black" onchange="applyJobFilters()">
+                    <span>Part-Time</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 cursor-pointer">
+                    <input type="checkbox" value="Daily Wage" class="job-filter-checkbox w-4 h-4 rounded accent-brandGold text-black" onchange="applyJobFilters()">
+                    <span>Daily Wage (Dihari)</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 cursor-pointer">
+                    <input type="checkbox" value="Contract" class="job-filter-checkbox w-4 h-4 rounded accent-brandGold text-black" onchange="applyJobFilters()">
+                    <span>Contract</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Location Type -->
+              <div class="mb-6">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Location Type</h4>
+                <div class="space-y-2 text-sm">
+                  <label class="flex items-center gap-2.5 cursor-pointer">
+                    <input type="checkbox" value="On-Site" class="job-location-checkbox w-4 h-4 rounded accent-brandGold text-black" onchange="applyJobFilters()">
+                    <span>On-Site (Rajpura)</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 cursor-pointer">
+                    <input type="checkbox" value="Remote" class="job-location-checkbox w-4 h-4 rounded accent-brandGold text-black" onchange="applyJobFilters()">
+                    <span>Work from Home</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Employer Posting CTA -->
+              <button class="btn-gold w-full text-sm py-3 flex items-center justify-center gap-2 shadow-md" onclick="toggleJobDrawer(true)">
+                <i class="fa-solid fa-briefcase"></i>Post a Job Vacancy
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Split Pane Board (Yoda 01 inspired) -->
+          <div class="lg:col-span-9">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+              
+              <!-- Left Sub-Pane: Job listings scroll feed (md:col-span-5) -->
+              <div class="md:col-span-5 space-y-4 max-h-[80vh] overflow-y-auto pr-1" id="job-feed-list">
+                <!-- Dynamically generated job cards -->
+              </div>
+
+              <!-- Right Sub-Pane: Detailed Job Specifications (md:col-span-7) -->
+              <div class="md:col-span-7 bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm sticky top-[96px] min-h-[60vh] flex flex-col" id="job-details-pane">
+                <!-- Dynamically filled with selected job details via JS -->
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 5. EVENTS CALENDAR VIEW (Inspired by Sooma 51, 52) -->
+    <section id="events-view" class="page-view">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+        
+        <!-- Search & Control Header (Sooma inspired) -->
+        <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-xl p-4 mb-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2 border border-slate-200 dark:border-slate-800 rounded-md p-1 bg-slate-100 dark:bg-[#0f172a]">
+            <button id="btn-events-schedules" class="px-4 py-1.5 text-xs font-bold rounded bg-brandBlue text-white dark:bg-brandGold dark:text-black transition-colors" onclick="toggleEventsView('schedules')">
+              Schedules
+            </button>
+            <button id="btn-events-calendar" class="px-4 py-1.5 text-xs font-semibold text-slate-500 rounded transition-colors" onclick="toggleEventsView('calendar')">
+              Calendar
+            </button>
+          </div>
+
+          <div class="relative flex-1 max-w-md w-full">
+            <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" id="event-search-input" placeholder="Search local schedules and events..." class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-md py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-brandGold" onkeyup="applyEventFilters()">
+          </div>
+
+          <div class="flex items-center gap-4 w-full md:w-auto justify-end">
+            <!-- Event Categories selector -->
+            <select id="event-category-filter" class="bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded-md py-2 px-4 text-sm focus:outline-none focus:border-brandGold" onchange="applyEventFilters()">
+              <option value="All">All Categories</option>
+              <option value="Festivals">Festivals & Fairs</option>
+              <option value="Sports">Sports Events</option>
+              <option value="Commercial">Sales & Openings</option>
+              <option value="Community">Civic Meetings</option>
+            </select>
+            <!-- Add Event CTA -->
+            <button class="btn-gold text-xs py-2.5 px-4" onclick="openContributeTab('event')">
+              <i class="fa-solid fa-calendar-plus mr-1.5"></i>Add Event
+            </button>
+          </div>
+        </div>
+
+        <!-- 1. SCHEDULES VIEW: Grid of Event Cards (Sooma 51 style) -->
+        <div id="events-schedules-container" class="space-y-6">
+          <h2 class="text-3xl font-headings uppercase">Upcoming Schedules</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="events-grid-container">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- 2. CALENDAR VIEW: Interactive Monthly Block (Sooma 52 style) -->
+        <div id="events-calendar-container" class="hidden space-y-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-3xl font-headings uppercase" id="calendar-month-year">August 2026</h2>
+            <div class="flex items-center gap-2">
+              <button class="p-2 border border-slate-200 dark:border-slate-800 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onclick="changeCalendarMonth(-1)">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+              <button class="p-2 border border-slate-200 dark:border-slate-800 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onclick="changeCalendarMonth(1)">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Monthly Grid -->
+          <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm overflow-x-auto">
+            <!-- Days of Week labels -->
+            <div class="grid grid-cols-7 gap-2 mb-4 text-center font-bold text-sm tracking-wider uppercase text-slate-400">
+              <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+            </div>
+            <!-- Month Days container -->
+            <div class="calendar-grid" id="calendar-days-container">
+              <!-- Grid divs generated by app.js -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 6. USER SUBMISSION PORTAL VIEW (Inspired by Hireup 444) -->
+    <section id="contribute-view" class="page-view">
+      <div class="max-w-4xl mx-auto px-4 py-6">
+        
+        <!-- Selection Hub Header -->
+        <div id="submit-selection-hub" class="space-y-8">
+          <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-4xl font-headings uppercase text-brandBlue dark:text-brandGold">Contribute to MyRajpura</h2>
+            <p class="text-slate-500 dark:text-slate-400 mt-2">Choose the directory content you want to submit. All submissions undergo rapid moderation before being published.</p>
+          </div>
+
+          <!-- Grid of Selection Cards (inspired by Hireup flow) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Card 1: News -->
+            <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-brandGold transition-all duration-300 cursor-pointer flex flex-col justify-between" onclick="initiateSubmissionWizard('news')">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/30 text-red-500 flex items-center justify-center text-xl mb-4">
+                  <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Submit a News Tip</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">Did you witness an accident, event, or issue? Submit a news report, upload photos, and let our editors know.</p>
+              </div>
+              <span class="text-brandBlue dark:text-brandGold text-sm font-semibold mt-6 block uppercase group">Report Tip <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </div>
+            <!-- Card 2: Business -->
+            <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-brandGold transition-all duration-300 cursor-pointer flex flex-col justify-between" onclick="initiateSubmissionWizard('business')">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/30 text-amber-500 flex items-center justify-center text-xl mb-4">
+                  <i class="fa-solid fa-store"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Register Business Listing</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">List your shop, clinic, warehouse, or craft shop in Rajpura's verified local business guide.</p>
+              </div>
+              <span class="text-brandBlue dark:text-brandGold text-sm font-semibold mt-6 block uppercase">Add Shop <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </div>
+            <!-- Card 3: Job -->
+            <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-brandGold transition-all duration-300 cursor-pointer flex flex-col justify-between" onclick="initiateSubmissionWizard('job')">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-500 flex items-center justify-center text-xl mb-4">
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Post a Job Opening</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">Looking to hire? Post vacancies for offices, factories, showrooms, or local sweet houses in Rajpura.</p>
+              </div>
+              <span class="text-brandBlue dark:text-brandGold text-sm font-semibold mt-6 block uppercase">Post Job <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </div>
+            <!-- Card 4: Event -->
+            <div class="bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-brandGold transition-all duration-300 cursor-pointer flex flex-col justify-between" onclick="initiateSubmissionWizard('event')">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-500 flex items-center justify-center text-xl mb-4">
+                  <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Submit local Event</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">Organizing a cricket tournament, fair, festival, open house, or store sale? Pin it on the schedules.</p>
+              </div>
+              <span class="text-brandBlue dark:text-brandGold text-sm font-semibold mt-6 block uppercase">Add Event <i class="fa-solid fa-arrow-right ml-1"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submission Wizard Container (Step-by-step form) -->
+        <div id="submission-wizard" class="hidden bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-sm">
+          <!-- Wizard Navigation Header -->
+          <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-100 dark:border-slate-850">
+            <button class="text-slate-500 hover:text-brandGold text-sm font-semibold flex items-center gap-1.5" onclick="cancelSubmissionWizard()">
+              <i class="fa-solid fa-arrow-left"></i> Back to Hub
+            </button>
+            <h3 class="text-lg font-bold font-headings uppercase text-brandGold" id="wizard-form-title">Submission Form</h3>
+            <div class="w-16"></div>
+          </div>
+
+          <!-- Wizard Step Circles (inspired by 444) -->
+          <div class="flex items-center justify-between max-w-md mx-auto mb-10">
+            <div class="flex flex-col items-center gap-2">
+              <div class="step-node w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center font-bold text-xs active" id="step-node-1">1</div>
+              <span class="text-[10px] uppercase font-bold text-slate-500">Details</span>
+            </div>
+            <div class="flex-1 h-[2px] bg-slate-200 dark:bg-slate-700 mx-2" id="step-line-1"></div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="step-node w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center font-bold text-xs" id="step-node-2">2</div>
+              <span class="text-[10px] uppercase font-bold text-slate-500">Contact / Media</span>
+            </div>
+            <div class="flex-1 h-[2px] bg-slate-200 dark:bg-slate-700 mx-2" id="step-line-2"></div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="step-node w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center font-bold text-xs" id="step-node-3">3</div>
+              <span class="text-[10px] uppercase font-bold text-slate-500">Preview</span>
+            </div>
+          </div>
+
+          <!-- Form Element -->
+          <form id="submission-wizard-form" class="space-y-6" onsubmit="handleWizardSubmit(event)">
+            
+            <!-- STEP 1 VIEW (Basic details) -->
+            <div id="wizard-step-1-fields" class="space-y-6">
+              <!-- Fieldsets dynamically generated via app.js -->
+            </div>
+
+            <!-- STEP 2 VIEW (Contact & Media) -->
+            <div id="wizard-step-2-fields" class="hidden space-y-6">
+              <!-- Fieldsets dynamically generated via app.js -->
+            </div>
+
+            <!-- STEP 3 VIEW (Interactive Preview) -->
+            <div id="wizard-step-3-fields" class="hidden space-y-6">
+              <div class="p-4 bg-amber-500/10 border border-brandGold/20 rounded-lg text-sm text-brandGold mb-6">
+                <i class="fa-solid fa-circle-info mr-2"></i>Review how your listing card will look on the live site before submitting.
+              </div>
+              <div class="flex justify-center p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-[#0f172a]" id="wizard-card-preview-container">
+                <!-- Preview card container generated dynamically -->
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between border-t border-slate-200 dark:border-slate-800 pt-6 mt-8">
+              <button type="button" id="btn-wizard-prev" class="hidden border border-slate-300 dark:border-slate-700 px-6 py-2.5 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold transition-colors" onclick="navigateWizardStep(-1)">
+                Previous
+              </button>
+              <div class="flex-1"></div>
+              <button type="button" id="btn-wizard-next" class="btn-gold text-sm font-semibold" onclick="navigateWizardStep(1)">
+                Next Step
+              </button>
+              <button type="submit" id="btn-wizard-submit" class="hidden btn-gold text-sm font-semibold px-8">
+                Submit Listing
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- BUSINESS DETAIL MODAL (Overlay) -->
+  <div id="business-detail-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <!-- Dark overlay backdrop -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm cursor-pointer" onclick="closeBusinessDetailModal()"></div>
+    
+    <!-- Modal container (inspired by Rodeo Ten details) -->
+    <div class="relative w-full max-w-4xl mx-auto my-12 bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden z-10 transition-theme" id="business-modal-card">
+      <!-- Modal Header (cover image + rounded logo overlap) -->
+      <div id="modal-business-header" class="relative w-full h-[280px]">
+        <!-- cover photo loaded dynamically -->
+      </div>
+
+      <!-- Modal Body (Two columns) -->
+      <div class="p-8 grid grid-cols-1 md:grid-cols-12 gap-8 mt-12">
+        <!-- Left Column: Content -->
+        <div class="md:col-span-8 space-y-6">
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-brandGold font-headings">About This Business</h3>
+            <p id="modal-business-desc" class="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
+              <!-- Description loaded dynamically -->
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-brandGold font-headings">Services & Specialties</h3>
+            <div id="modal-business-services" class="grid grid-cols-2 gap-3 mt-3 text-sm text-slate-600 dark:text-slate-400">
+              <!-- Services checkboxes loaded dynamically -->
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-brandGold font-headings">Gallery</h3>
+            <div id="modal-business-gallery" class="grid grid-cols-3 gap-3 mt-3">
+              <!-- Gallery mock photos loaded dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Contacts, Map -->
+        <div class="md:col-span-4 space-y-6 border-l border-slate-200 dark:border-slate-800 pl-0 md:pl-8">
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-brandGold font-headings mb-3">Contact Details</h3>
+            <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400" id="modal-business-contact-list">
+              <!-- Contact points loaded dynamically -->
+            </ul>
+          </div>
+
+          <a href="#" id="modal-business-cta" class="btn-gold w-full text-center flex items-center justify-center gap-2 text-sm">
+            <i class="fa-solid fa-phone"></i>Call Business
+          </a>
+
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-brandGold font-headings mb-3">Location Map</h3>
+            <div class="relative w-full aspect-[4/3] bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800" id="modal-business-map">
+              <!-- Embedded mock map -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Close button absolute top right -->
+      <button class="absolute top-4 right-4 w-10 h-10 bg-black/60 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors" onclick="closeBusinessDetailModal()" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- EMPLOYER POST JOB DRAWER (Inspired by Yoda 04) -->
+  <div id="job-post-drawer" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm cursor-pointer" onclick="toggleJobDrawer(false)"></div>
+    
+    <!-- Drawer Panel -->
+    <div class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white dark:bg-[#1e293b] border-l border-slate-200 dark:border-slate-800 shadow-2xl p-8 overflow-y-auto flex flex-col justify-between transition-transform duration-300 translate-x-full" id="job-drawer-panel">
+      
+      <div>
+        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-850 pb-4 mb-6">
+          <h3 class="text-xl font-bold font-headings uppercase">Post a Career Job</h3>
+          <button class="text-slate-500 hover:text-brandGold" onclick="toggleJobDrawer(false)">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <form id="drawer-job-form" class="space-y-4" onsubmit="submitJobDrawer(event)">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Business / Company Name</label>
+            <input type="text" id="drawer-job-company" placeholder="e.g. Rajpura Sweets, Calibre Enterprises" class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-2 px-3 focus:outline-none focus:border-brandGold" required>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Job Title</label>
+            <input type="text" id="drawer-job-title" placeholder="e.g. Accounts Assistant, Showroom Sales" class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-2 px-3 focus:outline-none focus:border-brandGold" required>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Job Type</label>
+            <select id="drawer-job-type" class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-2 px-3 focus:outline-none focus:border-brandGold">
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Daily Wage">Daily Wage (Dihari)</option>
+              <option value="Contract">Contract</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Location Mode</label>
+            <select id="drawer-job-location-mode" class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-2 px-3 focus:outline-none focus:border-brandGold">
+              <option value="On-Site">On-Site (Rajpura)</option>
+              <option value="Remote">Work From Home (Remote)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Salary Range (Monthly)</label>
+            <input type="text" id="drawer-job-salary" placeholder="e.g. ₹15,000 - ₹20,000" class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-2 px-3 focus:outline-none focus:border-brandGold" required>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Contact Phone / WhatsApp</label>
+            <input type="tel" id="drawer-job-phone" placeholder="e.g. +91 98765-43210" class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-2 px-3 focus:outline-none focus:border-brandGold" required>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Job Description & Requirements</label>
+            <textarea id="drawer-job-desc" rows="4" placeholder="Briefly state key requirements and candidate specifications..." class="w-full bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 rounded py-2 px-3 focus:outline-none focus:border-brandGold" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold w-full py-3 mt-4">Publish Job Listing</button>
+        </form>
+      </div>
+
+      <div class="text-center text-xs text-slate-500 mt-6 border-t border-slate-100 dark:border-slate-850 pt-4">
+        Your posting will appear on the feed immediately for testing.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- GLOBAL NEWS DETAIL MODAL (Overlay) -->
+  <div id="news-detail-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm cursor-pointer" onclick="closeNewsDetailModal()"></div>
+    
+    <!-- Modal container (inspired by Yoda 01 right panel details) -->
+    <div class="relative w-full max-w-2xl mx-auto my-12 bg-white dark:bg-[#1e293b] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl overflow-hidden z-10 transition-theme" id="news-modal-card">
+      <div id="modal-news-image" class="w-full h-[240px] bg-cover bg-center"></div>
+      
+      <div class="p-8">
+        <div class="flex items-center gap-2 text-xs mb-3 text-slate-500 font-semibold" id="modal-news-meta">
+          <!-- Meta tags loaded dynamically -->
+        </div>
+
+        <h3 class="text-2xl font-bold font-headings leading-tight mb-4 uppercase" id="modal-news-title">
+          <!-- Title loaded dynamically -->
+        </h3>
+
+        <div id="modal-news-content" class="text-sm text-slate-600 dark:text-slate-400 space-y-4 leading-relaxed">
+          <!-- Body text loaded dynamically -->
+        </div>
+      </div>
+
+      <button class="absolute top-4 right-4 w-10 h-10 bg-black/60 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors" onclick="closeNewsDetailModal()" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- STICKY MOBILE BOTTOM CTA BAR -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 lg:hidden flex justify-between items-center p-3 bg-white/95 dark:bg-[#1e293b]/95 backdrop-blur border-t border-slate-200 dark:border-slate-800 shadow-lg">
+    <div class="text-xs font-bold text-slate-600 dark:text-slate-300">Ready to contribute?</div>
+    <div class="flex gap-2">
+      <a href="tel:+919876543210" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2 rounded flex items-center gap-1.5 shadow-sm">
+        <i class="fa-solid fa-phone"></i> Call Portal
+      </a>
+      <button onclick="navigateTo('contribute')" class="btn-gold text-xs px-4 py-2 font-semibold">
+        <i class="fa-solid fa-plus-circle"></i> Add Listing
+      </button>
+    </div>
+  </div>
+
+
+  <!-- FOOTER SECTION (Inspired by YorkNew 000.webp) -->
+  <footer class="bg-[#111827] dark:bg-[#020617] text-white border-t border-slate-800 pt-16 pb-24 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <!-- Top Row -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+        <!-- Left Side: Newsletter sign up -->
+        <div class="md:col-span-4 space-y-4">
+          <h4 class="text-xl font-bold uppercase tracking-wider font-headings">Stay Updated</h4>
+          <p class="text-slate-400 text-sm">Subscribe to receive breaking news alerts, job openings, and local deals directly in your email.</p>
+          <div class="flex gap-2">
+            <input type="email" placeholder="Enter your email" class="bg-slate-800 border border-slate-700 rounded py-2 px-3 text-sm focus:outline-none focus:border-brandGold w-full">
+            <button class="btn-gold py-2 px-4 text-sm font-semibold whitespace-nowrap">Subscribe</button>
+          </div>
+        </div>
+
+        <!-- Middle Columns: Site Maps -->
+        <div class="md:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <div>
+            <h5 class="text-brandGold text-xs font-bold uppercase tracking-widest mb-3">Directory</h5>
+            <ul class="text-slate-400 text-sm space-y-2">
+              <li><a href="#directory" class="hover:text-brandGold" onclick="navigateTo('directory')">Restaurants</a></li>
+              <li><a href="#directory" class="hover:text-brandGold" onclick="navigateTo('directory')">Retail Shops</a></li>
+              <li><a href="#directory" class="hover:text-brandGold" onclick="navigateTo('directory')">Medical Clinics</a></li>
+              <li><a href="#directory" class="hover:text-brandGold" onclick="navigateTo('directory')">Local Craft</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-brandGold text-xs font-bold uppercase tracking-widest mb-3">Community</h5>
+            <ul class="text-slate-400 text-sm space-y-2">
+              <li><a href="#news" class="hover:text-brandGold" onclick="navigateTo('news')">Local News</a></li>
+              <li><a href="#events" class="hover:text-brandGold" onclick="navigateTo('events')">Events Schedules</a></li>
+              <li><a href="#jobs" class="hover:text-brandGold" onclick="navigateTo('jobs')">Jobs & Careers</a></li>
+              <li><a href="#contribute" class="hover:text-brandGold" onclick="navigateTo('contribute')">Submit Listing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-brandGold text-xs font-bold uppercase tracking-widest mb-3">Support</h5>
+            <ul class="text-slate-400 text-sm space-y-2">
+              <li><a href="#home" class="hover:text-brandGold" onclick="navigateTo('home')">About Portal</a></li>
+              <li><a href="#home" class="hover:text-brandGold" onclick="navigateTo('home')">Contact Us</a></li>
+              <li><a href="#home" class="hover:text-brandGold" onclick="navigateTo('home')">Privacy Policy</a></li>
+              <li><a href="#home" class="hover:text-brandGold" onclick="navigateTo('home')">Terms of Use</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Side: Social Media handles -->
+        <div class="md:col-span-2 space-y-4">
+          <h4 class="text-xl font-bold uppercase tracking-wider font-headings">Follow MR</h4>
+          <div class="flex gap-3 text-lg text-slate-400">
+            <a href="#" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="hover:text-brandGold transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Big Branding & Legal -->
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-lg bg-brandGold flex items-center justify-center text-black font-extrabold text-2xl font-headings">
+            MR
+          </div>
+          <span class="text-3xl font-extrabold font-headings tracking-widest">
+            MYRAJPURA
+          </span>
+        </div>
+        <p class="text-xs text-slate-500 text-center md:text-right">
+          &copy; 2026 MyRajpura.com. All rights reserved. Locally managed citizen journalism & community portal.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Application JS Script -->
+  <script src="app.js"></script>
+</body>
+</html>

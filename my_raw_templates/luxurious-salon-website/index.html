@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{BUSINESS_NAME}} | An ultra-luxurious beauty experience designed around you. Offering bespoke hair styling, advanced skincare, nail artistry, and massage therapies in private suites.">
+    <title>{{BUSINESS_NAME}} | Luxurious Beauty & Hair Atelier</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Sticky Navigation Header -->
+    <header class="header" id="main-header">
+        <div class="nav-container">
+            <a href="#" class="logo" id="header-logo">
+                <span class="logo-main">{{BUSINESS_NAME}}</span>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#story" class="nav-link">Our Story</a>
+                <a href="#services" class="nav-link">Offerings</a>
+                <a href="#why-us" class="nav-link">The Experience</a>
+                <a href="#artisans" class="nav-link">Artisans</a>
+                <a href="#gallery" class="nav-link">Masterpieces</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-trigger-btn" id="cart-trigger" aria-label="Open Booking Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <a href="#services" class="cta-btn primary-cta" id="nav-book-btn">Book Appointment</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&q=90');"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Reveal Your Most <br>
+                <span class="serif-italic">Radiant Self</span>
+            </h1>
+            <p class="hero-subtitle">Bespoke hair artistry, clinical skincare, and holistic wellness curated within a private, tranquil sanctuary.</p>
+            <div class="hero-actions">
+                <a href="#services" class="btn btn-primary" id="hero-book-cta">Book Your Session</a>
+                <a href="#story" class="btn btn-secondary" id="hero-discover-cta">Explore The Atelier</a>
+            </div>
+        </div>
+        <!-- Credentials / Value Ribbon -->
+        <div class="hero-ribbon">
+            <div class="ribbon-item">
+                <span class="ribbon-num">01</span>
+                <span class="ribbon-text">Master Artisans</span>
+            </div>
+            <div class="ribbon-item">
+                <span class="ribbon-num">02</span>
+                <span class="ribbon-text">Bespoke Skincare</span>
+            </div>
+            <div class="ribbon-item">
+                <span class="ribbon-num">03</span>
+                <span class="ribbon-text">Private Suites</span>
+            </div>
+            <div class="ribbon-item">
+                <span class="ribbon-num">04</span>
+                <span class="ribbon-text">Pure Botanical Oils</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section (Asymmetric / Editorial) -->
+    <section class="story-section" id="story">
+        <div class="section-container">
+            <div class="story-grid">
+                <div class="story-text-column">
+                    <span class="section-eyebrow">The Atelier Concept</span>
+                    <h2 class="section-title">A Luxury Beauty Experience <br><span class="serif-italic">Designed Around You</span></h2>
+                    <p class="story-lead">Welcome to {{BUSINESS_NAME}}, an intimate sanctuary in the heart of the city where high-end artistry meets absolute relaxation.</p>
+                    <p class="story-paragraph">Our philosophy rejects the hurried noise of traditional salons. Here, each guest is hosted in a private or semi-private suite. Our Master Artisans dedicate their undivided attention to crafting looks that reflect your individual character, utilizing only organically harvested botanicals and clinical-grade formulations.</p>
+                    <div class="story-quote">
+                        <p class="quote-text">"Beauty is not about alteration, but refinement. We reveal the masterpiece that is already you."</p>
+                        <p class="quote-author">— Velina Moreau, Founder</p>
+                    </div>
+                </div>
+                <div class="story-image-column">
+                    <div class="story-image-wrapper primary-image">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Luxurious salon details and customized products">
+                    </div>
+                    <div class="story-image-wrapper secondary-image">
+                        <img src="https://images.unsplash.com/photo-1607865922384-93e5066a5061?auto=format&fit=crop&w=600&q=80" alt="Master artisan detailing hair styling">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Offerings / Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-container">
+            <div class="services-header">
+                <div class="header-left">
+                    <span class="section-eyebrow">Curated Menu</span>
+                    <h2 class="section-title">Atelier <span class="serif-italic">Offerings</span></h2>
+                </div>
+                <p class="services-desc">Select and combine treatments to build your personalized beauty session. Click on any offering to add it to your booking list.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="services-tabs" id="services-tabs-container">
+                <button class="tab-btn active" data-category="hair" id="tab-hair">Hair Design</button>
+                <button class="tab-btn" data-category="skin" id="tab-skin">Clinical Skincare</button>
+                <button class="tab-btn" data-category="nails" id="tab-nails">Nail Artistry</button>
+                <button class="tab-btn" data-category="massage" id="tab-massage">Holistic Massage</button>
+                <button class="tab-btn" data-category="packages" id="tab-packages">Atelier Rituals</button>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid" id="services-grid">
+                <!-- Hair Category -->
+                <div class="service-card" data-category="hair">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Couture Hair Design">
+                        <span class="service-badge">Signature</span>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Couture Hair Design & Styling</h3>
+                            <span class="service-price">$165</span>
+                        </div>
+                        <p class="service-description">Includes personalized consultation, signature herbal hair wash, custom cut, and high-gloss editorial blowout.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                75 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="hair-1" data-name="Couture Hair Design & Styling" data-price="165" data-duration="75" id="btn-hair-1">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="hair">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&w=800&q=80" alt="Balayage & Couture Color">
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">French Balayage & Glaze</h3>
+                            <span class="service-price">$290</span>
+                        </div>
+                        <p class="service-description">Hand-painted French balayage highlights tailored to frame your face, sealed with a deeply nourishing moisture glaze.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                180 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="hair-2" data-name="French Balayage & Glaze" data-price="290" data-duration="180" id="btn-hair-2">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="hair">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80" alt="Botanical Hair & Scalp Treatment">
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Botanical Scalp Therapy</h3>
+                            <span class="service-price">$110</span>
+                        </div>
+                        <p class="service-description">A rejuvenating spa treatment for hair follicles utilizing therapeutic organic oils, steamed towels, and acupressure massage.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                50 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="hair-3" data-name="Botanical Scalp Therapy" data-price="110" data-duration="50" id="btn-hair-3">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skincare Category (Hidden by default) -->
+                <div class="service-card" data-category="skin" style="display: none;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Radiance Facial Treatment">
+                        <span class="service-badge">Elite</span>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Radiance Infusion Clinical Facial</h3>
+                            <span class="service-price">$195</span>
+                        </div>
+                        <p class="service-description">Advanced triple-exfoliation facial utilizing active enzymes, botanical extracts, micro-current skin toning, and oxygen therapy.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                75 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="skin-1" data-name="Radiance Infusion Facial" data-price="195" data-duration="75" id="btn-skin-1">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="skin" style="display: none;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80" alt="Bespoke Skin Peel">
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Epi-Cellular Resurfacing Treatment</h3>
+                            <span class="service-price">$140</span>
+                        </div>
+                        <p class="service-description">Customizable acid and peptide complex application designed to smooth fine lines, clear hyperpigmentation, and stimulate collagen.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                45 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="skin-2" data-name="Epi-Cellular Resurfacing" data-price="140" data-duration="45" id="btn-skin-2">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nails Category (Hidden by default) -->
+                <div class="service-card" data-category="nails" style="display: none;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80" alt="Luxurious Nail Art">
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Atelier Couture Manicure</h3>
+                            <span class="service-price">$85</span>
+                        </div>
+                        <p class="service-description">Detailed nail shaping, cuticle nourishment, signature hand scrub, therapeutic massage, and Japanese non-toxic gel design.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                60 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="nails-1" data-name="Atelier Couture Manicure" data-price="85" data-duration="60" id="btn-nails-1">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="nails" style="display: none;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=800&q=80" alt="Luxury Pedicure">
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Volcanic Stone Spa Pedicure</h3>
+                            <span class="service-price">$105</span>
+                        </div>
+                        <p class="service-description">Warm herbal foot soak, mineral salt exfoliation, warm volcanic stone massage, and long-wear pristine finish styling.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                70 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="nails-2" data-name="Volcanic Stone Pedicure" data-price="105" data-duration="70" id="btn-nails-2">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Massage Category (Hidden by default) -->
+                <div class="service-card" data-category="massage" style="display: none;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Swedish Aromatherapy Massage">
+                        <span class="service-badge">Relax</span>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Deep Relaxation Aromatherapy</h3>
+                            <span class="service-price">$160</span>
+                        </div>
+                        <p class="service-description">Full body massage blending long fluid Swedish strokes with premium custom essential oils to release physical and mental stress.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                75 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="massage-1" data-name="Aromatherapy Massage" data-price="160" data-duration="75" id="btn-massage-1">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-category="massage" style="display: none;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80" alt="Hot Stone Therapeutic Massage">
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Warm Basalt Dynamic Healing</h3>
+                            <span class="service-price">$190</span>
+                        </div>
+                        <p class="service-description">Heated basalt stones placed strategically along energy pathways combined with localized deep muscle compression for targeted relief.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                90 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="massage-2" data-name="Warm Basalt Healing" data-price="190" data-duration="90" id="btn-massage-2">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Packages Category (Hidden by default) -->
+                <div class="service-card" data-category="packages" style="display: none;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Half-Day Signature Ritual">
+                        <span class="service-badge">The Ultimate</span>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-header-row">
+                            <h3 class="service-name">Velina Sovereign Ritual</h3>
+                            <span class="service-price">$450</span>
+                        </div>
+                        <p class="service-description">The ultimate signature package: 75-Min Radiance Facial, 75-Min Deep Relaxation Massage, Couture Manicure, and curated champagne refreshments.</p>
+                        <div class="service-meta-row">
+                            <span class="service-duration">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                220 Mins
+                            </span>
+                            <button class="select-service-btn" data-id="pkg-1" data-name="Velina Sovereign Ritual" data-price="450" data-duration="220" id="btn-pkg-1">Add to Session</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide-Out Cart / Booking Drawer (S-Spa style) -->
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+        <div class="cart-drawer-content">
+            <div class="cart-header">
+                <h3>Your Selection</h3>
+                <button class="close-cart-btn" id="close-cart" aria-label="Close Selection Drawer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            
+            <div class="cart-body" id="cart-body">
+                <!-- Cart items dynamically rendered here by JS -->
+                <div class="empty-cart-message" id="empty-cart-message">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="empty-icon"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    <p>Your session is empty.</p>
+                    <small>Select from our curated menu of offerings to build your beauty retreat.</small>
+                </div>
+                <ul class="cart-items-list" id="cart-items-list"></ul>
+            </div>
+
+            <div class="cart-footer" id="cart-footer">
+                <div class="cart-summary-row">
+                    <span>Est. Time</span>
+                    <span id="cart-total-time">0 Mins</span>
+                </div>
+                <div class="cart-summary-row total-row">
+                    <span>Subtotal</span>
+                    <span id="cart-total-price">$0</span>
+                </div>
+                <p class="tax-info">Taxes and gratuities will be calculated upon checkout.</p>
+                <button class="btn btn-primary checkout-btn" id="checkout-btn" disabled>Proceed to Booking</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Why Velina / Experience Value Grid -->
+    <section class="why-us-section" id="why-us">
+        <div class="section-container">
+            <div class="why-header">
+                <span class="section-eyebrow">The Experience</span>
+                <h2 class="section-title">The Pillars of <span class="serif-italic">{{BUSINESS_NAME}}</span></h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-num">I</div>
+                    <h3 class="why-title">Absolute Isolation</h3>
+                    <p class="why-desc">Host your styling sessions inside closed private suites or semi-private screen-shielded stations, guaranteeing complete peace.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-num">II</div>
+                    <h3 class="why-title">Master Artisans Only</h3>
+                    <p class="why-desc">Our team comprises industry leaders who train internationally and possess a minimum of ten years of creative salon experience.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-num">III</div>
+                    <h3 class="why-title">Biodynamic Formulations</h3>
+                    <p class="why-desc">We exclude ammonia, sulfates, and parabens, sourcing organic essential oils and vegan proteins to foster natural hair vitality.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-num">IV</div>
+                    <h3 class="why-title">The Lounge Experience</h3>
+                    <p class="why-desc">Sip organic white teas, curated French wine, or customized espresso while receiving service in a sound-dampened acoustic setup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Artisans Section (Stylists Carousel) -->
+    <section class="artisans-section" id="artisans">
+        <div class="section-container">
+            <div class="artisans-header">
+                <div>
+                    <span class="section-eyebrow">Meet The Team</span>
+                    <h2 class="section-title">Master <span class="serif-italic">Artisans</span></h2>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-arrow-btn" id="prev-artisan" aria-label="Previous Specialist">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    </button>
+                    <button class="slider-arrow-btn" id="next-artisan" aria-label="Next Specialist">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="artisans-slider-viewport">
+                <div class="artisans-slider-track" id="artisans-track">
+                    <!-- Specialist 1 -->
+                    <div class="artisan-card">
+                        <div class="artisan-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Isabella Vance - Principal Color Director">
+                        </div>
+                        <div class="artisan-meta">
+                            <span class="artisan-role">Principal Color Director</span>
+                            <h3 class="artisan-name">Isabella Vance</h3>
+                            <p class="artisan-bio">Specializing in French Balayage and bespoke dimensional coloring. Formerly styling in Paris and London with 14 years experience.</p>
+                            <span class="artisan-specialty">Expertise: Dimensional Blonde & Glazing</span>
+                        </div>
+                    </div>
+                    <!-- Specialist 2 -->
+                    <div class="artisan-card">
+                        <div class="artisan-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Marcus Chen - Master Hair Sculptor">
+                        </div>
+                        <div class="artisan-meta">
+                            <span class="artisan-role">Master Hair Sculptor</span>
+                            <h3 class="artisan-name">Marcus Chen</h3>
+                            <p class="artisan-bio">Precision cutting expert trained under the Sassoon Academy. Creates structural haircuts that grow out seamlessly over months.</p>
+                            <span class="artisan-specialty">Expertise: Geometric Cuts & Razor Styling</span>
+                        </div>
+                    </div>
+                    <!-- Specialist 3 -->
+                    <div class="artisan-card">
+                        <div class="artisan-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Sophia Loren - Lead Aesthetician">
+                        </div>
+                        <div class="artisan-meta">
+                            <span class="artisan-role">Lead Clinical Aesthetician</span>
+                            <h3 class="artisan-name">Dr. Sophia Laurent</h3>
+                            <p class="artisan-bio">Expert in advanced epidermal rejuvenation and chemical cellular peels. Formulates custom skin regimes for immediate natural glow.</p>
+                            <span class="artisan-specialty">Expertise: Oxygen Therapy & Micro-currents</span>
+                        </div>
+                    </div>
+                    <!-- Specialist 4 -->
+                    <div class="artisan-card">
+                        <div class="artisan-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="David Sterling - Holistic Massage Therapist">
+                        </div>
+                        <div class="artisan-meta">
+                            <span class="artisan-role">Therapeutic Body Lead</span>
+                            <h3 class="artisan-name">David Sterling</h3>
+                            <p class="artisan-bio">Blends myofascial release with Eastern pressure points. Focuses on total relaxation and aligning nervous system balance.</p>
+                            <span class="artisan-specialty">Expertise: Hot Basalt & Lymphatic Drainage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masterpieces Portfolio Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-container">
+            <div class="gallery-header">
+                <span class="section-eyebrow">Atelier Portfolios</span>
+                <h2 class="section-title">Our <span class="serif-italic">Masterpieces</span></h2>
+                <p class="gallery-desc">A visual log of transformative beauty captured inside the atelier. Actual styles crafted by our specialists.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item large-height">
+                    <img src="https://images.unsplash.com/photo-1520512571425-be5116940a2c?auto=format&fit=crop&w=800&q=80" alt="Aesthetic hair cut and styling by Marcus Chen">
+                    <div class="gallery-hover-overlay">
+                        <span class="gallery-category">Couture Styling</span>
+                        <h4 class="gallery-project-title">The Glass Blowout</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80" alt="Premium manicure art detailing by our nail tech">
+                    <div class="gallery-hover-overlay">
+                        <span class="gallery-category">Nail Artistry</span>
+                        <h4 class="gallery-project-title">Champagne Chrome Gel</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80" alt="Editorial makeup application session">
+                    <div class="gallery-hover-overlay">
+                        <span class="gallery-category">Aesthetics</span>
+                        <h4 class="gallery-project-title">Soft Editorial Glow</h4>
+                    </div>
+                </div>
+                <div class="gallery-item large-height">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80" alt="Precision hair coloring results">
+                    <div class="gallery-hover-overlay">
+                        <span class="gallery-category">Atelier Color</span>
+                        <h4 class="gallery-project-title">Dimensional French Balayage</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-container">
+            <div class="testimonials-slider">
+                <div class="testimonial-slide active">
+                    <div class="stars-row">★★★★★</div>
+                    <p class="testimonial-text">"{{BUSINESS_NAME}} has completely re-defined my expectations of a salon experience. The private suite is so quiet, and Isabella is an absolute genius. My balayage has never looked this natural and healthy!"</p>
+                    <div class="client-info">
+                        <span class="client-name">Adrienne Dupont</span>
+                        <span class="client-verify">Verified Patron</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="stars-row">★★★★★</div>
+                    <p class="testimonial-text">"The booking concept is flawless. Adding multiple skincare and massage treatments online, seeing exactly how long it takes, and entering an pristine sanctuary with hot towels ready is pure luxury."</p>
+                    <div class="client-info">
+                        <span class="client-name">Victoria Sterling</span>
+                        <span class="client-verify">Verified Patron</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-indicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Booking Wizard Modal (Fades in on booking proceed) -->
+    <div class="booking-modal-wrapper" id="booking-modal-wrapper">
+        <div class="booking-modal-overlay" id="booking-modal-close-overlay"></div>
+        <div class="booking-modal">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close Booking Modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            
+            <!-- Step Indicators -->
+            <div class="modal-steps-indicator">
+                <span class="step-label active" id="step-label-1">1. Schedule</span>
+                <span class="step-label" id="step-label-2">2. Details</span>
+                <span class="step-label" id="step-label-3">3. Confirmation</span>
+            </div>
+
+            <!-- Booking Progress Bar -->
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+
+            <!-- STEP 1: Date, Time & Stylist Selection -->
+            <div class="modal-step-content active" id="modal-step-1">
+                <h3 class="modal-step-title">Select Date, Time & Artisan</h3>
+                
+                <div class="step-grid-layout">
+                    <!-- Date Picker Column -->
+                    <div class="picker-column">
+                        <label class="input-label">Select Date</label>
+                        <div class="calendar-wrapper">
+                            <div class="calendar-header-row">
+                                <span class="current-month">July 2026</span>
+                            </div>
+                            <div class="calendar-grid">
+                                <span class="day-name">Su</span>
+                                <span class="day-name">Mo</span>
+                                <span class="day-name">Tu</span>
+                                <span class="day-name">We</span>
+                                <span class="day-name">Th</span>
+                                <span class="day-name">Fr</span>
+                                <span class="day-name">Sa</span>
+                                <!-- Calendar Dates -->
+                                <button class="calendar-day disabled">28</button>
+                                <button class="calendar-day disabled">29</button>
+                                <button class="calendar-day disabled">30</button>
+                                <button class="calendar-day selected" data-date="2026-07-01">1</button>
+                                <button class="calendar-day" data-date="2026-07-02">2</button>
+                                <button class="calendar-day" data-date="2026-07-03">3</button>
+                                <button class="calendar-day" data-date="2026-07-04">4</button>
+                                <button class="calendar-day" data-date="2026-07-05">5</button>
+                                <button class="calendar-day" data-date="2026-07-06">6</button>
+                                <button class="calendar-day" data-date="2026-07-07">7</button>
+                                <button class="calendar-day" data-date="2026-07-08">8</button>
+                                <button class="calendar-day" data-date="2026-07-09">9</button>
+                                <button class="calendar-day" data-date="2026-07-10">10</button>
+                                <button class="calendar-day" data-date="2026-07-11">11</button>
+                                <button class="calendar-day" data-date="2026-07-12">12</button>
+                                <button class="calendar-day" data-date="2026-07-13">13</button>
+                                <button class="calendar-day" data-date="2026-07-14">14</button>
+                                <button class="calendar-day" data-date="2026-07-15">15</button>
+                                <button class="calendar-day" data-date="2026-07-16">16</button>
+                                <button class="calendar-day" data-date="2026-07-17">17</button>
+                                <button class="calendar-day" data-date="2026-07-18">18</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time Slots & Stylist Columns -->
+                    <div class="selection-column">
+                        <div class="stylist-selector-wrapper">
+                            <label class="input-label" for="stylist-select">Preferred Master Artisan</label>
+                            <select id="stylist-select" class="form-select">
+                                <option value="any">No Preference (First Available Specialist)</option>
+                                <option value="isabella">Isabella Vance (Color Director)</option>
+                                <option value="marcus">Marcus Chen (Precision Cutting)</option>
+                                <option value="sophia">Dr. Sophia Laurent (Aesthetician)</option>
+                                <option value="david">David Sterling (Body Therapist)</option>
+                            </select>
+                        </div>
+
+                        <div class="time-slots-wrapper">
+                            <label class="input-label">Select Hour</label>
+                            <div class="time-slots-grid" id="time-slots-grid">
+                                <button class="time-slot" data-time="09:00 AM">09:00 AM</button>
+                                <button class="time-slot selected" data-time="10:30 AM">10:30 AM</button>
+                                <button class="time-slot" data-time="12:00 PM">12:00 PM</button>
+                                <button class="time-slot" data-time="01:30 PM">01:30 PM</button>
+                                <button class="time-slot" data-time="03:00 PM">03:00 PM</button>
+                                <button class="time-slot" data-time="04:30 PM">04:30 PM</button>
+                                <button class="time-slot" data-time="06:00 PM">06:00 PM</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer-actions">
+                    <span class="step-summary-text" id="step-1-summary">Selected: July 1, 2026 at 10:30 AM</span>
+                    <button class="btn btn-primary" id="modal-next-1">Next Step</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: Guest Details Form -->
+            <div class="modal-step-content" id="modal-step-2" style="display: none;">
+                <h3 class="modal-step-title">Guest Contact Details</h3>
+                
+                <form class="guest-details-form" id="booking-form">
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="guest-first-name" class="form-label">First Name *</label>
+                            <input type="text" id="guest-first-name" class="form-input" required placeholder="e.g. Adrienne">
+                        </div>
+                        <div class="form-group">
+                            <label for="guest-last-name" class="form-label">Last Name *</label>
+                            <input type="text" id="guest-last-name" class="form-input" required placeholder="e.g. Dupont">
+                        </div>
+                    </div>
+
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="guest-email" class="form-label">Email Address *</label>
+                            <input type="email" id="guest-email" class="form-input" required placeholder="e.g. adrienne@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="guest-phone" class="form-label">Mobile Number *</label>
+                            <input type="tel" id="guest-phone" class="form-input" required placeholder="e.g. {{PHONE}}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guest-notes" class="form-label">Special Requests or Hair/Skin Notes (Optional)</label>
+                        <textarea id="guest-notes" class="form-textarea" placeholder="Please mention if you have skin sensitivities, specific styling goals, or if this is for a special occasion."></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy-policy" class="form-checkbox" required checked>
+                        <label for="privacy-policy" class="checkbox-label">I agree to the privacy statement and terms of service regarding private reservation cancellations.</label>
+                    </div>
+                </form>
+
+                <div class="modal-footer-actions">
+                    <button class="btn btn-secondary" id="modal-back-2">Back</button>
+                    <button class="btn btn-primary" id="modal-submit">Confirm Reservation</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: Booking Successful Confirmation -->
+            <div class="modal-step-content" id="modal-step-3" style="display: none;">
+                <div class="confirmation-container">
+                    <div class="success-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    
+                    <h3 class="confirmation-title">Your Sanctuary Awaits</h3>
+                    <p class="confirmation-subtitle">Your reservation at {{BUSINESS_NAME}} has been successfully confirmed. A receipt and calendar invite have been delivered to your email.</p>
+                    
+                    <div class="confirmation-card">
+                        <div class="conf-row">
+                            <span class="conf-label">Reservation Code:</span>
+                            <span class="conf-value" id="conf-code">VLN-829375</span>
+                        </div>
+                        <div class="conf-row">
+                            <span class="conf-label">Artisan Requested:</span>
+                            <span class="conf-value" id="conf-artisan">Isabella Vance</span>
+                        </div>
+                        <div class="conf-row">
+                            <span class="conf-label">Date & Time:</span>
+                            <span class="conf-value" id="conf-datetime">July 1, 2026 at 10:30 AM</span>
+                        </div>
+                        <div class="conf-row">
+                            <span class="conf-label">Selected Offerings:</span>
+                            <span class="conf-value" id="conf-services">Couture Hair Design & Styling</span>
+                        </div>
+                        <div class="conf-row total-conf-row">
+                            <span class="conf-label">Estimated Session Cost:</span>
+                            <span class="conf-value" id="conf-price">$165.00</span>
+                        </div>
+                    </div>
+                    
+                    <p class="cancellation-policy">Note: If you need to reschedule, please notify at least 24 hours in advance at <a href="tel:{{PHONE}}">{{PHONE}}</a>.</p>
+                    
+                    <button class="btn btn-primary" id="modal-finish-btn">Return to Atelier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Luxurious Dark Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-grid">
+                <!-- Branding column -->
+                <div class="footer-col brand-col">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-main">{{BUSINESS_NAME}}</span>
+                    </a>
+                    <p class="footer-tagline">Re-defining raw beauty with organic precision. Host of premium aesthetics and personal retreats.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Velina Instagram">Instagram</a>
+                        <a href="#" aria-label="Velina Pinterest">Pinterest</a>
+                        <a href="#" aria-label="Velina Journal">Journal</a>
+                    </div>
+                </div>
+
+                <!-- Hours column -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Operating Hours</h4>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday</span> <span>09:00 AM - 08:00 PM</span></li>
+                        <li><span>Saturday</span> <span>09:00 AM - 07:00 PM</span></li>
+                        <li><span>Sunday</span> <span>10:00 AM - 05:00 PM</span></li>
+                    </ul>
+                </div>
+
+                <!-- Contact column -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Find The Atelier</h4>
+                    <p class="contact-info-item">
+                        <strong>Address:</strong><br>
+                        {{ADDRESS}}
+                    </p>
+                    <p class="contact-info-item">
+                        <strong>Reservation Line:</strong><br>
+                        <a href="tel:{{PHONE}}" class="phone-link">{{PHONE}}</a>
+                    </p>
+                    <p class="contact-info-item">
+                        <strong>Electronic Mail:</strong><br>
+                        <a href="mailto:{{EMAIL}}" class="email-link">{{EMAIL}}</a>
+                    </p>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col newsletter-col">
+                    <h4 class="footer-heading">Atelier Letters</h4>
+                    <p class="newsletter-desc">Subscribe to receive seasonal styling notes, product launches, and exclusive member-suite bookings.</p>
+                    <form class="newsletter-form" id="newsletter-subscription-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email Address for Newsletter">
+                        <button type="submit" class="newsletter-submit-btn" aria-label="Subscribe to newsletter">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 {{BUSINESS_NAME}}. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Statement</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Code -->
+    <script src="index.js"></script>
+</body>
+</html>

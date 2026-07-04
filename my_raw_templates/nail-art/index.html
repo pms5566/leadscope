@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BUSINESS_NAME}} | Couture Nails & Modern Aesthetics</title>
+    <meta name="description" content="Elevate your style with {{BUSINESS_NAME}}. Discover our signature glass French tips, cat-eye magnetic nails, and minimalist nail art in {{ADDRESS}}.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons for aesthetics -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
+    <!-- Loader Screen -->
+    <div id="loader" class="loader-container">
+        <div class="loader-content">
+            <h1 class="loader-logo">{{BUSINESS_NAME}}</h1>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-title">{{BUSINESS_NAME}}</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">The Salon</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#booking" class="nav-link">Reserve</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#booking" class="btn btn-outline nav-btn">Book Now</a>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-menu-overlay">
+        <nav class="mobile-nav">
+            <a href="#about" class="mobile-link">The Salon</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#gallery" class="mobile-link">Gallery</a>
+            <a href="#booking" class="mobile-link">Reserve</a>
+            <a href="#booking" class="btn btn-gold mobile-book-btn">Book Now</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-subtitle">COUTURE NAILS & MODERN AESTHETICS</span>
+                    <h1 class="hero-title">Quiet Luxury<br>for Your Hands</h1>
+                    <p class="hero-text">
+                        A bespoke sanctuary dedicated to minimalist elegance, glass French tip couture, and iridescent cat-eye artistry.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#booking" class="btn btn-gold">Reserve Experience</a>
+                        <a href="#gallery" class="btn btn-text">View Gallery <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span class="scroll-line"></span>
+                <span class="scroll-text">SCROLL</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <div class="grid grid-2">
+                    <div class="about-content scroll-reveal">
+                        <span class="section-tag">THE SALON</span>
+                        <h2 class="section-title">The Art of Refined Beauty</h2>
+                        <p class="about-lead">
+                            At LUXURY by JEMM, we believe your hands express your unique sophistication. We steer away from the loud, embracing the timeless "Old Money" aesthetic.
+                        </p>
+                        <p class="about-body">
+                            Our salon is a curated, serene escape. We specialize in minimalist detailing, crisp French manicures, structured gel reinforcements, and state-of-the-art Japanese gel formulas. Every brush stroke is calibrated for longevity and absolute visual perfection.
+                        </p>
+                        <div class="salon-meta">
+                            <div class="meta-item">
+                                <span class="meta-number">100%</span>
+                                <span class="meta-label">Premium Gel Formulations</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-number">5★</span>
+                                <span class="meta-label">Bespoke Guest Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image-wrapper scroll-reveal delay-200">
+                        <div class="image-border-decoration"></div>
+                        <img src="assets/salon_interior.jpg" alt="{{BUSINESS_NAME}} Salon Interior" class="about-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section-padding dark-bg">
+            <div class="container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-tag">COUTURE SERVICE LIST</span>
+                    <h2 class="section-title text-light">Our Signature Treatments</h2>
+                    <p class="section-desc">We combine meticulous medical-grade sanitization with haute couture nail design.</p>
+                </div>
+
+                <div class="services-grid scroll-reveal delay-200">
+                    <!-- Service Item 1 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+                        <h3 class="service-name">Minimalist French Couture</h3>
+                        <p class="service-text">Our world-renowned, ultra-crisp French tips. From classic blush bases to color-blocked edges and seasonal minimalist trends.</p>
+                        <ul class="service-features">
+                            <li>Signature Glass French</li>
+                            <li>Old Money Micro-tips</li>
+                            <li>Asymmetrical Soft French</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Item 2 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3 class="service-name">Magnetic Velvet & Cat-Eye</h3>
+                        <p class="service-text">Mesmerizing deep-dimension manicures. Using premium magnetic polishes to create liquid metal and velvet shimmers.</p>
+                        <ul class="service-features">
+                            <li>3D Jade Magnetic</li>
+                            <li>Butter Glazed Chrome</li>
+                            <li>Iridescent Glaze</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Item 3 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-feather"></i></div>
+                        <h3 class="service-name">Structured Gel Overlays</h3>
+                        <p class="service-text">Build strength and flawless shape. Structured overlays protect your natural nail while giving a sleek glass-like curve.</p>
+                        <ul class="service-features">
+                            <li>Japanese Gel Reinforcement</li>
+                            <li>Flawless Apex Building</li>
+                            <li>Natural-look Extensions</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Item 4 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-spa"></i></div>
+                        <h3 class="service-name">Manicure & Pedicure Rituals</h3>
+                        <p class="service-text">Complete skin and nail therapy. Rejuvenating scrubs, deep cuticle hydration, and massage with organic essential oils.</p>
+                        <ul class="service-features">
+                            <li>Russian Dry Manicure</li>
+                            <li>Nourishing Collagen Spa</li>
+                            <li>Volcanic Stone Pedicure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery section-padding">
+            <div class="container">
+                <div class="section-header text-center scroll-reveal">
+                    <span class="section-tag">GALLERY & INSPIRATION</span>
+                    <h2 class="section-title">Nail Art Portfolio</h2>
+                    <p class="section-desc">Hover or click to view our recent creations featured in global trends.</p>
+                </div>
+
+                <div class="gallery-filters scroll-reveal delay-200">
+                    <button class="filter-btn active" data-filter="all">All Designs</button>
+                    <button class="filter-btn" data-filter="french">French Tips</button>
+                    <button class="filter-btn" data-filter="velvet">Velvet & Chrome</button>
+                    <button class="filter-btn" data-filter="salon">The Salon</button>
+                </div>
+
+                <div class="gallery-grid scroll-reveal delay-400">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item" data-category="french">
+                        <div class="gallery-image-wrapper">
+                            <img src="assets/glass_french.jpg" alt="Glass French Tip Manicure">
+                            <div class="gallery-overlay">
+                                <span class="gallery-category">French Tip</span>
+                                <h4 class="gallery-title">Glass French Tip Couture</h4>
+                                <p class="gallery-details">Ultra-fine gold lining and crystal tip glaze.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item" data-category="velvet">
+                        <div class="gallery-image-wrapper">
+                            <img src="assets/chrome_magnetic.jpg" alt="Magnetic Chrome Manicure">
+                            <div class="gallery-overlay">
+                                <span class="gallery-category">Velvet & Chrome</span>
+                                <h4 class="gallery-title">Magnetic Cat-Eye Velvet</h4>
+                                <p class="gallery-details">Deep pewter gray with multi-dimensional shimmer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item" data-category="salon">
+                        <div class="gallery-image-wrapper">
+                            <img src="assets/salon_interior.jpg" alt="Salon Aesthetic Space">
+                            <div class="gallery-overlay">
+                                <span class="gallery-category">The Salon</span>
+                                <h4 class="gallery-title">Our Sanctuary</h4>
+                                <p class="gallery-details">Relax and unwind in our luxurious workspace.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="booking section-padding dark-bg">
+            <div class="container">
+                <div class="grid grid-2 align-center">
+                    <div class="booking-text scroll-reveal">
+                        <span class="section-tag tag-gold">APPOINTMENT RESERVATIONS</span>
+                        <h2 class="section-title text-light">Request Your Visit</h2>
+                        <p class="about-lead text-muted">
+                            Experience custom pampering. Select your services, date, and preferred time.
+                        </p>
+                        <p class="about-body text-muted">
+                            After submitting, our concierge team will verify slots and send you a formal confirmation invite on WhatsApp.
+                        </p>
+                        <div class="booking-contact-info">
+                            <div class="contact-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <div>
+                                    <h5>Call or WhatsApp</h5>
+                                    <p>{{PHONE}}</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <h5>Opening Hours</h5>
+                                    <p>Mon - Sat: 10:00 AM - 8:00 PM (Sunday Closed)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Multi-Step Widget -->
+                    <div class="booking-widget scroll-reveal delay-200" id="booking-widget-root">
+                        <!-- Step Indicator -->
+                        <div class="widget-steps">
+                            <div class="step-indicator active" data-step="1">1<span class="indicator-title">Service</span></div>
+                            <div class="step-line"></div>
+                            <div class="step-indicator" data-step="2">2<span class="indicator-title">DateTime</span></div>
+                            <div class="step-line"></div>
+                            <div class="step-indicator" data-step="3">3<span class="indicator-title">Details</span></div>
+                        </div>
+
+                        <!-- Form Steps Container -->
+                        <div class="widget-body">
+                            <!-- Step 1: Select Services -->
+                            <div class="form-step active" id="step-1">
+                                <h3>Select Your Experience</h3>
+                                <p class="step-subtitle">Choose one or more treatments:</p>
+                                <div class="services-select-list">
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="Minimalist French Tips">
+                                        <span class="option-check"></span>
+                                        <span class="option-name">Minimalist French Tips</span>
+                                        <span class="option-price">KWD 18</span>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="Magnetic Velvet Cat-Eye">
+                                        <span class="option-check"></span>
+                                        <span class="option-name">Magnetic Velvet Cat-Eye</span>
+                                        <span class="option-price">KWD 22</span>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="Structured Gel Overlay">
+                                        <span class="option-check"></span>
+                                        <span class="option-name">Structured Gel Overlay</span>
+                                        <span class="option-price">KWD 25</span>
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="Russian Spa Manicure">
+                                        <span class="option-check"></span>
+                                        <span class="option-name">Russian Spa Manicure</span>
+                                        <span class="option-price">KWD 12</span>
+                                    </label>
+                                </div>
+                                <div class="step-actions">
+                                    <button class="btn btn-gold btn-next" id="next-to-step2">Continue</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Date & Time -->
+                            <div class="form-step" id="step-2">
+                                <h3>Select Date & Time</h3>
+                                <p class="step-subtitle">Choose your desired slot:</p>
+                                <div class="datetime-grid">
+                                    <!-- Simplified Calendar Widget -->
+                                    <div class="calendar-mock">
+                                        <div class="calendar-header">
+                                            <span class="month-name">July 2026</span>
+                                        </div>
+                                        <div class="calendar-days">
+                                            <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                                            <span class="disabled">29</span><span class="disabled">30</span>
+                                            <span class="active-day selected">1</span><span>2</span><span>3</span><span>4</span><span class="sunday">5</span>
+                                            <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span class="sunday">12</span>
+                                            <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span class="sunday">19</span>
+                                        </div>
+                                    </div>
+                                    <!-- Time Slots -->
+                                    <div class="time-slots">
+                                        <button class="time-slot-btn" data-time="10:00 AM">10:00 AM</button>
+                                        <button class="time-slot-btn selected" data-time="12:00 PM">12:00 PM</button>
+                                        <button class="time-slot-btn" data-time="2:00 PM">2:00 PM</button>
+                                        <button class="time-slot-btn" data-time="4:30 PM">4:30 PM</button>
+                                        <button class="time-slot-btn" data-time="6:00 PM">6:00 PM</button>
+                                    </div>
+                                </div>
+                                <div class="step-actions flex-between">
+                                    <button class="btn btn-outline btn-prev" id="prev-to-step1">Back</button>
+                                    <button class="btn btn-gold btn-next" id="next-to-step3">Continue</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Client Details -->
+                            <div class="form-step" id="step-3">
+                                <h3>Guest Details</h3>
+                                <p class="step-subtitle">Provide your contact info to finish booking:</p>
+                                <form id="details-form" class="details-form">
+                                    <div class="form-group">
+                                        <label for="guest-name">Full Name</label>
+                                        <input type="text" id="guest-name" required placeholder="e.g. Sarah Al-Sabah">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="guest-phone">Phone / WhatsApp</label>
+                                        <input type="tel" id="guest-phone" required placeholder="e.g. {{PHONE}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="guest-notes">Special Requests (Optional)</label>
+                                        <textarea id="guest-notes" placeholder="Any specific design requests or nail conditions..."></textarea>
+                                    </div>
+                                </form>
+                                <div class="step-actions flex-between">
+                                    <button class="btn btn-outline btn-prev" id="prev-to-step2">Back</button>
+                                    <button class="btn btn-gold" id="btn-submit-booking">Submit Request</button>
+                                </div>
+                            </div>
+
+                            <!-- Success State -->
+                            <div class="form-step" id="step-success">
+                                <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <h3>Experience Requested</h3>
+                                <p class="success-lead">Thank you, <span id="summary-name">Guest</span>.</p>
+                                <div class="booking-summary-box">
+                                    <p><strong>Treatment:</strong> <span id="summary-services">Classic Manicure</span></p>
+                                    <p><strong>Date & Time:</strong> <span id="summary-datetime">July 1, 2026 at 12:00 PM</span></p>
+                                </div>
+                                <p class="success-notes">
+                                    Our concierge is checking availability. We will message you via WhatsApp at <span id="summary-phone">{{PHONE}}</span> shortly to confirm.
+                                </p>
+                                <div class="step-actions">
+                                    <button class="btn btn-gold" id="btn-reset-booking">Book Another Session</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section-padding">
+            <div class="container text-center">
+                <span class="section-tag">TESTIMONIALS</span>
+                <h2 class="section-title">Loved by Discerning Guests</h2>
+                <div class="testimonial-slider scroll-reveal delay-200">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "The absolute best nail salon. I requested their signature glass French tips and received endless compliments. The service is incredibly professional and the space is so serene."
+                        </p>
+                        <h4 class="testimonial-author">Fatima K.</h4>
+                        <span class="testimonial-rating">★★★★★</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3 class="footer-logo">{{BUSINESS_NAME}}</h3>
+                <p class="footer-tagline">Timeless nail artistry and modern aesthetics for the modern woman.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://maps.app.goo.gl/MXQhoidZ5mwkgzZDA" target="_blank" aria-label="Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-info">
+                <h4>VISIT US</h4>
+                <p class="footer-address">
+                    {{ADDRESS}}
+                </p>
+                <p class="footer-contact">
+                    <strong>P:</strong> {{PHONE}}<br>
+                    <strong>E:</strong> {{EMAIL}}
+                </p>
+            </div>
+
+            <div class="footer-hours">
+                <h4>HOURS</h4>
+                <p>Monday - Saturday:<br>10:00 AM - 8:00 PM</p>
+                <p>Sunday:<br><span class="closed-label">Closed</span></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container flex-between">
+                <p>&copy; 2026 {{BUSINESS_NAME}}. All Rights Reserved.</p>
+                <p>Demo Website Pitch Concept by Antigravity</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>

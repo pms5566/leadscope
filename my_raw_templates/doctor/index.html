@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sarah Jenkins, MD | Premium Family Medicine & Wellness Specialist</title>
+    <meta name="description" content="Welcome to the practice of Dr. Sarah Jenkins, MD. Offering personalized family medicine, preventive care, and wellness consulting in a warm, patient-first clinic. Book your consultation today.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header" id="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo" id="logo-link">
+                <span class="logo-prefix">Dr. Sarah</span>
+                <span class="logo-suffix">Jenkins</span>
+            </a>
+            
+            <nav class="desktop-nav" aria-label="Main Navigation">
+                <a href="#about" class="nav-link">Meet Dr. Sarah</a>
+                <a href="#services" class="nav-link">Our Services</a>
+                <a href="#quiz-section" class="nav-link">Wellness Quiz</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#faqs" class="nav-link">FAQs</a>
+                <a href="#booking" class="btn btn-primary nav-cta">Book Consultation</a>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+        <nav class="mobile-nav" aria-label="Mobile Navigation">
+            <a href="#about" class="mobile-nav-link">Meet Dr. Sarah</a>
+            <a href="#services" class="mobile-nav-link">Our Services</a>
+            <a href="#quiz-section" class="mobile-nav-link">Wellness Quiz</a>
+            <a href="#testimonials" class="mobile-nav-link">Reviews</a>
+            <a href="#faqs" class="mobile-nav-link">FAQs</a>
+            <a href="#booking" class="btn btn-primary mobile-nav-cta">Book Consultation</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge">Board Certified Family Physician</div>
+                <h1 class="hero-title">Your Health. Your Life. <br><span class="highlight-text">A Doctor Who Listens.</span></h1>
+                <p class="hero-subtitle">
+                    Dr. Sarah Jenkins offers premium, personalized family medicine and wellness consulting. Experience modern medical science delivered with a dedicated, human touch in a calming environment.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#booking" class="btn btn-primary">Book Consultation</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <!-- Premium Organic-Shaped Frame for Doctor Portrait -->
+                <div class="image-frame-container">
+                    <div class="organic-frame-blob"></div>
+                    <img src="assets/doctor-profile.png" alt="Dr. Sarah Jenkins, MD" class="hero-doctor-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="stats">
+        <div class="container stats-container">
+            <div class="stat-card">
+                <h2 class="stat-number" data-target="12">0</h2>
+                <p class="stat-label">Years of Experience</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number" data-target="5000">0</h2>
+                <p class="stat-label">Happy Patients</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number" data-target="99">0</h2>
+                <p class="stat-label">Patient Satisfaction Rate (%)</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number" data-target="100">0</h2>
+                <p class="stat-label">Attentive Listening (%)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Dr. Sarah / Philosophy of Care -->
+    <section class="about-section" id="about">
+        <div class="container about-container">
+            <div class="about-visual">
+                <div class="about-image-wrapper">
+                    <img src="assets/clinic-interior.png" alt="Dr. Sarah Jenkins Clinic Consultation Space" class="clinic-img">
+                    <div class="quote-overlay">
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.19 12.015C10.02 12.18 9 13.065 9 14.28V18.15C9 19.17 9.825 20 10.845 20H14.16C15.18 20 16.005 19.175 16.005 18.15V14.595C16.005 11.235 17.58 9 20.31 9C20.67 9 21.005 8.91 21.005 8.52V5.595C21.005 5.175 20.655 4.905 20.25 4.905C15.06 4.905 11.4 8.01 11.19 12.015ZM2.19 12.015C1.02 12.18 0 13.065 0 14.28V18.15C0 19.17 0.825 20 1.845 20H5.16C6.18 20 7.005 19.175 7.005 18.15V14.595C7.005 11.235 8.58 9 11.31 9C11.67 9 12.005 8.91 12.005 8.52V5.595C12.005 5.175 11.655 4.905 11.25 4.905C6.06 4.905 2.4 8.01 2.19 12.015Z" fill="currentColor"/>
+                        </svg>
+                        <p class="quote-text">
+                            I believe healing begins the moment a doctor truly listens. My goal is to build long-term partnerships with patients so they feel secure, informed, and genuinely cared for.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <div class="section-badge">About Dr. Sarah</div>
+                <h2 class="section-title">Compassionate Medicine for Individual Lives</h2>
+                <p class="about-text-lead">
+                    Dr. Sarah Jenkins is a double board-certified physician with over a decade of hands-on clinical experience. Frustrated by the rushed nature of corporate medical mills, she established her boutique solo practice to deliver the quality of attention every patient deserves.
+                </p>
+                <p class="about-text-body">
+                    By limiting her practice capacity, Dr. Jenkins ensures she has the time to understand your medical history, your lifestyle, and your individual concerns. Whether navigating chronic issues, seeking cosmetic health advice, or mapping out preventive wellness, you receive direct, unhurried guidance from your doctor.
+                </p>
+                <div class="credentials-grid">
+                    <div class="credential-item">
+                        <span class="cred-icon">🎓</span>
+                        <div>
+                            <strong>MD from Stanford University</strong>
+                            <p>Specialization in Family Medicine</p>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <span class="cred-icon">📜</span>
+                        <div>
+                            <strong>ABFM Board Certified</strong>
+                            <p>American Board of Family Medicine</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="signature-block">
+                    <span class="signature-name">Dr. Sarah Jenkins, MD</span>
+                    <p class="signature-title">Founder & Primary Care Physician</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header-center">
+                <div class="section-badge">What We Offer</div>
+                <h2 class="section-title">Comprehensive Wellness Services</h2>
+                <p class="section-subtitle">
+                    Discover personalized services designed around your long-term health and vitality.
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Comprehensive Primary Care</h3>
+                    <p class="service-card-desc">
+                        Full-spectrum family medicine, routine exams, diagnosis and management of chronic diseases, acute illness visits, and dedicated coordinates for specialist care.
+                    </p>
+                    <ul class="service-card-bullets">
+                        <li>Annual Physicals</li>
+                        <li>Chronic Disease Management</li>
+                        <li>Acute Care Visits</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Preventive Health & Wellness</h3>
+                    <p class="service-card-desc">
+                        Personalized health roadmaps, detailed risk assessments, nutritional consultations, vaccination planning, and proactive age-specific screenings.
+                    </p>
+                    <ul class="service-card-bullets">
+                        <li>Custom Health Roadmaps</li>
+                        <li>Nutritional Consultation</li>
+                        <li>Biometric Screenings</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/>
+                            <path d="M12 7v10M8 12h8"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Aesthetics & Skin Consultations</h3>
+                    <p class="service-card-desc">
+                        Healthy aging planning, medical skin screenings, non-invasive rejuvenation consults, and customized clinical skincare regimens designed for your unique skin chemistry.
+                    </p>
+                    <ul class="service-card-bullets">
+                        <li>Clinical Skincare Analysis</li>
+                        <li>Healthy Aging Strategies</li>
+                        <li>Skin Screenings</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card">
+                    <div class="service-icon-wrapper">
+                        <svg class="service-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Family Medicine & Pediatrics</h3>
+                    <p class="service-card-desc">
+                        Dedicated care for all ages. Tracking developmental milestones, adolescent health guides, school & sports physicals, and compassionate childhood consultations.
+                    </p>
+                    <ul class="service-card-bullets">
+                        <li>Developmental Milestones</li>
+                        <li>Sports & School Physicals</li>
+                        <li>Adolescent Health Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Health Quiz Section -->
+    <section class="quiz-section" id="quiz-section">
+        <div class="container quiz-container">
+            <div class="quiz-intro">
+                <div class="section-badge">Wellness Assessment</div>
+                <h2 class="section-title">Find Your Personalized Wellness Direction</h2>
+                <p class="quiz-intro-text">
+                    Take our quick 1-minute interactive wellness assessment. Based on your goals and symptoms, we'll recommend the ideal service and direct you right to the scheduler.
+                </p>
+                <div class="quiz-illustration">
+                    <div class="leaf-shape-graphic">
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-center">📊</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quiz-widget-card" id="quiz-widget">
+                <!-- Step Progress -->
+                <div class="quiz-progress-bar">
+                    <div class="progress-fill" id="quiz-progress-fill" style="width: 25%;"></div>
+                </div>
+                
+                <!-- Quiz Steps Container -->
+                <div class="quiz-steps">
+                    <!-- Step 1 -->
+                    <div class="quiz-step active" data-step="1">
+                        <span class="step-counter">Question 1 of 3</span>
+                        <h3 class="quiz-step-title">What is your primary wellness goal today?</h3>
+                        <div class="quiz-options">
+                            <button type="button" class="quiz-opt-btn" data-value="primary-care" data-text="Comprehensive Primary Care">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Resolve general symptoms or request an annual check-up</span>
+                            </button>
+                            <button type="button" class="quiz-opt-btn" data-value="preventive" data-text="Preventive Health Roadmap">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Proactively optimize my diet, routine, and health roadmap</span>
+                            </button>
+                            <button type="button" class="quiz-opt-btn" data-value="aesthetics" data-text="Aesthetics & Skin Consultation">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Evaluate skincare plans, anti-aging, or skin health checks</span>
+                            </button>
+                            <button type="button" class="quiz-opt-btn" data-value="pediatrics" data-text="Family Medicine & Pediatrics">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Schedule developmental check-ups or care for children</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="quiz-step" data-step="2">
+                        <span class="step-counter">Question 2 of 3</span>
+                        <h3 class="quiz-step-title">Select your primary age range:</h3>
+                        <div class="quiz-options">
+                            <button type="button" class="quiz-opt-btn" data-value="child" data-text="Child/Adolescent">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Child or Teenager (under 18 years old)</span>
+                            </button>
+                            <button type="button" class="quiz-opt-btn" data-value="adult-young" data-text="Young Adult (18-40)">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Young Adult (18 to 45 years old)</span>
+                            </button>
+                            <button type="button" class="quiz-opt-btn" data-value="adult-mature" data-text="Mature Adult (45+)">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Mature Adult (45 years old or older)</span>
+                            </button>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button type="button" class="btn btn-secondary quiz-prev-btn">Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="quiz-step" data-step="3">
+                        <span class="step-counter">Question 3 of 3</span>
+                        <h3 class="quiz-step-title">How soon would you like to get started?</h3>
+                        <div class="quiz-options">
+                            <button type="button" class="quiz-opt-btn" data-value="urgent" data-text="Urgent Care Needs">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Within the next few days (Acute concern)</span>
+                            </button>
+                            <button type="button" class="quiz-opt-btn" data-value="routine" data-text="Routine Screening/Consult">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">In the next 2-3 weeks (Preventive / Consultation)</span>
+                            </button>
+                            <button type="button" class="quiz-opt-btn" data-value="flexible" data-text="Flexible Timing">
+                                <span class="opt-indicator"></span>
+                                <span class="opt-label">Flexible / I am just researching options</span>
+                            </button>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button type="button" class="btn btn-secondary quiz-prev-btn">Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Step Result -->
+                    <div class="quiz-step" id="quiz-result-step">
+                        <div class="result-celebration">🎉</div>
+                        <h3 class="quiz-step-title">Your Recommendation is Ready!</h3>
+                        <div class="result-recommendation-box">
+                            <h4 id="recommended-service-title">Preventive Health Consultation</h4>
+                            <p id="recommended-service-desc">
+                                Based on your wellness priorities, we recommend booking a comprehensive screening. This allows Dr. Jenkins to design a fully customized roadmap covering biometrics, diet, and stress.
+                            </p>
+                        </div>
+                        <p class="result-next-text">We've selected this service for you in the scheduler below!</p>
+                        <div class="quiz-navigation">
+                            <a href="#booking" id="quiz-to-booking-btn" class="btn btn-primary">Proceed to Schedule</a>
+                            <button type="button" class="btn btn-text" id="reset-quiz-btn">Retake Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header-center">
+                <div class="section-badge">Patient Testimonials</div>
+                <h2 class="section-title">What Our Patients Say</h2>
+                <p class="section-subtitle">
+                    Real stories of trust, comprehensive attention, and life-changing care.
+                </p>
+            </div>
+            
+            <div class="testimonials-slider-wrapper">
+                <div class="testimonials-container" id="testimonials-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card active">
+                        <div class="rating-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Dr. Sarah completely changed my view of doctors. I never felt rushed. She took 45 minutes to go through my medical history and explained things in plain English. She really care about her patient."
+                        </p>
+                        <div class="patient-info">
+                            <div class="patient-avatar-placeholder">MT</div>
+                            <div>
+                                <h4 class="patient-name">Marcus Thompson</h4>
+                                <p class="patient-meta">Patient for 3 Years | Routine Care</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="rating-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Finding a pediatrician who makes children feel safe is tough. Dr. Jenkins is absolutely magical with my 6-year-old. The clinic itself is incredibly calming and smells like chamomile."
+                        </p>
+                        <div class="patient-info">
+                            <div class="patient-avatar-placeholder">EL</div>
+                            <div>
+                                <h4 class="patient-name">Elena Lopez</h4>
+                                <p class="patient-meta">Parent | Pediatrics & Skin Care</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="rating-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "I visited her for the aesthetic skin consultation. Unlike typical aesthetic clinics that try to oversell, she was completely honest about what treatments would benefit my skin type. Very professional!"
+                        </p>
+                        <div class="patient-info">
+                            <div class="patient-avatar-placeholder">SH</div>
+                            <div>
+                                <h4 class="patient-name">Sarah Harwood</h4>
+                                <p class="patient-meta">Patient for 1 Year | Skin & Wellness</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <button type="button" class="slider-arrow" id="prev-slide" aria-label="Previous Testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </button>
+                    <div class="slider-dots" id="slider-dots">
+                        <span class="slider-dot active" data-index="0"></span>
+                        <span class="slider-dot" data-index="1"></span>
+                        <span class="slider-dot" data-index="2"></span>
+                    </div>
+                    <button type="button" class="slider-arrow" id="next-slide" aria-label="Next Testimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faqs-section" id="faqs">
+        <div class="container faqs-container">
+            <div class="faq-intro-block">
+                <div class="section-badge font-accent">Common Questions</div>
+                <h2 class="section-title">Answering Your Questions Honestly</h2>
+                <p class="faq-description">
+                    We believe in complete transparency. If you have questions about clinic policies, fees, or how boutique family practice works, read below.
+                </p>
+                <div class="faq-cta-box">
+                    <p>Have a question not listed here?</p>
+                    <a href="tel:8002345678" class="contact-number-link">+1 (800) 234-5789</a>
+                </div>
+            </div>
+            
+            <div class="faqs-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Do you accept commercial insurance?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-content" aria-hidden="true">
+                        <p>
+                            To maintain the high quality and unhurried nature of our visits, we do not bill insurance companies directly. However, we provide detailed medical receipts (superbills) that you can easily submit to your insurance provider for out-of-network reimbursement.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>What is your cancellation and booking policy?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-content" aria-hidden="true">
+                        <p>
+                            We value our patients' time. Since we only book a limited number of clients per day, we require a 24-hour notice for cancellations or rescheduling. Cancellations made less than 24 hours prior to the slot may incur a fee.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>Do you offer virtual/telehealth appointments?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-content" aria-hidden="true">
+                        <p>
+                            Yes! For routine consultations, chronic disease check-ins, lab results reviews, and certain wellness assessments, telehealth is available and highly convenient. You can select "Telehealth" during booking.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>What happens during my first wellness consultation?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-content" aria-hidden="true">
+                        <p>
+                            Your initial visit is a comprehensive, 45-to-60-minute session. We cover your clinical history, dietary patterns, sleep hygiene, physical activity levels, stress factors, and any persistent symptoms. Dr. Jenkins will formulate a detailed primary care wellness roadmap.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Booking & Contact Section -->
+    <section class="booking-section" id="booking">
+        <div class="container booking-container">
+            <div class="booking-details-column">
+                <div class="section-badge font-accent">Schedule Appointment</div>
+                <h2 class="section-title text-white">Book Your Personal Consultation</h2>
+                <p class="booking-intro-text text-white">
+                    Select a convenient service and time. Our team will contact you within 2 business hours to verify your details and lock in your consultation.
+                </p>
+                
+                <div class="contact-details-list">
+                    <div class="contact-info-item">
+                        <span class="contact-info-icon">📍</span>
+                        <div>
+                            <h4 class="contact-item-title text-white">Clinic Location</h4>
+                            <p class="text-white-dim">742 Evergreen Terrace, Suite 100, Springfield</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-icon">📞</span>
+                        <div>
+                            <h4 class="contact-item-title text-white">Direct Line</h4>
+                            <p class="text-white-dim">+1 (800) 234-5789</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-icon">✉️</span>
+                        <div>
+                            <h4 class="contact-item-title text-white">Email Address</h4>
+                            <p class="text-white-dim">care@drsarahjenkins.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-icon">🕒</span>
+                        <div>
+                            <h4 class="contact-item-title text-white">Clinic Hours</h4>
+                            <p class="text-white-dim">Mon - Fri: 8:00 AM - 5:00 PM | Sat: By appointment only</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="booking-form-column">
+                <form class="booking-form" id="booking-form" novalidate>
+                    <h3 class="form-title">Consultation Request Form</h3>
+                    
+                    <!-- Form Row 1 -->
+                    <div class="form-group">
+                        <label for="booking-name" class="form-label">Full Name</label>
+                        <input type="text" id="booking-name" class="form-input" placeholder="e.g. John Doe" required>
+                        <span class="error-msg" id="name-error">Please enter your name.</span>
+                    </div>
+
+                    <!-- Form Row 2 -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-email" class="form-label">Email Address</label>
+                            <input type="email" id="booking-email" class="form-input" placeholder="e.g. john@example.com" required>
+                            <span class="error-msg" id="email-error">Please enter a valid email.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="booking-phone" class="form-input" placeholder="e.g. (555) 000-0000" required>
+                            <span class="error-msg" id="phone-error">Please enter a valid phone number.</span>
+                        </div>
+                    </div>
+
+                    <!-- Form Row 3 -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-service" class="form-label">Select Service</label>
+                            <select id="booking-service" class="form-select" required>
+                                <option value="" disabled selected>Choose a Service...</option>
+                                <option value="primary-care">Comprehensive Primary Care</option>
+                                <option value="preventive">Preventive Health & Wellness</option>
+                                <option value="aesthetics">Aesthetics & Skin Consultation</option>
+                                <option value="pediatrics">Family Medicine & Pediatrics</option>
+                            </select>
+                            <span class="error-msg" id="service-error">Please select a service.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="booking-type" class="form-label">Appointment Type</label>
+                            <select id="booking-type" class="form-select" required>
+                                <option value="in-person" selected>In-Person Visit</option>
+                                <option value="telehealth">Telehealth / Virtual Visit</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Form Row 4 (Interactive Date/Time Slot selection) -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-date" class="form-label">Preferred Date</label>
+                            <input type="date" id="booking-date" class="form-input" required>
+                            <span class="error-msg" id="date-error">Please select a future date.</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred Time Slot</label>
+                            <div class="time-slots-container" id="time-slots">
+                                <button type="button" class="time-slot-btn" data-time="09:00 AM">09:00 AM</button>
+                                <button type="button" class="time-slot-btn" data-time="11:00 AM">11:00 AM</button>
+                                <button type="button" class="time-slot-btn" data-time="02:00 PM">02:00 PM</button>
+                                <button type="button" class="time-slot-btn" data-time="04:00 PM">04:00 PM</button>
+                            </div>
+                            <input type="hidden" id="booking-time" required>
+                            <span class="error-msg" id="time-error">Please select a time slot.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="booking-notes" class="form-label">Additional Health Notes (Optional)</label>
+                        <textarea id="booking-notes" class="form-textarea" rows="3" placeholder="Briefly describe what you'd like to address..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit-btn">Request Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand-column">
+                <a href="#" class="logo footer-logo">
+                    <span class="logo-prefix">Dr. Sarah</span>
+                    <span class="logo-suffix">Jenkins</span>
+                </a>
+                <p class="footer-desc">
+                    High-quality boutique family medicine and skin care delivered in a dedicated patient-first model.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link-icon" aria-label="LinkedIn">💼</a>
+                    <a href="#" class="social-link-icon" aria-label="Instagram">📸</a>
+                    <a href="#" class="social-link-icon" aria-label="Facebook">👥</a>
+                </div>
+            </div>
+            
+            <div class="footer-links-column">
+                <h4 class="footer-column-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">Meet Dr. Sarah</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#quiz-section">Wellness Assessment</a></li>
+                    <li><a href="#testimonials">Patient Reviews</a></li>
+                    <li><a href="#faqs">Common FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-disclaimer-column">
+                <h4 class="footer-column-title">Medical Disclaimer</h4>
+                <p class="disclaimer-text">
+                    The information provided on this website is for educational and informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult with Dr. Jenkins or another qualified health provider regarding medical conditions.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <p>&copy; 2026 Dr. Sarah Jenkins, MD. All rights reserved. Professional solo medical practice.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Confirmation Success Modal -->
+    <div class="modal-overlay" id="success-modal" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-icon">✓</div>
+            <h3 class="modal-title">Consultation Request Received!</h3>
+            <p class="modal-desc">
+                Thank you for reaching out, <span id="conf-patient-name" class="highlight-bold">Patient</span>. Dr. Jenkins' team has temporarily reserved your slot for:
+            </p>
+            <div class="confirmation-summary-box">
+                <p><strong>Service:</strong> <span id="conf-service">Preventive Care</span></p>
+                <p><strong>Date/Time:</strong> <span id="conf-datetime">July 10, 2026 at 11:00 AM</span></p>
+                <p><strong>Type:</strong> <span id="conf-type">In-Person Visit</span></p>
+            </div>
+            <p class="modal-footer-text">
+                We will text or call you at <span id="conf-phone">your number</span> within 2 business hours to finalize registration.
+            </p>
+            <button type="button" class="btn btn-primary modal-close-btn" id="close-modal-btn">Awesome, Thank You!</button>
+        </div>
+    </div>
+
+    <!-- Floating Sticky Contact Bar for Mobile Devices -->
+    <div class="floating-mobile-bar" id="mobile-bar">
+        <a href="tel:8002345678" class="mobile-bar-action bar-call">
+            <span class="bar-icon">📞</span>
+            <span>Call Practice</span>
+        </a>
+        <a href="#booking" class="mobile-bar-action bar-book">
+            <span class="bar-icon">📅</span>
+            <span>Book Now</span>
+        </a>
+    </div>
+
+    <!-- Javascript Actions -->
+    <script src="app.js"></script>
+</body>
+</html>

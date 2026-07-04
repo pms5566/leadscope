@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preeti Agrawal Jewelry | Ethereal Crystal & Gemstone Luxury Kathmandu</title>
+  <meta name="description" content="Discover premium handcrafted crystal and gemstone jewelry by Preeti Agrawal. Designed in Kathmandu, Nepal. Featured in US Wedding Magazines and worn by celebrities.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 1. Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="ticker">
+      <span>✦ Free shipping on orders above NPR 2000 ✦</span>
+      <span>✦ Handcrafted in Kathmandu, Nepal ✦</span>
+      <span>✦ Featured in US Wedding Magazine ✦</span>
+      <span>✦ Worn by Miss Nepal Winners ✦</span>
+    </div>
+  </div>
+
+  <!-- 2. Sticky Navigation Header -->
+  <div class="header-wrapper">
+    <header class="nav-container">
+      
+      <!-- Nav Left: Categories Menu -->
+      <nav class="nav-left">
+        <a href="#collections" class="nav-link">Collections</a>
+        <a href="#stones" class="nav-link">Shop by Stone</a>
+        <a href="#story" class="nav-link">Our Story</a>
+      </nav>
+
+      <!-- Mobile toggle menu icon -->
+      <button class="nav-icon-btn mobile-toggle" aria-label="Toggle Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+
+      <!-- Nav Center: Logo -->
+      <div class="nav-center">
+        <a href="#" class="logo">
+          Preeti Agrawal
+          <span>Luxury Jewelry</span>
+        </a>
+      </div>
+
+      <!-- Nav Right: Action Icons -->
+      <div class="nav-right">
+        <!-- Search Button -->
+        <button class="nav-icon-btn" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+          </svg>
+        </button>
+        
+        <!-- Wishlist Button -->
+        <button class="nav-icon-btn" aria-label="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <span class="badge-count" id="wishlist-badge" style="display: none;">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="nav-icon-btn" aria-label="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
+          </svg>
+          <span class="badge-count" id="cart-badge" style="display: none;">0</span>
+        </button>
+      </div>
+
+    </header>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay">
+    <button class="close-menu-btn" aria-label="Close Menu">&times;</button>
+    <a href="#collections" class="mobile-menu-link">Collections</a>
+    <a href="#stones" class="mobile-menu-link">Shop by Stone</a>
+    <a href="#story" class="mobile-menu-link">Our Story</a>
+    <a href="#testimonials" class="mobile-menu-link">Testimonials</a>
+  </div>
+
+  <!-- 3. Hero Section (Full-bleed, Shimmer, Twinkle Particles) -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: url('assets/hero_banner.png');"></div>
+    <div class="hero-overlay"></div>
+    
+    <!-- Sparkles Grid Background -->
+    <div class="sparkles-container">
+      <div class="sparkle" style="top: 15%; left: 20%; width: 6px; height: 6px; animation-delay: 0s;"></div>
+      <div class="sparkle" style="top: 40%; left: 75%; width: 4px; height: 4px; animation-delay: 1.5s;"></div>
+      <div class="sparkle" style="top: 70%; left: 15%; width: 5px; height: 5px; animation-delay: 0.8s;"></div>
+      <div class="sparkle" style="top: 25%; left: 85%; width: 7px; height: 7px; animation-delay: 2.2s;"></div>
+      <div class="sparkle" style="top: 60%; left: 50%; width: 4px; height: 4px; animation-delay: 3s;"></div>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-subtitle">Kathmandu's Finest Atelier</span>
+      <h1 class="hero-title">Ethereal Crystals & <em>Premium Gemstones</em></h1>
+      <p class="hero-desc">Indulge in spiritual luxury with handcrafted jewelry worn by Miss Nepal winners and featured in elite US wedding publications.</p>
+      <div class="hero-ctas">
+        <a href="#collections" class="btn btn-gold">Shop Collection</a>
+        <a href="#story" class="btn btn-outline">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Category Pill Filter + Product Grid -->
+  <section id="collections" class="products-section section-padding reveal">
+    <div class="section-header">
+      <span class="section-subtitle">Exquisite Handcrafts</span>
+      <h2 class="section-title">The Signature Collection</h2>
+      <p class="section-desc">Each crystal is hand-selected for its metaphysical healing properties and set in gold with absolute precision by master craftsmen in Kathmandu.</p>
+    </div>
+
+    <!-- Category Pill Filter Tabs -->
+    <div class="filter-row">
+      <button class="filter-pill active" data-category="all">All Pieces</button>
+      <button class="filter-pill" data-category="rings">Rings</button>
+      <button class="filter-pill" data-category="earrings">Earrings</button>
+      <button class="filter-pill" data-category="necklaces">Necklaces</button>
+      <button class="filter-pill" data-category="bracelets">Bracelets</button>
+      <button class="filter-pill" data-category="pendants">Pendants</button>
+      <button class="filter-pill" data-category="brooches">Brooches</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+      
+      <!-- Product 1: Citrine Ring -->
+      <div class="product-card" data-category="rings" data-id="ring-1">
+        <div class="product-image-container">
+          <span class="product-badge badge-bestseller">Best Seller</span>
+          <img src="assets/product_ring.png" alt="Aurelia Citrine Ring" class="product-image" loading="lazy">
+          <button class="wishlist-btn" aria-label="Add to Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="product-info">
+          <span class="product-stone">Citrine (Abundance)</span>
+          <h3 class="product-title">Aurelia Citrine Ring</h3>
+          
+          <div class="product-desc-container">
+            <p class="product-desc-text">Handcrafted 18K yellow gold band holding a radiant oval-cut Himalayan Citrine.</p>
+            <p class="product-benefit-text" style="display: none;">✦ Invites wealth, success, and positive solar energy. Aligns the Solar Plexus Chakra.</p>
+          </div>
+          <button class="benefit-toggle-btn" aria-label="Toggle Benefits">Show Healing Aura</button>
+
+          <span class="product-price">NPR 18,500</span>
+        </div>
+      </div>
+
+      <!-- Product 2: Tourmaline Earrings -->
+      <div class="product-card" data-category="earrings" data-id="earring-1">
+        <div class="product-image-container">
+          <span class="product-badge badge-new">New Launch</span>
+          <img src="assets/product_earrings.png" alt="Elysian Tourmaline Drop Earrings" class="product-image" loading="lazy">
+          <button class="wishlist-btn" aria-label="Add to Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="product-info">
+          <span class="product-stone">Tourmaline (Protection)</span>
+          <h3 class="product-title">Elysian Drop Earrings</h3>
+          
+          <div class="product-desc-container">
+            <p class="product-desc-text">Intricate watermelon tourmaline droplets hanging from delicate filigree threads.</p>
+            <p class="product-benefit-text" style="display: none;">✦ Provides energetic grounding, shielding from negativity, and emotional balance.</p>
+          </div>
+          <button class="benefit-toggle-btn" aria-label="Toggle Benefits">Show Healing Aura</button>
+
+          <span class="product-price">NPR 24,000</span>
+        </div>
+      </div>
+
+      <!-- Product 3: Ruby Necklace -->
+      <div class="product-card" data-category="necklaces" data-id="necklace-1">
+        <div class="product-image-container">
+          <span class="product-badge badge-rare">Rare Find</span>
+          <img src="assets/product_necklace.png" alt="Imperial Ruby Pendant Necklace" class="product-image" loading="lazy">
+          <button class="wishlist-btn" aria-label="Add to Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="product-info">
+          <span class="product-stone">Ruby (Passion & Vitality)</span>
+          <h3 class="product-title">Imperial Ruby Pendant</h3>
+          
+          <div class="product-desc-container">
+            <p class="product-desc-text">Deep red natural ruby set in an ornate vintage-style crown pendant.</p>
+            <p class="product-benefit-text" style="display: none;">✦ Amplifies life-force energy, passion, courage, and root chakra grounding.</p>
+          </div>
+          <button class="benefit-toggle-btn" aria-label="Toggle Benefits">Show Healing Aura</button>
+
+          <span class="product-price">NPR 45,000</span>
+        </div>
+      </div>
+
+      <!-- Product 4: Amazonite Bracelet -->
+      <div class="product-card" data-category="bracelets" data-id="bracelet-1">
+        <div class="product-image-container">
+          <span class="product-badge badge-bestseller">Best Seller</span>
+          <img src="assets/product_bracelet.png" alt="Serene Amazonite Bead Bracelet" class="product-image" loading="lazy">
+          <button class="wishlist-btn" aria-label="Add to Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="product-info">
+          <span class="product-stone">Amazonite (Calm & Courage)</span>
+          <h3 class="product-title">Serene Beaded Bracelet</h3>
+          
+          <div class="product-desc-container">
+            <p class="product-desc-text">Double-strung polished amazonite beads punctuated by 14K gold spacer rings.</p>
+            <p class="product-benefit-text" style="display: none;">✦ Disperses worry, balances throat chakra expression, and calms the nervous system.</p>
+          </div>
+          <button class="benefit-toggle-btn" aria-label="Toggle Benefits">Show Healing Aura</button>
+
+          <span class="product-price">NPR 15,200</span>
+        </div>
+      </div>
+
+      <!-- Product 5: Amethyst Pendant -->
+      <div class="product-card" data-category="pendants" data-id="pendant-1">
+        <div class="product-image-container">
+          <span class="product-badge badge-spiritual">High Vibe</span>
+          <img src="assets/product_pendant.png" alt="Ethereal Amethyst Wire-Wrapped Pendant" class="product-image" loading="lazy">
+          <button class="wishlist-btn" aria-label="Add to Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="product-info">
+          <span class="product-stone">Amethyst (Inner Peace)</span>
+          <h3 class="product-title">Raw Amethyst Wire Pendant</h3>
+          
+          <div class="product-desc-container">
+            <p class="product-desc-text">A rough-cut, high-clarity amethyst crystal point hand-wrapped in gold wire.</p>
+            <p class="product-benefit-text" style="display: none;">✦ Clears the mind, enhances intuition, and stimulates the crown chakra for peace.</p>
+          </div>
+          <button class="benefit-toggle-btn" aria-label="Toggle Benefits">Show Healing Aura</button>
+
+          <span class="product-price">NPR 19,800</span>
+        </div>
+      </div>
+
+      <!-- Product 6: Uvarovite Brooch -->
+      <div class="product-card" data-category="brooches" data-id="brooch-1">
+        <div class="product-image-container">
+          <span class="product-badge badge-rare">Rare Find</span>
+          <img src="assets/product_brooch.png" alt="Glittering Uvarovite Crystal Brooch" class="product-image" loading="lazy">
+          <button class="wishlist-btn" aria-label="Add to Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+          <button class="quick-add-btn">Quick Add</button>
+        </div>
+        <div class="product-info">
+          <span class="product-stone">Uvarovite (Prosperity)</span>
+          <h3 class="product-title">Glittering Uvarovite Brooch</h3>
+          
+          <div class="product-desc-container">
+            <p class="product-desc-text">A rare green garnet druzy cluster brooch accented with gold leafing details.</p>
+            <p class="product-benefit-text" style="display: none;">✦ Manifests material abundance, promotes spiritual growth, and opens heart chakra.</p>
+          </div>
+          <button class="benefit-toggle-btn" aria-label="Toggle Benefits">Show Healing Aura</button>
+
+          <span class="product-price">NPR 28,500</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. Shop by Stone Section (Circular gemstone gradients) -->
+  <section id="stones" class="stones-section section-padding reveal">
+    <div class="section-header">
+      <span class="section-subtitle">Chakra & Crystal Guides</span>
+      <h2 class="section-title">Shop by Gemstone</h2>
+      <p class="section-desc">Filter your search based on the vibrational frequency and cosmic benefits of each hand-picked Himalayan gemstone.</p>
+    </div>
+
+    <div class="stone-grid">
+      
+      <!-- Citrine -->
+      <div class="stone-card">
+        <div class="stone-sphere-wrapper">
+          <div class="stone-sphere stone-citrine"></div>
+        </div>
+        <h3 class="stone-name">Citrine</h3>
+        <span class="stone-properties">Abundance & Joy</span>
+      </div>
+
+      <!-- Ruby -->
+      <div class="stone-card">
+        <div class="stone-sphere-wrapper">
+          <div class="stone-sphere stone-ruby"></div>
+        </div>
+        <h3 class="stone-name">Ruby</h3>
+        <span class="stone-properties">Strength & Passion</span>
+      </div>
+
+      <!-- Tourmaline -->
+      <div class="stone-card">
+        <div class="stone-sphere-wrapper">
+          <div class="stone-sphere stone-tourmaline"></div>
+        </div>
+        <h3 class="stone-name">Tourmaline</h3>
+        <span class="stone-properties">Grounding & Shielding</span>
+      </div>
+
+      <!-- Amazonite -->
+      <div class="stone-card">
+        <div class="stone-sphere-wrapper">
+          <div class="stone-sphere stone-amazonite"></div>
+        </div>
+        <h3 class="stone-name">Amazonite</h3>
+        <span class="stone-properties">Calm & Harmony</span>
+      </div>
+
+      <!-- Amethyst -->
+      <div class="stone-card">
+        <div class="stone-sphere-wrapper">
+          <div class="stone-sphere stone-amethyst"></div>
+        </div>
+        <h3 class="stone-name">Amethyst</h3>
+        <span class="stone-properties">Intuition & Peace</span>
+      </div>
+
+      <!-- Uvarovite -->
+      <div class="stone-card">
+        <div class="stone-sphere-wrapper">
+          <div class="stone-sphere stone-uvarovite"></div>
+        </div>
+        <h3 class="stone-name">Uvarovite</h3>
+        <span class="stone-properties">Wealth & Growth</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. Brand Story Strip (2-col layout) -->
+  <section id="story" class="story-section section-padding reveal">
+    <div class="story-container">
+      
+      <div class="story-content">
+        <span class="story-subtitle">Our Heritage</span>
+        <h2 class="story-title">Crafted with Soul in the <em>Hills of Kathmandu</em></h2>
+        <p class="story-text">Preeti Agrawal Jewelry blends ancient spiritual methodologies with luxurious modern craftsmanship. Born in the heart of Kathmandu, Nepal, our brand selects rare crystals and healing gemstones, honoring their geological origins and esoteric qualities.</p>
+        <p class="story-text">Every piece is hand-wrought by heritage Nepalese Newar silversmiths, keeping a historic, centuries-old art form alive. We transform minerals into fine high-end jewelry that is as spiritually balancing as it is physically breathtaking.</p>
+        
+        <div class="story-signature">
+          Preeti Agrawal
+          <span>Founder & Creative Director</span>
+        </div>
+      </div>
+
+      <div class="story-image-wrapper">
+        <img src="assets/brand_story.png" alt="Preeti Agrawal Jewelry studio workshop in Kathmandu" class="story-image" loading="lazy">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. As Seen On / Media Strip -->
+  <section class="media-section">
+    <div class="media-container">
+      <span class="media-label">As Featured In</span>
+      <div class="media-strip">
+        <div class="media-logo logo-bold">US Wedding</div>
+        <div class="media-logo logo-italic">Vogue Nepal</div>
+        <div class="media-logo logo-bold">Miss Nepal Pageant</div>
+        <div class="media-logo logo-italic">Celebrity Bride</div>
+        <div class="media-logo logo-bold">Harpers Bazaar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Testimonials Section (Carousel on mobile) -->
+  <section id="testimonials" class="testimonials-section section-padding reveal">
+    <div class="section-header">
+      <span class="section-subtitle">Vows & Appreciations</span>
+      <h2 class="section-title">The Brand Devotion</h2>
+      <p class="section-desc">Read reviews from our luxury patrons, modern brides, and celebrities who wear Preeti Agrawal pieces to bring cosmic light to their daily lives.</p>
+    </div>
+
+    <div class="testimonials-wrapper">
+      <div class="testimonials-slider">
+        
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">The Citrine Aurelia ring is breathtaking. The crystal glows with such a warm energy, and the detail of the gold filigree work speaks volumes of the Kathmandu craftsmanship. Truly luxury with a soul.</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar-wrapper">
+              <img src="assets/product_ring.png" alt="Anya Sharma" class="testimonial-avatar">
+            </div>
+            <div class="testimonial-info-block">
+              <span class="testimonial-name">Anya Sharma</span>
+              <span class="testimonial-title">Kathmandu Boutique Patron</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">I wore Preeti Agrawal's custom Emerald and Uvarovite brooch for my wedding in California, featured in US Wedding Magazine. It received endless compliments and became an instant heirloom.</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar-wrapper">
+              <img src="assets/product_brooch.png" alt="Evelyn K." class="testimonial-avatar">
+            </div>
+            <div class="testimonial-info-block">
+              <span class="testimonial-name">Evelyn K.</span>
+              <span class="testimonial-title">US Wedding Magazine Bride</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-rating">★★★★★</div>
+            <p class="testimonial-quote">As a Miss Nepal contestant, I wore the raw tourmaline drop earrings. Not only did they look majestic on stage, but the grounding energy of the stone kept me perfectly centered throughout.</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar-wrapper">
+              <img src="assets/product_earrings.png" alt="Shristi S." class="testimonial-avatar">
+            </div>
+            <div class="testimonial-info-block">
+              <span class="testimonial-name">Shristi Shrestha</span>
+              <span class="testimonial-title">Miss Nepal Contestant</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Dots indicator shown only on mobile -->
+      <div class="testimonial-dots"></div>
+    </div>
+  </section>
+
+  <!-- 9. Instagram Grid -->
+  <section class="instagram-section section-padding reveal">
+    <div class="section-header">
+      <span class="section-subtitle">Visual Devotion</span>
+      <h2 class="section-title">Follow @preetiagrawal</h2>
+      <p class="section-desc">Step into our ethereal dreamscape. Tag us wearing your crystals for a chance to be featured in our seasonal lookbook.</p>
+    </div>
+
+    <div class="instagram-grid">
+      
+      <div class="instagram-item">
+        <img src="assets/product_ring.png" alt="Instagram jewelry grid image" class="instagram-img" loading="lazy">
+        <div class="instagram-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <div class="instagram-stats">
+            <span>❤ 1.2k</span>
+            <span>💬 45</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="instagram-item">
+        <img src="assets/product_earrings.png" alt="Instagram jewelry grid image" class="instagram-img" loading="lazy">
+        <div class="instagram-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <div class="instagram-stats">
+            <span>❤ 890</span>
+            <span>💬 28</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="instagram-item">
+        <img src="assets/brand_story.png" alt="Instagram jewelry grid image" class="instagram-img" loading="lazy">
+        <div class="instagram-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <div class="instagram-stats">
+            <span>❤ 2.3k</span>
+            <span>💬 92</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="instagram-item">
+        <img src="assets/product_necklace.png" alt="Instagram jewelry grid image" class="instagram-img" loading="lazy">
+        <div class="instagram-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <div class="instagram-stats">
+            <span>❤ 1.5k</span>
+            <span>💬 39</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="instagram-item">
+        <img src="assets/product_pendant.png" alt="Instagram jewelry grid image" class="instagram-img" loading="lazy">
+        <div class="instagram-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <div class="instagram-stats">
+            <span>❤ 1.9k</span>
+            <span>💬 64</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="instagram-item">
+        <img src="assets/product_brooch.png" alt="Instagram jewelry grid image" class="instagram-img" loading="lazy">
+        <div class="instagram-overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+          <div class="instagram-stats">
+            <span>❤ 980</span>
+            <span>💬 15</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="instagram-cta-wrapper">
+      <a href="https://instagram.com/preetiagrawal" target="_blank" rel="noopener noreferrer" class="instagram-btn">Follow @preetiagrawal</a>
+    </div>
+  </section>
+
+  <!-- 10. Trust Badges Row -->
+  <section class="trust-section">
+    <div class="trust-container">
+      
+      <!-- Badge 1: Nepal craft -->
+      <div class="trust-badge">
+        <div class="trust-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0110.5 21a3.745 3.745 0 01-3.297-1.593 3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0110.5 3c1.251 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+          </svg>
+        </div>
+        <h3 class="trust-title">Handcrafted in Nepal</h3>
+        <p class="trust-desc">Each piece is individually forged in Kathmandu by generation-spanning master Newar artisans.</p>
+      </div>
+
+      <!-- Badge 2: Crystal properties -->
+      <div class="trust-badge">
+        <div class="trust-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25V4.5m0 15v2.25m6.75-11.25h-2.25m-9 0H3.75m14.43-6.93l-1.59 1.59m-9.68 9.68l-1.59 1.59m12.86 0l-1.59-1.59m-9.68-9.68l-1.59-1.59" />
+          </svg>
+        </div>
+        <h3 class="trust-title">Healing Properties</h3>
+        <p class="trust-desc">Vibrational frequencies chosen to invite success, protection, emotional balance, and spiritual growth.</p>
+      </div>
+
+      <!-- Badge 3: Int Shipping -->
+      <div class="trust-badge">
+        <div class="trust-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.003 9.003 0 008.367-5.633l-2.02-2.02A6.978 6.978 0 0012 15a6.981 6.981 0 00-4.633-1.747l-2.02 2.02A9.003 9.003 0 0012 21zm0-18a9.003 9.003 0 00-8.367 5.633l2.02 2.02A6.978 6.978 0 0012 9c1.724 0 3.287-.623 4.5-1.657l2.02-2.02A9.003 9.003 0 0012 3z" />
+          </svg>
+        </div>
+        <h3 class="trust-title">Worldwide Shipping</h3>
+        <p class="trust-desc">Secure, insured global priority courier shipping from Nepal straight to your doorstep.</p>
+      </div>
+
+      <!-- Badge 4: Celeb Approved -->
+      <div class="trust-badge">
+        <div class="trust-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c.15-.429.83-.429.98 0l2.035 5.789a.5.5 0 00.476.342h6.14c.459 0 .647.58.283.856l-4.97 3.774a.5.5 0 00-.182.56l1.894 5.792c.142.435-.353.79-.696.52l-4.97-3.775a.5.5 0 00-.58 0l-4.97 3.775c-.343.27-.837-.085-.696-.52l1.893-5.793a.5.5 0 00-.182-.56l-4.97-3.774c-.364-.276-.176-.856.283-.856h6.14a.5.5 0 00.476-.342L11.48 3.5z" />
+          </svg>
+        </div>
+        <h3 class="trust-title">Celebrity Approved</h3>
+        <p class="trust-desc">Worn on red carpets, pageants, and high-fashion spreads by Miss Nepal winners and global celebrities.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. Newsletter Signup (Soft velvet card) -->
+  <section class="newsletter-section section-padding reveal">
+    <div class="newsletter-card">
+      <h2 class="newsletter-title">Join The Inner Circle</h2>
+      <p class="newsletter-desc">Subscribe to receive early releases, crystal vibrational guides, and exclusive invitations to private Kathmandu showroom events.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to our luxury newsletter.');">
+        <input type="email" placeholder="Your Email Address" class="newsletter-input" required>
+        <button type="submit" class="newsletter-submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 12. Footer -->
+  <footer class="footer">
+    
+    <div class="footer-container">
+      
+      <!-- Footer Brand Column -->
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          Preeti Agrawal
+          <span>Luxury Jewelry</span>
+        </a>
+        <p class="footer-desc">Crafting high-vibrational gemstone and crystal jewelry infused with heritage craftsmanship in Kathmandu, Nepal.</p>
+        
+        <!-- Socials icons -->
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="footer-social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+          </a>
+          <a href="#" class="footer-social-btn" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.162 0 7.396 2.967 7.396 6.93 0 4.135-2.607 7.462-6.227 7.462-1.216 0-2.359-.631-2.75-1.378l-.75 2.855c-.271 1.033-1.002 2.329-1.492 3.128 1.123.347 2.316.535 3.551.535 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Column 1 -->
+      <div>
+        <h4 class="footer-title">Collections</h4>
+        <ul class="footer-links">
+          <li><a href="#collections">All Jewelry</a></li>
+          <li><a href="#collections">Rings & Brooches</a></li>
+          <li><a href="#collections">Elysian Earrings</a></li>
+          <li><a href="#collections">Gemstone Necklaces</a></li>
+          <li><a href="#collections">Metaphysical Pendants</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2 -->
+      <div>
+        <h4 class="footer-title">House of Preeti</h4>
+        <ul class="footer-links">
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#story">Kathmandu Workshop</a></li>
+          <li><a href="#testimonials">Press & Placements</a></li>
+          <li><a href="#story">Sourcing Ethics</a></li>
+          <li><a href="#collections">Vibrational Healing</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Column -->
+      <div>
+        <h4 class="footer-title">Nepal Atelier</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+            <span>Level 3, Heritage Plaza II, Kathmandu, Nepal</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.802-5.122-4.1-6.924-6.924l1.293-.97a1.125 1.125 0 00.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+            <span>+977 1 4410292</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            <span>atelier@preetiagrawal.com</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Preeti Agrawal Jewelry. All Rights Reserved. Crafted in Kathmandu, Nepal.</p>
+      
+      <!-- Payment options (simple credit card icons represented by text/SVG outlines) -->
+      <div class="footer-payment-icons">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- 13. Cart Drawer Overlay & Sidebar -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h2 class="cart-drawer-title">Shopping Cart (<span id="cart-drawer-count">0</span>)</h2>
+      <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Close Cart">&times;</button>
+    </div>
+    
+    <!-- Tiered Rewards Progress Bar -->
+    <div class="cart-rewards-container">
+      <p class="cart-rewards-message" id="cart-rewards-message">Add items to unlock Free Shipping & Gifts!</p>
+      <div class="cart-rewards-progress-wrapper">
+        <div class="cart-rewards-progress-bar" id="cart-rewards-progress-bar" style="width: 0%"></div>
+        <div class="cart-rewards-milestone milestone-1" data-label="NPR 2k: Free Shipping"></div>
+        <div class="cart-rewards-milestone milestone-2" data-label="NPR 25k: Silk Pouch"></div>
+        <div class="cart-rewards-milestone milestone-3" data-label="NPR 45k: Selenite Plate"></div>
+      </div>
+      <div class="cart-rewards-labels">
+        <span>NPR 2,000</span>
+        <span>NPR 25,000</span>
+        <span>NPR 45,000</span>
+      </div>
+    </div>
+
+    <!-- Cart Items Scrollable List -->
+    <div class="cart-drawer-body">
+      <div class="cart-empty-message" id="cart-empty-message">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="48" height="48" style="stroke-width: 1.5; color: var(--gold-accent); margin-bottom: 15px;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
+        </svg>
+        <p>Your jewelry chest is empty.</p>
+        <button class="btn btn-gold cart-close-shop-btn" id="cart-close-shop-btn" style="margin-top: 20px; padding: 12px 24px; font-size: 0.75rem;">Browse Collection</button>
+      </div>
+      
+      <div class="cart-items-list" id="cart-items-list">
+        <!-- Dynamically loaded via JS -->
+      </div>
+      
+      <!-- Cart Drawer Upsell / Cross-sell (Foxtale inspired) -->
+      <div class="cart-upsell-container" id="cart-upsell-container" style="display: none;">
+        <h4 class="cart-upsell-title">Complete the Cosmic Set</h4>
+        <div class="cart-upsell-row" id="cart-upsell-row">
+          <!-- Dynamically loaded via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Footer (Checkout & Subtotal) -->
+    <div class="cart-drawer-footer" id="cart-drawer-footer" style="display: none;">
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <span class="cart-subtotal-price" id="cart-subtotal-price">NPR 0</span>
+      </div>
+      <p class="cart-footer-note">Free worldwide shipping & duties calculated at checkout.</p>
+      
+      <button class="btn btn-gold cart-checkout-btn" id="cart-checkout-btn" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 10px;">
+        Secure Checkout
+        <span class="checkout-icons" style="display: flex; gap: 5px; opacity: 0.8; margin-left: 5px;">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" style="stroke-width: 1.5;"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 14. Quick Variant Modal (Ring Size / Gold Type) -->
+  <div class="variant-modal-overlay" id="variant-modal-overlay"></div>
+  <div class="variant-modal" id="variant-modal">
+    <button class="variant-modal-close" id="variant-modal-close" aria-label="Close Modal">&times;</button>
+    <div class="variant-modal-content">
+      <div class="variant-modal-left">
+        <img src="assets/product_ring.png" alt="Product Image" id="variant-modal-img" class="variant-modal-img">
+      </div>
+      <div class="variant-modal-right">
+        <span class="variant-modal-stone" id="variant-modal-stone">Citrine (Abundance)</span>
+        <h3 class="variant-modal-title" id="variant-modal-title">Aurelia Citrine Ring</h3>
+        <p class="variant-modal-price" id="variant-modal-price">NPR 18,500</p>
+        <p class="variant-modal-properties" id="variant-modal-properties">Attracts abundance & joy. Aligns solar plexus chakra.</p>
+        
+        <form id="variant-form" class="variant-form">
+          <!-- Size Option (Shown dynamically based on product) -->
+          <div class="variant-option-group" id="size-option-group">
+            <label class="variant-option-label" id="size-option-label">Select Size</label>
+            <div class="variant-pills" id="size-pills-container">
+              <!-- Dynamically populated sizes -->
+            </div>
+          </div>
+          
+          <!-- Metal Purity Option -->
+          <div class="variant-option-group">
+            <label class="variant-option-label">Metal & Finish</label>
+            <div class="variant-pills" id="metal-pills-container">
+              <button type="button" class="variant-pill active" data-value="18K Yellow Gold">18K Yellow Gold</button>
+              <button type="button" class="variant-pill" data-value="14K Rose Gold">14K Rose Gold</button>
+              <button type="button" class="variant-pill" data-value="Sterling Silver">Sterling Silver</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gold variant-submit-btn" style="width: 100%; margin-top: 15px;">Add to Chest</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. Mobile Sticky Bottom Purchase Bar -->
+  <div class="sticky-purchase-bar" id="sticky-purchase-bar">
+    <div class="sticky-purchase-container">
+      <div class="sticky-purchase-info">
+        <img src="assets/product_ring.png" alt="Current Product" class="sticky-purchase-thumb" id="sticky-purchase-thumb">
+        <div class="sticky-purchase-details">
+          <span class="sticky-purchase-name" id="sticky-purchase-name">Aurelia Citrine Ring</span>
+          <span class="sticky-purchase-price" id="sticky-purchase-price">NPR 18,500</span>
+        </div>
+      </div>
+      <button class="btn btn-gold sticky-purchase-btn" id="sticky-purchase-btn" style="padding: 10px 20px; font-size: 0.75rem;">Quick Add</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

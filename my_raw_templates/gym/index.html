@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BULL GYM - Forge Ahead, Stay Focused</title>
+  <meta name="description" content="Welcome to Bull Gym. Unleash your inner strength with certified elite coaches, state-of-the-art facilities, and premium custom training plans.">
+  
+  <!-- Curated Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome v6 for premium icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Vanilla CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Custom Alert Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- FIXED HEADER / NAVIGATION -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="#hero" class="logo-link" id="nav-logo">
+        <div class="logo-icon">
+          <img src="assets/logo.svg" alt="Bull Gym Logo">
+        </div>
+        <span class="logo-text">BULL<span>GYM</span></span>
+      </a>
+
+      <!-- Pill Desktop Navigation -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#trainers" class="nav-link">Trainers</a>
+        <a href="#pricing" class="nav-link">Membership</a>
+        <a href="#stories" class="nav-link">Success Stories</a>
+        <a href="#contact" class="nav-link">Location</a>
+      </nav>
+
+      <!-- CTA and Menu Toggle -->
+      <div class="nav-actions">
+        <a href="#pricing" class="btn btn-outline nav-link active-accent">Get Pass</a>
+        <button class="burger-menu-btn" id="burger-menu" aria-label="Toggle Navigation Menu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE SIDEBAR -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <aside class="sidebar" id="sidebar" aria-label="Mobile Navigation">
+    <a href="#hero" class="sidebar-link active">Home</a>
+    <a href="#trainers" class="sidebar-link">Trainers</a>
+    <a href="#pricing" class="sidebar-link">Membership</a>
+    <a href="#stories" class="sidebar-link">Success Stories</a>
+    <a href="#contact" class="sidebar-link">Location</a>
+    <a href="#pricing" class="btn btn-primary" style="margin-top: 20px;">Claim Free Trial</a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="hero-bg-container">
+        <img class="hero-bg-image" src="assets/hero-bg.png" alt="Bull Gym training floor showing athlete lifter">
+        <div class="hero-overlay"></div>
+      </div>
+      
+      <div class="container">
+        <div class="hero-content reveal-left">
+          <!-- Small Accent Badge -->
+          <div class="hero-meta">
+            <span class="hero-meta-dot"></span>
+            <span class="hero-meta-text">LIVE AT THE IRON ROOM - NY</span>
+          </div>
+          
+          <!-- Large Slogan Typographies -->
+          <h1 class="hero-title">
+            <span>Forge Ahead</span>
+            <span class="text-outline">Stay Focused</span>
+            <span class="text-accent">Unleash Power</span>
+          </h1>
+          
+          <p class="hero-description">
+            Experience premium strength facilities, customized workout architectures, and elite level coaches dedicated to pushing your limits.
+          </p>
+          
+          <!-- Actions -->
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary">Join the Pack</a>
+            <a href="#trainers" class="btn btn-outline"><i class="fa-solid fa-play"></i> Meet Coaches</a>
+          </div>
+          
+          <!-- App Badges and Customer Proof -->
+          <div class="hero-badges-wrapper">
+            <div class="app-badges">
+              <div class="app-badge-btn" id="app-ios">
+                <i class="fa-brands fa-apple"></i>
+                <div class="app-badge-text">
+                  <div class="app-badge-small">Download on the</div>
+                  <div class="app-badge-large">App Store</div>
+                </div>
+              </div>
+              <div class="app-badge-btn" id="app-android">
+                <i class="fa-brands fa-google-play"></i>
+                <div class="app-badge-text">
+                  <div class="app-badge-small">Get it on</div>
+                  <div class="app-badge-large">Google Play</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="member-counter">
+              <div class="member-avatars">
+                <img class="member-avatar" src="assets/member-1.png" alt="Gym Member 1">
+                <img class="member-avatar" src="assets/member-2.png" alt="Gym Member 2">
+                <img class="member-avatar" src="assets/trainer-1.png" alt="Gym Trainer 1">
+              </div>
+              <div class="member-stats">
+                <div class="member-stats-number">24,800+</div>
+                <div class="member-stats-text">Members Transforming Daily</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PERSONAL TRAINING SECTION -->
+    <section id="trainers" class="section-padding">
+      <div class="container">
+        <span class="section-meta">Coaching Team</span>
+        <h2 class="section-title reveal">Personal Training</h2>
+        <p class="section-subtitle reveal">
+          Train with elite certified athletic instructors who will map out every rep, meal, and habit needed to hit your targets.
+        </p>
+        
+        <div class="pt-grid">
+          <!-- Trainers Showcase Grid (Left) -->
+          <div class="trainers-showcase">
+            <!-- Trainer Card 1 -->
+            <div class="trainer-card reveal-left">
+              <div class="trainer-card-bg">
+                <img src="assets/trainer-1.png" alt="Coach Marcus Vance">
+              </div>
+              <div class="trainer-card-overlay"></div>
+              <div class="trainer-card-content">
+                <span class="trainer-specialty">Strength & Hypertrophy</span>
+                <h3 class="trainer-name">Marcus Vance</h3>
+                <p class="trainer-bio">10+ years conditioning elite athletes. Certified Strength & Conditioning Specialist (CSCS).</p>
+              </div>
+            </div>
+            
+            <!-- Trainer Card 2 -->
+            <div class="trainer-card reveal-left delay-100">
+              <div class="trainer-card-bg">
+                <img src="assets/trainer-2.png" alt="Coach Serena Thorne">
+              </div>
+              <div class="trainer-card-overlay"></div>
+              <div class="trainer-card-content">
+                <span class="trainer-specialty">Nutrition & Athletic Tone</span>
+                <h3 class="trainer-name">Serena Thorne</h3>
+                <p class="trainer-bio">Tone strategist and performance nutritionist. Focused on aesthetic muscle sculpting and recovery habits.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Action Free Trial Card (Right) -->
+          <div class="trial-card reveal-right delay-200" id="trial-card">
+            <div class="trial-card-pattern">BULL</div>
+            <div class="trial-card-top">
+              <h3>Free 7-Day Trial Pass</h3>
+              <p>Experience the high-impact environment at Bull Gym with a complimentary access pass.</p>
+              
+              <div class="trial-benefits">
+                <div class="trial-benefit-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Full access to all training zones</span>
+                </div>
+                <div class="trial-benefit-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>1 Complimentary Coach Session</span>
+                </div>
+                <div class="trial-benefit-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Custom Nutrition Consultation</span>
+                </div>
+              </div>
+            </div>
+            
+            <button class="btn" id="claim-trial-btn">Claim Your Pass</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MEMBERSHIP PLANS -->
+    <section id="pricing" class="section-padding">
+      <div class="container">
+        <div class="pricing-controls reveal">
+          <span class="section-meta">Simple Pricing</span>
+          <h2 class="section-title">Membership Plans</h2>
+          <p class="section-subtitle" style="text-align: center;">
+            Choose a plan that fits your athletic lifestyle. No hidden registration fees. Cancel anytime.
+          </p>
+          
+          <!-- Monthly/Yearly Toggle -->
+          <div class="toggle-wrapper">
+            <span class="toggle-label active" id="toggle-monthly">Monthly</span>
+            <label class="switch" for="pricing-checkbox">
+              <input type="checkbox" id="pricing-checkbox" aria-label="Toggle yearly pricing discount">
+              <span class="slider"></span>
+            </label>
+            <span class="toggle-label" id="toggle-yearly">Yearly (Save 20%)</span>
+          </div>
+        </div>
+        
+        <div class="pricing-grid">
+          <!-- Card 1: Basic -->
+          <div class="pricing-card reveal delay-100">
+            <div class="pricing-header">
+              <h4>Basic Plan</h4>
+              <div class="pricing-price-container">
+                <span class="price-currency">$</span>
+                <span class="price-value" id="price-basic">29</span>
+                <span class="price-period" id="period-basic">/ month</span>
+              </div>
+            </div>
+            
+            <ul class="pricing-features">
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> Access to main gym floor</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> Standard lockers & showers</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> Free High-speed Wifi</li>
+              <li class="pricing-feature-item" style="opacity: 0.4; text-decoration: line-through;"><i class="fa-solid fa-xmark"></i> Coach-guided sessions</li>
+              <li class="pricing-feature-item" style="opacity: 0.4; text-decoration: line-through;"><i class="fa-solid fa-xmark"></i> Guest Passes</li>
+            </ul>
+            
+            <button class="btn btn-outline pricing-signup" data-plan="Basic">Get Started</button>
+          </div>
+          
+          <!-- Card 2: Advanced (Featured) -->
+          <div class="pricing-card featured reveal scale-in">
+            <span class="badge-featured">Best Value</span>
+            <div class="pricing-header">
+              <h4>Advanced Plan</h4>
+              <div class="pricing-price-container">
+                <span class="price-currency">$</span>
+                <span class="price-value" id="price-advanced">49</span>
+                <span class="price-period" id="period-advanced">/ month</span>
+              </div>
+            </div>
+            
+            <ul class="pricing-features">
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> Unlimited main floor access</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> All group fitness classes</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> Premium lockers, sauna & steam</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> 1 Session with Coach / month</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> 1 Guest pass per month</li>
+            </ul>
+            
+            <button class="btn pricing-signup" data-plan="Advanced">Get Started</button>
+          </div>
+          
+          <!-- Card 3: Premium -->
+          <div class="pricing-card reveal delay-200">
+            <div class="pricing-header">
+              <h4>Premium Plan</h4>
+              <div class="pricing-price-container">
+                <span class="price-currency">$</span>
+                <span class="price-value" id="price-premium">89</span>
+                <span class="price-period" id="period-premium">/ month</span>
+              </div>
+            </div>
+            
+            <ul class="pricing-features">
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> 24/7 Access to all training zones</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> Unlimited group & recovery classes</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> Full sauna, steam, and juice bar (10% off)</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> 3 Sessions with Coach / month</li>
+              <li class="pricing-feature-item"><i class="fa-solid fa-check"></i> Unlimited guest passes</li>
+            </ul>
+            
+            <button class="btn btn-outline pricing-signup" data-plan="Premium">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SUCCESS STORIES (LIME ACCENT SECTION) -->
+    <section id="stories" class="section-padding success-stories">
+      <div class="stories-pattern">DISCIPLINE</div>
+      <div class="container success-stories-grid">
+        <!-- Stats and Titles (Left) -->
+        <div class="stories-left reveal-left">
+          <span class="section-meta">Member Results</span>
+          <h2 class="section-title">Success Stories</h2>
+          <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 24px; font-weight: 500;">
+            Our members commit to consistency, work directly with our coaching roster, and achieve physical milestones that redefine their lifestyles.
+          </p>
+          
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Client Goal Success</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">12k+</div>
+              <div class="stat-label">Kilos Melted</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">15+</div>
+              <div class="stat-label">Years Community</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">200%</div>
+              <div class="stat-label">Energy Gained</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Interactive Carousel (Right) -->
+        <div class="stories-right reveal-right">
+          <div class="carousel-viewport">
+            <div class="carousel-container" id="carousel-track">
+              
+              <!-- Slide 1 -->
+              <div class="carousel-slide">
+                <div class="testimony-card">
+                  <div class="testimony-header">
+                    <img class="testimony-avatar" src="assets/member-1.png" alt="Jessica Miller Profile">
+                    <div class="testimony-meta">
+                      <h5>Jessica Miller</h5>
+                      <span>Member for 18 Months</span>
+                    </div>
+                  </div>
+                  <p class="testimony-quote">
+                    "The atmosphere at Bull Gym is unmatched. Training here with Coach Marcus has completely transformed my approach to fitness. The community is incredibly supportive, and the equipment is state-of-the-art."
+                  </p>
+                  <div class="testimony-footer">
+                    <div class="testimony-metrics">
+                      <div class="metric-badge">
+                        <span class="metric-val">-12.5 kg</span>
+                        <span class="metric-lbl">Weight Lost</span>
+                      </div>
+                      <div class="metric-badge">
+                        <span class="metric-val">+35%</span>
+                        <span class="metric-lbl">Strength Lift</span>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-quote-right" style="font-size: 2.5rem; opacity: 0.15;"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Slide 2 -->
+              <div class="carousel-slide">
+                <div class="testimony-card">
+                  <div class="testimony-header">
+                    <img class="testimony-avatar" src="assets/member-2.png" alt="David Kross Profile">
+                    <div class="testimony-meta">
+                      <h5>David Kross</h5>
+                      <span>Member for 2 Years</span>
+                    </div>
+                  </div>
+                  <p class="testimony-quote">
+                    "Bull Gym gave me the discipline and structured plans I needed. Serena's nutritional guidance combined with heavy training helped me drop body fat and build muscle like never before."
+                  </p>
+                  <div class="testimony-footer">
+                    <div class="testimony-metrics">
+                      <div class="metric-badge">
+                        <span class="metric-val">-8%</span>
+                        <span class="metric-lbl">Body Fat</span>
+                      </div>
+                      <div class="metric-badge">
+                        <span class="metric-val">+45kg</span>
+                        <span class="metric-lbl">Squat Max</span>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-quote-right" style="font-size: 2.5rem; opacity: 0.15;"></i>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- Carousel Navigation Controls -->
+          <div class="carousel-controls">
+            <button class="btn-icon" id="prev-btn" aria-label="Previous Testimonial">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="btn-icon" id="next-btn" aria-label="Next Testimonial">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CONTACT, MAP & NEWSLETTER -->
+    <section id="contact" class="section-padding">
+      <div class="container contact-grid">
+        <!-- Newsletter Subscription (Left) -->
+        <div class="newsletter-card reveal-left">
+          <span class="section-meta">Newsletter</span>
+          <h3>Get The Bull Bulletin</h3>
+          <p>Subscribe to receive training guides, nutritional blueprints, and special membership invitations.</p>
+          
+          <form class="newsletter-form" id="newsletter-form">
+            <div class="form-group">
+              <input type="email" class="form-input" placeholder="Your Email Address" required aria-label="Email address for newsletter">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe Now</button>
+          </form>
+        </div>
+        
+        <!-- Location details & Map Iframe (Right) -->
+        <div class="location-card reveal-right">
+          <div class="map-container">
+            <!-- Embedded Map. Standard OpenStreetMap styled via CSS filter -->
+            <iframe class="map-iframe" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00840062402758!3d40.71329297139369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!3f0!3m3!1m2!1s0x89c25a21fb017c29%3A0xa1aa02b7d4bb7898!2sOne%20World%20Trade%20Center!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" 
+                    title="Bull Gym Location Map">
+            </iframe>
+          </div>
+          
+          <div class="location-details">
+            <div class="detail-block">
+              <h5>Find Us</h5>
+              <p>404 Iron Foundry Blvd,<br>Industrial District, NY 10013</p>
+            </div>
+            <div class="detail-block">
+              <h5>Talk to Us</h5>
+              <p>+1 (555) 303-BULL<br>join@bullgym.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" aria-label="Scroll to top of page">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- 6. HIGH CONTRAST FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <a href="#hero" class="logo-link">
+            <div class="logo-icon">
+              <img src="assets/logo.svg" alt="Bull Gym Logo Dark">
+            </div>
+            <span class="logo-text">BULL<span>GYM</span></span>
+          </a>
+          <p>A premium training space built for performance, consistency, and athletic conditioning.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Follow Bull Gym on Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Follow Bull Gym on YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-icon" aria-label="Follow Bull Gym on Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="Follow Bull Gym on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link">Home</a></li>
+            <li><a href="#trainers" class="footer-link">Coaches</a></li>
+            <li><a href="#pricing" class="footer-link">Membership</a></li>
+            <li><a href="#stories" class="footer-link">Success Stories</a></li>
+          </ul>
+        </div>
+        
+        <!-- Secondary Info -->
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul class="footer-links">
+            <li><a href="#trainers" class="footer-link">Personal Training</a></li>
+            <li><a href="#pricing" class="footer-link">Group Classes</a></li>
+            <li><a href="#contact" class="footer-link">Facilities</a></li>
+            <li><a href="#contact" class="footer-link">Store & Juice Bar</a></li>
+          </ul>
+        </div>
+        
+        <!-- Operating Hours -->
+        <div class="footer-col">
+          <h5>Hours</h5>
+          <div>
+            <div class="footer-hours-item">
+              <span>Weekdays</span>
+              <span>5:00 AM - 11:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span>Saturdays</span>
+              <span>6:00 AM - 9:00 PM</span>
+            </div>
+            <div class="footer-hours-item">
+              <span>Sundays</span>
+              <span>8:00 AM - 6:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom Copyrights -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 BULL GYM. All rights reserved. Designed for athletic performance.</div>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript Bundle -->
+  <script src="app.js"></script>
+</body>
+</html>

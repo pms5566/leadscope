@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{BUSINESS_NAME}} | Premium Ceramic Coating & Paint Correction</title>
+  <meta name="description" content="Experience professional ceramic coating, multi-stage paint correction, and luxury auto detailing services. Restore your vehicle to a mirror-like showroom shine at {{BUSINESS_NAME}}.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{BUSINESS_NAME}} | Premium Ceramic Coating & Paint Correction">
+  <meta property="og:description" content="Restore your vehicle to a mirror-like showroom shine with professional ceramic coating and multi-stage paint correction.">
+  <meta property="og:image" content="images/hero.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#home" class="logo">
+        <span class="logo-accent">{{BUSINESS_NAME}}</span>
+      </a>
+      
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#before-after" class="nav-link">Showcase</a></li>
+          <li><a href="#calculator" class="nav-link">Pricing</a></li>
+          <li><a href="#contact" class="nav-link btn-nav-cta">Book Now</a></li>
+        </ul>
+      </nav>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation" id="mobile-nav-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg" style="background-image: linear-gradient(rgba(10, 11, 15, 0.4), rgba(10, 11, 15, 0.95)), url('images/hero.png');"></div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fa-solid fa-star"></i> Elite Automotive Care</span>
+          <h1>Unmatched Shine.<br><span class="gradient-text">Ultimate Protection.</span></h1>
+          <p class="hero-lead">Professional ceramic coatings, multi-stage paint correction, and luxury detailing designed to preserve and elevate your vehicle's gloss and value.</p>
+          <div class="hero-actions">
+            <a href="#calculator" class="btn btn-primary btn-glow">Calculate Price</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">9H</span>
+              <span class="stat-label">Hardness Shield</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">Cars Detailed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">5.0</span>
+              <span class="stat-label"><i class="fa-solid fa-star gold-star"></i> Google Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-us-section" id="why-us">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">THE {{BUSINESS_NAME}} DIFFERENCE</span>
+          <h2>Engineered for Perfection</h2>
+          <p>We treat every vehicle as a work of art, using industry-leading materials and techniques.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>9H Ceramic Protection</h3>
+            <p>Our ceramic coatings lock in a deep wet gloss while creating a hard hydrophobic barrier against UV, bird drops, and light scratches.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3>Multi-Stage Correction</h3>
+            <p>We eliminate up to 95% of paint swirl marks, light scratches, and oxidation to reveal pure, flawless reflection.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <h3>Hydrophobic Effect</h3>
+            <p>Repels water, mud, and road grime instantly. Your car stays clean twice as long and is incredibly easy to wash.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <h3>Certified Specialists</h3>
+            <p>Our detailers are master-certified technicians trained in paint chemistry, paint correction, and ceramic application.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">PREMIUM SOLUTIONS</span>
+          <h2>Our Specialized Services</h2>
+          <p>Choose the level of restoration and protection your vehicle deserves.</p>
+        </div>
+
+        <!-- Services Tabs -->
+        <div class="tabs-container">
+          <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="ceramic">Ceramic Coating</button>
+            <button class="tab-btn" data-tab="correction">Paint Correction</button>
+            <button class="tab-btn" data-tab="detailing">Executive Detailing</button>
+          </div>
+
+          <div class="tab-content-wrapper">
+            <!-- Ceramic Tab -->
+            <div class="tab-content active" id="tab-ceramic">
+              <div class="service-detail-grid">
+                <div class="service-info">
+                  <span class="service-badge-sm">Industry Standard Shield</span>
+                  <h3>Pro Ceramic Protection</h3>
+                  <p>Our elite ceramic coating bonds chemically with your vehicle's factory clear coat, forming a semi-permanent ceramic layer that shields your car from harsh elements.</p>
+                  <ul class="service-checklist">
+                    <li><i class="fa-solid fa-check"></i> Extreme hydrophobic water beading & sheet runoff</li>
+                    <li><i class="fa-solid fa-check"></i> Shield against UV rays, acid rain, and oxidation</li>
+                    <li><i class="fa-solid fa-check"></i> High-gloss candy-like glass finish</li>
+                    <li><i class="fa-solid fa-check"></i> 3-Year, 5-Year, or 9-Year guarantee options</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary">Configure Coating Package</a>
+                </div>
+                <div class="service-visual">
+                  <img src="images/ceramic_coating.png" alt="Detailer applying ceramic coating to a shiny blue car hood" class="service-img">
+                  <div class="floating-stat">
+                    <span class="number">9H</span>
+                    <span class="text">Hardness</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Correction Tab -->
+            <div class="tab-content" id="tab-correction">
+              <div class="service-detail-grid">
+                <div class="service-info">
+                  <span class="service-badge-sm">Flawless Reflections</span>
+                  <h3>Paint Correction & Swirl Removal</h3>
+                  <p>Through careful compounding and polishing, we machine-polish your paint to remove blemishes, oxidation, scratches, and swirl marks caused by improper washing.</p>
+                  <ul class="service-checklist">
+                    <li><i class="fa-solid fa-check"></i> Single-Stage gloss enhancement (removes 50-60% defects)</li>
+                    <li><i class="fa-solid fa-check"></i> Multi-Stage correction (removes 85-95% defects)</li>
+                    <li><i class="fa-solid fa-check"></i> Removes spiderweb swirls, water etching, & hologramming</li>
+                    <li><i class="fa-solid fa-check"></i> Restores original paint depth and clarity</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary">Book Correction Service</a>
+                </div>
+                <div class="service-visual">
+                  <img src="images/paint_after.png" alt="Polished black car paint displaying mirror reflections" class="service-img">
+                  <div class="floating-stat">
+                    <span class="number">95%</span>
+                    <span class="text">Defect Removal</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Detailing Tab -->
+            <div class="tab-content" id="tab-detailing">
+              <div class="service-detail-grid">
+                <div class="service-info">
+                  <span class="service-badge-sm">Precision Cleaning</span>
+                  <h3>Executive Interior & Exterior Detailing</h3>
+                  <p>A meticulous restoration covering every inch of your vehicle. From steam extraction of floor mats to intricate engine bay detailing, we restore the new-car feel.</p>
+                  <ul class="service-checklist">
+                    <li><i class="fa-solid fa-check"></i> Safe two-bucket foam bath and clay bar treatment</li>
+                    <li><i class="fa-solid fa-check"></i> Deep upholstery steam cleaning and leather conditioning</li>
+                    <li><i class="fa-solid fa-check"></i> Iron decontamination and brake dust removal</li>
+                    <li><i class="fa-solid fa-check"></i> Dashboard, console, and glass detail with UV protection</li>
+                  </ul>
+                  <a href="#calculator" class="btn btn-primary">Book Detailing Package</a>
+                </div>
+                <div class="service-visual">
+                  <img src="images/hero.png" alt="Glossy dark metallic sports car in clean workshop" class="service-img">
+                  <div class="floating-stat">
+                    <span class="number">100%</span>
+                    <span class="text">Bespoke Care</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEFORE/AFTER SHOWCASE -->
+    <section class="before-after-section" id="before-after">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">SEE THE RESULTS</span>
+          <h2>Paint Correction Showcase</h2>
+          <p>Drag the slider to see how our compounding and polishing process restores paint depth and removes scratches.</p>
+        </div>
+
+        <!-- Before/After Slider Container -->
+        <div class="slider-wrapper">
+          <div class="ba-slider" id="paint-slider">
+            <!-- After Image (Base) -->
+            <img src="images/paint_after.png" alt="After Paint Correction" class="image-after">
+            
+            <!-- Before Image (Overlay) -->
+            <div class="image-before-wrapper" id="before-wrapper">
+              <img src="images/paint_before.png" alt="Before Paint Correction" class="image-before">
+            </div>
+            
+            <!-- Slider Line & Handle -->
+            <div class="slider-handle" id="slider-handle">
+              <div class="handle-line"></div>
+              <div class="handle-button">
+                <i class="fa-solid fa-left-right"></i>
+              </div>
+              <div class="handle-line"></div>
+            </div>
+
+            <!-- Labels -->
+            <span class="badge-label label-before">Before: Swirled & Oxidized</span>
+            <span class="badge-label label-after">After: Mirror Correction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING CALCULATOR -->
+    <section class="calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">TRANSPARENT ESTIMATOR</span>
+          <h2>Configure Your Detailing Package</h2>
+          <p>Select your vehicle type and package to estimate the cost. Send your estimate to book immediately.</p>
+        </div>
+
+        <div class="calculator-grid">
+          <!-- Step Inputs -->
+          <div class="calc-inputs-card">
+            <!-- Step 1: Vehicle Size -->
+            <div class="calc-step">
+              <span class="step-num">01</span>
+              <h3>Select Vehicle Size</h3>
+              <div class="radio-grid" id="vehicle-type-select">
+                <label class="radio-card active">
+                  <input type="radio" name="vehicle-type" value="sedan" checked>
+                  <i class="fa-solid fa-car-side"></i>
+                  <span class="radio-title">Sedan / Coupe</span>
+                  <span class="radio-desc">Compact & midsize cars</span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="vehicle-type" value="suv">
+                  <i class="fa-solid fa-car-rear"></i>
+                  <span class="radio-title">Crossover / SUV</span>
+                  <span class="radio-desc">Midsize to large SUVs</span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="vehicle-type" value="truck">
+                  <i class="fa-solid fa-truck-pickup"></i>
+                  <span class="radio-title">Truck / Van</span>
+                  <span class="radio-desc">Full-size trucks & vans</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 2: Select Package -->
+            <div class="calc-step">
+              <span class="step-num">02</span>
+              <h3>Choose Services</h3>
+              <div class="checkbox-grid" id="services-select">
+                <label class="checkbox-card active">
+                  <input type="checkbox" name="services" value="detailing" checked disabled>
+                  <div class="check-header">
+                    <span class="checkbox-title">Executive Detailing</span>
+                    <span class="checkbox-tag">Required Base</span>
+                  </div>
+                  <p class="checkbox-desc">Decontamination wash, interior steam cleaning, wheels, and sealants.</p>
+                </label>
+                <label class="checkbox-card">
+                  <input type="checkbox" name="services" value="correction">
+                  <div class="check-header">
+                    <span class="checkbox-title">Paint Correction</span>
+                    <span class="checkbox-price-add">+ $250</span>
+                  </div>
+                  <p class="checkbox-desc">Removes 85%+ swirls, scratches, and paint oxidation.</p>
+                </label>
+                <label class="checkbox-card">
+                  <input type="checkbox" name="services" value="ceramic">
+                  <div class="check-header">
+                    <span class="checkbox-title">9H Ceramic Shield</span>
+                    <span class="checkbox-price-add">+ $400</span>
+                  </div>
+                  <p class="checkbox-desc">Adds a hydrophobic quartz barrier. Self-cleaning, gloss, and 5-yr protection.</p>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Display Card -->
+          <div class="price-summary-card">
+            <div class="summary-header">
+              <h3>Estimate Summary</h3>
+              <p id="summary-vehicle-name">Sedan / Coupe</p>
+            </div>
+            
+            <div class="summary-details">
+              <div class="summary-row">
+                <span>Executive Detailing (Base)</span>
+                <span class="row-price" id="price-base">$199</span>
+              </div>
+              <div class="summary-row hidden" id="row-correction">
+                <span>Paint Correction Add-on</span>
+                <span class="row-price" id="price-correction">$250</span>
+              </div>
+              <div class="summary-row hidden" id="row-ceramic">
+                <span>9H Ceramic Coating Add-on</span>
+                <span class="row-price" id="price-ceramic">$400</span>
+              </div>
+              <hr class="summary-divider">
+              <div class="summary-row total-row">
+                <span>Estimated Price</span>
+                <span class="total-price" id="price-total">$199</span>
+              </div>
+              <div class="time-duration">
+                <i class="fa-regular fa-clock"></i> Estimated Duration: <strong id="duration-val">4 - 6 Hours</strong>
+              </div>
+            </div>
+
+            <!-- Instant Booking Button -->
+            <a href="#contact" class="btn btn-primary btn-block btn-booking-trigger" id="btn-pre-fill">Book With This Package</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="reviews">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">CLIENT REVIEWS</span>
+          <h2>What Vehicle Owners Say</h2>
+          <p>Hear from clients who trust us with their prized daily drivers and exotic vehicles.</p>
+        </div>
+
+        <div class="testimonials-carousel-wrapper">
+          <div class="testimonials-carousel" id="testimonials-carousel">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-slide active">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="quote">"My black Porsche GT3 had terrible swirl marks from the previous owner. {{BUSINESS_NAME}} did a 2-stage correction and applied the 9H Ceramic. It looks better than it did on the showroom floor! Literally mirror-like finish."</p>
+              <div class="client-info">
+                <span class="client-name">David L.</span>
+                <span class="client-car">Porsche 911 GT3 (Grey Metallic)</span>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-slide">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="quote">"The ceramic coating here is worth every penny. Water and dirt bead up and run right off. I just hose it down and it's clean. Their professionalism is outstanding, kept me updated during the process."</p>
+              <div class="client-info">
+                <span class="client-name">Sarah M.</span>
+                <span class="client-car">Tesla Model Y (Deep Blue)</span>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-slide">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="quote">"Top tier interior detailing. They got out coffee stains that have been in my truck's seats for years. The steam extraction left the cab smelling fresh and looking brand new."</p>
+              <div class="client-info">
+                <span class="client-name">Marcus K.</span>
+                <span class="client-car">Ford F-150 Raptor</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Dots -->
+          <div class="carousel-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING & CONTACT FORM -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Information side -->
+          <div class="contact-info-panel">
+            <span class="panel-subtitle">GET IN TOUCH</span>
+            <h2>Book Your Reservation</h2>
+            <p>Fill out the form to request a detail slot. Our service advisor will reach out to confirm availability within 2 business hours.</p>
+            
+            <div class="contact-methods">
+              <div class="contact-item">
+                <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                  <h4>Call / Text</h4>
+                  <p><a href="tel:{{PHONE}}">{{PHONE}}</a></p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <h4>Studio Location</h4>
+                  <p>{{ADDRESS}}</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="icon-circle"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <h4>Working Hours</h4>
+                  <p>Mon - Sat: 8:00 AM - 6:00 PM<br>Sunday: By Appointment Only</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form side -->
+          <div class="contact-form-panel">
+            <form id="booking-form" class="booking-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="client-name">Full Name *</label>
+                  <input type="text" id="client-name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                  <label for="client-phone">Phone Number *</label>
+                  <input type="tel" id="client-phone" name="phone" required placeholder="(555) 123-4567">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="client-email">Email Address *</label>
+                  <input type="email" id="client-email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="booking-date">Preferred Date *</label>
+                  <input type="date" id="booking-date" name="date" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="booking-package">Selected Package</label>
+                <select id="booking-package" name="package">
+                  <option value="sedan-detailing">Executive Detailing - Sedan ($199)</option>
+                  <option value="sedan-correction">Detailing + Paint Correction - Sedan ($449)</option>
+                  <option value="sedan-all">Full Ceramic Shield & Detail - Sedan ($849)</option>
+                  
+                  <option value="suv-detailing">Executive Detailing - SUV ($249)</option>
+                  <option value="suv-correction">Detailing + Paint Correction - SUV ($549)</option>
+                  <option value="suv-all">Full Ceramic Shield & Detail - SUV ($999)</option>
+                  
+                  <option value="truck-detailing">Executive Detailing - Truck/Van ($299)</option>
+                  <option value="truck-correction">Detailing + Paint Correction - Truck ($649)</option>
+                  <option value="truck-all">Full Ceramic Shield & Detail - Truck ($1149)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="client-message">Additional Vehicle Notes (Model, Paint Condition, etc.)</label>
+                <textarea id="client-message" name="message" rows="4" placeholder="Tell us about your vehicle (e.g. 2023 Tesla Model Y, dark blue, minor wash scratches, interest in ceramic package)"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-glow" id="btn-submit-booking">
+                Submit Booking Request
+              </button>
+            </form>
+            <div class="form-success-msg hidden" id="booking-success">
+              <i class="fa-regular fa-circle-check"></i>
+              <h3>Request Received!</h3>
+              <p>Thank you for choosing {{BUSINESS_NAME}}. We have received your details and will call or email you shortly to lock in your date.</p>
+              <button class="btn btn-secondary btn-sm" id="btn-reset-form">Submit Another Request</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-accent">{{BUSINESS_NAME}}</span>
+        </a>
+        <p>Premium auto restoration and protection services. Dedicated to styling, polishing, and shielding your high-value vehicles.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">Ceramic Coatings</a></li>
+          <li><a href="#services">Paint Correction</a></li>
+          <li><a href="#services">Interior Detailing</a></li>
+          <li><a href="#services">Engine Bay Detailing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#before-after">Before & After</a></li>
+          <li><a href="#calculator">Pricing Calculator</a></li>
+          <li><a href="#contact">Contact & Booking</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Warranty Details</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2026 {{BUSINESS_NAME}}. All rights reserved. Created with Antigravity AI.</p>
+        <p>Designed for Luxury Performance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

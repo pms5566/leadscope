@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{BUSINESS_NAME}} - Premium Aesthetic & Anti-Aging Medicine Clinic. Experience science-backed treatments, luxury skincare, and personalized wellness plans.">
+    <title>{{BUSINESS_NAME}} | Premium Aesthetic & Anti-Aging Medicine</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" id="nav-logo">
+                <span class="logo-text">{{BUSINESS_NAME}}</span>
+            </a>
+            <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">Philosophy</a></li>
+                <li class="nav-item"><a href="#treatments" class="nav-link">Treatments</a></li>
+                <li class="nav-item"><a href="#quiz" class="nav-link">Treatment Finder</a></li>
+                <li class="nav-item"><a href="#before-after" class="nav-link">Results</a></li>
+                <li class="nav-item"><a href="#team" class="nav-link">Expertise</a></li>
+                <li class="nav-item"><a href="#booking" class="nav-btn-link"><span class="btn btn-primary-nav">Book Consultation</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="hero-background" style="background-image: url('assets/hero-interior.png');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">AESTHETIC & ANTI-AGING MEDICINE</span>
+            <h1 class="hero-title">Reveal Your Most Radiant, <br><span class="text-gold">Timeless Self</span></h1>
+            <p class="hero-subtitle">Where medical science meets the art of luxury wellness. Experience personalized anti-aging solutions tailored to your unique beauty.</p>
+            <div class="hero-cta-group">
+                <a href="#booking" class="btn btn-primary" id="hero-cta-book">Book Private Consultation</a>
+                <a href="#treatments" class="btn btn-outline" id="hero-cta-explore">Explore Signature Treatments</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll to Discover</span>
+            <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+        </div>
+    </header>
+
+    <!-- Philosophy & About Section -->
+    <section class="about-section" id="about">
+        <div class="container grid-2">
+            <div class="about-text-container">
+                <h2 class="section-title"><span class="text-gold">Our Philosophy</span><br>The Science of Graceful Aging</h2>
+                <p class="about-description">At {{BUSINESS_NAME}}, we believe anti-aging is not about reversing time, but elevating your natural vitality. Guided by leading medical specialists, we design bespoke treatment plans that combine advanced dermatology, non-invasive facial sculpting, and cellular anti-aging therapies.</p>
+                <p class="about-description italic">"True beauty is a reflection of cellular harmony, structural balance, and ultimate skin health."</p>
+                
+                <div class="philosophy-bullets">
+                    <div class="philosophy-item">
+                        <div class="philo-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h3>Doctor-Led Excellence</h3>
+                            <p>Every clinical procedure is designed and supervised by certified medical professionals.</p>
+                        </div>
+                    </div>
+                    <div class="philosophy-item">
+                        <div class="philo-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h3>State-of-the-Art Technology</h3>
+                            <p>We leverage FDA-approved, cutting-edge modalities for optimal, safe results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-card-container">
+                <div class="glow-orb"></div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Years of Innovation</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">10k+</span>
+                        <span class="stat-label">Glow Journeys Completed</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Medical Supervision</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments & Catalog Section -->
+    <section class="treatments-section" id="treatments">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-title">Signature <span class="text-gold">Treatments</span></h2>
+                <p class="section-subtitle">Precision procedures designed to rejuvenate, contour, and restore youthfulness.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="treatment-tabs" id="treatment-tabs">
+                <button class="tab-btn active" data-category="all">All Treatments</button>
+                <button class="tab-btn" data-category="facial">Facial Rejuvenation</button>
+                <button class="tab-btn" data-category="body">Body Contouring</button>
+                <button class="tab-btn" data-category="wellness">Cellular Wellness</button>
+            </div>
+
+            <!-- Treatments Grid -->
+            <div class="treatments-grid" id="treatments-grid">
+                <!-- Cards will be populated or filtered by JS dynamically, fallback/initial skeleton is semantic -->
+                <div class="treatment-card" data-category="facial" id="card-filler">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-wand-magic-sparkles card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Facial Rejuvenation</span>
+                        <h3 class="card-title">Sculpt & Lift Dermal Fillers</h3>
+                        <p class="card-desc">Restore youthful volume, smooth out deep creases, and contour facial structures with premium hyaluronic acid formulations.</p>
+                        <button class="btn btn-card-details" data-treatment="fillers">Learn Details <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="treatment-card" data-category="facial" id="card-botox">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-sparkles card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Facial Rejuvenation</span>
+                        <h3 class="card-title">Wrinkle-Relaxing Neuromodulators</h3>
+                        <p class="card-desc">Soften expression lines, crow's feet, and forehead creases for a refreshed, completely natural-looking result.</p>
+                        <button class="btn btn-card-details" data-treatment="botox">Learn Details <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="treatment-card" data-category="wellness" id="card-iv">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-droplet card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Cellular Wellness</span>
+                        <h3 class="card-title">NAD+ & Anti-Aging IV Infusion</h3>
+                        <p class="card-desc">Recharge cellular energy levels, accelerate metabolic recovery, and promote skin glow from within.</p>
+                        <button class="btn btn-card-details" data-treatment="iv-drip">Learn Details <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="treatment-card" data-category="body" id="card-laser">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-bolt card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Body Contouring</span>
+                        <h3 class="card-title">High-Intensity RF Sculpting</h3>
+                        <p class="card-desc">Non-surgical skin tightening and fat reduction using advanced radiofrequency energy to shape abdominal and facial contours.</p>
+                        <button class="btn btn-card-details" data-treatment="rf-sculpt">Learn Details <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="treatment-card" data-category="facial" id="card-microneedle">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-face-smile card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Facial Rejuvenation</span>
+                        <h3 class="card-title">Microneedling with Exosomes</h3>
+                        <p class="card-desc">Stimulate collagen synthesis and dermal healing with advanced cellular growth factors for scarring and texture restoration.</p>
+                        <button class="btn btn-card-details" data-treatment="exosomes">Learn Details <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="treatment-card" data-category="wellness" id="card-hormones">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-heart-pulse card-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Cellular Wellness</span>
+                        <h3 class="card-title">Bioidentical Hormone Therapy</h3>
+                        <p class="card-desc">Balance internal health systems, improve cognitive clarity, sleep cycle stability, and support active metabolic aging.</p>
+                        <button class="btn btn-card-details" data-treatment="bhrt">Learn Details <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Modal -->
+    <div class="modal" id="treatment-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close Details"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body" id="modal-body">
+                <!-- Loaded dynamically by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Treatment Finder Quiz Section -->
+    <section class="quiz-section" id="quiz">
+        <div class="container-narrow">
+            <div class="section-header-center">
+                <h2 class="section-title"><span class="text-gold">Interactive</span> Treatment Finder</h2>
+                <p class="section-subtitle">Take our curated 30-second medical aesthetic consultation to discover your personalized skin and anti-aging plan.</p>
+            </div>
+
+            <!-- Quiz Card -->
+            <div class="quiz-container" id="quiz-container">
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress" id="quiz-progress" style="width: 33.3%;"></div>
+                </div>
+                
+                <!-- Quiz Steps -->
+                <div class="quiz-step active" data-step="1" id="quiz-step-1">
+                    <h3 class="quiz-question">1. What is your primary skin or aging concern?</h3>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="concern" value="wrinkles" checked>
+                            <span class="option-card">
+                                <i class="fa-solid fa-wave-square option-icon"></i>
+                                <span class="option-title">Wrinkles & Fine Lines</span>
+                                <span class="option-desc">Crow's feet, frown lines, or forehead creases.</span>
+                            </span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="concern" value="volume">
+                            <span class="option-card">
+                                <i class="fa-solid fa-face-smile option-icon"></i>
+                                <span class="option-title">Volume Loss & Sagging</span>
+                                <span class="option-desc">Sunken cheeks, hollow eyes, or loose jawline contours.</span>
+                            </span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="concern" value="dullness">
+                            <span class="option-card">
+                                <i class="fa-solid fa-sun option-icon"></i>
+                                <span class="option-title">Dullness & Hyperpigmentation</span>
+                                <span class="option-desc">Uneven skin tone, dark spots, or lack of radiant glow.</span>
+                            </span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="concern" value="energy">
+                            <span class="option-card">
+                                <i class="fa-solid fa-battery-empty option-icon"></i>
+                                <span class="option-title">Fatigue & Low Vitality</span>
+                                <span class="option-desc">Low sleep quality, brain fog, or sluggish metabolism.</span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="quiz-nav">
+                        <span>Step 1 of 3</span>
+                        <button class="btn btn-primary btn-quiz-next" id="quiz-next-1">Next Question <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="quiz-step" data-step="2" id="quiz-step-2">
+                    <h3 class="quiz-question">2. Describe your skin type:</h3>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="skintype" value="dry" checked>
+                            <span class="option-card">
+                                <i class="fa-solid fa-snowflake option-icon"></i>
+                                <span class="option-title">Dry or Dehydrated</span>
+                                <span class="option-desc">Feels tight, flakey, or absorbs moisturizer instantly.</span>
+                            </span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="skintype" value="oily">
+                            <span class="option-card">
+                                <i class="fa-solid fa-droplet option-icon"></i>
+                                <span class="option-title">Oily or Combination</span>
+                                <span class="option-desc">Prone to shine in the T-zone, pores are noticeable.</span>
+                            </span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="skintype" value="sensitive">
+                            <span class="option-card">
+                                <i class="fa-solid fa-shield-halved option-icon"></i>
+                                <span class="option-title">Sensitive or Reactive</span>
+                                <span class="option-desc">Redness flares up easily, reacts to new products.</span>
+                            </span>
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="skintype" value="normal">
+                            <span class="option-card">
+                                <i class="fa-solid fa-check-double option-icon"></i>
+                                <span class="option-title">Normal / Balanced</span>
+                                <span class="option-desc">Generally resilient skin with no major structural sensitivities.</span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn btn-secondary btn-quiz-prev" id="quiz-prev-2"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                        <span>Step 2 of 3</span>
+                        <button class="btn btn-primary btn-quiz-next" id="quiz-next-2">Next Question <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="quiz-step" data-step="3" id="quiz-step-3">
+                    <h3 class="quiz-question">3. What is your age demographic?</h3>
+                    <div class="quiz-options-row">
+                        <label class="quiz-option-pill">
+                            <input type="radio" name="age" value="20s" checked>
+                            <span class="pill-card">20s - 30s</span>
+                        </label>
+                        <label class="quiz-option-pill">
+                            <input type="radio" name="age" value="40s">
+                            <span class="pill-card">40s - 50s</span>
+                        </label>
+                        <label class="quiz-option-pill">
+                            <input type="radio" name="age" value="60s">
+                            <span class="pill-card">60s+</span>
+                        </label>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="btn btn-secondary btn-quiz-prev" id="quiz-prev-3"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                        <span>Step 3 of 3</span>
+                        <button class="btn btn-primary btn-quiz-submit" id="quiz-submit">Analyze Results <i class="fa-solid fa-wand-magic-sparkles"></i></button>
+                    </div>
+                </div>
+
+                <!-- Quiz Results (Hidden by default) -->
+                <div class="quiz-step" data-step="results" id="quiz-results">
+                    <div class="results-layout" id="results-content">
+                        <!-- Dynamic Results Inject here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Comparison Section -->
+    <section class="before-after-section" id="before-after">
+        <div class="container grid-2 align-center">
+            <div>
+                <h2 class="section-title">The Proof is in the <span class="text-gold">Glow</span></h2>
+                <p class="about-description">Observe the transformative power of our custom aesthetic treatments. Slide the interactive bar to view the difference between fatigued/dehydrated skin, and the results of our Signature Hydration & Wrinkle Treatment.</p>
+                <div class="results-bullets">
+                    <div class="bullet-item">
+                        <span class="bullet-num">01</span>
+                        <div>
+                            <h4>Natural-Looking Outcomes</h4>
+                            <p>We respect the anatomy of your face, restoring structure without over-filling.</p>
+                        </div>
+                    </div>
+                    <div class="bullet-item">
+                        <span class="bullet-num">02</span>
+                        <div>
+                            <h4>Zero Downtime Alternatives</h4>
+                            <p>Most clients resume their luxury active lifestyle immediately after leaving.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drag Slider Container -->
+            <div class="slider-wrapper">
+                <div class="comparison-slider" id="comparison-slider">
+                    <!-- Before state (Background image with CSS filter applied via class) -->
+                    <div class="slider-image image-before" style="background-image: url('assets/skin-glow.png');">
+                        <span class="slider-label label-before">BEFORE (Dullness & Creasing)</span>
+                    </div>
+                    <!-- After state (Foreground, width changed by Javascript) -->
+                    <div class="slider-image image-after" id="image-after" style="background-image: url('assets/skin-glow.png');">
+                        <span class="slider-label label-after">AFTER (Radiant Glow)</span>
+                    </div>
+                    <!-- Slider Bar handle -->
+                    <div class="slider-bar" id="slider-bar">
+                        <div class="slider-handle">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+                    <!-- Interactive range input overlaying -->
+                    <input type="range" min="0" max="100" value="50" class="slider-input" id="slider-input" aria-label="Before after drag slider">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="section-title">Medical <span class="text-gold">Expertise</span></h2>
+                <p class="section-subtitle">Meet the specialized practitioners dedicated to your skin and health longevity.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar-container">
+                        <div class="team-avatar-gradient">
+                            <span class="avatar-initials">EV</span>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Dr. Evelyn Vance, MD</h3>
+                        <span class="team-role">Chief Medical Director & Dermatologist</span>
+                        <p class="team-bio">Board-certified in aesthetic and anti-aging medicine with 15+ years of practice at premier European and US clinics.</p>
+                        <div class="team-badges">
+                            <span class="team-badge-pill">Anti-Aging</span>
+                            <span class="team-badge-pill">Injectables</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar-container">
+                        <div class="team-avatar-gradient">
+                            <span class="avatar-initials">MR</span>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Dr. Marcus Reed, DDS, MS</h3>
+                        <span class="team-role">Aesthetic & Facial Contouring Specialist</span>
+                        <p class="team-bio">Specializes in advanced neuromuscular facial contouring, non-surgical chin/jaw reshaping, and anatomical symmetry.</p>
+                        <div class="team-badges">
+                            <span class="team-badge-pill">Contouring</span>
+                            <span class="team-badge-pill">Thread Lifts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar-container">
+                        <div class="team-avatar-gradient">
+                            <span class="avatar-initials">SJ</span>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Sarah Jenkins, LE</h3>
+                        <span class="team-role">Senior Medical Aesthetician</span>
+                        <p class="team-bio">Certified laser specialist specializing in medical resurfacing, clinical peels, and cell-stimulating exosomes.</p>
+                        <div class="team-badges">
+                            <span class="team-badge-pill">Laser Science</span>
+                            <span class="team-badge-pill">Exosomes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Booking & Contact Form -->
+    <section class="booking-section" id="booking">
+        <div class="container grid-2 align-center">
+            <div class="booking-details">
+                <h2 class="section-title">Schedule Your <span class="text-gold">Private Assessment</span></h2>
+                <p class="about-description">Embark on a customized aesthetic journey. Speak with our medical staff in a private, luxurious, one-on-one environment.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone contact-icon"></i>
+                        <div>
+                            <span>Call Us Directly</span>
+                            <strong>{{PHONE}}</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope contact-icon"></i>
+                        <div>
+                            <span>Send an Email</span>
+                            <strong>{{EMAIL}}</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot contact-icon"></i>
+                        <div>
+                            <span>Our Luxury Clinic Location</span>
+                            <strong>{{ADDRESS}}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form Card -->
+            <div class="booking-form-wrapper">
+                <div class="glow-orb-form"></div>
+                <form class="booking-form" id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-name">Full Name</label>
+                            <input type="text" id="booking-name" placeholder="E.g., Charlotte Sterling" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-email">Email Address</label>
+                            <input type="email" id="booking-email" placeholder="E.g., charlotte@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-phone">Phone Number</label>
+                            <input type="tel" id="booking-phone" placeholder="E.g., +1 (555) 019-2834" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-service">Service of Interest</label>
+                            <select id="booking-service" required>
+                                <option value="" disabled selected>Select a signature treatment...</option>
+                                <option value="fillers">Sculpt & Lift Dermal Fillers</option>
+                                <option value="botox">Wrinkle-Relaxing Neuromodulators</option>
+                                <option value="iv-drip">NAD+ & Anti-Aging IV Infusion</option>
+                                <option value="rf-sculpt">High-Intensity RF Sculpting</option>
+                                <option value="exosomes">Microneedling with Exosomes</option>
+                                <option value="bhrt">Bioidentical Hormone Therapy</option>
+                                <option value="general">Comprehensive Aesthetic Assessment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-date">Preferred Consultation Date</label>
+                            <input type="date" id="booking-date" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit-form" id="booking-submit">Request Invitation <i class="fa-solid fa-paper-plane"></i></button>
+                    <div class="form-success-message" id="form-success">
+                        <i class="fa-solid fa-circle-check success-icon"></i>
+                        <div>
+                            <h4>Request Received</h4>
+                            <p>Our concierge will reach out to you within 2 hours to confirm your private invitation.</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">
+                    <span class="logo-text">{{BUSINESS_NAME}}</span>
+                </a>
+                <p class="footer-about-text">A premier clinical destination dedicated to structural aesthetics, biological longevity, and luxury anti-aging care.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Treatments</h4>
+                <ul>
+                    <li><a href="#treatments">Dermal Fillers</a></li>
+                    <li><a href="#treatments">Neuromodulators</a></li>
+                    <li><a href="#treatments">Exosome Therapy</a></li>
+                    <li><a href="#treatments">RF Tightening</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Hours of Care</h4>
+                <ul>
+                    <li>Monday - Friday: 9:00 AM - 7:00 PM</li>
+                    <li>Saturday: 10:00 AM - 5:00 PM</li>
+                    <li>Sunday: By Appointment Only</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 {{BUSINESS_NAME}}. All rights reserved. Medical Director: Dr. Evelyn Vance, MD. Designed for medical beauty & skin longevity.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>

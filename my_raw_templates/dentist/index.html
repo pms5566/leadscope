@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{BUSINESS_NAME}} offers premium dental care, cosmetic dentistry, preventative services, and restorative treatments. Book an appointment today for a healthier smile.">
+  <title>{{BUSINESS_NAME}} | Healthy Teeth, Confident Smiles</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=1.0.0">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="navbar-header">
+    <div class="container navbar-container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C9.5 2 7 3.5 6 6C5 8.5 4 11 4 13C4 17.5 7.5 21 12 21C16.5 21 20 17.5 20 13C20 11 19 8.5 18 6C17 3.5 14.5 2 12 2Z" fill="url(#tooth-grad)" />
+          <path d="M9 13C9 13.5 8.5 14 8 14C7.5 14 7 13.5 7 13C7 12.5 7.5 12 8 12C8.5 12 9 12.5 9 13Z" fill="white" />
+          <path d="M17 13C17 13.5 16.5 14 16 14C15.5 14 15 13.5 15 13C15 12.5 15.5 12 16 12C16.5 12 17 12.5 17 13Z" fill="white" />
+          <path d="M9.5 16.5C10.5 17.5 13.5 17.5 14.5 16.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="tooth-grad" x1="4" y1="2" x2="20" y2="21" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00D2FF" />
+              <stop offset="100%" stop-color="#0066FF" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">{{BUSINESS_NAME}}</span>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#team" class="nav-link">Our Specialists</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="tel:{{PHONE}}" class="phone-link">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.5 5.5C3.5 4.4 4.4 3.5 5.5 3.5H8C8.5 3.5 9 3.8 9.2 4.3L10.5 7.5C10.7 8 10.5 8.6 10.1 8.9L8.5 10.2C9.5 12.3 11.2 14 13.3 15L14.6 13.4C14.9 13 15.5 12.8 16 13L19.2 14.3C19.7 14.5 20 15 20 15.5V18C20 19.1 19.1 20 18 20H17.5C9.5 20 3.5 14 3.5 6V5.5Z" fill="currentColor"/>
+          </svg>
+          <span>{{PHONE}}</span>
+        </a>
+        <a href="#booking" class="btn btn-primary">BOOK NOW</a>
+      </div>
+      
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="large-watermark">TEETH</div>
+    <div class="container hero-container">
+      
+      <!-- Hero Left -->
+      <div class="hero-content">
+        <div class="badge-tag">
+          <span class="sparkle">✨</span> Your Smile's Trusted Care
+        </div>
+        
+        <h1 class="hero-title">
+          Healthy <span class="serif-italic">Teeth</span>,<br>
+          Confident Your <span class="serif-italic">Smiles</span>
+        </h1>
+        
+        <p class="hero-description">
+          Expert dental care with a gentle touch. From routine check-ups to advanced treatments, we're here to keep your smile glowing and healthy.
+        </p>
+        
+        <div class="hero-ctas">
+          <a href="#booking" class="btn btn-accent pulse-effect">Book Appointment</a>
+          <a href="#services" class="btn btn-outline">
+            Our Treatments
+            <svg class="arrow-right-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" />
+            </svg>
+          </a>
+        </div>
+        
+        <div class="hero-rating">
+          <div class="avatar-group">
+            <img src="images/patient_one.png" alt="Patient Face" class="rating-avatar">
+            <img src="images/patient_two.png" alt="Patient Face" class="rating-avatar">
+            <div class="rating-avatar-plus">+</div>
+          </div>
+          <div class="rating-info">
+            <div class="stars">★★★★★</div>
+            <p class="rating-text">Trusted by <strong>25k+</strong> Happy Patients</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hero Right -->
+      <div class="hero-media">
+        <div class="image-wrapper">
+          <img src="images/hero_patient.png" alt="Smiling Healthy Dental Patient" class="hero-main-img">
+          
+          <!-- Floating badge 1 -->
+          <div class="floating-badge badge-top-left glass-card">
+            <div class="badge-icon gold-glow">🏆</div>
+            <div class="badge-info">
+              <p class="badge-lbl">Clinic Award</p>
+              <p class="badge-val">#1 Top Clinic</p>
+            </div>
+          </div>
+          
+          <!-- Floating badge 2 -->
+          <div class="floating-badge badge-bottom-right glass-card">
+            <div class="badge-icon star-glow">⭐</div>
+            <div class="badge-info">
+              <p class="badge-lbl">Google Rating</p>
+              <p class="badge-val">4.9/5.0 Stars</p>
+            </div>
+          </div>
+          
+          <!-- Decorative tooth float -->
+          <div class="floating-tooth-outline">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C9.5 2 7 3.5 6 6C5 8.5 4 11 4 13C4 17.5 7.5 21 12 21C16.5 21 20 17.5 20 13C20 11 19 8.5 18 6C17 3.5 14.5 2 12 2Z" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="stats-banner">
+    <div class="container stats-container">
+      <div class="stat-item">
+        <h3 class="stat-number">99%</h3>
+        <p class="stat-label">Patient Satisfaction</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <h3 class="stat-number">32K+</h3>
+        <p class="stat-label">Smiling Patients</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <h3 class="stat-number">15+</h3>
+        <p class="stat-label">Specialist Doctors</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <h3 class="stat-number">25+</h3>
+        <p class="stat-label">Years of Trust</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / Treatments Section -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-title">Trusted Dental Services For All Ages</h2>
+          <p class="section-subtitle">We provide compassionate, high-quality dental care for patients of all ages in a friendly, comfortable, and state-of-the-art clinic environment.</p>
+        </div>
+      </div>
+      
+      <div class="services-explorer">
+        <!-- Tabs Menu Left -->
+        <div class="services-tabs" role="tablist">
+          <button class="service-tab-btn" data-tab="preventive" role="tab" aria-selected="false">
+            <span class="tab-icon">🛡️</span>
+            <span class="tab-label">Preventive Care</span>
+            <span class="tab-arrow">→</span>
+          </button>
+          
+          <button class="service-tab-btn" data-tab="restorative" role="tab" aria-selected="false">
+            <span class="tab-icon">🛠️</span>
+            <span class="tab-label">Restorative Dentistry</span>
+            <span class="tab-arrow">→</span>
+          </button>
+          
+          <button class="service-tab-btn active" data-tab="cosmetic" role="tab" aria-selected="true">
+            <span class="tab-icon">✨</span>
+            <span class="tab-label">Cosmetic Dentistry</span>
+            <span class="tab-arrow">→</span>
+          </button>
+          
+          <button class="service-tab-btn" data-tab="surgery" role="tab" aria-selected="false">
+            <span class="tab-icon">🦷</span>
+            <span class="tab-label">Oral Surgery</span>
+            <span class="tab-arrow">→</span>
+          </button>
+        </div>
+        
+        <!-- Tab Contents Right -->
+        <div class="services-content-wrapper">
+          
+          <!-- Preventive Tab -->
+          <div class="service-panel" id="panel-preventive" role="tabpanel">
+            <div class="panel-info">
+              <span class="panel-badge">Preventive Care</span>
+              <h3 class="panel-title">Keep Your Natural Teeth Strong & Healthy</h3>
+              <p class="panel-desc">Preventive dentistry is the foundation of a lifetime of healthy smiles. Our team focus on stopping dental diseases before they start through routine check-ups and custom cleanings.</p>
+              <ul class="panel-bullets">
+                <li><span>✓</span> Professional Teeth Cleaning & Scale</li>
+                <li><span>✓</span> Digital X-Rays & Comprehensive Exams</li>
+                <li><span>✓</span> Fluoride Treatments & Dental Sealants</li>
+                <li><span>✓</span> Periodontal (Gum) Health Assessments</li>
+              </ul>
+              <a href="#booking" class="btn btn-primary panel-cta">Book Now</a>
+            </div>
+            <div class="panel-media">
+              <div class="panel-image-container">
+                <img src="images/about_dentist.png" alt="Preventative care dentist" class="panel-img">
+                <div class="panel-floating-label glass-card">Dental Checkup</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Restorative Tab -->
+          <div class="service-panel" id="panel-restorative" role="tabpanel">
+            <div class="panel-info">
+              <span class="panel-badge">Restorative Dentistry</span>
+              <h3 class="panel-title">Reclaim the Full Function of Your Bite</h3>
+              <p class="panel-desc">If you have missing, broken, or decayed teeth, our modern restorative options will rebuild your dental structure, allowing you to speak, chew, and smile with confidence.</p>
+              <ul class="panel-bullets">
+                <li><span>✓</span> Natural-looking Porcelain Crowns & Bridges</li>
+                <li><span>✓</span> Durable Tooth-Colored Composite Fillings</li>
+                <li><span>✓</span> Advanced Dental Implants & Screw-in Teeth</li>
+                <li><span>✓</span> Complete & Partial Custom Dentures</li>
+              </ul>
+              <a href="#booking" class="btn btn-primary panel-cta">Book Now</a>
+            </div>
+            <div class="panel-media">
+              <div class="panel-image-container">
+                <img src="images/hero_patient.png" alt="Restorative dentistry patient" class="panel-img">
+                <div class="panel-floating-label glass-card">Bite Restoration</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Cosmetic Tab (Active) -->
+          <div class="service-panel active" id="panel-cosmetic" role="tabpanel">
+            <div class="panel-info">
+              <span class="panel-badge">Cosmetic Dentistry</span>
+              <h3 class="panel-title">Crafting Your Dream Smile Transformation</h3>
+              <p class="panel-desc">Cosmetic dentistry focuses on improving the aesthetic appearance of your teeth, gums, and overall smile. We design tailored plans to boost your visual confidence.</p>
+              <ul class="panel-bullets">
+                <li><span>✓</span> Zoom Laser Teeth Whitening (In-office & Take-home)</li>
+                <li><span>✓</span> Premium Porcelain & Composite Veneers</li>
+                <li><span>✓</span> Aesthetic Dental Bonding & Chip Repair</li>
+                <li><span>✓</span> Clear Aligner Teeth Straightening</li>
+              </ul>
+              <a href="#booking" class="btn btn-primary panel-cta">Book Now</a>
+            </div>
+            <div class="panel-media">
+              <div class="panel-image-container">
+                <img src="images/cosmetic_service.png" alt="Cosmetic teeth whitening" class="panel-img">
+                <div class="panel-floating-label glass-card">Smile Makeover</div>
+                <div class="panel-tooth-decoration">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C9.5 2 7 3.5 6 6C5 8.5 4 11 4 13C4 17.5 7.5 21 12 21C16.5 21 20 17.5 20 13C20 11 19 8.5 18 6C17 3.5 14.5 2 12 2Z" fill="rgba(217, 248, 21, 0.25)" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Surgery Tab -->
+          <div class="service-panel" id="panel-surgery" role="tabpanel">
+            <div class="panel-info">
+              <span class="panel-badge">Oral Surgery</span>
+              <h3 class="panel-title">Safe, Painless, & Specialized Surgical Care</h3>
+              <p class="panel-desc">From gentle wisdom teeth extractions to bone grafting for implants, our highly skilled surgical team prioritizes your comfort, safety, and rapid recovery.</p>
+              <ul class="panel-bullets">
+                <li><span>✓</span> Comfortable Wisdom Teeth Extractions</li>
+                <li><span>✓</span> Precision Bone Grafting & Sinus Lifts</li>
+                <li><span>✓</span> Supportive Dental Implant Placements</li>
+                <li><span>✓</span> Emergency Tooth Saving Procedures</li>
+              </ul>
+              <a href="#booking" class="btn btn-primary panel-cta">Book Now</a>
+            </div>
+            <div class="panel-media">
+              <div class="panel-image-container">
+                <img src="images/about_dentist.png" alt="Oral surgeon clinic" class="panel-img">
+                <div class="panel-floating-label glass-card">Advanced Surgery</div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="explore-all-wrapper">
+        <a href="#booking" class="explore-all-link">
+          Explore All Dental Services
+          <svg viewBox="0 0 24 24" class="inline-arrow" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Why Choose Us Section -->
+  <section id="about" class="about-section">
+    <div class="container about-container">
+      
+      <!-- Left Column Images -->
+      <div class="about-media">
+        <div class="about-image-wrapper">
+          <img src="images/about_dentist.png" alt="Friendly dentist inside modern office" class="about-main-img">
+          
+          <!-- Overlay Card -->
+          <div class="about-overlay-card glass-card">
+            <div class="avatar-list-mini">
+              <div class="mini-avatar">👨‍⚕️</div>
+              <div class="mini-avatar">👩‍⚕️</div>
+              <div class="mini-avatar">🦷</div>
+            </div>
+            <p class="overlay-card-text">Modern Tech & Gentle Care Methods</p>
+          </div>
+          
+          <div class="about-sparkle-float">✨</div>
+        </div>
+      </div>
+      
+      <!-- Right Column Text -->
+      <div class="about-content">
+        <span class="badge-tag">Why Choose Us</span>
+        <h2 class="about-title">Give Us a Chance to Prove That We Care</h2>
+        <p class="about-description">
+          We believe that dental care should be more than just clinical treatments. Going to the dentist should feel like catching up with a friend who knows and genuinely cares about you. Our clinic brings together leading technology with a friendly, relaxed atmosphere.
+        </p>
+        
+        <div class="about-grid">
+          <div class="about-grid-item">
+            <div class="check-icon">✓</div>
+            <div class="about-grid-info">
+              <h4>Easy Appointment System</h4>
+              <p>Schedule visits instantly online or over a phone call with zero waiting times.</p>
+            </div>
+          </div>
+          
+          <div class="about-grid-item">
+            <div class="check-icon">✓</div>
+            <div class="about-grid-info">
+              <h4>Affordable & Flexible Plans</h4>
+              <p>Flexible payment installations and full compatibility with major insurance.</p>
+            </div>
+          </div>
+          
+          <div class="about-grid-item">
+            <div class="check-icon">✓</div>
+            <div class="about-grid-info">
+              <h4>Expert Certified Doctors</h4>
+              <p>Our practitioners undergo regular advanced training on surgical techniques.</p>
+            </div>
+          </div>
+          
+          <div class="about-grid-item">
+            <div class="check-icon">✓</div>
+            <div class="about-grid-info">
+              <h4>Emergency 24/7 Dental Care</h4>
+              <p>Critical dental trauma treatment available at any hour of the day or night.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-tag margin-auto">Our Specialists</span>
+        <h2 class="section-title">Meet Our Experienced Dental Team For A Healthier Smile</h2>
+      </div>
+      
+      <div class="team-grid">
+        <!-- Dr Lamia -->
+        <div class="team-card">
+          <div class="team-card-image-wrap">
+            <img src="images/doctor_lamia.png" alt="Dr. Lamia" class="team-img">
+          </div>
+          <div class="team-card-info">
+            <h3 class="doctor-name">Dr. Lamia</h3>
+            <p class="doctor-role">Cosmetic Dentistry</p>
+            <div class="doctor-stars">★★★★★</div>
+            <a href="#booking" class="btn btn-outline card-btn">Book Consultation</a>
+          </div>
+        </div>
+        
+        <!-- Dr Ritesh (Featured Card) -->
+        <div class="team-card featured">
+          <div class="featured-bg-outline">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C9.5 2 7 3.5 6 6C5 8.5 4 11 4 13C4 17.5 7.5 21 12 21C16.5 21 20 17.5 20 13C20 11 19 8.5 18 6C17 3.5 14.5 2 12 2Z" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none" />
+            </svg>
+          </div>
+          <span class="featured-badge">Featured Expert</span>
+          <div class="team-card-image-wrap">
+            <img src="images/doctor_ritesh.png" alt="Dr. Ritesh" class="team-img">
+          </div>
+          <div class="team-card-info">
+            <h3 class="doctor-name">Dr. Ritesh</h3>
+            <p class="doctor-role">Preventive Care Specialist</p>
+            <div class="doctor-stars">★★★★★</div>
+            <a href="#booking" class="btn btn-accent card-btn">Book Consultation</a>
+          </div>
+        </div>
+        
+        <!-- Dr Samon -->
+        <div class="team-card">
+          <div class="team-card-image-wrap">
+            <img src="images/doctor_samon.png" alt="Dr. Samon" class="team-img">
+          </div>
+          <div class="team-card-info">
+            <h3 class="doctor-name">Dr. Samon</h3>
+            <p class="doctor-role">Restorative Dentistry</p>
+            <div class="doctor-stars">★★★★★</div>
+            <a href="#booking" class="btn btn-outline card-btn">Book Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="reviews" class="reviews-section">
+    <div class="container reviews-container">
+      
+      <div class="reviews-left">
+        <span class="badge-tag">Testimonials</span>
+        <h2 class="reviews-title">What Our Happy Patients Are Saying</h2>
+        <p class="reviews-subtitle">We check in on our clients regularly to ensure their post-appointment recovery is completely comfortable. Here is what they say about their visits.</p>
+        
+        <div class="slider-controls">
+          <button class="slider-btn prev-btn" id="reviews-prev" aria-label="Previous Review">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5" />
+            </svg>
+          </button>
+          <button class="slider-btn next-btn" id="reviews-next" aria-label="Next Review">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="reviews-right">
+        <div class="reviews-slider-track" id="reviews-track">
+          
+          <!-- Review Slide 1 -->
+          <div class="review-slide active">
+            <div class="review-card">
+              <div class="quote-mark">“</div>
+              <p class="review-text">The most comfortable dental experience I have ever had. The team at {{BUSINESS_NAME}} has a gentle touch that completely eased my anxiety. Highly recommend for cosmetic treatments!</p>
+              <div class="review-user">
+                <img src="images/patient_one.png" alt="Emiley Marlo" class="user-img">
+                <div class="user-meta">
+                  <h4 class="user-name">Emiley Marlo</h4>
+                  <p class="user-desc">Business Owner, USA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Review Slide 2 -->
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="quote-mark">“</div>
+              <p class="review-text">I brought my teenage daughter here for composite veneers and alignment. The clinic was pristine, the staff was extremely friendly, and the result is absolutely dazzling. Truly a five-star clinic!</p>
+              <div class="review-user">
+                <img src="images/patient_two.png" alt="James Carter" class="user-img">
+                <div class="user-meta">
+                  <h4 class="user-name">James Carter</h4>
+                  <p class="user-desc">Tech Consultant, UK</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container faq-container">
+      <div class="section-header text-center">
+        <span class="badge-tag margin-auto">FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      
+      <div class="faq-accordion-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>How often should I visit the dentist for cleanings?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <p>For most patients, we recommend scheduling a routine check-up and professional teeth cleaning every six months. This frequency allows our doctors to monitor your oral hygiene closely, scale away hardened tartar, and detect any potential issues like decay or gum swelling in their earliest stages.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>What are the options for restoring a chipped or broken tooth?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <p>Depending on the depth of the chip or breakage, we offer several cosmetic and restorative fixes: composite bonding (best for minor chips), dental veneers (porcelain covers matching your tooth profile), or custom crowns (for teeth requiring structural support after decay treatment).</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Do you offer payment plan options for cosmetic treatments?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <p>Yes, we believe that everyone deserves their dream smile. We offer low-interest and interest-free installment payment options for cosmetic aligners, veneers, and reconstruction treatments. We also support direct insurance claims processing to optimize your benefits.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Are dental implants permanent solutions for missing teeth?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-content">
+            <p>Absolutely. A dental implant consists of a medical-grade titanium screw that fuses naturally with your jawbone over a few months. Once topped with a customized porcelain crown, it functions and feels exactly like a real tooth, easily lasting a lifetime with normal brushing and flossing care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment / Booking Section -->
+  <section id="booking" class="booking-section">
+    <div class="container booking-container">
+      
+      <!-- Booking Content Left -->
+      <div class="booking-info">
+        <h2 class="booking-title">Appointment Today For A Healthier Smile!</h2>
+        <p class="booking-subtitle">Expert dental care with a gentle touch. Don't let tooth discomfort ruin your week—schedule an appointment with our clinical specialists today and enjoy a clean, painless dental care treatment.</p>
+        
+        <div class="booking-contact-details">
+          <div class="contact-card glass-card">
+            <div class="c-icon">📍</div>
+            <div class="c-text">
+              <h5>Visit Our Clinic</h5>
+              <p>{{ADDRESS}}</p>
+            </div>
+          </div>
+          
+          <div class="contact-card glass-card">
+            <div class="c-icon">🕒</div>
+            <div class="c-text">
+              <h5>Working Hours</h5>
+              <p>Mon - Fri: 8:00 AM - 7:00 PM<br>Sat: 9:00 AM - 3:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Booking Form Right -->
+      <div class="booking-form-wrapper glass-card">
+        <h3 class="form-title">Request a Visit</h3>
+        <p class="form-subtitle">Fill in the fields below and we'll text you back within 15 minutes to confirm your time slot.</p>
+        
+        <form id="appointment-form" class="appointment-form">
+          <div class="form-group">
+            <label for="form-name">Your Full Name</label>
+            <input type="text" id="form-name" placeholder="John Doe" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="form-phone">Phone Number</label>
+            <input type="tel" id="form-phone" placeholder="{{PHONE}}" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-service">Select Treatment</label>
+              <select id="form-service" required>
+                <option value="" disabled selected>Choose service</option>
+                <option value="preventive">Preventive Care Checkup</option>
+                <option value="restorative">Restorative Dentistry</option>
+                <option value="cosmetic">Cosmetic Veneers / Whitening</option>
+                <option value="surgery">Oral Surgery Consultation</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-date">Preferred Date</label>
+              <input type="date" id="form-date" required>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-accent btn-block submit-btn">Book Your Visit Today</button>
+        </form>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer Bottom -->
+  <footer class="footer-bottom">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#" class="logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C9.5 2 7 3.5 6 6C5 8.5 4 11 4 13C4 17.5 7.5 21 12 21C16.5 21 20 17.5 20 13C20 11 19 8.5 18 6C17 3.5 14.5 2 12 2Z" fill="#D9F815" />
+          </svg>
+          <span class="logo-text">{{BUSINESS_NAME}}</span>
+        </a>
+        <p class="footer-desc">Premium, painless dental treatment designed for your absolute comfort.</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#team">Specialists</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+      
+      <div class="footer-copy">
+        <p>&copy; 2026 {{BUSINESS_NAME}}. All rights reserved. Created with absolute visual perfection.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Appointment Booking Success Modal -->
+  <div class="modal-overlay" id="success-modal">
+    <div class="modal-card glass-card">
+      <div class="modal-success-icon">🎉</div>
+      <h3 class="modal-title">Appointment Requested!</h3>
+      <p class="modal-message">Thank you <strong id="modal-user-name"></strong>. We have received your booking request for a <span id="modal-service-name"></span> session on <strong id="modal-date-val"></strong>.</p>
+      <p class="modal-subtext">Our dental coordinator will text you at <span id="modal-phone-val"></span> within 15 minutes to lock in your exact time slot.</p>
+      <button class="btn btn-accent modal-close-btn" id="close-modal">Got it, Thanks!</button>
+    </div>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="script.js?v=1.0.0"></script>
+</body>
+</html>

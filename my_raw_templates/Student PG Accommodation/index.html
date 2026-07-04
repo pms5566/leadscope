@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BUSINESS_NAME}} - Premium Student Living</title>
+    <meta name="description" content="Premium PG for college students. Located just 500m from college. AC rooms, home-cooked food, high-speed WiFi, laundry, and 24/7 security. Book your room today!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <style>
+        :root {
+            --red-primary: #E8173A;
+            --red-dark: #B8102D;
+            --bg-primary: #FFF5F7;
+            --card-white: #FFFFFF;
+            --text-primary: #1A1A2E;
+            --text-muted: #6B7280;
+            --badge-green: #16A34A;
+            --badge-yellow: #F59E0B;
+            --border-radius-card: 20px;
+            --border-radius-pill: 50px;
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 4px 6px -1px rgba(232, 23, 58, 0.05), 0 2px 4px -1px rgba(232, 23, 58, 0.03);
+            --shadow-md: 0 10px 15px -3px rgba(232, 23, 58, 0.08), 0 4px 6px -2px rgba(232, 23, 58, 0.04);
+            --shadow-lg: 0 20px 25px -5px rgba(232, 23, 58, 0.1), 0 10px 10px -5px rgba(232, 23, 58, 0.04);
+            --whatsapp-green: #16A34A;
+            --whatsapp-dark: #15803D;
+        }
+
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        body {
+            overflow-x: hidden;
+            padding-bottom: 70px; /* Space for sticky bottom bar on mobile */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button, .btn {
+            font-family: var(--font-body);
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- 1. NAVBAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--card-white);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 20px rgba(232, 23, 58, 0.08);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--red-primary);
+            font-weight: 800;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--red-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--red-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--red-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-nav {
+            background-color: var(--red-primary);
+            color: var(--card-white);
+            padding: 12px 24px;
+            border-radius: var(--border-radius-pill);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(232, 23, 58, 0.25);
+        }
+
+
+
+
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: var(--transition-smooth);
+            border-radius: 2px;
+        }
+
+        /* Hamburger Active State */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* --- 2. HERO SECTION --- */
+        .hero {
+            background-color: var(--red-primary);
+            background-image: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                              radial-gradient(circle at 10% 80%, rgba(0, 0, 0, 0.15) 0%, transparent 50%);
+            color: var(--card-white);
+            padding: 160px 0 80px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--card-white);
+            padding: 8px 16px;
+            border-radius: var(--border-radius-pill);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtext {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background-color: var(--card-white);
+            color: var(--red-primary);
+            padding: 16px 32px;
+            border-radius: var(--border-radius-pill);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            background-color: #fefefe;
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            color: var(--card-white);
+            padding: 16px 32px;
+            border-radius: var(--border-radius-pill);
+            border: 2px solid var(--card-white);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+        }
+
+        .btn-outline-white:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stat-pill {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-pill);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-pill strong {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .hero-img-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 6px solid rgba(255, 255, 255, 0.25);
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-floating-badge {
+            position: absolute;
+            background-color: var(--card-white);
+            color: var(--text-primary);
+            padding: 12px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .hero-floating-badge.b1 {
+            bottom: 24px;
+            left: -20px;
+            border-left: 4px solid var(--badge-green);
+        }
+
+        .hero-floating-badge.b2 {
+            top: 24px;
+            right: -20px;
+            border-left: 4px solid var(--badge-yellow);
+        }
+
+        .hero-floating-badge span.dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--badge-green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* --- 3. AMENITIES STRIP --- */
+        .amenities-section {
+            background-color: var(--card-white);
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(232, 23, 58, 0.05);
+        }
+
+        .amenities-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 4px 20px 4px;
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE */
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .amenities-scroll::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .amenity-card {
+            flex: 0 0 180px;
+            scroll-snap-align: start;
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius-card);
+            padding: 24px 16px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(232, 23, 58, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .amenity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--red-primary);
+            background-color: var(--card-white);
+        }
+
+        .amenity-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(232, 23, 58, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red-primary);
+            font-size: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .amenity-card:hover .amenity-icon {
+            background-color: var(--red-primary);
+            color: var(--card-white);
+        }
+
+        .amenity-card span {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* --- 4. ROOMS SECTION --- */
+        .rooms-section {
+            padding: 100px 0;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .room-card {
+            background-color: var(--card-white);
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(232, 23, 58, 0.05);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .room-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .room-img {
+            position: relative;
+            height: 240px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .room-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .room-card:hover .room-img img {
+            transform: scale(1.05);
+        }
+
+        .room-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 8px 16px;
+            border-radius: var(--border-radius-pill);
+            color: var(--card-white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .room-badge.green {
+            background-color: var(--badge-green);
+        }
+
+        .room-badge.yellow {
+            background-color: var(--badge-yellow);
+        }
+
+        .room-badge.red {
+            background-color: var(--red-primary);
+        }
+
+        .room-details {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .room-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+
+        .room-title {
+            font-size: 1.35rem;
+            color: var(--text-primary);
+        }
+
+        .room-price {
+            font-size: 1.4rem;
+            color: var(--red-primary);
+            font-weight: 800;
+        }
+
+        .room-price span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .room-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .room-pill {
+            background-color: var(--bg-primary);
+            color: var(--red-primary);
+            padding: 6px 12px;
+            border-radius: var(--border-radius-pill);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(232, 23, 58, 0.05);
+        }
+
+        .btn-book {
+            background-color: var(--red-primary);
+            color: var(--card-white);
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--border-radius-pill);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
+            font-size: 0.95rem;
+        }
+
+        .btn-book:hover {
+            background-color: var(--red-dark);
+            box-shadow: 0 6px 15px rgba(232, 23, 58, 0.2);
+        }
+
+        /* --- 5. FOOD MENU SECTION --- */
+        .food-section {
+            background-color: #FFF0F2;
+            padding: 100px 0;
+            border-radius: 40px;
+            margin: 0 24px;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .food-info h3 {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .food-info p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .food-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .food-badge {
+            background-color: var(--card-white);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-pill);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .food-menu-card {
+            background-color: var(--card-white);
+            border-radius: var(--border-radius-card);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(232, 23, 58, 0.05);
+        }
+
+        .meal-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            padding: 16px 0;
+            border-bottom: 1px dashed rgba(232, 23, 58, 0.1);
+            align-items: center;
+        }
+
+        .meal-row:last-child {
+            border-bottom: none;
+        }
+
+        .meal-time {
+            font-weight: 700;
+            color: var(--red-primary);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meal-details {
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 1rem;
+            padding-left: 12px;
+        }
+
+        .food-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 18px;
+            background-color: rgba(245, 158, 11, 0.08);
+            border-radius: 12px;
+            border-left: 4px solid var(--badge-yellow);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #B45309;
+        }
+
+        /* --- 6. PHOTO GALLERY SECTION --- */
+        .gallery-section {
+            padding: 100px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(232, 23, 58, 0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(26, 26, 46, 0.6) 0%, transparent 60%);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: 1;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: var(--card-white);
+            font-weight: 600;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: var(--transition-smooth);
+            z-index: 2;
+        }
+
+        .gallery-item:hover .gallery-overlay-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gallery Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 46, 0.95);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: transparent;
+            color: var(--card-white);
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .lightbox-close:hover {
+            background-color: var(--red-primary);
+        }
+
+        .lightbox-caption {
+            color: var(--card-white);
+            text-align: center;
+            margin-top: 16px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* --- 7. RULES & DETAILS SECTION --- */
+        .rules-section {
+            padding: 100px 0;
+            background-color: var(--card-white);
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .rules-card {
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius-card);
+            padding: 36px;
+            border-left: 6px solid var(--red-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .rules-card.green-border {
+            border-left-color: var(--badge-green);
+        }
+
+        .rules-card h3 {
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rules-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .rules-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .rules-list li svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--red-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .rules-card.green-border li svg {
+            fill: var(--badge-green);
+        }
+
+        /* --- 8. LOCATION SECTION --- */
+        .location-section {
+            padding: 100px 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 4px solid var(--card-white);
+            margin-bottom: 24px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .landmarks-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+            justify-content: center;
+        }
+
+        .landmark-pill {
+            background-color: var(--card-white);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-pill);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(232, 23, 58, 0.05);
+        }
+
+        .address-text {
+            text-align: center;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* --- 9. TESTIMONIALS SECTION --- */
+        .testimonials-section {
+            padding: 100px 0;
+            background-color: var(--card-white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius-card);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(232, 23, 58, 0.05);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--red-primary);
+            color: var(--card-white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tenant-info h4 {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .tenant-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .rating-stars {
+            color: var(--badge-yellow);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 2px;
+        }
+
+        .testimonial-quote {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            font-style: italic;
+            position: relative;
+        }
+
+        /* --- 10. STICKY WHATSAPP CTA BAR (Bottom) --- */
+        .sticky-whatsapp-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(120%);
+            width: calc(100% - 48px);
+            max-width: 600px;
+            background-color: var(--card-white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(22, 163, 74, 0.1);
+            border-radius: 24px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1500;
+            opacity: 0;
+            border: 2px solid rgba(22, 163, 74, 0.2);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+        }
+
+        .sticky-whatsapp-bar.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .sticky-whatsapp-bar.bounce {
+            animation: bottom-bounce 0.8s ease;
+        }
+
+        @keyframes bottom-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-15px); }
+        }
+
+        .whatsapp-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-bar-left svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .whatsapp-bar-left span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .btn-whatsapp-sticky {
+            background-color: var(--whatsapp-green);
+            color: var(--card-white);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-pill);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            animation: glow-green 2s infinite alternate;
+        }
+
+        @keyframes glow-green {
+            0% {
+                box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            }
+        }
+
+        .btn-whatsapp-sticky:hover {
+            background-color: var(--whatsapp-dark);
+            transform: scale(1.02);
+        }
+
+        /* --- 11. FINAL CTA SECTION --- */
+        .final-cta {
+            background-color: var(--red-primary);
+            color: var(--card-white);
+            padding: 100px 0;
+            text-align: center;
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta .btn-white {
+            font-size: 1.15rem;
+            padding: 18px 40px;
+        }
+
+        .cta-footer-details {
+            margin-top: 32px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        /* --- 12. FOOTER --- */
+        footer {
+            background-color: var(--text-primary);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 40px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--card-white);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-brand h3 svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--red-primary);
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: var(--card-white);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links ul a {
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links ul a:hover {
+            color: var(--red-primary);
+            padding-left: 4px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--card-white);
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-pill);
+            transition: var(--transition-smooth);
+            font-weight: 600;
+        }
+
+        .social-link:hover {
+            background-color: var(--red-primary);
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* --- RESPONSIVE DESIGN (Mobile First / Breakpoints) --- */
+
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-badge, .hero-ctas, .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-floating-badge.b1 {
+                left: 10px;
+            }
+
+            .hero-floating-badge.b2 {
+                right: 10px;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtext {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--card-white);
+                flex-direction: column;
+                padding: 40px 24px;
+                gap: 24px;
+                box-shadow: 0 10px 20px rgba(232, 23, 58, 0.05);
+                transform: translateX(-100%);
+                transition: transform 0.4s ease;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .btn-nav {
+                width: 100%;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .btn-white, .btn-outline-white {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-floating-badge {
+                display: none;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-whatsapp-bar {
+                width: calc(100% - 24px);
+                padding: 10px 16px;
+            }
+
+            .whatsapp-bar-left span {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVBAR -->
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.2L19 11.5v6.5h-2v-6H7v6H5v-6.5L12 5.2z"/>
+                </svg>
+                {{BUSINESS_NAME}}
+            </a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#rooms">Rooms</a>
+                <a href="#amenities">Amenities</a>
+                <a href="#food">Food Menu</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#rules">Rules</a>
+                <a href="#location">Location</a>
+                <a href="https://wa.me/{{WHATSAPP}}?text=Hi,%20I%20saw%20your%20website%20and%20want%20to%20inquire%20about%20rooms" target="_blank" class="btn btn-nav">
+                    <svg style="width: 24px; height: 24px; flex-shrink: 0; margin-right: 6px;" viewBox="0 0 24 24">
+                        <rect width="24" height="24" rx="5" fill="#25D366"/>
+                        <path fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 1.34.35 2.6 1.01 3.7l-.81 2.95 3.03-.79c1.05.6 2.26.94 3.56.94 4.14 0 7.5-3.36 7.5-7.5S16.14 4.5 12 4.5z"/>
+                        <path fill="#FFFFFF" d="M15.45 13.91c-.2-.29-.75-.54-.95-.6-.2-.06-.35-.09-.5.1-.15.19-.58.62-.71.74-.13.13-.26.14-.49.04a5.95 5.95 0 0 1-1.81-1.11 5.95 5.95 0 0 1-1.25-1.55c-.13-.23-.12-.39 0-.51.1-.11.4-.39.5-.53.1-.14.15-.24.23-.38.08-.14.04-.26-.02-.36-.06-.1-.51-1.23-.7-1.68-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.4.06-.6.28-.2.23-.79.77-.79 1.88 0 1.11.81 2.19.92 2.34.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.43-.07 1.33-.55 1.52-1.07.19-.53.19-.98.13-1.08-.05-.09-.2-.14-.42-.25z"/>
+                    </svg>
+                    WhatsApp Us
+                </a>
+            </nav>
+            
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge">🟢 Rooms Available Now</span>
+                <h1 class="hero-title">Feel at Home, Away from Home</h1>
+                <p class="hero-subtext">Premium PG for college students in Delhi — AC rooms, home food, ultra-fast 100 Mbps WiFi & weekly cleaning.</p>
+                
+                <div class="hero-ctas">
+                    <a href="https://wa.me/{{WHATSAPP}}?text=Hi,%20I%20saw%20your%20website%20and%20want%20to%20inquire%20about%20rooms" target="_blank" class="btn btn-white" style="padding: 16px 32px; border-radius: var(--border-radius-pill); font-size: 1.05rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                        <svg style="width: 28px; height: 28px; flex-shrink: 0; margin-right: 6px;" viewBox="0 0 24 24">
+                            <rect width="24" height="24" rx="5" fill="#25D366"/>
+                            <path fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 1.34.35 2.6 1.01 3.7l-.81 2.95 3.03-.79c1.05.6 2.26.94 3.56.94 4.14 0 7.5-3.36 7.5-7.5S16.14 4.5 12 4.5z"/>
+                            <path fill="#FFFFFF" d="M15.45 13.91c-.2-.29-.75-.54-.95-.6-.2-.06-.35-.09-.5.1-.15.19-.58.62-.71.74-.13.13-.26.14-.49.04a5.95 5.95 0 0 1-1.81-1.11 5.95 5.95 0 0 1-1.25-1.55c-.13-.23-.12-.39 0-.51.1-.11.4-.39.5-.53.1-.14.15-.24.23-.38.08-.14.04-.26-.02-.36-.06-.1-.51-1.23-.7-1.68-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.4.06-.6.28-.2.23-.79.77-.79 1.88 0 1.11.81 2.19.92 2.34.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.43-.07 1.33-.55 1.52-1.07.19-.53.19-.98.13-1.08-.05-.09-.2-.14-.42-.25z"/>
+                        </svg>
+                        WhatsApp to Book
+                    </a>
+                    <a href="#rooms" class="btn btn-outline-white">
+                        View Rooms ↓
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-pill">
+                        🏠 <strong class="counter" data-target="12">0</strong> Rooms
+                    </div>
+                    <div class="stat-pill">
+                        ⭐ <strong>4.8</strong> Rating
+                    </div>
+                    <div class="stat-pill">
+                        👥 <strong class="counter" data-target="200">0</strong>+ Happy Tenants
+                    </div>
+                    <div class="stat-pill">
+                        📍 <strong>500m</strong> from DU
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-img-container">
+                <div class="hero-floating-badge b1">
+                    <span class="dot"></span> 24/7 Security Gate
+                </div>
+                <div class="hero-floating-badge b2">
+                    🍽️ Fresh Hot Meals
+                </div>
+                <div class="hero-img-wrapper">
+                    <img src="assets/hero_room.png" alt="{{BUSINESS_NAME}} Cozy Premium Bedroom">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. AMENITIES STRIP -->
+    <section class="amenities-section" id="amenities">
+        <div class="container">
+            <div class="amenities-scroll" id="amenityScroll">
+                <div class="amenity-card">
+                    <div class="amenity-icon">❄️</div>
+                    <span>AC in Every Room</span>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">📶</div>
+                    <span>100 Mbps WiFi</span>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">🍽️</div>
+                    <span>Home Cooked Food</span>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">🧺</div>
+                    <span>Laundry Service</span>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">🔒</div>
+                    <span>24/7 Security</span>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">🚿</div>
+                    <span>Hot Water</span>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">🅿️</div>
+                    <span>Parking</span>
+                </div>
+                <div class="amenity-card">
+                    <div class="amenity-icon">📺</div>
+                    <span>Common TV Room</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ROOMS SECTION -->
+    <section class="rooms-section" id="rooms">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Room</h2>
+                <p>Select the sharing type that fits your preference and budget. High comfort guaranteed.</p>
+            </div>
+            
+            <div class="rooms-grid">
+                <!-- Single Sharing -->
+                <div class="room-card">
+                    <span class="room-badge red">Only 2 Left</span>
+                    <div class="room-img">
+                        <img src="assets/room_single.png" alt="Single Sharing Room">
+                    </div>
+                    <div class="room-details">
+                        <div class="room-title-row">
+                            <h3 class="room-title">Single Sharing</h3>
+                            <div class="room-price">₹8,000<span>/month</span></div>
+                        </div>
+                        <div class="room-pills">
+                            <span class="room-pill">AC</span>
+                            <span class="room-pill">Attached Bath</span>
+                            <span class="room-pill">High Speed WiFi</span>
+                            <span class="room-pill">Wardrobe</span>
+                        </div>
+                        <a href="https://wa.me/{{WHATSAPP}}?text=Hi,%20I%20am%20interested%20in%20the%20Single%20Sharing%20room" target="_blank" class="btn btn-book">
+                            <svg style="width: 24px; height: 24px; flex-shrink: 0; margin-right: 6px;" viewBox="0 0 24 24">
+                                <rect width="24" height="24" rx="5" fill="#25D366"/>
+                                <path fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 1.34.35 2.6 1.01 3.7l-.81 2.95 3.03-.79c1.05.6 2.26.94 3.56.94 4.14 0 7.5-3.36 7.5-7.5S16.14 4.5 12 4.5z"/>
+                                <path fill="#FFFFFF" d="M15.45 13.91c-.2-.29-.75-.54-.95-.6-.2-.06-.35-.09-.5.1-.15.19-.58.62-.71.74-.13.13-.26.14-.49.04a5.95 5.95 0 0 1-1.81-1.11 5.95 5.95 0 0 1-1.25-1.55c-.13-.23-.12-.39 0-.51.1-.11.4-.39.5-.53.1-.14.15-.24.23-.38.08-.14.04-.26-.02-.36-.06-.1-.51-1.23-.7-1.68-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.4.06-.6.28-.2.23-.79.77-.79 1.88 0 1.11.81 2.19.92 2.34.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.43-.07 1.33-.55 1.52-1.07.19-.53.19-.98.13-1.08-.05-.09-.2-.14-.42-.25z"/>
+                            </svg>
+                            WhatsApp to Book
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Double Sharing -->
+                <div class="room-card">
+                    <span class="room-badge yellow">Filling Fast</span>
+                    <div class="room-img">
+                        <img src="assets/room_double.png" alt="Double Sharing Room">
+                    </div>
+                    <div class="room-details">
+                        <div class="room-title-row">
+                            <h3 class="room-title">Double Sharing</h3>
+                            <div class="room-price">₹5,500<span>/month</span></div>
+                        </div>
+                        <div class="room-pills">
+                            <span class="room-pill">AC</span>
+                            <span class="room-pill">WiFi</span>
+                            <span class="room-pill">Study Table</span>
+                            <span class="room-pill">Shared Bath</span>
+                        </div>
+                        <a href="https://wa.me/{{WHATSAPP}}?text=Hi,%20I%20am%20interested%20in%20the%20Double%20Sharing%20room" target="_blank" class="btn btn-book">
+                            <svg style="width: 24px; height: 24px; flex-shrink: 0; margin-right: 6px;" viewBox="0 0 24 24">
+                                <rect width="24" height="24" rx="5" fill="#25D366"/>
+                                <path fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 1.34.35 2.6 1.01 3.7l-.81 2.95 3.03-.79c1.05.6 2.26.94 3.56.94 4.14 0 7.5-3.36 7.5-7.5S16.14 4.5 12 4.5z"/>
+                                <path fill="#FFFFFF" d="M15.45 13.91c-.2-.29-.75-.54-.95-.6-.2-.06-.35-.09-.5.1-.15.19-.58.62-.71.74-.13.13-.26.14-.49.04a5.95 5.95 0 0 1-1.81-1.11 5.95 5.95 0 0 1-1.25-1.55c-.13-.23-.12-.39 0-.51.1-.11.4-.39.5-.53.1-.14.15-.24.23-.38.08-.14.04-.26-.02-.36-.06-.1-.51-1.23-.7-1.68-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.4.06-.6.28-.2.23-.79.77-.79 1.88 0 1.11.81 2.19.92 2.34.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.43-.07 1.33-.55 1.52-1.07.19-.53.19-.98.13-1.08-.05-.09-.2-.14-.42-.25z"/>
+                            </svg>
+                            WhatsApp to Book
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Triple Sharing -->
+                <div class="room-card">
+                    <span class="room-badge green">Available</span>
+                    <div class="room-img">
+                        <img src="assets/room_triple.png" alt="Triple Sharing Room">
+                    </div>
+                    <div class="room-details">
+                        <div class="room-title-row">
+                            <h3 class="room-title">Triple Sharing</h3>
+                            <div class="room-price">₹4,000<span>/month</span></div>
+                        </div>
+                        <div class="room-pills">
+                            <span class="room-pill">Ceiling Fan</span>
+                            <span class="room-pill">WiFi</span>
+                            <span class="room-pill">Wardrobe</span>
+                            <span class="room-pill">Window View</span>
+                        </div>
+                        <a href="https://wa.me/{{WHATSAPP}}?text=Hi,%20I%20am%20interested%20in%20the%20Triple%20Sharing%20room" target="_blank" class="btn btn-book">
+                            <svg style="width: 24px; height: 24px; flex-shrink: 0; margin-right: 6px;" viewBox="0 0 24 24">
+                                <rect width="24" height="24" rx="5" fill="#25D366"/>
+                                <path fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 1.34.35 2.6 1.01 3.7l-.81 2.95 3.03-.79c1.05.6 2.26.94 3.56.94 4.14 0 7.5-3.36 7.5-7.5S16.14 4.5 12 4.5z"/>
+                                <path fill="#FFFFFF" d="M15.45 13.91c-.2-.29-.75-.54-.95-.6-.2-.06-.35-.09-.5.1-.15.19-.58.62-.71.74-.13.13-.26.14-.49.04a5.95 5.95 0 0 1-1.81-1.11 5.95 5.95 0 0 1-1.25-1.55c-.13-.23-.12-.39 0-.51.1-.11.4-.39.5-.53.1-.14.15-.24.23-.38.08-.14.04-.26-.02-.36-.06-.1-.51-1.23-.7-1.68-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.4.06-.6.28-.2.23-.79.77-.79 1.88 0 1.11.81 2.19.92 2.34.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.43-.07 1.33-.55 1.52-1.07.19-.53.19-.98.13-1.08-.05-.09-.2-.14-.42-.25z"/>
+                            </svg>
+                            WhatsApp to Book
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOD MENU SECTION -->
+    <section class="food-section" id="food">
+        <div class="container food-grid">
+            <div class="food-info">
+                <span class="food-badges">
+                    <span class="food-badge">🍽️ Fresh Food Daily</span>
+                    <span class="food-badge">🥬 Veg Meals Only</span>
+                </span>
+                <h3>Home-Style Food, Every Day</h3>
+                <p>Craving home-cooked meals? Our in-house chefs prepare fresh, hygienic, and nutritious food daily. Breakfast, lunch, evening tea, and dinner are all included in your monthly rent!</p>
+                <div class="food-note">
+                    🎉 <strong>Special Sunday Menu:</strong> Chole Bhature, Paneer Special, and Ice Cream/Desserts every weekend!
+                </div>
+            </div>
+            
+            <div class="food-menu-card">
+                <h4 style="font-size: 1.25rem; margin-bottom: 20px; color: var(--red-primary); border-bottom: 2px solid rgba(232,23,58,0.1); padding-bottom: 10px;">Weekly Meal Preview</h4>
+                
+                <div class="meal-row">
+                    <div class="meal-time">Breakfast</div>
+                    <div class="meal-details">Poha / Stuffed Paratha / Veg Idli with Chutney + Hot Milk/Tea</div>
+                </div>
+                <div class="meal-row">
+                    <div class="meal-time">Lunch</div>
+                    <div class="meal-details">Dal Rice / Rajma Rice / Seasonal Sabzi + Roti + Salad + Curd</div>
+                </div>
+                <div class="meal-row">
+                    <div class="meal-time">Snacks</div>
+                    <div class="meal-details">Hot Tea / Coffee + Samosa / Veg Cutlet / Bread Pakora</div>
+                </div>
+                <div class="meal-row">
+                    <div class="meal-time">Dinner</div>
+                    <div class="meal-details">Paneer / Mixed Veg Sabzi + Yellow Dal + Butter Roti + Rice + Sweet Dish</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PHOTO GALLERY SECTION -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>See It for Yourself</h2>
+                <p>Take a virtual tour of your next home. Real photos, zero filters, pristine conditions.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="assets/gallery_entrance.png" alt="{{BUSINESS_NAME}} Exterior Entrance">
+                    <div class="gallery-overlay-text">Entrance & Building</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="assets/hero_room.png" alt="Cozy Premium Rooms">
+                    <div class="gallery-overlay-text">Premium Bedrooms</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="assets/gallery_kitchen.png" alt="Kitchen and Dining Area">
+                    <div class="gallery-overlay-text">Dining & Kitchen</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="assets/gallery_lounge.png" alt="Common Lounge Area">
+                    <div class="gallery-overlay-text">Student Common Lounge</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="assets/gallery_washroom.png" alt="Clean Modern Washrooms">
+                    <div class="gallery-overlay-text">Spotless Washroom</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="assets/room_single.png" alt="Single Sharing Cozy Setup">
+                    <div class="gallery-overlay-text">Study Corners</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightboxImg" class="lightbox-img" src="" alt="Lightbox Image">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- 7. RULES & DETAILS SECTION -->
+    <section class="rules-section" id="rules">
+        <div class="container">
+            <div class="section-header">
+                <h2>House Guidelines & Inclusions</h2>
+                <p>Keeping {{BUSINESS_NAME}} clean, harmonious, and safe for all residents.</p>
+            </div>
+            
+            <div class="rules-grid">
+                <!-- House Rules -->
+                <div class="rules-card">
+                    <h3>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                        House Rules
+                    </h3>
+                    <ul class="rules-list">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Co-ed Student PG (Separate wings for boys & girls)
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Visitors allowed in the lounge area till 9 PM
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            No smoking or alcohol permitted inside building premises
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Quiet hours enforced after 11 PM for peaceful study
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Monthly rent payment is due by the 5th of each month
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- What's Included -->
+                <div class="rules-card green-border">
+                    <h3>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                        </svg>
+                        What's Included
+                    </h3>
+                    <ul class="rules-list">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Electricity & Water charges (No extra hidden bills)
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            High-speed 100 Mbps fiber WiFi access
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            3 healthy home-cooked meals per day (+ evening tea)
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Weekly room cleaning & daily garbage disposal
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Minimal Security Deposit: Only 1 Month Rent
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. LOCATION SECTION -->
+    <section class="location-section" id="location">
+        <div class="container">
+            <div class="section-header">
+                <h2>Perfectly Located</h2>
+                <p>Skip the long commutes. We are situated right next to the university, food joints, and transport.</p>
+            </div>
+            
+            <div class="map-container">
+                <!-- Generic Google Maps location showing Delhi University area for demo purposes -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13996.115456383677!2d77.20038890251759!3d28.688849033320297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd911a3d3c75%3A0xe54d2417c8008064!2sDelhi%20University%2C%20Delhi%20110007!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="landmarks-container">
+                <span class="landmark-pill">📍 500m from Delhi University</span>
+                <span class="landmark-pill">🚌 2 min walk to Bus Stop</span>
+                <span class="landmark-pill">🛒 Grocery Store Next Door</span>
+                <span class="landmark-pill">🏥 Hospital 1km Away</span>
+            </div>
+
+            <p class="address-text">
+                🏠 <strong>Address:</strong> {{ADDRESS}}
+            </p>
+        </div>
+    </section>
+
+    <!-- 9. TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Tenants Say</h2>
+                <p>Hear directly from college students who chose {{BUSINESS_NAME}} as their home.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Card 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar">PM</div>
+                        <div class="tenant-info">
+                            <h4>Priya M.</h4>
+                            <p>Delhi University (DU)</p>
+                        </div>
+                    </div>
+                    <div class="rating-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Best decision I made as a fresher. Food is exactly like home and the WiFi never drops during my exams! Highly recommended."</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar">RS</div>
+                        <div class="tenant-info">
+                            <h4>Rahul S.</h4>
+                            <p>Hindu College</p>
+                        </div>
+                    </div>
+                    <div class="rating-stars">★★★★★</div>
+                    <p class="testimonial-quote">"The rooms are clean and spacious. The caretakers are helpful, and security is 24/7. Definitely feels like home."</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="avatar">RK</div>
+                        <div class="tenant-info">
+                            <h4>Rohit K.</h4>
+                            <p>Hansraj College</p>
+                        </div>
+                    </div>
+                    <div class="rating-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Super close to campus. Weekly room cleaning is awesome, and the Sunday special breakfast (Chole Bhature) is the absolute best!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. STICKY WHATSAPP CTA BAR (Bottom) -->
+    <div class="sticky-whatsapp-bar" id="stickyWhatsApp">
+        <div class="whatsapp-bar-left">
+            <svg style="width: 24px; height: 24px; flex-shrink: 0;" viewBox="0 0 24 24">
+                <rect width="24" height="24" rx="5" fill="#25D366"/>
+                <path fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 1.34.35 2.6 1.01 3.7l-.81 2.95 3.03-.79c1.05.6 2.26.94 3.56.94 4.14 0 7.5-3.36 7.5-7.5S16.14 4.5 12 4.5z"/>
+                <path fill="#FFFFFF" d="M15.45 13.91c-.2-.29-.75-.54-.95-.6-.2-.06-.35-.09-.5.1-.15.19-.58.62-.71.74-.13.13-.26.14-.49.04a5.95 5.95 0 0 1-1.81-1.11 5.95 5.95 0 0 1-1.25-1.55c-.13-.23-.12-.39 0-.51.1-.11.4-.39.5-.53.1-.14.15-.24.23-.38.08-.14.04-.26-.02-.36-.06-.1-.51-1.23-.7-1.68-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.4.06-.6.28-.2.23-.79.77-.79 1.88 0 1.11.81 2.19.92 2.34.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.43-.07 1.33-.55 1.52-1.07.19-.53.19-.98.13-1.08-.05-.09-.2-.14-.42-.25z"/>
+            </svg>
+            <span>Have questions? We reply fast!</span>
+        </div>
+        <a href="https://wa.me/{{WHATSAPP}}?text=Hi,%20I%20saw%20your%20website%20and%20want%20to%20inquire%20about%20rooms" target="_blank" class="btn btn-whatsapp-sticky">
+            <svg style="width: 24px; height: 24px; flex-shrink: 0; margin-right: 6px;" viewBox="0 0 24 24">
+                <rect width="24" height="24" rx="5" fill="#FFFFFF"/>
+                <path fill="none" stroke="#25D366" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 1.34.35 2.6 1.01 3.7l-.81 2.95 3.03-.79c1.05.6 2.26.94 3.56.94 4.14 0 7.5-3.36 7.5-7.5S16.14 4.5 12 4.5z"/>
+                <path fill="#25D366" d="M15.45 13.91c-.2-.29-.75-.54-.95-.6-.2-.06-.35-.09-.5.1-.15.19-.58.62-.71.74-.13.13-.26.14-.49.04a5.95 5.95 0 0 1-1.81-1.11 5.95 5.95 0 0 1-1.25-1.55c-.13-.23-.12-.39 0-.51.1-.11.4-.39.5-.53.1-.14.15-.24.23-.38.08-.14.04-.26-.02-.36-.06-.1-.51-1.23-.7-1.68-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.4.06-.6.28-.2.23-.79.77-.79 1.88 0 1.11.81 2.19.92 2.34.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.43-.07 1.33-.55 1.52-1.07.19-.53.19-.98.13-1.08-.05-.09-.2-.14-.42-.25z"/>
+            </svg>
+            WhatsApp Now
+        </a>
+    </div>
+
+    <!-- 11. FINAL CTA SECTION -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to move in?</h2>
+            <p>Rooms fill up fast as the new semester approaches. Message us today to secure your spot.</p>
+            <a href="https://wa.me/{{WHATSAPP}}?text=Hi,%20I%20saw%20your%20website%20and%20want%20to%20inquire%20about%20rooms" target="_blank" class="btn btn-white" style="font-size: 1.15rem; padding: 18px 40px; border-radius: var(--border-radius-pill); display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg style="width: 32px; height: 32px; flex-shrink: 0; margin-right: 6px;" viewBox="0 0 24 24">
+                    <rect width="24" height="24" rx="5" fill="#25D366"/>
+                    <path fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 1.34.35 2.6 1.01 3.7l-.81 2.95 3.03-.79c1.05.6 2.26.94 3.56.94 4.14 0 7.5-3.36 7.5-7.5S16.14 4.5 12 4.5z"/>
+                    <path fill="#FFFFFF" d="M15.45 13.91c-.2-.29-.75-.54-.95-.6-.2-.06-.35-.09-.5.1-.15.19-.58.62-.71.74-.13.13-.26.14-.49.04a5.95 5.95 0 0 1-1.81-1.11 5.95 5.95 0 0 1-1.25-1.55c-.13-.23-.12-.39 0-.51.1-.11.4-.39.5-.53.1-.14.15-.24.23-.38.08-.14.04-.26-.02-.36-.06-.1-.51-1.23-.7-1.68-.18-.44-.36-.38-.5-.39h-.43c-.15 0-.4.06-.6.28-.2.23-.79.77-.79 1.88 0 1.11.81 2.19.92 2.34.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.43-.07 1.33-.55 1.52-1.07.19-.53.19-.98.13-1.08-.05-.09-.2-.14-.42-.25z"/>
+                </svg>
+                WhatsApp Us Now
+            </a>
+            
+            <div class="cta-footer-details">
+                <span>📞 {{PHONE}}</span>
+                <span>📍 {{ADDRESS}}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.2L19 11.5v6.5h-2v-6H7v6H5v-6.5L12 5.2z"/>
+                        </svg>
+                        {{BUSINESS_NAME}}
+                    </h3>
+                    <p>Offering premium and comfortable student living. Safe, secure, and modern environments that encourage students to thrive.</p>
+                    <a href="https://instagram.com" target="_blank" class="social-link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                        Instagram
+                    </a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#rooms">Rooms & Pricing</a></li>
+                        <li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#food">Meal Menu</a></li>
+                        <li><a href="#gallery">Photo Gallery</a></li>
+                        <li><a href="#rules">House Rules</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>📍 DU North Campus, New Delhi</li>
+                        <li>📞 {{PHONE}}</li>
+                        <li>✉️ {{EMAIL}}</li>
+                        <li>⏰ Visiting: 9 AM - 8 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 {{BUSINESS_NAME}} | Premium Student Living</p>
+                <p>Made with ❤️ for students</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // 1. Mobile Navigation Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close nav links when item is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 2. Navbar shadow scroll interaction
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 3. Count-up Stats Animation
+        const statCounters = document.querySelectorAll('.counter');
+        const countSpeed = 100; // lower is faster
+
+        const animateCounters = () => {
+            statCounters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                let current = 0;
+                const increment = Math.ceil(target / countSpeed);
+
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (current > target) current = target;
+                        counter.innerText = current;
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Trigger counter animation on load
+        window.addEventListener('DOMContentLoaded', () => {
+            animateCounters();
+            
+            // 4. Sticky WhatsApp entrance animation & bounce on load
+            const stickyWA = document.getElementById('stickyWhatsApp');
+            setTimeout(() => {
+                stickyWA.classList.add('show');
+                // Wait for entrance transition, then bounce once
+                setTimeout(() => {
+                    stickyWA.classList.add('bounce');
+                    // Remove bounce class after animation finishes
+                    setTimeout(() => {
+                        stickyWA.classList.remove('bounce');
+                    }, 800);
+                }, 600);
+            }, 1500);
+        });
+
+        // 5. Swipe interaction support/horizontal scroll drag for Amenities Strip on desktop
+        const slider = document.getElementById('amenityScroll');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // scroll speed multiplier
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Set initial pointer state for desktop
+        slider.style.cursor = 'grab';
+
+        // 6. Photo Gallery Lightbox Click to Expand
+        const imagesList = [
+            { src: 'assets/gallery_entrance.png', title: '{{BUSINESS_NAME}} Main Entrance' },
+            { src: 'assets/hero_room.png', title: 'Modern Twin Sharing Rooms' },
+            { src: 'assets/gallery_kitchen.png', title: 'Fully Functional Kitchen & Dining Space' },
+            { src: 'assets/gallery_lounge.png', title: 'Cozy Lounge Area & Indoor Games' },
+            { src: 'assets/gallery_washroom.png', title: 'Spotless Modern Washrooms' },
+            { src: 'assets/room_single.png', title: 'Single Sharing Study Space' }
+        ];
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+
+        function openLightbox(index) {
+            const selectedImage = imagesList[index];
+            lightboxImg.src = selectedImage.src;
+            lightboxCaption.innerText = selectedImage.title;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop background scroll
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore background scroll
+        }
+
+        // Close Lightbox on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

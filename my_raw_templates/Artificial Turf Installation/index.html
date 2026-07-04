@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenLawn Turf Solutions | Dallas's Premier Artificial Turf Installer</title>
+  <meta name="description" content="GreenLawn Turf Solutions installs premium artificial turf, custom putting greens, and pet-safe lawns across Dallas, TX. Get your free on-site measurement today. 15-Year Warranty." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- DaisyUI v4 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
+
+  <!-- FontAwesome v6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --primary: hsl(142, 60%, 25%);
+      --primary-dark: hsl(142, 60%, 18%);
+      --primary-light: hsl(142, 50%, 35%);
+      --secondary: hsl(135, 30%, 96%);
+      --neutral-dark: hsl(215, 25%, 15%);
+      --accent: hsl(38, 92%, 50%);
+      --accent-dark: hsl(38, 92%, 40%);
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: hsl(215, 25%, 15%); background: #fff; overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 80px; }
+
+    /* Header */
+    #site-header { transition: background 0.35s ease, box-shadow 0.35s ease; }
+    #site-header.scrolled { background: rgba(255,255,255,0.97) !important; backdrop-filter: blur(14px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+    /* Buttons */
+    .btn-amber { background: var(--accent); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 700; border: none; border-radius: 8px; padding: 14px 28px; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; text-decoration: none; }
+    .btn-amber:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.35); }
+    .btn-green { background: var(--primary); color: #fff; font-family: 'Outfit', sans-serif; font-weight: 700; border: none; border-radius: 8px; padding: 14px 28px; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; text-decoration: none; }
+    .btn-green:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(22,101,52,0.3); }
+    .btn-outline-light { background: transparent; color: rgba(255,255,255,0.85); font-family: 'Outfit', sans-serif; font-weight: 700; border: 2px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 12px 26px; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; text-decoration: none; }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+    /* Hero */
+    .hero-section { background: linear-gradient(135deg, hsl(215,25%,10%) 0%, hsl(142,40%,12%) 100%); min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; overflow: hidden; }
+    .hero-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(34,197,94,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(245,158,11,0.06) 0%, transparent 50%); pointer-events: none; }
+    .hero-badge { background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 16px; display: inline-flex; align-items: center; gap: 8px; color: #fff; font-size: 0.85rem; font-weight: 500; margin-bottom: 20px; }
+    .hero-img-wrapper { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+    .hero-img-wrapper img { width: 100%; height: 560px; object-fit: cover; display: block; }
+    .hero-float-badge { position: absolute; bottom: 24px; left: 24px; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-radius: 14px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .check-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9); font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; }
+    .check-icon { width: 22px; height: 22px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.65rem; color: #fff; }
+
+    /* Trust Bar */
+    .trust-bar { background: var(--primary); padding: 20px 0; }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 600; font-size: 0.9rem; padding: 8px 16px; }
+    .trust-item i { font-size: 1.3rem; color: var(--accent); }
+    .trust-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.25); }
+
+    /* Service Cards */
+    .service-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.07); transition: transform 0.25s ease, box-shadow 0.25s ease; border-top: 4px solid var(--primary); }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.13); }
+    .service-card img { width: 100%; height: 230px; object-fit: cover; }
+    .service-card-body { padding: 24px; }
+    .service-tag { display: inline-block; background: var(--secondary); color: var(--primary); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; }
+
+    /* Before/After */
+    .ba-section { background: hsl(215, 25%, 13%); }
+    .ba-img { border-radius: 16px; overflow: hidden; position: relative; }
+    .ba-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .ba-label { position: absolute; top: 16px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.1em; padding: 6px 16px; border-radius: 999px; }
+    .ba-label.before { left: 16px; background: #ef4444; color: #fff; }
+    .ba-label.after { right: 16px; background: #16a34a; color: #fff; }
+
+    /* Process Section */
+    .process-section { background: var(--primary); position: relative; overflow: hidden; }
+    .process-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(245,158,11,0.08) 0%, transparent 50%); }
+    .process-step { text-align: center; position: relative; z-index: 1; }
+    .process-num { width: 80px; height: 80px; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .process-icon { font-size: 2rem; color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+
+    /* Reviews */
+    .review-card { background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); border: 1px solid hsl(142, 30%, 92%); transition: transform 0.25s, box-shadow 0.25s; position: relative; }
+    .review-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+    .review-card::before { content: '\201C'; font-family: 'Outfit', sans-serif; font-size: 5rem; position: absolute; top: -10px; left: 20px; line-height: 1; color: hsl(142, 40%, 88%); }
+    .stars { color: #f59e0b; font-size: 1rem; }
+    .reviewer-avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem; color: #fff; flex-shrink: 0; }
+
+    /* FAQ */
+    .faq-item { border: 1px solid hsl(142, 25%, 88%); border-radius: 12px; overflow: hidden; margin-bottom: 12px; transition: border-color 0.2s; }
+    .faq-item:hover { border-color: var(--primary); }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 20px 24px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--neutral-dark); display: flex; justify-content: space-between; align-items: center; gap: 16px; background: #fff; transition: color 0.2s; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item[open] summary { color: var(--primary); border-bottom: 1px solid hsl(142, 25%, 90%); }
+    .faq-item summary .faq-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.75rem; color: var(--primary); transition: background 0.2s, transform 0.3s; }
+    .faq-item[open] summary .faq-icon { background: var(--primary); color: #fff; transform: rotate(45deg); }
+    .faq-body { padding: 20px 24px; color: hsl(215, 15%, 40%); line-height: 1.7; font-size: 0.95rem; background: hsl(135, 30%, 98%); }
+    .faq-highlight { display: inline-block; background: var(--secondary); color: var(--primary); font-weight: 700; padding: 2px 10px; border-radius: 6px; margin: 0 2px; }
+
+    /* Form */
+    .form-section { background: linear-gradient(135deg, hsl(215,25%,12%) 0%, hsl(142,40%,14%) 100%); }
+    .form-card { background: #fff; border-radius: 20px; padding: 40px; box-shadow: 0 24px 80px rgba(0,0,0,0.25); }
+    .form-input { width: 100%; padding: 14px 16px; border: 1.5px solid hsl(215, 15%, 85%); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--neutral-dark); background: #fff; transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(34,197,94,0.12); }
+    .form-label { display: block; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85rem; color: hsl(215, 20%, 35%); margin-bottom: 6px; }
+    .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 44px; }
+
+    /* Footer */
+    .site-footer { background: hsl(215, 25%, 10%); color: rgba(255,255,255,0.7); }
+
+    /* Section Titles */
+    .section-eyebrow { display: inline-block; background: var(--secondary); color: var(--primary); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 16px; border-radius: 999px; margin-bottom: 14px; }
+    .section-title { font-family: 'Outfit', sans-serif; font-weight: 800; color: var(--neutral-dark); line-height: 1.2; }
+    .section-subtitle { color: hsl(215, 15%, 50%); font-size: 1.05rem; line-height: 1.65; }
+    .accent-underline { position: relative; display: inline-block; }
+    .accent-underline::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 3px; background: var(--accent); border-radius: 2px; }
+
+    /* Nav */
+    .nav-link { color: rgba(255,255,255,0.8); font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: color 0.2s; padding: 6px 4px; }
+    .nav-link:hover { color: #fff; }
+    #site-header.scrolled .nav-link { color: hsl(215, 25%, 35%); }
+    #site-header.scrolled .nav-link:hover { color: var(--primary); }
+    #site-header.scrolled .logo-text { color: var(--neutral-dark); }
+    #site-header.scrolled .logo-icon { color: var(--primary) !important; }
+    #site-header.scrolled .nav-phone { color: var(--primary) !important; }
+
+    /* Hamburger button */
+    .hamburger-btn { width: 40px; height: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; transition: background 0.2s; flex-shrink: 0; }
+    .hamburger-btn:hover { background: rgba(255,255,255,0.18); }
+    .hamburger-btn span { display: block; width: 20px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease; transform-origin: center; }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; width: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    #site-header.scrolled .hamburger-btn { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.12); }
+    #site-header.scrolled .hamburger-btn span { background: var(--neutral-dark); }
+
+    /* Mobile menu drawer */
+    #mobile-menu { position: fixed; top: 72px; left: 0; right: 0; z-index: 49; background: rgba(10,20,15,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease; }
+    #mobile-menu.open { max-height: 500px; padding: 16px 0 24px; }
+    .mobile-nav-link { display: flex; align-items: center; gap: 12px; padding: 14px 24px; color: rgba(255,255,255,0.85); font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+    .mobile-nav-link:hover { background: rgba(255,255,255,0.06); color: #fff; border-left-color: var(--accent); }
+    .mobile-nav-link i { width: 20px; text-align: center; color: var(--accent); font-size: 0.9rem; }
+    .mobile-menu-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 12px 24px; }
+    .mobile-menu-ctas { display: flex; gap: 12px; padding: 8px 24px 0; }
+
+    /* Stat boxes */
+    .stat-number { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 2.8rem; color: hsl(38,92%,55%); line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); font-weight: 500; }
+    .stat-box { text-align: center; padding: 20px; }
+
+    /* Mobile Sticky */
+    .mobile-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); padding: 12px 20px 16px; border-top: 1px solid hsl(215, 20%, 90%); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+    /* Scroll animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in-up { animation: fadeInUp 0.7s ease forwards; }
+    .delay-200 { animation-delay: 0.2s; }
+  </style>
+</head>
+
+<body class="bg-white">
+
+  <!-- STICKY HEADER -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50" style="background: rgba(15,25,20,0.75); backdrop-filter: blur(8px);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-[72px]">
+
+        <a href="#" class="flex items-center gap-2.5" style="text-decoration:none;">
+          <i class="fa-solid fa-leaf text-2xl logo-icon" style="color: hsl(142,60%,55%);"></i>
+          <div>
+            <span class="logo-text font-heading font-bold text-white text-xl leading-tight block">GreenLawn</span>
+            <span class="font-heading text-xs font-medium leading-none" style="color: hsl(142,50%,65%);">TURF SOLUTIONS</span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#process" class="nav-link">Our Process</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="tel:+12145550192" class="nav-phone flex items-center gap-2 font-heading font-bold text-sm" style="color: hsl(38,92%,65%); text-decoration:none;">
+            <i class="fa-solid fa-phone text-xs"></i>
+            (214) 555-0192
+          </a>
+          <a href="#contact" class="btn-amber" style="padding:10px 22px; font-size:0.9rem;">
+            <i class="fa-solid fa-calendar-check text-xs"></i>
+            Free Estimate
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-3 lg:hidden">
+          <a href="tel:+12145550192" class="btn-green" style="padding:10px 16px; font-size:0.85rem;">
+            <i class="fa-solid fa-phone text-xs"></i>
+            Call Now
+          </a>
+          <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV MENU -->
+  <nav id="mobile-menu" aria-label="Mobile navigation" role="navigation">
+    <a href="#services" class="mobile-nav-link" data-mobile-link>
+      <i class="fa-solid fa-leaf"></i> Services
+    </a>
+    <a href="#process" class="mobile-nav-link" data-mobile-link>
+      <i class="fa-solid fa-list-check"></i> Our Process
+    </a>
+    <a href="#before-after" class="mobile-nav-link" data-mobile-link>
+      <i class="fa-solid fa-images"></i> Before &amp; After
+    </a>
+    <a href="#reviews" class="mobile-nav-link" data-mobile-link>
+      <i class="fa-solid fa-star"></i> Reviews
+    </a>
+    <a href="#faq" class="mobile-nav-link" data-mobile-link>
+      <i class="fa-solid fa-circle-question"></i> FAQ
+    </a>
+    <div class="mobile-menu-divider"></div>
+    <div class="mobile-menu-ctas">
+      <a href="tel:+12145550192" class="btn-green" style="padding:12px 20px; font-size:0.9rem; flex:1; justify-content:center;" data-mobile-link>
+        <i class="fa-solid fa-phone"></i> (214) 555-0192
+      </a>
+      <a href="#contact" class="btn-amber" style="padding:12px 20px; font-size:0.9rem; flex:1; justify-content:center;" data-mobile-link>
+        <i class="fa-solid fa-calendar-check"></i> Free Estimate
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- HERO — Layout A Split -->
+  <section id="hero" class="hero-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        <!-- Left: Copy -->
+        <div class="fade-in-up">
+          <div class="hero-badge">
+            <i class="fa-solid fa-star" style="color: var(--accent);"></i>
+            <span>Dallas's #1 Rated Artificial Turf Installer &middot; 300+ Projects</span>
+          </div>
+
+          <h1 class="font-heading font-extrabold text-white mb-5 leading-tight" style="font-size: clamp(2.4rem, 5vw, 3.6rem);">
+            Dallas's Premier<br />
+            <span style="color: var(--accent);">Custom Putting Greens</span><br />
+            &amp; Pet Turf Experts
+          </h1>
+
+          <p class="text-base leading-relaxed mb-8" style="color: rgba(255,255,255,0.75); max-width: 520px;">
+            From Frisco to Southlake, GreenLawn installs lush, low-maintenance synthetic turf that stays perfect year-round — no mowing, no watering, no mud. Backed by our industry-leading 15-year warranty.
+          </p>
+
+          <div class="mb-10">
+            <div class="check-item"><span class="check-icon"><i class="fa-solid fa-check"></i></span><span>15-Year Manufacturer Warranty — Guaranteed</span></div>
+            <div class="check-item"><span class="check-icon"><i class="fa-solid fa-check"></i></span><span>100% Non-Toxic, Lead-Free &amp; Safe for Kids</span></div>
+            <div class="check-item"><span class="check-icon"><i class="fa-solid fa-check"></i></span><span>Zero Maintenance — No Mowing, No Watering</span></div>
+            <div class="check-item"><span class="check-icon"><i class="fa-solid fa-check"></i></span><span>30-Inch-Per-Hour Drainage for Texas Storms</span></div>
+          </div>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="btn-amber">
+              <i class="fa-solid fa-ruler"></i>
+              Schedule Free On-Site Measurement
+            </a>
+            <a href="tel:+12145550192" class="btn-outline-light">
+              <i class="fa-solid fa-phone"></i>
+              (214) 555-0192
+            </a>
+          </div>
+
+          <div class="flex items-center gap-5 mt-10 flex-wrap">
+            <div class="flex items-center gap-2" style="color: rgba(255,255,255,0.6); font-size:0.8rem;">
+              <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
+              <span>Licensed &amp; Insured</span>
+            </div>
+            <div class="flex items-center gap-2" style="color: rgba(255,255,255,0.6); font-size:0.8rem;">
+              <i class="fa-solid fa-award" style="color: var(--accent);"></i>
+              <span>BBB A+ Rated</span>
+            </div>
+            <div class="flex items-center gap-2" style="color: rgba(255,255,255,0.6); font-size:0.8rem;">
+              <i class="fa-solid fa-clock" style="color: var(--accent);"></i>
+              <span>Installed in 1-2 Days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Photo -->
+        <div class="fade-in-up delay-200">
+          <div class="hero-img-wrapper">
+            <img src="hero_turf.png" alt="Luxury artificial turf backyard with pool and custom putting green in Dallas TX" loading="eager" />
+            <div class="hero-float-badge">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--secondary);">
+                <i class="fa-solid fa-star" style="color: var(--accent); font-size:1rem;"></i>
+              </div>
+              <div>
+                <div class="font-heading font-bold text-sm" style="color: var(--neutral-dark);">4.9 Star Rating</div>
+                <div style="font-size:0.75rem; color:#888;">Over 300 Dallas Installs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 mt-4 rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);">
+            <div class="stat-box" style="border-right: 1px solid rgba(255,255,255,0.12);">
+              <div class="stat-number">15+</div>
+              <div class="stat-label">Year Warranty</div>
+            </div>
+            <div class="stat-box" style="border-right: 1px solid rgba(255,255,255,0.12);">
+              <div class="stat-number">300+</div>
+              <div class="stat-label">DFW Projects</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">$0</div>
+              <div class="stat-label">Maintenance Cost</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TRUST BADGES -->
+  <div class="trust-bar" id="trust">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center items-center gap-2">
+        <div class="trust-item"><i class="fa-solid fa-flag-usa"></i><span>100% Made in USA</span></div>
+        <div class="trust-divider hidden md:block"></div>
+        <div class="trust-item"><i class="fa-solid fa-droplet"></i><span>Ultra-Drainage Technology</span></div>
+        <div class="trust-divider hidden md:block"></div>
+        <div class="trust-item"><i class="fa-solid fa-paw"></i><span>Pet &amp; Child Friendly</span></div>
+        <div class="trust-divider hidden md:block"></div>
+        <div class="trust-item"><i class="fa-solid fa-shield-halved"></i><span>15-Year Warranty</span></div>
+        <div class="trust-divider hidden md:block"></div>
+        <div class="trust-item"><i class="fa-solid fa-leaf"></i><span>Eco-Friendly &middot; Saves 50,000 Gal/Year</span></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CORE SERVICES -->
+  <section id="services" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="section-eyebrow">What We Install</span>
+        <h2 class="section-title text-4xl lg:text-5xl mt-2 mb-4">Premium Turf Solutions<br /><span class="accent-underline">Built for Dallas Living</span></h2>
+        <p class="section-subtitle max-w-2xl mx-auto">Whether you're replacing a tired lawn, creating a pet paradise, or adding a private putting green — we custom-design every installation for your home and budget.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Card 1 -->
+        <div class="service-card">
+          <img src="residential_lawn.png" alt="Beautiful residential artificial turf lawn installation in Dallas Texas" />
+          <div class="service-card-body">
+            <span class="service-tag">Most Popular</span>
+            <h3 class="font-heading font-bold text-2xl mb-3" style="color: var(--neutral-dark);">Lush Residential Lawns</h3>
+            <p class="text-sm leading-relaxed mb-5" style="color: hsl(215,15%,45%);">Ditch the mowing, watering, and mud for good. Our residential turf looks lush 365 days a year — through Dallas droughts, freezes, and everything in between.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--primary);"></i>Front yards, backyards, &amp; side yards</li>
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--primary);"></i>Saves up to $2,400/year in water bills</li>
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--primary);"></i>Seamless integration with existing landscaping</li>
+            </ul>
+            <a href="#contact" class="btn-green" style="padding:10px 20px; font-size:0.9rem;">Get a Quote <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card">
+          <img src="pet_turf.png" alt="Dogs playing happily on pet-safe artificial turf in Dallas backyard" />
+          <div class="service-card-body">
+            <span class="service-tag" style="background: hsl(38,92%,92%); color: hsl(38,80%,35%);">Pet Owners' Choice</span>
+            <h3 class="font-heading font-bold text-2xl mb-3" style="color: var(--neutral-dark);">Pet-Safe Turf Systems</h3>
+            <p class="text-sm leading-relaxed mb-5" style="color: hsl(215,15%,45%);">Engineered specifically for dogs of all sizes. Our double-coated drainage backing handles 30 inches of liquid per hour — and our ZeoFill odor-neutralizing infill keeps your yard fresh.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--primary);"></i>100% non-toxic &amp; lead-free fibers</li>
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--primary);"></i>ZeoFill antimicrobial infill standard</li>
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--primary);"></i>No mud tracked into your home — ever</li>
+            </ul>
+            <a href="#contact" class="btn-green" style="padding:10px 20px; font-size:0.9rem;">Get a Quote <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card" style="border-top-color: var(--accent);">
+          <img src="putting_green.png" alt="Custom backyard putting green with multiple flags installed in Dallas" />
+          <div class="service-card-body">
+            <span class="service-tag" style="background: hsl(38,92%,92%); color: hsl(38,80%,35%);">Premium Upgrade</span>
+            <h3 class="font-heading font-bold text-2xl mb-3" style="color: var(--neutral-dark);">Custom Putting Greens</h3>
+            <p class="text-sm leading-relaxed mb-5" style="color: hsl(215,15%,45%);">Practice your short game at home on PGA-caliber turf. We design, contour, and install multi-hole putting greens with realistic ball-roll speed — tailored to your skill level.</p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--accent);"></i>Stimp-rated 8-12 ball-roll speed</li>
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--accent);"></i>Custom contours, fringe &amp; bunkers available</li>
+              <li class="flex items-center gap-2 text-sm" style="color: hsl(215,15%,40%);"><i class="fa-solid fa-check-circle text-xs" style="color: var(--accent);"></i>Increases home resale value significantly</li>
+            </ul>
+            <a href="#contact" class="btn-amber" style="padding:10px 20px; font-size:0.9rem;">Design My Green <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BEFORE / AFTER -->
+  <section id="before-after" class="ba-section py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div class="ba-img">
+          <img src="before_after.png" alt="Before and after artificial turf installation - muddy Dallas backyard transformed to lush green lawn" />
+          <span class="ba-label before">BEFORE</span>
+          <span class="ba-label after">AFTER</span>
+        </div>
+
+        <div>
+          <span class="section-eyebrow" style="background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9);">The Transformation</span>
+          <h2 class="font-heading font-extrabold text-white mt-3 mb-5" style="font-size: clamp(2rem, 4vw, 3rem);">
+            See the Difference<br /><span style="color: var(--accent);">GreenLawn Makes</span>
+          </h2>
+          <p class="mb-6 leading-relaxed" style="color: rgba(255,255,255,0.72); font-size:1rem;">
+            That patchy, mud-soaked Dallas backyard driving you crazy? We've seen it hundreds of times. After just 1-2 days of professional installation, your yard will stay lush, clean, and vibrant through every Texas summer scorcher and spring deluge.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-4 p-4 rounded-xl" style="background: rgba(255,255,255,0.06);">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--accent);">
+                <i class="fa-solid fa-sun text-white text-sm"></i>
+              </div>
+              <div>
+                <div class="font-heading font-bold text-white mb-1">Survives Dallas Summers</div>
+                <div style="color: rgba(255,255,255,0.65); font-size: 0.9rem;">UV-stabilized fibers won't fade, burn, or brown — even at 110°F Texas heat.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl" style="background: rgba(255,255,255,0.06);">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--primary-light, #16a34a);">
+                <i class="fa-solid fa-droplet text-white text-sm"></i>
+              </div>
+              <div>
+                <div class="font-heading font-bold text-white mb-1">30 In/Hr Drainage Capacity</div>
+                <div style="color: rgba(255,255,255,0.65); font-size: 0.9rem;">No standing water, no erosion, no mud — even after Texas thunderstorms.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl" style="background: rgba(255,255,255,0.06);">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: #7c3aed;">
+                <i class="fa-solid fa-piggy-bank text-white text-sm"></i>
+              </div>
+              <div>
+                <div class="font-heading font-bold text-white mb-1">Pays for Itself in 3-4 Years</div>
+                <div style="color: rgba(255,255,255,0.65); font-size: 0.9rem;">Eliminate water bills, lawn services, fertilizers, and mowing costs forever.</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="btn-amber">
+            <i class="fa-solid fa-camera"></i>
+            See More Transformations
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 3-STEP PROCESS -->
+  <section id="process" class="process-section py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16">
+        <span class="section-eyebrow" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">How We Work</span>
+        <h2 class="font-heading font-extrabold text-white mt-3 mb-4" style="font-size: clamp(2rem, 4vw, 3rem);">Our Proven 3-Step Process</h2>
+        <p style="color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; font-size:1rem; line-height:1.65;">From your first call to your final walkthrough, every GreenLawn installation follows a precise, time-tested process that guarantees a flawless result — every single time.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div class="process-icon"><i class="fa-solid fa-shovel"></i></div>
+          <h3 class="font-heading font-bold text-xl text-white mb-3">Base Preparation</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size:0.9rem; line-height:1.65;">We begin with full excavation of existing grass and soil to the proper depth, then install a commercial-grade weed barrier and a 3-inch crushed decomposed granite base — the foundation for a perfectly level, long-lasting lawn.</p>
+          <div class="mt-5 flex flex-wrap justify-center gap-2">
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Excavation</span>
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Weed Barrier</span>
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Base Grading</span>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div class="process-icon"><i class="fa-solid fa-scissors"></i></div>
+          <h3 class="font-heading font-bold text-xl text-white mb-3">Precision Installation</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size:0.9rem; line-height:1.65;">Our certified installers roll out premium turf, make invisible seam cuts, and secure the perimeter with galvanized nails and bender board edging. Every blade is oriented for a natural, consistent look across your entire yard.</p>
+          <div class="mt-5 flex flex-wrap justify-center gap-2">
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Turf Layout</span>
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Invisible Seams</span>
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Perimeter Secure</span>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div class="process-icon"><i class="fa-solid fa-broom"></i></div>
+          <h3 class="font-heading font-bold text-xl text-white mb-3">Infill &amp; Final Finish</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size:0.9rem; line-height:1.65;">We power-brush the turf to stand every blade upright, then apply the appropriate infill — crumb rubber, ZeoFill, or silica sand — to give your lawn that full, realistic look. A final walkthrough confirms your 100% satisfaction.</p>
+          <div class="mt-5 flex flex-wrap justify-center gap-2">
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Power Brush</span>
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Infill Applied</span>
+            <span class="text-xs px-3 py-1 rounded-full font-semibold" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);">Walkthrough</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-16">
+        <a href="#contact" class="btn-amber"><i class="fa-solid fa-calendar-check"></i>Book Your Free Site Visit</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CUSTOMER REVIEWS -->
+  <section id="reviews" class="py-24" style="background: var(--secondary);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="section-eyebrow">Real Dallas Homeowners</span>
+        <h2 class="section-title text-4xl lg:text-5xl mt-2 mb-4">What Our Customers<br /><span class="accent-underline">Are Saying</span></h2>
+        <div class="flex items-center justify-center gap-3 mt-4">
+          <i class="fa-brands fa-google" style="color: #4285F4; font-size:1.3rem;"></i>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <span class="font-heading font-bold text-lg" style="color: var(--neutral-dark);">4.9</span>
+          <span style="color: hsl(215,15%,55%); font-size:0.9rem;">&middot; 127 Google Reviews</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="review-card">
+          <div class="stars mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed mb-6" style="color: hsl(215,15%,40%); position:relative; z-index:1;">"We have two large German Shepherds, and our backyard was an absolute disaster — muddy paws, dead patches, the whole deal. GreenLawn installed their pet turf system and I cannot believe the difference. Six months in, still looks incredible and zero odor. Best investment we've made in our home."</p>
+          <div class="flex items-center gap-3">
+            <div class="reviewer-avatar" style="background: var(--primary);">MR</div>
+            <div>
+              <div class="font-heading font-bold text-sm" style="color: var(--neutral-dark);">Michelle R.</div>
+              <div style="font-size:0.75rem; color:#888;">Frisco, TX &middot; Pet Turf System</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed mb-6" style="color: hsl(215,15%,40%); position:relative; z-index:1;">"I wanted a custom putting green for my 50th birthday and GreenLawn absolutely crushed it. Three holes, realistic fringe, sand trap — it looks like something out of Augusta. My buddies can't believe it's in my Southlake backyard. The ball roll speed is exactly what I asked for. Worth every single penny."</p>
+          <div class="flex items-center gap-3">
+            <div class="reviewer-avatar" style="background: hsl(38,80%,45%);">DK</div>
+            <div>
+              <div class="font-heading font-bold text-sm" style="color: var(--neutral-dark);">David K.</div>
+              <div style="font-size:0.75rem; color:#888;">Southlake, TX &middot; Custom Putting Green</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="text-sm leading-relaxed mb-6" style="color: hsl(215,15%,40%); position:relative; z-index:1;">"We replaced our entire front and back yard and the ROI is insane. Our water bill dropped by $180 a month. No more lawn service. Our HOA actually gave us a compliment on the curb appeal! The team finished our 2,400 sq ft project in just two days and cleaned up everything spotlessly."</p>
+          <div class="flex items-center gap-3">
+            <div class="reviewer-avatar" style="background: #7c3aed;">TC</div>
+            <div>
+              <div class="font-heading font-bold text-sm" style="color: var(--neutral-dark);">Teresa C.</div>
+              <div style="font-size:0.75rem; color:#888;">Plano, TX &middot; Residential Lawn</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ ACCORDION -->
+  <section id="faq" class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="section-eyebrow">Common Questions</span>
+        <h2 class="section-title text-4xl lg:text-5xl mt-2 mb-4">Everything You Need<br /><span class="accent-underline">to Know</span></h2>
+        <p class="section-subtitle">Straight answers from Dallas's most experienced artificial turf team.</p>
+      </div>
+
+      <div>
+        <details class="faq-item">
+          <summary><span>How does dog urine drain through the turf?</span><span class="faq-icon"><i class="fa-solid fa-plus"></i></span></summary>
+          <div class="faq-body">Our pet turf systems use a double-coated, fully permeable backing that drains at a rate of <span class="faq-highlight">30 inches per hour</span> — far exceeding what any Texas rainstorm or dog can produce. Urine passes straight through the turf into the crushed stone base below, where it disperses harmlessly into the ground. Combined with our <span class="faq-highlight">ZeoFill antimicrobial infill</span>, your yard will stay odor-free and hygienic year-round, with no rinsing required.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span>Does artificial turf get too hot in Dallas summers?</span><span class="faq-icon"><i class="fa-solid fa-plus"></i></span></summary>
+          <div class="faq-body">This is the #1 question we get, and it's a valid one for Texas. Standard turf can get warm in direct midday sun. That's why all our residential installations use <span class="faq-highlight">HeatBlock Cool-Grass infill</span> — a light-reflective, moisture-retaining silica blend that keeps turf surface temperatures <span class="faq-highlight">up to 40°F cooler</span> than competing products. Our turf is also certified UV-stabilized so it won't fade, melt, or yellow even after 15+ years of Texas sun.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span>What is the lifespan of artificial turf?</span><span class="faq-icon"><i class="fa-solid fa-plus"></i></span></summary>
+          <div class="faq-body">Every GreenLawn installation comes with a <span class="faq-highlight">15-year manufacturer warranty</span> covering fade, drainage failure, and fiber breakdown. In real-world conditions, our turf routinely lasts <span class="faq-highlight">20 to 25 years</span> with minimal upkeep — just an occasional rinse and brush. Compare that to the ongoing cost of natural grass: mowing, fertilizing, aeration, overseeding, pest control, and irrigation. The math is clear.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span>How long does a typical installation take?</span><span class="faq-icon"><i class="fa-solid fa-plus"></i></span></summary>
+          <div class="faq-body">Most residential installations — including full front and back yard projects up to 3,000 sq ft — are completed in <span class="faq-highlight">1 to 2 days</span>. Larger estates or complex putting greens with custom contouring may take 3-4 days. We provide a firm timeline before any work begins, and our crews work efficiently to minimize disruption to your home.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span>Will artificial turf increase my home's value?</span><span class="faq-icon"><i class="fa-solid fa-plus"></i></span></summary>
+          <div class="faq-body">Yes — consistently. In the DFW market, professional artificial turf installation has been shown to increase home resale value by <span class="faq-highlight">5-10%</span> while dramatically improving curb appeal. Buyers love the low-maintenance lifestyle, and in water-scarce Texas, a turf lawn is increasingly seen as a smart, responsible upgrade. Custom putting greens add a premium entertainment value that's hard to match.</div>
+        </details>
+      </div>
+
+      <div class="text-center mt-10">
+        <p class="text-sm mb-4" style="color: hsl(215,15%,55%);">Still have questions? We're happy to chat.</p>
+        <a href="tel:+12145550192" class="btn-green"><i class="fa-solid fa-phone"></i>Call Us: (214) 555-0192</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LEAD FORM -->
+  <section id="contact" class="form-section py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+        <div>
+          <span class="section-eyebrow" style="background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9);">It's 100% Free</span>
+          <h2 class="font-heading font-extrabold text-white mt-3 mb-5" style="font-size: clamp(2rem, 4vw, 2.8rem);">Book Your Free<br /><span style="color: var(--accent);">On-Site Measurement</span></h2>
+          <p class="mb-8 leading-relaxed" style="color: rgba(255,255,255,0.72); font-size:1rem;">Our team will visit your Dallas-area home, measure your yard, walk you through material options, and provide a detailed, no-obligation quote — typically within 24 hours.</p>
+
+          <div class="space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(255,255,255,0.1);">
+                <i class="fa-solid fa-clock" style="color: var(--accent); font-size:1.1rem;"></i>
+              </div>
+              <div>
+                <div class="font-heading font-bold text-white">Same-Day Response</div>
+                <div style="color: rgba(255,255,255,0.6); font-size:0.88rem;">We respond to all inquiries within 2 business hours</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(255,255,255,0.1);">
+                <i class="fa-solid fa-map-location-dot" style="color: var(--accent); font-size:1.1rem;"></i>
+              </div>
+              <div>
+                <div class="font-heading font-bold text-white">Serving All of DFW</div>
+                <div style="color: rgba(255,255,255,0.6); font-size:0.88rem;">Dallas &middot; Frisco &middot; Plano &middot; Southlake &middot; Allen &middot; McKinney &middot; Prosper</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(255,255,255,0.1);">
+                <i class="fa-solid fa-file-invoice-dollar" style="color: var(--accent); font-size:1.1rem;"></i>
+              </div>
+              <div>
+                <div class="font-heading font-bold text-white">Financing Available</div>
+                <div style="color: rgba(255,255,255,0.6); font-size:0.88rem;">0% APR for 18 months for qualified applicants</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3 class="font-heading font-bold text-2xl mb-1" style="color: var(--neutral-dark);">Get Your Free Quote</h3>
+          <p class="text-sm mb-7" style="color: hsl(215,15%,55%);">No pressure. No obligation. Just straight answers and fair pricing.</p>
+
+          <form id="estimate-form" onsubmit="handleFormSubmit(event)" novalidate>
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label for="f-name" class="form-label">First &amp; Last Name *</label>
+                <input id="f-name" type="text" name="name" placeholder="Jane Smith" class="form-input" required />
+              </div>
+              <div>
+                <label for="f-phone" class="form-label">Phone Number *</label>
+                <input id="f-phone" type="tel" name="phone" placeholder="(214) 555-0000" class="form-input" required />
+              </div>
+            </div>
+            <div class="mb-5">
+              <label for="f-email" class="form-label">Email Address *</label>
+              <input id="f-email" type="email" name="email" placeholder="jane@example.com" class="form-input" required />
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label for="f-project" class="form-label">Project Type *</label>
+                <select id="f-project" name="project_type" class="form-input form-select" required>
+                  <option value="" disabled selected>Select one...</option>
+                  <option>Residential Lawn</option>
+                  <option>Pet-Safe Turf</option>
+                  <option>Custom Putting Green</option>
+                  <option>Commercial Property</option>
+                  <option>Other / Multiple</option>
+                </select>
+              </div>
+              <div>
+                <label for="f-size" class="form-label">Approximate Yard Size</label>
+                <select id="f-size" name="yard_size" class="form-input form-select">
+                  <option value="" disabled selected>Estimate...</option>
+                  <option>Under 500 sq ft</option>
+                  <option>500-1,000 sq ft</option>
+                  <option>1,000-2,500 sq ft</option>
+                  <option>2,500-5,000 sq ft</option>
+                  <option>Over 5,000 sq ft</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-7">
+              <label for="f-message" class="form-label">Tell Us About Your Project</label>
+              <textarea id="f-message" name="message" rows="3" placeholder="Describe your yard, any specific needs (e.g. two dogs, putting green with 3 holes, corner lot)..." class="form-input" style="resize:vertical;"></textarea>
+            </div>
+            <button type="submit" id="form-submit-btn" class="btn-amber w-full justify-center text-base" style="padding:16px;">
+              <i class="fa-solid fa-paper-plane"></i>
+              Request My Free Estimate
+            </button>
+            <p class="text-center text-xs mt-4" style="color: hsl(215,15%,60%);">
+              <i class="fa-solid fa-lock text-xs mr-1"></i>
+              Your information is private and will never be shared or sold.
+            </p>
+          </form>
+
+          <div id="form-success" class="hidden text-center py-8">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style="background: var(--secondary);">
+              <i class="fa-solid fa-check-double text-2xl" style="color: var(--primary);"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xl mb-2" style="color: var(--neutral-dark);">You're All Set!</h4>
+            <p class="text-sm" style="color: hsl(215,15%,55%);">Thanks! A GreenLawn specialist will call you within 2 business hours to schedule your free site visit.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2.5 mb-4">
+            <i class="fa-solid fa-leaf text-2xl" style="color: hsl(142,60%,55%);"></i>
+            <div>
+              <span class="font-heading font-bold text-white text-xl leading-tight block">GreenLawn</span>
+              <span class="font-heading text-xs font-medium" style="color: hsl(142,50%,55%);">TURF SOLUTIONS</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed mb-5" style="max-width: 320px; color: rgba(255,255,255,0.55);">Dallas's most trusted artificial turf installer since 2009. Over 300 projects across DFW. Premium synthetic grass for residential lawns, pet areas, and custom putting greens.</p>
+          <div class="flex items-center gap-4">
+            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.08); transition: opacity 0.2s;"><i class="fa-brands fa-facebook-f text-sm text-white"></i></a>
+            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.08); transition: opacity 0.2s;"><i class="fa-brands fa-instagram text-sm text-white"></i></a>
+            <a href="#" aria-label="Houzz" class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.08); transition: opacity 0.2s;"><i class="fa-brands fa-houzz text-sm text-white"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white mb-4 text-sm uppercase tracking-wider">Our Services</h4>
+          <ul class="space-y-2">
+            <li><a href="#services" class="text-sm" style="color: rgba(255,255,255,0.55);">Residential Lawns</a></li>
+            <li><a href="#services" class="text-sm" style="color: rgba(255,255,255,0.55);">Pet-Safe Turf</a></li>
+            <li><a href="#services" class="text-sm" style="color: rgba(255,255,255,0.55);">Custom Putting Greens</a></li>
+            <li><a href="#services" class="text-sm" style="color: rgba(255,255,255,0.55);">Commercial Properties</a></li>
+            <li><a href="#contact" class="text-sm" style="color: rgba(255,255,255,0.55);">Free Estimates</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white mb-4 text-sm uppercase tracking-wider">Contact Us</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2.5 text-sm" style="color: rgba(255,255,255,0.55);">
+              <i class="fa-solid fa-phone mt-0.5" style="color: var(--accent); flex-shrink:0;"></i>
+              <a href="tel:+12145550192" class="text-sm" style="color: rgba(255,255,255,0.55);">(214) 555-0192</a>
+            </li>
+            <li class="flex items-start gap-2.5 text-sm" style="color: rgba(255,255,255,0.55);">
+              <i class="fa-solid fa-envelope mt-0.5" style="color: var(--accent); flex-shrink:0;"></i>
+              <a href="mailto:info@greenlawnturf.com" class="text-sm" style="color: rgba(255,255,255,0.55);">info@greenlawnturf.com</a>
+            </li>
+            <li class="flex items-start gap-2.5 text-sm" style="color: rgba(255,255,255,0.55);">
+              <i class="fa-solid fa-location-dot mt-0.5" style="color: var(--accent); flex-shrink:0;"></i>
+              <span>1842 Greenfield Dr, Dallas, TX 75218</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-sm" style="color: rgba(255,255,255,0.55);">
+              <i class="fa-solid fa-clock mt-0.5" style="color: var(--accent); flex-shrink:0;"></i>
+              <span>Mon-Sat: 7:00 AM - 7:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-wrap justify-between items-center gap-4" style="border-top: 1px solid rgba(255,255,255,0.08);">
+        <p class="text-xs" style="color: rgba(255,255,255,0.35);">2025 GreenLawn Turf Solutions, LLC. All rights reserved. Serving Dallas, Frisco, Plano, Southlake &amp; all of DFW.</p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="text-xs" style="color: rgba(255,255,255,0.35);">Privacy Policy</a>
+          <a href="#" class="text-xs" style="color: rgba(255,255,255,0.35);">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- MOBILE STICKY CTA (hidden on desktop) -->
+  <div class="mobile-cta-bar md:hidden" role="complementary" aria-label="Quick Contact Bar">
+    <div>
+      <div class="font-heading font-bold text-sm" style="color: var(--neutral-dark);">Ready for a new lawn?</div>
+      <div class="text-xs" style="color: hsl(215,15%,55%);">Free estimate — no pressure, ever.</div>
+    </div>
+    <div class="flex gap-2 flex-shrink-0">
+      <a href="tel:+12145550192" id="mobile-tap-call" class="btn-green" style="padding:10px 16px; font-size:0.85rem;">
+        <i class="fa-solid fa-phone text-xs"></i>
+        Tap to Call
+      </a>
+      <a href="#contact" class="btn-amber" style="padding:10px 16px; font-size:0.85rem;">
+        <i class="fa-solid fa-calendar text-xs"></i>
+        Free Quote
+      </a>
+    </div>
+  </div>
+
+
+  <script>
+    // Sticky header scroll effect
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hamburger menu toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      hamburgerBtn.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    // Close when any mobile nav link is clicked
+    document.querySelectorAll('[data-mobile-link]').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on outside tap
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.classList.contains('open') &&
+          !mobileMenu.contains(e.target) &&
+          !hamburgerBtn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Form submit handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('f-name').value.trim();
+      const phone = document.getElementById('f-phone').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const project = document.getElementById('f-project').value;
+
+      const fields = [['f-name', name], ['f-phone', phone], ['f-email', email], ['f-project', project]];
+      let valid = true;
+      fields.forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (!val) {
+          el.style.borderColor = '#ef4444';
+          el.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.12)';
+          valid = false;
+        } else {
+          el.style.borderColor = '';
+          el.style.boxShadow = '';
+        }
+      });
+      if (!valid) return;
+
+      const btn = document.getElementById('form-submit-btn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        document.getElementById('estimate-form').classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+      }, 1500);
+    }
+
+    // Reset border on focus
+    document.querySelectorAll('.form-input').forEach(el => {
+      el.addEventListener('focus', () => { el.style.borderColor = ''; el.style.boxShadow = ''; });
+    });
+
+    // Scroll-triggered fade-in for cards
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .review-card, .process-step').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
