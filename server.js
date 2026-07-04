@@ -429,6 +429,7 @@ app.get('/api/config', (req, res) => {
     liveModeAvailable: isLiveModeConfigured(),
     placesKeyConfigured: !!(process.env.GOOGLE_PLACES_API_KEY && process.env.GOOGLE_PLACES_API_KEY !== "your_google_places_api_key_here" && process.env.GOOGLE_PLACES_API_KEY.trim() !== ""),
     serperKeyConfigured: !!(process.env.SERPER_API_KEY && process.env.SERPER_API_KEY !== "your_serper_api_key_here" && process.env.SERPER_API_KEY.trim() !== ""),
+    yelpKeyConfigured: !!(process.env.YELP_API_KEY && process.env.YELP_API_KEY !== "your_yelp_api_key_here" && process.env.YELP_API_KEY.trim() !== ""),
     searchKeyConfigured: !!(process.env.GOOGLE_SEARCH_API_KEY && process.env.GOOGLE_SEARCH_API_KEY !== "your_google_search_api_key_here" && process.env.GOOGLE_SEARCH_API_KEY.trim() !== ""),
     searchEngineIdConfigured: !!(process.env.GOOGLE_SEARCH_ENGINE_ID && process.env.GOOGLE_SEARCH_ENGINE_ID !== "your_google_search_engine_id_here" && process.env.GOOGLE_SEARCH_ENGINE_ID.trim() !== ""),
     githubConfigured: !!(process.env.GITHUB_USERNAME && process.env.GITHUB_USERNAME !== "your_github_username" && process.env.GITHUB_USERNAME.trim() !== ""),
@@ -436,6 +437,7 @@ app.get('/api/config', (req, res) => {
     discordConfigured: !!(process.env.DISCORD_WEBHOOK_URL && process.env.DISCORD_WEBHOOK_URL !== "your_discord_webhook_url_here" && process.env.DISCORD_WEBHOOK_URL.trim() !== ""),
     placesKey: maskKey(process.env.GOOGLE_PLACES_API_KEY),
     serperKey: maskKey(process.env.SERPER_API_KEY),
+    yelpKey: maskKey(process.env.YELP_API_KEY),
     searchKey: maskKey(process.env.GOOGLE_SEARCH_API_KEY),
     searchEngineId: maskKey(process.env.GOOGLE_SEARCH_ENGINE_ID),
     githubUsername: process.env.GITHUB_USERNAME === "your_github_username" ? "" : (process.env.GITHUB_USERNAME || ""),
@@ -451,7 +453,7 @@ app.get('/api/config', (req, res) => {
 
 // API Endpoint to save configuration
 app.post('/api/config', async (req, res) => {
-  const { placesKey, serperKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId } = req.body;
+  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId } = req.body;
   
   try {
     let envContent = "";
@@ -482,6 +484,7 @@ app.post('/api/config', async (req, res) => {
     // Only update if value is provided and NOT masked (since masked values are just sent back for show)
     if (placesKey !== undefined && !isMasked(placesKey)) envObj['GOOGLE_PLACES_API_KEY'] = placesKey;
     if (serperKey !== undefined && !isMasked(serperKey)) envObj['SERPER_API_KEY'] = serperKey;
+    if (yelpKey !== undefined && !isMasked(yelpKey)) envObj['YELP_API_KEY'] = yelpKey;
     if (searchKey !== undefined && !isMasked(searchKey)) envObj['GOOGLE_SEARCH_API_KEY'] = searchKey;
     if (searchEngineId !== undefined && !isMasked(searchEngineId)) envObj['GOOGLE_SEARCH_ENGINE_ID'] = searchEngineId;
     if (githubUsername !== undefined) envObj['GITHUB_USERNAME'] = githubUsername;
@@ -499,6 +502,8 @@ app.post('/api/config', async (req, res) => {
     newEnvContent += `GOOGLE_PLACES_API_KEY=${envObj['GOOGLE_PLACES_API_KEY'] || 'your_google_places_api_key_here'}\n\n`;
     newEnvContent += "# Serper.dev Google Search API Key\n";
     newEnvContent += `SERPER_API_KEY=${envObj['SERPER_API_KEY'] || 'your_serper_api_key_here'}\n\n`;
+    newEnvContent += "# Yelp Fusion API Key\n";
+    newEnvContent += `YELP_API_KEY=${envObj['YELP_API_KEY'] || 'your_yelp_api_key_here'}\n\n`;
     newEnvContent += "# Google Custom Search JSON API Key & Search Engine ID (Legacy)\n";
     newEnvContent += `GOOGLE_SEARCH_API_KEY=${envObj['GOOGLE_SEARCH_API_KEY'] || 'your_google_search_api_key_here'}\n`;
     newEnvContent += `GOOGLE_SEARCH_ENGINE_ID=${envObj['GOOGLE_SEARCH_ENGINE_ID'] || 'your_google_search_engine_id_here'}\n\n`;
@@ -521,6 +526,7 @@ app.post('/api/config', async (req, res) => {
     // Reload process.env values in runtime!
     if (placesKey !== undefined && !isMasked(placesKey)) process.env.GOOGLE_PLACES_API_KEY = placesKey;
     if (serperKey !== undefined && !isMasked(serperKey)) process.env.SERPER_API_KEY = serperKey;
+    if (yelpKey !== undefined && !isMasked(yelpKey)) process.env.YELP_API_KEY = yelpKey;
     if (searchKey !== undefined && !isMasked(searchKey)) process.env.GOOGLE_SEARCH_API_KEY = searchKey;
     if (searchEngineId !== undefined && !isMasked(searchEngineId)) process.env.GOOGLE_SEARCH_ENGINE_ID = searchEngineId;
     if (githubUsername !== undefined) process.env.GITHUB_USERNAME = githubUsername;
@@ -625,6 +631,30 @@ app.post('/api/config/test', async (req, res) => {
       const testRes = await axios.post(url, payload, { headers, timeout: 5000 });
       if (testRes.status === 200) {
         return res.json({ success: true, message: 'Serper.dev API connection successful!' });
+      }
+    } else if (type === 'yelp') {
+      const yelpKey = process.env.YELP_API_KEY;
+      if (!yelpKey || yelpKey === "your_yelp_api_key_here" || yelpKey.trim() === "") {
+        return res.json({ success: false, error: 'Yelp Fusion API key is not configured.' });
+      }
+      
+      const url = "https://api.yelp.com/v3/businesses/search";
+      const headers = {
+        "Authorization": `Bearer ${yelpKey}`
+      };
+      
+      console.log(`[Config Test] Testing Yelp Fusion API connection...`);
+      const testRes = await axios.get(url, {
+        headers,
+        params: {
+          term: "coffee",
+          location: "New York",
+          limit: 1
+        },
+        timeout: 5000
+      });
+      if (testRes.status === 200) {
+        return res.json({ success: true, message: 'Yelp Fusion API connection successful!' });
       }
     } else if (type === 'search') {
       const apiKey = process.env.GOOGLE_SEARCH_API_KEY;

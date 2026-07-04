@@ -1200,6 +1200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const placesKeyInput = document.getElementById('placesKeyInput');
     const serperKeyInput = document.getElementById('serperKeyInput');
+    const yelpKeyInput = document.getElementById('yelpKeyInput');
     const searchKeyInput = document.getElementById('searchKeyInput');
     const searchEngineIdInput = document.getElementById('searchEngineIdInput');
     
@@ -1219,6 +1220,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const badgeSerper = document.getElementById('badgeSerper');
     const descSerper = document.getElementById('descSerper');
     const btnTestSerper = document.getElementById('btnTestSerper');
+    
+    const badgeYelp = document.getElementById('badgeYelp');
+    const descYelp = document.getElementById('descYelp');
+    const btnTestYelp = document.getElementById('btnTestYelp');
     
     const badgeSearch = document.getElementById('badgeSearch');
     const descSearch = document.getElementById('descSearch');
@@ -1240,6 +1245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Populate inputs (masked value or empty)
         if (data.placesKey) placesKeyInput.value = data.placesKey;
         if (data.serperKey) serperKeyInput.value = data.serperKey;
+        if (data.yelpKey) yelpKeyInput.value = data.yelpKey;
         if (data.searchKey) searchKeyInput.value = data.searchKey;
         if (data.searchEngineId) searchEngineIdInput.value = data.searchEngineId;
         
@@ -1280,6 +1286,17 @@ document.addEventListener('DOMContentLoaded', () => {
         badgeSerper.className = "diag-badge badge-missing";
         badgeSerper.textContent = "Missing";
         descSerper.textContent = "Serper API key is not configured. Fallback: Google Custom Search API or Puppeteer.";
+      }
+      
+      // Yelp API Status
+      if (config.yelpKeyConfigured) {
+        badgeYelp.className = "diag-badge badge-connected";
+        badgeYelp.textContent = "Configured";
+        descYelp.textContent = "Yelp Fusion API key is loaded. Live Yelp searches (Option B) are active.";
+      } else {
+        badgeYelp.className = "diag-badge badge-missing";
+        badgeYelp.textContent = "Missing";
+        descYelp.textContent = "Yelp API key is not configured. Fallback: Google Maps Puppeteer scraper.";
       }
       
       // Search API Status (Option A)
@@ -1323,6 +1340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const payload = {
           placesKey: placesKeyInput.value.trim(),
           serperKey: serperKeyInput.value.trim(),
+          yelpKey: yelpKeyInput.value.trim(),
           searchKey: searchKeyInput.value.trim(),
           searchEngineId: searchEngineIdInput.value.trim()
         };
@@ -1485,6 +1503,46 @@ document.addEventListener('DOMContentLoaded', () => {
         } finally {
           btnTestSerper.textContent = originalText;
           btnTestSerper.disabled = false;
+        }
+      });
+    }
+
+    // Test Yelp Connection
+    if (btnTestYelp) {
+      btnTestYelp.addEventListener('click', async () => {
+        const originalText = btnTestYelp.textContent;
+        btnTestYelp.textContent = "Testing...";
+        btnTestYelp.disabled = true;
+        badgeYelp.className = "diag-badge badge-testing";
+        badgeYelp.textContent = "Testing...";
+        
+        try {
+          const res = await fetch('/api/config/test', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type: 'yelp' })
+          });
+          const result = await res.json();
+          if (result.success) {
+            badgeYelp.className = "diag-badge badge-connected";
+            badgeYelp.textContent = "Success";
+            descYelp.textContent = "Yelp Fusion API connection test successful! Ready for live business scans.";
+            alert('Yelp Fusion API connection test succeeded!');
+          } else {
+            badgeYelp.className = "diag-badge badge-missing";
+            badgeYelp.textContent = "Error";
+            descYelp.textContent = "Connection test failed: " + result.error;
+            alert('Yelp Fusion API connection test failed: ' + result.error);
+          }
+        } catch (error) {
+          console.error(error);
+          badgeYelp.className = "diag-badge badge-missing";
+          badgeYelp.textContent = "Error";
+          descYelp.textContent = "Network error during diagnostic test.";
+          alert('Network error testing Yelp Fusion API.');
+        } finally {
+          btnTestYelp.textContent = originalText;
+          btnTestYelp.disabled = false;
         }
       });
     }
