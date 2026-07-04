@@ -1,5 +1,14 @@
 'use strict';
-const puppeteer = require('puppeteer');
+const puppeteer = (() => {
+  try {
+    const puppeteerExtra = require('puppeteer-extra');
+    const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+    puppeteerExtra.use(StealthPlugin());
+    return puppeteerExtra;
+  } catch (e) {
+    return require('puppeteer');
+  }
+})();
 const https = require('https');
 const axios = require('axios');
 

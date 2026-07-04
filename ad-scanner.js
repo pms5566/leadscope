@@ -4,7 +4,16 @@
  * to find businesses running paid ads but with no proper website.
  */
 
-const puppeteer = require('puppeteer');
+const puppeteer = (() => {
+  try {
+    const puppeteerExtra = require('puppeteer-extra');
+    const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+    puppeteerExtra.use(StealthPlugin());
+    return puppeteerExtra;
+  } catch (e) {
+    return require('puppeteer');
+  }
+})();
 
 // ─── Country Code Resolver ─────────────────────────────────────────────────
 const CITY_TO_COUNTRY = {
