@@ -1271,6 +1271,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       align-items: flex-start !important;
     }
     body.device-mobile #ls-viewport-screen {
+      box-sizing: content-box !important;
       width: 375px !important;
       height: 812px !important;
       min-height: 812px !important;
@@ -1301,6 +1302,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       align-items: flex-start !important;
     }
     body.device-tablet #ls-viewport-screen {
+      box-sizing: content-box !important;
       width: 768px !important;
       height: 1024px !important;
       min-height: 1024px !important;
