@@ -1315,6 +1315,36 @@
             </div>
           </div>
         </div>
+
+        <!-- Bottom Row: Generate All Links Panel -->
+        <div class="results-card" style="margin-top: 2rem; padding: 2rem;">
+          <h3 style="color: var(--color-purple); margin-bottom: 1rem;">
+            <i class="fa-solid fa-list-check"></i> Generate All Niche Proposal Links
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Fill in the business name above and click the button to instantly create unique, trackable proposal links for all available niches at once.
+          </p>
+          <button class="btn-action" onclick="generateAllLinks()" style="background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-magenta) 100%); width: auto; font-weight: 700; padding: 0.75rem 1.5rem; margin-bottom: 1.5rem; border: none; cursor: pointer; border-radius: 8px;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Generate All Links at Once
+          </button>
+          
+          <div id="lg_all_links_container" style="display: none; flex-direction: column; gap: 0.75rem;">
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
+                <thead>
+                  <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); color: var(--color-cyan);">
+                    <th style="padding: 0.75rem 0.5rem; width: 250px;">Niche / Template</th>
+                    <th style="padding: 0.75rem 0.5rem;">Generated Proposal Link</th>
+                    <th style="padding: 0.75rem 0.5rem; width: 180px; text-align: center;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="lg_all_links_tbody">
+                  <!-- Rows dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
 
     </main>

@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let githubTemplates = [];
   window.publicSharingDomain = '';
 
-  function getPreviewBaseUrl() {
+  window.getPreviewBaseUrl = function() {
     if (window.publicSharingDomain && window.publicSharingDomain.trim() !== '') {
       let domain = window.publicSharingDomain.trim();
       if (!domain.startsWith('http://') && !domain.startsWith('https://')) {
@@ -2676,5 +2676,58 @@ window.copyProposalLink = function () {
     copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
     setTimeout(() => { copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Link'; }, 2000);
   });
+};
+
+window.generateAllLinks = function () {
+  const name    = (document.getElementById('lg_name')    || {}).value   || '';
+  const phone   = (document.getElementById('lg_phone')   || {}).value   || '';
+  const address = (document.getElementById('lg_address') || {}).value   || '';
+
+  const container = document.getElementById('lg_all_links_container');
+  const tbody     = document.getElementById('lg_all_links_tbody');
+
+  if (!name) {
+    alert('Please enter at least a Business Name.');
+    return;
+  }
+
+  // Fallback to global window function resolution
+  const base = typeof window.getPreviewBaseUrl === 'function' ? window.getPreviewBaseUrl() : window.location.origin;
+  const leadId = 'preview_' + Date.now();
+
+  const nicheSelect = document.getElementById('lg_niche');
+  if (!nicheSelect) return;
+
+  const options = Array.from(nicheSelect.options);
+  tbody.innerHTML = '';
+
+  options.forEach(opt => {
+    const val = opt.value;
+    const label = opt.text;
+
+    if (val === 'custom') return;
+
+    const url = `${base}/preview/${encodeURIComponent(val)}/${leadId}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+
+    const tr = document.createElement('tr');
+    tr.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+    tr.innerHTML = `
+      <td style="padding: 0.75rem 0.5rem; font-weight: 700; color: #fff;">${label}</td>
+      <td style="padding: 0.75rem 0.5rem; word-break: break-all; color: var(--color-cyan); font-family: monospace; font-size: 0.78rem;">${url}</td>
+      <td style="padding: 0.75rem 0.5rem; text-align: center;">
+        <div style="display: inline-flex; gap: 6px;">
+          <button class="btn-action btn-copy" onclick="navigator.clipboard.writeText('${url}'); alert('Copied link for ${label.replace(/'/g, "\\'")}!');" style="padding: 4px 8px; font-size: 0.75rem; background: rgba(0,217,245,0.1); border: 1px solid rgba(0,217,245,0.2); color: var(--color-cyan);">
+            <i class="fa-solid fa-copy"></i> Copy
+          </button>
+          <a href="${url}" target="_blank" class="btn-action btn-launch" style="padding: 4px 8px; font-size: 0.75rem; text-decoration: none;">
+            <i class="fa-solid fa-eye"></i> View
+          </a>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  if (container) container.style.display = 'flex';
 };
 
