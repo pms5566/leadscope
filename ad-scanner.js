@@ -95,7 +95,13 @@ async function scrapeMetaAdLeads(niche, city, platform = 'both') {
   const leads = [];
 
   try {
-    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36');
+    const USER_AGENTS = [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0'
+    ];
+    await page.evaluateOnNewDocument(() => { Object.defineProperty(navigator,'webdriver',{get:()=>undefined}); });
+    await page.setUserAgent(USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)]);
     await page.setViewport({ width: 1280, height: 900 });
     await page.setRequestInterception(true);
     page.on('request', req => {
@@ -105,6 +111,16 @@ async function scrapeMetaAdLeads(niche, city, platform = 'both') {
 
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 35000 });
     await new Promise(r => setTimeout(r, 5000));
+
+    // Detect login wall — Meta sometimes redirects to login page instead of showing ads
+    const pageUrl = page.url();
+    const pageTitle = await page.title();
+    const isLoginWall = pageUrl.includes('/login') || pageTitle.toLowerCase().includes('log in') || pageTitle.toLowerCase().includes('facebook – log in');
+    if (isLoginWall) {
+      console.log('[Ad Scanner] Meta: Login wall detected — retrying with different approach...');
+      await page.goto(url + '&locale=en_US', { waitUntil: 'domcontentloaded', timeout: 35000 });
+      await new Promise(r => setTimeout(r, 4000));
+    }
 
     for (let i = 0; i < 5; i++) {
       await page.evaluate(() => window.scrollBy(0, 800));

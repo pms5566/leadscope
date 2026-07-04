@@ -6,12 +6,15 @@ const axios = require('axios');
 // ─── Launch Browser ─────────────────────────────────────────────────────────
 async function launchBrowser() {
   return puppeteer.launch({
-    headless: 'new',
+    headless: true,
     args: [
       '--no-sandbox', '--disable-setuid-sandbox',
       '--disable-blink-features=AutomationControlled',
       '--disable-dev-shm-usage', '--disable-gpu',
-      '--window-size=1280,900'
+      '--window-size=1280,900',
+      '--disable-infobars',
+      '--ignore-certificate-errors',
+      '--lang=en-US,en'
     ]
   });
 }
@@ -147,8 +150,9 @@ async function scoreWebsite(url) {
 
 // ─── Scrape Google Search Sponsored Results ──────────────────────────────────
 async function scrapeGoogleAds(niche, city) {
-  const query = `${niche} ${city}`;
-  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}&hl=en&num=20`;
+  // Add 'website' to force Google to show text/website results instead of Maps/Places panel
+  const query = `${niche} ${city} website`;
+  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}&hl=en&num=20&tbs=li:1`;
   console.log(`[Google Ads] Searching Google: "${query}"`);
 
   const browser = await launchBrowser();
@@ -480,12 +484,13 @@ async function scrapeBingAds(niche, city) {
 }
 
 // ─── Main Export ─────────────────────────────────────────────────────────────
-async function scanGoogleAds(niche, city, engines = ['google'], scoreWebsites = true) {
+async function scanGoogleAds(niche, city, engines = ['google', 'bing'], scoreWebsites = true) {
   console.log(`[Google Ads Scanner] START: niche="${niche}", city="${city}", engines=[${engines}]`);
 
+  // Always run both Google AND Bing together — if one returns 0, the other covers
   const tasks = [];
-  if (engines.includes('google')) tasks.push(scrapeGoogleAds(niche, city));
-  if (engines.includes('bing'))   tasks.push(scrapeBingAds(niche, city));
+  tasks.push(scrapeGoogleAds(niche, city));
+  tasks.push(scrapeBingAds(niche, city));
 
   const results = await Promise.all(tasks);
   let leads = results.flat();
