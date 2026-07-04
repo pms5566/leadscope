@@ -1045,9 +1045,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         // c. Fallback: Try custom folder on GitHub — with fuzzy folder name resolution
         const resolvedGithubFolder = await resolveGithubNicheFolder(niche);
         const githubFolder = resolvedGithubFolder || niche;
-        if (resolvedGithubFolder) {
-          console.log(`[Template Loader] GitHub folder match: "${niche}" → "${resolvedGithubFolder}"`);
-        }
         html = await fetchFromGithub(`${githubFolder}/index.html`, 'utf8');
       } catch (githubErr) {
         // d. Fallback: Try matching site file on GitHub sites/ folder
@@ -1076,7 +1073,9 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     html = html.replace(/\{\{PHONE\}\}/g, phone);
     html = html.replace(/\{\{ADDRESS\}\}/g, address);
     
-    // 4. Inject Sticky Top Banner & Analytics heart-beat script
+    // 4. Check if we are loading inside the device preview iframe
+    const isEmbed = req.query.embed === 'true';
+    
     const whatsappPhone = process.env.AGENCY_WHATSAPP_PHONE || '917696507509';
     const fiverrUrl = process.env.AGENCY_FIVERR_URL || 'https://www.fiverr.com/s/gDeZRvL';
     const emailAddress = process.env.AGENCY_EMAIL || 'nobizweb@gmail.com';
@@ -1086,317 +1085,594 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     const emailBody = encodeURIComponent(`Hi!\n\nI was looking at the custom website proposal draft you created for my business, "${businessName}". I would like to request some modifications!`);
     const emailLink = `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`;
     
-    const bannerStyle = `
-      <style>
-        .ls-proposal-banner {
-          position: fixed !important;
-          top: 0 !important;
-          left: 0 !important;
-          width: 100% !important;
-          min-height: 50px !important;
-          background: rgba(15, 23, 42, 0.95) !important;
-          backdrop-filter: blur(8px) !important;
-          -webkit-backdrop-filter: blur(8px) !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-          display: flex !important;
-          justify-content: space-between !important;
-          align-items: center !important;
-          padding: 8px 24px !important;
-          z-index: 2147483647 !important;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-          color: #f8fafc !important;
-          font-size: 14px !important;
-          box-sizing: border-box !important;
-        }
-        .ls-proposal-banner * {
-          box-sizing: border-box !important;
-        }
-        .ls-banner-title {
-          font-weight: 500 !important;
-          display: flex !important;
-          align-items: center !important;
-          gap: 6px !important;
-          white-space: nowrap !important;
-          overflow: hidden !important;
-          text-overflow: ellipsis !important;
-          max-width: 50% !important;
-        }
-        .ls-banner-title strong {
-          color: #fff !important;
-          font-weight: 700 !important;
-        }
-        .ls-banner-ctas {
-          display: flex !important;
-          align-items: center !important;
-          gap: 8px !important;
-          flex-shrink: 0 !important;
-        }
-        .ls-banner-btn {
-          display: inline-flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-          gap: 6px !important;
-          padding: 8px 16px !important;
-          border-radius: 9999px !important;
-          font-size: 13px !important;
-          font-weight: 600 !important;
-          text-decoration: none !important;
-          cursor: pointer !important;
-          transition: all 0.2s ease !important;
-          white-space: nowrap !important;
-        }
-        .ls-banner-btn:hover {
-          transform: translateY(-1px) !important;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-        }
-        .ls-banner-btn:active {
-          transform: translateY(0) !important;
-        }
-        .ls-btn-fiv {
-          background: #1dbf73 !important;
-          color: #fff !important;
-        }
-        .ls-btn-fiv:hover {
-          background: #10a862 !important;
-          box-shadow: 0 0 12px rgba(29, 191, 115, 0.4) !important;
-        }
-        .ls-btn-wa {
-          background: #25d366 !important;
-          color: #fff !important;
-        }
-        .ls-btn-wa:hover {
-          background: #1ebe57 !important;
-          box-shadow: 0 0 12px rgba(37, 211, 102, 0.4) !important;
-        }
-        .ls-btn-email {
-          background: #3b82f6 !important;
-          color: #fff !important;
-        }
-        .ls-btn-email:hover {
-          background: #1d4ed8 !important;
-          box-shadow: 0 0 12px rgba(59, 130, 246, 0.4) !important;
-        }
-        
-        .ls-btn-text-mobile {
-          display: none !important;
-        }
-        
-        /* Offset page layout initially so sticky banner doesn't cover top links */
-        body {
-          padding-top: 50px !important;
-        }
-
-        /* Mobile styling */
-        @media (max-width: 768px) {
-          .ls-proposal-banner {
-            padding: 8px 16px !important;
-          }
-          .ls-banner-title {
-            font-size: 13px !important;
-            max-width: 40% !important;
-          }
-          .ls-banner-btn {
-            padding: 7px 12px !important;
-            font-size: 12px !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .ls-proposal-banner {
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            padding: 8px 12px !important;
-            gap: 6px !important;
-          }
-          .ls-banner-title {
-            display: flex !important;
-            max-width: 100% !important;
-            font-size: 11px !important;
-            text-align: center !important;
-            justify-content: center !important;
-            margin-bottom: 2px !important;
-          }
-          .ls-banner-ctas {
-            width: 100% !important;
-            justify-content: space-between !important;
-            gap: 6px !important;
-          }
-          .ls-banner-btn {
-            flex: 1 1 auto !important;
-            justify-content: center !important;
-            padding: 6px 8px !important;
-            font-size: 11px !important;
-          }
-          .ls-btn-text-desktop {
-            display: none !important;
-          }
-          .ls-btn-text-mobile {
-            display: inline-block !important;
-          }
-        }
-        
-        
-        /* Chat Widget styling (disabled if Tawk.to is active) */
-        ${!(process.env.TAWK_EMBED_URL && process.env.TAWK_EMBED_URL.trim() !== "") ? `
-        .ls-chat-widget {
-          position: fixed !important;
-          bottom: 20px !important;
-          right: 20px !important;
-          width: 320px !important;
-          background: rgba(15, 23, 42, 0.9) !important;
-          backdrop-filter: blur(10px) !important;
-          -webkit-backdrop-filter: blur(10px) !important;
-          border: 1px solid rgba(255, 255, 255, 0.15) !important;
-          border-radius: 16px !important;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-          z-index: 2147483647 !important;
-          overflow: hidden !important;
-          display: flex !important;
-          flex-direction: column !important;
-          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
-          transform: translateY(150%) scale(0.9) !important;
-          opacity: 0 !important;
-          box-sizing: border-box !important;
-        }
-        .ls-chat-widget * {
-          box-sizing: border-box !important;
-        }
-        .ls-chat-widget.active {
-          transform: translateY(0) scale(1) !important;
-          opacity: 1 !important;
-        }
-        .ls-chat-header {
-          background: linear-gradient(135deg, #00d9f5 0%, #0072ff 100%) !important;
-          padding: 12px 16px !important;
-          color: #0f172a !important;
-          font-weight: 700 !important;
-          font-size: 13px !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: space-between !important;
-        }
-        .ls-chat-close {
-          background: none !important;
-          border: none !important;
-          color: #0f172a !important;
-          cursor: pointer !important;
-          font-size: 18px !important;
-          line-height: 1 !important;
-          padding: 0 !important;
-          opacity: 0.7 !important;
-        }
-        .ls-chat-close:hover {
-          opacity: 1 !important;
-        }
-        .ls-chat-body {
-          padding: 14px !important;
-          display: flex !important;
-          flex-direction: column !important;
-          gap: 10px !important;
-        }
-        .ls-chat-msg {
-          background: rgba(255, 255, 255, 0.05) !important;
-          color: #e2e8f0 !important;
-          padding: 10px 12px !important;
-          border-radius: 12px !important;
-          font-size: 12px !important;
-          line-height: 1.45 !important;
-        }
-        .ls-chat-input-container {
-          display: flex !important;
-          gap: 6px !important;
-        }
-        .ls-chat-input {
-          flex: 1 !important;
-          background: rgba(255, 255, 255, 0.06) !important;
-          border: 1px solid rgba(255, 255, 255, 0.12) !important;
-          border-radius: 8px !important;
-          color: #ffffff !important;
-          padding: 8px 10px !important;
-          font-size: 12px !important;
-          outline: none !important;
-        }
-        .ls-chat-input:focus {
-          border-color: #00d9f5 !important;
-        }
-        .ls-chat-send {
-          background: #00d9f5 !important;
-          border: none !important;
-          border-radius: 8px !important;
-          color: #0f172a !important;
-          cursor: pointer !important;
-          padding: 8px 12px !important;
-          font-weight: 700 !important;
-          font-size: 12px !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-        }
-        .ls-chat-success-msg {
-          color: #10b981 !important;
-          font-size: 11px !important;
-          text-align: center !important;
-          margin-top: 2px !important;
-          display: none !important;
-        }
-        ` : ''}
-      </style>
-    `;
-    
-    const bannerHtml = `
-      <div class="ls-proposal-banner">
-        <div class="ls-banner-title">
-          <span>☕ Concept Website Proposal for <strong>${businessName}</strong></span>
-        </div>
-        <div class="ls-banner-ctas">
-          <a href="${fiverrUrl}" target="_blank" class="ls-banner-btn ls-btn-fiv" id="ls-fiverr-lnk">
-            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg">
-              <path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-.85c-.546 0-.84.41-.84 1.092v2.466h-1.61v-3.558h-.684c-.547 0-.84.41-.84 1.092v2.466h-1.61v-4.874h1.61v.74c.264-.574.626-.74 1.163-.74h1.972v.74c.264-.574.625-.74 1.162-.74h.527v1.316zm-6.786 1.501h-3.359c.088.546.43.858 1.006.858.43 0 .732-.175.83-.487l1.425.4c-.351.848-1.22 1.364-2.255 1.364-1.748 0-2.549-1.355-2.549-2.515 0-1.14.703-2.505 2.45-2.505 1.856 0 2.471 1.384 2.471 2.408 0 .224-.01.37-.02.477zm-1.562-.945c-.04-.42-.342-.81-.889-.81-.508 0-.81.225-.908.81h1.797zM7.508 15.44h1.416l1.767-4.874h-1.62l-.86 2.837-.878-2.837H5.72l1.787 4.874zm-6.6 0H2.51v-3.558h1.524v3.558h1.591v-4.874H2.51v-.302c0-.332.235-.536.606-.536h.918V8.412H2.85c-1.162 0-1.943.712-1.943 1.755v.4H0v1.316h.908v3.558z"/>
-            </svg>
-            <span class="ls-btn-text-desktop">Order on Fiverr</span>
-            <span class="ls-btn-text-mobile">Fiverr</span>
-          </a>
-          <a href="${waLink}" target="_blank" class="ls-banner-btn ls-btn-wa" id="ls-whatsapp-lnk">
-            <svg viewBox="0 0 448 512" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg">
-              <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-            </svg>
-            <span class="ls-btn-text-desktop">Request Changes</span>
-            <span class="ls-btn-text-mobile">WhatsApp</span>
-          </a>
-          <a href="${emailLink}" target="_blank" class="ls-banner-btn ls-btn-email" id="ls-email-lnk">
-            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67zM22.5 6.908V6a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.908l9.714 5.978a1 1 0 0 0 1.048 0L22.5 6.908z"/>
-            </svg>
-            <span class="ls-btn-text-desktop">Email Us</span>
-            <span class="ls-btn-text-mobile">Email</span>
-          </a>
-        </div>
-      </div>
+    if (!isEmbed) {
+      // ─── OUTER DEVICE PREVIEW WRAPPER PAGE ──────────────────────────────────
+      const tawkEmbedUrl = process.env.TAWK_EMBED_URL || '';
+      const hasTawk = tawkEmbedUrl.trim() !== '';
       
-      <!-- Injected Chat widget HTML (disabled if Tawk.to is active) -->
-      ${!(process.env.TAWK_EMBED_URL && process.env.TAWK_EMBED_URL.trim() !== "") ? `
-      <div class="ls-chat-widget" id="ls-chat-box">
-        <div class="ls-chat-header">
-          <span>💬 Design Consultation</span>
-          <button class="ls-chat-close" id="ls-chat-close-btn">&times;</button>
-        </div>
-        <div class="ls-chat-body">
-          <div class="ls-chat-msg">
-            Hi there! 👋 Let me know if you would like any custom changes, adjustments, or to request the source files for this design.
-          </div>
-          <div class="ls-chat-input-container">
-            <input type="text" class="ls-chat-input" id="ls-chat-msg-input" placeholder="Type a message..." maxlength="300">
-            <button class="ls-chat-send" id="ls-chat-send-btn">Send</button>
-          </div>
-          <div class="ls-chat-success-msg" id="ls-chat-success">✓ Sent to our design team!</div>
-        </div>
-      </div>
-      ` : ''}
-    `;
+      const queryParams = new URLSearchParams();
+      if (req.query.name) queryParams.set('name', req.query.name);
+      if (req.query.phone) queryParams.set('phone', req.query.phone);
+      if (req.query.address) queryParams.set('address', req.query.address);
+      queryParams.set('embed', 'true');
+      const iframeSrc = `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}?${queryParams.toString()}`;
+      
+      const wrapperHtml = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Proposal - ${businessName}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Base Reset and Styling */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: #0b0f19 !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      overflow: hidden !important;
+      color: #f1f5f9 !important;
+      box-sizing: border-box !important;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit !important;
+    }
+
+    /* Top Sticky Header Banner */
+    .ls-proposal-banner {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 60px !important;
+      background: rgba(15, 23, 42, 0.95) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 0 20px !important;
+      z-index: 2147483647 !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+    .ls-banner-title {
+      font-weight: 500 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      max-width: 32% !important;
+      font-size: 13px !important;
+      color: #94a3b8 !important;
+    }
+    .ls-banner-title strong {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+    }
+
+    /* Centered Device Controls */
+    .ls-banner-devices {
+      display: flex !important;
+      align-items: center !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      padding: 4px !important;
+      border-radius: 9999px !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      gap: 2px !important;
+    }
+    .ls-device-btn {
+      background: none !important;
+      border: none !important;
+      color: #64748b !important;
+      padding: 6px 14px !important;
+      border-radius: 9999px !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      outline: none !important;
+    }
+    .ls-device-btn:hover {
+      color: #cbd5e1 !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+    }
+    .ls-device-btn.active {
+      background: #00d9f5 !important;
+      color: #0f172a !important;
+      font-weight: 700 !important;
+      box-shadow: 0 2px 10px rgba(0, 217, 245, 0.35) !important;
+    }
+    .ls-device-btn svg {
+      width: 16px !important;
+      height: 16px !important;
+      fill: currentColor !important;
+    }
+
+    /* Right Action CTAs */
+    .ls-banner-ctas {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      flex-shrink: 0 !important;
+    }
+    .ls-banner-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      padding: 8px 16px !important;
+      border-radius: 9999px !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      white-space: nowrap !important;
+    }
+    .ls-banner-btn:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+    .ls-btn-fiv { background: #1dbf73 !important; color: #fff !important; }
+    .ls-btn-fiv:hover { background: #10a862 !important; }
+    .ls-btn-wa { background: #25d366 !important; color: #fff !important; }
+    .ls-btn-wa:hover { background: #1ebe57 !important; }
+    .ls-btn-email { background: #3b82f6 !important; color: #fff !important; }
+    .ls-btn-email:hover { background: #1d4ed8 !important; }
+
+    /* Centered Viewport Containment */
+    #ls-viewport-container {
+      margin-top: 60px !important;
+      width: 100% !important;
+      height: calc(100vh - 60px) !important;
+      overflow: auto !important;
+      background: #090d16 !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      transition: all 0.3s ease !important;
+      padding: 0 !important;
+    }
+
+    #ls-viewport-screen {
+      width: 100% !important;
+      height: 100% !important;
+      background: #ffffff !important;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      display: flex !important;
+    }
+
+    iframe {
+      width: 100% !important;
+      height: 100% !important;
+      border: none !important;
+      background: #ffffff !important;
+    }
+
+    /* Device Mockup Bezels styling */
+    body.device-mobile #ls-viewport-container {
+      padding: 40px 10px !important;
+      align-items: flex-start !important;
+    }
+    body.device-mobile #ls-viewport-screen {
+      width: 375px !important;
+      height: 812px !important;
+      min-height: 812px !important;
+      max-height: 812px !important;
+      border: 12px solid #1e293b !important;
+      border-radius: 40px !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+      overflow: hidden !important;
+    }
+    /* Mobile notch */
+    body.device-mobile #ls-viewport-screen::before {
+      content: "" !important;
+      position: absolute !important;
+      top: -1px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 140px !important;
+      height: 24px !important;
+      background: #1e293b !important;
+      border-bottom-left-radius: 16px !important;
+      border-bottom-right-radius: 16px !important;
+      z-index: 999999 !important;
+      pointer-events: none !important;
+    }
+
+    body.device-tablet #ls-viewport-container {
+      padding: 40px 10px !important;
+      align-items: flex-start !important;
+    }
+    body.device-tablet #ls-viewport-screen {
+      width: 768px !important;
+      height: 1024px !important;
+      min-height: 1024px !important;
+      max-height: 1024px !important;
+      border: 16px solid #1e293b !important;
+      border-radius: 28px !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+      overflow: hidden !important;
+    }
+
+    /* Fallback Glassmorphic Live Chat widget overlay */
+    ${!hasTawk ? `
+    .ls-chat-widget {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      width: 320px !important;
+      background: rgba(15, 23, 42, 0.9) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+      z-index: 2147483647 !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column !important;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+      transform: translateY(150%) scale(0.9) !important;
+      opacity: 0 !important;
+    }
+    .ls-chat-widget.active {
+      transform: translateY(0) scale(1) !important;
+      opacity: 1 !important;
+    }
+    .ls-chat-header {
+      background: linear-gradient(135deg, #00d9f5 0%, #0072ff 100%) !important;
+      padding: 12px 16px !important;
+      color: #0f172a !important;
+      font-weight: 700 !important;
+      font-size: 13px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+    .ls-chat-close {
+      background: none !important;
+      border: none !important;
+      color: #0f172a !important;
+      cursor: pointer !important;
+      font-size: 18px !important;
+      line-height: 1 !important;
+      padding: 0 !important;
+      opacity: 0.7 !important;
+    }
+    .ls-chat-body {
+      padding: 14px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+    .ls-chat-msg {
+      background: rgba(255, 255, 255, 0.05) !important;
+      color: #e2e8f0 !important;
+      padding: 10px 12px !important;
+      border-radius: 12px !important;
+      font-size: 12px !important;
+      line-height: 1.45 !important;
+    }
+    .ls-chat-input-container {
+      display: flex !important;
+      gap: 6px !important;
+    }
+    .ls-chat-input {
+      flex: 1 !important;
+      background: rgba(255, 255, 255, 0.06) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-radius: 8px !important;
+      color: #ffffff !important;
+      padding: 8px 10px !important;
+      font-size: 12px !important;
+      outline: none !important;
+    }
+    .ls-chat-input:focus { border-color: #00d9f5 !important; }
+    .ls-chat-send {
+      background: #00d9f5 !important;
+      border: none !important;
+      border-radius: 8px !important;
+      color: #0f172a !important;
+      cursor: pointer !important;
+      padding: 8px 12px !important;
+      font-weight: 700 !important;
+      font-size: 12px !important;
+    }
+    .ls-chat-success-msg {
+      color: #10b981 !important;
+      font-size: 11px !important;
+      text-align: center !important;
+      margin-top: 2px !important;
+      display: none !important;
+    }
+    ` : ''}
+
+    /* Small Screen adaptations */
+    @media (max-width: 800px) {
+      .ls-banner-title { display: none !important; }
+      .ls-banner-devices { order: 1 !important; }
+      .ls-banner-ctas { order: 2 !important; }
+    }
+  </style>
+</head>
+<body class="device-desktop">
+
+  <!-- Fixed Proposal Banner -->
+  <div class="ls-proposal-banner">
+    <div class="ls-banner-title">
+      <span>💻 Proposal for <strong>${businessName}</strong></span>
+    </div>
     
-    let trackingScript = `
+    <!-- Central Device Switcher buttons -->
+    <div class="ls-banner-devices">
+      <button class="ls-device-btn active" id="btn-view-desktop" title="Desktop View">
+        <svg viewBox="0 0 576 512"><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"/></svg>
+      </button>
+      <button class="ls-device-btn" id="btn-view-tablet" title="Tablet View">
+        <svg viewBox="0 0 448 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM256 464c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zM384 64V384H64V64H384z"/></svg>
+      </button>
+      <button class="ls-device-btn" id="btn-view-mobile" title="Mobile View">
+        <svg viewBox="0 0 384 512"><path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zM192 464c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zM320 64V384H64V64H320z"/></svg>
+      </button>
+    </div>
+
+    <!-- Contact / Buy buttons -->
+    <div class="ls-banner-ctas">
+      <a href="${fiverrUrl}" target="_blank" class="ls-banner-btn ls-btn-fiv" id="ls-fiverr-lnk">
+        <span>Order on Fiverr</span>
+      </a>
+      <a href="${waLink}" target="_blank" class="ls-banner-btn ls-btn-wa" id="ls-whatsapp-lnk">
+        <span>Request Changes</span>
+      </a>
+      <a href="${emailLink}" target="_blank" class="ls-banner-btn ls-btn-email" id="ls-email-lnk">
+        <span>Email Us</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Inner Iframe Viewer screen -->
+  <div id="ls-viewport-container">
+    <div id="ls-viewport-screen">
+      <iframe src="${iframeSrc}"></iframe>
+    </div>
+  </div>
+
+  <!-- Fallback Chat widget overlay -->
+  ${!hasTawk ? `
+  <div class="ls-chat-widget" id="ls-chat-box">
+    <div class="ls-chat-header">
+      <span>💬 Design Consultation</span>
+      <button class="ls-chat-close" id="ls-chat-close-btn">&times;</button>
+    </div>
+    <div class="ls-chat-body">
+      <div class="ls-chat-msg">
+        Hi there! 👋 Let me know if you would like any custom changes, adjustments, or to request the source files for this design.
+      </div>
+      <div class="ls-chat-input-container">
+        <input type="text" class="ls-chat-input" id="ls-chat-msg-input" placeholder="Type a message..." maxlength="300">
+        <button class="ls-chat-send" id="ls-chat-send-btn">Send</button>
+      </div>
+      <div class="ls-chat-success-msg" id="ls-chat-success">✓ Sent to our design team!</div>
+    </div>
+  </div>
+  ` : ''}
+
+  <!-- Viewport Switch Controller Script -->
+  <script>
+    (function() {
+      const body = document.body;
+      const btnDesktop = document.getElementById('btn-view-desktop');
+      const btnTablet = document.getElementById('btn-view-tablet');
+      const btnMobile = document.getElementById('btn-view-mobile');
+
+      function setDeviceView(viewName, activeBtn) {
+        body.className = '';
+        body.classList.add('device-' + viewName);
+        
+        document.querySelectorAll('.ls-device-btn').forEach(btn => btn.classList.remove('active'));
+        activeBtn.classList.add('active');
+      }
+
+      if (btnDesktop) btnDesktop.addEventListener('click', () => setDeviceView('desktop', btnDesktop));
+      if (btnTablet) btnTablet.addEventListener('click', () => setDeviceView('tablet', btnTablet));
+      if (btnMobile) btnMobile.addEventListener('click', () => setDeviceView('mobile', btnMobile));
+
+      // Dispatch tracking events for proposal open and click events
+      const leadId = ${JSON.stringify(leadId)};
+      const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
+      const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+      
+      async function sendEvent(event, details = {}) {
+        try {
+          await fetch('/api/track', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
+          });
+        } catch (err) {}
+      }
+      
+      // Page open tracking
+      sendEvent('open');
+      
+      // Clicks tracking
+      document.getElementById('ls-fiverr-lnk').addEventListener('click', () => sendEvent('fiverr_click'));
+      document.getElementById('ls-whatsapp-lnk').addEventListener('click', () => sendEvent('whatsapp_click'));
+      document.getElementById('ls-email-lnk').addEventListener('click', () => sendEvent('email_click'));
+
+      ${!hasTawk ? `
+      // Chat Trigger
+      setTimeout(() => {
+        const chatBox = document.getElementById('ls-chat-box');
+        if (chatBox) chatBox.classList.add('active');
+      }, 15000);
+
+      // Chat Close
+      const closeBtn = document.getElementById('ls-chat-close-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          const chatBox = document.getElementById('ls-chat-box');
+          if (chatBox) chatBox.classList.remove('active');
+        });
+      }
+
+      // Chat Send
+      const sendBtn = document.getElementById('ls-chat-send-btn');
+      const msgInput = document.getElementById('ls-chat-msg-input');
+      const successMsg = document.getElementById('ls-chat-success');
+
+      if (sendBtn && msgInput) {
+        sendBtn.addEventListener('click', async () => {
+          const text = msgInput.value.trim();
+          if (!text) return;
+
+          sendBtn.disabled = true;
+          msgInput.disabled = true;
+          sendBtn.textContent = '...';
+
+          try {
+            const res = await fetch('/api/chat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ leadId, leadName, message: text })
+            });
+            const data = await res.json();
+            if (data.success) {
+              successMsg.style.display = 'block';
+              sendBtn.style.display = 'none';
+              msgInput.style.display = 'none';
+            } else {
+              throw new Error('Failed');
+            }
+          } catch (e) {
+            alert('Failed to send message. Please try again.');
+            sendBtn.disabled = false;
+            msgInput.disabled = false;
+            sendBtn.textContent = 'Send';
+          }
+        });
+
+        msgInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            sendBtn.click();
+          }
+        });
+      }
+      ` : `
+      // Inject Tawk.to Script on outer wrapper
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='${tawkEmbedUrl.trim()}';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+      `}
+    })();
+  </script>
+</body>
+</html>
+      `;
+      
+      return res.send(wrapperHtml);
+    }
+    
+    // ─── INNER EMBEDDED SITE PREVIEW PAGE (RAW SITE WITH ANALYTICS SCROLL HEARTBEAT) ────
+    const personalizationScript = `
+      <script>
+        (function() {
+          const realName = ${JSON.stringify(businessName)};
+          const realPhone = ${JSON.stringify(phone)};
+          const realAddress = ${JSON.stringify(address)};
+          
+          // 1. Replace logo and text occurrences of Business Name
+          const logoEl = document.querySelector('header .navbar-start a.font-bold, header a.font-bold');
+          if (logoEl) {
+            const mockName = logoEl.innerText.trim();
+            if (mockName && realName && mockName !== realName) {
+              function replaceText(node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                  if (node.nodeValue.includes(mockName)) {
+                    node.nodeValue = node.nodeValue.replaceAll(mockName, realName);
+                  }
+                } else if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
+                  for (let child of node.childNodes) {
+                    replaceText(child);
+                  }
+                }
+              }
+              replaceText(document.body);
+              document.title = document.title.replaceAll(mockName, realName);
+            }
+          }
+          
+          // 2. Replace phone links
+          const telLink = document.querySelector('a[href^="tel:"]');
+          if (telLink) {
+            const mockPhone = telLink.getAttribute('href').replace('tel:', '').trim();
+            document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+              el.href = 'tel:' + realPhone;
+              if (/\\d/.test(el.innerText)) {
+                el.innerText = realPhone;
+              }
+            });
+            if (mockPhone && realPhone && mockPhone !== realPhone) {
+              function replacePhone(node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                  if (node.nodeValue.includes(mockPhone)) {
+                    node.nodeValue = node.nodeValue.replaceAll(mockPhone, realPhone);
+                  }
+                } else if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
+                  for (let child of node.childNodes) {
+                    replacePhone(child);
+                  }
+                }
+              }
+              replacePhone(document.body);
+            }
+          }
+          
+          // 3. Replace address text & Google Maps embeds
+          if (realAddress && realAddress !== 'N/A' && realAddress !== 'Our Location') {
+            const addressSpan = document.querySelector('span.text-primary.not-italic');
+            if (addressSpan) {
+              addressSpan.innerText = realAddress;
+            }
+            const mapIframe = document.querySelector('iframe[src*="google.com/maps"]');
+            if (mapIframe) {
+              mapIframe.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(realAddress) + '&t=&z=13&ie=UTF8&iwloc=&output=embed';
+            }
+          }
+          
+          // 4. Replace mock mailto links
+          const mailLink = document.querySelector('a[href^="mailto:"]');
+          if (mailLink) {
+            const mockEmail = mailLink.getAttribute('href').replace('mailto:', '').trim();
+            const realEmail = 'contact@' + realName.toLowerCase().replace(/[^a-z0-9]/g, '') + '.com';
+            document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+              el.href = 'mailto:' + realEmail;
+              if (el.innerText.includes('@')) {
+                el.innerText = realEmail;
+              }
+            });
+          }
+        })();
+      </script>
+    `;
+
+    const trackingScript = `
       <script>
         (function() {
           const leadId = ${JSON.stringify(leadId)};
@@ -1413,22 +1689,13 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
             } catch (err) {}
           }
           
-          // Send page load event immediately
-          sendEvent('open');
-          
-          // Send click events
-          document.getElementById('ls-fiverr-lnk').addEventListener('click', () => sendEvent('fiverr_click'));
-          document.getElementById('ls-whatsapp-lnk').addEventListener('click', () => sendEvent('whatsapp_click'));
-          document.getElementById('ls-email-lnk').addEventListener('click', () => sendEvent('email_click'));
-          
-          // Scroll and session duration heartbeats
+          // Scroll and active duration tracking runs inside the scrollable embedded page
           let totalSeconds = 0;
           let maxScroll = 0;
           
           setInterval(() => {
             totalSeconds += 10;
             
-            // Calculate max scroll depth percentage reached
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrollPercent = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
@@ -1439,267 +1706,12 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
             
             sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll });
           }, 10000);
-
-          ${!(process.env.TAWK_EMBED_URL && process.env.TAWK_EMBED_URL.trim() !== "") ? `
-          // Chat Trigger (Slide up after 15 seconds)
-          setTimeout(() => {
-            const chatBox = document.getElementById('ls-chat-box');
-            if (chatBox) chatBox.classList.add('active');
-          }, 15000);
-
-          // Chat Close Button
-          const closeBtn = document.getElementById('ls-chat-close-btn');
-          if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-              const chatBox = document.getElementById('ls-chat-box');
-              if (chatBox) chatBox.classList.remove('active');
-            });
-          }
-
-          // Chat Send Action
-          const sendBtn = document.getElementById('ls-chat-send-btn');
-          const msgInput = document.getElementById('ls-chat-msg-input');
-          const successMsg = document.getElementById('ls-chat-success');
-
-          if (sendBtn && msgInput) {
-            sendBtn.addEventListener('click', async () => {
-              const text = msgInput.value.trim();
-              if (!text) return;
-
-              sendBtn.disabled = true;
-              msgInput.disabled = true;
-              sendBtn.textContent = '...';
-
-              try {
-                const res = await fetch('/api/chat', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ leadId, leadName, message: text })
-                });
-                const data = await res.json();
-                if (data.success) {
-                  successMsg.style.display = 'block';
-                  sendBtn.style.display = 'none';
-                  msgInput.style.display = 'none';
-                } else {
-                  throw new Error('Failed');
-                }
-              } catch (e) {
-                alert('Failed to send message. Please try again.');
-                sendBtn.disabled = false;
-                msgInput.disabled = false;
-                sendBtn.textContent = 'Send';
-              }
-            });
-
-            // Handle pressing enter
-            msgInput.addEventListener('keydown', (e) => {
-              if (e.key === 'Enter') {
-                sendBtn.click();
-              }
-            });
-          }
-          ` : ''}
         })();
       </script>
     `;
-
-    if (process.env.TAWK_EMBED_URL && process.env.TAWK_EMBED_URL.trim() !== "") {
-      trackingScript += `
-        <!--Start of Tawk.to Script-->
-        <script type="text/javascript">
-          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-          (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='${process.env.TAWK_EMBED_URL.trim()}';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-          })();
-        </script>
-        <!--End of Tawk.to Script-->
-      `;
-    }
-
-  const personalizationScript = `
-    <script>
-      (function() {
-        const realName = ${JSON.stringify(businessName)};
-        const realPhone = ${JSON.stringify(phone)};
-        const realAddress = ${JSON.stringify(address)};
-        
-        // 1. Traverse and replace business name
-        const logoEl = document.querySelector('header .navbar-start a.font-bold, header a.font-bold');
-        if (logoEl) {
-          const mockName = logoEl.innerText.trim();
-          if (mockName && realName && mockName !== realName) {
-            function replaceText(node) {
-              if (node.nodeType === Node.TEXT_NODE) {
-                if (node.nodeValue.includes(mockName)) {
-                  node.nodeValue = node.nodeValue.replaceAll(mockName, realName);
-                }
-              } else if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
-                for (let child of node.childNodes) {
-                  replaceText(child);
-                }
-              }
-            }
-            replaceText(document.body);
-            document.title = document.title.replaceAll(mockName, realName);
-          }
-        }
-        
-        // 2. Replace phone links and plain text phone numbers
-        const telLink = document.querySelector('a[href^="tel:"]');
-        if (telLink) {
-          const mockPhone = telLink.getAttribute('href').replace('tel:', '').trim();
-          document.querySelectorAll('a[href^="tel:"]').forEach(el => {
-            el.href = 'tel:' + realPhone;
-            if (/\\d/.test(el.innerText)) {
-              el.innerText = realPhone;
-            }
-          });
-          if (mockPhone && realPhone && mockPhone !== realPhone) {
-            function replacePhone(node) {
-              if (node.nodeType === Node.TEXT_NODE) {
-                if (node.nodeValue.includes(mockPhone)) {
-                  node.nodeValue = node.nodeValue.replaceAll(mockPhone, realPhone);
-                }
-              } else if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
-                for (let child of node.childNodes) {
-                  replacePhone(child);
-                }
-              }
-            }
-            replacePhone(document.body);
-          }
-        }
-        
-        // 3. Replace address text and update maps iframe
-        if (realAddress && realAddress !== 'N/A' && realAddress !== 'Our Location') {
-          const addressSpan = document.querySelector('span.text-primary.not-italic');
-          if (addressSpan) {
-            addressSpan.innerText = realAddress;
-          }
-          const mapIframe = document.querySelector('iframe[src*="google.com/maps"]');
-          if (mapIframe) {
-            mapIframe.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(realAddress) + '&t=&z=13&ie=UTF8&iwloc=&output=embed';
-          }
-        }
-        
-        // 4. Replace email links
-        const mailLink = document.querySelector('a[href^="mailto:"]:not(#ls-email-lnk)');
-        if (mailLink) {
-          const mockEmail = mailLink.getAttribute('href').replace('mailto:', '').trim();
-          const realEmail = 'contact@' + realName.toLowerCase().replace(/[^a-z0-9]/g, '') + '.com';
-          document.querySelectorAll('a[href^="mailto:"]:not(#ls-email-lnk)').forEach(el => {
-            el.href = 'mailto:' + realEmail;
-            if (el.innerText.includes('@')) {
-              el.innerText = realEmail;
-            }
-          });
-        }
-      })();
-    </script>
-  `;
-  
-  // Inject stylesheet inside head tag
-  html = html.replace('</head>', `${bannerStyle}</head>`);
-  
-  // Inject banner HTML right below body tag
-  const bodyOpenIndex = html.indexOf('<body');
-  if (bodyOpenIndex !== -1) {
-    const bodyCloseIndex = html.indexOf('>', bodyOpenIndex);
-    if (bodyCloseIndex !== -1) {
-      html = html.substring(0, bodyCloseIndex + 1) + bannerHtml + html.substring(bodyCloseIndex + 1);
-    }
-  } else {
-    html = bannerHtml + html;
-  }
-  
-  // Layout adjustment script to prevent banner from overlapping fixed/sticky navbars
-  const layoutScript = `
-    <script>
-      (function() {
-        try {
-          const banner = document.querySelector('.ls-proposal-banner');
-          if (banner) {
-            const adjustLayout = () => {
-              try {
-                const bannerHeight = banner.offsetHeight;
-                document.body.style.setProperty('padding-top', bannerHeight + 'px', 'important');
-                
-                // Select only candidate header/navbar/menu elements for safety and speed
-                const selectors = 'header, nav, .header, .navbar, #header, #navbar, .nav-container, [class*="nav-menu"], [class*="nav-bar"], [class*="header"]';
-                const allElems = document.querySelectorAll(selectors);
-                
-                for (let el of allElems) {
-                  if (el === banner || banner.contains(el)) continue;
-                  const style = window.getComputedStyle(el);
-                  if (!style) continue;
-                  
-                  const isFixedOrSticky = style.position === 'fixed' || style.position === 'sticky';
-                  if (isFixedOrSticky) {
-                    if (el.dataset.lsOriginalTop === undefined) {
-                      el.dataset.lsOriginalTop = el.style.top || 'auto';
-                    }
-                    
-                    const rect = el.getBoundingClientRect();
-                    const isBottomAnchored = rect.top > (window.innerHeight * 0.75);
-                    
-                    if (!isBottomAnchored) {
-                      const originalTop = el.dataset.lsOriginalTop;
-                      const parsedTop = parseFloat(originalTop);
-                      const isAtTopCSS = originalTop === 'auto' || originalTop === '' || 
-                        (!isNaN(parsedTop) && parsedTop < 15);
-                      
-                      if (isAtTopCSS) {
-                        const topVal = originalTop === 'auto' || originalTop === '' ? 0 : parsedTop;
-                        el.style.setProperty('top', (topVal + bannerHeight) + 'px', 'important');
-                        el.dataset.lsOffsetAdjusted = 'true';
-                      }
-                    }
-                  } else if (el.dataset.lsOffsetAdjusted === 'true') {
-                    if (el.dataset.lsOriginalTop === 'auto' || el.dataset.lsOriginalTop === '') {
-                      el.style.removeProperty('top');
-                    } else {
-                      el.style.setProperty('top', el.dataset.lsOriginalTop);
-                    }
-                    delete el.dataset.lsOffsetAdjusted;
-                    delete el.dataset.lsOriginalTop;
-                  }
-                }
-              } catch (err) {
-                console.error('[Layout Offset Error]', err);
-              }
-            };
-            
-            // Initial run and event bindings
-            adjustLayout();
-            window.addEventListener('load', adjustLayout);
-            window.addEventListener('resize', adjustLayout);
-            window.addEventListener('scroll', adjustLayout);
-            
-            // Fallback timers for lazy stylesheets & reflows
-            setTimeout(adjustLayout, 50);
-            setTimeout(adjustLayout, 150);
-            setTimeout(adjustLayout, 300);
-            setTimeout(adjustLayout, 600);
-            setTimeout(adjustLayout, 1200);
-            setTimeout(adjustLayout, 2500);
-          }
-        } catch (e) {
-          console.error('[Layout Init Error]', e);
-        }
-      })();
-    </script>
-  `;
-  
-  // Inject script tag before body close
-  html = html.replace('</body>', `${personalizationScript}${trackingScript}${layoutScript}</body>`);
     
-    res.send(html);
+    html = html.replace('</body>', `${personalizationScript}${trackingScript}</body>`);
+    return res.send(html);
   } catch (err) {
     console.error('[Preview Load Error]', err);
     res.status(500).send('<h1>Error Loading Preview Template</h1><p>' + err.message + '</p>');
