@@ -35,6 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let isLiveMode = false;
   let crmLeads = [];
   let githubTemplates = [];
+  window.publicSharingDomain = '';
+
+  function getPreviewBaseUrl() {
+    if (window.publicSharingDomain && window.publicSharingDomain.trim() !== '') {
+      let domain = window.publicSharingDomain.trim();
+      if (!domain.startsWith('http://') && !domain.startsWith('https://')) {
+        domain = 'https://' + domain;
+      }
+      return domain.replace(/\/$/, '');
+    }
+    return window.location.origin;
+  }
 
   async function loadGithubTemplates() {
     try {
@@ -63,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } else {
       const nichePath = cleanNiche || 'cafe';
-      url = `${window.location.origin}/preview/${nichePath}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+      url = `${getPreviewBaseUrl()}/preview/${nichePath}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
     }
 
     if (url) {
@@ -85,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const name = anchor.getAttribute('data-name') || '';
           const phone = anchor.getAttribute('data-phone') || '';
           const address = anchor.getAttribute('data-address') || '';
-          anchor.href = `${window.location.origin}/preview/${cleanNiche}/${id}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+          anchor.href = `${getPreviewBaseUrl()}/preview/${cleanNiche}/${id}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
         }
       }
     }
@@ -636,7 +648,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pitchLink = lead.portfolioLink;
       } else {
         // Fallback to the dynamic preview route on this local server / ngrok tunnel!
-        const baseUrl = window.location.origin;
+        const baseUrl = getPreviewBaseUrl();
         const cleanNiche = niche.toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
         pitchLink = `${baseUrl}/preview/${cleanNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
       }
@@ -942,7 +954,7 @@ document.addEventListener('DOMContentLoaded', () => {
           proposalUrl = lead.portfolioLink;
         } else {
           const tNiche = lead.portfolioLink || cleanNiche;
-          proposalUrl = `${window.location.origin}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+          proposalUrl = `${getPreviewBaseUrl()}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
         }
         
         const proposalLinkHtml = `
@@ -1119,7 +1131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function pollActiveVisits() {
       try {
-        const response = await fetch('/api/active-visits');
+        const response = await fetch(`${getPreviewBaseUrl()}/api/active-visits`);
         const data = await response.json();
         if (data.success && data.visits) {
           renderActiveVisits(data.visits);
@@ -1348,6 +1360,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubBranchInput = document.getElementById('githubBranchInput');
     const githubTokenInput = document.getElementById('githubTokenInput');
 
+    const publicSharingDomainInput = document.getElementById('publicSharingDomainInput');
     const discordWebhookInput = document.getElementById('discordWebhookInput');
     const discordUserIdInput = document.getElementById('discordUserIdInput');
     
@@ -1393,6 +1406,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.githubBranch) githubBranchInput.value = data.githubBranch;
         if (data.githubToken) githubTokenInput.value = data.githubToken;
 
+        if (data.publicSharingDomain) {
+          publicSharingDomainInput.value = data.publicSharingDomain;
+          window.publicSharingDomain = data.publicSharingDomain;
+        } else {
+          publicSharingDomainInput.value = '';
+          window.publicSharingDomain = '';
+        }
         if (data.discordWebhookUrl) discordWebhookInput.value = data.discordWebhookUrl;
         if (data.discordUserId) discordUserIdInput.value = data.discordUserId;
         
@@ -1537,11 +1557,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Save Discord Settings
+    // Save Discord/Outreach Settings
     if (discordSettingsForm) {
       discordSettingsForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const payload = {
+          publicSharingDomain: publicSharingDomainInput.value.trim(),
           discordWebhookUrl: discordWebhookInput.value.trim(),
           discordUserId: discordUserIdInput.value.trim()
         };
@@ -1554,14 +1575,14 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           const result = await res.json();
           if (result.success) {
-            alert('Discord notification settings saved successfully!');
+            alert('Outreach and tracking settings saved successfully!');
             await loadConfigSettings();
           } else {
-            alert('Failed to save Discord settings: ' + result.error);
+            alert('Failed to save settings: ' + result.error);
           }
         } catch (error) {
           console.error(error);
-          alert('Error saving Discord settings.');
+          alert('Error saving settings.');
         }
       });
     }
@@ -2508,8 +2529,8 @@ window.generateLink = function () {
     return;
   }
 
-  // Always use the public Hugging Face URL so clients can open the link
-  const base      = 'https://parmeet123-leadscope.hf.space';
+  // Use configured public sharing domain or default to local host origin
+  const base      = getPreviewBaseUrl();
   const leadId    = 'preview_' + Date.now();
   const url       = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
 

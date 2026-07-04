@@ -396,6 +396,17 @@ async function findNicheTemplate(niche) {
   return null;
 }
 
+// Enable CORS for cross-domain visitor logs tracking (e.g. from local dashboard to Hugging Face)
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 // Request logger middleware
 app.use((req, res, next) => {
   console.log(`[HTTP] ${req.method} ${req.url}`);
@@ -447,13 +458,14 @@ app.get('/api/config', (req, res) => {
     telegramToken: maskKey(process.env.TELEGRAM_BOT_TOKEN),
     telegramChatId: process.env.TELEGRAM_CHAT_ID === "your_telegram_chat_id_here" ? "" : (process.env.TELEGRAM_CHAT_ID || ""),
     discordWebhookUrl: maskKey(process.env.DISCORD_WEBHOOK_URL),
-    discordUserId: process.env.DISCORD_USER_ID || ""
+    discordUserId: process.env.DISCORD_USER_ID || "",
+    publicSharingDomain: process.env.PUBLIC_SHARING_DOMAIN || ""
   });
 });
 
 // API Endpoint to save configuration
 app.post('/api/config', async (req, res) => {
-  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId } = req.body;
+  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, publicSharingDomain } = req.body;
   
   try {
     let envContent = "";
@@ -495,6 +507,7 @@ app.post('/api/config', async (req, res) => {
     if (telegramChatId !== undefined) envObj['TELEGRAM_CHAT_ID'] = telegramChatId;
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) envObj['DISCORD_WEBHOOK_URL'] = discordWebhookUrl;
     if (discordUserId !== undefined) envObj['DISCORD_USER_ID'] = discordUserId;
+    if (publicSharingDomain !== undefined) envObj['PUBLIC_SHARING_DOMAIN'] = publicSharingDomain;
     
     // Re-serialize
     let newEnvContent = "";
@@ -519,7 +532,9 @@ app.post('/api/config', async (req, res) => {
     newEnvContent += `TELEGRAM_CHAT_ID=${envObj['TELEGRAM_CHAT_ID'] || 'your_telegram_chat_id_here'}\n\n`;
     newEnvContent += "# Discord Webhook Notifications Configuration\n";
     newEnvContent += `DISCORD_WEBHOOK_URL=${envObj['DISCORD_WEBHOOK_URL'] || 'your_discord_webhook_url_here'}\n`;
-    newEnvContent += `DISCORD_USER_ID=${envObj['DISCORD_USER_ID'] || ''}\n`;
+    newEnvContent += `DISCORD_USER_ID=${envObj['DISCORD_USER_ID'] || ''}\n\n`;
+    newEnvContent += "# Public Sharing Configuration\n";
+    newEnvContent += `PUBLIC_SHARING_DOMAIN=${envObj['PUBLIC_SHARING_DOMAIN'] || ''}\n`;
     
     await fs.writeFile(path.join(__dirname, '.env'), newEnvContent, 'utf8');
     
@@ -530,6 +545,7 @@ app.post('/api/config', async (req, res) => {
     if (searchKey !== undefined && !isMasked(searchKey)) process.env.GOOGLE_SEARCH_API_KEY = searchKey;
     if (searchEngineId !== undefined && !isMasked(searchEngineId)) process.env.GOOGLE_SEARCH_ENGINE_ID = searchEngineId;
     if (githubUsername !== undefined) process.env.GITHUB_USERNAME = githubUsername;
+    if (githubRepo !== undefined) envObj['GITHUB_REPO'] = githubRepo; // Wait, actually GITHUB_REPO was mapped to envObj but let's map directly to process.env:
     if (githubRepo !== undefined) process.env.GITHUB_REPO = githubRepo;
     if (githubBranch !== undefined) process.env.GITHUB_BRANCH = githubBranch;
     if (githubToken !== undefined && !isMasked(githubToken)) process.env.GITHUB_TOKEN = githubToken;
@@ -537,6 +553,7 @@ app.post('/api/config', async (req, res) => {
     if (telegramChatId !== undefined) process.env.TELEGRAM_CHAT_ID = telegramChatId;
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) process.env.DISCORD_WEBHOOK_URL = discordWebhookUrl;
     if (discordUserId !== undefined) process.env.DISCORD_USER_ID = discordUserId;
+    if (publicSharingDomain !== undefined) process.env.PUBLIC_SHARING_DOMAIN = publicSharingDomain;
     
     res.json({
       success: true,

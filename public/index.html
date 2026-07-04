@@ -932,15 +932,22 @@
               </div>
             </div>
 
-            <!-- Card 3: Real-time Discord Phone Notifications (Spy Alerts) -->
+            <!-- Card 3: Real-time Discord Phone Notifications (Spy Alerts) & Public Sharing Configuration -->
             <div class="results-card" style="margin-top: 1.5rem;">
               <div class="results-header">
                 <h3 class="results-title" style="color: var(--color-green);">
-                  <i class="fa-brands fa-discord" style="color: #7289DA;"></i> Discord Phone Notifications (Spy Alerts)
+                  <i class="fa-solid fa-share-nodes"></i> Outreach & Tracking Configuration
                 </h3>
               </div>
               <div style="padding: 1.5rem;">
                 <form id="discordSettingsForm">
+                  <div class="input-group" style="margin-bottom: 1.25rem;">
+                    <label for="publicSharingDomainInput">Public Sharing Domain <span style="font-size:0.75rem; opacity:0.6;">(e.g. https://parmeet123-leadscope.hf.space)</span></label>
+                    <div class="input-wrapper">
+                      <input type="text" id="publicSharingDomainInput" placeholder="Enter Hugging Face Space URL or Custom Domain">
+                      <i class="fa-solid fa-globe"></i>
+                    </div>
+                  </div>
                   <div class="input-group" style="margin-bottom: 1.25rem;">
                     <label for="discordWebhookInput">Discord Webhook URL</label>
                     <div class="input-wrapper">
@@ -959,13 +966,14 @@
                     </div>
                   </div>
                   <span class="input-help" style="display: block; margin-top: -0.75rem; margin-bottom: 1.5rem; line-height: 1.4;">
-                    1. Create a Discord server or open one you own (takes 10 seconds).<br>
-                    2. Go to your channel settings -> **Integrations** -> **Webhooks** -> click **Create Webhook** -> copy the Webhook URL above.<br>
-                    3. **Recommended for Phone Alerts**: Turn on **Developer Mode** in Discord Settings -> Advanced. Right-click your profile picture/name in a chat and click **Copy User ID**, then paste it above to get prioritized direct mobile notifications that bypass background sleep!
+                    1. <strong>Public Sharing Domain</strong> is used to automatically generate proposal links that point to your live Hugging Face instance instead of localhost.<br>
+                    2. Create a Discord server or open one you own (takes 10 seconds).<br>
+                    3. Go to your channel settings -> **Integrations** -> **Webhooks** -> click **Create Webhook** -> copy the Webhook URL above.<br>
+                    4. **Recommended for Phone Alerts**: Turn on **Developer Mode** in Discord Settings -> Advanced. Right-click your profile picture/name in a chat and click **Copy User ID**, then paste it above to get prioritized direct mobile notifications!
                   </span>
 
                   <button type="submit" class="btn-action" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--color-green) 0%, #00d9f5 100%); color: #07080d; font-weight: 700;">
-                    <i class="fa-solid fa-floppy-disk"></i> Save Discord Settings
+                    <i class="fa-solid fa-floppy-disk"></i> Save Outreach Settings
                   </button>
                 </form>
               </div>
