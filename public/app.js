@@ -1759,6 +1759,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const adPlatformFB      = document.getElementById('adPlatformFB');
   const adPlatformTT      = document.getElementById('adPlatformTT');
   const adPlatformGoogle  = document.getElementById('adPlatformGoogle');
+  const googleAdScanForm  = document.getElementById('googleAdScanForm');
+  const googleAdNicheInput= document.getElementById('googleAdNicheInput');
+  const googleAdCityInput = document.getElementById('googleAdCityInput');
+  const googleAdBtnSearch = document.getElementById('googleAdBtnSearch');
+  const googleAdSearchSpinner = document.getElementById('googleAdSearchSpinner');
+  const googleAdSearchText= document.getElementById('googleAdSearchText');
+
+  // ─── Sub-tab switcher ─────────────────────────────────────────────────────
+  window.switchAdTab = function(tab) {
+    const metaBtn    = document.getElementById('adTabMeta');
+    const googleBtn  = document.getElementById('adTabGoogle');
+    const metaForm   = document.getElementById('adScanForm');
+    const googleForm = document.getElementById('googleAdScanForm');
+    if (!metaBtn || !googleBtn || !metaForm || !googleForm) return;
+    if (tab === 'meta') {
+      metaBtn.style.background   = 'linear-gradient(135deg,#e1306c,#1877f2)';
+      metaBtn.style.color        = '#fff';
+      metaBtn.style.border       = 'none';
+      googleBtn.style.background = 'rgba(255,255,255,0.05)';
+      googleBtn.style.color      = 'var(--text-secondary)';
+      googleBtn.style.border     = '2px solid rgba(255,255,255,0.12)';
+      metaForm.style.display  = '';
+      googleForm.style.display= 'none';
+    } else {
+      googleBtn.style.background = 'linear-gradient(135deg,#4285F4,#34A853)';
+      googleBtn.style.color      = '#fff';
+      googleBtn.style.border     = 'none';
+      metaBtn.style.background   = 'rgba(255,255,255,0.05)';
+      metaBtn.style.color        = 'var(--text-secondary)';
+      metaBtn.style.border       = '2px solid rgba(255,255,255,0.12)';
+      googleForm.style.display= '';
+      metaForm.style.display  = 'none';
+    }
+  };
 
   let adCurrentLeads = [];
 
@@ -2014,6 +2048,47 @@ document.addEventListener('DOMContentLoaded', () => {
         adBtnSearch.disabled = false;
         adSearchSpinner.style.display = 'none';
         adSearchText.innerHTML = '<i class="fa-solid fa-satellite-dish"></i> Scan Ads';
+      }
+    });
+  }
+
+  // ─── Google Ads Form Submit ─────────────────────────────────────────────────
+  if (googleAdScanForm) {
+    googleAdScanForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const niche = (googleAdNicheInput && googleAdNicheInput.value.trim()) || (adNicheInput && adNicheInput.value.trim());
+      const city  = (googleAdCityInput  && googleAdCityInput.value.trim())  || (adCityInput  && adCityInput.value.trim());
+      if (!niche || !city) return;
+
+      if (adEmptyState) adEmptyState.style.display = 'none';
+      if (adStatsGrid) adStatsGrid.style.display = 'none';
+      if (adResultsCard) adResultsCard.style.display = 'none';
+      if (adLoadingPanel) adLoadingPanel.style.display = 'flex';
+      if (googleAdBtnSearch) googleAdBtnSearch.disabled = true;
+      if (googleAdSearchSpinner) googleAdSearchSpinner.style.display = 'inline-block';
+      if (googleAdSearchText) googleAdSearchText.innerHTML = 'Scanning...';
+      startAdLoadingAnimation();
+
+      try {
+        const resp = await fetch('/api/scan-google-ads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ niche, city, engines: ['google'], scoreWebsites: true })
+        }).then(r => r.json()).catch(err => {
+          console.error('Google ad scan error:', err);
+          return { success: false, leads: [] };
+        });
+
+        adCurrentLeads = (resp.success && Array.isArray(resp.leads)) ? resp.leads : [];
+        renderAdResults();
+      } catch (err) {
+        console.error(err);
+        if (adEmptyState) adEmptyState.style.display = 'flex';
+      } finally {
+        if (adLoadingPanel) adLoadingPanel.style.display = 'none';
+        if (googleAdBtnSearch) googleAdBtnSearch.disabled = false;
+        if (googleAdSearchSpinner) googleAdSearchSpinner.style.display = 'none';
+        if (googleAdSearchText) googleAdSearchText.innerHTML = '<i class="fa-brands fa-google"></i> Scan Google';
       }
     });
   }

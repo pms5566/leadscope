@@ -1677,8 +1677,20 @@ app.get('/api/templates', async (req, res) => {
     res.json({ success: true, templates: directories });
   } catch (err) {
     console.warn('[GitHub Listing Fail]:', err.message);
-    // Return standard template presets if query fails (e.g. offline or unconfigured)
-    res.json({ success: true, templates: ['cafe', 'gym', 'bakery', 'dentist', 'plumber'] });
+    // Fallback: try reading from local my_raw_templates if GitHub fails
+    try {
+      const fs2 = require('fs').promises;
+      const localPath2 = path.join(__dirname, 'my_raw_templates');
+      const files2 = await fs2.readdir(localPath2, { withFileTypes: true });
+      const localFallback = files2
+        .filter(d => d.isDirectory() && !d.name.startsWith('.') && !d.name.endsWith('-src'))
+        .map(d => d.name);
+      if (localFallback.length > 0) {
+        return res.json({ success: true, templates: localFallback });
+      }
+    } catch (localErr2) { /* ignore */ }
+    // Last resort hardcoded list — only real templates we know exist
+    res.json({ success: true, templates: ['dermatologist', 'dentist', 'gym', 'doctor', 'garage', 'jewelry', 'nail-art', 'luxurious-salon-website', 'roofing contractors'] });
   }
 });
 
