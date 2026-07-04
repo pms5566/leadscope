@@ -6,10 +6,4 @@ node_modules/
 !package.json
 !package-lock.json
 !public/*.json
-my_raw_templates/**/*.png
-my_raw_templates/**/*.jpg
-my_raw_templates/**/*.jpeg
-my_raw_templates/**/*.webp
-my_raw_templates/**/*.gif
-my_raw_templates/**/*.ico
 
