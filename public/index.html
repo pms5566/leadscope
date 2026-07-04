@@ -276,17 +276,20 @@
           </h2>
           <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:1.25rem;line-height:1.6;">Find businesses <strong style="color:var(--color-cyan)">actively spending on ads</strong> but with no proper website. These are your highest-converting leads.</p>
 
-          <!-- Sub-tabs: Meta vs Google -->
-          <div class="ad-sub-tabs" style="display:flex;gap:0.5rem;margin-bottom:1.25rem;">
+          <!-- Sub-tabs: Meta | TikTok | Google -->
+          <div class="ad-sub-tabs" style="display:flex;gap:0.5rem;margin-bottom:1.25rem;flex-wrap:wrap;">
             <button class="ad-sub-tab active" id="adTabMeta" onclick="switchAdTab('meta')" style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.25rem;border-radius:10px;border:none;cursor:pointer;font-size:0.88rem;font-weight:600;background:linear-gradient(135deg,#e1306c,#1877f2);color:#fff;">
-              <i class="fa-brands fa-meta"></i> Meta / TikTok
+              <i class="fa-brands fa-meta"></i> Meta
+            </button>
+            <button class="ad-sub-tab" id="adTabTikTok" onclick="switchAdTab('tiktok')" style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.25rem;border-radius:10px;border:2px solid rgba(255,255,255,0.12);cursor:pointer;font-size:0.88rem;font-weight:600;background:rgba(255,255,255,0.05);color:var(--text-secondary);">
+              <i class="fa-brands fa-tiktok"></i> TikTok
             </button>
             <button class="ad-sub-tab" id="adTabGoogle" onclick="switchAdTab('google')" style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.25rem;border-radius:10px;border:2px solid rgba(255,255,255,0.12);cursor:pointer;font-size:0.88rem;font-weight:600;background:rgba(255,255,255,0.05);color:var(--text-secondary);">
               <svg width="14" height="14" viewBox="0 0 48 48" style="display:inline-block;"><path fill="#4285F4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#34A853" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#EA4335" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Google Ads
             </button>
           </div>
 
-          <!-- META / TIKTOK FORM -->
+          <!-- META FORM (Instagram + Facebook) -->
           <form id="adScanForm" class="ad-tab-panel" data-tab="meta">
             <div class="form-row">
               <div class="input-group">
@@ -296,7 +299,6 @@
                   <i class="fa-solid fa-briefcase"></i>
                 </div>
               </div>
-
               <div class="input-group">
                 <label for="adCityInput">City</label>
                 <div class="input-wrapper">
@@ -304,14 +306,11 @@
                   <i class="fa-solid fa-map-pin"></i>
                 </div>
               </div>
-
-              <button type="submit" class="btn-search" id="adBtnSearch" style="background: linear-gradient(135deg, #f77062 0%, #fe5196 100%);">
+              <button type="submit" class="btn-search" id="adBtnSearch" style="background: linear-gradient(135deg, #e1306c 0%, #1877f2 100%);">
                 <i class="fa-solid fa-circle-notch fa-spin" style="display: none;" id="adSearchSpinner"></i>
-                <span id="adSearchText"><i class="fa-solid fa-satellite-dish"></i> Scan Meta</span>
+                <span id="adSearchText"><i class="fa-brands fa-meta"></i> Scan Meta</span>
               </button>
             </div>
-
-            <!-- Platform Checkboxes -->
             <div class="options-row" style="gap:1.25rem; flex-wrap:wrap;">
               <label class="toggle-container" style="gap:0.5rem;">
                 <span class="toggle-label" style="display:flex;align-items:center;gap:0.4rem;">
@@ -331,16 +330,37 @@
                   <span class="slider"></span>
                 </span>
               </label>
-              <label class="toggle-container" style="gap:0.5rem;">
-                <span class="toggle-label" style="display:flex;align-items:center;gap:0.4rem;">
-                  <i class="fa-brands fa-tiktok" style="color:#69C9D0;"></i> TikTok
-                </span>
-                <span class="switch">
-                  <input type="checkbox" id="adPlatformTT" checked>
-                  <span class="slider"></span>
-                </span>
-              </label>
             </div>
+            <!-- Hidden TikTok checkbox (not in Meta tab) -->
+            <input type="checkbox" id="adPlatformTT" style="display:none;">
+          </form>
+
+          <!-- TIKTOK FORM -->
+          <form id="tiktokAdScanForm" class="ad-tab-panel" data-tab="tiktok" style="display:none;">
+            <div class="form-row">
+              <div class="input-group">
+                <label for="tiktokAdNicheInput">Niche / Business Type</label>
+                <div class="input-wrapper">
+                  <input type="text" id="tiktokAdNicheInput" placeholder="e.g. gym, salon, clinic" required>
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="tiktokAdCityInput">City</label>
+                <div class="input-wrapper">
+                  <input type="text" id="tiktokAdCityInput" placeholder="e.g. Mumbai, Dubai, London" required>
+                  <i class="fa-solid fa-map-pin"></i>
+                </div>
+              </div>
+              <button type="submit" class="btn-search" id="tiktokAdBtnSearch" style="background: linear-gradient(135deg, #010101 0%, #69C9D0 100%);">
+                <i class="fa-solid fa-circle-notch fa-spin" style="display: none;" id="tiktokAdSearchSpinner"></i>
+                <span id="tiktokAdSearchText"><i class="fa-brands fa-tiktok"></i> Scan TikTok</span>
+              </button>
+            </div>
+            <p style="color:var(--text-secondary);font-size:0.82rem;margin-top:0.6rem;">
+              <i class="fa-solid fa-circle-info" style="color:#69C9D0;"></i>
+              Scans TikTok Ad Library for businesses running video ads <strong style="color:#69C9D0;">without a proper website</strong>.
+            </p>
           </form>
 
           <!-- GOOGLE ADS FORM -->
@@ -369,9 +389,9 @@
               <i class="fa-solid fa-circle-info" style="color:#4285F4;"></i>
               Finds businesses running Google/Bing search ads but with <strong style="color:#34A853;">no proper website</strong> — your best web design leads.
             </p>
-            <!-- Hidden checkbox still needed for JS reference -->
             <input type="checkbox" id="adPlatformGoogle" checked style="display:none;">
           </form>
+
         </section>
 
         <!-- Loading Panel -->

@@ -1765,32 +1765,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const googleAdBtnSearch = document.getElementById('googleAdBtnSearch');
   const googleAdSearchSpinner = document.getElementById('googleAdSearchSpinner');
   const googleAdSearchText= document.getElementById('googleAdSearchText');
+  const tiktokAdScanForm  = document.getElementById('tiktokAdScanForm');
+  const tiktokAdNicheInput= document.getElementById('tiktokAdNicheInput');
+  const tiktokAdCityInput = document.getElementById('tiktokAdCityInput');
+  const tiktokAdBtnSearch = document.getElementById('tiktokAdBtnSearch');
+  const tiktokAdSearchSpinner = document.getElementById('tiktokAdSearchSpinner');
+  const tiktokAdSearchText= document.getElementById('tiktokAdSearchText');
 
-  // ─── Sub-tab switcher ─────────────────────────────────────────────────────
+  // ─── Sub-tab switcher (3 tabs: meta | tiktok | google) ────────────────────
   window.switchAdTab = function(tab) {
     const metaBtn    = document.getElementById('adTabMeta');
+    const tiktokBtn  = document.getElementById('adTabTikTok');
     const googleBtn  = document.getElementById('adTabGoogle');
     const metaForm   = document.getElementById('adScanForm');
+    const tiktokForm = document.getElementById('tiktokAdScanForm');
     const googleForm = document.getElementById('googleAdScanForm');
-    if (!metaBtn || !googleBtn || !metaForm || !googleForm) return;
+    const inactiveStyle = { bg: 'rgba(255,255,255,0.05)', color: 'var(--text-secondary)', border: '2px solid rgba(255,255,255,0.12)' };
+    const resetBtn = (btn) => {
+      if (!btn) return;
+      btn.style.background = inactiveStyle.bg;
+      btn.style.color      = inactiveStyle.color;
+      btn.style.border     = inactiveStyle.border;
+    };
+    // Reset all
+    resetBtn(metaBtn); resetBtn(tiktokBtn); resetBtn(googleBtn);
+    if (metaForm)   metaForm.style.display   = 'none';
+    if (tiktokForm) tiktokForm.style.display = 'none';
+    if (googleForm) googleForm.style.display = 'none';
+    // Activate selected
     if (tab === 'meta') {
-      metaBtn.style.background   = 'linear-gradient(135deg,#e1306c,#1877f2)';
-      metaBtn.style.color        = '#fff';
-      metaBtn.style.border       = 'none';
-      googleBtn.style.background = 'rgba(255,255,255,0.05)';
-      googleBtn.style.color      = 'var(--text-secondary)';
-      googleBtn.style.border     = '2px solid rgba(255,255,255,0.12)';
-      metaForm.style.display  = '';
-      googleForm.style.display= 'none';
+      metaBtn.style.background = 'linear-gradient(135deg,#e1306c,#1877f2)';
+      metaBtn.style.color = '#fff'; metaBtn.style.border = 'none';
+      if (metaForm) metaForm.style.display = '';
+    } else if (tab === 'tiktok') {
+      tiktokBtn.style.background = 'linear-gradient(135deg,#010101,#69C9D0)';
+      tiktokBtn.style.color = '#fff'; tiktokBtn.style.border = 'none';
+      if (tiktokForm) tiktokForm.style.display = '';
     } else {
       googleBtn.style.background = 'linear-gradient(135deg,#4285F4,#34A853)';
-      googleBtn.style.color      = '#fff';
-      googleBtn.style.border     = 'none';
-      metaBtn.style.background   = 'rgba(255,255,255,0.05)';
-      metaBtn.style.color        = 'var(--text-secondary)';
-      metaBtn.style.border       = '2px solid rgba(255,255,255,0.12)';
-      googleForm.style.display= '';
-      metaForm.style.display  = 'none';
+      googleBtn.style.color = '#fff'; googleBtn.style.border = 'none';
+      if (googleForm) googleForm.style.display = '';
     }
   };
 
