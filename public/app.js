@@ -1439,6 +1439,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubTokenInput = document.getElementById('githubTokenInput');
 
     const publicSharingDomainInput = document.getElementById('publicSharingDomainInput');
+    const tawkEmbedUrlInput = document.getElementById('tawkEmbedUrlInput');
     const discordWebhookInput = document.getElementById('discordWebhookInput');
     const discordUserIdInput = document.getElementById('discordUserIdInput');
     
@@ -1490,6 +1491,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           publicSharingDomainInput.value = '';
           window.publicSharingDomain = '';
+        }
+        if (data.tawkEmbedUrl) {
+          tawkEmbedUrlInput.value = data.tawkEmbedUrl;
+        } else {
+          tawkEmbedUrlInput.value = '';
         }
         if (data.discordWebhookUrl) discordWebhookInput.value = data.discordWebhookUrl;
         if (data.discordUserId) discordUserIdInput.value = data.discordUserId;
@@ -1641,6 +1647,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const payload = {
           publicSharingDomain: publicSharingDomainInput.value.trim(),
+          tawkEmbedUrl: tawkEmbedUrlInput.value.trim(),
           discordWebhookUrl: discordWebhookInput.value.trim(),
           discordUserId: discordUserIdInput.value.trim()
         };

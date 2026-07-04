@@ -459,13 +459,14 @@ app.get('/api/config', (req, res) => {
     telegramChatId: process.env.TELEGRAM_CHAT_ID === "your_telegram_chat_id_here" ? "" : (process.env.TELEGRAM_CHAT_ID || ""),
     discordWebhookUrl: maskKey(process.env.DISCORD_WEBHOOK_URL),
     discordUserId: process.env.DISCORD_USER_ID || "",
-    publicSharingDomain: process.env.PUBLIC_SHARING_DOMAIN || ""
+    publicSharingDomain: process.env.PUBLIC_SHARING_DOMAIN || "",
+    tawkEmbedUrl: process.env.TAWK_EMBED_URL || ""
   });
 });
 
 // API Endpoint to save configuration
 app.post('/api/config', async (req, res) => {
-  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, publicSharingDomain } = req.body;
+  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, publicSharingDomain, tawkEmbedUrl } = req.body;
   
   try {
     let envContent = "";
@@ -508,6 +509,7 @@ app.post('/api/config', async (req, res) => {
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) envObj['DISCORD_WEBHOOK_URL'] = discordWebhookUrl;
     if (discordUserId !== undefined) envObj['DISCORD_USER_ID'] = discordUserId;
     if (publicSharingDomain !== undefined) envObj['PUBLIC_SHARING_DOMAIN'] = publicSharingDomain;
+    if (tawkEmbedUrl !== undefined) envObj['TAWK_EMBED_URL'] = tawkEmbedUrl;
     
     // Re-serialize
     let newEnvContent = "";
@@ -535,6 +537,7 @@ app.post('/api/config', async (req, res) => {
     newEnvContent += `DISCORD_USER_ID=${envObj['DISCORD_USER_ID'] || ''}\n\n`;
     newEnvContent += "# Public Sharing Configuration\n";
     newEnvContent += `PUBLIC_SHARING_DOMAIN=${envObj['PUBLIC_SHARING_DOMAIN'] || ''}\n`;
+    newEnvContent += `TAWK_EMBED_URL=${envObj['TAWK_EMBED_URL'] || ''}\n`;
     
     await fs.writeFile(path.join(__dirname, '.env'), newEnvContent, 'utf8');
     
@@ -545,7 +548,7 @@ app.post('/api/config', async (req, res) => {
     if (searchKey !== undefined && !isMasked(searchKey)) process.env.GOOGLE_SEARCH_API_KEY = searchKey;
     if (searchEngineId !== undefined && !isMasked(searchEngineId)) process.env.GOOGLE_SEARCH_ENGINE_ID = searchEngineId;
     if (githubUsername !== undefined) process.env.GITHUB_USERNAME = githubUsername;
-    if (githubRepo !== undefined) envObj['GITHUB_REPO'] = githubRepo; // Wait, actually GITHUB_REPO was mapped to envObj but let's map directly to process.env:
+    if (githubRepo !== undefined) envObj['GITHUB_REPO'] = githubRepo; 
     if (githubRepo !== undefined) process.env.GITHUB_REPO = githubRepo;
     if (githubBranch !== undefined) process.env.GITHUB_BRANCH = githubBranch;
     if (githubToken !== undefined && !isMasked(githubToken)) process.env.GITHUB_TOKEN = githubToken;
@@ -554,6 +557,7 @@ app.post('/api/config', async (req, res) => {
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) process.env.DISCORD_WEBHOOK_URL = discordWebhookUrl;
     if (discordUserId !== undefined) process.env.DISCORD_USER_ID = discordUserId;
     if (publicSharingDomain !== undefined) process.env.PUBLIC_SHARING_DOMAIN = publicSharingDomain;
+    if (tawkEmbedUrl !== undefined) process.env.TAWK_EMBED_URL = tawkEmbedUrl;
     
     res.json({
       success: true,
@@ -1232,7 +1236,9 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           }
         }
         
-        /* Chat Widget styling */
+        
+        /* Chat Widget styling (disabled if Tawk.to is active) */
+        ${!(process.env.TAWK_EMBED_URL && process.env.TAWK_EMBED_URL.trim() !== "") ? `
         .ls-chat-widget {
           position: fixed !important;
           bottom: 20px !important;
@@ -1335,6 +1341,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           margin-top: 2px !important;
           display: none !important;
         }
+        ` : ''}
       </style>
     `;
     
@@ -1368,7 +1375,8 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         </div>
       </div>
       
-      <!-- Injected Chat widget HTML -->
+      <!-- Injected Chat widget HTML (disabled if Tawk.to is active) -->
+      ${!(process.env.TAWK_EMBED_URL && process.env.TAWK_EMBED_URL.trim() !== "") ? `
       <div class="ls-chat-widget" id="ls-chat-box">
         <div class="ls-chat-header">
           <span>💬 Design Consultation</span>
@@ -1385,9 +1393,10 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           <div class="ls-chat-success-msg" id="ls-chat-success">✓ Sent to our design team!</div>
         </div>
       </div>
+      ` : ''}
     `;
     
-    const trackingScript = `
+    let trackingScript = `
       <script>
         (function() {
           const leadId = ${JSON.stringify(leadId)};
@@ -1431,6 +1440,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
             sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll });
           }, 10000);
 
+          ${!(process.env.TAWK_EMBED_URL && process.env.TAWK_EMBED_URL.trim() !== "") ? `
           // Chat Trigger (Slide up after 15 seconds)
           setTimeout(() => {
             const chatBox = document.getElementById('ls-chat-box');
@@ -1489,9 +1499,28 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
               }
             });
           }
+          ` : ''}
         })();
       </script>
     `;
+
+    if (process.env.TAWK_EMBED_URL && process.env.TAWK_EMBED_URL.trim() !== "") {
+      trackingScript += `
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='${process.env.TAWK_EMBED_URL.trim()}';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+          })();
+        </script>
+        <!--End of Tawk.to Script-->
+      `;
+    }
 
   const personalizationScript = `
     <script>
