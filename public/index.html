@@ -1047,7 +1047,110 @@
               </div>
             </div>
 
+            <!-- Credits Monitor Card -->
+            <div class="results-card" style="margin-bottom: 1.5rem; height: auto;">
+              <div class="results-header">
+                <h3 class="results-title" style="color: var(--color-gold);">
+                  <i class="fa-solid fa-coins"></i> API Credits Monitor
+                  <button id="btnRefreshCredits" onclick="refreshCredits()" style="margin-left:auto;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:var(--text-secondary);border-radius:8px;padding:0.3rem 0.75rem;cursor:pointer;font-size:0.75rem;display:flex;align-items:center;gap:0.35rem;">
+                    <i class="fa-solid fa-arrows-rotate" id="creditsRefreshIcon"></i> Refresh
+                  </button>
+                </h3>
+              </div>
+              <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.85rem;" id="creditsMonitorPanel">
+                <!-- Serper.dev -->
+                <div class="credit-item" id="creditSerper">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                    <span style="font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:0.4rem;">
+                      <i class="fa-solid fa-bolt" style="color:var(--color-cyan);"></i> Serper.dev
+                    </span>
+                    <span class="credit-badge" id="creditBadgeSerper" style="font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:20px;background:rgba(255,255,255,0.08);color:var(--text-secondary);">Not configured</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);border-radius:6px;height:6px;overflow:hidden;">
+                    <div id="creditBarSerper" style="height:100%;width:0%;background:linear-gradient(90deg,#00f5a0,#00d9f5);border-radius:6px;transition:width 0.6s ease;"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-top:0.3rem;">
+                    <span style="font-size:0.7rem;color:var(--text-secondary);" id="creditUsedSerper">— used</span>
+                    <span style="font-size:0.7rem;color:var(--text-secondary);" id="creditLeftSerper">— remaining</span>
+                  </div>
+                </div>
+
+                <!-- Google Places -->
+                <div class="credit-item" id="creditPlaces">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                    <span style="font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:0.4rem;">
+                      <i class="fa-solid fa-map-location-dot" style="color:#4285F4;"></i> Google Places API
+                    </span>
+                    <span class="credit-badge" id="creditBadgePlaces" style="font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:20px;background:rgba(255,255,255,0.08);color:var(--text-secondary);">Not configured</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);border-radius:6px;height:6px;overflow:hidden;">
+                    <div id="creditBarPlaces" style="height:100%;width:0%;background:linear-gradient(90deg,#4285F4,#34A853);border-radius:6px;transition:width 0.6s ease;"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-top:0.3rem;">
+                    <span style="font-size:0.7rem;color:var(--text-secondary);" id="creditUsedPlaces">$200 free credit</span>
+                    <span style="font-size:0.7rem;color:var(--text-secondary);" id="creditLeftPlaces">~10,000 searches/mo</span>
+                  </div>
+                </div>
+
+                <!-- Yelp -->
+                <div class="credit-item" id="creditYelp">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                    <span style="font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:0.4rem;">
+                      <i class="fa-solid fa-store" style="color:var(--color-gold);"></i> Yelp Fusion API
+                    </span>
+                    <span class="credit-badge" id="creditBadgeYelp" style="font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:20px;background:rgba(255,255,255,0.08);color:var(--text-secondary);">Not configured</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);border-radius:6px;height:6px;overflow:hidden;">
+                    <div id="creditBarYelp" style="height:100%;width:100%;background:linear-gradient(90deg,#f5a623,#e8402a);border-radius:6px;transition:width 0.6s ease;"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-top:0.3rem;">
+                    <span style="font-size:0.7rem;color:var(--text-secondary);" id="creditUsedYelp">5,000 free/day</span>
+                    <span style="font-size:0.7rem;color:var(--text-secondary);" id="creditLeftYelp">Resets daily</span>
+                  </div>
+                </div>
+
+                <!-- DuckDuckGo -->
+                <div class="credit-item">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                    <span style="font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:0.4rem;">
+                      <i class="fa-solid fa-duck" style="color:#DE5833;"></i> DuckDuckGo Scraper
+                    </span>
+                    <span style="font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:20px;background:rgba(0,245,160,0.15);color:#00f5a0;font-weight:600;">∞ Unlimited</span>
+                  </div>
+                  <div style="background:rgba(0,245,160,0.15);border-radius:6px;height:6px;overflow:hidden;">
+                    <div style="height:100%;width:100%;background:linear-gradient(90deg,#00f5a0,#00d9f5);border-radius:6px;"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-top:0.3rem;">
+                    <span style="font-size:0.7rem;color:var(--color-green);">No API key needed</span>
+                    <span style="font-size:0.7rem;color:var(--color-green);">Always available</span>
+                  </div>
+                </div>
+
+                <!-- Meta (Puppeteer) -->
+                <div class="credit-item">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                    <span style="font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:0.4rem;">
+                      <i class="fa-brands fa-meta" style="color:#1877f2;"></i> Meta Ad Library
+                    </span>
+                    <span style="font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:20px;background:rgba(248,131,121,0.15);color:#f88379;font-weight:600;">Blocked on Cloud</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.06);border-radius:6px;height:6px;overflow:hidden;">
+                    <div style="height:100%;width:100%;background:linear-gradient(90deg,#00f5a0,#00d9f5);border-radius:6px;"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-top:0.3rem;">
+                    <span style="font-size:0.7rem;color:var(--text-secondary);">Local: ✅ Works</span>
+                    <span style="font-size:0.7rem;color:#f88379;">HF: Mock fallback</span>
+                  </div>
+                </div>
+
+                <p style="font-size:0.72rem;color:var(--text-secondary);margin:0;text-align:center;padding-top:0.25rem;border-top:1px solid rgba(255,255,255,0.07);">
+                  <i class="fa-solid fa-clock-rotate-left"></i> Last checked: <span id="creditsLastChecked">never</span>
+                </p>
+              </div>
+            </div>
+
             <!-- Card 4: How to Obtain Credentials -->
+
             <div class="results-card" style="background: rgba(10, 10, 20, 0.55); border-color: rgba(255, 255, 255, 0.055);">
               <div class="results-header" style="background: transparent;">
                 <h3 class="results-title" style="color: var(--text-secondary); font-size: 0.9rem;">

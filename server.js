@@ -1638,6 +1638,85 @@ app.get('/api/active-visits', (req, res) => {
   res.json({ success: true, visits: activeVisits });
 });
 
+// ─── API Credits Check Endpoint ───────────────────────────────────────────────
+// GET /api/credits-check
+// Returns live credit/quota status for each configured API service
+app.get('/api/credits-check', async (req, res) => {
+  const results = {};
+
+  // ── Serper.dev ────────────────────────────────────────────────────────────
+  const serperKey = process.env.SERPER_API_KEY || process.env.SERPERDEV_API_KEY || '';
+  if (serperKey && serperKey !== 'your_serper_api_key_here') {
+    try {
+      const r = await axios.get('https://google.serper.dev/account', {
+        headers: { 'X-API-KEY': serperKey },
+        timeout: 8000
+      });
+      const data = r.data || {};
+      const remaining = data.credits ?? data.creditsRemaining ?? null;
+      const total     = data.totalCredits ?? data.planCredits ?? 2500;
+      const used      = total - (remaining ?? total);
+      results.serper = {
+        configured: true,
+        remaining,
+        used,
+        total,
+        pct: remaining != null ? Math.round(((total - remaining) / total) * 100) : null,
+        label: remaining != null ? `${remaining.toLocaleString()} credits left` : 'Connected ✓',
+        status: 'ok'
+      };
+    } catch (err) {
+      results.serper = { configured: true, status: 'error', label: 'Key error: ' + err.message.slice(0, 60) };
+    }
+  } else {
+    results.serper = { configured: false, status: 'missing', label: 'Not configured' };
+  }
+
+  // ── Google Places ─────────────────────────────────────────────────────────
+  const placesKey = process.env.GOOGLE_PLACES_API_KEY || '';
+  if (placesKey && placesKey !== 'your_google_places_api_key_here') {
+    // Google Places doesn't have a simple credits endpoint — just confirm key is set
+    results.places = {
+      configured: true,
+      status: 'ok',
+      label: 'API key configured',
+      note: '$200 free credit (~10,000 searches/mo)'
+    };
+  } else {
+    results.places = { configured: false, status: 'missing', label: 'Not configured' };
+  }
+
+  // ── Yelp Fusion ───────────────────────────────────────────────────────────
+  const yelpKey = process.env.YELP_API_KEY || '';
+  if (yelpKey && yelpKey !== 'your_yelp_api_key_here') {
+    results.yelp = {
+      configured: true,
+      status: 'ok',
+      label: 'API key configured',
+      note: '5,000 free requests/day'
+    };
+  } else {
+    results.yelp = { configured: false, status: 'missing', label: 'Not configured' };
+  }
+
+  // ── DuckDuckGo (always free) ──────────────────────────────────────────────
+  results.ddg = {
+    configured: true,
+    status: 'ok',
+    label: '∞ Unlimited — No key needed',
+    remaining: Infinity
+  };
+
+  // ── Meta Ad Library (Puppeteer — cloud blocked) ────────────────────────────
+  results.meta = {
+    configured: true,
+    status: 'cloud_blocked',
+    label: 'Local: works | Cloud: mock fallback'
+  };
+
+  res.json({ success: true, credits: results, checkedAt: new Date().toISOString() });
+});
+
 // Endpoint to list template folders dynamically from GitHub API
 app.get('/api/templates', async (req, res) => {
   // Try local first

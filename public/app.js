@@ -1258,6 +1258,80 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // ─── API Credits Monitor ───────────────────────────────────────────────────
+    window.refreshCredits = async function() {
+      const icon = document.getElementById('creditsRefreshIcon');
+      const lastChecked = document.getElementById('creditsLastChecked');
+      if (icon) icon.classList.add('fa-spin');
+      try {
+        const resp = await fetch('/api/credits-check').then(r => r.json());
+        if (!resp.success) return;
+        const { credits, checkedAt } = resp;
+        if (lastChecked) {
+          const t = new Date(checkedAt);
+          lastChecked.textContent = t.toLocaleTimeString();
+        }
+
+        // Helper: update one credit row
+        const updateRow = (key, badge, bar, used, left) => {
+          const c = credits[key];
+          if (!c) return;
+          const badgeEl = document.getElementById(badge);
+          const barEl   = document.getElementById(bar);
+          const usedEl  = document.getElementById(used);
+          const leftEl  = document.getElementById(left);
+
+          if (!c.configured || c.status === 'missing') {
+            if (badgeEl) { badgeEl.textContent = 'Not configured'; badgeEl.style.background = 'rgba(255,255,255,0.08)'; badgeEl.style.color = 'var(--text-secondary)'; }
+            if (barEl)   { barEl.style.width = '0%'; }
+            return;
+          }
+          if (c.status === 'error') {
+            if (badgeEl) { badgeEl.textContent = '⚠ Key Error'; badgeEl.style.background = 'rgba(248,131,121,0.2)'; badgeEl.style.color = '#f88379'; }
+            return;
+          }
+          // Configured & ok
+          if (badgeEl) {
+            badgeEl.textContent = c.label || 'Active';
+            if (c.pct !== null && c.pct !== undefined) {
+              // Color: green < 50%, yellow 50–80%, red > 80% used
+              if (c.pct < 50) { badgeEl.style.background = 'rgba(0,245,160,0.15)'; badgeEl.style.color = '#00f5a0'; }
+              else if (c.pct < 80) { badgeEl.style.background = 'rgba(245,166,35,0.2)'; badgeEl.style.color = '#f5a623'; }
+              else { badgeEl.style.background = 'rgba(248,131,121,0.2)'; badgeEl.style.color = '#f88379'; }
+            } else {
+              badgeEl.style.background = 'rgba(0,245,160,0.15)'; badgeEl.style.color = '#00f5a0';
+            }
+          }
+          if (barEl && c.pct !== null && c.pct !== undefined) {
+            barEl.style.width = `${c.pct}%`;
+            if (c.pct < 50) barEl.style.background = 'linear-gradient(90deg,#00f5a0,#00d9f5)';
+            else if (c.pct < 80) barEl.style.background = 'linear-gradient(90deg,#f5a623,#f7b731)';
+            else barEl.style.background = 'linear-gradient(90deg,#f88379,#e8402a)';
+          } else if (barEl && c.configured) {
+            barEl.style.width = '10%'; // small indicator showing it's configured
+          }
+          if (usedEl && c.used !== undefined) usedEl.textContent = `${c.used.toLocaleString()} used`;
+          if (leftEl && c.remaining !== undefined && c.remaining !== null && c.remaining !== Infinity) {
+            leftEl.textContent = `${c.remaining.toLocaleString()} remaining`;
+          } else if (leftEl && c.note) {
+            leftEl.textContent = c.note;
+          }
+        };
+
+        updateRow('serper', 'creditBadgeSerper', 'creditBarSerper', 'creditUsedSerper', 'creditLeftSerper');
+        updateRow('places', 'creditBadgePlaces', 'creditBarPlaces', 'creditUsedPlaces', 'creditLeftPlaces');
+        updateRow('yelp',   'creditBadgeYelp',   'creditBarYelp',   'creditUsedYelp',   'creditLeftYelp');
+
+      } catch(err) {
+        console.error('[Credits Monitor]', err);
+      } finally {
+        if (icon) icon.classList.remove('fa-spin');
+      }
+    };
+
+    // Auto-load credits when settings tab is visible
+    setTimeout(() => { if (document.getElementById('creditsMonitorPanel')) window.refreshCredits(); }, 800);
+
     // Settings elements
     const googleSettingsForm = document.getElementById('googleSettingsForm');
     const githubSettingsForm = document.getElementById('githubSettingsForm');
