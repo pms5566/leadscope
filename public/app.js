@@ -937,7 +937,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Generate proposal and custom portfolio links
         const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
-        const proposalUrl = lead.portfolioLink || `${window.location.origin}/preview/${cleanNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+        let proposalUrl = '';
+        if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
+          proposalUrl = lead.portfolioLink;
+        } else {
+          const tNiche = lead.portfolioLink || cleanNiche;
+          proposalUrl = `${window.location.origin}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+        }
         
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
@@ -2189,6 +2195,39 @@ document.addEventListener('DOMContentLoaded', () => {
       const lead = dirCurrentLeads[idx];
       const selEl = dirLeadsTableBody.querySelector(`select[data-lead-index="${idx}"]`);
       if (lead && selEl) await handleLaunchPreview(lead, selEl.value, launchBtn);
+    });
+
+    // Handle directory finder table template select dropdown changes
+    dirLeadsTableBody.addEventListener('change', (e) => {
+      const select = e.target.closest('.scan-template-select');
+      if (select) {
+        const index = parseInt(select.getAttribute('data-lead-index'), 10);
+        const lead = dirCurrentLeads[index];
+        if (lead) {
+          const val = select.value;
+          const container = select.closest('.template-selector-container');
+          const input = container.querySelector('.scan-portfolio-input');
+          
+          if (val === 'custom') {
+            input.style.display = 'block';
+            lead.portfolioLink = input.value.trim();
+          } else {
+            input.style.display = 'none';
+            lead.portfolioLink = val;
+          }
+        }
+      }
+    });
+
+    // Handle directory finder table custom portfolio text input changes
+    dirLeadsTableBody.addEventListener('input', (e) => {
+      const input = e.target.closest('.scan-portfolio-input');
+      if (input) {
+        const index = parseInt(input.getAttribute('data-lead-index'), 10);
+        if (dirCurrentLeads[index]) {
+          dirCurrentLeads[index].portfolioLink = input.value.trim();
+        }
+      }
     });
   }
 
