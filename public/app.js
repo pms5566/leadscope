@@ -49,6 +49,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  async function handleLaunchPreview(lead, templateValue, buttonEl) {
+    const cleanNiche = (templateValue || lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+    
+    let url = '';
+    if (templateValue === 'custom') {
+      const container = buttonEl.closest('.template-selector-container');
+      const input = container ? container.querySelector('input.crm-portfolio-link-input, input.scan-portfolio-input') : null;
+      url = (input && input.value.trim()) ? input.value.trim() : '';
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        alert('Please enter a valid custom portfolio link starting with http:// or https://');
+        return;
+      }
+    } else {
+      const nichePath = cleanNiche || 'cafe';
+      url = `${window.location.origin}/preview/${nichePath}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+    }
+
+    if (url) {
+      window.open(url, '_blank');
+    } else {
+      alert('Unable to generate preview link. Ensure a template is selected.');
+    }
+  }
+
+  function updateScreenProposalLink(id, container, newLink) {
+    const parentDiv = container.closest('div');
+    if (parentDiv) {
+      const anchor = parentDiv.parentElement ? parentDiv.parentElement.querySelector('a.crm-proposal-link') : null;
+      if (anchor) {
+        if (newLink.startsWith('http://') || newLink.startsWith('https://')) {
+          anchor.href = newLink;
+        } else {
+          const cleanNiche = (newLink || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+          const name = anchor.getAttribute('data-name') || '';
+          const phone = anchor.getAttribute('data-phone') || '';
+          const address = anchor.getAttribute('data-address') || '';
+          anchor.href = `${window.location.origin}/preview/${cleanNiche}/${id}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+        }
+      }
+    }
+  }
+
   // Initialize and check configuration mode
   async function checkServerConfig() {
     try {
@@ -346,12 +388,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     return `
       <div class="template-selector-container" style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 4px;">
-        <select class="crm-portfolio-input ${dropdownClass}" ${dataAttr} style="font-size: 11px; padding: 4px 6px; cursor: pointer;">
-          <option value="" ${!currentVal ? 'selected' : ''}>-- Use Dynamic Match --</option>
-          ${optionsHtml}
-          <option value="custom" ${isCustomLink ? 'selected' : ''}>-- Custom Link... --</option>
-        </select>
-        <input type="text" class="crm-portfolio-input ${inputClass}" ${dataAttr} placeholder="Paste custom portfolio/template link" value="${isCustomLink ? escapeHtml(currentVal) : ''}" style="display: ${isCustomLink ? 'block' : 'none'}; font-size: 11px; padding: 4px 6px;">
+        <div style="display: flex; gap: 4px; align-items: center;">
+          <select class="crm-portfolio-input ${dropdownClass}" ${dataAttr} style="flex: 1; font-size: 11px; padding: 4px 6px; cursor: pointer;">
+            <option value="" ${!currentVal ? 'selected' : ''}>-- Use Dynamic Match --</option>
+            ${optionsHtml}
+            <option value="custom" ${isCustomLink ? 'selected' : ''}>-- Custom Link... --</option>
+          </select>
+          <button type="button" class="btn-launch" ${dataAttr} style="background: var(--color-cyan-dim); border: 1px solid var(--color-cyan); color: var(--color-cyan); border-radius: 4px; padding: 3px 8px; font-size: 11px; cursor: pointer;" title="Launch preview template">
+            <i class="fa-solid fa-up-right-from-square"></i> Launch
+          </button>
+        </div>
+        <input type="text" class="crm-portfolio-input ${inputClass}" ${dataAttr} placeholder="Paste custom portfolio/template link" value="${isCustomLink ? escapeHtml(currentVal) : ''}" style="display: ${isCustomLink ? 'block' : 'none'}; font-size: 11px; padding: 4px 6px; width: 100%;">
       </div>
     `;
   }
@@ -894,7 +941,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
-            <a href="${proposalUrl}" target="_blank" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;" title="Preview proposal page">
+            <a class="crm-proposal-link" href="${proposalUrl}" target="_blank" data-id="${lead.id}" data-name="${escapeHtml(lead.name || '')}" data-phone="${escapeHtml(lead.phone || '')}" data-address="${escapeHtml(lead.address || '')}" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;" title="Preview proposal page">
               <i class="fa-solid fa-link"></i> Proposal Link <i class="fa-solid fa-up-right-from-square" style="font-size:0.6rem;"></i>
             </a>
             ${buildTemplateSelectorHtml(lead, true, lead.id)}
@@ -993,13 +1040,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = templateSelect.closest('.template-selector-container');
         const input = container.querySelector('.crm-portfolio-link-input');
         
+        let link = val;
         if (val === 'custom') {
           input.style.display = 'block';
-          updateCrmField(id, { portfolioLink: input.value.trim() });
+          link = input.value.trim();
         } else {
           input.style.display = 'none';
-          updateCrmField(id, { portfolioLink: val });
         }
+        updateCrmField(id, { portfolioLink: link });
+        updateScreenProposalLink(id, container, link);
       }
     });
 
@@ -1023,6 +1072,9 @@ document.addEventListener('DOMContentLoaded', () => {
         crmInputSaveTimeout = setTimeout(() => {
           updateCrmField(id, { portfolioLink });
         }, 1000);
+        
+        const container = portfolioInput.closest('.template-selector-container');
+        updateScreenProposalLink(id, container, portfolioLink);
       }
     });
 
@@ -1030,6 +1082,7 @@ document.addEventListener('DOMContentLoaded', () => {
     crmTableBody.addEventListener('click', (e) => {
       const delBtn = e.target.closest('.btn-delete-crm');
       const pitchBtn = e.target.closest('.crm-pitch-gen');
+      const launchBtn = e.target.closest('.btn-launch');
       
       if (delBtn) {
         const id = delBtn.getAttribute('data-id');
@@ -1041,6 +1094,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lead) {
           showPitchModal(lead);
         }
+      } else if (launchBtn) {
+        e.preventDefault();
+        const id = launchBtn.getAttribute('data-id');
+        const lead = crmLeads.find(l => l.id === id);
+        const selEl = crmTableBody.querySelector(`select[data-id="${id}"]`);
+        if (lead && selEl) handleLaunchPreview(lead, selEl.value, launchBtn);
       }
     });
 
