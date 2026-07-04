@@ -1239,6 +1239,13 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       align-items: center !important;
       transition: all 0.3s ease !important;
       padding: 0 !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    #ls-viewport-container::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
     }
 
     #ls-viewport-screen {
@@ -1397,11 +1404,41 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     }
     ` : ''}
 
-    /* Small Screen adaptations */
+    /* Small Screen adaptations (Mobile/Tablet viewport overrides) */
     @media (max-width: 800px) {
       .ls-banner-title { display: none !important; }
-      .ls-banner-devices { order: 1 !important; }
-      .ls-banner-ctas { order: 2 !important; }
+      .ls-banner-devices { display: none !important; }
+      
+      /* Make banner CTAs take full width on mobile header */
+      .ls-banner-ctas {
+        width: 100% !important;
+        justify-content: space-between !important;
+        gap: 6px !important;
+      }
+      .ls-banner-btn {
+        flex: 1 !important;
+        padding: 8px 10px !important;
+        font-size: 11px !important;
+        justify-content: center !important;
+      }
+
+      /* Force iframe screen container to fill viewport without bezels */
+      #ls-viewport-container {
+        padding: 0 !important;
+        align-items: stretch !important;
+      }
+      #ls-viewport-screen {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: 100% !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+      }
+      #ls-viewport-screen::before {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -1710,6 +1747,21 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       </script>
     `;
     
+    const hideScrollbarStyle = `
+      <style>
+        ::-webkit-scrollbar {
+          display: none !important;
+          width: 0 !important;
+          height: 0 !important;
+        }
+        html, body {
+          scrollbar-width: none !important;
+          -ms-overflow-style: none !important;
+        }
+      </style>
+    `;
+    
+    html = html.replace('</head>', `${hideScrollbarStyle}</head>`);
     html = html.replace('</body>', `${personalizationScript}${trackingScript}</body>`);
     return res.send(html);
   } catch (err) {
