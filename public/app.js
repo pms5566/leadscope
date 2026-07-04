@@ -1630,14 +1630,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const adStatFB          = document.getElementById('adStatFB');
   const adStatTT          = document.getElementById('adStatTT');
   const adStatGoogle      = document.getElementById('adStatGoogle');
-  const adStatBing        = document.getElementById('adStatBing');
   const adBtnExportCSV    = document.getElementById('adBtnExportCSV');
   const adBtnExportJSON   = document.getElementById('adBtnExportJSON');
   const adPlatformIG      = document.getElementById('adPlatformIG');
   const adPlatformFB      = document.getElementById('adPlatformFB');
   const adPlatformTT      = document.getElementById('adPlatformTT');
   const adPlatformGoogle  = document.getElementById('adPlatformGoogle');
-  const adPlatformBing    = document.getElementById('adPlatformBing');
 
   let adCurrentLeads = [];
 
@@ -1693,7 +1691,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    let igCount = 0, fbCount = 0, ttCount = 0, googleCount = 0, bingCount = 0;
+    let igCount = 0, fbCount = 0, ttCount = 0, googleCount = 0;
 
     adCurrentLeads.forEach((lead, index) => {
       const p = lead.adPlatform || 'meta';
@@ -1701,7 +1699,6 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (p === 'facebook') fbCount++;
       else if (p === 'tiktok') ttCount++;
       else if (p === 'google') googleCount++;
-      else if (p === 'bing') bingCount++;
       else if (p === 'meta') { igCount++; fbCount++; }
 
       // Website Score display
@@ -1772,7 +1769,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (adStatFB) adStatFB.textContent = fbCount;
     if (adStatTT) adStatTT.textContent = ttCount;
     if (adStatGoogle) adStatGoogle.textContent = googleCount;
-    if (adStatBing) adStatBing.textContent = bingCount;
     if (adStatsGrid) adStatsGrid.style.display = 'grid';
     if (adResultsCard) adResultsCard.style.display = 'block';
 
@@ -1830,7 +1826,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const engines = [];
       if (adPlatformGoogle && adPlatformGoogle.checked) engines.push('google');
-      if (adPlatformBing && adPlatformBing.checked) engines.push('bing');
 
       if (metaPlatforms.length === 0 && engines.length === 0) {
         alert('Please select at least one platform.');

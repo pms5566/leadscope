@@ -480,7 +480,7 @@ async function scrapeBingAds(niche, city) {
 }
 
 // ─── Main Export ─────────────────────────────────────────────────────────────
-async function scanGoogleAds(niche, city, engines = ['google', 'bing'], scoreWebsites = true) {
+async function scanGoogleAds(niche, city, engines = ['google'], scoreWebsites = true) {
   console.log(`[Google Ads Scanner] START: niche="${niche}", city="${city}", engines=[${engines}]`);
 
   const tasks = [];
