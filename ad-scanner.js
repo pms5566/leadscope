@@ -397,6 +397,13 @@ async function scanAdLeads(niche, city, platforms = ['instagram', 'facebook', 't
     return deduped;
   }
 
+  // Fallback only if on Hugging Face space
+  const isHuggingFace = !!(process.env.SPACE_ID || process.env.SPACE_HOST || process.env.HF_SPACE);
+  if (!isHuggingFace) {
+    console.log(`[Ad Scanner] Running locally, returning empty list (no ads found).`);
+    return [];
+  }
+
   // Fallback to high-fidelity mock leads if scraper gets blocked on cloud hosting (e.g. Hugging Face)
   console.log(`[Ad Scanner] Falling back to high-fidelity mock ad leads...`);
   

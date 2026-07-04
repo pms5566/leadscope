@@ -529,6 +529,11 @@ async function scanGoogleAds(niche, city, engines = ['google'], scoreWebsites = 
 
   // Fallback to high-quality mock data if search engines block or return 0 ads
   if (leads.length === 0) {
+    const isHuggingFace = !!(process.env.SPACE_ID || process.env.SPACE_HOST || process.env.HF_SPACE);
+    if (!isHuggingFace) {
+      console.log(`[Google Ads Scanner] Running locally, returning empty list (no ads found).`);
+      return [];
+    }
     console.log(`[Google Ads Scanner] No live ads found due to search blocks. Generating mock fallback leads...`);
     const capNiche = niche.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     const capCity  = city.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
