@@ -484,13 +484,11 @@ async function scrapeBingAds(niche, city) {
 }
 
 // ─── Main Export ─────────────────────────────────────────────────────────────
-async function scanGoogleAds(niche, city, engines = ['google', 'bing'], scoreWebsites = true) {
+async function scanGoogleAds(niche, city, engines = ['google'], scoreWebsites = true) {
   console.log(`[Google Ads Scanner] START: niche="${niche}", city="${city}", engines=[${engines}]`);
 
-  // Always run both Google AND Bing together — if one returns 0, the other covers
   const tasks = [];
   tasks.push(scrapeGoogleAds(niche, city));
-  tasks.push(scrapeBingAds(niche, city));
 
   const results = await Promise.all(tasks);
   let leads = results.flat();
@@ -568,7 +566,7 @@ async function scanGoogleAds(niche, city, engines = ['google', 'bing'], scoreWeb
     ];
 
     leads = mockNames.map((name, i) => {
-      const platform = i % 2 === 0 ? 'google' : 'bing';
+      const platform = 'google';
       const phone = `+91 98${Math.floor(10000000 + Math.random() * 89999999)}`;
       const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(name + ' ' + city)}`;
       return {
@@ -586,7 +584,7 @@ async function scanGoogleAds(niche, city, engines = ['google', 'bing'], scoreWeb
         whatsapp: `https://wa.me/${phone.replace(/[^0-9]/g, '')}`,
         adPlatform: platform,
         adActive: true,
-        source: platform === 'google' ? 'Google Ads (Demo)' : 'Bing Ads (Demo)',
+        source: 'Google Ads (Demo)',
         websiteScore: mockScores[i],
         isMock: true
       };
