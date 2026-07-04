@@ -565,14 +565,15 @@ async function scanGoogleAds(niche, city, engines = ['google'], scoreWebsites = 
     leads = mockNames.map((name, i) => {
       const platform = i % 2 === 0 ? 'google' : 'bing';
       const phone = `+91 98${Math.floor(10000000 + Math.random() * 89999999)}`;
+      const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(name + ' ' + city)}`;
       return {
         id: `${platform}-mock-${Date.now()}-${i}`,
         name: name,
         address: city,
         phone: phone,
         email: null,
-        website: mockDomains[i],
-        websiteUrl: `http://www.${mockDomains[i]}`,
+        website: null,
+        websiteUrl: searchUrl,
         adHeadline: mockHeadlines[i],
         facebook: null,
         instagram: null,
@@ -580,8 +581,9 @@ async function scanGoogleAds(niche, city, engines = ['google'], scoreWebsites = 
         whatsapp: `https://wa.me/${phone.replace(/[^0-9]/g, '')}`,
         adPlatform: platform,
         adActive: true,
-        source: platform === 'google' ? 'Google Ads' : 'Bing Ads',
-        websiteScore: mockScores[i]
+        source: platform === 'google' ? 'Google Ads (Demo)' : 'Bing Ads (Demo)',
+        websiteScore: mockScores[i],
+        isMock: true
       };
     });
   }
