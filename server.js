@@ -1798,16 +1798,38 @@ async function sendPhoneNotification(message) {
 
 const geoCache = {};
 
+function parseUserAgent(uaString) {
+  const ua = uaString || '';
+  let os = 'Unknown OS';
+  let browser = 'Unknown Browser';
+
+  // Detect OS
+  if (/Windows/i.test(ua)) os = 'Windows';
+  else if (/Macintosh/i.test(ua) && !/iPhone|iPad|iPod/i.test(ua)) os = 'macOS';
+  else if (/iPhone|iPad|iPod/i.test(ua)) os = 'iOS';
+  else if (/Android/i.test(ua)) os = 'Android';
+  else if (/Linux/i.test(ua)) os = 'Linux';
+
+  // Detect Browser
+  if (/Edg/i.test(ua)) browser = 'Edge';
+  else if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) browser = 'Chrome';
+  else if (/Safari/i.test(ua) && !/Chrome/i.test(ua) && !/Edg/i.test(ua)) browser = 'Safari';
+  else if (/Firefox/i.test(ua)) browser = 'Firefox';
+
+  return { os, browser };
+}
+
 async function getIpLocation(ip) {
   if (!ip || ip === '127.0.0.1' || ip === '::1' || ip.startsWith('::ffff:127.0.0.1') || ip.startsWith('10.') || ip.startsWith('192.168.')) {
-    return { location: 'Local Network', isp: 'Localhost' };
+    return { location: 'Local Network', countryCode: 'IN', isp: 'Localhost' };
   }
   if (geoCache[ip]) return geoCache[ip];
   try {
-    const res = await axios.get(`http://ip-api.com/json/${encodeURIComponent(ip)}?fields=status,message,country,regionName,city,isp`, { timeout: 3500 });
+    const res = await axios.get(`http://ip-api.com/json/${encodeURIComponent(ip)}?fields=status,message,country,countryCode,regionName,city,isp`, { timeout: 3500 });
     if (res.data && res.data.status === 'success') {
       const info = {
         location: `${res.data.city}, ${res.data.regionName}, ${res.data.country}`,
+        countryCode: res.data.countryCode,
         isp: res.data.isp
       };
       geoCache[ip] = info;
@@ -1816,7 +1838,7 @@ async function getIpLocation(ip) {
   } catch (e) {
     console.error('[Geo-IP Error]:', e.message);
   }
-  return { location: 'Unknown Location', isp: 'Unknown ISP' };
+  return { location: 'Unknown Location', countryCode: '', isp: 'Unknown ISP' };
 }
 
 // Global view counter in-memory
@@ -1848,6 +1870,7 @@ app.post('/api/track', async (req, res) => {
     const rawIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     const clientIp = rawIp ? rawIp.split(',')[0].trim() : '';
     const geo = await getIpLocation(clientIp);
+    const uaInfo = parseUserAgent(req.headers['user-agent']);
 
     // Group activeVisits by session/leadId
     if (event === 'open') {
@@ -1866,9 +1889,12 @@ app.post('/api/track', async (req, res) => {
         duration: 0,
         scrollPercent: 0,
         location: geo.location,
+        countryCode: geo.countryCode || '',
         isp: geo.isp,
         views: totalViews,
-        device: details.device || 'desktop',
+        device: (details && details.device) || 'desktop',
+        os: uaInfo.os,
+        browser: uaInfo.browser,
         events: [],
         isHot: isHot
       };
@@ -1878,9 +1904,12 @@ app.post('/api/track', async (req, res) => {
       session.lastActiveAt = timestamp;
       session.views = Math.max(session.views, totalViews);
       if (isHot) session.isHot = true;
-      if (details.device) session.device = details.device;
+      if (details && details.device) session.device = details.device;
+      session.os = uaInfo.os;
+      session.browser = uaInfo.browser;
       if (session.location === 'Loading...' || session.location === 'Unknown Location') {
         session.location = geo.location;
+        session.countryCode = geo.countryCode || '';
         session.isp = geo.isp;
       }
     }

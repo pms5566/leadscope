@@ -1143,6 +1143,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const miniSpyFeedContainer = document.getElementById('miniSpyFeedContainer');
 
+    // Expandable click history delegation
+    const handleSpyExpand = (e) => {
+      const toggleBtn = e.target.closest('.spy-toggle-btn');
+      if (toggleBtn) {
+        const leadId = toggleBtn.getAttribute('data-lead-id');
+        const detailsEl = document.getElementById(`history_${leadId}`);
+        const icon = toggleBtn.querySelector('i');
+        
+        window.expandedActiveVisitIds = window.expandedActiveVisitIds || new Set();
+        
+        if (window.expandedActiveVisitIds.has(leadId)) {
+          window.expandedActiveVisitIds.delete(leadId);
+          if (detailsEl) detailsEl.style.display = 'none';
+          if (icon) {
+            icon.className = 'fa-solid fa-chevron-down';
+          }
+        } else {
+          window.expandedActiveVisitIds.add(leadId);
+          if (detailsEl) detailsEl.style.display = 'block';
+          if (icon) {
+            icon.className = 'fa-solid fa-chevron-up';
+          }
+        }
+      }
+    };
+    if (spyFeedContainer) spyFeedContainer.addEventListener('click', handleSpyExpand);
+    if (miniSpyFeedContainer) miniSpyFeedContainer.addEventListener('click', handleSpyExpand);
+
     function renderActiveVisits(visits) {
       // Update proposal views count
       const viewsEl = document.getElementById('statDashboardTotalVisits');
@@ -1164,6 +1192,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderVisitsList(container, visits, limit = null) {
+      window.expandedActiveVisitIds = window.expandedActiveVisitIds || new Set();
+
+      function formatIndiaTime(isoString) {
+        if (!isoString) return 'N/A';
+        try {
+          return new Date(isoString).toLocaleTimeString('en-IN', {
+            timeZone: 'Asia/Kolkata',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+          });
+        } catch (e) {
+          return new Date(isoString).toLocaleTimeString();
+        }
+      }
+
+      function getFlagEmoji(countryCode) {
+        if (!countryCode) return '🌐';
+        try {
+          const codePoints = countryCode
+            .toUpperCase()
+            .split('')
+            .map(char => 127397 + char.charCodeAt(0));
+          return String.fromCodePoint(...codePoints);
+        } catch (e) {
+          return '🌐';
+        }
+      }
+
       const list = limit ? visits.slice(0, limit) : visits;
       
       if (list.length === 0) {
@@ -1199,7 +1257,16 @@ document.addEventListener('DOMContentLoaded', () => {
           
         const deviceIcon = session.device === 'mobile' 
           ? `<i class="fa-solid fa-mobile-screen-button" title="Mobile Device" style="color: var(--color-purple); font-size: 0.8rem;"></i>`
-          : `<i class="fa-solid fa-desktop" title="Desktop Device" style="color: var(--color-cyan); font-size: 0.8rem;"></i>`;
+          : (session.device === 'tablet'
+            ? `<i class="fa-solid fa-tablet-screen-button" title="Tablet Device" style="color: var(--color-orange); font-size: 0.8rem;"></i>`
+            : `<i class="fa-solid fa-desktop" title="Desktop Device" style="color: var(--color-cyan); font-size: 0.8rem;"></i>`);
+
+        const osBadge = session.os 
+          ? `<span style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #cbd5e1; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 3px;" title="Operating System"><i class="fa-solid fa-gears" style="opacity:0.7; font-size:0.6rem;"></i> ${session.os}</span>` 
+          : '';
+        const browserBadge = session.browser 
+          ? `<span style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.15); color: var(--color-cyan); font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 3px;" title="Web Browser"><i class="fa-solid fa-window-restore" style="opacity:0.7; font-size:0.6rem;"></i> ${session.browser}</span>` 
+          : '';
 
         // Format scroll progress color
         let scrollColor = 'var(--color-purple)';
@@ -1236,7 +1303,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ${chatMessages.map(c => `
                 <div style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.12); padding: 8px 10px; border-radius: 8px; font-size: 0.75rem; color: #fff; line-height: 1.35; position: relative;">
                   <span>${escapeHtml(c.msg)}</span>
-                  <span style="font-size: 0.6rem; opacity: 0.4; display: block; text-align: right; margin-top: 2px;">${new Date(c.time).toLocaleTimeString()}</span>
+                  <span style="font-size: 0.6rem; opacity: 0.4; display: block; text-align: right; margin-top: 2px;">${formatIndiaTime(c.time)}</span>
                 </div>
               `).join('')}
             </div>
@@ -1249,8 +1316,47 @@ document.addEventListener('DOMContentLoaded', () => {
         if (timeDiff < 25) {
           timeStatusText = `<span style="color: #10b981; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;"><span style="width:6px; height:6px; background:#10b981; border-radius:50%; display:inline-block; box-shadow:0 0 8px #10b981;"></span> Active Now</span>`;
         } else {
-          timeStatusText = `<span style="color: var(--text-secondary); font-size: 0.7rem;">Active ${new Date(session.lastActiveAt).toLocaleTimeString()}</span>`;
+          timeStatusText = `<span style="color: var(--text-secondary); font-size: 0.7rem;">Active ${formatIndiaTime(session.lastActiveAt)}</span>`;
         }
+
+        const isExpanded = window.expandedActiveVisitIds.has(session.leadId);
+
+        // Icon mapping for events
+        function getEventIcon(evName) {
+          switch (evName) {
+            case 'open': return '<i class="fa-solid fa-door-open" style="color: var(--color-green);"></i>';
+            case 'heartbeat': return '<i class="fa-solid fa-heartpulse" style="color: #ff5e97;"></i>';
+            case 'fiverr_click': return '<i class="fa-solid fa-cart-shopping" style="color: #10b981;"></i>';
+            case 'whatsapp_click': return '<i class="fa-solid fa-comment-sms" style="color: #25d366;"></i>';
+            case 'email_click': return '<i class="fa-solid fa-envelope" style="color: #3b82f6;"></i>';
+            case 'chat': return '<i class="fa-solid fa-comment" style="color: var(--color-cyan);"></i>';
+            default: return '<i class="fa-solid fa-circle-dot" style="opacity:0.5;"></i>';
+          }
+        }
+        
+        function getEventLabel(evName, details) {
+          switch (evName) {
+            case 'open': return 'Opened Proposal Link';
+            case 'heartbeat': return `Active reading time +10s (Scroll: ${details.scrollPercent || 0}%)`;
+            case 'fiverr_click': return 'Clicked Order on Fiverr';
+            case 'whatsapp_click': return 'Clicked Request Changes (WhatsApp)';
+            case 'email_click': return 'Clicked Email Us';
+            case 'chat': return `Sent Message: "${details.message || ''}"`;
+            default: return evName;
+          }
+        }
+
+        const historyItemsHtml = session.events && session.events.length > 0 
+          ? session.events.map(ev => `
+            <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.72rem; padding: 4px 0; border-left: 1px dashed rgba(255,255,255,0.1); margin-left: 5px; padding-left: 8px;">
+              <span style="font-size:0.75rem; flex-shrink: 0; margin-top:1px;">${getEventIcon(ev.event)}</span>
+              <div style="display:flex; flex-direction:column; flex:1;">
+                <span style="color:#e2e8f0;">${getEventLabel(ev.event, ev.details || {})}</span>
+                <span style="font-size:0.6rem; opacity:0.4; margin-top:1px;">${formatIndiaTime(ev.timestamp)}</span>
+              </div>
+            </div>
+          `).join('')
+          : '<div style="font-size:0.7rem; color:var(--text-secondary); font-style:italic; padding:4px 0;">No tracking events recorded yet.</div>';
 
         item.innerHTML = `
           <!-- Header Row -->
@@ -1262,15 +1368,24 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
               ${deviceIcon}
               ${timeStatusText}
+              <button class="spy-toggle-btn" data-lead-id="${session.leadId}" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 4px; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; outline: none; transition: color 0.2s;">
+                <i class="fa-solid ${isExpanded ? 'fa-chevron-up' : 'fa-chevron-down'}"></i>
+              </button>
             </div>
           </div>
           
           <!-- Location and ISP -->
           <div style="display: flex; align-items: center; gap: 6px; font-size: 0.7rem; color: var(--text-secondary); width: 100%;">
-            <i class="fa-solid fa-earth-americas" style="color: var(--color-green);"></i>
+            <span style="font-size: 0.85rem; line-height: 1; margin-right: 1px;">${getFlagEmoji(session.countryCode)}</span>
             <span>${escapeHtml(session.location || 'Unknown Location')}</span>
             <span style="opacity: 0.4;">•</span>
             <span style="opacity: 0.8; font-style: italic;">${escapeHtml(session.isp || 'Local Network')}</span>
+          </div>
+
+          <!-- Browser & OS Badges -->
+          <div style="display: flex; gap: 4px; margin-top: 1px; align-items: center; flex-wrap: wrap; width: 100%;">
+            ${osBadge}
+            ${browserBadge}
           </div>
 
           <!-- Engagement Metrics -->
@@ -1296,6 +1411,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <!-- Chat bubble outputs -->
           ${chatBubblesHtml}
+
+          <!-- Expanded click history dropdown panel -->
+          <div class="spy-history-details" id="history_${session.leadId}" style="display: ${isExpanded ? 'block' : 'none'}; border-top: 1px solid rgba(255,255,255,0.04); margin-top: 8px; padding-top: 8px; width: 100%;">
+            <span style="font-size: 0.65rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 700; display: block; margin-bottom: 6px; letter-spacing: 0.05em;"><i class="fa-solid fa-clock-rotate-left" style="color:var(--color-cyan);"></i> Activity Log (IST India Time):</span>
+            <div style="display: flex; flex-direction: column; gap: 4px; max-height: 200px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin;">
+              ${historyItemsHtml}
+            </div>
+          </div>
         `;
         
         container.appendChild(item);
