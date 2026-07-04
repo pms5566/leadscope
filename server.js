@@ -1231,6 +1231,110 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
             display: inline-block !important;
           }
         }
+        
+        /* Chat Widget styling */
+        .ls-chat-widget {
+          position: fixed !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          width: 320px !important;
+          background: rgba(15, 23, 42, 0.9) !important;
+          backdrop-filter: blur(10px) !important;
+          -webkit-backdrop-filter: blur(10px) !important;
+          border: 1px solid rgba(255, 255, 255, 0.15) !important;
+          border-radius: 16px !important;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+          z-index: 2147483647 !important;
+          overflow: hidden !important;
+          display: flex !important;
+          flex-direction: column !important;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+          transform: translateY(150%) scale(0.9) !important;
+          opacity: 0 !important;
+          box-sizing: border-box !important;
+        }
+        .ls-chat-widget * {
+          box-sizing: border-box !important;
+        }
+        .ls-chat-widget.active {
+          transform: translateY(0) scale(1) !important;
+          opacity: 1 !important;
+        }
+        .ls-chat-header {
+          background: linear-gradient(135deg, #00d9f5 0%, #0072ff 100%) !important;
+          padding: 12px 16px !important;
+          color: #0f172a !important;
+          font-weight: 700 !important;
+          font-size: 13px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+        }
+        .ls-chat-close {
+          background: none !important;
+          border: none !important;
+          color: #0f172a !important;
+          cursor: pointer !important;
+          font-size: 18px !important;
+          line-height: 1 !important;
+          padding: 0 !important;
+          opacity: 0.7 !important;
+        }
+        .ls-chat-close:hover {
+          opacity: 1 !important;
+        }
+        .ls-chat-body {
+          padding: 14px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 10px !important;
+        }
+        .ls-chat-msg {
+          background: rgba(255, 255, 255, 0.05) !important;
+          color: #e2e8f0 !important;
+          padding: 10px 12px !important;
+          border-radius: 12px !important;
+          font-size: 12px !important;
+          line-height: 1.45 !important;
+        }
+        .ls-chat-input-container {
+          display: flex !important;
+          gap: 6px !important;
+        }
+        .ls-chat-input {
+          flex: 1 !important;
+          background: rgba(255, 255, 255, 0.06) !important;
+          border: 1px solid rgba(255, 255, 255, 0.12) !important;
+          border-radius: 8px !important;
+          color: #ffffff !important;
+          padding: 8px 10px !important;
+          font-size: 12px !important;
+          outline: none !important;
+        }
+        .ls-chat-input:focus {
+          border-color: #00d9f5 !important;
+        }
+        .ls-chat-send {
+          background: #00d9f5 !important;
+          border: none !important;
+          border-radius: 8px !important;
+          color: #0f172a !important;
+          cursor: pointer !important;
+          padding: 8px 12px !important;
+          font-weight: 700 !important;
+          font-size: 12px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+        .ls-chat-success-msg {
+          color: #10b981 !important;
+          font-size: 11px !important;
+          text-align: center !important;
+          margin-top: 2px !important;
+          display: none !important;
+        }
       </style>
     `;
     
@@ -1261,6 +1365,24 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
             <span class="ls-btn-text-desktop">Email Us</span>
             <span class="ls-btn-text-mobile">Email</span>
           </a>
+        </div>
+      </div>
+      
+      <!-- Injected Chat widget HTML -->
+      <div class="ls-chat-widget" id="ls-chat-box">
+        <div class="ls-chat-header">
+          <span>💬 Design Consultation</span>
+          <button class="ls-chat-close" id="ls-chat-close-btn">&times;</button>
+        </div>
+        <div class="ls-chat-body">
+          <div class="ls-chat-msg">
+            Hi there! 👋 Let me know if you would like any custom changes, adjustments, or to request the source files for this design.
+          </div>
+          <div class="ls-chat-input-container">
+            <input type="text" class="ls-chat-input" id="ls-chat-msg-input" placeholder="Type a message..." maxlength="300">
+            <button class="ls-chat-send" id="ls-chat-send-btn">Send</button>
+          </div>
+          <div class="ls-chat-success-msg" id="ls-chat-success">✓ Sent to our design team!</div>
         </div>
       </div>
     `;
@@ -1306,11 +1428,70 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
               maxScroll = scrollPercent;
             }
             
-          sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll });
-        }, 10000);
-      })();
-    </script>
-  `;
+            sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll });
+          }, 10000);
+
+          // Chat Trigger (Slide up after 15 seconds)
+          setTimeout(() => {
+            const chatBox = document.getElementById('ls-chat-box');
+            if (chatBox) chatBox.classList.add('active');
+          }, 15000);
+
+          // Chat Close Button
+          const closeBtn = document.getElementById('ls-chat-close-btn');
+          if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+              const chatBox = document.getElementById('ls-chat-box');
+              if (chatBox) chatBox.classList.remove('active');
+            });
+          }
+
+          // Chat Send Action
+          const sendBtn = document.getElementById('ls-chat-send-btn');
+          const msgInput = document.getElementById('ls-chat-msg-input');
+          const successMsg = document.getElementById('ls-chat-success');
+
+          if (sendBtn && msgInput) {
+            sendBtn.addEventListener('click', async () => {
+              const text = msgInput.value.trim();
+              if (!text) return;
+
+              sendBtn.disabled = true;
+              msgInput.disabled = true;
+              sendBtn.textContent = '...';
+
+              try {
+                const res = await fetch('/api/chat', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ leadId, leadName, message: text })
+                });
+                const data = await res.json();
+                if (data.success) {
+                  successMsg.style.display = 'block';
+                  sendBtn.style.display = 'none';
+                  msgInput.style.display = 'none';
+                } else {
+                  throw new Error('Failed');
+                }
+              } catch (e) {
+                alert('Failed to send message. Please try again.');
+                sendBtn.disabled = false;
+                msgInput.disabled = false;
+                sendBtn.textContent = 'Send';
+              }
+            });
+
+            // Handle pressing enter
+            msgInput.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter') {
+                sendBtn.click();
+              }
+            });
+          }
+        })();
+      </script>
+    `;
 
   const personalizationScript = `
     <script>
@@ -1520,6 +1701,32 @@ async function sendPhoneNotification(message) {
   }
 }
 
+const geoCache = {};
+
+async function getIpLocation(ip) {
+  if (!ip || ip === '127.0.0.1' || ip === '::1' || ip.startsWith('::ffff:127.0.0.1') || ip.startsWith('10.') || ip.startsWith('192.168.')) {
+    return { location: 'Local Network', isp: 'Localhost' };
+  }
+  if (geoCache[ip]) return geoCache[ip];
+  try {
+    const res = await axios.get(`http://ip-api.com/json/${encodeURIComponent(ip)}?fields=status,message,country,regionName,city,isp`, { timeout: 3500 });
+    if (res.data && res.data.status === 'success') {
+      const info = {
+        location: `${res.data.city}, ${res.data.regionName}, ${res.data.country}`,
+        isp: res.data.isp
+      };
+      geoCache[ip] = info;
+      return info;
+    }
+  } catch (e) {
+    console.error('[Geo-IP Error]:', e.message);
+  }
+  return { location: 'Unknown Location', isp: 'Unknown ISP' };
+}
+
+// Global view counter in-memory
+if (!global.viewCounts) global.viewCounts = {};
+
 // Analytics tracking logs receiver
 app.post('/api/track', async (req, res) => {
   const { leadId, leadName: payloadLeadName, event, details } = req.body;
@@ -1542,18 +1749,59 @@ app.post('/api/track', async (req, res) => {
     const timestamp = new Date().toISOString();
     const timeStr = new Date().toLocaleTimeString();
     
-    // Log active visits in memory for activity feed
-    activeVisits.unshift({
-      leadId,
-      name: leadName,
-      event,
-      details,
-      timestamp,
-      timeStr
-    });
-    if (activeVisits.length > 50) activeVisits.pop();
+    // Resolve IP & Geolocation
+    const rawIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const clientIp = rawIp ? rawIp.split(',')[0].trim() : '';
+    const geo = await getIpLocation(clientIp);
+
+    // Group activeVisits by session/leadId
+    if (event === 'open') {
+      global.viewCounts[leadId] = (global.viewCounts[leadId] || 0) + 1;
+    }
+    const totalViews = global.viewCounts[leadId] || 1;
+    const isHot = totalViews >= 3;
+
+    let session = activeVisits.find(v => v.leadId === leadId);
+    if (!session) {
+      session = {
+        leadId,
+        name: leadName,
+        openedAt: timestamp,
+        lastActiveAt: timestamp,
+        duration: 0,
+        scrollPercent: 0,
+        location: geo.location,
+        isp: geo.isp,
+        views: totalViews,
+        device: details.device || 'desktop',
+        events: [],
+        isHot: isHot
+      };
+      activeVisits.unshift(session);
+      if (activeVisits.length > 50) activeVisits.pop();
+    } else {
+      session.lastActiveAt = timestamp;
+      session.views = Math.max(session.views, totalViews);
+      if (isHot) session.isHot = true;
+      if (details.device) session.device = details.device;
+      if (session.location === 'Loading...' || session.location === 'Unknown Location') {
+        session.location = geo.location;
+        session.isp = geo.isp;
+      }
+    }
+
+    session.events.push({ event, timestamp, details });
+    if (session.events.length > 20) session.events.shift();
+
+    // Accumulate metrics on heartbeat
+    if (event === 'heartbeat') {
+      session.duration += details.seconds || 0;
+      if (details.scrollPercent > session.scrollPercent) {
+        session.scrollPercent = details.scrollPercent;
+      }
+    }
     
-    console.log(`[Track Log] "${leadName}" triggered: ${event} ${JSON.stringify(details || {})}`);
+    console.log(`[Track Log] "${leadName}" triggered: ${event} ${JSON.stringify(details || {})} (Loc: ${geo.location})`);
     
     let shouldNotify = false;
     let notificationMsg = '';
@@ -1577,7 +1825,7 @@ app.post('/api/track', async (req, res) => {
         }
         // Notify on 60 seconds (1 minute) of active reading engagement
         if (analytics.timeSpent === 60) {
-          notificationMsg = `⏱️ <b>Lead Engagement!</b>\n"${leadName}" has been actively reading for 1 minute (Scroll depth: ${analytics.maxScroll}%).`;
+          notificationMsg = `⏱️ <b>Lead Engagement!</b>\n"${leadName}" has been actively reading for 1 minute.\n📍 Location: ${geo.location}\n📊 Scroll depth: ${analytics.maxScroll}%`;
           shouldNotify = true;
         }
       } else if (event === 'fiverr_click') {
@@ -1591,21 +1839,25 @@ app.post('/api/track', async (req, res) => {
       let newLog = `[${timeStr}] `;
       if (event === 'open') {
         newLog += 'Opened Proposal Preview Link';
-        notificationMsg = `🔔 <b>Lead Opened Proposal!</b>\n"${leadName}" just opened your website proposal on ${details.device || 'desktop'}.`;
+        if (isHot) {
+          notificationMsg = `🚨 <b>HOT LEAD RE-OPENED! (Viewed ${totalViews} times)</b>\n"${leadName}" is actively looking at your proposal again!\n📍 Location: ${geo.location} (${geo.isp})`;
+        } else {
+          notificationMsg = `🔔 <b>Lead Opened Proposal!</b>\n"${leadName}" just opened your website proposal on ${details.device || 'desktop'}.\n📍 Location: ${geo.location} (${geo.isp})`;
+        }
         shouldNotify = true;
       } else if (event === 'heartbeat') {
         newLog += `Visited for ${analytics.timeSpent}s (Scrolled: ${analytics.maxScroll}%)`;
       } else if (event === 'fiverr_click') {
         newLog += 'Clicked Fiverr Checkout CTA';
-        notificationMsg = `💼 <b>Lead Action!</b>\n"${leadName}" clicked your <b>Fiverr Checkout</b> CTA button!`;
+        notificationMsg = `💼 <b>Lead Action!</b>\n"${leadName}" clicked your <b>Fiverr Checkout</b> CTA button!\n📍 Location: ${geo.location}`;
         shouldNotify = true;
       } else if (event === 'whatsapp_click') {
         newLog += 'Clicked WhatsApp Contact CTA';
-        notificationMsg = `💬 <b>Lead Action!</b>\n"${leadName}" clicked your <b>WhatsApp Contact</b> CTA button!`;
+        notificationMsg = `💬 <b>Lead Action!</b>\n"${leadName}" clicked your <b>WhatsApp Contact</b> CTA button!\n📍 Location: ${geo.location}`;
         shouldNotify = true;
       } else if (event === 'email_click') {
         newLog += 'Clicked Direct Email CTA';
-        notificationMsg = `📧 <b>Lead Action!</b>\n"${leadName}" clicked your <b>Direct Email</b> CTA button!`;
+        notificationMsg = `📧 <b>Lead Action!</b>\n"${leadName}" clicked your <b>Direct Email</b> CTA button!\n📍 Location: ${geo.location}`;
         shouldNotify = true;
       } else {
         newLog += `Triggered event: ${event}`;
@@ -1622,16 +1874,20 @@ app.post('/api/track', async (req, res) => {
     } else {
       // For leads that are still in cache and not saved to CRM database yet
       if (event === 'open') {
-        notificationMsg = `🔔 <b>Lead Opened Proposal (Scanned Cache)!</b>\n"${leadName}" just opened your website proposal link on ${details.device || 'desktop'}.`;
+        if (isHot) {
+          notificationMsg = `🚨 <b>HOT LEAD RE-OPENED! (Viewed ${totalViews} times)</b>\n"${leadName}" is actively looking at your proposal again!\n📍 Location: ${geo.location} (${geo.isp})`;
+        } else {
+          notificationMsg = `🔔 <b>Lead Opened Proposal!</b>\n"${leadName}" just opened your website proposal link on ${details.device || 'desktop'}.\n📍 Location: ${geo.location} (${geo.isp})`;
+        }
         shouldNotify = true;
       } else if (event === 'fiverr_click') {
-        notificationMsg = `💼 <b>Lead Action (Scanned Cache)!</b>\n"${leadName}" clicked your <b>Fiverr Checkout</b> CTA button!`;
+        notificationMsg = `💼 <b>Lead Action!</b>\n"${leadName}" clicked your <b>Fiverr Checkout</b> CTA button!\n📍 Location: ${geo.location}`;
         shouldNotify = true;
       } else if (event === 'whatsapp_click') {
-        notificationMsg = `💬 <b>Lead Action (Scanned Cache)!</b>\n"${leadName}" clicked your <b>WhatsApp Contact</b> CTA button!`;
+        notificationMsg = `💬 <b>Lead Action!</b>\n"${leadName}" clicked your <b>WhatsApp Contact</b> CTA button!\n📍 Location: ${geo.location}`;
         shouldNotify = true;
       } else if (event === 'email_click') {
-        notificationMsg = `📧 <b>Lead Action (Scanned Cache)!</b>\n"${leadName}" clicked your <b>Direct Email</b> CTA button!`;
+        notificationMsg = `📧 <b>Lead Action!</b>\n"${leadName}" clicked your <b>Direct Email</b> CTA button!\n📍 Location: ${geo.location}`;
         shouldNotify = true;
       }
     }
@@ -1648,6 +1904,42 @@ app.post('/api/track', async (req, res) => {
     console.error('[Tracking Server Error]', err);
     res.status(500).json({ error: err.message });
   }
+});
+
+// New Live Chat endpoint for templates
+app.post('/api/chat', async (req, res) => {
+  const { leadId, leadName, message } = req.body;
+  if (!leadId || !message) {
+    return res.status(400).json({ error: 'Lead ID and message are required.' });
+  }
+
+  console.log(`[Live Chat] "${leadName || 'Unknown Lead'}" says: ${message}`);
+
+  // Append to activeVisits logs
+  let session = activeVisits.find(v => v.leadId === leadId);
+  if (session) {
+    session.lastActiveAt = new Date().toISOString();
+    session.events.push({
+      event: 'chat',
+      timestamp: new Date().toISOString(),
+      details: { message }
+    });
+  }
+
+  // Send message directly to Discord webhook
+  const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
+  const userId = process.env.DISCORD_USER_ID;
+  if (discordWebhookUrl && discordWebhookUrl !== 'your_discord_webhook_url_here' && discordWebhookUrl.trim() !== '') {
+    try {
+      const mention = (userId && userId.trim() !== "") ? `<@${userId.trim()}>` : "";
+      const discordMsg = `${mention} 💬 **Live Chat from Lead:** "${leadName || 'Unknown Lead'}"\n> ${message}`;
+      await postDiscordWebhook(discordWebhookUrl, { content: discordMsg }, { timeout: 4000 });
+    } catch (err) {
+      console.error('[Notification Error] Live Chat Discord delivery failed:', err.message);
+    }
+  }
+
+  res.json({ success: true });
 });
 
 // Endpoint for dashboard activity feed long-polling

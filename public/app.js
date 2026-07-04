@@ -1177,49 +1177,127 @@ document.addEventListener('DOMContentLoaded', () => {
       
       container.innerHTML = '';
       
-      list.forEach(visit => {
+      list.forEach(session => {
         const item = document.createElement('div');
         item.className = 'spy-log-item';
+        item.style.display = 'flex';
+        item.style.flexDirection = 'column';
+        item.style.alignItems = 'stretch';
+        item.style.gap = '8px';
+        item.style.padding = '12px 16px';
+        item.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
         
-        let icon = '';
-        let text = '';
+        // Format duration
+        const mins = Math.floor(session.duration / 60);
+        const secs = session.duration % 60;
+        const durationText = mins > 0 ? `${mins}m ${secs}s` : `${secs}s`;
         
-        if (visit.event === 'open') {
-          icon = `<i class="fa-solid fa-door-open" style="color: var(--color-cyan);"></i>`;
-          text = `opened proposal page`;
-        } else if (visit.event === 'fiverr_click') {
-          icon = `<i class="fa-solid fa-cart-shopping" style="color: #10b981;"></i>`;
-          text = `<span style="color: #10b981; font-weight: 700;">Clicked "Secure Order on Fiverr"</span>`;
-        } else if (visit.event === 'whatsapp_click') {
-          icon = `<i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>`;
-          text = `<span style="color: #25d366; font-weight: 700;">Clicked "Custom Modifications" (WhatsApp)</span>`;
-        } else if (visit.event === 'email_click') {
-          icon = `<i class="fa-solid fa-envelope" style="color: #3b82f6;"></i>`;
-          text = `<span style="color: #3b82f6; font-weight: 700;">Clicked "Direct Email"</span>`;
-        } else if (visit.event === 'heartbeat') {
-          icon = `<i class="fa-solid fa-heartbeat" style="color: #ff5e97; font-size: 0.75rem;"></i>`;
-          const scrollPct = visit.details.scrollPercent || 0;
-          text = `still viewing proposal (Scroll depth: ${scrollPct}%)`;
-        } else {
-          icon = `<i class="fa-solid fa-magnifying-glass" style="color: var(--color-purple);"></i>`;
-          text = `triggered event "${visit.event}"`;
-        }
-        
-        const deviceIcon = (visit.details && visit.details.device === 'mobile') 
-          ? `<i class="fa-solid fa-mobile-screen-button" title="Mobile Device"></i>`
-          : `<i class="fa-solid fa-desktop" title="Desktop Device"></i>`;
+        // Hot Lead Badge
+        const hotBadge = session.isHot 
+          ? `<span style="background: linear-gradient(135deg, #ff453a 0%, #ff9f0a 100%); color: #000; font-weight: 800; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 2px; text-transform: uppercase;"><i class="fa-solid fa-fire"></i> Hot Lead (${session.views} views)</span>`
+          : `<span style="background: rgba(255,255,255,0.06); color: var(--text-secondary); font-size: 0.65rem; padding: 2px 6px; border-radius: 4px;">${session.views} views</span>`;
           
+        const deviceIcon = session.device === 'mobile' 
+          ? `<i class="fa-solid fa-mobile-screen-button" title="Mobile Device" style="color: var(--color-purple); font-size: 0.8rem;"></i>`
+          : `<i class="fa-solid fa-desktop" title="Desktop Device" style="color: var(--color-cyan); font-size: 0.8rem;"></i>`;
+
+        // Format scroll progress color
+        let scrollColor = 'var(--color-purple)';
+        if (session.scrollPercent > 50) scrollColor = 'var(--color-cyan)';
+        if (session.scrollPercent > 80) scrollColor = 'var(--color-green)';
+
+        // Actions triggered icons
+        let hasFiverr = false;
+        let hasWa = false;
+        let hasEmail = false;
+        const chatMessages = [];
+
+        if (session.events) {
+          session.events.forEach(e => {
+            if (e.event === 'fiverr_click') hasFiverr = true;
+            if (e.event === 'whatsapp_click') hasWa = true;
+            if (e.event === 'email_click') hasEmail = true;
+            if (e.event === 'chat' && e.details && e.details.message) {
+              chatMessages.push({ msg: e.details.message, time: e.timestamp });
+            }
+          });
+        }
+
+        const fiverrBadge = hasFiverr ? `<span style="color: #10b981; font-size: 0.65rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; background: rgba(16,185,129,0.08); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(16,185,129,0.15);"><i class="fa-solid fa-cart-shopping"></i> Fiverr CTA</span>` : '';
+        const waBadge = hasWa ? `<span style="color: #25d366; font-size: 0.65rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; background: rgba(37,211,102,0.08); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(37,211,102,0.15);"><i class="fa-brands fa-whatsapp"></i> WhatsApp CTA</span>` : '';
+        const emailBadge = hasEmail ? `<span style="color: #3b82f6; font-size: 0.65rem; font-weight: 700; display: inline-flex; align-items: center; gap: 3px; background: rgba(59,130,246,0.08); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(59,130,246,0.15);"><i class="fa-solid fa-envelope"></i> Email CTA</span>` : '';
+        
+        // Render chat messages Speech Bubbles
+        let chatBubblesHtml = '';
+        if (chatMessages.length > 0) {
+          chatBubblesHtml = `
+            <div style="margin-top: 6px; display: flex; flex-direction: column; gap: 4px; width: 100%;">
+              <span style="font-size: 0.65rem; text-transform: uppercase; color: var(--color-cyan); font-weight: 600; display: flex; align-items: center; gap: 4px;"><i class="fa-solid fa-comments"></i> Visitor Live Chat:</span>
+              ${chatMessages.map(c => `
+                <div style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.12); padding: 8px 10px; border-radius: 8px; font-size: 0.75rem; color: #fff; line-height: 1.35; position: relative;">
+                  <span>${escapeHtml(c.msg)}</span>
+                  <span style="font-size: 0.6rem; opacity: 0.4; display: block; text-align: right; margin-top: 2px;">${new Date(c.time).toLocaleTimeString()}</span>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        // Format active time representation
+        const timeDiff = Math.round((new Date() - new Date(session.lastActiveAt)) / 1000);
+        let timeStatusText = '';
+        if (timeDiff < 25) {
+          timeStatusText = `<span style="color: #10b981; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;"><span style="width:6px; height:6px; background:#10b981; border-radius:50%; display:inline-block; box-shadow:0 0 8px #10b981;"></span> Active Now</span>`;
+        } else {
+          timeStatusText = `<span style="color: var(--text-secondary); font-size: 0.7rem;">Active ${new Date(session.lastActiveAt).toLocaleTimeString()}</span>`;
+        }
+
         item.innerHTML = `
-          <div class="spy-log-item-details">
-            ${icon}
-            <span><strong>${escapeHtml(visit.name)}</strong> ${text}</span>
+          <!-- Header Row -->
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px; overflow: hidden;">
+              <span style="color: #ffffff; font-weight: 700; font-size: 0.85rem; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${escapeHtml(session.name)}</span>
+              ${hotBadge}
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+              ${deviceIcon}
+              ${timeStatusText}
+            </div>
           </div>
-          <div class="spy-log-item-meta">
-            <span>${deviceIcon}</span>
-            <span>•</span>
-            <span>${escapeHtml(visit.timeStr)}</span>
+          
+          <!-- Location and ISP -->
+          <div style="display: flex; align-items: center; gap: 6px; font-size: 0.7rem; color: var(--text-secondary); width: 100%;">
+            <i class="fa-solid fa-earth-americas" style="color: var(--color-green);"></i>
+            <span>${escapeHtml(session.location || 'Unknown Location')}</span>
+            <span style="opacity: 0.4;">•</span>
+            <span style="opacity: 0.8; font-style: italic;">${escapeHtml(session.isp || 'Local Network')}</span>
           </div>
+
+          <!-- Engagement Metrics -->
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); width: 100%; gap: 12px; margin-top: 2px;">
+            <span style="display: flex; align-items: center; gap: 4px; white-space: nowrap;"><i class="fa-regular fa-clock" style="color: #ff5e97;"></i> Reading Time: <strong style="color:#fff;">${durationText}</strong></span>
+            
+            <div style="display: flex; align-items: center; gap: 6px; flex: 1; justify-content: flex-end; overflow: hidden;">
+              <span style="white-space: nowrap;">Scroll: <strong style="color:#fff;">${session.scrollPercent}%</strong></span>
+              <div style="width: 50px; height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden;">
+                <div style="width: ${session.scrollPercent}%; height: 100%; background: ${scrollColor}; border-radius: 3px; transition: width 0.3s;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interaction badging -->
+          ${(hasFiverr || hasWa || hasEmail) ? `
+            <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px;">
+              ${fiverrBadge}
+              ${waBadge}
+              ${emailBadge}
+            </div>
+          ` : ''}
+
+          <!-- Chat bubble outputs -->
+          ${chatBubblesHtml}
         `;
+        
         container.appendChild(item);
       });
     }
