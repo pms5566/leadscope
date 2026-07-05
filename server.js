@@ -995,7 +995,7 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
 
     // 3. Replace placeholders in subpage
     const businessName = lead.name || 'Our Premium Business';
-    const phone = (lead.phone && lead.phone !== 'N/A') ? lead.phone : 'Contact Us';
+    const phone = (lead.phone && lead.phone !== 'N/A') ? lead.phone : '(250) 859-2777';
     const address = (lead.address && lead.address !== 'N/A') ? lead.address : 'Our Location';
     
     html = html.replace(/\{\{BUSINESS_NAME\}\}/g, businessName);
@@ -1226,7 +1226,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     
     // 3. Replace placeholders
     const businessName = lead.name || 'Our Premium Business';
-    const phone = (lead.phone && lead.phone !== 'N/A') ? lead.phone : 'Contact Us';
+    const phone = (lead.phone && lead.phone !== 'N/A') ? lead.phone : '(250) 859-2777';
     const address = (lead.address && lead.address !== 'N/A') ? lead.address : 'Our Location';
     
     html = html.replace(/\{\{BUSINESS_NAME\}\}/g, businessName);
