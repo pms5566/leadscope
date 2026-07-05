@@ -1383,3 +1383,34 @@ footer {
         font-size: 1.8rem;
     }
 }
+
+/* Page Header & Pricing Grid Responsiveness */
+.page-header-section {
+    padding: 10rem 0 4rem;
+    background: radial-gradient(circle at top, rgba(0, 240, 255, 0.05), transparent 50%);
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form {
+    text-align: left; /* Keep forms readable on tablet centering */
+}
+
+@media (max-width: 768px) {
+    .page-header-section {
+        padding: 7rem 0 3rem;
+    }
+    
+    .page-title {
+        font-size: 2.25rem;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+}
