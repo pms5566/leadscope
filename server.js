@@ -1002,14 +1002,24 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
     html = html.replace(/\{\{PHONE\}\}/g, phone);
     html = html.replace(/\{\{ADDRESS\}\}/g, address);
 
-    // 4. Rewrite relative links inside the sub-page
+    // 4. Rewrite relative links inside the sub-page (preserving query parameters for stateless linkgen leads)
+    const nameParam = req.query.name ? `name=${encodeURIComponent(req.query.name)}` : '';
+    const phoneParam = req.query.phone ? `phone=${encodeURIComponent(req.query.phone)}` : '';
+    const addrParam = req.query.address ? `address=${encodeURIComponent(req.query.address)}` : '';
+    const paramsList = [nameParam, phoneParam, addrParam].filter(Boolean).join('&');
+    const queryStr = paramsList ? `?${paramsList}` : '';
+
     html = html.replace(/href="(?!\/\/|http|https|mailto|tel|#)([^"]+\.html)([^"]*)"/g, (match, p, hash) => {
-      if (p === 'index.html') return `href="/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}${hash || ''}"`;
-      return `href="/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}${hash || ''}"`;
+      const linkBase = p === 'index.html' 
+        ? `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}`
+        : `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}`;
+      return `href="${linkBase}${queryStr}${hash || ''}"`;
     });
     html = html.replace(/href='(?!\/\/|http|https|mailto|tel|#)([^']+\.html)([^']*)'/g, (match, p, hash) => {
-      if (p === 'index.html') return `href='/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}${hash || ''}'`;
-      return `href='/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}${hash || ''}'`;
+      const linkBase = p === 'index.html' 
+        ? `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}`
+        : `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}`;
+      return `href='${linkBase}${queryStr}${hash || ''}'`;
     });
 
     // 5. Inject tracking scripts so navigation transitions still log visits!
@@ -1213,14 +1223,24 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     html = html.replace(/\{\{PHONE\}\}/g, phone);
     html = html.replace(/\{\{ADDRESS\}\}/g, address);
     
-    // Rewrite relative HTML links to be lead-specific (preserving leadId and niche)
+    // Rewrite relative HTML links to be lead-specific (preserving leadId, niche, and query parameters)
+    const nameParam = req.query.name ? `name=${encodeURIComponent(req.query.name)}` : '';
+    const phoneParam = req.query.phone ? `phone=${encodeURIComponent(req.query.phone)}` : '';
+    const addrParam = req.query.address ? `address=${encodeURIComponent(req.query.address)}` : '';
+    const paramsList = [nameParam, phoneParam, addrParam].filter(Boolean).join('&');
+    const queryStr = paramsList ? `?${paramsList}` : '';
+
     html = html.replace(/href="(?!\/\/|http|https|mailto|tel|#)([^"]+\.html)([^"]*)"/g, (match, p, hash) => {
-      if (p === 'index.html') return `href="/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}${hash || ''}"`;
-      return `href="/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}${hash || ''}"`;
+      const linkBase = p === 'index.html' 
+        ? `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}`
+        : `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}`;
+      return `href="${linkBase}${queryStr}${hash || ''}"`;
     });
     html = html.replace(/href='(?!\/\/|http|https|mailto|tel|#)([^']+\.html)([^']*)'/g, (match, p, hash) => {
-      if (p === 'index.html') return `href='/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}${hash || ''}'`;
-      return `href='/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}${hash || ''}'`;
+      const linkBase = p === 'index.html' 
+        ? `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}`
+        : `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}`;
+      return `href='${linkBase}${queryStr}${hash || ''}'`;
     });
     
     // 4. Check if we are loading inside the device preview iframe
