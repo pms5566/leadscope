@@ -1075,6 +1075,16 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     html = html.replace(/\{\{PHONE\}\}/g, phone);
     html = html.replace(/\{\{ADDRESS\}\}/g, address);
     
+    // Rewrite relative HTML links to be lead-specific (preserving leadId and niche)
+    html = html.replace(/href="(?!\/\/|http|https|mailto|tel|#)([^"]+\.html)([^"]*)"/g, (match, p, hash) => {
+      if (p === 'index.html') return `href="/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}${hash || ''}"`;
+      return `href="/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}${hash || ''}"`;
+    });
+    html = html.replace(/href='(?!\/\/|http|https|mailto|tel|#)([^']+\.html)([^']*)'/g, (match, p, hash) => {
+      if (p === 'index.html') return `href='/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}${hash || ''}'`;
+      return `href='/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}${hash || ''}'`;
+    });
+    
     // 4. Check if we are loading inside the device preview iframe
     const isEmbed = req.query.embed === 'true';
     
@@ -1771,6 +1781,144 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
   } catch (err) {
     console.error('[Preview Load Error]', err);
     res.status(500).send('<h1>Error Loading Preview Template</h1><p>' + err.message + '</p>');
+  }
+});
+
+// Serve and personalize sub-pages of multi-page templates (e.g. services.html, packages.html)
+app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
+  const { niche, leadId, page } = req.params;
+  const pageFile = `${page}.html`;
+  
+  try {
+    // 1. Fetch lead
+    let lead = latestScannedLeads.find(l => l.id === leadId);
+    if (!lead) {
+      const db = await readDb();
+      lead = db.leads.find(l => l.id === leadId);
+    }
+    if (!lead && req.query.name) {
+      lead = { id: leadId, name: req.query.name, phone: req.query.phone || 'N/A', address: req.query.address || 'N/A' };
+    }
+    if (!lead) {
+      return res.status(404).send('<h1>Lead Proposal Not Found</h1>');
+    }
+
+    // 2. Load custom subpage locally
+    let html;
+    const fs = require('fs').promises;
+    const resolvedLocalFolder = await resolveLocalNicheFolder(niche);
+    if (resolvedLocalFolder) {
+      const localHtmlPath = path.join(__dirname, 'my_raw_templates', resolvedLocalFolder, pageFile);
+      html = await fs.readFile(localHtmlPath, 'utf8').catch(() => null);
+    }
+    
+    // Fallback to GitHub for sub-page if not found locally
+    if (!html) {
+      try {
+        const resolvedGithubFolder = await resolveGithubNicheFolder(niche);
+        const githubFolder = resolvedGithubFolder || niche;
+        html = await fetchFromGithub(`${githubFolder}/${pageFile}`, 'utf8').catch(() => null);
+      } catch (e) {}
+    }
+
+    if (!html) {
+      return res.status(404).send(`<h1>Sub-page "${pageFile}" Not Found</h1>`);
+    }
+
+    // 3. Replace placeholders in subpage
+    const businessName = lead.name || 'Our Premium Business';
+    const phone = (lead.phone && lead.phone !== 'N/A') ? lead.phone : 'Contact Us';
+    const address = (lead.address && lead.address !== 'N/A') ? lead.address : 'Our Location';
+    
+    html = html.replace(/\{\{BUSINESS_NAME\}\}/g, businessName);
+    html = html.replace(/\{\{PHONE\}\}/g, phone);
+    html = html.replace(/\{\{ADDRESS\}\}/g, address);
+
+    // 4. Rewrite relative links inside the sub-page
+    html = html.replace(/href="(?!\/\/|http|https|mailto|tel|#)([^"]+\.html)([^"]*)"/g, (match, p, hash) => {
+      if (p === 'index.html') return `href="/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}${hash || ''}"`;
+      return `href="/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}${hash || ''}"`;
+    });
+    html = html.replace(/href='(?!\/\/|http|https|mailto|tel|#)([^']+\.html)([^']*)'/g, (match, p, hash) => {
+      if (p === 'index.html') return `href='/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}${hash || ''}'`;
+      return `href='/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}/${p}${hash || ''}'`;
+    });
+
+    // 5. Inject tracking scripts so navigation transitions still log visits!
+    const hideScrollbarStyle = `
+      <style>
+        ::-webkit-scrollbar {
+          display: none !important;
+          width: 0 !important;
+          height: 0 !important;
+        }
+        html, body {
+          scrollbar-width: none !important;
+          -ms-overflow-style: none !important;
+        }
+      </style>
+    `;
+
+    const personalizationScript = `
+      <script>
+        (function() {
+          const logoText = document.querySelector('.logo');
+          if (logoText) {
+            logoText.setAttribute('href', '/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}');
+          }
+        })();
+      </script>
+    `;
+
+    const trackingScript = `
+      <script>
+        (function() {
+          const leadId = ${JSON.stringify(leadId)};
+          const leadName = ${JSON.stringify(businessName + ' (' + niche + ' - ' + page + ')')};
+          const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+          
+          async function sendEvent(event, details = {}) {
+            try {
+              await fetch('/api/track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
+              });
+            } catch (err) {}
+          }
+          
+          // Track sub-page load
+          sendEvent('open_page', { page: ${JSON.stringify(pageFile)} });
+
+          // Scroll and active duration tracking runs inside the scrollable embedded page
+          let totalSeconds = 0;
+          let maxScroll = 0;
+          
+          setInterval(() => {
+            totalSeconds += 10;
+            
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
+            
+            if (scrollPercent > maxScroll) {
+              maxScroll = scrollPercent;
+            }
+            
+            sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll, page: ${JSON.stringify(pageFile)} });
+          }, 10000);
+        })();
+      </script>
+    `;
+
+    html = html.replace('</head>', `${hideScrollbarStyle}</head>`);
+    html = html.replace('</body>', `${personalizationScript}${trackingScript}</body>`);
+    
+    res.setHeader('Content-Type', 'text/html');
+    return res.send(html);
+  } catch (err) {
+    console.error('[Sub-page Load Error]', err);
+    res.status(500).send('<h1>Error Loading Sub-page</h1>');
   }
 });
 
