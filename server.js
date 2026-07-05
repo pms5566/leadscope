@@ -1103,10 +1103,20 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
 // Dynamic Asset Proxy from GitHub Templates Repository
 app.get('/preview/:niche/*', async (req, res, next) => {
   const { niche } = req.params;
-  const filePath = req.params[0]; // Wildcard matches relative assets
+  const rawPath = req.params[0]; // Wildcard matches relative assets
   
-  if (!filePath || !filePath.includes('.')) {
+  if (!rawPath || !rawPath.includes('.')) {
     return next(); // Fall through to index.html lead preview route
+  }
+
+  // Clean leadId segment if browser resolved relative to a subpage URL (e.g. leadId/style.css)
+  let filePath = rawPath;
+  const parts = rawPath.split('/');
+  if (parts.length > 1) {
+    const firstPart = parts[0];
+    if (firstPart.startsWith('lead') || firstPart.startsWith('preview') || /^[a-z0-9_-]{8,}$/i.test(firstPart)) {
+      filePath = parts.slice(1).join('/');
+    }
   }
   
   // Try local filesystem first (with fuzzy folder resolution)
