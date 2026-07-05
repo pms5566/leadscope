@@ -1385,25 +1385,19 @@ footer {
 @media (max-width: 600px) {
     .glass-card {
         padding: 1.25rem !important;
+        text-align: left !important;
     }
     
-    .form-row-2 {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .form-row-3 {
-        grid-template-columns: repeat(3, 1fr); /* Keep Year, Make, Model in 1 row */
-        gap: 0.5rem;
-    }
-    
-    .form-row-3 .form-group label {
-        font-size: 0.75rem; /* Make labels smaller to fit in 3 cols */
+    .form-row-2, .form-row-3 {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
     }
     
     .form-control {
         padding: 0.75rem 1rem; /* Compact inputs on mobile */
         font-size: 0.88rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     /* Size Selector: keep in 1 row, don't stack vertically */
@@ -1422,7 +1416,7 @@ footer {
     }
     
     .size-option span {
-        font-size: 0.7rem !important;
+        font-size: 0.75rem !important;
     }
 
     /* Time Slots: keep in 1 row (3 columns) to look balanced */
@@ -1437,14 +1431,29 @@ footer {
         font-size: 0.75rem !important;
     }
 
-    /* Calendar Grid */
+    /* Calendar Grid & Date Circles */
     .calendar-grid {
-        padding: 0.5rem !important;
-        gap: 0.2rem !important;
+        padding: 0.5rem 0.25rem !important;
+        gap: 0.25rem 0.15rem !important;
+    }
+    
+    .calendar-day-label {
+        font-size: 0.7rem !important;
+        width: 30px !important;
+        text-align: center !important;
+        margin: 0 auto !important;
     }
     
     .calendar-date {
         font-size: 0.8rem !important;
+        width: 30px !important;
+        height: 30px !important;
+        line-height: 30px !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     /* Estimator Summary */
@@ -1489,6 +1498,10 @@ footer {
     text-align: left; /* Keep forms readable on tablet centering */
 }
 
+.booking-section {
+    padding: 2rem 0 8rem;
+}
+
 @media (max-width: 768px) {
     .page-header-section {
         padding: 7rem 0 3rem;
@@ -1501,5 +1514,9 @@ footer {
     .pricing-grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem;
+    }
+    
+    .booking-section {
+        padding: 1.5rem 0 4rem;
     }
 }
