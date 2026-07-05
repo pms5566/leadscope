@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Dynamic Auto Detailing Salmon Arm</title>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-car-burst"></i> DYNAMIC <span>AUTO</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                    <li><a href="packages.html" class="nav-link">Packages</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="tel:2508592777" class="phone-link">
+                    <i class="fa-solid fa-phone"></i> (250) 859-2777
+                </a>
+                <a href="contact.html" class="btn btn-primary">Book Online</a>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Gallery Header -->
+    <section style="padding: 10rem 0 4rem; background: radial-gradient(circle at top, rgba(0, 240, 255, 0.05), transparent 50%); text-align: center;">
+        <div class="container">
+            <span class="section-tag">Our Portfolio</span>
+            <h1 class="gradient-text" style="font-size: 3.5rem; margin-bottom: 1.5rem;">Detailing Gallery</h1>
+            <p class="text-muted" style="max-width: 650px; margin: 0 auto; font-size: 1.1rem;">Take a look at the results of our careful detailing, ceramic coating application, and paint correction works in Salmon Arm.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Grid Section -->
+    <section style="padding: 2rem 0 8rem;">
+        <div class="container">
+            <!-- Filter Categories -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="ceramic">Ceramic Coating</button>
+                <button class="filter-btn" data-filter="interior">Interior Detail</button>
+                <button class="filter-btn" data-filter="paint">Paint Correction</button>
+            </div>
+
+            <!-- Grid Items -->
+            <div class="gallery-grid">
+                <!-- Item 1: Ceramic Coating (Porsche) -->
+                <div class="gallery-item" data-category="ceramic">
+                    <img src="assets/ceramic_coating.png" alt="Porsche Gloss Armor ceramic coating application">
+                    <div class="gallery-item-overlay">
+                        <h3>Porsche 911 GT3</h3>
+                        <p>5-Year Ceramic Protection</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Interior Detail -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/interior_detailing.png" alt="Luxury car interior leather detailing and ambient clean">
+                    <div class="gallery-item-overlay">
+                        <h3>Audi R8 Interior</h3>
+                        <p>Deep Clean & Leather Condition</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Paint Correction (Tesla) -->
+                <div class="gallery-item" data-category="paint">
+                    <img src="assets/exterior_detailing.png" alt="Tesla paint correction showing scratch leveling and gloss coating">
+                    <div class="gallery-item-overlay">
+                        <h3>Tesla Model S</h3>
+                        <p>Multi-Stage Paint Correction</p>
+                    </div>
+                </div>
+
+                <!-- Item 4: Hero Car (Ceramic/Gloss) -->
+                <div class="gallery-item" data-category="ceramic">
+                    <img src="assets/hero_car.png" alt="Ferrari glossy paint coating studio finish">
+                    <div class="gallery-item-overlay">
+                        <h3>Ferrari SF90</h3>
+                        <p>Premium Ceramic Shell</p>
+                    </div>
+                </div>
+
+                <!-- Item 5: Interior Detail 2 -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="assets/interior_detailing.png" style="filter: hue-rotate(90deg);" alt="Tesla Cabin steam sanitize detail">
+                    <div class="gallery-item-overlay">
+                        <h3>Tesla Model Y Cabin</h3>
+                        <p>Steam Extraction & Sanitization</p>
+                    </div>
+                </div>
+
+                <!-- Item 6: Paint Correction 2 -->
+                <div class="gallery-item" data-category="paint">
+                    <img src="assets/ceramic_coating.png" style="filter: grayscale(100%);" alt="Reflective black clear coat scratch removal">
+                    <div class="gallery-item-overlay">
+                        <h3>Black Mercedes AMG</h3>
+                        <p>Scratch & Swirl Correction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 1.5rem;">
+                    <i class="fa-solid fa-car-burst"></i> DYNAMIC <span>AUTO</span>
+                </a>
+                <p>Premium auto detailing, ceramic coatings, and paint correction in Salmon Arm and surrounding areas. We treat every vehicle like it's our own.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/188mY4ur3N/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/dynamicdetailingauto/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="contact.html">Book Online</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html#ceramic">Ceramic Coating</a></li>
+                    <li><a href="services.html#interior">Interior Detailing</a></li>
+                    <li><a href="services.html#paint">Paint Correction</a></li>
+                    <li><a href="services.html#tint">Window Tinting</a></li>
+                    <li><a href="services.html#ppf">Paint Protection Film</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Working Hours</h4>
+                <ul class="footer-hours">
+                    <li>Monday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Tuesday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Wednesday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Thursday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Friday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Sat - Sun: <span>Closed</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Dynamic Auto Detailing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Native JavaScript for Page Interactivity -->
+    <script>
+        // Header shrink scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Gallery Filter System
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        // Add fade-in animation
+                        item.style.animation = 'fadeIn 0.5s ease-in-out forwards';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

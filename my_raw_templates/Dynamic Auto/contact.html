@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Online | Dynamic Auto Detailing Salmon Arm</title>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Form success styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(6, 8, 11, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glass-hover);
+            padding: 3.5rem;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.15);
+        }
+        .modal-content i {
+            font-size: 4rem;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+        }
+        .modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .modal-content p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-car-burst"></i> DYNAMIC <span>AUTO</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="packages.html" class="nav-link">Packages</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="tel:2508592777" class="phone-link">
+                    <i class="fa-solid fa-phone"></i> (250) 859-2777
+                </a>
+                <a href="contact.html" class="btn btn-primary">Book Online</a>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Booking Header -->
+    <section style="padding: 10rem 0 4rem; background: radial-gradient(circle at top, rgba(0, 240, 255, 0.05), transparent 50%); text-align: center;">
+        <div class="container">
+            <span class="section-tag">Booking & Inquiries</span>
+            <h1 class="gradient-text" style="font-size: 3.5rem; margin-bottom: 1.5rem;">Book Your Appointment</h1>
+            <p class="text-muted" style="max-width: 650px; margin: 0 auto; font-size: 1.1rem;">Schedule your auto detailing session. Calculate your price estimate and select your preferred slot.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Calculator & Booking Grid -->
+    <section style="padding: 2rem 0 8rem;">
+        <div class="container contact-grid">
+            
+            <!-- Estimator & Info Left -->
+            <div class="contact-info-card">
+                
+                <!-- Vehicle Size & Price Estimator -->
+                <div class="glass-card estimator-card">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem;">1. Price Estimator</h3>
+                    
+                    <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 0.75rem;">Select Vehicle Size:</p>
+                    <div class="size-selector">
+                        <div class="size-option selected" data-size="sedan">
+                            <i class="fa-solid fa-car"></i>
+                            <span>Sedan / Coupe</span>
+                        </div>
+                        <div class="size-option" data-size="suv">
+                            <i class="fa-solid fa-car-side"></i>
+                            <span>Mid SUV / Crossover</span>
+                        </div>
+                        <div class="size-option" data-size="truck">
+                            <i class="fa-solid fa-truck-pickup"></i>
+                            <span>Truck / Large SUV</span>
+                        </div>
+                    </div>
+
+                    <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 0.75rem;">Select Package / Service:</p>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <select id="estimator-service" class="form-control">
+                            <option value="silver">Silver Detailing Package</option>
+                            <option value="gold" selected>Gold Detailing Package</option>
+                            <option value="luxury">Luxury Detailing & 1-Year Coating</option>
+                            <option value="ceramic-3">Premium 3-Year Ceramic Coating</option>
+                            <option value="interior">Interior Detail Only</option>
+                            <option value="exterior">Exterior Detail Only</option>
+                        </select>
+                    </div>
+
+                    <div class="estimator-summary">
+                        <div>
+                            <span style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Estimated Price</span>
+                            <div class="estimator-total" id="est-total">$299</div>
+                        </div>
+                        <i class="fa-solid fa-calculator" style="font-size: 2.2rem; color: rgba(255, 255, 255, 0.1);"></i>
+                    </div>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); display: block; line-height: 1.4;">* Heavy dirt, stains, or pet hair may require additional inspection charges.</span>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="glass-card" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem;">
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-method-text">
+                            <h4>Call or Text Us</h4>
+                            <p>(250) 859-2777</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-method-text">
+                            <h4>Service Areas</h4>
+                            <p>Salmon Arm, Enderby, Sicamous</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-method-text">
+                            <h4>Operating Hours</h4>
+                            <p>Mon - Fri: 7:00 AM - 5:30 PM (Sat-Sun: Closed)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Booking Calendar / Form Right -->
+            <div class="glass-card">
+                <h3 style="font-size: 1.4rem; margin-bottom: 2rem;">2. Complete Booking Request</h3>
+                
+                <form class="contact-form" id="booking-form">
+                    
+                    <!-- Customer Details -->
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required class="form-control" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" required class="form-control" placeholder="(250) 555-0199">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required class="form-control" placeholder="john@example.com">
+                    </div>
+
+                    <!-- Car details -->
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label for="car-year">Year</label>
+                            <input type="number" id="car-year" class="form-control" placeholder="2022">
+                        </div>
+                        <div class="form-group">
+                            <label for="car-make">Make</label>
+                            <input type="text" id="car-make" class="form-control" placeholder="Tesla">
+                        </div>
+                        <div class="form-group">
+                            <label for="car-model">Model</label>
+                            <input type="text" id="car-model" class="form-control" placeholder="Model Y">
+                        </div>
+                    </div>
+
+                    <!-- Interactive Calendar Simulator -->
+                    <div class="form-group">
+                        <label>Preferred Date *</label>
+                        <div class="calendar-widget">
+                            <div class="calendar-header">
+                                <button type="button" class="calendar-nav-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                                <span class="calendar-month">July 2026</span>
+                                <button type="button" class="calendar-nav-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                            <div class="calendar-grid">
+                                <span class="calendar-day-label">Mo</span>
+                                <span class="calendar-day-label">Tu</span>
+                                <span class="calendar-day-label">We</span>
+                                <span class="calendar-day-label">Th</span>
+                                <span class="calendar-day-label">Fr</span>
+                                <span class="calendar-day-label">Sa</span>
+                                <span class="calendar-day-label">Su</span>
+                                
+                                <!-- Simulating July 2026 starting Wednesday -->
+                                <span class="calendar-date disabled"></span>
+                                <span class="calendar-date disabled"></span>
+                                <span class="calendar-date" data-date="2026-07-01">1</span>
+                                <span class="calendar-date" data-date="2026-07-02">2</span>
+                                <span class="calendar-date" data-date="2026-07-03">3</span>
+                                <span class="calendar-date disabled">4</span>
+                                <span class="calendar-date disabled">5</span>
+                                
+                                <span class="calendar-date" data-date="2026-07-06">6</span>
+                                <span class="calendar-date selected" data-date="2026-07-07">7</span>
+                                <span class="calendar-date" data-date="2026-07-08">8</span>
+                                <span class="calendar-date" data-date="2026-07-09">9</span>
+                                <span class="calendar-date" data-date="2026-07-10">10</span>
+                                <span class="calendar-date disabled">11</span>
+                                <span class="calendar-date disabled">12</span>
+
+                                <span class="calendar-date" data-date="2026-07-13">13</span>
+                                <span class="calendar-date" data-date="2026-07-14">14</span>
+                                <span class="calendar-date" data-date="2026-07-15">15</span>
+                                <span class="calendar-date" data-date="2026-07-16">16</span>
+                                <span class="calendar-date" data-date="2026-07-17">17</span>
+                                <span class="calendar-date disabled">18</span>
+                                <span class="calendar-date disabled">19</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time slots -->
+                    <div class="form-group">
+                        <label>Preferred Time Slot *</label>
+                        <div class="time-slots">
+                            <div class="time-slot selected">08:00 AM</div>
+                            <div class="time-slot">11:30 AM</div>
+                            <div class="time-slot">02:30 PM</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional Instructions / Notes</label>
+                        <textarea id="message" class="form-control" placeholder="E.g., heavy pet hair, specific scratches to target, mobile home driveway access, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%; margin-top: 1rem;">Submit Booking Request</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Success Modal Overlay -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal-content">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Request Submitted!</h3>
+            <p>Thank you for booking with Dynamic Auto Detailing. We will review your service request and contact you shortly at your provided phone number to confirm your slot.</p>
+            <button type="button" class="btn btn-primary" id="close-modal-btn">Got It</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 1.5rem;">
+                    <i class="fa-solid fa-car-burst"></i> DYNAMIC <span>AUTO</span>
+                </a>
+                <p>Premium auto detailing, ceramic coatings, and paint correction in Salmon Arm and surrounding areas. We treat every vehicle like it's our own.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/188mY4ur3N/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/dynamicdetailingauto/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="contact.html">Book Online</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html#ceramic">Ceramic Coating</a></li>
+                    <li><a href="services.html#interior">Interior Detailing</a></li>
+                    <li><a href="services.html#paint">Paint Correction</a></li>
+                    <li><a href="services.html#tint">Window Tinting</a></li>
+                    <li><a href="services.html#ppf">Paint Protection Film</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Working Hours</h4>
+                <ul class="footer-hours">
+                    <li>Monday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Tuesday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Wednesday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Thursday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Friday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Sat - Sun: <span>Closed</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Dynamic Auto Detailing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Native JavaScript for Page Interactivity -->
+    <script>
+        // Header shrink scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Pricing Estimator Interactivity
+        const sizeOptions = document.querySelectorAll('.size-option');
+        const serviceSelect = document.getElementById('estimator-service');
+        const estTotal = document.getElementById('est-total');
+
+        // Matrix of baseline pricing
+        const prices = {
+            silver: { sedan: 149, suv: 179, truck: 199 },
+            gold: { sedan: 299, suv: 349, truck: 399 },
+            luxury: { sedan: 799, suv: 899, truck: 999 },
+            'ceramic-3': { sedan: 999, suv: 1199, truck: 1399 },
+            interior: { sedan: 169, suv: 199, truck: 229 },
+            exterior: { sedan: 149, suv: 169, truck: 189 }
+        };
+
+        let currentSize = 'sedan';
+
+        sizeOptions.forEach(opt => {
+            opt.addEventListener('click', () => {
+                sizeOptions.forEach(o => o.classList.remove('selected'));
+                opt.classList.add('selected');
+                currentSize = opt.getAttribute('data-size');
+                calculateEstimate();
+            });
+        });
+
+        serviceSelect.addEventListener('change', calculateEstimate);
+
+        function calculateEstimate() {
+            const selectedService = serviceSelect.value;
+            const price = prices[selectedService][currentSize];
+            estTotal.textContent = `$${price}`;
+        }
+
+        // Calendar simulator date selector
+        const calendarDates = document.querySelectorAll('.calendar-date:not(.disabled)');
+        calendarDates.forEach(date => {
+            date.addEventListener('click', () => {
+                calendarDates.forEach(d => d.classList.remove('selected'));
+                date.classList.add('selected');
+            });
+        });
+
+        // Time slot selector
+        const timeSlots = document.querySelectorAll('.time-slot');
+        timeSlots.forEach(slot => {
+            slot.addEventListener('click', () => {
+                timeSlots.forEach(s => s.classList.remove('selected'));
+                slot.classList.add('selected');
+            });
+        });
+
+        // Parse URL params for pre-selecting package
+        function checkURLParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const packageParam = urlParams.get('package') || urlParams.get('service');
+            
+            if (packageParam) {
+                // Map param to option values
+                let mappedValue = 'gold';
+                if (packageParam === 'silver') mappedValue = 'silver';
+                if (packageParam === 'luxury') mappedValue = 'luxury';
+                if (packageParam === 'ceramic') mappedValue = 'ceramic-3';
+                if (packageParam === 'interior') mappedValue = 'interior';
+                if (packageParam === 'exterior') mappedValue = 'exterior';
+                
+                serviceSelect.value = mappedValue;
+                calculateEstimate();
+            }
+        }
+        window.addEventListener('DOMContentLoaded', checkURLParams);
+
+        // Booking form submission handler
+        const bookingForm = document.getElementById('booking-form');
+        const successModal = document.getElementById('success-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Show custom success modal
+            successModal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            successModal.style.display = 'none';
+            bookingForm.reset();
+            sizeOptions.forEach(o => o.classList.remove('selected'));
+            sizeOptions[0].classList.add('selected');
+            currentSize = 'sedan';
+            serviceSelect.value = 'gold';
+            calculateEstimate();
+        });
+    </script>
+</body>
+</html>

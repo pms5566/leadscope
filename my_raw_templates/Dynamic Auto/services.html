@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Dynamic Auto Detailing Salmon Arm</title>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .service-detail-section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-glass);
+        }
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .service-detail-grid.reverse {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        .service-detail-image {
+            border-radius: 24px;
+            border: 1px solid var(--border-glass);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+        .service-detail-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+        .service-detail-image:hover img {
+            transform: scale(1.03);
+        }
+        .service-includes {
+            list-style: none;
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .service-includes li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .service-includes li i {
+            color: var(--accent-cyan);
+        }
+        @media (max-width: 1024px) {
+            .service-detail-grid, .service-detail-grid.reverse {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            .service-includes {
+                justify-content: center;
+                max-width: 500px;
+                margin: 2rem auto;
+                text-align: left;
+            }
+            .service-detail-image img {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-car-burst"></i> DYNAMIC <span>AUTO</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="packages.html" class="nav-link">Packages</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="tel:2508592777" class="phone-link">
+                    <i class="fa-solid fa-phone"></i> (250) 859-2777
+                </a>
+                <a href="contact.html" class="btn btn-primary">Book Online</a>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Services Header Banner -->
+    <section style="padding: 10rem 0 4rem; background: radial-gradient(circle at top, rgba(0, 240, 255, 0.05), transparent 50%); text-align: center;">
+        <div class="container">
+            <span class="section-tag">Explore Services</span>
+            <h1 class="gradient-text" style="font-size: 3.5rem; margin-bottom: 1.5rem;">Car Detailing Services</h1>
+            <p class="text-muted" style="max-width: 650px; margin: 0 auto; font-size: 1.1rem;">We offer comprehensive exterior and interior styling protection options for your vehicle. Explore our professional-grade detailing options below.</p>
+        </div>
+    </section>
+
+    <!-- Ceramic Coating (#ceramic) -->
+    <section id="ceramic" class="service-detail-section">
+        <div class="container service-detail-grid">
+            <div class="service-detail-content">
+                <span class="section-tag">Protection</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem;"><span class="gradient-text-gold">Ceramic</span> Coating</h2>
+                <p class="text-muted">Our professional-grade Ceramic Coatings form a semi-permanent covalent bond with your vehicle's clear coat. This creating an ultra-slick, high-gloss hydrophobic layer that repels water, road grime, mud, and contaminants, making it exceptionally easy to wash. Provides long-term protection against UV rays, bird droppings, acid rain, and environmental oxidation.</p>
+                
+                <ul class="service-includes">
+                    <li><i class="fa-solid fa-circle-check"></i> Multi-year durability</li>
+                    <li><i class="fa-solid fa-circle-check"></i> High-Gloss shine</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Intense hydrophobics</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Chemical protection</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Hard protection layer</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Easy maintenance</li>
+                </ul>
+
+                <a href="contact.html?service=ceramic" class="btn btn-gold">Book Ceramic Coating</a>
+            </div>
+            <div class="service-detail-image">
+                <img src="assets/ceramic_coating.png" alt="Detailer applying ceramic coating paint protection to black sports car">
+            </div>
+        </div>
+    </section>
+
+    <!-- Interior Detailing (#interior) -->
+    <section id="interior" class="service-detail-section" style="background: var(--bg-secondary);">
+        <div class="container service-detail-grid reverse">
+            <div class="service-detail-image">
+                <img src="assets/interior_detailing.png" alt="Clean pristine sports car interior detailing cabin">
+            </div>
+            <div class="service-detail-content">
+                <span class="section-tag">Sanitize & Clean</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem;"><span class="gradient-text">Interior</span> Detailing</h2>
+                <p class="text-muted">Complete transformation of your vehicle’s cabin space. We thoroughly vacuum, steam-clean, and extract carpet fibers to remove heavy stains, dirt, and allergens. All plastics, dashboards, leather upholstery, and consoles are deep-cleaned, sanitized, and conditioned to restore a factory-fresh scent and soft-touch feel.</p>
+                
+                <ul class="service-includes">
+                    <li><i class="fa-solid fa-circle-check"></i> Steam extraction cleaning</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Leather conditioning</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Odor removal</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Vent sanitation</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Dashboard restoration</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Glass clarify polish</li>
+                </ul>
+
+                <a href="contact.html?service=interior" class="btn btn-primary">Book Interior Detail</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exterior Detailing (#exterior) -->
+    <section id="exterior" class="service-detail-section">
+        <div class="container service-detail-grid">
+            <div class="service-detail-content">
+                <span class="section-tag">Refine & Shine</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem;"><span class="gradient-text">Exterior</span> Detailing</h2>
+                <p class="text-muted">Restore your car’s exterior body panels. We perform a multi-stage hand wash, clay bar decontamination to pull embedded grit out of the clear coat, iron decontamination, and clean door jambs, wheels, and wheel arches. Finished with a premium wax or paint sealant to provide a glossy layer of paint protection.</p>
+                
+                <ul class="service-includes">
+                    <li><i class="fa-solid fa-circle-check"></i> 100% scratch-free hand wash</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Clay bar paint treatment</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Iron decontamination</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Wheel & tire detail</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Trim UV conditioning</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Premium paint sealant</li>
+                </ul>
+
+                <a href="contact.html?service=exterior" class="btn btn-primary">Book Exterior Detail</a>
+            </div>
+            <div class="service-detail-image">
+                <img src="assets/exterior_detailing.png" alt="Glossy clean white car showing hydrophobic water beads on the hood">
+            </div>
+        </div>
+    </section>
+
+    <!-- Paint Correction (#paint) -->
+    <section id="paint" class="service-detail-section" style="background: var(--bg-secondary);">
+        <div class="container service-detail-grid reverse">
+            <div class="service-detail-image">
+                <!-- Using ceramic image as styling representation for correction -->
+                <img src="assets/ceramic_coating.png" style="filter: hue-rotate(45deg);" alt="Paint correction machine polishing scratches off paint">
+            </div>
+            <div class="service-detail-content">
+                <span class="section-tag">Clarity & Correction</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem;"><span class="gradient-text">Paint</span> Correction</h2>
+                <p class="text-muted">Eliminate ugly swirl marks, spiderweb scratches, hologram reflections, bird poop etching, and oxidation. We measure paint thickness and perform a precise multi-stage machine polishing correction using high-grade compounds and pads to safely restore maximum optical clarity, depth, and reflection in your car’s clear coat.</p>
+                
+                <ul class="service-includes">
+                    <li><i class="fa-solid fa-circle-check"></i> Swirl mark removal</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Scratch leveling</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Multi-stage machine polish</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Paint thickness check</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Gloss level optimization</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Prep for Ceramic Coating</li>
+                </ul>
+
+                <a href="contact.html?service=correction" class="btn btn-primary">Book Paint Correction</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Grid (Window Tinting, PPF, Headlight Restoration, Mobile Detailing) -->
+    <section style="padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Specialist Services</span>
+                <h2 class="section-title">Window Tinting, PPF, & More</h2>
+                <p class="section-desc">Explore our additional automotive customization and restoration options.</p>
+            </div>
+
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <!-- Window Tinting -->
+                <div class="glass-card service-card" id="tint">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                    </div>
+                    <h3>Window Tinting</h3>
+                    <p>Blocks hot UV rays, protects cabin interiors from fading, and offers privacy and styling with our high-grade window films.</p>
+                    <a href="contact.html?service=tint" class="btn btn-secondary btn-sm" style="margin-top: auto; padding: 0.6rem 1.25rem;">Inquire Now</a>
+                </div>
+
+                <!-- PPF -->
+                <div class="glass-card service-card" id="ppf">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3>Paint Protection Film</h3>
+                    <p>Transparent self-healing film (Clear Bra) that defends your car's front bumper, hood, and mirrors against rock chips and road debris.</p>
+                    <a href="contact.html?service=ppf" class="btn btn-secondary btn-sm" style="margin-top: auto; padding: 0.6rem 1.25rem;">Inquire Now</a>
+                </div>
+
+                <!-- Headlight Restoration -->
+                <div class="glass-card service-card" id="headlight">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3>Headlight Restoration</h3>
+                    <p>Restore yellowed, hazy, and oxidized headlights back to crystal clarity for safer night driving and enhanced vehicle looks.</p>
+                    <a href="contact.html?service=headlight" class="btn btn-secondary btn-sm" style="margin-top: auto; padding: 0.6rem 1.25rem;">Inquire Now</a>
+                </div>
+
+                <!-- Mobile Detailing -->
+                <div class="glass-card service-card" id="mobile">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3>Mobile Detailing</h3>
+                    <p>No time to drop off your vehicle? We can bring our professional detailing services directly to your driveway in Salmon Arm.</p>
+                    <a href="contact.html?service=mobile" class="btn btn-secondary btn-sm" style="margin-top: auto; padding: 0.6rem 1.25rem;">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 1.5rem;">
+                    <i class="fa-solid fa-car-burst"></i> DYNAMIC <span>AUTO</span>
+                </a>
+                <p>Premium auto detailing, ceramic coatings, and paint correction in Salmon Arm and surrounding areas. We treat every vehicle like it's our own.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/188mY4ur3N/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/dynamicdetailingauto/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="contact.html">Book Online</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html#ceramic">Ceramic Coating</a></li>
+                    <li><a href="services.html#interior">Interior Detailing</a></li>
+                    <li><a href="services.html#paint">Paint Correction</a></li>
+                    <li><a href="services.html#tint">Window Tinting</a></li>
+                    <li><a href="services.html#ppf">Paint Protection Film</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Working Hours</h4>
+                <ul class="footer-hours">
+                    <li>Monday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Tuesday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Wednesday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Thursday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Friday: <span>7:00 AM - 5:30 PM</span></li>
+                    <li>Sat - Sun: <span>Closed</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Dynamic Auto Detailing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Native JavaScript for Page Interactivity -->
+    <script>
+        // Header shrink on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
