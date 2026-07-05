@@ -2286,6 +2286,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function startSearchCooldown(button, spinner, textEl, originalText, seconds = 15) {
+    if (!button || !textEl) return;
+    button.disabled = true;
+    if (spinner) spinner.style.display = 'none';
+    
+    let remaining = seconds;
+    textEl.innerHTML = `<i class="fa-solid fa-clock"></i> Wait (${remaining}s)`;
+    
+    const interval = setInterval(() => {
+      remaining--;
+      if (remaining <= 0) {
+        clearInterval(interval);
+        button.disabled = false;
+        textEl.innerHTML = originalText;
+      } else {
+        textEl.innerHTML = `<i class="fa-solid fa-clock"></i> Wait (${remaining}s)`;
+      }
+    }, 1000);
+  }
+
   if (adScanForm) {
     adScanForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -2362,9 +2382,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (adEmptyState) adEmptyState.style.display = 'flex';
       } finally {
         if (adLoadingPanel) adLoadingPanel.style.display = 'none';
-        adBtnSearch.disabled = false;
-        adSearchSpinner.style.display = 'none';
-        adSearchText.innerHTML = '<i class="fa-solid fa-satellite-dish"></i> Scan Ads';
+        startSearchCooldown(
+          adBtnSearch, 
+          adSearchSpinner, 
+          adSearchText, 
+          '<i class="fa-solid fa-satellite-dish"></i> Scan Ads', 
+          60
+        );
       }
     });
   }
@@ -2403,9 +2427,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (adEmptyState) adEmptyState.style.display = 'flex';
       } finally {
         if (adLoadingPanel) adLoadingPanel.style.display = 'none';
-        if (googleAdBtnSearch) googleAdBtnSearch.disabled = false;
-        if (googleAdSearchSpinner) googleAdSearchSpinner.style.display = 'none';
-        if (googleAdSearchText) googleAdSearchText.innerHTML = '<i class="fa-brands fa-google"></i> Scan Google';
+        startSearchCooldown(
+          googleAdBtnSearch, 
+          googleAdSearchSpinner, 
+          googleAdSearchText, 
+          '<i class="fa-brands fa-google"></i> Scan Google', 
+          60
+        );
       }
     });
   }
