@@ -1285,22 +1285,46 @@ footer {
         padding: 5rem 0;
     }
     
+    .nav-container {
+        padding: 0 1rem !important; /* Reduce padding to save horizontal space on mobile */
+        height: 70px !important;
+    }
+    
+    .logo {
+        font-size: 1.15rem !important; /* Make logo smaller on mobile headers */
+    }
+    
     .hamburger {
         display: block;
+        z-index: 1001; /* Ensure hamburger stays clickable on top of menus */
+    }
+    
+    /* Hamburger Active Transform animation into X */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
     
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 80px;
+        top: 70px; /* Match header height */
         flex-direction: column;
         background: var(--bg-primary);
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 70px);
         text-align: center;
         transition: 0.3s;
         padding-top: 3rem;
         border-top: 1px solid var(--border-glass);
+        z-index: 1000;
     }
     
     .nav-menu.active {
@@ -1310,7 +1334,7 @@ footer {
     .nav-cta {
         display: flex;
         align-items: center;
-        margin-right: 1rem;
+        margin-right: 0.5rem;
     }
     
     .nav-cta .btn {
@@ -1318,8 +1342,8 @@ footer {
     }
     
     .nav-cta .phone-link {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.6rem;
+        font-size: 0.78rem; /* Make phone pill text slightly smaller to prevent wrapping */
+        padding: 0.35rem 0.5rem;
         border: 1px solid var(--border-glass-hover);
         border-radius: 8px;
         background: rgba(0, 240, 255, 0.08);
