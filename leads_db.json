@@ -148,10 +148,18 @@
       "location": "ludhiana",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "",
+      "notes": "[11:50:18 AM] Opened Proposal Preview Link",
       "addedAt": "2026-07-04T16:03:22.968Z",
-      "updatedAt": "2026-07-08T05:28:02.440Z",
-      "shortAlias": "janta-piles-clinic-amritsar"
+      "updatedAt": "2026-07-08T06:20:18.481Z",
+      "shortAlias": "janta-piles-clinic-amritsar",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "meta-1783184904783-12",
