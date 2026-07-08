@@ -2436,6 +2436,77 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       .ls-btn-email-glow, .ls-btn-fiv-glow {
         flex: 1 !important;
         max-width: 50% !important;
+    /* Floating WhatsApp Bubble (Bottom Left Corner) */
+    .ls-floating-wa {
+      position: fixed !important;
+      bottom: 25px !important;
+      left: 25px !important;
+      width: 56px !important;
+      height: 56px !important;
+      background: #25d366 !important;
+      color: #ffffff !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 28px !important;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4) !important;
+      z-index: 2147483646 !important;
+      text-decoration: none !important;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+      animation: ls_float_pulse 2s infinite !important;
+    }
+    .ls-floating-wa:hover {
+      transform: scale(1.1) translateY(-3px) !important;
+      background: #20ba5a !important;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5) !important;
+    }
+    
+    /* Float tooltip */
+    .ls-floating-tooltip {
+      position: absolute !important;
+      left: 70px !important;
+      background: rgba(15, 23, 42, 0.95) !important;
+      color: #ffffff !important;
+      padding: 8px 14px !important;
+      border-radius: 10px !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      white-space: nowrap !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      opacity: 0 !important;
+      transform: translateX(-10px) !important;
+      transition: all 0.3s ease !important;
+      pointer-events: none !important;
+    }
+    .ls-floating-wa:hover .ls-floating-tooltip {
+      opacity: 1 !important;
+      transform: translateX(0) !important;
+    }
+    
+    @keyframes ls_float_pulse {
+      0% {
+        box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.6);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0px rgba(37, 211, 102, 0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .ls-floating-tooltip {
+        display: none !important;
+      }
+      .ls-floating-wa {
+        width: 48px !important;
+        height: 48px !important;
+        bottom: 16px !important;
+        left: 16px !important;
+        font-size: 24px !important;
       }
     }
   </style>
@@ -2497,6 +2568,12 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       </div>
     </div>
   </div>
+
+  <!-- Floating WhatsApp Action Bubble (Bottom Left) -->
+  <a href="${waLink}" target="_blank" class="ls-floating-wa" id="ls-whatsapp-float-lnk" title="WhatsApp Us">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="ls-floating-tooltip">💬 Need changes? Chat with us!</span>
+  </a>
 
   <!-- Inner Iframe Viewer screen -->
   <div id="ls-viewport-container">
@@ -2603,6 +2680,11 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       document.getElementById('ls-fiverr-lnk').addEventListener('click', () => sendEvent('fiverr_click'));
       document.getElementById('ls-whatsapp-lnk').addEventListener('click', () => sendEvent('whatsapp_click'));
       document.getElementById('ls-email-lnk').addEventListener('click', () => sendEvent('email_click'));
+      
+      const floatWa = document.getElementById('ls-whatsapp-float-lnk');
+      if (floatWa) {
+        floatWa.addEventListener('click', () => sendEvent('whatsapp_click', { source: 'floating_bubble' }));
+      }
 
       ${!hasTawk ? `
       // Chat Trigger
