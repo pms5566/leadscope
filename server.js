@@ -846,14 +846,60 @@ app.post('/api/scan-directory', async (req, res) => {
 const fs = require('fs').promises;
 const DB_PATH = path.join(__dirname, 'leads_db.json');
 
+const GH_OWNER = 'pms5566';
+const GH_REPO = 'leadscope';
+const GH_PATH = 'leads_db.json';
+
 let dbQueue = Promise.resolve();
+let dbCache = null;
+let dbCacheTime = 0;
+const CACHE_TTL = 10000; // 10 seconds cache TTL for read performance
 
 async function readDb() {
   return new Promise((resolve) => {
     dbQueue = dbQueue.then(async () => {
+      // Return memory cache if fresh
+      if (dbCache && (Date.now() - dbCacheTime < CACHE_TTL)) {
+        return resolve(dbCache);
+      }
+
+      // Try reading from GitHub if token is set
+      const token = process.env.GITHUB_TOKEN;
+      if (token && token.startsWith('ghp_')) {
+        try {
+          const response = await axios.get(
+            `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
+            {
+              headers: {
+                Authorization: `token ${token}`,
+                Accept: 'application/vnd.github.v3+json',
+                'User-Agent': 'LeadScope-App'
+              }
+            }
+          );
+          const base64Content = response.data.content;
+          const sha = response.data.sha;
+          const fileContent = Buffer.from(base64Content, 'base64').toString('utf8');
+          const parsed = JSON.parse(fileContent);
+          
+          dbCache = parsed;
+          dbCache.sha = sha;
+          dbCacheTime = Date.now();
+          
+          return resolve(dbCache);
+        } catch (error) {
+          const errMsg = error.response && error.response.data ? JSON.stringify(error.response.data) : error.message;
+          console.error('[GitHub DB] Failed to read from GitHub, falling back to local file:', errMsg);
+        }
+      }
+
+      // Fallback: Read local file
       try {
         const data = await fs.readFile(DB_PATH, 'utf8');
-        resolve(JSON.parse(data));
+        const parsed = JSON.parse(data);
+        dbCache = parsed;
+        dbCacheTime = Date.now();
+        resolve(dbCache);
       } catch (error) {
         if (error.code === 'ENOENT') {
           const defaultDb = { leads: [], shortLinks: {} };
@@ -878,13 +924,72 @@ async function readDb() {
 async function writeDb(data) {
   return new Promise((resolve) => {
     dbQueue = dbQueue.then(async () => {
+      // 1. Keep local file updated for local runtime fallback
       try {
-        await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
-        resolve(true);
+        const dataCopy = { ...data };
+        delete dataCopy.sha;
+        await fs.writeFile(DB_PATH, JSON.stringify(dataCopy, null, 2), 'utf8');
       } catch (error) {
-        console.error('Failed to write to leads_db.json:', error);
-        resolve(false);
+        console.error('Failed to write local database file:', error);
       }
+
+      dbCache = data;
+      dbCacheTime = Date.now();
+
+      // 2. Synchronize to GitHub repository if token is set
+      const token = process.env.GITHUB_TOKEN;
+      if (token && token.startsWith('ghp_')) {
+        try {
+          let sha = data.sha;
+          if (!sha) {
+            try {
+              const metaResponse = await axios.get(
+                `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
+                {
+                  headers: {
+                    Authorization: `token ${token}`,
+                    Accept: 'application/vnd.github.v3+json',
+                    'User-Agent': 'LeadScope-App'
+                  }
+                }
+              );
+              sha = metaResponse.data.sha;
+            } catch (metaErr) {
+              console.warn('[GitHub DB] No existing database file found on GitHub (creating new).');
+            }
+          }
+
+          const dataCopy = { ...data };
+          delete dataCopy.sha;
+          const jsonStr = JSON.stringify(dataCopy, null, 2);
+          const base64Content = Buffer.from(jsonStr).toString('base64');
+
+          const updateResponse = await axios.put(
+            `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
+            {
+              message: 'db: synchronize CRM database',
+              content: base64Content,
+              sha: sha
+            },
+            {
+              headers: {
+                Authorization: `token ${token}`,
+                Accept: 'application/vnd.github.v3+json',
+                'User-Agent': 'LeadScope-App'
+              }
+            }
+          );
+          
+          data.sha = updateResponse.data.content.sha;
+          console.log('[GitHub DB] Successfully synchronized database with GitHub.');
+          return resolve(true);
+        } catch (error) {
+          const errMsg = error.response && error.response.data ? JSON.stringify(error.response.data) : error.message;
+          console.error('[GitHub DB] Failed to push database to GitHub:', errMsg);
+        }
+      }
+
+      resolve(true);
     }).catch(err => {
       console.error('Queue error in writeDb:', err);
       resolve(false);
