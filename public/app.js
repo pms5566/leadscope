@@ -100,8 +100,115 @@ document.addEventListener('DOMContentLoaded', () => {
           anchor.href = `${getPreviewBaseUrl()}/preview/${cleanNiche}/${id}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
         }
       }
+
+      // If a shortlink container exists under this column, reset it to allow shortening the new link
+      const shortContainer = parentDiv.parentElement ? parentDiv.parentElement.querySelector('.crm-short-link-container') : null;
+      if (shortContainer) {
+        shortContainer.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <input type="text" placeholder="Custom Alias (Optional)" class="crm-short-alias-input" data-id="${id}" oninput="if(window.handleAliasInput) window.handleAliasInput(this)" style="font-size: 10px; padding: 2px 4px; background: rgba(0,0,0,0.25); border: 1px solid var(--color-border); border-radius: 4px; color: #fff; width: 110px;" title="Enter custom alias">
+            <button class="btn-action" onclick="shortenCrmLeadLink('${id}', this)" style="padding: 2px 6px; font-size: 10px; background: rgba(0,217,245,0.1); border: 1px solid rgba(0,217,245,0.2); color: var(--color-cyan); white-space: nowrap;">
+              Shorten 🔗
+            </button>
+          </div>
+          <div class="crm-short-link-status" style="font-size: 10px; display: none;"></div>
+        `;
+      }
     }
   }
+
+  function buildCrmShortLinkHtml(lead, proposalUrl) {
+    const shortAlias = lead.shortAlias || '';
+    const base = getPreviewBaseUrl();
+    const shortUrl = shortAlias ? `${base}/go/${shortAlias}` : '';
+
+    if (shortAlias) {
+      return `
+        <div class="crm-short-link-container" style="margin-top: 0.25rem; display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-size: 0.68rem; color: var(--color-green); font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">
+            <i class="fa-solid fa-shield-halved"></i> Trust Link:
+          </span>
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
+              /go/${shortAlias}
+            </a>
+            <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied short link!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Short Link">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="crm-short-link-container" style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <input type="text" placeholder="Custom Alias (Optional)" class="crm-short-alias-input" data-id="${lead.id}" oninput="if(window.handleAliasInput) window.handleAliasInput(this)" style="font-size: 10px; padding: 2px 4px; background: rgba(0,0,0,0.25); border: 1px solid var(--color-border); border-radius: 4px; color: #fff; width: 110px;" title="Enter custom alias">
+            <button class="btn-action" onclick="shortenCrmLeadLink('${lead.id}', this)" style="padding: 2px 6px; font-size: 10px; background: rgba(0,217,245,0.1); border: 1px solid rgba(0,217,245,0.2); color: var(--color-cyan); white-space: nowrap;">
+              Shorten 🔗
+            </button>
+          </div>
+          <div class="crm-short-link-status" style="font-size: 10px; display: none;"></div>
+        </div>
+      `;
+    }
+  }
+
+  window.shortenCrmLeadLink = async function (leadId, buttonEl) {
+    const container = buttonEl.closest('.crm-short-link-container');
+    const input = container ? container.querySelector('.crm-short-alias-input') : null;
+    const statusEl = container ? container.querySelector('.crm-short-link-status') : null;
+    const customAlias = input ? input.value.trim() : '';
+
+    if (statusEl) {
+      statusEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Shortening...`;
+      statusEl.style.color = 'var(--color-cyan)';
+      statusEl.style.display = 'block';
+    }
+
+    try {
+      const response = await fetch('/api/crm/shorten', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ leadId, customAlias })
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to shorten');
+      }
+
+      const shortUrl = result.shortUrl;
+      const shortAlias = result.alias;
+
+      // Update UI
+      if (container) {
+        container.innerHTML = `
+          <span style="font-size: 0.68rem; color: var(--color-green); font-weight: bold; display: inline-flex; align-items: center; gap: 4px; margin-top: 4px;">
+            <i class="fa-solid fa-shield-halved"></i> Trust Link:
+          </span>
+          <div style="display: flex; align-items: center; gap: 4px;">
+            <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
+              /go/${shortAlias}
+            </a>
+            <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied short link!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Short Link">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+        `;
+      }
+
+      // Update internal crmLeads array cache
+      const index = crmLeads.findIndex(l => l.id === leadId);
+      if (index !== -1) {
+        crmLeads[index].shortAlias = shortAlias;
+      }
+    } catch (err) {
+      if (statusEl) {
+        statusEl.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> ${err.message}`;
+        statusEl.style.color = 'var(--color-rose)';
+      }
+    }
+  };
 
   // Initialize and check configuration mode
   async function checkServerConfig() {
@@ -963,6 +1070,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <i class="fa-solid fa-link"></i> Proposal Link <i class="fa-solid fa-up-right-from-square" style="font-size:0.6rem;"></i>
             </a>
             ${buildTemplateSelectorHtml(lead, true, lead.id)}
+            ${buildCrmShortLinkHtml(lead, proposalUrl)}
           </div>
         `;
 
@@ -2747,7 +2855,19 @@ document.addEventListener('DOMContentLoaded', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 // LINK GENERATOR — generate & share personalised proposal preview links
 // ─────────────────────────────────────────────────────────────────────────────
-window.generateLink = function () {
+// Clean alias input on keypress (lowercase, hyphens only)
+window.handleAliasInput = function (input) {
+  const selectionStart = input.selectionStart;
+  const originalVal = input.value;
+  const cleanedVal = originalVal.toLowerCase().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+  if (originalVal !== cleanedVal) {
+    input.value = cleanedVal;
+    try { input.setSelectionRange(selectionStart, selectionStart); } catch(e) {}
+  }
+  window.generateLinkDraft();
+};
+
+window.generateLinkDraft = function () {
   const niche   = (document.getElementById('lg_niche')   || {}).value   || '';
   const name    = (document.getElementById('lg_name')    || {}).value   || '';
   const tag     = (document.getElementById('lg_tag')     || {}).value   || '';
@@ -2762,46 +2882,101 @@ window.generateLink = function () {
   const smsBtn      = document.getElementById('lg_sms');
 
   if (!niche || !name) {
-    if (outputEl) outputEl.textContent = 'Please enter at least a Niche and Business Name.';
+    if (outputEl) outputEl.innerHTML = '<span style="color: var(--color-text-secondary);">Fill in the form to generate your link...</span>';
     return;
   }
 
-  // Use configured public sharing domain or default to local host origin
   const base      = getPreviewBaseUrl();
   const leadId    = 'preview_' + niche.replace(/\s+/g, '_') + '_' + Date.now();
   const fullName  = tag ? `${name} - ${tag}` : name;
   const url       = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
 
-  // Display the link
-  if (outputEl) outputEl.textContent = url;
-
-  // Enable copy & open
-  if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = url; }
-  if (openBtn) { openBtn.href = url; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
-
-  // WhatsApp
-  const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${url}`;
-  if (waBtn) {
-    waBtn.href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
-    waBtn.style.pointerEvents = 'auto';
-    waBtn.style.opacity = '1';
+  if (outputEl) {
+    outputEl.innerHTML = `<span style="font-size:0.75rem; color:#facc15; font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-triangle-exclamation"></i> Draft Preview (Click "Generate Link" to Shorten)</span>` + url;
   }
 
-  // Email
-  const emailSubject = `Your Free Website Demo — ${name}`;
-  const emailBody    = `Hi,\n\nI've created a personalised website demo for ${name}. Click the link below to view it:\n\n${url}\n\nLet me know what you think!\n\nBest regards`;
-  if (emailBtn) {
-    emailBtn.href = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    emailBtn.style.pointerEvents = 'auto';
-    emailBtn.style.opacity = '1';
+  if (copyBtn) copyBtn.disabled = true;
+  if (openBtn) { openBtn.href = "#"; openBtn.style.pointerEvents = 'none'; openBtn.style.opacity = '0.4'; }
+  if (waBtn) { waBtn.href = "#"; waBtn.style.pointerEvents = 'none'; waBtn.style.opacity = '0.4'; }
+  if (emailBtn) { emailBtn.href = "#"; emailBtn.style.pointerEvents = 'none'; emailBtn.style.opacity = '0.4'; }
+  if (smsBtn) { smsBtn.href = "#"; smsBtn.style.pointerEvents = 'none'; smsBtn.style.opacity = '0.4'; }
+};
+
+window.generateLink = async function () {
+  const niche   = (document.getElementById('lg_niche')   || {}).value   || '';
+  const name    = (document.getElementById('lg_name')    || {}).value   || '';
+  const tag     = (document.getElementById('lg_tag')     || {}).value   || '';
+  const phone   = (document.getElementById('lg_phone')   || {}).value   || '';
+  const address = (document.getElementById('lg_address') || {}).value   || '';
+  const customAlias = (document.getElementById('lg_alias') || {}).value || '';
+
+  const outputEl    = document.getElementById('lg_output');
+  const copyBtn     = document.getElementById('lg_btn_copy');
+  const openBtn     = document.getElementById('lg_btn_open');
+  const waBtn       = document.getElementById('lg_whatsapp');
+  const emailBtn    = document.getElementById('lg_email');
+  const smsBtn      = document.getElementById('lg_sms');
+
+  if (!niche || !name) {
+    if (outputEl) outputEl.textContent = 'Please enter at least a Niche and Business Name.';
+    return;
   }
 
-  // SMS
-  const smsMsg = `Hi! Here's your free website demo: ${url}`;
-  if (smsBtn) {
-    smsBtn.href = `sms:?body=${encodeURIComponent(smsMsg)}`;
-    smsBtn.style.pointerEvents = 'auto';
-    smsBtn.style.opacity = '1';
+  if (outputEl) {
+    outputEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Generating trust link...`;
+  }
+
+  const base      = getPreviewBaseUrl();
+  const leadId    = 'preview_' + niche.replace(/\s+/g, '_') + '_' + Date.now();
+  const fullName  = tag ? `${name} - ${tag}` : name;
+  const longUrl   = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+
+  try {
+    const response = await fetch('/api/shorten', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ longUrl, customAlias, name: fullName })
+    });
+    
+    const result = await response.json();
+    if (!response.ok || !result.success) {
+      throw new Error(result.error || 'Failed to shorten link');
+    }
+
+    const shortUrl = result.shortUrl;
+
+    if (outputEl) {
+      outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Trust Link</span>` + shortUrl;
+    }
+
+    if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = shortUrl; }
+    if (openBtn) { openBtn.href = shortUrl; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
+
+    const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${shortUrl}`;
+    if (waBtn) {
+      waBtn.href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
+      waBtn.style.pointerEvents = 'auto';
+      waBtn.style.opacity = '1';
+    }
+
+    const emailSubject = `Your Free Website Demo — ${name}`;
+    const emailBody    = `Hi,\n\nI've created a personalised website demo for ${name}. Click the link below to view it:\n\n${shortUrl}\n\nLet me know what you think!\n\nBest regards`;
+    if (emailBtn) {
+      emailBtn.href = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      emailBtn.style.pointerEvents = 'auto';
+      emailBtn.style.opacity = '1';
+    }
+
+    const smsMsg = `Hi! Here's your free website demo: ${shortUrl}`;
+    if (smsBtn) {
+      smsBtn.href = `sms:?body=${encodeURIComponent(smsMsg)}`;
+      smsBtn.style.pointerEvents = 'auto';
+      smsBtn.style.opacity = '1';
+    }
+  } catch (err) {
+    if (outputEl) {
+      outputEl.innerHTML = `<span style="color: var(--color-rose);"><i class="fa-solid fa-circle-exclamation"></i> Error: ${err.message}</span>`;
+    }
   }
 };
 
@@ -2831,7 +3006,7 @@ window.copyProposalLink = function () {
   });
 };
 
-window.generateAllLinks = function () {
+window.generateAllLinks = async function () {
   const name    = (document.getElementById('lg_name')    || {}).value   || '';
   const tag     = (document.getElementById('lg_tag')     || {}).value   || '';
   const phone   = (document.getElementById('lg_phone')   || {}).value   || '';
@@ -2845,47 +3020,71 @@ window.generateAllLinks = function () {
     return;
   }
 
-  // Fallback to global window function resolution
   const base = typeof window.getPreviewBaseUrl === 'function' ? window.getPreviewBaseUrl() : window.location.origin;
 
   const nicheSelect = document.getElementById('lg_niche');
   if (!nicheSelect) return;
 
   const options = Array.from(nicheSelect.options);
-  tbody.innerHTML = '';
+  tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:2rem; color:var(--color-cyan);"><i class="fa-solid fa-spinner fa-spin"></i> Generating trust links for all niches...</td></tr>`;
+  if (container) container.style.display = 'flex';
 
   const fullName = tag ? `${name} - ${tag}` : name;
   const timestamp = Date.now();
 
+  const linksToShorten = [];
+  const labelsMap = {};
+
   options.forEach(opt => {
     const val = opt.value;
     const label = opt.text;
-
     if (val === 'custom') return;
 
-    // Suffix leadId with template name so each row tracks as a distinct dashboard session
     const leadId = 'preview_' + val.replace(/\s+/g, '_') + '_' + timestamp;
     const url = `${base}/preview/${encodeURIComponent(val)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
-
-    const tr = document.createElement('tr');
-    tr.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
-    tr.innerHTML = `
-      <td style="padding: 0.75rem 0.5rem; font-weight: 700; color: #fff;">${label}</td>
-      <td style="padding: 0.75rem 0.5rem; word-break: break-all; color: var(--color-cyan); font-family: monospace; font-size: 0.78rem;">${url}</td>
-      <td style="padding: 0.75rem 0.5rem; text-align: center;">
-        <div style="display: inline-flex; gap: 6px;">
-          <button class="btn-action btn-copy" onclick="navigator.clipboard.writeText('${url}'); alert('Copied link for ${label.replace(/'/g, "\\'")}!');" style="padding: 4px 8px; font-size: 0.75rem; background: rgba(0,217,245,0.1); border: 1px solid rgba(0,217,245,0.2); color: var(--color-cyan);">
-            <i class="fa-solid fa-copy"></i> Copy
-          </button>
-          <a href="${url}" target="_blank" class="btn-action btn-launch" style="padding: 4px 8px; font-size: 0.75rem; text-decoration: none;">
-            <i class="fa-solid fa-eye"></i> View
-          </a>
-        </div>
-      </td>
-    `;
-    tbody.appendChild(tr);
+    
+    linksToShorten.push({ niche: val, longUrl: url });
+    labelsMap[val] = label;
   });
 
-  if (container) container.style.display = 'flex';
+  try {
+    const response = await fetch('/api/shorten/bulk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: fullName, links: linksToShorten })
+    });
+
+    const result = await response.json();
+    if (!response.ok || !result.success) {
+      throw new Error(result.error || 'Failed to generate bulk links');
+    }
+
+    tbody.innerHTML = '';
+    result.shortLinks.forEach(item => {
+      const label = labelsMap[item.niche] || item.niche;
+      const url = item.shortUrl;
+
+      const tr = document.createElement('tr');
+      tr.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+      tr.innerHTML = `
+        <td style="padding: 0.75rem 0.5rem; font-weight: 700; color: #fff;">${label}</td>
+        <td style="padding: 0.75rem 0.5rem; word-break: break-all; color: var(--color-cyan); font-family: monospace; font-size: 0.78rem;">${url}</td>
+        <td style="padding: 0.75rem 0.5rem; text-align: center;">
+          <div style="display: inline-flex; gap: 6px;">
+            <button class="btn-action btn-copy" onclick="navigator.clipboard.writeText('${url}'); alert('Copied link for ${label.replace(/'/g, "\\'")}!');" style="padding: 4px 8px; font-size: 0.75rem; background: rgba(0,217,245,0.1); border: 1px solid rgba(0,217,245,0.2); color: var(--color-cyan);">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <a href="${url}" target="_blank" class="btn-action btn-launch" style="padding: 4px 8px; font-size: 0.75rem; text-decoration: none;">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+          </div>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+  } catch (err) {
+    tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:2rem; color:var(--color-rose);"><i class="fa-solid fa-circle-exclamation"></i> Error: ${err.message}</td></tr>`;
+  }
 };
 

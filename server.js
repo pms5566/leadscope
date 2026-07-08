@@ -941,6 +941,366 @@ app.delete('/api/crm/:id', async (req, res) => {
   }
 });
 
+// URL Shortening & Redirect APIs
+function getBaseUrlFromReq(req) {
+  let domain = process.env.PUBLIC_SHARING_DOMAIN;
+  if (domain && domain.trim() !== '') {
+    domain = domain.trim();
+    if (!domain.startsWith('http://') && !domain.startsWith('https://')) {
+      domain = 'https://' + domain;
+    }
+    return domain.replace(/\/$/, '');
+  }
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+  const host = req.headers['x-forwarded-host'] || req.get('host');
+  return `${protocol}://${host}`;
+}
+
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
+
+// Redirect Route - placed early to handle short URLs quickly
+app.get('/go/:alias', async (req, res) => {
+  const { alias } = req.params;
+  
+  try {
+    const db = await readDb();
+    const shortLinks = db.shortLinks || {};
+    
+    let longUrl = shortLinks[alias];
+    
+    // Fallback: Check if any CRM lead has this shortAlias
+    if (!longUrl && db.leads) {
+      const lead = db.leads.find(l => l.shortAlias === alias);
+      if (lead) {
+        const baseUrl = getBaseUrlFromReq(req);
+        const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+        if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
+          longUrl = lead.portfolioLink;
+        } else {
+          const tNiche = lead.portfolioLink || cleanNiche;
+          longUrl = `${baseUrl}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+        }
+      }
+    }
+
+    if (longUrl) {
+      return res.redirect(longUrl);
+    }
+
+    // Render a premium dark-mode 404 page if alias not found
+    return res.status(404).send(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Demo Link Expired or Not Found</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+          :root {
+            --color-bg: #0b0f19;
+            --color-surface: #131b2e;
+            --color-border: rgba(255, 255, 255, 0.08);
+            --color-text-primary: #f8fafc;
+            --color-text-secondary: #94a3b8;
+            --color-cyan: #00d9f5;
+            --color-rose: #f43f5e;
+          }
+          body {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1.5rem;
+            box-sizing: border-box;
+          }
+          .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+          }
+          .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-rose) 0%, var(--color-cyan) 100%);
+          }
+          .icon-container {
+            width: 80px;
+            height: 80px;
+            background: rgba(244, 63, 94, 0.1);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: var(--color-rose);
+            font-size: 2.2rem;
+          }
+          h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0 0 0.75rem;
+            letter-spacing: -0.025em;
+          }
+          p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 2rem;
+          }
+          .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 217, 245, 0.2);
+          }
+          .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 217, 245, 0.35);
+          }
+        </style>
+      </head>
+      <body>
+        <div class="card">
+          <div class="icon-container">
+            <i class="fa-solid fa-link-slash"></i>
+          </div>
+          <h1>Proposal Link Expired</h1>
+          <p>The personalized proposal preview link you clicked is invalid, expired, or has been removed by the sender.</p>
+          <a href="/" class="btn">
+            <i class="fa-solid fa-house"></i> Go to Homepage
+          </a>
+        </div>
+      </body>
+      </html>
+    `);
+  } catch (error) {
+    console.error('Redirection error:', error);
+    res.status(500).send('An error occurred while redirecting.');
+  }
+});
+
+app.post('/api/shorten', async (req, res) => {
+  const { longUrl, customAlias, name } = req.body;
+  if (!longUrl) {
+    return res.status(400).json({ error: 'longUrl is required.' });
+  }
+
+  try {
+    const db = await readDb();
+    if (!db.shortLinks) {
+      db.shortLinks = {};
+    }
+
+    let alias = '';
+    
+    // Check if this exact longUrl is already shortened to prevent duplicate links (only if no custom alias is requested)
+    if (!customAlias) {
+      const existing = Object.keys(db.shortLinks).find(k => db.shortLinks[k] === longUrl);
+      if (existing) {
+        const baseUrl = getBaseUrlFromReq(req);
+        return res.json({ success: true, shortUrl: `${baseUrl}/go/${existing}`, alias: existing });
+      }
+    }
+
+    if (customAlias) {
+      alias = slugify(customAlias);
+      if (!alias) {
+        return res.status(400).json({ error: 'Invalid custom alias format.' });
+      }
+      if (db.shortLinks[alias]) {
+        return res.status(400).json({ error: 'This custom alias is already in use.' });
+      }
+    } else {
+      let baseAlias = '';
+      if (name) {
+        baseAlias = slugify(name);
+      }
+      if (!baseAlias) {
+        baseAlias = 'link';
+      }
+
+      if (!db.shortLinks[baseAlias]) {
+        alias = baseAlias;
+      } else {
+        let attempts = 0;
+        do {
+          const hash = Math.random().toString(36).substring(2, 6);
+          alias = `${baseAlias}-${hash}`;
+          attempts++;
+        } while (db.shortLinks[alias] && attempts < 100);
+      }
+    }
+
+    db.shortLinks[alias] = longUrl;
+    await writeDb(db);
+
+    const baseUrl = getBaseUrlFromReq(req);
+    res.json({ success: true, shortUrl: `${baseUrl}/go/${alias}`, alias });
+  } catch (error) {
+    console.error('Failed to shorten link:', error);
+    res.status(500).json({ error: 'Failed to shorten link: ' + error.message });
+  }
+});
+
+app.post('/api/shorten/bulk', async (req, res) => {
+  const { name, links } = req.body;
+  if (!links || !Array.isArray(links)) {
+    return res.status(400).json({ error: 'links array is required.' });
+  }
+
+  try {
+    const db = await readDb();
+    if (!db.shortLinks) {
+      db.shortLinks = {};
+    }
+
+    const baseUrl = getBaseUrlFromReq(req);
+    const results = [];
+    const baseBizName = name ? slugify(name) : 'biz';
+
+    for (const item of links) {
+      const { niche, longUrl } = item;
+      if (!longUrl) continue;
+
+      // Check if existing
+      const existing = Object.keys(db.shortLinks).find(k => db.shortLinks[k] === longUrl);
+      if (existing) {
+        results.push({ niche, shortUrl: `${baseUrl}/go/${existing}`, alias: existing });
+        continue;
+      }
+
+      // Generate a nice name-niche alias
+      const cleanNiche = slugify(niche || 'preview');
+      let alias = `${baseBizName}-${cleanNiche}`;
+      
+      if (db.shortLinks[alias]) {
+        let attempts = 0;
+        do {
+          const hash = Math.random().toString(36).substring(2, 6);
+          alias = `${baseBizName}-${cleanNiche}-${hash}`;
+          attempts++;
+        } while (db.shortLinks[alias] && attempts < 100);
+      }
+
+      db.shortLinks[alias] = longUrl;
+      results.push({ niche, shortUrl: `${baseUrl}/go/${alias}`, alias });
+    }
+
+    await writeDb(db);
+    res.json({ success: true, shortLinks: results });
+  } catch (error) {
+    console.error('Failed to bulk shorten links:', error);
+    res.status(500).json({ error: 'Failed to bulk shorten links: ' + error.message });
+  }
+});
+
+app.post('/api/crm/shorten', async (req, res) => {
+  const { leadId, customAlias } = req.body;
+  if (!leadId) {
+    return res.status(400).json({ error: 'leadId is required.' });
+  }
+
+  try {
+    const db = await readDb();
+    const leadIndex = db.leads.findIndex(l => l.id === leadId);
+    if (leadIndex === -1) {
+      return res.status(404).json({ error: 'Lead not found in CRM.' });
+    }
+
+    const lead = db.leads[leadIndex];
+    if (!db.shortLinks) {
+      db.shortLinks = {};
+    }
+
+    let alias = '';
+    if (customAlias) {
+      alias = slugify(customAlias);
+      if (!alias) {
+        return res.status(400).json({ error: 'Invalid custom alias.' });
+      }
+      if (db.shortLinks[alias] && db.shortLinks[alias] !== leadId) {
+        return res.status(400).json({ error: 'This custom alias is already in use.' });
+      }
+    } else {
+      let baseAlias = slugify(lead.name);
+      if (!baseAlias) baseAlias = 'lead-' + leadId;
+
+      if (!db.shortLinks[baseAlias]) {
+        alias = baseAlias;
+      } else {
+        let attempts = 0;
+        do {
+          const hash = Math.random().toString(36).substring(2, 6);
+          alias = `${baseAlias}-${hash}`;
+          attempts++;
+        } while (db.shortLinks[alias] && attempts < 100);
+      }
+    }
+
+    // Determine the actual long URL for this lead
+    const baseUrl = getBaseUrlFromReq(req);
+    const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+    let longUrl = '';
+    if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
+      longUrl = lead.portfolioLink;
+    } else {
+      const tNiche = lead.portfolioLink || cleanNiche;
+      longUrl = `${baseUrl}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+    }
+
+    // Save alias mapping
+    db.shortLinks[alias] = longUrl;
+    
+    // Save shortAlias inside lead object
+    lead.shortAlias = alias;
+    lead.updatedAt = new Date().toISOString();
+    db.leads[leadIndex] = lead;
+
+    await writeDb(db);
+
+    res.json({ success: true, shortUrl: `${baseUrl}/go/${alias}`, alias });
+  } catch (error) {
+    console.error('Failed to shorten CRM lead link:', error);
+    res.status(500).json({ error: 'Failed to shorten lead link: ' + error.message });
+  }
+});
+
 // Helper: set correct Content-Type and send asset buffer
 function sendAsset(res, filePath, content) {
   if (filePath.endsWith('.css')) res.setHeader('Content-Type', 'text/css');

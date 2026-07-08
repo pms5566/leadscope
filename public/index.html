@@ -1231,7 +1231,7 @@
             <div class="input-group" style="margin-bottom: 1.25rem;">
               <label for="lg_niche">Niche / Template</label>
               <div class="input-wrapper">
-                <select id="lg_niche" onchange="generateLink()" style="width:100%; background: var(--color-surface); color: var(--color-text-primary); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.95rem; outline: none;">
+                <select id="lg_niche" onchange="generateLinkDraft()" style="width:100%; background: var(--color-surface); color: var(--color-text-primary); border: 1px solid var(--color-border); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.95rem; outline: none;">
                   <option value="dentist">🦷 Dentist</option>
                   <option value="dermatologist">🩺 Dermatologist</option>
                   <option value="luxurious-salon-website">💅 Luxurious Salon Website</option>
@@ -1255,15 +1255,23 @@
             <div class="input-group" style="margin-bottom: 1.25rem;">
               <label for="lg_name">Business Name</label>
               <div class="input-wrapper">
-                <input type="text" id="lg_name" placeholder="e.g. City Dental Care" oninput="generateLink()">
+                <input type="text" id="lg_name" placeholder="e.g. City Dental Care" oninput="generateLinkDraft()">
                 <i class="fa-solid fa-building"></i>
+              </div>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 1.25rem;">
+              <label for="lg_alias">Custom Short Link Alias <span style="font-size:0.75rem; opacity:0.6;">(Optional - e.g. city-dental)</span></label>
+              <div class="input-wrapper">
+                <input type="text" id="lg_alias" placeholder="e.g. city-dental" oninput="if(window.handleAliasInput) window.handleAliasInput(this)">
+                <i class="fa-solid fa-link"></i>
               </div>
             </div>
 
             <div class="input-group" style="margin-bottom: 1.25rem;">
               <label for="lg_tag">Tracking Tag <span style="font-size:0.75rem; opacity:0.6;">(Optional - e.g. Campaign, WhatsApp Pitch)</span></label>
               <div class="input-wrapper">
-                <input type="text" id="lg_tag" placeholder="e.g. Facebook DM, Followup-July" oninput="generateLink()">
+                <input type="text" id="lg_tag" placeholder="e.g. Facebook DM, Followup-July" oninput="generateLinkDraft()">
                 <i class="fa-solid fa-hashtag"></i>
               </div>
             </div>
@@ -1271,7 +1279,7 @@
             <div class="input-group" style="margin-bottom: 1.25rem;">
               <label for="lg_phone">Phone Number</label>
               <div class="input-wrapper">
-                <input type="text" id="lg_phone" placeholder="e.g. +91 98765 43210" oninput="generateLink()">
+                <input type="text" id="lg_phone" placeholder="e.g. +91 98765 43210" oninput="generateLinkDraft()">
                 <i class="fa-solid fa-phone"></i>
               </div>
             </div>
@@ -1279,7 +1287,7 @@
             <div class="input-group" style="margin-bottom: 1.75rem;">
               <label for="lg_address">Address</label>
               <div class="input-wrapper">
-                <input type="text" id="lg_address" placeholder="e.g. 12 MG Road, Bangalore" oninput="generateLink()">
+                <input type="text" id="lg_address" placeholder="e.g. 12 MG Road, Bangalore" oninput="generateLinkDraft()">
                 <i class="fa-solid fa-location-dot"></i>
               </div>
             </div>
