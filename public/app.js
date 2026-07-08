@@ -1085,8 +1085,7 @@ document.addEventListener('DOMContentLoaded', () => {
           proposalUrl = `${getPreviewBaseUrl()}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
         }
         
-        const activeBaseUrl = getPreviewBaseUrl();
-        const activeShortLink = lead.shortAlias ? `${activeBaseUrl}/go/${lead.shortAlias}` : `${activeBaseUrl}/go/${lead.id}`;
+        const activeShortLink = lead.shortAlias ? `/go/${lead.shortAlias}` : `/go/${lead.id}`;
 
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
