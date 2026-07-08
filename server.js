@@ -2154,10 +2154,21 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       color: #ffffff !important;
       border: 2px solid #f59e0b !important;
       box-shadow: 0 0 8px rgba(245, 158, 11, 0.1) !important;
+      animation: ls_wa_heartbeat 1.8s infinite ease-in-out !important;
+      animation-delay: 0.3s !important; /* staggered beat from WhatsApp button */
       flex: 1 !important;
       max-width: 200px !important;
+      position: relative !important;
+      overflow: visible !important;
+    }
+    .ls-btn-fiv-glow i,
+    .ls-btn-fiv-glow .ls-btn-txt {
+      position: relative !important;
+      z-index: 2 !important;
     }
     .ls-btn-fiv-glow:hover {
+      animation: none !important;
+      transform: scale(1.05) translateY(-2px) !important;
       background: rgba(245, 158, 11, 0.1) !important;
       box-shadow: 0 0 15px rgba(245, 158, 11, 0.3) !important;
     }
@@ -2478,7 +2489,8 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           </a>
           <!-- Fiverr -->
           <a href="${fiverrUrl}" target="_blank" class="ls-btn-action ls-btn-fiv-glow" id="ls-fiverr-lnk">
-            <i class="fa-solid fa-cart-shopping"></i> ORDER ON FIVERR
+            <i class="fa-solid fa-cart-shopping"></i> <span class="ls-btn-txt">ORDER ON FIVERR</span>
+            <div class="ls-btn-badge-notif" style="animation-delay: 0.5s !important;">1</div>
           </a>
         </div>
       </div>
