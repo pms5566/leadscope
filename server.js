@@ -2073,40 +2073,15 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       transform: translateY(-0.5px) !important;
     }
 
-    /* WhatsApp Button styling (Pulsing ring effect, Shimmer sweep, and Alert wiggle) */
+    /* WhatsApp Button styling (Heartbeat Scale + Notification Badge) */
     .ls-btn-wa-pulse {
       background: #25d366 !important;
       color: #ffffff !important;
-      box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.6) !important;
-      animation: ls_wa_pulse 2s infinite, ls_wiggle_trigger 6s infinite !important;
+      animation: ls_wa_heartbeat 1.8s infinite ease-in-out !important;
       flex: 1.4 !important;
       max-width: 320px !important;
       position: relative !important;
-      overflow: visible !important; /* must be visible for Radar Ripple box-shadow rings to display */
-    }
-    
-    /* Dedicated inner container to clip the shimmer line without clipping the outer radar pulse */
-    .ls-btn-shimmer-wrapper {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      border-radius: inherit !important;
-      overflow: hidden !important;
-      pointer-events: none !important;
-      z-index: 1 !important;
-    }
-    .ls-btn-shimmer-wrapper::after {
-      content: '' !important;
-      position: absolute !important;
-      top: -50% !important;
-      left: -60% !important;
-      width: 30% !important;
-      height: 200% !important;
-      background: rgba(255, 255, 255, 0.35) !important;
-      transform: rotate(30deg) !important;
-      animation: ls_shimmer_sweep 3s infinite ease-in-out !important;
+      overflow: visible !important; /* must be visible so the badge can extend outside */
     }
     
     .ls-btn-wa-pulse i,
@@ -2116,35 +2091,47 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     }
 
     .ls-btn-wa-pulse:hover {
-      animation: ls_wa_pulse 2s infinite !important; /* disable wiggle on hover for smooth scale/move */
+      animation: none !important; /* stop heartbeat on hover for normal scale transition */
+      transform: scale(1.05) translateY(-2px) !important;
       background: #20ba5a !important;
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
     }
-    @keyframes ls_wa_pulse {
-      0% {
-        box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.6),
-                    0 0 0 0px rgba(37, 211, 102, 0.3);
-      }
-      70% {
-        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0),
-                    0 0 0 24px rgba(37, 211, 102, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0px rgba(37, 211, 102, 0),
-                    0 0 0 0px rgba(37, 211, 102, 0);
-      }
+    
+    /* Red Notification Badge */
+    .ls-btn-badge-notif {
+      position: absolute !important;
+      top: -6px !important;
+      right: -6px !important;
+      background: #ef4444 !important; /* Urgent Red */
+      color: #ffffff !important;
+      font-size: 10px !important;
+      font-weight: 900 !important;
+      width: 18px !important;
+      height: 18px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5) !important;
+      border: 1.5px solid #0f172a !important; /* matches dark bottom layer background */
+      z-index: 10 !important;
+      animation: ls_badge_wiggle 2.5s infinite ease-in-out !important;
     }
-    @keyframes ls_shimmer_sweep {
-      0% { left: -60%; }
-      30% { left: 140%; }
-      100% { left: 140%; }
+
+    @keyframes ls_wa_heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      40% { transform: scale(1.02); }
+      55% { transform: scale(1.06); }
     }
-    @keyframes ls_wiggle_trigger {
-      0%, 90%, 100% { transform: rotate(0deg); }
-      92% { transform: rotate(3deg); }
-      94% { transform: rotate(-3deg); }
-      96% { transform: rotate(3deg); }
-      98% { transform: rotate(-3deg); }
+
+    @keyframes ls_badge_wiggle {
+      0%, 80%, 100% { transform: scale(1) rotate(0deg); }
+      83% { transform: scale(1.25) rotate(15deg); }
+      86% { transform: scale(1.25) rotate(-15deg); }
+      89% { transform: scale(1.25) rotate(15deg); }
+      92% { transform: scale(1.25) rotate(-15deg); }
+      95% { transform: scale(1.1) rotate(0deg); }
     }
 
     /* Email button */
@@ -2481,8 +2468,8 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       <div class="ls-buttons-container">
         <!-- WhatsApp -->
         <a href="${waLink}" target="_blank" class="ls-btn-action ls-btn-wa-pulse" id="ls-whatsapp-lnk">
-          <span class="ls-btn-shimmer-wrapper"></span>
           <i class="fa-brands fa-whatsapp"></i> <span class="ls-btn-txt">MESSAGE ON WHATSAPP</span>
+          <div class="ls-btn-badge-notif">1</div>
         </a>
         <div class="ls-btn-container-sub">
           <!-- Email -->
