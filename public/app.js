@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.publicSharingDomain = '';
 
   window.getPreviewBaseUrl = function() {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return window.location.origin;
+    }
     if (window.publicSharingDomain && window.publicSharingDomain.trim() !== '') {
       let domain = window.publicSharingDomain.trim();
       if (!domain.startsWith('http://') && !domain.startsWith('https://')) {
