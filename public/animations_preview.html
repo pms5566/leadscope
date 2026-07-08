@@ -244,6 +244,57 @@
       15%, 85% { opacity: 1; transform: translateX(-50%) translateY(0); }
       90%, 100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
     }
+
+    /* CONCEPT 2: Rotating Gradient Border */
+    .btn-rotating-border-container {
+      position: relative;
+      padding: 2px; /* width of border */
+      border-radius: 9999px;
+      overflow: hidden;
+      display: inline-flex;
+      z-index: 1;
+    }
+    .btn-rotating-border-container::before {
+      content: '';
+      position: absolute;
+      top: -150%;
+      left: -150%;
+      width: 400%;
+      height: 400%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 30%,
+        #25d366 50%,
+        #00d9f5 70%,
+        transparent 100%
+      );
+      animation: rotate_border 3s linear infinite;
+      z-index: -2;
+    }
+    .btn-rotating-border-inner {
+      background: #131b2e !important;
+      color: #ffffff !important;
+      border-radius: 9999px;
+      padding: 12px 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: inherit;
+      position: relative;
+      z-index: 2;
+      transition: background 0.3s ease;
+    }
+    .btn-rotating-border-inner:hover {
+      background: #1b2641 !important;
+    }
+    @keyframes rotate_border {
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -334,8 +385,19 @@
             <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
           </button>
         </div>
+    </div>
+
+    <!-- CARD 8: Concept 2 -->
+    <div class="card">
+      <h2 class="card-title">8. [Concept 2] Rotating Gradient Border</h2>
+      <div class="button-area">
+        <div class="btn-rotating-border-container">
+          <button class="btn-rotating-border-inner">
+            <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+          </button>
+        </div>
       </div>
-      <p class="card-desc">Auto-typing tooltip answers client doubts directly.</p>
+      <p class="card-desc">Conic gradient spins underneath a masked dark center border.</p>
     </div>
 
   </div>
