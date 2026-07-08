@@ -2082,9 +2082,22 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       flex: 1.4 !important;
       max-width: 320px !important;
       position: relative !important;
-      overflow: hidden !important;
+      overflow: visible !important; /* must be visible for Radar Ripple box-shadow rings to display */
     }
-    .ls-btn-wa-pulse::after {
+    
+    /* Dedicated inner container to clip the shimmer line without clipping the outer radar pulse */
+    .ls-btn-shimmer-wrapper {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: inherit !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+    .ls-btn-shimmer-wrapper::after {
       content: '' !important;
       position: absolute !important;
       top: -50% !important;
@@ -2095,6 +2108,13 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       transform: rotate(30deg) !important;
       animation: ls_shimmer_sweep 3s infinite ease-in-out !important;
     }
+    
+    .ls-btn-wa-pulse i,
+    .ls-btn-wa-pulse .ls-btn-txt {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
     .ls-btn-wa-pulse:hover {
       animation: ls_wa_pulse 2s infinite !important; /* disable wiggle on hover for smooth scale/move */
       background: #20ba5a !important;
@@ -2461,7 +2481,8 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       <div class="ls-buttons-container">
         <!-- WhatsApp -->
         <a href="${waLink}" target="_blank" class="ls-btn-action ls-btn-wa-pulse" id="ls-whatsapp-lnk">
-          <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+          <span class="ls-btn-shimmer-wrapper"></span>
+          <i class="fa-brands fa-whatsapp"></i> <span class="ls-btn-txt">MESSAGE ON WHATSAPP</span>
         </a>
         <div class="ls-btn-container-sub">
           <!-- Email -->
