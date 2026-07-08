@@ -74,8 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
     } else {
-      const nichePath = cleanNiche || 'cafe';
-      url = `${getPreviewBaseUrl()}/preview/${nichePath}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+      url = `/go/${lead.id}`;
     }
 
     if (url) {
