@@ -1845,18 +1845,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     const emailBody = encodeURIComponent(`Hi!\n\nI was looking at the custom website proposal draft you created for my business, "${businessName}". I would like to request some modifications!`);
     const emailLink = `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`;
     
-    // 4. Check if we are loading inside the device preview iframe
-    const isEmbed = req.query.embed === 'true';
-    
-    const whatsappPhone = process.env.AGENCY_WHATSAPP_PHONE || '917696507509';
-    const fiverrUrl = process.env.AGENCY_FIVERR_URL || 'https://www.fiverr.com/s/gDeZRvL';
-    const emailAddress = process.env.AGENCY_EMAIL || 'nobizweb@gmail.com';
-    const waText = encodeURIComponent(`Hi! I am looking at the custom website proposal for my business, "${businessName}". I would like to request some custom modifications!`);
-    const waLink = `https://wa.me/${whatsappPhone}?text=${waText}`;
-    const emailSubject = encodeURIComponent(`Feedback on Custom Website Proposal for ${businessName}`);
-    const emailBody = encodeURIComponent(`Hi!\n\nI was looking at the custom website proposal draft you created for my business, "${businessName}". I would like to request some modifications!`);
-    const emailLink = `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`;
-    
     // Extract a clean city name from address for the marquee social proof
     let cityName = '';
     if (lead.address && lead.address !== 'N/A') {
