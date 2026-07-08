@@ -1845,6 +1845,32 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     const emailBody = encodeURIComponent(`Hi!\n\nI was looking at the custom website proposal draft you created for my business, "${businessName}". I would like to request some modifications!`);
     const emailLink = `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`;
     
+    // 4. Check if we are loading inside the device preview iframe
+    const isEmbed = req.query.embed === 'true';
+    
+    const whatsappPhone = process.env.AGENCY_WHATSAPP_PHONE || '917696507509';
+    const fiverrUrl = process.env.AGENCY_FIVERR_URL || 'https://www.fiverr.com/s/gDeZRvL';
+    const emailAddress = process.env.AGENCY_EMAIL || 'nobizweb@gmail.com';
+    const waText = encodeURIComponent(`Hi! I am looking at the custom website proposal for my business, "${businessName}". I would like to request some custom modifications!`);
+    const waLink = `https://wa.me/${whatsappPhone}?text=${waText}`;
+    const emailSubject = encodeURIComponent(`Feedback on Custom Website Proposal for ${businessName}`);
+    const emailBody = encodeURIComponent(`Hi!\n\nI was looking at the custom website proposal draft you created for my business, "${businessName}". I would like to request some modifications!`);
+    const emailLink = `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`;
+    
+    // Extract a clean city name from address for the marquee social proof
+    let cityName = '';
+    if (lead.address && lead.address !== 'N/A') {
+      const parts = lead.address.split(',');
+      if (parts.length > 1) {
+        cityName = parts[parts.length - 2].trim();
+      } else {
+        cityName = parts[0].trim();
+      }
+    }
+    if (!cityName || cityName === 'India' || cityName === 'USA' || cityName === 'N/A') {
+      cityName = 'your area';
+    }
+
     if (!isEmbed) {
       // ─── OUTER DEVICE PREVIEW WRAPPER PAGE ──────────────────────────────────
       const tawkEmbedUrl = process.env.TAWK_EMBED_URL || '';
@@ -1864,6 +1890,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
   <meta charset="UTF-8">
   <title>Website Proposal - ${businessName}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Base Reset and Styling */
     html, body {
@@ -1881,117 +1908,25 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       box-sizing: inherit !important;
     }
 
-    /* Top Sticky Header Banner */
+    /* 3-Layer Sticky Header Banner */
     .ls-proposal-banner {
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
       width: 100% !important;
-      height: 60px !important;
-      background: rgba(15, 23, 42, 0.95) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
+      height: 140px !important;
+      background: #0b0f19 !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
       display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      padding: 0 20px !important;
+      flex-direction: column !important;
       z-index: 2147483647 !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-    }
-    .ls-banner-title {
-      font-weight: 500 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 6px !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      max-width: 32% !important;
-      font-size: 13px !important;
-      color: #94a3b8 !important;
-    }
-    .ls-banner-title strong {
-      color: #ffffff !important;
-      font-weight: 700 !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
     }
 
-    /* Centered Device Controls */
-    .ls-banner-devices {
-      display: flex !important;
-      align-items: center !important;
-      background: rgba(255, 255, 255, 0.05) !important;
-      padding: 4px !important;
-      border-radius: 9999px !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
-      gap: 2px !important;
-    }
-    .ls-device-btn {
-      background: none !important;
-      border: none !important;
-      color: #64748b !important;
-      padding: 6px 14px !important;
-      border-radius: 9999px !important;
-      cursor: pointer !important;
-      transition: all 0.2s ease !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      outline: none !important;
-    }
-    .ls-device-btn:hover {
-      color: #cbd5e1 !important;
-      background: rgba(255, 255, 255, 0.03) !important;
-    }
-    .ls-device-btn.active {
-      background: #00d9f5 !important;
-      color: #0f172a !important;
-      font-weight: 700 !important;
-      box-shadow: 0 2px 10px rgba(0, 217, 245, 0.35) !important;
-    }
-    .ls-device-btn svg {
-      width: 16px !important;
-      height: 16px !important;
-      fill: currentColor !important;
-    }
-
-    /* Right Action CTAs */
-    .ls-banner-ctas {
-      display: flex !important;
-      align-items: center !important;
-      gap: 8px !important;
-      flex-shrink: 0 !important;
-    }
-    .ls-banner-btn {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 6px !important;
-      padding: 8px 16px !important;
-      border-radius: 9999px !important;
-      font-size: 12px !important;
-      font-weight: 700 !important;
-      text-decoration: none !important;
-      cursor: pointer !important;
-      transition: all 0.2s ease !important;
-      white-space: nowrap !important;
-    }
-    .ls-banner-btn:hover {
-      transform: translateY(-1px) !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-    }
-    .ls-btn-fiv { background: #1dbf73 !important; color: #fff !important; }
-    .ls-btn-fiv:hover { background: #10a862 !important; }
-    .ls-btn-wa { background: #25d366 !important; color: #fff !important; }
-    .ls-btn-wa:hover { background: #1ebe57 !important; }
-    .ls-btn-email { background: #3b82f6 !important; color: #fff !important; }
-    .ls-btn-email:hover { background: #1d4ed8 !important; }
-
-    /* Centered Viewport Containment */
     #ls-viewport-container {
-      margin-top: 60px !important;
+      margin-top: 140px !important;
       width: 100% !important;
-      height: calc(100vh - 60px) !important;
+      height: calc(100vh - 140px) !important;
       overflow: auto !important;
       background: #090d16 !important;
       display: flex !important;
@@ -2008,6 +1943,205 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       height: 0 !important;
     }
 
+    /* TOP LAYER: Marquee styling */
+    .ls-marquee-wrapper {
+      background: linear-gradient(90deg, #d31a1a 0%, #f97316 100%) !important;
+      height: 28px !important;
+      display: flex !important;
+      align-items: center !important;
+      overflow: hidden !important;
+      width: 100% !important;
+    }
+    .ls-marquee-content {
+      display: inline-block !important;
+      white-space: nowrap !important;
+      animation: ls_marquee 25s linear infinite !important;
+      color: #ffffff !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+      padding-left: 100% !important;
+    }
+    @keyframes ls_marquee {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+
+    /* MIDDLE LAYER styling */
+    .ls-middle-layer {
+      height: 50px !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 0 24px !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+      background: #131b2e !important;
+    }
+    .ls-countdown-box {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .ls-timer-label {
+      font-size: 12px !important;
+      color: #94a3b8 !important;
+      font-weight: 500 !important;
+    }
+    .ls-timer-clock {
+      font-family: 'Courier New', Courier, monospace !important;
+      font-size: 18px !important;
+      font-weight: 800 !important;
+      color: #f97316 !important;
+      text-shadow: 0 0 10px rgba(249, 115, 22, 0.3) !important;
+    }
+    .ls-welcome-box {
+      font-size: 13px !important;
+      color: #e2e8f0 !important;
+    }
+    .ls-highlight-name {
+      color: #00d9f5 !important;
+      text-shadow: 0 0 8px rgba(0, 217, 245, 0.2) !important;
+    }
+
+    /* Central Device Switcher buttons */
+    .ls-banner-devices {
+      display: flex !important;
+      align-items: center !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      padding: 3px !important;
+      border-radius: 9999px !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      gap: 2px !important;
+    }
+    .ls-device-btn {
+      background: none !important;
+      border: none !important;
+      color: #64748b !important;
+      padding: 4px 12px !important;
+      border-radius: 9999px !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      outline: none !important;
+    }
+    .ls-device-btn:hover {
+      color: #cbd5e1 !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+    }
+    .ls-device-btn.active {
+      background: #00d9f5 !important;
+      color: #0f172a !important;
+      font-weight: 700 !important;
+      box-shadow: 0 2px 8px rgba(0, 217, 245, 0.3) !important;
+    }
+    .ls-device-btn svg {
+      width: 14px !important;
+      height: 14px !important;
+      fill: currentColor !important;
+    }
+
+    /* BOTTOM LAYER: Buttons container */
+    .ls-bottom-layer {
+      height: 62px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 24px !important;
+      background: #0b0f19 !important;
+    }
+    .ls-buttons-container {
+      display: flex !important;
+      gap: 12px !important;
+      width: 100% !important;
+      max-width: 900px !important;
+      justify-content: center !important;
+    }
+    .ls-btn-container-sub {
+      display: contents !important;
+    }
+
+    /* BUTTONS styling */
+    .ls-btn-action {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      padding: 10px 24px !important;
+      border-radius: 9999px !important;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      white-space: nowrap !important;
+      letter-spacing: 0.5px !important;
+    }
+    .ls-btn-action:hover {
+      transform: translateY(-2px) !important;
+    }
+    .ls-btn-action:active {
+      transform: translateY(-0.5px) !important;
+    }
+
+    /* WhatsApp Button styling (Pulsing ring effect) */
+    .ls-btn-wa-pulse {
+      background: #25d366 !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.6) !important;
+      animation: ls_wa_pulse 2s infinite !important;
+      flex: 1.4 !important;
+      max-width: 320px !important;
+    }
+    .ls-btn-wa-pulse:hover {
+      background: #20ba5a !important;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+    }
+    @keyframes ls_wa_pulse {
+      0% {
+        box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.6),
+                    0 0 0 0px rgba(37, 211, 102, 0.3);
+      }
+      70% {
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0),
+                    0 0 0 24px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0px rgba(37, 211, 102, 0),
+                    0 0 0 0px rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Email button */
+    .ls-btn-email-glow {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: 2px solid #00d9f5 !important;
+      box-shadow: 0 0 8px rgba(0, 217, 245, 0.1) !important;
+      flex: 1 !important;
+      max-width: 200px !important;
+    }
+    .ls-btn-email-glow:hover {
+      background: rgba(0, 217, 245, 0.1) !important;
+      box-shadow: 0 0 15px rgba(0, 217, 245, 0.3) !important;
+    }
+
+    /* Fiverr button */
+    .ls-btn-fiv-glow {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: 2px solid #f59e0b !important;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.1) !important;
+      flex: 1 !important;
+      max-width: 200px !important;
+    }
+    .ls-btn-fiv-glow:hover {
+      background: rgba(245, 158, 11, 0.1) !important;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.3) !important;
+    }
+
+    /* Viewport screens iframe bezels */
     #ls-viewport-screen {
       width: 100% !important;
       height: 100% !important;
@@ -2017,7 +2151,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       position: relative !important;
       display: flex !important;
     }
-
     iframe {
       width: 100% !important;
       height: 100% !important;
@@ -2025,7 +2158,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       background: #ffffff !important;
     }
 
-    /* Device Mockup Bezels styling */
     body.device-mobile #ls-viewport-container {
       padding: 40px 10px !important;
       align-items: flex-start !important;
@@ -2041,7 +2173,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
       overflow: hidden !important;
     }
-    /* Mobile notch */
     body.device-mobile #ls-viewport-screen::before {
       content: "" !important;
       position: absolute !important;
@@ -2166,26 +2297,49 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     }
     ` : ''}
 
-    /* Small Screen adaptations (Mobile/Tablet viewport overrides) */
+    /* Small Screen adaptations (Tablet viewports) */
     @media (max-width: 800px) {
-      .ls-banner-title { display: none !important; }
-      .ls-banner-devices { display: none !important; }
-      
-      /* Make banner CTAs take full width on mobile header */
-      .ls-banner-ctas {
-        width: 100% !important;
-        justify-content: space-between !important;
-        gap: 6px !important;
+      .ls-proposal-banner {
+        height: 175px !important;
       }
-      .ls-banner-btn {
-        flex: 1 !important;
-        padding: 8px 10px !important;
-        font-size: 11px !important;
-        justify-content: center !important;
-      }
-
-      /* Force iframe screen container to fill viewport without bezels */
       #ls-viewport-container {
+        margin-top: 175px !important;
+        height: calc(100vh - 175px) !important;
+      }
+      .ls-middle-layer {
+        height: 85px !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        padding: 8px 16px !important;
+      }
+      .ls-banner-devices {
+        display: none !important;
+      }
+      .ls-welcome-box {
+        text-align: center !important;
+      }
+      .ls-bottom-layer {
+        height: 62px !important;
+        padding: 0 12px !important;
+      }
+      .ls-buttons-container {
+        gap: 8px !important;
+      }
+      .ls-btn-action {
+        padding: 8px 12px !important;
+        font-size: 11px !important;
+      }
+    }
+
+    /* Small Screen adaptations (Mobile phone viewports) */
+    @media (max-width: 480px) {
+      .ls-proposal-banner {
+        height: 195px !important;
+      }
+      #ls-viewport-container {
+        margin-top: 195px !important;
+        height: calc(100vh - 195px) !important;
         padding: 0 !important;
         align-items: stretch !important;
       }
@@ -2201,41 +2355,111 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       #ls-viewport-screen::before {
         display: none !important;
       }
+      .ls-marquee-wrapper {
+        height: 24px !important;
+      }
+      .ls-middle-layer {
+        height: 82px !important;
+        padding: 4px 8px !important;
+        gap: 2px !important;
+      }
+      .ls-timer-clock {
+        font-size: 15px !important;
+      }
+      .ls-timer-label {
+        font-size: 11px !important;
+      }
+      .ls-welcome-box {
+        font-size: 12px !important;
+      }
+      .ls-bottom-layer {
+        height: 89px !important;
+        padding: 8px !important;
+      }
+      .ls-buttons-container {
+        flex-direction: column !important;
+        gap: 6px !important;
+        max-width: 100% !important;
+      }
+      .ls-btn-action {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 8px 12px !important;
+        border-radius: 8px !important;
+        font-size: 11px !important;
+      }
+      .ls-btn-wa-pulse {
+        flex: none !important;
+        order: 1 !important;
+        animation: none !important;
+      }
+      .ls-btn-container-sub {
+        display: flex !important;
+        gap: 6px !important;
+        width: 100% !important;
+        order: 2 !important;
+      }
+      .ls-btn-email-glow, .ls-btn-fiv-glow {
+        flex: 1 !important;
+        max-width: 50% !important;
+      }
     }
   </style>
 </head>
 <body class="device-desktop">
 
-  <!-- Fixed Proposal Banner -->
+  <!-- Fixed Proposal Banner overlay -->
   <div class="ls-proposal-banner">
-    <div class="ls-banner-title">
-      <span>💻 Proposal for <strong>${businessName}</strong></span>
+    <!-- TOP LAYER: Scrolling marquee -->
+    <div class="ls-marquee-wrapper">
+      <div class="ls-marquee-content">
+        <span>📉 80% of customers search online first · Don't lose them to competitors who have a website in ${cityName} · 📉 80% of customers search online first · Don't lose them to competitors who have a website in ${cityName} · 📉 80% of customers search online first · Don't lose them to competitors in ${cityName}</span>
+      </div>
     </div>
     
-    <!-- Central Device Switcher buttons -->
-    <div class="ls-banner-devices">
-      <button class="ls-device-btn active" id="btn-view-desktop" title="Desktop View">
-        <svg viewBox="0 0 576 512"><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"/></svg>
-      </button>
-      <button class="ls-device-btn" id="btn-view-tablet" title="Tablet View">
-        <svg viewBox="0 0 448 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM256 464c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zM384 64V384H64V64H384z"/></svg>
-      </button>
-      <button class="ls-device-btn" id="btn-view-mobile" title="Mobile View">
-        <svg viewBox="0 0 384 512"><path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zM192 464c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zM320 64V384H64V64H320z"/></svg>
-      </button>
+    <!-- MIDDLE LAYER: countdown and personalized message -->
+    <div class="ls-middle-layer">
+      <div class="ls-countdown-box">
+        <span class="ls-timer-label">⏳ Offer expires in:</span>
+        <span class="ls-timer-clock" id="ls-countdown-clock">23:59:59</span>
+      </div>
+      
+      <!-- Central Device Switcher buttons -->
+      <div class="ls-banner-devices">
+        <button class="ls-device-btn active" id="btn-view-desktop" title="Desktop View">
+          <svg viewBox="0 0 576 512"><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"/></svg>
+        </button>
+        <button class="ls-device-btn" id="btn-view-tablet" title="Tablet View">
+          <svg viewBox="0 0 448 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM256 464c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zM384 64V384H64V64H384z"/></svg>
+        </button>
+        <button class="ls-device-btn" id="btn-view-mobile" title="Mobile View">
+          <svg viewBox="0 0 384 512"><path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zM192 464c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zM320 64V384H64V64H320z"/></svg>
+        </button>
+      </div>
+
+      <div class="ls-welcome-box">
+        <span>👋 Built exclusively for <strong class="ls-highlight-name">${businessName}</strong></span>
+      </div>
     </div>
 
-    <!-- Contact / Buy buttons -->
-    <div class="ls-banner-ctas">
-      <a href="${fiverrUrl}" target="_blank" class="ls-banner-btn ls-btn-fiv" id="ls-fiverr-lnk">
-        <span>Order on Fiverr</span>
-      </a>
-      <a href="${waLink}" target="_blank" class="ls-banner-btn ls-btn-wa" id="ls-whatsapp-lnk">
-        <span>Request Changes</span>
-      </a>
-      <a href="${emailLink}" target="_blank" class="ls-banner-btn ls-btn-email" id="ls-email-lnk">
-        <span>Email Us</span>
-      </a>
+    <!-- BOTTOM LAYER: Contact / Order Buttons -->
+    <div class="ls-bottom-layer">
+      <div class="ls-buttons-container">
+        <!-- WhatsApp -->
+        <a href="${waLink}" target="_blank" class="ls-btn-action ls-btn-wa-pulse" id="ls-whatsapp-lnk">
+          <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+        </a>
+        <div class="ls-btn-container-sub">
+          <!-- Email -->
+          <a href="${emailLink}" target="_blank" class="ls-btn-action ls-btn-email-glow" id="ls-email-lnk">
+            <i class="fa-solid fa-envelope"></i> EMAIL US
+          </a>
+          <!-- Fiverr -->
+          <a href="${fiverrUrl}" target="_blank" class="ls-btn-action ls-btn-fiv-glow" id="ls-fiverr-lnk">
+            <i class="fa-solid fa-cart-shopping"></i> ORDER ON FIVERR
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -2285,6 +2509,42 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       if (btnDesktop) btnDesktop.addEventListener('click', () => setDeviceView('desktop', btnDesktop));
       if (btnTablet) btnTablet.addEventListener('click', () => setDeviceView('tablet', btnTablet));
       if (btnMobile) btnMobile.addEventListener('click', () => setDeviceView('mobile', btnMobile));
+
+      // Real-time countdown timer script
+      function startCountdown() {
+        const clock = document.getElementById('ls-countdown-clock');
+        if (!clock) return;
+        
+        let hours = 23;
+        let minutes = 59;
+        let seconds = 59;
+        
+        function updateClock() {
+          seconds--;
+          if (seconds < 0) {
+            seconds = 59;
+            minutes--;
+            if (minutes < 0) {
+              minutes = 59;
+              hours--;
+              if (hours < 0) {
+                // Loop countdown back to 24h
+                hours = 23;
+                minutes = 59;
+                seconds = 59;
+              }
+            }
+          }
+          
+          const hStr = String(hours).padStart(2, '0');
+          const mStr = String(minutes).padStart(2, '0');
+          const sStr = String(seconds).padStart(2, '0');
+          clock.textContent = hStr + " : " + mStr + " : " + sStr;
+        }
+        
+        setInterval(updateClock, 1000);
+      }
+      startCountdown();
 
       // Dispatch tracking events for proposal open and click events
       const leadId = ${JSON.stringify(leadId)};
