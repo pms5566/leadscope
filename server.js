@@ -2401,7 +2401,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     <!-- TOP LAYER: Scrolling marquee -->
     <div class="ls-marquee-wrapper">
       <div class="ls-marquee-content">
-        <span>📉 80% of customers search online first · Don't lose them to competitors who have a website in ${cityName} · 📉 80% of customers search online first · Don't lose them to competitors who have a website in ${cityName} · 📉 80% of customers search online first · Don't lose them to competitors in ${cityName}</span>
+        <span>📉 80% of customers search online first · Don't lose them to competitors who have a website · 📉 80% of customers search online first · Don't lose them to competitors who have a website</span>
       </div>
     </div>
     
