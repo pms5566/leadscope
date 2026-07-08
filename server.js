@@ -2568,13 +2568,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       </div>
     </div>
   </div>
-
-  <!-- Floating WhatsApp Action Bubble (Bottom Left) -->
-  <a href="${waLink}" target="_blank" class="ls-floating-wa" id="ls-whatsapp-float-lnk" title="WhatsApp Us">
-    <i class="fa-brands fa-whatsapp"></i>
-    <span class="ls-floating-tooltip">💬 Need changes? Chat with us!</span>
-  </a>
-
   <!-- Inner Iframe Viewer screen -->
   <div id="ls-viewport-container">
     <div id="ls-viewport-screen">
@@ -2758,6 +2751,11 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       `}
     })();
   </script>
+  <!-- Floating WhatsApp Action Bubble (Bottom Left) -->
+  <a href="${waLink}" target="_blank" class="ls-floating-wa" id="ls-whatsapp-float-lnk" title="WhatsApp Us">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="ls-floating-tooltip">💬 Need changes? Chat with us!</span>
+  </a>
 </body>
 </html>
       `;
