@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadScope Button Animations Sandbox</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --color-bg: #0b0f19;
+      --color-surface: #131b2e;
+      --color-border: rgba(255, 255, 255, 0.08);
+      --color-text: #f8fafc;
+      --color-green: #25d366;
+    }
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #00d9f5 0%, #0072ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subtitle {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .sandbox-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 220px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin: 0 0 10px 0;
+      text-align: center;
+    }
+    .card-desc {
+      font-size: 12px;
+      color: #64748b;
+      text-align: center;
+      margin: 0;
+    }
+    .button-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Core button base style */
+    .btn-base {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--color-green);
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    /* ANIMATION 1: Metallic Shimmer Sweep */
+    .btn-shimmer {
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 30%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: rotate(30deg);
+      animation: shimmer_sweep 3s infinite ease-in-out;
+    }
+    @keyframes shimmer_sweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+
+    /* ANIMATION 2: Heartbeat Scale */
+    .btn-heartbeat {
+      animation: heartbeat 1.8s infinite ease-in-out;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      40% { transform: scale(1.02); }
+      55% { transform: scale(1.06); }
+    }
+
+    /* ANIMATION 3: Alert Wiggle */
+    .btn-wiggle {
+      animation: wiggle_trigger 5s infinite;
+    }
+    @keyframes wiggle_trigger {
+      0%, 90%, 100% { transform: rotate(0); }
+      92% { transform: rotate(3deg); }
+      94% { transform: rotate(-3deg); }
+      96% { transform: rotate(3deg); }
+      98% { transform: rotate(-3deg); }
+    }
+
+    /* ANIMATION 4: Expanding Radar Ripple (Sonar) */
+    .btn-sonar {
+      box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.7);
+      animation: sonar_pulse 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes sonar_pulse {
+      0% {
+        box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.6),
+                    0 0 0 0px rgba(37, 211, 102, 0.3);
+      }
+      70% {
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0),
+                    0 0 0 24px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0px rgba(37, 211, 102, 0),
+                    0 0 0 0px rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* ANIMATION 5: Magnetic Hover */
+    /* ANIMATION 5: Magnetic Hover */
+    .btn-magnetic {
+      transition: transform 0.1s ease-out;
+    }
+
+    /* CONCEPT 1: Notification Badge */
+    .btn-badge-container {
+      position: relative;
+    }
+    .btn-badge-notif {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: #ef4444; /* Urgent Red */
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 900;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5);
+      border: 1.5px solid #131b2e; /* matches container surface color */
+      animation: badge_wiggle 2.5s infinite ease-in-out;
+    }
+    @keyframes badge_wiggle {
+      0%, 80%, 100% { transform: scale(1) rotate(0deg); }
+      83% { transform: scale(1.25) rotate(15deg); }
+      86% { transform: scale(1.25) rotate(-15deg); }
+      89% { transform: scale(1.25) rotate(15deg); }
+      92% { transform: scale(1.25) rotate(-15deg); }
+      95% { transform: scale(1.1) rotate(0deg); }
+    }
+
+    /* CONCEPT 3: Speech Bubble / Tooltip */
+    .btn-bubble-container {
+      position: relative;
+    }
+    .speech-bubble {
+      position: absolute;
+      bottom: 54px; /* displays directly above the button */
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: #0f172a;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      opacity: 0;
+      transition: all 0.3s ease;
+      animation: bubble_fade 8s infinite ease-in-out;
+      pointer-events: none;
+    }
+    /* Little arrow at the bottom of the bubble */
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px 6px 0;
+      border-style: solid;
+      border-color: #0f172a transparent;
+      display: block;
+      width: 0;
+    }
+    @keyframes bubble_fade {
+      0%, 10% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      15%, 85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      90%, 100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>LeadScope Button Animations Sandbox</h1>
+  <p class="subtitle">Open this page on your computer to view and interact with all animations live in action.</p>
+
+  <div class="sandbox-container">
+    
+    <!-- CARD 1 -->
+    <div class="card">
+      <h2 class="card-title">1. Metallic Shimmer Sweep</h2>
+      <div class="button-area">
+        <button class="btn-base btn-shimmer">
+          <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+        </button>
+      </div>
+      <p class="card-desc">Diagonal beam of light sweeps across the button every 3s.</p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+      <h2 class="card-title">2. Heartbeat Scale</h2>
+      <div class="button-area">
+        <button class="btn-base btn-heartbeat">
+          <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+        </button>
+      </div>
+      <p class="card-desc">Gently scales up and down in a breathing rhythm.</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+      <h2 class="card-title">3. Alert Wiggle</h2>
+      <div class="button-area">
+        <button class="btn-base btn-wiggle">
+          <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+        </button>
+      </div>
+      <p class="card-desc">Shakes playfully every 5s to catch peripheral vision.</p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card">
+      <h2 class="card-title">4. Radar Ripple (Sonar)</h2>
+      <div class="button-area">
+        <button class="btn-base btn-sonar">
+          <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+        </button>
+      </div>
+      <p class="card-desc">Expanding concentric waves radiate outward in a loop.</p>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="card">
+      <h2 class="card-title">5. Magnetic Hover</h2>
+      <div class="button-area" id="magnetic-area">
+        <button class="btn-base btn-magnetic" id="magnetic-btn">
+          <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+        </button>
+      </div>
+      <p class="card-desc">Move mouse near the button — it physically leans toward cursor.</p>
+    </div>
+
+    <!-- CARD 6: Concept 1 -->
+    <div class="card">
+      <h2 class="card-title">6. [Concept 1] Notification Badge</h2>
+      <div class="button-area">
+        <div class="btn-badge-container">
+          <button class="btn-base">
+            <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+          </button>
+          <div class="btn-badge-notif">1</div>
+        </div>
+      </div>
+      <p class="card-desc">Playful red notification badge wiggles to trigger clicks.</p>
+    </div>
+
+    <!-- CARD 7: Concept 3 -->
+    <div class="card">
+      <h2 class="card-title">7. [Concept 3] Speech Bubble Tooltip</h2>
+      <div class="button-area">
+        <div class="btn-bubble-container">
+          <div class="speech-bubble">
+            <span id="sandbox-bubble-text">Want to change colors?</span>
+          </div>
+          <button class="btn-base">
+            <i class="fa-brands fa-whatsapp"></i> MESSAGE ON WHATSAPP
+          </button>
+        </div>
+      </div>
+      <p class="card-desc">Auto-typing tooltip answers client doubts directly.</p>
+    </div>
+
+  </div>
+
+  <script>
+    // Magnetic Button logic
+    const area = document.getElementById('magnetic-area');
+    const btn = document.getElementById('magnetic-btn');
+
+    if (area && btn) {
+      area.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const btnX = rect.left + rect.width / 2;
+        const btnY = rect.top + rect.height / 2;
+        
+        const distanceX = e.clientX - btnX;
+        const distanceY = e.clientY - btnY;
+        
+        // Only pull if cursor is relatively close (under 120px)
+        const distance = Math.hypot(distanceX, distanceY);
+        if (distance < 120) {
+          const strength = 0.25; // force strength
+          const pullX = distanceX * strength;
+          const pullY = distanceY * strength;
+          btn.style.transform = `translate(${pullX}px, ${pullY}px)`;
+        } else {
+          btn.style.transform = 'translate(0px, 0px)';
+        }
+      });
+
+      area.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0px, 0px)';
+      });
+    }
+
+    // Typing Speech Bubble logic
+    const messages = [
+      "Want to change colors?",
+      "Claim your free domain!",
+      "Ready to launch?"
+    ];
+    let msgIndex = 0;
+    const bubbleEl = document.getElementById('sandbox-bubble-text');
+    if (bubbleEl) {
+      function typeMessage(text) {
+        bubbleEl.textContent = "";
+        let charIndex = 0;
+        const interval = setInterval(() => {
+          if (charIndex < text.length) {
+            bubbleEl.textContent += text.charAt(charIndex);
+            charIndex++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 50);
+      }
+      
+      // Initial trigger
+      typeMessage(messages[0]);
+      
+      // Cycle every 8 seconds (matches bubble_fade CSS animation)
+      setInterval(() => {
+        msgIndex = (msgIndex + 1) % messages.length;
+        typeMessage(messages[msgIndex]);
+      }, 8000);
+    }
+  </script>
+</body>
+</html>
