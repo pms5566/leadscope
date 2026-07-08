@@ -2073,16 +2073,30 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       transform: translateY(-0.5px) !important;
     }
 
-    /* WhatsApp Button styling (Pulsing ring effect) */
+    /* WhatsApp Button styling (Pulsing ring effect, Shimmer sweep, and Alert wiggle) */
     .ls-btn-wa-pulse {
       background: #25d366 !important;
       color: #ffffff !important;
       box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.6) !important;
-      animation: ls_wa_pulse 2s infinite !important;
+      animation: ls_wa_pulse 2s infinite, ls_wiggle_trigger 6s infinite !important;
       flex: 1.4 !important;
       max-width: 320px !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    .ls-btn-wa-pulse::after {
+      content: '' !important;
+      position: absolute !important;
+      top: -50% !important;
+      left: -60% !important;
+      width: 30% !important;
+      height: 200% !important;
+      background: rgba(255, 255, 255, 0.35) !important;
+      transform: rotate(30deg) !important;
+      animation: ls_shimmer_sweep 3s infinite ease-in-out !important;
     }
     .ls-btn-wa-pulse:hover {
+      animation: ls_wa_pulse 2s infinite !important; /* disable wiggle on hover for smooth scale/move */
       background: #20ba5a !important;
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
     }
@@ -2099,6 +2113,18 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         box-shadow: 0 0 0 0px rgba(37, 211, 102, 0),
                     0 0 0 0px rgba(37, 211, 102, 0);
       }
+    }
+    @keyframes ls_shimmer_sweep {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+    @keyframes ls_wiggle_trigger {
+      0%, 90%, 100% { transform: rotate(0deg); }
+      92% { transform: rotate(3deg); }
+      94% { transform: rotate(-3deg); }
+      96% { transform: rotate(3deg); }
+      98% { transform: rotate(-3deg); }
     }
 
     /* Email button */
