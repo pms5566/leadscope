@@ -129,14 +129,24 @@ document.addEventListener('DOMContentLoaded', () => {
           <span style="font-size: 0.68rem; color: var(--color-green); font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">
             <i class="fa-solid fa-shield-halved"></i> Trust Link:
           </span>
-          <div style="display: flex; align-items: center; gap: 4px;">
-            <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
+          <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+            <a class="crm-short-link-anchor" href="/go/${shortAlias}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
               /go/${shortAlias}
             </a>
             <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied short link!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Short Link">
               <i class="fa-solid fa-copy"></i>
             </button>
+            <button onclick="this.parentElement.nextElementSibling.style.display='flex'; this.parentElement.style.display='none';" style="background: transparent; border: none; color: var(--color-cyan); font-size: 0.65rem; cursor: pointer; padding: 0 4px;" title="Customize Alias">
+              <i class="fa-solid fa-pen"></i>
+            </button>
           </div>
+          <div class="crm-short-link-edit" style="display: none; align-items: center; gap: 4px;">
+            <input type="text" placeholder="New Alias" value="${shortAlias}" class="crm-short-alias-input" data-id="${lead.id}" oninput="if(window.handleAliasInput) window.handleAliasInput(this)" style="font-size: 10px; padding: 2px 4px; background: rgba(0,0,0,0.25); border: 1px solid var(--color-border); border-radius: 4px; color: #fff; width: 90px;" title="Enter new custom alias">
+            <button class="btn-action" onclick="shortenCrmLeadLink('${lead.id}', this)" style="padding: 2px 4px; font-size: 9px; background: rgba(0,217,245,0.1); border: 1px solid rgba(0,217,245,0.2); color: var(--color-cyan); white-space: nowrap;">
+              Save
+            </button>
+          </div>
+          <div class="crm-short-link-status" style="font-size: 10px; display: none;"></div>
         </div>
       `;
     } else {
@@ -187,14 +197,24 @@ document.addEventListener('DOMContentLoaded', () => {
           <span style="font-size: 0.68rem; color: var(--color-green); font-weight: bold; display: inline-flex; align-items: center; gap: 4px; margin-top: 4px;">
             <i class="fa-solid fa-shield-halved"></i> Trust Link:
           </span>
-          <div style="display: flex; align-items: center; gap: 4px;">
-            <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
+          <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
+            <a class="crm-short-link-anchor" href="/go/${shortAlias}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
               /go/${shortAlias}
             </a>
             <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied short link!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Short Link">
               <i class="fa-solid fa-copy"></i>
             </button>
+            <button onclick="this.parentElement.nextElementSibling.style.display='flex'; this.parentElement.style.display='none';" style="background: transparent; border: none; color: var(--color-cyan); font-size: 0.65rem; cursor: pointer; padding: 0 4px;" title="Customize Alias">
+              <i class="fa-solid fa-pen"></i>
+            </button>
           </div>
+          <div class="crm-short-link-edit" style="display: none; align-items: center; gap: 4px;">
+            <input type="text" placeholder="New Alias" value="${shortAlias}" class="crm-short-alias-input" data-id="${leadId}" oninput="if(window.handleAliasInput) window.handleAliasInput(this)" style="font-size: 10px; padding: 2px 4px; background: rgba(0,0,0,0.25); border: 1px solid var(--color-border); border-radius: 4px; color: #fff; width: 90px;" title="Enter new custom alias">
+            <button class="btn-action" onclick="shortenCrmLeadLink('${leadId}', this)" style="padding: 2px 4px; font-size: 9px; background: rgba(0,217,245,0.1); border: 1px solid rgba(0,217,245,0.2); color: var(--color-cyan); white-space: nowrap;">
+              Save
+            </button>
+          </div>
+          <div class="crm-short-link-status" style="font-size: 10px; display: none;"></div>
         `;
       }
 

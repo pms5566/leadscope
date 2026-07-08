@@ -879,6 +879,49 @@ async function writeDb(data) {
 app.get('/api/crm', async (req, res) => {
   try {
     const db = await readDb();
+    let updated = false;
+
+    if (!db.shortLinks) {
+      db.shortLinks = {};
+    }
+
+    if (db.leads && Array.isArray(db.leads)) {
+      for (let lead of db.leads) {
+        if (!lead.shortAlias) {
+          let baseAlias = slugify(lead.name);
+          if (!baseAlias) baseAlias = 'lead-' + lead.id;
+
+          let alias = baseAlias;
+          if (db.shortLinks[alias]) {
+            let attempts = 0;
+            do {
+              const hash = Math.random().toString(36).substring(2, 6);
+              alias = `${baseAlias}-${hash}`;
+              attempts++;
+            } while (db.shortLinks[alias] && attempts < 100);
+          }
+
+          const baseUrl = getBaseUrlFromReq(req);
+          const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+          let longUrl = '';
+          if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
+            longUrl = lead.portfolioLink;
+          } else {
+            const tNiche = lead.portfolioLink || cleanNiche;
+            longUrl = `${baseUrl}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+          }
+
+          db.shortLinks[alias] = longUrl;
+          lead.shortAlias = alias;
+          lead.updatedAt = new Date().toISOString();
+          updated = true;
+        }
+      }
+    }
+
+    if (updated) {
+      await writeDb(db);
+    }
     res.json({ success: true, leads: db.leads });
   } catch (error) {
     res.status(500).json({ error: 'Failed to retrieve CRM leads: ' + error.message });
@@ -893,6 +936,9 @@ app.post('/api/crm', async (req, res) => {
   
   try {
     const db = await readDb();
+    if (!db.shortLinks) {
+      db.shortLinks = {};
+    }
     
     // Generate simple unique ID if missing
     if (!lead.id) {
@@ -921,6 +967,35 @@ app.post('/api/crm', async (req, res) => {
       };
       db.leads.push(savedLead);
     }
+
+    // Auto-generate shortAlias if missing
+    if (!savedLead.shortAlias) {
+      let baseAlias = slugify(savedLead.name);
+      if (!baseAlias) baseAlias = 'lead-' + savedLead.id;
+
+      let alias = baseAlias;
+      if (db.shortLinks[alias]) {
+        let attempts = 0;
+        do {
+          const hash = Math.random().toString(36).substring(2, 6);
+          alias = `${baseAlias}-${hash}`;
+          attempts++;
+        } while (db.shortLinks[alias] && attempts < 100);
+      }
+      savedLead.shortAlias = alias;
+    }
+
+    // Always update shortlink destination URL in map to match current template/niche
+    const baseUrl = getBaseUrlFromReq(req);
+    const cleanNiche = (savedLead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+    let longUrl = '';
+    if (savedLead.portfolioLink && (savedLead.portfolioLink.startsWith('http://') || savedLead.portfolioLink.startsWith('https://'))) {
+      longUrl = savedLead.portfolioLink;
+    } else {
+      const tNiche = savedLead.portfolioLink || cleanNiche;
+      longUrl = `${baseUrl}/preview/${tNiche}/${savedLead.id}?name=${encodeURIComponent(savedLead.name || '')}&phone=${encodeURIComponent(savedLead.phone || '')}&address=${encodeURIComponent(savedLead.address || '')}`;
+    }
+    db.shortLinks[savedLead.shortAlias] = longUrl;
     
     await writeDb(db);
     res.json({ success: true, lead: savedLead });
