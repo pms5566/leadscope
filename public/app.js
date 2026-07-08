@@ -37,6 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
   let githubTemplates = [];
   window.publicSharingDomain = '';
 
+  // ✅ Load publicSharingDomain immediately on startup so ALL links point to HF space
+  (async function initPublicDomain() {
+    try {
+      const res = await fetch('/api/config');
+      const cfg = await res.json();
+      if (cfg.publicSharingDomain && cfg.publicSharingDomain.trim() !== '') {
+        window.publicSharingDomain = cfg.publicSharingDomain.trim();
+      }
+    } catch (e) {
+      console.warn('[Init] Could not load publicSharingDomain from /api/config:', e);
+    }
+  })();
+
   window.getPreviewBaseUrl = function() {
     if (window.publicSharingDomain && window.publicSharingDomain.trim() !== '') {
       let domain = window.publicSharingDomain.trim();
