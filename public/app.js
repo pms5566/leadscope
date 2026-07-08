@@ -93,11 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (newLink.startsWith('http://') || newLink.startsWith('https://')) {
           anchor.href = newLink;
         } else {
-          const cleanNiche = (newLink || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
-          const name = anchor.getAttribute('data-name') || '';
-          const phone = anchor.getAttribute('data-phone') || '';
-          const address = anchor.getAttribute('data-address') || '';
-          anchor.href = `${getPreviewBaseUrl()}/preview/${cleanNiche}/${id}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+          const shortAnchor = parentDiv.parentElement ? parentDiv.parentElement.querySelector('a.crm-short-link-anchor') : null;
+          if (shortAnchor && shortAnchor.href) {
+            anchor.href = shortAnchor.href;
+          } else {
+            anchor.href = `${getPreviewBaseUrl()}/go/${id}`;
+          }
         }
       }
 
@@ -1065,9 +1066,12 @@ document.addEventListener('DOMContentLoaded', () => {
           proposalUrl = `${getPreviewBaseUrl()}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
         }
         
+        const activeBaseUrl = getPreviewBaseUrl();
+        const activeShortLink = lead.shortAlias ? `${activeBaseUrl}/go/${lead.shortAlias}` : `${activeBaseUrl}/go/${lead.id}`;
+
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
-            <a class="crm-proposal-link" href="${proposalUrl}" target="_blank" data-id="${lead.id}" data-name="${escapeHtml(lead.name || '')}" data-phone="${escapeHtml(lead.phone || '')}" data-address="${escapeHtml(lead.address || '')}" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;" title="Preview proposal page">
+            <a class="crm-proposal-link" href="${activeShortLink}" target="_blank" data-id="${lead.id}" data-name="${escapeHtml(lead.name || '')}" data-phone="${escapeHtml(lead.phone || '')}" data-address="${escapeHtml(lead.address || '')}" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;" title="Preview proposal page">
               <i class="fa-solid fa-link"></i> Proposal Link <i class="fa-solid fa-up-right-from-square" style="font-size:0.6rem;"></i>
             </a>
             ${buildTemplateSelectorHtml(lead, true, lead.id)}

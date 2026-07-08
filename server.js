@@ -994,6 +994,10 @@ app.get('/go/:alias', async (req, res) => {
     }
 
     if (longUrl) {
+      if (longUrl.includes('/preview/')) {
+        const idx = longUrl.indexOf('/preview/');
+        longUrl = longUrl.substring(idx);
+      }
       return res.redirect(longUrl);
     }
 
