@@ -978,9 +978,9 @@ app.get('/go/:alias', async (req, res) => {
     
     let longUrl = shortLinks[alias];
     
-    // Fallback: Check if any CRM lead has this shortAlias
+    // Fallback: Check if any CRM lead has this shortAlias or matches the ID
     if (!longUrl && db.leads) {
-      const lead = db.leads.find(l => l.shortAlias === alias);
+      const lead = db.leads.find(l => l.shortAlias === alias || l.id === alias);
       if (lead) {
         const baseUrl = getBaseUrlFromReq(req);
         const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');

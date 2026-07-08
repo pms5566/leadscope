@@ -749,15 +749,16 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBizName.textContent = lead.name;
       modalBizMeta.textContent = `${niche.toUpperCase()} — ${city.toUpperCase()}`;
       
-      // Determine what proposal link to pitch
+      // Determine what proposal link to pitch (use short link format only)
       let pitchLink = '';
-      if (lead.portfolioLink) {
+      const baseUrl = getPreviewBaseUrl();
+      if (lead.shortAlias) {
+        pitchLink = `${baseUrl}/go/${lead.shortAlias}`;
+      } else if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
         pitchLink = lead.portfolioLink;
       } else {
-        // Fallback to the dynamic preview route on this local server / ngrok tunnel!
-        const baseUrl = getPreviewBaseUrl();
-        const cleanNiche = niche.toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
-        pitchLink = `${baseUrl}/preview/${cleanNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+        // Fallback to the short lead ID route
+        pitchLink = `${baseUrl}/go/${lead.id}`;
       }
       
       // Add custom hooks based on CRM Audit checklist choices
