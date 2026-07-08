@@ -418,6 +418,51 @@ app.use((req, res, next) => {
 // Enable JSON parsing
 app.use(express.json());
 
+// Basic Authentication Middleware to protect internal LeadScope dashboard and CRM data from clients
+function basicAuth(req, res, next) {
+  const reqPath = req.path;
+  
+  // 1. Bypass authentication on local machine for developer convenience
+  const host = req.headers.host || '';
+  if (host.includes('localhost') || host.includes('127.0.0.1')) {
+    return next();
+  }
+
+  // 2. Bypass authentication for client-facing routes, previews, tracking and service workers
+  if (
+    reqPath.startsWith('/go/') || 
+    reqPath.startsWith('/preview/') || 
+    reqPath.startsWith('/api/track') || 
+    reqPath.startsWith('/sw.js') ||
+    reqPath === '/favicon.ico'
+  ) {
+    return next();
+  }
+  
+  // 3. Protect dashboard, CRM API routes and internal assets
+  const authHeader = req.headers.authorization;
+  if (!authHeader) {
+    res.setHeader('WWW-Authenticate', 'Basic realm="LeadScope Dashboard"');
+    return res.status(401).send('Authentication required.');
+  }
+
+  const auth = Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
+  const user = auth[0];
+  const pass = auth[1];
+
+  const adminUser = process.env.ADMIN_USER || 'admin';
+  const adminPass = process.env.ADMIN_PASSWORD || 'leadscope99';
+
+  if (user === adminUser && pass === adminPass) {
+    return next();
+  }
+
+  res.setHeader('WWW-Authenticate', 'Basic realm="LeadScope Dashboard"');
+  return res.status(401).send('Authentication required.');
+}
+
+app.use(basicAuth);
+
 // Serve frontend assets
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -1306,9 +1351,7 @@ app.get('/go/:alias', async (req, res) => {
           </div>
           <h1>Proposal Link Expired</h1>
           <p>The personalized proposal preview link you clicked is invalid, expired, or has been removed by the sender.</p>
-          <a href="/" class="btn">
-            <i class="fa-solid fa-house"></i> Go to Homepage
-          </a>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 1.5rem; line-height: 1.4;">If you believe this is an error, please contact the sender directly.</p>
         </div>
       </body>
       </html>
