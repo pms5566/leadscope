@@ -1140,11 +1140,6 @@ app.delete('/api/crm/:id', async (req, res) => {
 
 // URL Shortening & Redirect APIs
 function getBaseUrlFromReq(req) {
-  const host = req.headers['x-forwarded-host'] || req.get('host') || '';
-  if (host.includes('localhost') || host.includes('127.0.0.1')) {
-    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
-    return `${protocol}://${host}`;
-  }
   let domain = process.env.PUBLIC_SHARING_DOMAIN;
   if (domain && domain.trim() !== '') {
     domain = domain.trim();
@@ -1154,6 +1149,7 @@ function getBaseUrlFromReq(req) {
     return domain.replace(/\/$/, '');
   }
   const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+  const host = req.headers['x-forwarded-host'] || req.get('host');
   return `${protocol}://${host}`;
 }
 

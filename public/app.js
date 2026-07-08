@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
     } else {
-      url = `/go/${lead.id}`;
+      url = `${getPreviewBaseUrl()}/go/${lead.id}`;
     }
 
     if (url) {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fa-solid fa-shield-halved"></i> Trust Link:
           </span>
           <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
-            <a class="crm-short-link-anchor" href="/go/${shortAlias}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
+            <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
               /go/${shortAlias}
             </a>
             <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied short link!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Short Link">
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fa-solid fa-shield-halved"></i> Trust Link:
           </span>
           <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
-            <a class="crm-short-link-anchor" href="/go/${shortAlias}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
+            <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
               /go/${shortAlias}
             </a>
             <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied short link!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Short Link">
@@ -1085,7 +1085,7 @@ document.addEventListener('DOMContentLoaded', () => {
           proposalUrl = `${getPreviewBaseUrl()}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
         }
         
-        const activeShortLink = lead.shortAlias ? `/go/${lead.shortAlias}` : `/go/${lead.id}`;
+        const activeShortLink = lead.shortAlias ? `${getPreviewBaseUrl()}/go/${lead.shortAlias}` : `${getPreviewBaseUrl()}/go/${lead.id}`;
 
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
