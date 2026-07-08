@@ -846,33 +846,50 @@ app.post('/api/scan-directory', async (req, res) => {
 const fs = require('fs').promises;
 const DB_PATH = path.join(__dirname, 'leads_db.json');
 
+let dbQueue = Promise.resolve();
+
 async function readDb() {
-  try {
-    const data = await fs.readFile(DB_PATH, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      const defaultDb = { leads: [] };
+  return new Promise((resolve) => {
+    dbQueue = dbQueue.then(async () => {
       try {
-        await fs.writeFile(DB_PATH, JSON.stringify(defaultDb, null, 2), 'utf8');
-      } catch (writeErr) {
-        console.error('Failed to initialize empty leads_db.json:', writeErr);
+        const data = await fs.readFile(DB_PATH, 'utf8');
+        resolve(JSON.parse(data));
+      } catch (error) {
+        if (error.code === 'ENOENT') {
+          const defaultDb = { leads: [], shortLinks: {} };
+          try {
+            await fs.writeFile(DB_PATH, JSON.stringify(defaultDb, null, 2), 'utf8');
+          } catch (writeErr) {
+            console.error('Failed to initialize empty leads_db.json:', writeErr);
+          }
+          resolve(defaultDb);
+        } else {
+          console.error('Failed to read leads_db.json:', error);
+          resolve({ leads: [], shortLinks: {} });
+        }
       }
-      return defaultDb;
-    }
-    console.error('Failed to read leads_db.json:', error);
-    return { leads: [] };
-  }
+    }).catch(err => {
+      console.error('Queue error in readDb:', err);
+      resolve({ leads: [], shortLinks: {} });
+    });
+  });
 }
 
 async function writeDb(data) {
-  try {
-    await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
-    return true;
-  } catch (error) {
-    console.error('Failed to write to leads_db.json:', error);
-    return false;
-  }
+  return new Promise((resolve) => {
+    dbQueue = dbQueue.then(async () => {
+      try {
+        await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), 'utf8');
+        resolve(true);
+      } catch (error) {
+        console.error('Failed to write to leads_db.json:', error);
+        resolve(false);
+      }
+    }).catch(err => {
+      console.error('Queue error in writeDb:', err);
+      resolve(false);
+    });
+  });
 }
 
 // CRM Endpoints
