@@ -1320,9 +1320,25 @@ app.get('/go/:alias', async (req, res) => {
 });
 
 app.post('/api/shorten', async (req, res) => {
-  const { longUrl, customAlias, name } = req.body;
+  let { longUrl, customAlias, name } = req.body;
   if (!longUrl) {
     return res.status(400).json({ error: 'longUrl is required.' });
+  }
+
+  // 🔒 Sanitize: if the longUrl contains localhost/127.0.0.1, replace it with the
+  // configured PUBLIC_SHARING_DOMAIN so stored links always point to the live cloud server.
+  const publicDomain = process.env.PUBLIC_SHARING_DOMAIN ? process.env.PUBLIC_SHARING_DOMAIN.trim().replace(/\/$/, '') : null;
+  if (publicDomain) {
+    try {
+      const parsed = new URL(longUrl);
+      if (parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1') {
+        parsed.hostname = new URL(publicDomain).hostname;
+        parsed.protocol = new URL(publicDomain).protocol;
+        parsed.port = '';
+        longUrl = parsed.toString();
+        console.log(`[Shorten] Rewrote localhost URL to: ${longUrl}`);
+      }
+    } catch (e) { /* not a full URL, leave as-is */ }
   }
 
   try {
@@ -2953,13 +2969,43 @@ app.get('/api/templates', async (req, res) => {
 });
 
 
-const server = app.listen(PORT, '0.0.0.0', () => {
+const server = app.listen(PORT, '0.0.0.0', async () => {
   console.log(`====================================================`);
   console.log(`        LOCAL BUSINESS LEAD SCANNER SERVER`);
   console.log(`====================================================`);
   console.log(`Server is running at: http://0.0.0.0:${PORT}`);
   console.log(`Live mode configured: ${isLiveModeConfigured() ? 'Yes' : 'No (falling back to Mock Mode)'}`);
   console.log(`====================================================`);
+
+  // 🔒 Fix any existing shortlinks that point to localhost on startup
+  const publicDomain = process.env.PUBLIC_SHARING_DOMAIN ? process.env.PUBLIC_SHARING_DOMAIN.trim().replace(/\/$/, '') : null;
+  if (publicDomain) {
+    try {
+      const db = await readDb();
+      const shortLinks = db.shortLinks || {};
+      let fixed = 0;
+      for (const [alias, url] of Object.entries(shortLinks)) {
+        try {
+          const parsed = new URL(url);
+          if (parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1') {
+            parsed.hostname = new URL(publicDomain).hostname;
+            parsed.protocol = new URL(publicDomain).protocol;
+            parsed.port = '';
+            db.shortLinks[alias] = parsed.toString();
+            fixed++;
+          }
+        } catch (e) { /* skip non-URLs */ }
+      }
+      if (fixed > 0) {
+        await writeDb(db);
+        console.log(`[Startup] Fixed ${fixed} shortlink(s) that pointed to localhost → now pointing to ${publicDomain}`);
+      } else {
+        console.log(`[Startup] All shortlinks OK — no localhost URLs found.`);
+      }
+    } catch (e) {
+      console.warn('[Startup] Could not run shortlink cleanup:', e.message);
+    }
+  }
 });
 
 // Set server timeout to 3 minutes (180,000 ms)
