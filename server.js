@@ -981,13 +981,14 @@ async function readDb() {
   });
 }
 
-async function writeDb(data) {
+async function writeDb(data, syncToGithub = true) {
   return new Promise((resolve) => {
     dbQueue = dbQueue.then(async () => {
       // 1. Keep local file updated for local runtime fallback
       try {
         const dataCopy = { ...data };
         delete dataCopy.sha;
+        dataCopy.activeVisits = activeVisits; // Keep activeVisits persistent
         await fs.writeFile(DB_PATH, JSON.stringify(dataCopy, null, 2), 'utf8');
       } catch (error) {
         console.error('Failed to write local database file:', error);
@@ -996,9 +997,9 @@ async function writeDb(data) {
       dbCache = data;
       dbCacheTime = Date.now();
 
-      // 2. Synchronize to GitHub repository if token is set
+      // 2. Synchronize to GitHub repository if token is set and sync is enabled
       const token = process.env.GITHUB_TOKEN;
-      if (token && token.startsWith('ghp_')) {
+      if (syncToGithub && token && token.startsWith('ghp_')) {
         try {
           let sha = data.sha;
           if (!sha) {
@@ -1021,6 +1022,7 @@ async function writeDb(data) {
 
           const dataCopy = { ...data };
           delete dataCopy.sha;
+          dataCopy.activeVisits = activeVisits; // Keep activeVisits persistent on GitHub
           const jsonStr = JSON.stringify(dataCopy, null, 2);
           const base64Content = Buffer.from(jsonStr).toString('base64');
 
@@ -1052,7 +1054,7 @@ async function writeDb(data) {
       resolve(true);
     }).catch(err => {
       console.error('Queue error in writeDb:', err);
-      resolve(false);
+      resolve(true);
     });
   });
 }
@@ -3107,8 +3109,12 @@ app.post('/api/track', async (req, res) => {
         updatedAt: timestamp
       };
       
-      await writeDb(db);
+      // Heartbeats are written locally only to prevent spamming GitHub push builds
+      const syncToGithub = (event !== 'heartbeat');
+      await writeDb(db, syncToGithub);
     } else {
+      // Unsaved lead: update activeVisits locally on disk (no GitHub push)
+      await writeDb(db, false);
       // For leads that are still in cache and not saved to CRM database yet
       if (event === 'open') {
         if (isHot) {
@@ -3327,6 +3333,17 @@ const server = app.listen(PORT, '0.0.0.0', async () => {
   console.log(`Server is running at: http://0.0.0.0:${PORT}`);
   console.log(`Live mode configured: ${isLiveModeConfigured() ? 'Yes' : 'No (falling back to Mock Mode)'}`);
   console.log(`====================================================`);
+
+  // Load persistent active visits into memory cache on startup
+  try {
+    const db = await readDb();
+    if (Array.isArray(db.activeVisits)) {
+      activeVisits = db.activeVisits;
+      console.log(`[Startup] Loaded ${activeVisits.length} active visits from database.`);
+    }
+  } catch (e) {
+    console.error('[Startup] Failed to load active visits:', e.message);
+  }
 
   // 🔒 Fix any existing shortlinks that point to localhost on startup
   const publicDomain = process.env.PUBLIC_SHARING_DOMAIN ? process.env.PUBLIC_SHARING_DOMAIN.trim().replace(/\/$/, '') : null;

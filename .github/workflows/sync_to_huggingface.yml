@@ -3,6 +3,8 @@ name: Sync to Hugging Face Hub
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'leads_db.json'
 
   # Allow manual trigger from the GitHub UI Actions tab
   workflow_dispatch:
