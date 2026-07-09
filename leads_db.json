@@ -1576,6 +1576,30 @@
       "addedAt": "2026-07-09T15:53:23.757Z",
       "updatedAt": "2026-07-09T15:53:23.757Z",
       "shortAlias": "ellen-institute-of-cosmetology-and-aesthetics"
+    },
+    {
+      "id": "meta-1783612097140-13",
+      "name": "Perfect 5 Clinic - Rajouri Garden",
+      "address": "Bangkok",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/Perfect5clinic.rajouri",
+      "instagram": "https://www.instagram.com/Perfect5clinic.rajouri/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Perfect%205%20Clinic%20-%20Rajouri%20Garden%20Bangkok",
+      "niche": "aesthetic & skin clinics",
+      "location": "Bangkok",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-09T15:55:38.931Z",
+      "updatedAt": "2026-07-09T15:55:38.931Z",
+      "shortAlias": "perfect-5-clinic-rajouri-garden"
     }
   ],
   "shortLinks": {
@@ -1657,6 +1681,7 @@
     "desire-derma-skin-clinics": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-1?name=Desire%20Derma%20Skin%20Clinics&phone=%2B91%2091470%2070179&address=Bangkok",
     "bodacious-academy": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-2?name=Bodacious%20Academy&phone=0344%20275%209596&address=Bangkok",
     "dr-hire": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-5?name=DR%20HIRE&phone=%2B91%2098432%2055552&address=Bangkok",
-    "ellen-institute-of-cosmetology-and-aesthetics": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-9?name=Ellen%20Institute%20of%20Cosmetology%20and%20Aesthetics&phone=N%2FA&address=Bangkok"
+    "ellen-institute-of-cosmetology-and-aesthetics": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-9?name=Ellen%20Institute%20of%20Cosmetology%20and%20Aesthetics&phone=N%2FA&address=Bangkok",
+    "perfect-5-clinic-rajouri-garden": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-13?name=Perfect%205%20Clinic%20-%20Rajouri%20Garden&phone=N%2FA&address=Bangkok"
   }
 }
