@@ -1528,6 +1528,30 @@
       "addedAt": "2026-07-09T15:50:29.620Z",
       "updatedAt": "2026-07-09T15:50:29.620Z",
       "shortAlias": "bodacious-academy"
+    },
+    {
+      "id": "meta-1783612097140-5",
+      "name": "DR HIRE",
+      "address": "Bangkok",
+      "phone": "+91 98432 55552",
+      "email": null,
+      "facebook": "https://www.facebook.com/61587820240973",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": "https://wa.me/919843255552",
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=DR%20HIRE%20Bangkok",
+      "niche": "aesthetic & skin clinics",
+      "location": "Bangkok",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-09T15:51:28.730Z",
+      "updatedAt": "2026-07-09T15:51:28.730Z",
+      "shortAlias": "dr-hire"
     }
   ],
   "shortLinks": {
@@ -1607,6 +1631,7 @@
     "american-academy-of-cosmetic-injectors": "https://parmeet123-leadscope.hf.space/preview/derma-aesthetic-clinics/meta-1783610318454-8?name=American%20Academy%20of%20Cosmetic%20Injectors&phone=N%2FA&address=UAE",
     "centre-of-advanced-aesthetic-dermatology-by-dr-amir-ansari": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-0?name=Centre%20of%20Advanced%20Aesthetic%20Dermatology%20by%20Dr.%20Amir%20Ansari&phone=%2B91%2091470%2070179&address=Bangkok",
     "desire-derma-skin-clinics": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-1?name=Desire%20Derma%20Skin%20Clinics&phone=%2B91%2091470%2070179&address=Bangkok",
-    "bodacious-academy": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-2?name=Bodacious%20Academy&phone=0344%20275%209596&address=Bangkok"
+    "bodacious-academy": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-2?name=Bodacious%20Academy&phone=0344%20275%209596&address=Bangkok",
+    "dr-hire": "https://parmeet123-leadscope.hf.space/preview/aesthetic-skin-clinics/meta-1783612097140-5?name=DR%20HIRE&phone=%2B91%2098432%2055552&address=Bangkok"
   }
 }
