@@ -732,10 +732,18 @@
       "location": "kochi",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "",
+      "notes": "[3:55:46 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-06T10:39:29.071Z",
-      "updatedAt": "2026-07-08T05:28:02.440Z",
-      "shortAlias": "medlounges-express-kochi"
+      "updatedAt": "2026-07-09T15:55:46.338Z",
+      "shortAlias": "medlounges-express-kochi",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "meta-1783351225416-1",
