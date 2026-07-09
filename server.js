@@ -418,6 +418,21 @@ app.use((req, res, next) => {
 // Enable JSON parsing
 app.use(express.json());
 
+// Enable CORS with credentials support for localhost and space domains
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1') || origin.includes('hf.space'))) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  }
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 // Basic Authentication Middleware to protect internal LeadScope dashboard and CRM data from clients
 function basicAuth(req, res, next) {
   const reqPath = req.path;
