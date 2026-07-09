@@ -732,14 +732,14 @@
       "location": "kochi",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "[3:55:46 PM] Opened Proposal Preview Link",
+      "notes": "[3:55:46 PM] Opened Proposal Preview Link\n[3:55:57 PM] Visited for 10s (Scrolled: 86%)",
       "addedAt": "2026-07-06T10:39:29.071Z",
-      "updatedAt": "2026-07-09T15:55:46.338Z",
+      "updatedAt": "2026-07-09T15:55:57.118Z",
       "shortAlias": "medlounges-express-kochi",
       "analytics": {
         "opened": "Yes",
-        "timeSpent": 0,
-        "maxScroll": 0,
+        "timeSpent": 10,
+        "maxScroll": 86,
         "fiverrClicked": "No",
         "whatsappClicked": "No",
         "emailClicked": "No"
