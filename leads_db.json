@@ -1432,6 +1432,30 @@
       "addedAt": "2026-07-07T15:09:02.358Z",
       "updatedAt": "2026-07-08T05:28:02.440Z",
       "shortAlias": "trainwithrahis"
+    },
+    {
+      "id": "meta-1783610318454-8",
+      "name": "American Academy of Cosmetic Injectors",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61554143117438",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=American%20Academy%20of%20Cosmetic%20Injectors%20UAE",
+      "niche": "derma & aesthetic clinics",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-09T15:20:24.040Z",
+      "updatedAt": "2026-07-09T15:20:24.040Z",
+      "shortAlias": "american-academy-of-cosmetic-injectors"
     }
   ],
   "shortLinks": {
@@ -1507,6 +1531,7 @@
     "hot-auto-spa-and-tint-wuuh": "https://parmeet123-leadscope.hf.space/preview/auto%20detailing/preview_auto_detailing_1783529192494?name=HOT%20AUTO%20SPA%20AND%20TINT&phone=&address=",
     "hot-auto-spa-tint": "https://parmeet123-leadscope.hf.space/preview/auto%20detailing/preview_auto_detailing_1783529213185?name=HOT%20AUTO%20SPA%20TINT&phone=&address=",
     "himanshu": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1783529671047?name=himanshu&phone=&address=",
-    "kirat": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1783534201853?name=Kirat&phone=&address="
+    "kirat": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1783534201853?name=Kirat&phone=&address=",
+    "american-academy-of-cosmetic-injectors": "https://parmeet123-leadscope.hf.space/preview/derma-aesthetic-clinics/meta-1783610318454-8?name=American%20Academy%20of%20Cosmetic%20Injectors&phone=N%2FA&address=UAE"
   }
 }
