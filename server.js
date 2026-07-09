@@ -110,9 +110,13 @@ const NICHE_ALIASES = {
   'beauty_salon': 'luxurious-salon-website',
   'hair_salon': 'luxurious-salon-website',
   'nail_salon': 'nail-art',
-  'spa': 'luxurious-salon-website',
-  'beauty_spa': 'luxurious-salon-website',
-  'massage_center': 'luxurious-salon-website',
+  'spa': 'SPA',
+  'beauty_spa': 'SPA',
+  'massage_center': 'SPA',
+  'wellness_spa': 'SPA',
+  'massage': 'SPA',
+  'massage_spa': 'SPA',
+  'day_spa': 'SPA',
   'hair_styling': 'luxurious-salon-website',
   'skincare_clinic': 'luxurious-salon-website',
   'luxury_salon': 'luxurious-salon-website',
@@ -3321,7 +3325,7 @@ app.get('/api/templates', async (req, res) => {
       }
     } catch (localErr2) { /* ignore */ }
     // Last resort hardcoded list — only real templates we know exist
-    res.json({ success: true, templates: ['dermatologist', 'dentist', 'gym', 'doctor', 'garage', 'jewelry', 'nail-art', 'luxurious-salon-website', 'roofing contractors'] });
+    res.json({ success: true, templates: ['dermatologist', 'dentist', 'gym', 'doctor', 'garage', 'jewelry', 'nail-art', 'luxurious-salon-website', 'roofing contractors', 'SPA'] });
   }
 });
 

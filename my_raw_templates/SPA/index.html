@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chérie Spa & Salon - Luxury hair, nail, lash, and massage services, elite bridal packages, and private VIP suites. Explore our branded organic cherry-themed skincare retail line.">
+    <title>Chérie | Luxury Spa & Salon</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         TOP CONTACT BAR
+         ========================================== -->
+    <div class="top-bar" id="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Salon Hours: Mon - Sat: 10:00 - 19:00
+                </span>
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    40 Baria Street, NY USAm
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    VIP Line: +12 345 678 910
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         STICKY NAVIGATION HEADER
+         ========================================== -->
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <span>CHÉRIE</span><span class="logo-dot"></span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#philosophy">Pillars</a></li>
+                    <li><a href="#specialties">Bridal & VIP</a></li>
+                    <li><a href="#services">Services Menu</a></li>
+                    <li><a href="#products">Cherry Retail</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </nav>
+
+            <div class="navbar-actions">
+                <button class="cart-icon-btn" id="btn-cart-icon" aria-label="Open Booking Drawer">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="btn-primary" id="btn-nav-book">Book Retreat</button>
+                <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Mobile Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SPLIT SECTION
+         ========================================== -->
+    <section class="hero" id="home">
+        <div class="hero-bg-wrapper">
+            <img src="images/hero.png" alt="Luxurious Burgundy and Gold Salon Interior" class="hero-bg-image">
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-card glass-card">
+                    <span class="section-tag" style="text-align: left;">Haute Beauty & Wellness</span>
+                    <h1 class="hero-title">Haute Beauty. <span>Restorative</span> Luxury.</h1>
+                    <p class="hero-desc">Welcome to Chérie, an elite sanctuary offering high-fashion hair styling, couture nail art, precision lashes, and restorative deep tissue massages. Indulge in private VIP suites and customized bridal rituals.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn-gold" id="btn-hero-book">Book An Appointment</button>
+                        <a href="#services" class="btn-secondary" style="border-color: rgba(255,255,255,0.4); color: #FFFFFF;">View Services</a>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="hero-badge animate-float">
+                        <div class="hero-badge-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <div class="hero-badge-text">
+                            <h5>5.0 Rated</h5>
+                            <p>VIP & Bridal Suites</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         QUICK INFO BAR SECTION
+         ========================================== -->
+    <section class="quick-info-section">
+        <div class="container">
+            <div class="quick-info-grid glass-card">
+                <div class="info-card">
+                    <div class="info-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div class="info-details">
+                        <h4>Salon Hours</h4>
+                        <p>Mon - Sat: 10:00 - 19:00</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div class="info-details">
+                        <h4>Spa Location</h4>
+                        <p>40 Baria Street, NY USAm</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div class="info-details">
+                        <h4>Booking Phone</h4>
+                        <p>+12 345 678 910</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SPA PHILOSOPHY / THE 4 PILLARS
+         ========================================== -->
+    <section class="philosophy" id="philosophy">
+        <div class="container">
+            <div class="philosophy-grid">
+                <div class="philosophy-image-box">
+                    <div class="philosophy-organic-blob animate-float"></div>
+                    <img src="images/hero.png" alt="Haute Hair Design station" class="philosophy-main-image">
+                </div>
+                <div>
+                    <span class="section-tag" style="text-align: left;">Bespoke Artistry</span>
+                    <h2 class="section-title" style="text-align: left; font-size: 3rem; margin-bottom: 2rem;">The Four Pillars of Chérie Artistry</h2>
+                    <p style="color: #6d5b5d; margin-bottom: 3rem;">We integrate advanced structural beauty methods with nourishing sensory agents to craft styles that highlight your inherent character.</p>
+                    
+                    <div class="philosophy-list">
+                        <div class="philosophy-item">
+                            <div class="philosophy-num">01</div>
+                            <div class="philosophy-item-text">
+                                <h3>Haute Hair Design</h3>
+                                <p>Precision cutting, balayage color melts, and organic keratin glazes.</p>
+                            </div>
+                        </div>
+                        <div class="philosophy-item">
+                            <div class="philosophy-num">02</div>
+                            <div class="philosophy-item-text">
+                                <h3>Couture Gel Nails</h3>
+                                <p>Structural manicures, custom gel extensions, and fine-line hand painting.</p>
+                            </div>
+                        </div>
+                        <div class="philosophy-item">
+                            <div class="philosophy-num">03</div>
+                            <div class="philosophy-item-text">
+                                <h3>Precision Lashes</h3>
+                                <p>Soft volume lash extensions, lifts, and botanical tints.</p>
+                            </div>
+                        </div>
+                        <div class="philosophy-item">
+                            <div class="philosophy-num">04</div>
+                            <div class="philosophy-item-text">
+                                <h3>Restorative Therapy</h3>
+                                <p>Warm stone massage and deep muscle alignments to soothe physical tension.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         VIP SUITES & BRIDAL SPECIALTIES SECTION
+         ========================================== -->
+    <section class="specialties-section" id="specialties">
+        <div class="container">
+            <span class="section-tag" style="color: var(--gold-color);">Elite Experiences</span>
+            <h2 class="section-title" style="color: #FFFFFF;">Bridal Elite & VIP Suites</h2>
+            <p class="section-desc" style="color: #E6D0D3;">Discover our specialized wings tailored for private relaxation and memorable pre-wedding rituals.</p>
+
+            <div class="specialties-grid">
+                <!-- Card 1: Bridal Elite -->
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Bridal Elite Packages</h3>
+                    <p>Designed to curate absolute relaxation and visual perfection for your special day. Work with an exclusive coordinator to structure custom hair styling trials, couture nails, and relaxing facials.</p>
+                    <ul class="specialty-features">
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Dedicated Bridal Coordinator
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Coordinated Hair & Makeup Trials
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Pre-Wedding Pampering for Bridal Parties
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: VIP Suites -->
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <h3>VIP Private Suites</h3>
+                    <p>Indulge in soundproof personal suites equipped with individual thermal steam tables, customized lighting, soft-touch baths, and dedicated concierge attendants serving fine caviar and champagne.</p>
+                    <ul class="specialty-features">
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Soundproof Acoustic Insulation
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Private Steam & Aromatherapy Baths
+                        </li>
+                        <li>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Champagne & Caviar Platter Included
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         INTERACTIVE PORTFOLIO & PRICING
+         ========================================== -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <span class="section-tag">Explore Menu</span>
+            <h2 class="section-title">Chérie Treatment Rates</h2>
+            <p class="section-desc">Customize your appointment by selecting treatments to add to your schedule cart.</p>
+
+            <!-- Interactive Filters -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Services</button>
+                <button class="filter-tab" data-filter="hair">Hair Design</button>
+                <button class="filter-tab" data-filter="nails-lashes">Nails & Lashes</button>
+                <button class="filter-tab" data-filter="massage">Massages & Therapy</button>
+                <button class="filter-tab" data-filter="bridal-vip">Bridal & VIP Suites</button>
+            </div>
+
+            <!-- Dynamic Services Grid -->
+            <div class="services-list-container">
+                <div class="services-grid" id="services-grid">
+                    <!-- Javascript populates items here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CHÉRIE ORGANICS / BRANDED CHERRY RETAIL SECTION
+         ========================================== -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="products-grid">
+                <!-- Promo Card -->
+                <div class="products-promo-card">
+                    <div class="products-promo-badge" style="background-color: var(--gold-color);">Cherry Infused</div>
+                    <span class="section-tag" style="text-align: left; color: var(--gold-color);">Branded Retail</span>
+                    <h3>CHÉRIE Organics Collection</h3>
+                    <p>Recreate the luxury of Chérie at home. Our boutique skincare and haircare line combines wild black cherry extract, peony botanicals, and rich gold peptides for glowing skin and glass-like hair shine.</p>
+                    <button class="btn-gold" onclick="openDrawer()">Shop Collection</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-carousel-container">
+                    <div class="products-carousel-grid">
+                        <!-- Product 1 -->
+                        <div class="product-card glass-card">
+                            <div class="product-img-wrapper">
+                                <img src="images/products.png" alt="Cherry Face Oil Dropper" class="product-image">
+                                <div class="product-action-overlay">
+                                    <button class="btn-primary" onclick="addServiceToBooking('prod-oil')">Quick Buy</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-rating">
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </div>
+                                <h4 class="product-title">Cherry Face Oil</h4>
+                                <span class="product-price">$95.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card glass-card">
+                            <div class="product-img-wrapper">
+                                <img src="images/products.png" alt="Hydrating Day Cream Jar" class="product-image" style="transform: scale(1.1) translateY(10px);">
+                                <div class="product-action-overlay">
+                                    <button class="btn-primary" onclick="addServiceToBooking('prod-cream')">Quick Buy</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-rating">
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </div>
+                                <h4 class="product-title">Hydrating Day Cream</h4>
+                                <span class="product-price">$72.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card glass-card">
+                            <div class="product-img-wrapper">
+                                <img src="images/products.png" alt="Revitalizing Cherry Serum Bottle" class="product-image" style="transform: scale(1.05) rotate(-5deg);">
+                                <div class="product-action-overlay">
+                                    <button class="btn-primary" onclick="addServiceToBooking('prod-serum')">Quick Buy</button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-rating">
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </div>
+                                <h4 class="product-title">Revitalizing Cherry Serum</h4>
+                                <span class="product-price">$88.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         INTERACTIVE RETREAT TIMELINE
+         ========================================== -->
+    <section class="timeline-section">
+        <div class="container">
+            <span class="section-tag">Your Ritual</span>
+            <h2 class="section-title">The Chérie Experience</h2>
+            <p class="section-desc">Step into the flow of elite pampering, customized from the moment you cross our threshold.</p>
+
+            <div class="timeline-flow">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item active">
+                    <div class="timeline-badge">01</div>
+                    <div class="timeline-content glass-card">
+                        <h3>VIP Welcome & Consultation</h3>
+                        <p>Sip a glass of fine champagne or cherry blossom tea in our velvet waiting lounge while your stylist or therapist outlines your customized treatments.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-badge">02</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Sensory Preparation</h3>
+                        <p>Relax in the soundproof VIP suite or warm steam room. Pores are softened and hair fibers are prepared using hot botanical herbal presses.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-badge">03</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Main Artistry & Treatment</h3>
+                        <p>Your certified artisans execute precision hair styling, hand-painted gel nails, or deep muscle releases using CHÉRIE Organics warm balms.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-badge">04</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Post-Session Lounge & Shop</h3>
+                        <p>Enjoy a fresh caviar selection in our gardens. Explore customized cherry-themed haircare and skincare elixirs to maintain your glow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         AESTHETIC GALLERY SECTION
+         ========================================== -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <span class="section-tag">Sanctuary View</span>
+            <h2 class="section-title">Visual Indulgence</h2>
+            <p class="section-desc">A glimpse inside our bespoke styling rooms and private VIP treatment suites.</p>
+
+            <div class="gallery-grid">
+                <!-- Card 1 -->
+                <div class="gallery-item col-2 row-2">
+                    <img src="images/hero.png" alt="Chérie Backlit Styling Stations and Mirrors">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-text">
+                            <h4>Styling Suite</h4>
+                            <p>Premium Marble Stations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 (circular) -->
+                <div class="gallery-item circular">
+                    <img src="images/products.png" alt="Cherry Cosmetics and Blossom">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-text">
+                            <h4>Organics Shop</h4>
+                            <p>Wild Cherry Infusions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="gallery-item">
+                    <img src="images/hero.png" alt="Massage rooms in VIP suites" style="object-position: right;">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-text">
+                            <h4>VIP Therapy Suite</h4>
+                            <p>Soundproof Acoustics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="gallery-item col-2">
+                    <img src="images/hero.png" alt="Golden arches inside the salon and spa lobby">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-text">
+                            <h4>Gold Arched Lounges</h4>
+                            <p>Relaxation Area</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="gallery-item">
+                    <img src="images/products.png" alt="Glass oil dropper with cherry blossom">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-text">
+                            <h4>Chérie Elixirs</h4>
+                            <p>Boutique Skincare</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER SECTION
+         ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1 -->
+                <div class="footer-col">
+                    <h2 class="footer-logo">CHÉRIE<span>.</span></h2>
+                    <p>Haute hair styling, couture gel manicures, precision lash mapping, and deep restorative therapy in soundproof VIP suites.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">F</a>
+                        <a href="#" class="social-icon" aria-label="Instagram">I</a>
+                        <a href="#" class="social-icon" aria-label="Twitter">T</a>
+                        <a href="#" class="social-icon" aria-label="Pinterest">P</a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#philosophy">Pillars</a></li>
+                        <li><a href="#specialties">Bridal & VIP</a></li>
+                        <li><a href="#services">Services Menu</a></li>
+                        <li><a href="#products">Cherry Retail</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <div class="footer-col-contact">
+                        <div class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>40 Baria Street, NY USAm</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>+12 345 678 910</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>booking@cheriespa.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 4 -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Salon Journal</h3>
+                    <p>Subscribe for private boutique promotions, hair health tips, and exclusive suite bookings.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Chérie journal.'); this.reset();">
+                        <input type="email" placeholder="Your Email" class="newsletter-input" required aria-label="Email for Newsletter">
+                        <button class="btn-newsletter" type="submit" aria-label="Subscribe">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 CHÉRIE Spa & Salon. All Rights Reserved.</p>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         BOOKING SIDEBAR DRAWER (CART / SCHEDULER)
+         ========================================== -->
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <div class="booking-drawer" id="booking-drawer">
+        <div class="drawer-header">
+            <h2>Your Schedule</h2>
+            <button class="btn-close-drawer" id="btn-close-drawer" aria-label="Close Booking Drawer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <div class="drawer-content">
+            <!-- Services Selected -->
+            <div class="drawer-section-title">Selected Services & Products</div>
+            <div class="cart-items" id="cart-items">
+                <!-- Javascript will render here -->
+                <div class="empty-cart-message">Select services or products to begin.</div>
+            </div>
+
+            <!-- Choose Date -->
+            <div class="drawer-section-title">Appointment Date (For Services)</div>
+            <div class="date-selector-wrapper">
+                <input type="date" class="date-picker-input" id="booking-date">
+            </div>
+
+            <!-- Choose Time Slot -->
+            <div class="drawer-section-title">Select Time Slot</div>
+            <div class="time-slots-grid">
+                <button class="time-slot" data-time="10:00 AM">10:00 AM</button>
+                <button class="time-slot" data-time="11:30 AM">11:30 AM</button>
+                <button class="time-slot" data-time="01:00 PM">01:00 PM</button>
+                <button class="time-slot" data-time="02:30 PM">02:30 PM</button>
+                <button class="time-slot" data-time="04:00 PM">04:00 PM</button>
+                <button class="time-slot" data-time="05:30 PM">05:30 PM</button>
+            </div>
+
+            <!-- Checkout Details Form -->
+            <div class="drawer-section-title">Your Details</div>
+            <form class="checkout-form" id="booking-checkout-form">
+                <div class="form-group">
+                    <input type="text" id="client-name" placeholder="Full Name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="client-email" placeholder="Email Address" required autocomplete="email">
+                </div>
+            </form>
+        </div>
+
+        <div class="drawer-footer">
+            <div class="drawer-summary-row">
+                <span>Total Amount:</span>
+                <span class="drawer-summary-total" id="summary-total">$0.00</span>
+            </div>
+            <button class="btn-primary btn-confirm-booking" type="submit" form="booking-checkout-form">Confirm Booking</button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SUCCESS MODAL DIALOG
+         ========================================== -->
+    <div class="success-modal" id="success-modal">
+        <div class="success-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <h3>Booking Confirmed</h3>
+        <p id="booking-success-summary">Your treatment has been successfully scheduled. We look forward to welcome you!</p>
+        <button class="btn-primary" onclick="closeSuccessModal()" style="width: 100%; justify-content: center; background-color: var(--accent-color);">Beautiful, Thank You</button>
+    </div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
