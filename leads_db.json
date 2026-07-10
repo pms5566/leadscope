@@ -1604,13 +1604,13 @@
       "location": "Bangkok",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "[4:00:21 PM] Opened Proposal Preview Link\n[4:00:21 PM] Opened Proposal Preview Link",
+      "notes": "[4:00:21 PM] Opened Proposal Preview Link\n[4:00:21 PM] Opened Proposal Preview Link\n[4:00:33 PM] Visited for 10s (Scrolled: 0%)\n[4:00:35 PM] Visited for 20s (Scrolled: 0%)\n[4:00:42 PM] Visited for 30s (Scrolled: 0%)\n[4:00:46 PM] Visited for 40s (Scrolled: 0%)\n[4:00:52 PM] Visited for 50s (Scrolled: 0%)\n[4:00:59 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-09T15:55:38.931Z",
-      "updatedAt": "2026-07-10T16:00:21.259Z",
+      "updatedAt": "2026-07-10T16:00:59.875Z",
       "shortAlias": "perfect-5-clinic-rajouri-garden",
       "analytics": {
         "opened": "Yes",
-        "timeSpent": 0,
+        "timeSpent": 50,
         "maxScroll": 0,
         "fiverrClicked": "No",
         "whatsappClicked": "No",
@@ -1710,15 +1710,15 @@
       "leadId": "meta-1783612097140-13",
       "name": "Perfect 5 Clinic - Rajouri Garden",
       "openedAt": "2026-07-10T16:00:21.243Z",
-      "lastActiveAt": "2026-07-10T16:00:21.259Z",
-      "duration": 0,
+      "lastActiveAt": "2026-07-10T16:00:59.875Z",
+      "duration": 50,
       "scrollPercent": 0,
       "location": "Prineville, Oregon, United States",
       "countryCode": "US",
       "isp": "Facebook, Inc.",
-      "views": 2,
-      "device": "desktop",
-      "os": "Windows",
+      "views": 3,
+      "device": "mobile",
+      "os": "Android",
       "browser": "Chrome",
       "events": [
         {
@@ -1734,9 +1734,61 @@
           "details": {
             "device": "desktop"
           }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:33.181Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:35.419Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:42.931Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:46.279Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:52.938Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T16:00:59.875Z",
+          "details": {
+            "device": "mobile"
+          }
         }
       ],
-      "isHot": false
+      "isHot": true
     },
     {
       "leadId": "meta-1783326084804-13",
