@@ -1694,7 +1694,291 @@
     "ab-1hov": "https://parmeet123-leadscope.hf.space/preview/luxurious-salon-website/preview_luxurious-salon-website_1783618338274?name=AB&phone=&address=",
     "ab-jbbi": "https://parmeet123-leadscope.hf.space/preview/nail-art/preview_nail-art_1783618355062?name=AB&phone=&address=",
     "infoadcacocom": "https://parmeet123-leadscope.hf.space/preview/luxurious-salon-website/preview_luxurious-salon-website_1783623440426?name=info%40adcaco.com&phone=&address=",
-    "spa-alhana": "https://parmeet123-leadscope.hf.space/preview/SPA/preview_SPA_1783623792765?name=Spa%20Alhana&phone=&address="
+    "spa-alhana": "https://parmeet123-leadscope.hf.space/preview/SPA/preview_SPA_1783623792765?name=Spa%20Alhana&phone=&address=",
+    "pms-5qh4": "https://parmeet123-leadscope.hf.space/preview/SPA/preview_SPA_1783660701889?name=Pms&phone=&address="
   },
-  "activeVisits": []
+  "activeVisits": [
+    {
+      "leadId": "preview_SPA_1783623792765",
+      "name": "Spa Alhana (SPA)",
+      "openedAt": "2026-07-09T19:03:30.364Z",
+      "lastActiveAt": "2026-07-09T19:15:44.127Z",
+      "duration": 50,
+      "scrollPercent": 91,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "Datacamp Limited",
+      "views": 3,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-09T19:03:30.364Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-09T19:06:25.751Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:06:36.607Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-09T19:15:03.137Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:15.179Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:24.130Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 2
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:34.129Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 18
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:44.127Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 91
+          }
+        }
+      ],
+      "isHot": true
+    },
+    {
+      "leadId": "preview_dermatologist_1783534201853",
+      "name": "Kirat (dermatologist)",
+      "openedAt": "2026-07-09T19:00:08.329Z",
+      "lastActiveAt": "2026-07-09T20:50:53.397Z",
+      "duration": 280,
+      "scrollPercent": 76,
+      "location": "Pune, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "BSNL Internet",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Edge",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:08:08.249Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:09:08.242Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:10:08.325Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:11:12.986Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:12:08.423Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:13:08.701Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:14:08.221Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:08.090Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:16:08.233Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:17:13.633Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:18:08.211Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:19:08.356Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:36:36.374Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:54:36.965Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:55:36.833Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:56:36.849Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:57:36.901Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:58:36.860Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:59:36.870Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T20:50:53.397Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 76
+          }
+        }
+      ],
+      "isHot": false
+    }
+  ]
 }
