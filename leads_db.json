@@ -1604,10 +1604,18 @@
       "location": "Bangkok",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "",
+      "notes": "[4:00:21 PM] Opened Proposal Preview Link\n[4:00:21 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-09T15:55:38.931Z",
-      "updatedAt": "2026-07-10T15:59:26.623Z",
-      "shortAlias": "perfect-5-clinic-rajouri-garden"
+      "updatedAt": "2026-07-10T16:00:21.259Z",
+      "shortAlias": "perfect-5-clinic-rajouri-garden",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     }
   ],
   "shortLinks": {
@@ -1698,6 +1706,359 @@
     "pms-5qh4": "https://parmeet123-leadscope.hf.space/preview/SPA/preview_SPA_1783660701889?name=Pms&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "meta-1783612097140-13",
+      "name": "Perfect 5 Clinic - Rajouri Garden",
+      "openedAt": "2026-07-10T16:00:21.243Z",
+      "lastActiveAt": "2026-07-10T16:00:21.259Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Prineville, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 2,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T16:00:21.243Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T16:00:21.259Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "meta-1783326084804-13",
+      "name": "Medlounges Express - Kochi",
+      "openedAt": "2026-07-10T05:45:58.638Z",
+      "lastActiveAt": "2026-07-10T08:33:55.780Z",
+      "duration": 130,
+      "scrollPercent": 86,
+      "location": "Kochi, Kerala, India",
+      "countryCode": "IN",
+      "isp": "Vodafone Essar Limited-Value Added Services",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:45:58.638Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:08.937Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:18.783Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:28.903Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:38.811Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:49.205Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:04.923Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:05.726Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:15.726Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:25.941Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:35.732Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:46.805Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:55.780Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_SPA_1783660701889",
+      "name": "Pms (SPA)",
+      "openedAt": "2026-07-10T05:18:46.214Z",
+      "lastActiveAt": "2026-07-10T09:33:35.025Z",
+      "duration": 230,
+      "scrollPercent": 100,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 6,
+      "device": "mobile",
+      "os": "iOS",
+      "browser": "Safari",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:20:30.287Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T05:20:36.731Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T05:20:42.855Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T05:26:11.980Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:26:23.198Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 5
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:26:33.088Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 85
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:26:43.088Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:26:53.277Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:03.091Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:13.089Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "whatsapp_click",
+          "timestamp": "2026-07-10T05:27:21.322Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "fiverr_click",
+          "timestamp": "2026-07-10T05:27:22.904Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:23.633Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:33.091Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T09:32:44.257Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:32:56.085Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:05.001Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 8
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:15.558Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:25.250Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:35.025Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        }
+      ],
+      "isHot": true
+    },
     {
       "leadId": "preview_SPA_1783623792765",
       "name": "Spa Alhana (SPA)",
