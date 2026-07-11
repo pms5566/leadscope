@@ -1688,6 +1688,30 @@
       "addedAt": "2026-07-11T07:40:52.096Z",
       "updatedAt": "2026-07-11T07:40:52.096Z",
       "shortAlias": "atorrege-ad"
+    },
+    {
+      "id": "meta-1783755132021-16",
+      "name": "Shimbi Method Singapore",
+      "address": "Singapore",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61588817531417",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Shimbi%20Method%20Singapore%20Singapore",
+      "niche": "derma",
+      "location": "Singapore",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-11T07:42:27.517Z",
+      "updatedAt": "2026-07-11T07:42:27.517Z",
+      "shortAlias": "shimbi-method-singapore"
     }
   ],
   "shortLinks": {
@@ -1785,7 +1809,8 @@
     "auolive": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-5?name=Auolive&phone=N%2FA&address=Singapore",
     "pcalm-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-6?name=P.CALM%20Singapore&phone=N%2FA&address=Singapore",
     "derma-dynamics": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-8?name=Derma%20Dynamics&phone=N%2FA&address=Singapore",
-    "atorrege-ad": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-11?name=Atorrege%20AD%2B&phone=N%2FA&address=Singapore"
+    "atorrege-ad": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-11?name=Atorrege%20AD%2B&phone=N%2FA&address=Singapore",
+    "shimbi-method-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-16?name=Shimbi%20Method%20Singapore&phone=N%2FA&address=Singapore"
   },
   "activeVisits": [
     {
