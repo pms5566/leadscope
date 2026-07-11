@@ -1736,6 +1736,30 @@
       "addedAt": "2026-07-11T19:54:30.078Z",
       "updatedAt": "2026-07-11T19:54:30.078Z",
       "shortAlias": "dr-shikha-baghi"
+    },
+    {
+      "id": "meta-1783798868688-6",
+      "name": "Dermawave Clinic",
+      "address": "Jammu",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/dermawaveskinclinic",
+      "instagram": "https://www.instagram.com/dermawaveskinclinic/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Dermawave%20Clinic%20Jammu",
+      "niche": "skin clinic",
+      "location": "Jammu",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-11T19:54:31.478Z",
+      "updatedAt": "2026-07-11T19:54:31.478Z",
+      "shortAlias": "dermawave-clinic"
     }
   ],
   "shortLinks": {
@@ -1841,7 +1865,8 @@
     "dr-nazs-skincare": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868686-0?name=Dr%20.Naz%E2%80%99s%20Skincare&phone=%2B91%20191-3545361&address=Jammu",
     "vevara-aesthetics": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-3?name=Vevara%20Aesthetics&phone=%2B91%20191-3545361&address=Jammu",
     "hemis-24-studio": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-4?name=Hemis%20%2024%20Studio&phone=N%2FA&address=Jammu",
-    "dr-shikha-baghi": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-5?name=Dr%20Shikha%20Baghi&phone=N%2FA&address=Jammu"
+    "dr-shikha-baghi": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-5?name=Dr%20Shikha%20Baghi&phone=N%2FA&address=Jammu",
+    "dermawave-clinic": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-6?name=Dermawave%20Clinic&phone=N%2FA&address=Jammu"
   },
   "activeVisits": [
     {
