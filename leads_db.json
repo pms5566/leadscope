@@ -1568,6 +1568,30 @@
         "whatsappClicked": "No",
         "emailClicked": "No"
       }
+    },
+    {
+      "id": "meta-1783785788377-1",
+      "name": "Skin & Hair",
+      "address": "jammu",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61559672443348",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Skin%20%26%20Hair%20jammu",
+      "niche": "dermatologist",
+      "location": "jammu",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-11T16:08:11.276Z",
+      "updatedAt": "2026-07-11T16:08:11.276Z",
+      "shortAlias": "skin-hair"
     }
   ],
   "shortLinks": {
@@ -1666,7 +1690,8 @@
     "pcalm-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-6?name=P.CALM%20Singapore&phone=N%2FA&address=Singapore",
     "derma-dynamics": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-8?name=Derma%20Dynamics&phone=N%2FA&address=Singapore",
     "atorrege-ad": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-11?name=Atorrege%20AD%2B&phone=N%2FA&address=Singapore",
-    "shimbi-method-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-16?name=Shimbi%20Method%20Singapore&phone=N%2FA&address=Singapore"
+    "shimbi-method-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-16?name=Shimbi%20Method%20Singapore&phone=N%2FA&address=Singapore",
+    "skin-hair": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1783785788377-1?name=Skin%20%26%20Hair&phone=N%2FA&address=jammu"
   },
   "activeVisits": [
     {
