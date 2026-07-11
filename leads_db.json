@@ -1592,6 +1592,30 @@
       "addedAt": "2026-07-11T16:08:11.276Z",
       "updatedAt": "2026-07-11T16:08:11.276Z",
       "shortAlias": "skin-hair"
+    },
+    {
+      "id": "meta-1783798868687-1",
+      "name": "Dr Palki Sharma",
+      "address": "Jammu",
+      "phone": "+91 191-3545361",
+      "email": null,
+      "facebook": "https://www.facebook.com/drpalkisharma",
+      "instagram": "https://www.instagram.com/drpalkisharma/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": "https://wa.me/911913545361",
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Dr%20Palki%20Sharma%20Jammu",
+      "niche": "skin clinic",
+      "location": "Jammu",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-11T19:43:34.783Z",
+      "updatedAt": "2026-07-11T19:43:34.783Z",
+      "shortAlias": "dr-palki-sharma"
     }
   ],
   "shortLinks": {
@@ -1691,9 +1715,474 @@
     "derma-dynamics": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-8?name=Derma%20Dynamics&phone=N%2FA&address=Singapore",
     "atorrege-ad": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-11?name=Atorrege%20AD%2B&phone=N%2FA&address=Singapore",
     "shimbi-method-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-16?name=Shimbi%20Method%20Singapore&phone=N%2FA&address=Singapore",
-    "skin-hair": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1783785788377-1?name=Skin%20%26%20Hair&phone=N%2FA&address=jammu"
+    "skin-hair": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1783785788377-1?name=Skin%20%26%20Hair&phone=N%2FA&address=jammu",
+    "dr-palki-sharma": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-1?name=Dr%20Palki%20Sharma&phone=%2B91%20191-3545361&address=Jammu"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_dermatologist_1783699314801",
+      "name": "Perfect 5 Clinic (dermatologist)",
+      "openedAt": "2026-07-10T16:02:56.467Z",
+      "lastActiveAt": "2026-07-10T16:03:37.944Z",
+      "duration": 30,
+      "scrollPercent": 0,
+      "location": "Clonee, Leinster, Ireland",
+      "countryCode": "IE",
+      "isp": "Facebook, Inc.",
+      "views": 2,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T16:02:56.467Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:03:07.429Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:03:17.228Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:03:36.991Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T16:03:37.944Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "meta-1783612097140-13",
+      "name": "Perfect 5 Clinic - Rajouri Garden",
+      "openedAt": "2026-07-10T16:00:21.243Z",
+      "lastActiveAt": "2026-07-10T16:00:59.875Z",
+      "duration": 50,
+      "scrollPercent": 0,
+      "location": "Prineville, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 3,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T16:00:21.243Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T16:00:21.259Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:33.181Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:35.419Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:42.931Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:46.279Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T16:00:52.938Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T16:00:59.875Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": true
+    },
+    {
+      "leadId": "meta-1783326084804-13",
+      "name": "Medlounges Express - Kochi",
+      "openedAt": "2026-07-10T05:45:58.638Z",
+      "lastActiveAt": "2026-07-10T08:33:55.780Z",
+      "duration": 130,
+      "scrollPercent": 86,
+      "location": "Kochi, Kerala, India",
+      "countryCode": "IN",
+      "isp": "Vodafone Essar Limited-Value Added Services",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:45:58.638Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:08.937Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:18.783Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:28.903Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:38.811Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:46:49.205Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:04.923Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:05.726Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:15.726Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:25.941Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:35.732Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:46.805Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T08:33:55.780Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 86
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_SPA_1783660701889",
+      "name": "Pms (SPA)",
+      "openedAt": "2026-07-10T05:18:46.214Z",
+      "lastActiveAt": "2026-07-10T09:33:35.025Z",
+      "duration": 230,
+      "scrollPercent": 100,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 6,
+      "device": "mobile",
+      "os": "iOS",
+      "browser": "Safari",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:20:30.287Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T05:20:36.731Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T05:20:42.855Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T05:26:11.980Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:26:23.198Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 5
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:26:33.088Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 85
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:26:43.088Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:26:53.277Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:03.091Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:13.089Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "whatsapp_click",
+          "timestamp": "2026-07-10T05:27:21.322Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "fiverr_click",
+          "timestamp": "2026-07-10T05:27:22.904Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:23.633Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:33.091Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-10T09:32:44.257Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:32:56.085Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:05.001Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 8
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:15.558Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:25.250Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:35.025Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        }
+      ],
+      "isHot": true
+    },
     {
       "leadId": "preview_SPA_1783623792765",
       "name": "Spa Alhana (SPA)",
