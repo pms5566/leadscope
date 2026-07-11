@@ -1592,6 +1592,30 @@
       "addedAt": "2026-07-11T07:33:59.954Z",
       "updatedAt": "2026-07-11T07:33:59.954Z",
       "shortAlias": "reforma-aesthetics-singapore"
+    },
+    {
+      "id": "meta-1783755132021-5",
+      "name": "Auolive",
+      "address": "Singapore",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/Auolive",
+      "instagram": "https://www.instagram.com/Auolive/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Auolive%20Singapore",
+      "niche": "derma",
+      "location": "Singapore",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-11T07:34:20.125Z",
+      "updatedAt": "2026-07-11T07:34:20.125Z",
+      "shortAlias": "auolive"
     }
   ],
   "shortLinks": {
@@ -1685,7 +1709,8 @@
     "dr-hire-pwnx": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1783699706300?name=DR%20HIRE&phone=&address=",
     "bodacious-academy-wvh2": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1783700033608?name=Bodacious%20Academy&phone=&address=",
     "desire-derma": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1783700185340?name=Desire%20Derma&phone=&address=",
-    "reforma-aesthetics-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-4?name=Reforma%20Aesthetics%20Singapore&phone=N%2FA&address=Singapore"
+    "reforma-aesthetics-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-4?name=Reforma%20Aesthetics%20Singapore&phone=N%2FA&address=Singapore",
+    "auolive": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-5?name=Auolive&phone=N%2FA&address=Singapore"
   },
   "activeVisits": [
     {
