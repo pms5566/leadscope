@@ -1640,6 +1640,30 @@
       "addedAt": "2026-07-11T07:34:57.600Z",
       "updatedAt": "2026-07-11T07:34:57.600Z",
       "shortAlias": "pcalm-singapore"
+    },
+    {
+      "id": "meta-1783755132021-8",
+      "name": "Derma Dynamics",
+      "address": "Singapore",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/dermadynamics",
+      "instagram": "https://www.instagram.com/dermadynamics/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Derma%20Dynamics%20Singapore",
+      "niche": "derma",
+      "location": "Singapore",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-11T07:37:26.643Z",
+      "updatedAt": "2026-07-11T07:37:26.643Z",
+      "shortAlias": "derma-dynamics"
     }
   ],
   "shortLinks": {
@@ -1735,7 +1759,8 @@
     "desire-derma": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1783700185340?name=Desire%20Derma&phone=&address=",
     "reforma-aesthetics-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-4?name=Reforma%20Aesthetics%20Singapore&phone=N%2FA&address=Singapore",
     "auolive": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-5?name=Auolive&phone=N%2FA&address=Singapore",
-    "pcalm-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-6?name=P.CALM%20Singapore&phone=N%2FA&address=Singapore"
+    "pcalm-singapore": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-6?name=P.CALM%20Singapore&phone=N%2FA&address=Singapore",
+    "derma-dynamics": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783755132021-8?name=Derma%20Dynamics&phone=N%2FA&address=Singapore"
   },
   "activeVisits": [
     {
