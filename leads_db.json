@@ -1568,30 +1568,6 @@
         "whatsappClicked": "No",
         "emailClicked": "No"
       }
-    },
-    {
-      "id": "meta-1783755132021-16",
-      "name": "Shimbi Method Singapore",
-      "address": "Singapore",
-      "phone": "N/A",
-      "email": null,
-      "facebook": "https://www.facebook.com/61588817531417",
-      "instagram": null,
-      "linkedin": null,
-      "tiktok": null,
-      "whatsapp": null,
-      "adPlatform": "meta",
-      "adActive": true,
-      "hasWebsite": false,
-      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Shimbi%20Method%20Singapore%20Singapore",
-      "niche": "derma",
-      "location": "Singapore",
-      "source": "Ad Scanner",
-      "status": "new",
-      "notes": "",
-      "addedAt": "2026-07-11T07:42:27.517Z",
-      "updatedAt": "2026-07-11T07:42:27.517Z",
-      "shortAlias": "shimbi-method-singapore"
     }
   ],
   "shortLinks": {
