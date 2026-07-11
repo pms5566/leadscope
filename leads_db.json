@@ -1664,6 +1664,30 @@
       "addedAt": "2026-07-11T19:54:23.152Z",
       "updatedAt": "2026-07-11T19:54:23.152Z",
       "shortAlias": "dr-nazs-skincare"
+    },
+    {
+      "id": "meta-1783798868687-3",
+      "name": "Vevara Aesthetics",
+      "address": "Jammu",
+      "phone": "+91 191-3545361",
+      "email": null,
+      "facebook": "https://www.facebook.com/vevaraaesthetics",
+      "instagram": "https://www.instagram.com/vevaraaesthetics/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": "https://wa.me/911913545361",
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Vevara%20Aesthetics%20Jammu",
+      "niche": "skin clinic",
+      "location": "Jammu",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-11T19:54:28.369Z",
+      "updatedAt": "2026-07-11T19:54:28.369Z",
+      "shortAlias": "vevara-aesthetics"
     }
   ],
   "shortLinks": {
@@ -1766,7 +1790,8 @@
     "skin-hair": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1783785788377-1?name=Skin%20%26%20Hair&phone=N%2FA&address=jammu",
     "dr-palki-sharma": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-1?name=Dr%20Palki%20Sharma&phone=%2B91%20191-3545361&address=Jammu",
     "timeless-aesthetics-amritsar": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-2?name=Timeless%20Aesthetics%20Amritsar&phone=%2B91%20191-3545361&address=Jammu",
-    "dr-nazs-skincare": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868686-0?name=Dr%20.Naz%E2%80%99s%20Skincare&phone=%2B91%20191-3545361&address=Jammu"
+    "dr-nazs-skincare": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868686-0?name=Dr%20.Naz%E2%80%99s%20Skincare&phone=%2B91%20191-3545361&address=Jammu",
+    "vevara-aesthetics": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-3?name=Vevara%20Aesthetics&phone=%2B91%20191-3545361&address=Jammu"
   },
   "activeVisits": [
     {
