@@ -1688,6 +1688,30 @@
       "addedAt": "2026-07-11T19:54:28.369Z",
       "updatedAt": "2026-07-11T19:54:28.369Z",
       "shortAlias": "vevara-aesthetics"
+    },
+    {
+      "id": "meta-1783798868688-4",
+      "name": "Hemis  24 Studio",
+      "address": "Jammu",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61584773318813",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Hemis%20%2024%20Studio%20Jammu",
+      "niche": "skin clinic",
+      "location": "Jammu",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-11T19:54:29.407Z",
+      "updatedAt": "2026-07-11T19:54:29.407Z",
+      "shortAlias": "hemis-24-studio"
     }
   ],
   "shortLinks": {
@@ -1791,7 +1815,8 @@
     "dr-palki-sharma": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-1?name=Dr%20Palki%20Sharma&phone=%2B91%20191-3545361&address=Jammu",
     "timeless-aesthetics-amritsar": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-2?name=Timeless%20Aesthetics%20Amritsar&phone=%2B91%20191-3545361&address=Jammu",
     "dr-nazs-skincare": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868686-0?name=Dr%20.Naz%E2%80%99s%20Skincare&phone=%2B91%20191-3545361&address=Jammu",
-    "vevara-aesthetics": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-3?name=Vevara%20Aesthetics&phone=%2B91%20191-3545361&address=Jammu"
+    "vevara-aesthetics": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868687-3?name=Vevara%20Aesthetics&phone=%2B91%20191-3545361&address=Jammu",
+    "hemis-24-studio": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-4?name=Hemis%20%2024%20Studio&phone=N%2FA&address=Jammu"
   },
   "activeVisits": [
     {
