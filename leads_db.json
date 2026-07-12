@@ -1896,6 +1896,30 @@
       "addedAt": "2026-07-12T16:21:49.528Z",
       "updatedAt": "2026-07-12T16:21:49.528Z",
       "shortAlias": "green-derma-tech"
+    },
+    {
+      "id": "meta-1783872551730-5",
+      "name": "Hubislab UAE",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/HubisLAB.UAE",
+      "instagram": "https://www.instagram.com/HubisLAB.UAE/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Hubislab%20UAE%20UAE",
+      "niche": "derma",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-12T16:22:07.699Z",
+      "updatedAt": "2026-07-12T16:22:07.699Z",
+      "shortAlias": "hubislab-uae"
     }
   ],
   "shortLinks": {
@@ -2014,7 +2038,8 @@
     "rrs-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-9?name=RRS%20UAE&phone=N%2FA&address=UAE",
     "dermasurge-medical-center": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-8?name=DermaSurge%20Medical%20center&phone=N%2FA&address=UAE",
     "lead-meta-1783872551730-7": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-7?name=%F0%9D%90%81%F0%9D%90%84%F0%9D%90%80%F0%9D%90%94%F0%9D%90%93%F0%9D%90%98%20%F0%9D%90%81%F0%9D%90%94%F0%9D%90%99%F0%9D%90%99&phone=N%2FA&address=UAE",
-    "green-derma-tech": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-6?name=Green%20Derma%20Tech&phone=N%2FA&address=UAE"
+    "green-derma-tech": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-6?name=Green%20Derma%20Tech&phone=N%2FA&address=UAE",
+    "hubislab-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-5?name=Hubislab%20UAE&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
     {
