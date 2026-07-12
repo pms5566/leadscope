@@ -1588,10 +1588,18 @@
       "location": "jammu",
       "source": "Ad Scanner",
       "status": "new",
-      "notes": "",
+      "notes": "[7:05:38 AM] Opened Proposal Preview Link",
       "addedAt": "2026-07-11T16:08:11.276Z",
-      "updatedAt": "2026-07-11T16:08:11.276Z",
-      "shortAlias": "skin-hair"
+      "updatedAt": "2026-07-12T07:05:38.672Z",
+      "shortAlias": "skin-hair",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "meta-1783798868687-1",
@@ -1774,6 +1782,31 @@
     "emphoria-the-celebrity-skin-and-hair-clinic": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-7?name=Emphoria%20The%20celebrity%20Skin%20and%20Hair%20clinic&phone=N%2FA&address=Jammu"
   },
   "activeVisits": [
+    {
+      "leadId": "meta-1783785788377-1",
+      "name": "Skin & Hair",
+      "openedAt": "2026-07-12T07:05:38.672Z",
+      "lastActiveAt": "2026-07-12T07:05:38.672Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Prineville, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T07:05:38.672Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_dermatologist_1783699314801",
       "name": "Perfect 5 Clinic (dermatologist)",
