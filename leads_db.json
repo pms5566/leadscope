@@ -1587,10 +1587,10 @@
       "niche": "dermatologist",
       "location": "jammu",
       "source": "Ad Scanner",
-      "status": "new",
-      "notes": "[7:05:38 AM] Opened Proposal Preview Link",
+      "status": "pitched_ig",
+      "notes": "",
       "addedAt": "2026-07-11T16:08:11.276Z",
-      "updatedAt": "2026-07-12T07:05:38.672Z",
+      "updatedAt": "2026-07-12T07:07:16.312Z",
       "shortAlias": "skin-hair",
       "analytics": {
         "opened": "Yes",
@@ -1786,8 +1786,8 @@
       "leadId": "meta-1783785788377-1",
       "name": "Skin & Hair",
       "openedAt": "2026-07-12T07:05:38.672Z",
-      "lastActiveAt": "2026-07-12T07:05:38.672Z",
-      "duration": 0,
+      "lastActiveAt": "2026-07-12T07:06:09.071Z",
+      "duration": 30,
       "scrollPercent": 0,
       "location": "Prineville, Oregon, United States",
       "countryCode": "US",
@@ -1802,6 +1802,33 @@
           "timestamp": "2026-07-12T07:05:38.672Z",
           "details": {
             "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T07:05:49.551Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T07:05:59.164Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T07:06:09.071Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
           }
         }
       ],
