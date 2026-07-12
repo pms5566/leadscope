@@ -2115,9 +2115,44 @@
     "med-jasper": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-4?name=Med%20Jasper&phone=N%2FA&address=UAE",
     "asal-zindagi": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-3?name=Asal%20Zindagi&phone=N%2FA&address=UAE",
     "bee-beautiful-shop-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-2?name=Bee%20Beautiful%20Shop%20UAE&phone=N%2FA&address=UAE",
-    "ab-ebn1": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783880293998?name=ab&phone=&address="
+    "ab-ebn1": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783880293998?name=ab&phone=&address=",
+    "asal-zindagi-c7aa": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783881466333?name=Asal%20Zindagi&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_Shopify_1_1783880293998",
+      "name": "ab (Shopify 1)",
+      "openedAt": "2026-07-12T18:18:17.012Z",
+      "lastActiveAt": "2026-07-12T18:18:28.388Z",
+      "duration": 10,
+      "scrollPercent": 100,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "Datacamp Limited",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T18:18:17.012Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T18:18:28.388Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_Artificial_Turf_Installation_1783852703198",
       "name": "AB (Artificial Turf Installation)",
