@@ -2054,9 +2054,44 @@
     "ab-ebn1": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783880293998?name=ab&phone=&address=",
     "asal-zindagi-c7aa": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783881466333?name=Asal%20Zindagi&phone=&address=",
     "beauty-buzz": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783883686573?name=BEAUTY%20BUZZ&phone=&address=",
-    "beauty-buzz-iok5": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1783885512033?name=BEAUTY%20BUZZ&phone=&address="
+    "beauty-buzz-iok5": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1783885512033?name=BEAUTY%20BUZZ&phone=&address=",
+    "bright-look-medical-center-mrco": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1783885546735?name=Bright%20Look%20Medical%20Center&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_dentist_1783885512033",
+      "name": "BEAUTY BUZZ (dentist)",
+      "openedAt": "2026-07-12T19:45:27.905Z",
+      "lastActiveAt": "2026-07-12T19:45:39.767Z",
+      "duration": 10,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "iOS",
+      "browser": "Safari",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T19:45:27.905Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:45:39.767Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1783872551730-22",
       "name": "Bright Look Medical Center",
