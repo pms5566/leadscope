@@ -1700,9 +1700,9 @@
       "location": "UAE",
       "source": "Ad Scanner",
       "status": "new",
-      "notes": "[7:44:36 PM] Opened Proposal Preview Link",
+      "notes": "[7:44:36 PM] Opened Proposal Preview Link\n[7:44:37 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-12T16:10:44.596Z",
-      "updatedAt": "2026-07-12T19:44:36.826Z",
+      "updatedAt": "2026-07-12T19:44:37.678Z",
       "shortAlias": "bright-look-medical-center",
       "analytics": {
         "opened": "Yes",
@@ -2060,13 +2060,13 @@
       "leadId": "meta-1783872551730-22",
       "name": "Bright Look Medical Center",
       "openedAt": "2026-07-12T19:44:36.826Z",
-      "lastActiveAt": "2026-07-12T19:44:36.826Z",
+      "lastActiveAt": "2026-07-12T19:44:37.678Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Forest City, North Carolina, United States",
       "countryCode": "US",
       "isp": "Facebook, Inc.",
-      "views": 1,
+      "views": 2,
       "device": "mobile",
       "os": "iOS",
       "browser": "Safari",
@@ -2074,6 +2074,13 @@
         {
           "event": "open",
           "timestamp": "2026-07-12T19:44:36.826Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T19:44:37.678Z",
           "details": {
             "device": "mobile"
           }
