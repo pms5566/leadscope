@@ -1824,6 +1824,30 @@
       "addedAt": "2026-07-12T16:19:17.607Z",
       "updatedAt": "2026-07-12T16:19:17.607Z",
       "shortAlias": "rrs-uae"
+    },
+    {
+      "id": "meta-1783872551730-8",
+      "name": "DermaSurge Medical center",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61573300872447",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=DermaSurge%20Medical%20center%20UAE",
+      "niche": "derma",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-12T16:20:44.475Z",
+      "updatedAt": "2026-07-12T16:20:44.475Z",
+      "shortAlias": "dermasurge-medical-center"
     }
   ],
   "shortLinks": {
@@ -1939,7 +1963,8 @@
     "american-medical-centrejlt": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-19?name=American%20Medical%20Centre%2FJLT&phone=N%2FA&address=UAE",
     "alseefpolyclinicuae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-17?name=AlSeefpolyclinic.uae&phone=N%2FA&address=UAE",
     "deals-for-less": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-16?name=Deals%20For%20Less&phone=N%2FA&address=UAE",
-    "rrs-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-9?name=RRS%20UAE&phone=N%2FA&address=UAE"
+    "rrs-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-9?name=RRS%20UAE&phone=N%2FA&address=UAE",
+    "dermasurge-medical-center": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-8?name=DermaSurge%20Medical%20center&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
     {
