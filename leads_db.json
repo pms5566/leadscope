@@ -1776,6 +1776,30 @@
       "addedAt": "2026-07-12T16:15:04.001Z",
       "updatedAt": "2026-07-12T16:15:04.001Z",
       "shortAlias": "alseefpolyclinicuae"
+    },
+    {
+      "id": "meta-1783872551730-16",
+      "name": "Deals For Less",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61586452857409",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Deals%20For%20Less%20UAE",
+      "niche": "derma",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-12T16:16:14.279Z",
+      "updatedAt": "2026-07-12T16:16:14.279Z",
+      "shortAlias": "deals-for-less"
     }
   ],
   "shortLinks": {
@@ -1889,7 +1913,8 @@
     "bright-look-medical-center": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-22?name=Bright%20Look%20Medical%20Center&phone=N%2FA&address=UAE",
     "shield-medical-center-llc-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-21?name=Shield%20Medical%20Center%20LLC%2C%20UAE&phone=N%2FA&address=UAE",
     "american-medical-centrejlt": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-19?name=American%20Medical%20Centre%2FJLT&phone=N%2FA&address=UAE",
-    "alseefpolyclinicuae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-17?name=AlSeefpolyclinic.uae&phone=N%2FA&address=UAE"
+    "alseefpolyclinicuae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-17?name=AlSeefpolyclinic.uae&phone=N%2FA&address=UAE",
+    "deals-for-less": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-16?name=Deals%20For%20Less&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
     {
