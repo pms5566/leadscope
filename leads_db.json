@@ -1968,6 +1968,30 @@
       "addedAt": "2026-07-12T16:23:12.581Z",
       "updatedAt": "2026-07-12T16:23:12.581Z",
       "shortAlias": "asal-zindagi"
+    },
+    {
+      "id": "meta-1783872551730-2",
+      "name": "Bee Beautiful Shop UAE",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": "marketing@dermazone-uae.com",
+      "facebook": "https://www.facebook.com/100070529183082",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Bee%20Beautiful%20Shop%20UAE%20UAE",
+      "niche": "derma",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-12T16:23:39.183Z",
+      "updatedAt": "2026-07-12T16:23:39.183Z",
+      "shortAlias": "bee-beautiful-shop-uae"
     }
   ],
   "shortLinks": {
@@ -2089,7 +2113,8 @@
     "green-derma-tech": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-6?name=Green%20Derma%20Tech&phone=N%2FA&address=UAE",
     "hubislab-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-5?name=Hubislab%20UAE&phone=N%2FA&address=UAE",
     "med-jasper": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-4?name=Med%20Jasper&phone=N%2FA&address=UAE",
-    "asal-zindagi": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-3?name=Asal%20Zindagi&phone=N%2FA&address=UAE"
+    "asal-zindagi": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-3?name=Asal%20Zindagi&phone=N%2FA&address=UAE",
+    "bee-beautiful-shop-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-2?name=Bee%20Beautiful%20Shop%20UAE&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
     {
