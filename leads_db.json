@@ -1643,10 +1643,10 @@
       "niche": "skin clinic",
       "location": "Jammu",
       "source": "Ad Scanner",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "[7:08:19 AM] Opened Proposal Preview Link",
       "addedAt": "2026-07-11T19:54:29.407Z",
-      "updatedAt": "2026-07-12T07:08:19.539Z",
+      "updatedAt": "2026-07-12T10:58:40.128Z",
       "shortAlias": "hemis-24-studio",
       "analytics": {
         "opened": "Yes",
@@ -1792,6 +1792,49 @@
     "ab-3hfd": "https://parmeet123-leadscope.hf.space/preview/Artificial%20Turf%20Installation/preview_Artificial_Turf_Installation_1783852703198?name=AB&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_Artificial_Turf_Installation_1783852703198",
+      "name": "AB (Artificial Turf Installation)",
+      "openedAt": "2026-07-12T10:38:27.569Z",
+      "lastActiveAt": "2026-07-12T10:38:49.287Z",
+      "duration": 20,
+      "scrollPercent": 91,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T10:38:27.569Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T10:38:39.448Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 75
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T10:38:49.287Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 91
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1783798868688-4",
       "name": "Hemis  24 Studio",
