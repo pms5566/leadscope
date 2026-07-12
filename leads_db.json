@@ -1700,13 +1700,13 @@
       "location": "UAE",
       "source": "Ad Scanner",
       "status": "new",
-      "notes": "[7:44:36 PM] Opened Proposal Preview Link\n[7:44:37 PM] Opened Proposal Preview Link",
+      "notes": "[7:44:36 PM] Opened Proposal Preview Link\n[7:44:37 PM] Opened Proposal Preview Link\n[7:44:47 PM] Visited for 10s (Scrolled: 0%)\n[7:44:47 PM] Visited for 20s (Scrolled: 0%)\n[7:44:57 PM] Visited for 30s (Scrolled: 0%)\n[7:44:57 PM] Visited for 40s (Scrolled: 0%)\n[7:45:07 PM] Visited for 50s (Scrolled: 0%)",
       "addedAt": "2026-07-12T16:10:44.596Z",
-      "updatedAt": "2026-07-12T19:44:37.678Z",
+      "updatedAt": "2026-07-12T19:45:07.559Z",
       "shortAlias": "bright-look-medical-center",
       "analytics": {
         "opened": "Yes",
-        "timeSpent": 0,
+        "timeSpent": 50,
         "maxScroll": 0,
         "fiverrClicked": "No",
         "whatsappClicked": "No",
@@ -2053,15 +2053,16 @@
     "bee-beautiful-shop-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-2?name=Bee%20Beautiful%20Shop%20UAE&phone=N%2FA&address=UAE",
     "ab-ebn1": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783880293998?name=ab&phone=&address=",
     "asal-zindagi-c7aa": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783881466333?name=Asal%20Zindagi&phone=&address=",
-    "beauty-buzz": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783883686573?name=BEAUTY%20BUZZ&phone=&address="
+    "beauty-buzz": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783883686573?name=BEAUTY%20BUZZ&phone=&address=",
+    "beauty-buzz-iok5": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1783885512033?name=BEAUTY%20BUZZ&phone=&address="
   },
   "activeVisits": [
     {
       "leadId": "meta-1783872551730-22",
       "name": "Bright Look Medical Center",
       "openedAt": "2026-07-12T19:44:36.826Z",
-      "lastActiveAt": "2026-07-12T19:44:37.678Z",
-      "duration": 0,
+      "lastActiveAt": "2026-07-12T19:45:07.559Z",
+      "duration": 50,
       "scrollPercent": 0,
       "location": "Forest City, North Carolina, United States",
       "countryCode": "US",
@@ -2083,6 +2084,51 @@
           "timestamp": "2026-07-12T19:44:37.678Z",
           "details": {
             "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:44:47.560Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:44:47.721Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:44:57.617Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:44:57.724Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:45:07.559Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
           }
         }
       ],
