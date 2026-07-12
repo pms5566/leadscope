@@ -1728,6 +1728,30 @@
       "addedAt": "2026-07-12T16:12:10.825Z",
       "updatedAt": "2026-07-12T16:12:10.825Z",
       "shortAlias": "shield-medical-center-llc-uae"
+    },
+    {
+      "id": "meta-1783872551730-19",
+      "name": "American Medical Centre/JLT",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/americancenterjlt",
+      "instagram": "https://www.instagram.com/americancenterjlt/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=American%20Medical%20Centre%2FJLT%20UAE",
+      "niche": "derma",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-12T16:14:26.443Z",
+      "updatedAt": "2026-07-12T16:14:26.443Z",
+      "shortAlias": "american-medical-centrejlt"
     }
   ],
   "shortLinks": {
@@ -1839,7 +1863,8 @@
     "synblades": "https://parmeet123-leadscope.hf.space/preview/Artificial%20Turf%20Installation/preview_Artificial_Turf_Installation_1783852430111?name=SynBlades&phone=&address=",
     "ab-3hfd": "https://parmeet123-leadscope.hf.space/preview/Artificial%20Turf%20Installation/preview_Artificial_Turf_Installation_1783852703198?name=AB&phone=&address=",
     "bright-look-medical-center": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-22?name=Bright%20Look%20Medical%20Center&phone=N%2FA&address=UAE",
-    "shield-medical-center-llc-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-21?name=Shield%20Medical%20Center%20LLC%2C%20UAE&phone=N%2FA&address=UAE"
+    "shield-medical-center-llc-uae": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-21?name=Shield%20Medical%20Center%20LLC%2C%20UAE&phone=N%2FA&address=UAE",
+    "american-medical-centrejlt": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-19?name=American%20Medical%20Centre%2FJLT&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
     {
