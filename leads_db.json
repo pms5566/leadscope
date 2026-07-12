@@ -1644,10 +1644,18 @@
       "location": "Jammu",
       "source": "Ad Scanner",
       "status": "new",
-      "notes": "",
+      "notes": "[7:08:19 AM] Opened Proposal Preview Link",
       "addedAt": "2026-07-11T19:54:29.407Z",
-      "updatedAt": "2026-07-11T19:54:29.407Z",
-      "shortAlias": "hemis-24-studio"
+      "updatedAt": "2026-07-12T07:08:19.539Z",
+      "shortAlias": "hemis-24-studio",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "meta-1783798868688-7",
@@ -1782,6 +1790,31 @@
     "emphoria-the-celebrity-skin-and-hair-clinic": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-7?name=Emphoria%20The%20celebrity%20Skin%20and%20Hair%20clinic&phone=N%2FA&address=Jammu"
   },
   "activeVisits": [
+    {
+      "leadId": "meta-1783798868688-4",
+      "name": "Hemis  24 Studio",
+      "openedAt": "2026-07-12T07:08:19.539Z",
+      "lastActiveAt": "2026-07-12T07:08:19.539Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T07:08:19.539Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1783785788377-1",
       "name": "Skin & Hair",
