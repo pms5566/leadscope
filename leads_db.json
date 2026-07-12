@@ -1680,6 +1680,30 @@
       "addedAt": "2026-07-11T19:54:32.591Z",
       "updatedAt": "2026-07-12T07:03:27.150Z",
       "shortAlias": "emphoria-the-celebrity-skin-and-hair-clinic"
+    },
+    {
+      "id": "meta-1783872551730-22",
+      "name": "Bright Look Medical Center",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/brightlookmedicalcenter",
+      "instagram": "https://www.instagram.com/brightlookmedicalcenter/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Bright%20Look%20Medical%20Center%20UAE",
+      "niche": "derma",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-12T16:10:44.596Z",
+      "updatedAt": "2026-07-12T16:10:44.596Z",
+      "shortAlias": "bright-look-medical-center"
     }
   ],
   "shortLinks": {
@@ -1789,7 +1813,8 @@
     "dermawave-clinic": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-6?name=Dermawave%20Clinic&phone=N%2FA&address=Jammu",
     "emphoria-the-celebrity-skin-and-hair-clinic": "https://parmeet123-leadscope.hf.space/preview/skin-clinic/meta-1783798868688-7?name=Emphoria%20The%20celebrity%20Skin%20and%20Hair%20clinic&phone=N%2FA&address=Jammu",
     "synblades": "https://parmeet123-leadscope.hf.space/preview/Artificial%20Turf%20Installation/preview_Artificial_Turf_Installation_1783852430111?name=SynBlades&phone=&address=",
-    "ab-3hfd": "https://parmeet123-leadscope.hf.space/preview/Artificial%20Turf%20Installation/preview_Artificial_Turf_Installation_1783852703198?name=AB&phone=&address="
+    "ab-3hfd": "https://parmeet123-leadscope.hf.space/preview/Artificial%20Turf%20Installation/preview_Artificial_Turf_Installation_1783852703198?name=AB&phone=&address=",
+    "bright-look-medical-center": "https://parmeet123-leadscope.hf.space/preview/derma/meta-1783872551730-22?name=Bright%20Look%20Medical%20Center&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
     {
