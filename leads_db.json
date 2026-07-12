@@ -1699,10 +1699,10 @@
       "niche": "derma",
       "location": "UAE",
       "source": "Ad Scanner",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "[7:44:36 PM] Opened Proposal Preview Link\n[7:44:37 PM] Opened Proposal Preview Link\n[7:44:47 PM] Visited for 10s (Scrolled: 0%)\n[7:44:47 PM] Visited for 20s (Scrolled: 0%)\n[7:44:57 PM] Visited for 30s (Scrolled: 0%)\n[7:44:57 PM] Visited for 40s (Scrolled: 0%)\n[7:45:07 PM] Visited for 50s (Scrolled: 0%)",
       "addedAt": "2026-07-12T16:10:44.596Z",
-      "updatedAt": "2026-07-12T19:45:07.559Z",
+      "updatedAt": "2026-07-12T19:55:39.524Z",
       "shortAlias": "bright-look-medical-center",
       "analytics": {
         "opened": "Yes",
@@ -2059,16 +2059,75 @@
   },
   "activeVisits": [
     {
+      "leadId": "preview_dentist_1783885546735",
+      "name": "Bright Look Medical Center (dentist)",
+      "openedAt": "2026-07-12T19:45:57.670Z",
+      "lastActiveAt": "2026-07-12T19:46:28.401Z",
+      "duration": 30,
+      "scrollPercent": 0,
+      "location": "Gallatin, Tennessee, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 2,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T19:45:57.670Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:46:08.715Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:46:18.429Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T19:46:23.243Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:46:28.401Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
       "leadId": "preview_dentist_1783885512033",
       "name": "BEAUTY BUZZ (dentist)",
       "openedAt": "2026-07-12T19:45:27.905Z",
-      "lastActiveAt": "2026-07-12T19:45:39.767Z",
-      "duration": 10,
+      "lastActiveAt": "2026-07-12T19:48:12.530Z",
+      "duration": 40,
       "scrollPercent": 0,
       "location": "Portland, Oregon, United States",
       "countryCode": "US",
       "isp": "Amazon.com, Inc.",
-      "views": 1,
+      "views": 2,
       "device": "mobile",
       "os": "iOS",
       "browser": "Safari",
@@ -2083,6 +2142,40 @@
         {
           "event": "heartbeat",
           "timestamp": "2026-07-12T19:45:39.767Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T19:47:39.698Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:47:51.300Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:48:00.714Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:48:12.530Z",
           "details": {
             "device": "mobile",
             "seconds": 10,
