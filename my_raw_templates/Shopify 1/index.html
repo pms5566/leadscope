@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop premium skincare products and botanical dietary supplements at AURA. Dermatologist tested, vegan, and cruelty-free formulas for a radiant glow.">
+    <title>AURA Skincare & Wellness | Premium E-Commerce Store</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- 1.1 Promo Popup Banner Modal (Ethixia & Lushora Style) -->
+    <div class="promo-modal-overlay" id="promo-modal-overlay">
+        <div class="promo-modal-card" id="promo-modal-card">
+            <button class="close-promo-modal-btn" id="close-promo-modal-btn" aria-label="Close Promo Modal">&times;</button>
+            <div class="promo-modal-grid">
+                <div class="promo-modal-image">
+                    <img src="assets/serum_product.png" alt="AURA Special Skincare Promotion">
+                </div>
+                <div class="promo-modal-content">
+                    <span class="badge-accent">Exclusive Offer</span>
+                    <h2>Glow Naturally Every Day</h2>
+                    <p>Get up to 25% off on our premium wellness routines. Crafted with organic active ingredients.</p>
+                    <div class="promo-code-box">
+                        Use Code: <strong>GLOW25</strong>
+                    </div>
+                    <button class="btn btn-primary" id="promo-modal-cta-btn">Shop Bestsellers</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Announcement Bar (Foxtale Style) -->
+    <div class="announcement-bar" id="announcement-bar">
+        <div class="announcement-slider">
+            <div class="announcement-slide active">Up to 25% off our bestseller kits! Use Code: <strong class="promo-code">GLOW25</strong></div>
+            <div class="announcement-slide">🚚 Free Express Shipping on orders over $75</div>
+            <div class="announcement-slide">🌿 100% Vegan, Cruelty-Free & Dermatologist Approved</div>
+        </div>
+        <button class="close-announcement" id="close-announcement-btn" aria-label="Close Announcement">&times;</button>
+    </div>
+
+    <!-- 2. Header (Sephora & Foxtale Style) -->
+    <header class="main-header" id="main-header">
+        <div class="header-container">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            
+            <a href="#" class="brand-logo" id="brand-logo-link">AURA</a>
+
+            <nav class="nav-menu" id="nav-menu-container">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active">Home</a></li>
+                    <li><a href="#shop-section" class="nav-link">Shop All</a></li>
+                    <li><a href="#routine-section" class="nav-link">Routines</a></li>
+                    <li><a href="#supplement-promo" class="nav-link">Wellness</a></li>
+                    <li><a href="#about-footer" class="nav-link">Our Story</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn search-toggle-btn" id="search-toggle-btn" aria-label="Open Search">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </button>
+                <button class="icon-btn wishlist-toggle-btn" id="wishlist-toggle-btn" aria-label="Open Wishlist">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <span class="badge" id="wishlist-count">0</span>
+                </button>
+                <button class="icon-btn cart-toggle-btn" id="cart-toggle-btn" aria-label="Open Shopping Cart">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    <span class="badge" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- 2a. Glassmorphic Live Search Overlay (Orvélia Style) -->
+    <div class="search-overlay" id="search-overlay">
+        <button class="close-search-btn" id="close-search-btn" aria-label="Close Search">&times;</button>
+        <div class="search-overlay-content">
+            <div class="search-overlay-input-wrapper">
+                <input type="text" id="search-overlay-input" placeholder="Type to search products, concerns, ingredients..." autocomplete="off">
+                <svg class="search-input-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            </div>
+            
+            <div class="search-results-wrapper">
+                <div class="search-trending" id="search-trending">
+                    <h3>Trending Searches</h3>
+                    <div class="trending-tags">
+                        <span class="trend-tag" data-tag="Hyaluronic">Hyaluronic Acid</span>
+                        <span class="trend-tag" data-tag="Serum">Active Serums</span>
+                        <span class="trend-tag" data-tag="Vegan">Vegan Skincare</span>
+                        <span class="trend-tag" data-tag="Supplement">Collagen Boosters</span>
+                    </div>
+                </div>
+                <div class="search-live-grid" id="search-live-grid">
+                    <!-- Populated dynamically via keyup -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- 3. Editorial Hero Section (Ethixia & Lushora Style) -->
+        <section class="hero-section" id="hero-section">
+            <div class="hero-main-banner">
+                <div class="hero-content">
+                    <span class="hero-subtitle">Transformative Skincare</span>
+                    <h1 class="hero-title">
+                        <span class="title-row-1">Radiant</span>
+                        <span class="title-row-2">Skin <span class="title-outline">Awaits</span></span>
+                    </h1>
+                    <div class="hero-meta-divider"></div>
+                    <p class="hero-description">Experience clean, dermatologically backed skincare and supplements formulated to nourish your body and skin from the inside out.</p>
+                    <a href="#shop-section" class="btn btn-primary" id="hero-cta-btn">Explore Catalog</a>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="assets/hero_background.png" alt="AURA Skincare Products on stone steps">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Trust badging strip (Ethixia Style) -->
+        <section class="trust-strip" id="trust-strip">
+            <div class="trust-container">
+                <div class="trust-item">
+                    <div class="trust-icon-wrapper">
+                        <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <div class="trust-info">
+                        <h3>Dermatologist Tested</h3>
+                        <p>Clinically proven results</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon-wrapper">
+                        <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </div>
+                    <div class="trust-info">
+                        <h3>Cruelty-Free & Vegan</h3>
+                        <p>Ethically sourced ingredients</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon-wrapper">
+                        <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/></svg>
+                    </div>
+                    <div class="trust-info">
+                        <h3>100% Sustainable</h3>
+                        <p>Eco-conscious packaging</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Press Logo strip (PureGlow style) -->
+        <section class="press-strip">
+            <div class="press-container">
+                <span class="press-title">Featured In</span>
+                <div class="press-logos">
+                    <span class="press-logo">VOGUE</span>
+                    <span class="press-logo">ELLE</span>
+                    <span class="press-logo">SEPHORA</span>
+                    <span class="press-logo">BAZAAR</span>
+                    <span class="press-logo">COSMO</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Category quick links (Sephora Style) -->
+        <section class="category-slider-section" id="category-slider-section">
+            <h2 class="section-title-centered">Shop by Category</h2>
+            <div class="category-slider" id="category-slider">
+                <button class="category-circle-link active" data-category="all" id="cat-all" aria-label="View All Products">
+                    <div class="category-circle-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=150&h=150&q=80" alt="All Products">
+                    </div>
+                    <span>All Products</span>
+                </button>
+                <button class="category-circle-link" data-category="serum" id="cat-serums" aria-label="View Serums">
+                    <div class="category-circle-img-wrapper">
+                        <img src="assets/serum_product.png" alt="Serums">
+                    </div>
+                    <span>Serums</span>
+                </button>
+                <button class="category-circle-link" data-category="moisturizer" id="cat-moisturizers" aria-label="View Moisturizers">
+                    <div class="category-circle-img-wrapper">
+                        <img src="assets/cream_product.png" alt="Moisturizers">
+                    </div>
+                    <span>Moisturizers</span>
+                </button>
+                <button class="category-circle-link" data-category="cleanser" id="cat-cleansers" aria-label="View Cleansers">
+                    <div class="category-circle-img-wrapper">
+                        <img src="assets/cleanser_product.png" alt="Cleansers">
+                    </div>
+                    <span>Cleansers</span>
+                </button>
+                <button class="category-circle-link" data-category="supplement" id="cat-supplements" aria-label="View Supplements">
+                    <div class="category-circle-img-wrapper">
+                        <img src="assets/supplement_product.png" alt="Supplements">
+                    </div>
+                    <span>Supplements</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 6. Main Catalog & Collapsible Filters (uema Style) -->
+        <section class="shop-section" id="shop-section">
+            <div class="shop-container">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar" id="filters-sidebar">
+                    <div class="filter-header">
+                        <h2>Filters</h2>
+                        <button class="close-filters-btn" id="close-filters-btn" aria-label="Close Filters">&times;</button>
+                        <button class="clear-filters-btn" id="clear-filters-btn">Clear All</button>
+                    </div>
+                    
+                    <!-- Search inside filters (mobile friendly) -->
+                    <div class="filter-group">
+                        <label for="sidebar-search">Search Keyword</label>
+                        <input type="text" id="sidebar-search" class="filter-input-search" placeholder="Type to search...">
+                    </div>
+
+                    <!-- Category Checkboxes -->
+                    <div class="filter-group">
+                        <h3>Product Type</h3>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" name="type" value="serum" id="filter-serum">
+                            <label for="filter-serum">Serums</label>
+                        </div>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" name="type" value="moisturizer" id="filter-moisturizer">
+                            <label for="filter-moisturizer">Moisturizers</label>
+                        </div>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" name="type" value="cleanser" id="filter-cleanser">
+                            <label for="filter-cleanser">Cleansers</label>
+                        </div>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" name="type" value="supplement" id="filter-supplement">
+                            <label for="filter-supplement">Supplements</label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h3>Max Price</h3>
+                        <input type="range" id="price-range" min="15" max="80" value="80" class="price-slider">
+                        <div class="price-labels">
+                            <span>$15</span>
+                            <span id="price-value">$80</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Product Catalog Grid -->
+                <div class="catalog-content">
+                    <div class="catalog-header">
+                        <div class="catalog-header-left">
+                            <button class="filter-toggle-btn" id="filter-toggle-btn" aria-label="Toggle Filters Sidebar">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2h14V9H7zm-2 4h2V9H5v4zM15 5v2h6V5h-6z"/></svg>
+                                <span>Filters</span>
+                            </button>
+                            <span id="product-results-count">Showing all products</span>
+                        </div>
+                        <div class="sort-wrapper">
+                            <label for="sort-select">Sort By:</label>
+                            <select id="sort-select">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Rating</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="product-grid" id="product-grid">
+                        <!-- Dynamically generated products go here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Supplement Promo Panel (PlantFusion Style) -->
+        <section class="supplement-promo" id="supplement-promo">
+            <div class="supplement-promo-container">
+                <div class="supplement-promo-image">
+                    <img src="assets/supplement_product.png" alt="AURA Collagen Peptides supplement jar with green plants" class="promo-bg-img">
+                </div>
+                <div class="supplement-promo-content">
+                    <span class="promo-badge">Inner Wellness</span>
+                    <h2>World's Cleanest Skincare Supplements</h2>
+                    <p>True skin radiance starts from within. Our premium botanical supplements deliver essential micro-nutrients, hyaluronic acids, and marine collagen to repair cells and maximize your glow.</p>
+                    <ul class="benefits-list">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Supports skin elasticity and hydration</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>100% Vegan plant-protein & botanical blends</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Free from dairy, soy, gluten, and artificial sweeteners</span>
+                        </li>
+                    </ul>
+                    <a href="#shop-section" class="btn btn-secondary" id="promo-shop-btn" data-filter="supplement">Shop Supplements</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Interactive Skincare Routine Step Builder (Ethixia Style) -->
+        <section class="routine-section" id="routine-section">
+            <h2 class="section-title-centered">Simple Steps, Healthy Skin</h2>
+            <p class="section-subtitle-centered">Build your daily routine with our synergistic skincare products and supplements.</p>
+            
+            <!-- Skin Type Tabs -->
+            <div class="routine-skin-tabs">
+                <button class="skin-tab-btn active" data-skin="all" id="skin-tab-all">All Skins</button>
+                <button class="skin-tab-btn" data-skin="dry" id="skin-tab-dry">Dry / Dehydrated</button>
+                <button class="skin-tab-btn" data-skin="oily" id="skin-tab-oily">Oily / Congested</button>
+                <button class="skin-tab-btn" data-skin="sensitive" id="skin-tab-sensitive">Sensitive</button>
+            </div>
+            
+            <div class="routine-steps-grid" id="routine-steps-grid">
+                <!-- Step 1 -->
+                <div class="routine-step-card" id="step-card-1">
+                    <div class="step-num">01</div>
+                    <h3>Cleanse</h3>
+                    <p class="step-action" id="step-action-1">Gentle Gel Cleanser</p>
+                    <p class="step-desc" id="step-desc-1">Remove impurities, excess sebum, and makeup gently without stripping moisture.</p>
+                    <button class="btn-text add-step-to-cart" data-id="cleanse-1" id="btn-add-step-1">Add Cleanse &rarr;</button>
+                </div>
+                <!-- Step 2 -->
+                <div class="routine-step-card" id="step-card-2">
+                    <div class="step-num">02</div>
+                    <h3>Treat</h3>
+                    <p class="step-action" id="step-action-2">Radiance Glow Serum</p>
+                    <p class="step-desc" id="step-desc-2">Apply 2-3 drops of active serums to target dark spots, fine lines, and dullness.</p>
+                    <button class="btn-text add-step-to-cart" data-id="serum-1" id="btn-add-step-2">Add Treat &rarr;</button>
+                </div>
+                <!-- Step 3 -->
+                <div class="routine-step-card" id="step-card-3">
+                    <div class="step-num">03</div>
+                    <h3>Moisturize</h3>
+                    <p class="step-action" id="step-action-3">Hydrating Facial Cream</p>
+                    <p class="step-desc" id="step-desc-3">Lock in moisture and strengthen the skin barrier with deep 24H hydration.</p>
+                    <button class="btn-text add-step-to-cart" data-id="cream-1" id="btn-add-step-3">Add Moisturize &rarr;</button>
+                </div>
+                <!-- Step 4 -->
+                <div class="routine-step-card" id="step-card-4">
+                    <div class="step-num">04</div>
+                    <h3>Supplement</h3>
+                    <p class="step-action" id="step-action-4">Collagen Peptides</p>
+                    <p class="step-desc" id="step-desc-4">Nourish cells internally to accelerate repair and keep skin glowing.</p>
+                    <button class="btn-text add-step-to-cart" data-id="supplement-1" id="btn-add-step-4">Add Supplement &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Glow Routine Bundle Section (PureGlow & Lushora style) -->
+        <section class="bundle-section" id="bundle-section">
+            <div class="bundle-container">
+                <div class="bundle-content-wrapper">
+                    <div class="bundle-info">
+                        <span class="bundle-badge">Synergy Set</span>
+                        <h2>AURA Daily Glow Bundle</h2>
+                        <p class="bundle-desc">Experience maximum skin synergy. Get our complete 3-step morning and night essentials at a 15% discount. Wash, target, and hydrate for an unmistakable daily glow.</p>
+                        <div class="bundle-items-list">
+                            <div class="bundle-item-bullet">
+                                <span class="bullet-num">1</span>
+                                <div>
+                                    <h4>Gentle Gel Cleanser</h4>
+                                    <p>Cleanses without stripping moisture</p>
+                                </div>
+                            </div>
+                            <div class="bundle-item-bullet">
+                                <span class="bullet-num">2</span>
+                                <div>
+                                    <h4>Radiance Glow Serum</h4>
+                                    <p>Brightens, lifts, and targets spots</p>
+                                </div>
+                            </div>
+                            <div class="bundle-item-bullet">
+                                <span class="bullet-num">3</span>
+                                <div>
+                                    <h4>Hydrating Facial Cream</h4>
+                                    <p>Locks in moisture and repairs barrier</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bundle-purchase-card">
+                        <div class="bundle-synergy-indicator">
+                            <span class="synergy-pct">98%</span>
+                            <span class="synergy-label">Skin Synergy Match</span>
+                        </div>
+                        <div class="bundle-price-box">
+                            <span class="bundle-old-price">$102.00</span>
+                            <span class="bundle-new-price">$86.00</span>
+                            <span class="bundle-discount-badge">Save 15%</span>
+                        </div>
+                        <p class="bundle-shipping-notice">🎉 Free Express Shipping Included</p>
+                        <button class="btn btn-primary bundle-buy-btn" id="btn-buy-bundle" aria-label="Add Daily Glow Bundle to Cart">
+                            Add Bundle to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dark Services Section (PureGlow style) -->
+        <section class="services-section" id="services-section">
+            <div class="services-container">
+                <div class="services-grid">
+                    <!-- Left: Content & Tabs -->
+                    <div class="services-content">
+                        <span class="services-subtitle">Expert Skincare Solutions</span>
+                        <h2 class="services-title">Advanced Glow Solutions</h2>
+                        
+                        <!-- Tab Buttons -->
+                        <div class="services-tabs">
+                            <button class="service-tab-btn active" data-tab="tab-acne" id="btn-service-acne">Acne & Blemishes</button>
+                            <button class="service-tab-btn" data-tab="tab-hydration" id="btn-service-hydration">Hydration & Barrier</button>
+                            <button class="service-tab-btn" data-tab="tab-aging" id="btn-service-aging">Healthy Aging</button>
+                        </div>
+                        
+                        <!-- Tab Content Boxes -->
+                        <div class="service-tab-content active" id="tab-acne">
+                            <h3>Advanced Clarifying Treatment</h3>
+                            <p>Combat breakouts and clear congested pores without dry irritation. Our combination of gentle clarifying cleansers and calming botanical barrier creams helps restore clarity and balance.</p>
+                            <div class="service-benefits">
+                                <span>✔ Reduces redness</span>
+                                <span>✔ Unclogs pores</span>
+                                <span>✔ Controls excess sebum</span>
+                            </div>
+                            <a href="#shop-section" class="btn btn-secondary services-cta-btn" id="cta-service-acne">Shop Cleansers</a>
+                        </div>
+                        
+                        <div class="service-tab-content" id="tab-hydration">
+                            <h3>Deep Moisture Recovery</h3>
+                            <p>Rehydrate depleted cells and reinforce your natural lipid barrier. Formulated with multi-weight hyaluronic acid and marine botanicals to lock in moisture for 24-hour plumpness.</p>
+                            <div class="service-benefits">
+                                <span>✔ Restores natural lipid barrier</span>
+                                <span>✔ Locks in 24hr moisture</span>
+                                <span>✔ Soothes flaky dry skin</span>
+                            </div>
+                            <a href="#shop-section" class="btn btn-secondary services-cta-btn" id="cta-service-hydration">Shop Hyaluronic Serum</a>
+                        </div>
+                        
+                        <div class="service-tab-content" id="tab-aging">
+                            <h3>Cellular Renewal & Lift</h3>
+                            <p>Promote collagen synthesis and smooth out fine expression lines. Combining potent peptides with nutrient-dense adaptogenic supplements to support skin elasticity from within.</p>
+                            <div class="service-benefits">
+                                <span>✔ Fades fine lines</span>
+                                <span>✔ Boosts skin elasticity</span>
+                                <span>✔ Dual topical & oral action</span>
+                            </div>
+                            <a href="#shop-section" class="btn btn-secondary services-cta-btn" id="cta-service-aging">Shop Peptide Kit</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Large Image Column -->
+                    <div class="services-image-column">
+                        <div class="services-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Dewy model applying face cream" id="services-tab-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clean Ingredients gloss list section (Orvélia Style) -->
+        <section class="ingredients-section" id="ingredients-section">
+            <h2 class="section-title-centered">Clean Botanical Actives</h2>
+            <p class="section-subtitle-centered">Transparency is key. Discover the clinical and organic ingredients powering AURA formulas.</p>
+            
+            <div class="ingredients-container">
+                <div class="ingredients-grid">
+                    <!-- Left: Card list -->
+                    <div class="ingredients-list">
+                        <div class="ingredient-card active" data-ingred="ingred-ha">
+                            <h3>Hyaluronic Acid</h3>
+                            <p>Multi-weight molecular skin hydration</p>
+                        </div>
+                        <div class="ingredient-card" data-ingred="ingred-ni">
+                            <h3>Niacinamide</h3>
+                            <p>Vitamin B3 cell balancing & redness relief</p>
+                        </div>
+                        <div class="ingredient-card" data-ingred="ingred-co">
+                            <h3>Marine Collagen</h3>
+                            <p>Deep skin structural support & elasticity</p>
+                        </div>
+                        <div class="ingredient-card" data-ingred="ingred-sa">
+                            <h3>Salicylic Acid</h3>
+                            <p>BHA pore clarifying & oil regulation</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Info Panel -->
+                    <div class="ingredient-info-panel">
+                        <div class="ingredient-panel-content active" id="ingred-ha">
+                            <span class="ingred-origin-badge">Origin: Vegetable Fermentation</span>
+                            <h2>Multi-Weight Hyaluronic Acid</h2>
+                            <p class="ingred-long-desc">Our bio-fermented Hyaluronic Acid utilizes three distinct molecular weights. High-molecular weight forms an invisible protective moisture barrier on the surface, while low-molecular weights penetrate deep into the skin's epidermal layers to plump wrinkles and provide lasting hydration.</p>
+                            <div class="ingred-stats">
+                                <div class="ingred-stat">
+                                    <span class="stat-number">1000x</span>
+                                    <span class="stat-label">Moisture Retention Capacity</span>
+                                </div>
+                                <div class="ingred-stat">
+                                    <span class="stat-number">94%</span>
+                                    <span class="stat-label">Reported Plumper Skin</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ingredient-panel-content" id="ingred-ni">
+                            <span class="ingred-origin-badge">Origin: Clinical Synthesis</span>
+                            <h2>Niacinamide (Vitamin B3)</h2>
+                            <p class="ingred-long-desc">A water-soluble vitamin that works with the natural substances in your skin to visibly minimize enlarged pores, tighten lax pores, improve uneven skin tone, soften fine lines and wrinkles, diminish dullness, and strengthen a weakened surface barrier.</p>
+                            <div class="ingred-stats">
+                                <div class="ingred-stat">
+                                    <span class="stat-number">5%</span>
+                                    <span class="stat-label">Optimal Clinical Concentration</span>
+                                </div>
+                                <div class="ingred-stat">
+                                    <span class="stat-number">88%</span>
+                                    <span class="stat-label">Fewer Visible Blemishes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ingredient-panel-content" id="ingred-co">
+                            <span class="ingred-origin-badge">Origin: Deep Sea Kelp & Marine Extract</span>
+                            <h2>Hydrolyzed Marine Collagen</h2>
+                            <p class="ingred-long-desc">Sourced responsibly from marine algae and deep-sea kelp, our marine peptides contain high concentrations of Type I collagen amino acids. Formulated both topically and orally to support skin cell cellular turnover, tissue elasticity, and overall structural density.</p>
+                            <div class="ingred-stats">
+                                <div class="ingred-stat">
+                                    <span class="stat-number">10x</span>
+                                    <span class="stat-label">Better Absorption vs Animal Collagen</span>
+                                </div>
+                                <div class="ingred-stat">
+                                    <span class="stat-number">91%</span>
+                                    <span class="stat-label">Noticed Improved Elasticity</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ingredient-panel-content" id="ingred-sa">
+                            <span class="ingred-origin-badge">Origin: Willow Bark Botanical Extract</span>
+                            <h2>Salicylic Acid (BHA)</h2>
+                            <p class="ingred-long-desc">A lipid-soluble beta-hydroxy acid that penetrates deep into the pores to exfoliate dead cells, clear excess sebum, and calm active redness. Perfect for targeting blemishes, improving texture, and smoothing skin without drying stripping.</p>
+                            <div class="ingred-stats">
+                                <div class="ingred-stat">
+                                    <span class="stat-number">2%</span>
+                                    <span class="stat-label">Clinical Clarifying Dose</span>
+                                </div>
+                                <div class="ingred-stat">
+                                    <span class="stat-number">95%</span>
+                                    <span class="stat-label">Reported Clearer Skin Texture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Testimonials Carousel Section (Ethixia & Lushora Style) -->
+        <section class="testimonials-section" id="testimonials-section">
+            <h2 class="section-title-centered">Why Customers Love AURA</h2>
+            
+            <div class="testimonial-slider-container">
+                <div class="testimonial-slide active" id="testimonial-1">
+                    <div class="rating-stars">★★★★★</div>
+                    <blockquote class="testimonial-quote">"I've tried so many cleansers and moisturizers over the years, but this one truly stands out. My skin feels soft, hydrated, and balanced every day. The combo of supplements and skincare is a game-changer!"</blockquote>
+                    <cite class="testimonial-author">Sofia L. &mdash; Verified Buyer</cite>
+                </div>
+                <div class="testimonial-slide" id="testimonial-2">
+                    <div class="rating-stars">★★★★★</div>
+                    <blockquote class="testimonial-quote">"The Collagen Peptides has restored my skin's elasticity. People have been asking me what products I use. AURA is my holy grail skin routine now."</blockquote>
+                    <cite class="testimonial-author">Emma T. &mdash; Verified Buyer</cite>
+                </div>
+                <div class="testimonial-slide" id="testimonial-3">
+                    <div class="rating-stars">★★★★★</div>
+                    <blockquote class="testimonial-quote">"Clean ingredients, beautiful packaging, and results within two weeks! Highly recommend the Radiance Serum and Moisturizer."</blockquote>
+                    <cite class="testimonial-author">Priya S. &mdash; Verified Buyer</cite>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-arrow prev-arrow" id="testimonial-prev" aria-label="Previous Testimonial">&larr;</button>
+                    <span class="slider-dots" id="testimonial-dots">
+                        <span class="slider-dot active" data-index="0"></span>
+                        <span class="slider-dot" data-index="1"></span>
+                        <span class="slider-dot" data-index="2"></span>
+                    </span>
+                    <button class="slider-arrow next-arrow" id="testimonial-next" aria-label="Next Testimonial">&rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Instagram Grid Section (Lushora Style) -->
+        <section class="instagram-section" id="instagram-section">
+            <h2 class="section-title-centered">Join Our Community</h2>
+            <p class="section-subtitle-centered">Share your glow on Instagram <a href="#" class="instagram-handle">@aura.wellness</a></p>
+            <div class="instagram-grid">
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80" alt="Customer applying serum" class="instagram-img">
+                    <div class="instagram-overlay">
+                        <span>♥ 1.2k</span>
+                    </div>
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=600&q=80" alt="Skincare flat lay" class="instagram-img">
+                    <div class="instagram-overlay">
+                        <span>♥ 890</span>
+                    </div>
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80" alt="Botanical oil drop" class="instagram-img">
+                    <div class="instagram-overlay">
+                        <span>♥ 2.1k</span>
+                    </div>
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Skincare cream texture" class="instagram-img">
+                    <div class="instagram-overlay">
+                        <span>♥ 1.5k</span>
+                    </div>
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Glow skin model" class="instagram-img">
+                    <div class="instagram-overlay">
+                        <span>♥ 950</span>
+                    </div>
+                </div>
+                <div class="instagram-item">
+                    <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=600&q=80" alt="Dropper bottle layout" class="instagram-img">
+                    <div class="instagram-overlay">
+                        <span>♥ 1.8k</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 11. Slide-out Cart Drawer Section -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart-btn" id="close-cart-btn" aria-label="Close CartDrawer">&times;</button>
+        </div>
+
+        <!-- Free Shipping Progress -->
+        <div class="shipping-progress-wrapper">
+            <p class="shipping-progress-text" id="shipping-progress-text">Spend $15.00 more for Free Shipping!</p>
+            <div class="shipping-progress-bar">
+                <div class="shipping-progress-fill" id="shipping-progress-fill" style="width: 70%;"></div>
+            </div>
+        </div>
+
+        <div class="cart-items-container" id="cart-items-container">
+            <!-- Dynamically populated cart items -->
+            <div class="empty-cart-message" id="empty-cart-message">
+                <svg class="empty-cart-icon" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.9 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                <p>Your cart is empty.</p>
+                <button class="btn btn-secondary start-shopping-btn" id="start-shopping-btn">Start Shopping</button>
+            </div>
+        </div>
+
+        <div class="cart-drawer-footer" id="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <p class="cart-tax-note">Taxes and shipping calculated at checkout.</p>
+            <button class="btn btn-primary checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- 12. Detailed Product Modal (Beauty Shop Style) -->
+    <div class="product-modal-overlay" id="product-modal-overlay">
+        <div class="product-modal" id="product-modal">
+            <button class="close-modal-btn" id="close-modal-btn" aria-label="Close Product Modal">&times;</button>
+            
+            <div class="modal-grid">
+                <!-- Modal Images -->
+                <div class="modal-gallery">
+                    <div class="main-modal-img-wrapper">
+                        <img src="" alt="" id="modal-main-img">
+                    </div>
+                </div>
+
+                <!-- Modal Info -->
+                <div class="modal-info">
+                    <span class="modal-product-tag" id="modal-product-tag">Skincare</span>
+                    <h2 class="modal-product-name" id="modal-product-name">SilkSkin Serum</h2>
+                    
+                    <div class="modal-rating">
+                        <span class="stars" id="modal-rating-stars">★★★★★</span>
+                        <span class="rating-count" id="modal-rating-count">4.8 (245 Reviews)</span>
+                    </div>
+
+                    <div class="modal-price">
+                        <span class="current-price" id="modal-current-price">$48.00</span>
+                        <span class="compare-price" id="modal-compare-price">$60.00</span>
+                        <span class="modal-discount" id="modal-discount">20% off</span>
+                    </div>
+
+                    <p class="modal-short-desc" id="modal-short-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elementum, eros quis rhoncus tempor, ipsum diam.</p>
+
+                    <!-- Size Selection -->
+                    <div class="modal-selection-group" id="modal-size-group">
+                        <label>Size / Volume</label>
+                        <div class="size-options-wrapper" id="modal-size-options">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart Block -->
+                    <div class="modal-purchase-block">
+                        <div class="quantity-selector">
+                            <button id="modal-qty-minus" aria-label="Decrease quantity">-</button>
+                            <input type="number" id="modal-qty-input" value="1" min="1">
+                            <button id="modal-qty-plus" aria-label="Increase quantity">+</button>
+                        </div>
+                        <button class="btn btn-primary modal-add-btn" id="modal-add-to-cart-btn">Add to Cart</button>
+                    </div>
+
+                    <!-- Tabs Section -->
+                    <div class="modal-tabs">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" data-tab="tab-description" id="tab-desc-btn">Description</button>
+                            <button class="tab-btn" data-tab="tab-ingredients" id="tab-ingred-btn">Ingredients</button>
+                            <button class="tab-btn" data-tab="tab-directions" id="tab-direct-btn">Directions</button>
+                        </div>
+                        <div class="tab-content active" id="tab-description">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div class="tab-content" id="tab-ingredients">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div class="tab-content" id="tab-directions">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 13. Footer (uema & Lushora Style) -->
+    <footer class="main-footer" id="about-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <span class="footer-logo">AURA</span>
+                <p>Nourishing your inner and outer glow through high-performance botanical formulations and premium dietary health supplements.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m8.4 2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter/X">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v7.002C18.314 21.129 22 16.992 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-col links-col">
+                <h3>Navigation</h3>
+                <div class="footer-links-pills">
+                    <a href="#shop-section" class="footer-pill-link">Shop All</a>
+                    <a href="#shop-section" class="footer-pill-link">Serums</a>
+                    <a href="#shop-section" class="footer-pill-link">Moisturizers</a>
+                    <a href="#about-footer" class="footer-pill-link">Our Science</a>
+                    <a href="#about-footer" class="footer-pill-link">Support & FAQs</a>
+                    <a href="#about-footer" class="footer-pill-link">Store Locator</a>
+                </div>
+            </div>
+
+            <div class="footer-col newsletter-col">
+                <h3>Join the Glow List</h3>
+                <p>Subscribe to receive 15% off your first order, skincare advice, and exclusive access to new launches.</p>
+                <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+                    <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
+                    <button type="submit" id="newsletter-submit-btn" aria-label="Subscribe to newsletter">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-contact-block">
+            <span class="footer-contact-label">Get in Touch</span>
+            <a href="mailto:hello@aura.wellness" class="footer-huge-email">hello@aura.wellness</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 AURA Skincare & Wellness. All rights reserved.</p>
+            <div class="footer-policies">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="index.js"></script>
+</body>
+</html>

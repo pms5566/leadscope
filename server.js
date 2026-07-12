@@ -132,7 +132,15 @@ const NICHE_ALIASES = {
   'gel_nails': 'nail-art',
   'gel_manicure': 'nail-art',
   'nail_studio': 'nail-art',
-  'nail_bar': 'nail-art'
+  'nail_bar': 'nail-art',
+  // ── Shopify 1 ────────────────────────────────────────────────────────────────
+  'shopify': 'Shopify 1',
+  'shopify_store': 'Shopify 1',
+  'shopify_dropshipping': 'Shopify 1',
+  'ecommerce': 'Shopify 1',
+  'e-commerce': 'Shopify 1',
+  'online_store': 'Shopify 1',
+  'shopify_developer': 'Shopify 1'
 };
 
 // Helper to fetch files from configured GitHub repository
@@ -3325,7 +3333,7 @@ app.get('/api/templates', async (req, res) => {
       }
     } catch (localErr2) { /* ignore */ }
     // Last resort hardcoded list — only real templates we know exist
-    res.json({ success: true, templates: ['dermatologist', 'dentist', 'gym', 'doctor', 'garage', 'jewelry', 'nail-art', 'luxurious-salon-website', 'roofing contractors', 'SPA'] });
+    res.json({ success: true, templates: ['dermatologist', 'dentist', 'gym', 'doctor', 'garage', 'jewelry', 'nail-art', 'luxurious-salon-website', 'roofing contractors', 'SPA', 'Shopify 1'] });
   }
 });
 
