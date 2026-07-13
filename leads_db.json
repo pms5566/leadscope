@@ -52,9 +52,9 @@
       "location": "chandigarh",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "[6:42:37 PM] Opened Proposal Preview Link",
+      "notes": "[6:42:37 PM] Opened Proposal Preview Link\n[6:42:43 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-04T15:38:50.665Z",
-      "updatedAt": "2026-07-13T18:42:37.382Z",
+      "updatedAt": "2026-07-13T18:42:43.208Z",
       "shortAlias": "dr-geeta-gargs-skin-clinic",
       "analytics": {
         "opened": "Yes",
@@ -2073,13 +2073,13 @@
       "leadId": "meta-1783179492789-6",
       "name": "Dr Geeta Garg's skin clinic",
       "openedAt": "2026-07-13T18:42:37.382Z",
-      "lastActiveAt": "2026-07-13T18:42:37.382Z",
+      "lastActiveAt": "2026-07-13T18:42:43.208Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Kathmandu, Bagmati Province, Nepal",
       "countryCode": "NP",
       "isp": "WorldLink Communications",
-      "views": 1,
+      "views": 2,
       "device": "mobile",
       "os": "Android",
       "browser": "Chrome",
@@ -2087,6 +2087,13 @@
         {
           "event": "open",
           "timestamp": "2026-07-13T18:42:37.382Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T18:42:43.208Z",
           "details": {
             "device": "mobile"
           }
