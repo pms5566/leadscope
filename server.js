@@ -2881,8 +2881,18 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
       Tawk_API.onLoad = function() {
         if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+          // On mobile: fully hide — the CHAT tab in the bottom nav handles this
           Tawk_API.hideWidget();
+        } else {
+          // On desktop: keep minimized — only show the launcher bubble + red badge
+          // Never let the pre-chat popup auto-expand
+          Tawk_API.minimize();
         }
+      };
+      // Also prevent any auto-popup/greeting before the widget fully loads
+      Tawk_API.onChatMaximized = function() {};
+      Tawk_API.onBeforeLoad = function() {
+        Tawk_API.minimize();
       };
       (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
