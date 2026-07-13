@@ -1943,9 +1943,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         defaultDeviceClass = 'device-tablet';
       }
 
-      const tawkEmbedUrl = process.env.TAWK_EMBED_URL || '';
-      const hasTawk = tawkEmbedUrl.trim() !== '';
-      
+
       const queryParams = new URLSearchParams();
       if (req.query.name) queryParams.set('name', req.query.name);
       if (req.query.phone) queryParams.set('phone', req.query.phone);
@@ -2320,7 +2318,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     }
 
     /* Fallback Glassmorphic Live Chat widget overlay */
-    ${!hasTawk ? `
+    
     .ls-chat-widget {
       position: fixed !important;
       bottom: 20px !important;
@@ -2413,7 +2411,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     .mobile-bottom-nav {
       display: none !important;
     }
-    ` : ''}
 
     /* Small Screen adaptations (Mobiles & Tablets under 768px) */
     @media (max-width: 768px) {
@@ -2631,31 +2628,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       }
     }
 
-    /* ── Tawk.to: hide the widget container immediately at paint time ── */
-    /* Prevents the greeting popup ever flashing before JS fires        */
-    #tawkchat-container,
-    [id^="tawkchat"],
-    iframe[src*="tawk.to"],
-    iframe[title*="chat"],
-    .tawk-min-container,
-    .tawk-bubble-container {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-    }
-    /* Shown only when user explicitly taps CHAT */
-    body.tawk-open #tawkchat-container,
-    body.tawk-open [id^="tawkchat"],
-    body.tawk-open iframe[src*="tawk.to"],
-    body.tawk-open iframe[title*="chat"],
-    body.tawk-open .tawk-min-container,
-    body.tawk-open .tawk-bubble-container {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      pointer-events: all !important;
-    }
   </style>
 </head>
 <body class="${defaultDeviceClass}">
@@ -2746,7 +2718,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
   </div>
 
   <!-- Fallback Chat widget overlay -->
-  ${!hasTawk ? `
+  
   <div class="ls-chat-widget" id="ls-chat-box">
     <div class="ls-chat-header">
       <span>💬 Design Consultation</span>
@@ -2763,7 +2735,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       <div class="ls-chat-success-msg" id="ls-chat-success">✓ Sent to our design team!</div>
     </div>
   </div>
-  ` : ''}
+
 
   <!-- Viewport Switch Controller Script -->
   <script>
@@ -2844,7 +2816,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       document.getElementById('ls-whatsapp-lnk').addEventListener('click', () => sendEvent('whatsapp_click'));
       document.getElementById('ls-email-lnk').addEventListener('click', () => sendEvent('email_click'));
 
-      ${!hasTawk ? `
+      
       // Chat Trigger
       setTimeout(() => {
         const chatBox = document.getElementById('ls-chat-box');
@@ -2902,45 +2874,11 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           }
         });
       }
-      ` : `
-      // Inject Tawk.to Script on outer wrapper
-      // Widget is loaded silently for CRM/tracking — launcher bubble is hidden on ALL devices.
-      // Contact is handled by: top-bar WhatsApp/Email icons + bottom nav CHAT tab.
-      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-      Tawk_API.onLoad = function() {
-        // Always hide the visual launcher bubble and any greeting popup
-        Tawk_API.hideWidget();
-      };
-      // Suppress greeting/bubble before widget fully loads (fires earlier)
-      Tawk_API.onBeforeLoad = function() {
-        Tawk_API.hideWidget();
-      };
-      (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='${tawkEmbedUrl.trim()}';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-      })();
       // Parent Bottom Nav Click Handlers
       document.querySelectorAll('.bottom-nav-item').forEach(btn => {
         btn.addEventListener('click', function(e) {
           if (this.id === 'mobile-nav-chat') {
-            e.preventDefault();
-            // Un-hide all Tawk elements via CSS class, then open the chat
-            document.body.classList.add('tawk-open');
-            // Force any hidden Tawk iframes to be visible immediately
-            document.querySelectorAll('[id^="tawkchat"], iframe[src*="tawk.to"], .tawk-min-container, .tawk-bubble-container').forEach(function(el) {
-              el.style.removeProperty('display');
-              el.style.removeProperty('visibility');
-              el.style.removeProperty('opacity');
-              el.style.removeProperty('pointer-events');
-            });
-            if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
-              window.Tawk_API.showWidget();
-              window.Tawk_API.maximize();
-            }
+            // CHAT tab → opens WhatsApp directly (Tawk removed)
             return;
           }
           
@@ -2959,7 +2897,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           }
         });
       });
-      `}
     })();
   </script>
 </body>
@@ -3049,17 +2986,10 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
             });
           }
           
-          // 5. Update mobile bottom navigation chat link
+          // 5. Update mobile bottom navigation chat link → WhatsApp
           const mobileChatLink = document.getElementById('mobile-nav-chat');
           if (mobileChatLink) {
             mobileChatLink.href = ${JSON.stringify(waLink)};
-            mobileChatLink.addEventListener('click', function(e) {
-              if (window.parent && window.parent.Tawk_API && typeof window.parent.Tawk_API.maximize === 'function') {
-                e.preventDefault();
-                window.parent.Tawk_API.showWidget();
-                window.parent.Tawk_API.maximize();
-              }
-            });
           }
         })();
       </script>
