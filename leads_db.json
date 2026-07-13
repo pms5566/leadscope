@@ -2065,13 +2065,13 @@
       "leadId": "mock-lead",
       "name": "Aura Store (Shopify 1)",
       "openedAt": "2026-07-13T06:32:19.102Z",
-      "lastActiveAt": "2026-07-13T07:36:33.938Z",
+      "lastActiveAt": "2026-07-13T07:57:24.303Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Local Network",
       "countryCode": "IN",
       "isp": "Localhost",
-      "views": 1,
+      "views": 2,
       "device": "desktop",
       "os": "macOS",
       "browser": "Chrome",
@@ -2093,6 +2093,20 @@
         {
           "event": "open",
           "timestamp": "2026-07-13T07:36:33.938Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T07:57:20.416Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T07:57:24.303Z",
           "details": {
             "device": "desktop"
           }

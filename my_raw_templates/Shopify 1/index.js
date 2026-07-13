@@ -303,11 +303,26 @@ function setupEventListeners() {
             if (activeFilters.onlyWishlist && wishlist.length === 0) {
                 mobileNavWishlistBtn.classList.remove('active');
                 activeFilters.onlyWishlist = false;
+                
+                // Keep parent active classes in sync
+                if (window.parent && window.parent.document) {
+                    const pWish = window.parent.document.getElementById('mobile-nav-wishlist');
+                    if (pWish) pWish.classList.remove('active');
+                }
+                
                 alert("Your Wishlist is currently empty! Tap the heart icons on products to add them to your wishlist.");
             } else {
                 renderProducts();
                 const shopSection = document.getElementById('shop-section');
                 if (shopSection) shopSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Keep parent active classes in sync
+                if (window.parent && window.parent.document) {
+                    const pWish = window.parent.document.getElementById('mobile-nav-wishlist');
+                    const pShop = window.parent.document.getElementById('mobile-nav-shop');
+                    if (pWish) pWish.classList.toggle('active', activeFilters.onlyWishlist);
+                    if (pShop) pShop.classList.toggle('active', !activeFilters.onlyWishlist);
+                }
             }
         });
     }
@@ -977,6 +992,15 @@ function updateCartUI() {
         mobileCartBadge.setAttribute('data-count', totalItems);
     }
 
+    // Update mobile bottom nav badge in parent wrapper
+    if (window.parent && window.parent.document) {
+        const parentCartBadge = window.parent.document.getElementById('mobile-cart-badge');
+        if (parentCartBadge) {
+            parentCartBadge.textContent = totalItems;
+            parentCartBadge.setAttribute('data-count', totalItems);
+        }
+    }
+
     if (cart.length === 0) {
         emptyCartView.style.display = 'flex';
         cartFooterView.style.display = 'none';
@@ -1069,6 +1093,15 @@ function updateWishlistUI() {
     if (mobileWishlistBadge) {
         mobileWishlistBadge.textContent = wishlist.length;
         mobileWishlistBadge.setAttribute('data-count', wishlist.length);
+    }
+
+    // Update mobile bottom nav badge in parent wrapper
+    if (window.parent && window.parent.document) {
+        const parentWishlistBadge = window.parent.document.getElementById('mobile-wishlist-badge');
+        if (parentWishlistBadge) {
+            parentWishlistBadge.textContent = wishlist.length;
+            parentWishlistBadge.setAttribute('data-count', wishlist.length);
+        }
     }
 }
 

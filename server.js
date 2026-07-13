@@ -2410,6 +2410,9 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       margin-top: 2px !important;
       display: none !important;
     }
+    .mobile-bottom-nav {
+      display: none !important;
+    }
     ` : ''}
 
     /* Small Screen adaptations (Mobiles & Tablets under 768px) */
@@ -2426,8 +2429,13 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       body.device-mobile #ls-viewport-container,
       body.device-tablet #ls-viewport-container,
       body.device-desktop #ls-viewport-container {
-        margin-top: 70px !important;
-        height: calc(100vh - 70px) !important;
+        position: fixed !important;
+        top: 70px !important;
+        bottom: calc(65px + max(12px, env(safe-area-inset-bottom))) !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
         padding: 0 !important;
         align-items: stretch !important;
         overflow: hidden !important;
@@ -2550,6 +2558,77 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         height: 14px !important;
         font-size: 8px !important;
       }
+      
+      /* Mobile bottom nav styling for parent */
+      .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 65px !important;
+        padding-top: 6px !important;
+        padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
+        background-color: rgba(250, 248, 245, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        z-index: 2147483647 !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05) !important;
+      }
+      .bottom-nav-item {
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 4px !important;
+        color: #707070 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        position: relative !important;
+        flex: 1 !important;
+        padding: 4px 0 !important;
+        text-decoration: none !important;
+      }
+      .bottom-nav-item i {
+        font-size: 18px !important;
+      }
+      .bottom-nav-item span {
+        font-size: 9px !important;
+      }
+      .bottom-nav-item.active {
+        color: #0b0f19 !important;
+      }
+      .bottom-nav-badge {
+        position: absolute !important;
+        top: 0px !important;
+        right: 25% !important;
+        background-color: #ef4444 !important;
+        color: #ffffff !important;
+        font-size: 8px !important;
+        font-weight: bold !important;
+        min-width: 14px !important;
+        height: 14px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 2px !important;
+        border: 1px solid #ffffff !important;
+      }
+      .bottom-nav-badge:empty,
+      .bottom-nav-badge[data-count="0"] {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -2616,6 +2695,28 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     <div id="ls-viewport-screen">
       <iframe src="${iframeSrc}"></iframe>
     </div>
+  </div>
+
+  <!-- Mobile Sticky Bottom Nav Bar (Rendered on Outer Parent, not inside iframe) -->
+  <div class="mobile-bottom-nav">
+    <button class="bottom-nav-item active" id="mobile-nav-shop">
+      <i class="fa-solid fa-store"></i>
+      <span>SHOP</span>
+    </button>
+    <button class="bottom-nav-item" id="mobile-nav-wishlist">
+      <i class="fa-solid fa-heart"></i>
+      <span>WISHLIST</span>
+      <span class="bottom-nav-badge" id="mobile-wishlist-badge" data-count="0"></span>
+    </button>
+    <button class="bottom-nav-item" id="mobile-nav-cart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span>CART</span>
+      <span class="bottom-nav-badge" id="mobile-cart-badge" data-count="0"></span>
+    </button>
+    <a href="${waLink}" class="bottom-nav-item" id="mobile-nav-chat" target="_blank">
+      <i class="fa-solid fa-comment"></i>
+      <span>CHAT</span>
+    </a>
   </div>
 
   <!-- Fallback Chat widget overlay -->
@@ -2791,6 +2892,33 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
       })();
+      // Parent Bottom Nav Click Handlers
+      document.querySelectorAll('.bottom-nav-item').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          if (this.id === 'mobile-nav-chat') {
+            if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
+              e.preventDefault();
+              window.Tawk_API.showWidget();
+              window.Tawk_API.maximize();
+            }
+            return;
+          }
+          
+          document.querySelectorAll('.bottom-nav-item').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Delegate click to iframe
+          const iframe = document.querySelector('iframe');
+          if (iframe && iframe.contentWindow) {
+            try {
+              const innerBtn = iframe.contentWindow.document.getElementById(this.id);
+              if (innerBtn) {
+                innerBtn.click();
+              }
+            } catch(err) {}
+          }
+        });
+      });
       `}
     })();
   </script>
