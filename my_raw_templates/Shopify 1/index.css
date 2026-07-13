@@ -3350,7 +3350,10 @@ h1, h2, h3, h4 {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 65px;
+        height: auto;
+        min-height: 65px;
+        padding-top: 6px;
+        padding-bottom: max(12px, env(safe-area-inset-bottom)); /* Raised to avoid curved screen clip-offs */
         background-color: rgba(250, 248, 245, 0.95);
         backdrop-filter: blur(10px);
         border-top: 1px solid var(--color-border);
@@ -3358,7 +3361,6 @@ h1, h2, h3, h4 {
         align-items: center;
         z-index: 99999;
         box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
-        padding-bottom: env(safe-area-inset-bottom); /* Safe area support for newer iPhones */
     }
 
     .bottom-nav-item {
@@ -3431,6 +3433,6 @@ h1, h2, h3, h4 {
 
     /* Add padding to body on mobile to prevent footer cutoff */
     body {
-        padding-bottom: 75px !important;
+        padding-bottom: 95px !important;
     }
 }

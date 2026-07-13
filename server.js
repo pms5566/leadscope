@@ -2530,6 +2530,11 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         padding: 0 !important;
         font-size: 0 !important; /* Hides direct text like "EMAIL US" */
       }
+      .ls-btn-email-glow {
+        background: #0ea5e9 !important;
+        border: none !important;
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3) !important;
+      }
       .ls-btn-action i {
         font-size: 15px !important;
         margin: 0 !important;
@@ -2594,7 +2599,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         <div class="ls-btn-container-sub">
           <!-- Email -->
           <a href="${emailLink}" target="_blank" class="ls-btn-action ls-btn-email-glow" id="ls-email-lnk">
-            <i class="fa-solid fa-envelope"></i> EMAIL US
+            <i class="fa-solid fa-envelope"></i> <span class="ls-btn-txt">EMAIL US</span>
           </a>
           <!-- Fiverr -->
           <a href="${fiverrUrl}" target="_blank" class="ls-btn-action ls-btn-fiv-glow" id="ls-fiverr-lnk">
