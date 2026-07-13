@@ -1933,6 +1933,16 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
 
     if (!isEmbed) {
       // ─── OUTER DEVICE PREVIEW WRAPPER PAGE ──────────────────────────────────
+      const ua = req.headers['user-agent'] || '';
+      const isMobileDevice = /mobile|android|iphone|ipad|phone/i.test(ua);
+      const isTabletDevice = /ipad|tablet/i.test(ua);
+      let defaultDeviceClass = 'device-desktop';
+      if (isMobileDevice) {
+        defaultDeviceClass = 'device-mobile';
+      } else if (isTabletDevice) {
+        defaultDeviceClass = 'device-tablet';
+      }
+
       const tawkEmbedUrl = process.env.TAWK_EMBED_URL || '';
       const hasTawk = tawkEmbedUrl.trim() !== '';
       
@@ -2441,13 +2451,20 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       .ls-proposal-banner {
         height: 195px !important;
       }
-      #ls-viewport-container {
+      #ls-viewport-container,
+      body.device-mobile #ls-viewport-container,
+      body.device-tablet #ls-viewport-container,
+      body.device-desktop #ls-viewport-container {
         margin-top: 195px !important;
         height: calc(100vh - 195px) !important;
         padding: 0 !important;
         align-items: stretch !important;
+        overflow: hidden !important;
       }
-      #ls-viewport-screen {
+      #ls-viewport-screen,
+      body.device-mobile #ls-viewport-screen,
+      body.device-tablet #ls-viewport-screen,
+      body.device-desktop #ls-viewport-screen {
         width: 100% !important;
         height: 100% !important;
         min-height: 100% !important;
@@ -2455,6 +2472,8 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         border: none !important;
         border-radius: 0 !important;
         box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
       #ls-viewport-screen::before {
         display: none !important;
@@ -2510,7 +2529,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     }
   </style>
 </head>
-<body class="device-desktop">
+<body class="${defaultDeviceClass}">
 
   <!-- Fixed Proposal Banner overlay -->
   <div class="ls-proposal-banner">
@@ -2831,6 +2850,12 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
                 el.innerText = realEmail;
               }
             });
+          }
+          
+          // 5. Update mobile bottom navigation chat link
+          const mobileChatLink = document.getElementById('mobile-nav-chat');
+          if (mobileChatLink) {
+            mobileChatLink.href = ${JSON.stringify(waLink)};
           }
         })();
       </script>

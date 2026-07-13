@@ -167,7 +167,8 @@ let wishlist = JSON.parse(localStorage.getItem('aura_wishlist')) || [];
 let activeFilters = {
     search: '',
     categories: [],
-    maxPrice: 80
+    maxPrice: 80,
+    onlyWishlist: false
 };
 let activeSort = 'featured';
 let currentTestimonialIndex = 0;
@@ -274,6 +275,47 @@ function initApp() {
 }
 
 function setupEventListeners() {
+    // Mobile Bottom Navigation Bar Event Listeners
+    const mobileNavShopBtn = document.getElementById('mobile-nav-shop');
+    const mobileNavWishlistBtn = document.getElementById('mobile-nav-wishlist');
+    const mobileNavCartBtn = document.getElementById('mobile-nav-cart');
+
+    if (mobileNavShopBtn) {
+        mobileNavShopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Clear wishlist filter if it was active
+            if (activeFilters.onlyWishlist) {
+                activeFilters.onlyWishlist = false;
+                mobileNavWishlistBtn.classList.remove('active');
+                renderProducts();
+            }
+            const shopSection = document.getElementById('shop-section');
+            if (shopSection) shopSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    if (mobileNavWishlistBtn) {
+        mobileNavWishlistBtn.addEventListener('click', () => {
+            activeFilters.onlyWishlist = !activeFilters.onlyWishlist;
+            mobileNavWishlistBtn.classList.toggle('active', activeFilters.onlyWishlist);
+            
+            // If wishlist is empty and filter is turned on, alert user
+            if (activeFilters.onlyWishlist && wishlist.length === 0) {
+                mobileNavWishlistBtn.classList.remove('active');
+                activeFilters.onlyWishlist = false;
+                alert("Your Wishlist is currently empty! Tap the heart icons on products to add them to your wishlist.");
+            } else {
+                renderProducts();
+                const shopSection = document.getElementById('shop-section');
+                if (shopSection) shopSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+    if (mobileNavCartBtn) {
+        mobileNavCartBtn.addEventListener('click', toggleCartDrawer);
+    }
+
     // Promo Modal Event Listeners
     if (closePromoModalBtn) {
         closePromoModalBtn.addEventListener('click', () => {
@@ -763,7 +805,10 @@ function renderProducts() {
         // Price Filter match
         const matchesPrice = prod.price <= activeFilters.maxPrice;
 
-        return matchesSearch && matchesCategory && matchesPrice;
+        // Wishlist Filter match
+        const matchesWishlist = !activeFilters.onlyWishlist || wishlist.includes(prod.id);
+
+        return matchesSearch && matchesCategory && matchesPrice && matchesWishlist;
     });
 
     // 2. Sort Products
@@ -925,6 +970,13 @@ function updateCartUI() {
     cartCountBadge.textContent = totalItems;
     cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
 
+    // Update mobile bottom nav badge
+    const mobileCartBadge = document.getElementById('mobile-cart-count');
+    if (mobileCartBadge) {
+        mobileCartBadge.textContent = totalItems;
+        mobileCartBadge.setAttribute('data-count', totalItems);
+    }
+
     if (cart.length === 0) {
         emptyCartView.style.display = 'flex';
         cartFooterView.style.display = 'none';
@@ -1011,6 +1063,13 @@ function toggleWishlist(productId) {
 
 function updateWishlistUI() {
     wishlistCountBadge.textContent = wishlist.length;
+
+    // Update mobile bottom nav badge
+    const mobileWishlistBadge = document.getElementById('mobile-wishlist-count');
+    if (mobileWishlistBadge) {
+        mobileWishlistBadge.textContent = wishlist.length;
+        mobileWishlistBadge.setAttribute('data-count', wishlist.length);
+    }
 }
 
 /* ==========================================================================
