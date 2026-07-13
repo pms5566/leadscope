@@ -2411,52 +2411,22 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     }
     ` : ''}
 
-    /* Small Screen adaptations (Tablet viewports) */
-    @media (max-width: 800px) {
+    /* Small Screen adaptations (Mobiles & Tablets under 768px) */
+    @media (max-width: 768px) {
       .ls-proposal-banner {
-        height: 175px !important;
-      }
-      #ls-viewport-container {
-        margin-top: 175px !important;
-        height: calc(100vh - 175px) !important;
-      }
-      .ls-middle-layer {
-        height: 85px !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        padding: 8px 16px !important;
-      }
-      .ls-banner-devices {
-        display: none !important;
-      }
-      .ls-welcome-box {
-        text-align: center !important;
-      }
-      .ls-bottom-layer {
-        height: 62px !important;
+        height: 70px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
         padding: 0 12px !important;
-      }
-      .ls-buttons-container {
-        gap: 8px !important;
-      }
-      .ls-btn-action {
-        padding: 8px 12px !important;
-        font-size: 11px !important;
-      }
-    }
-
-    /* Small Screen adaptations (Mobile phone viewports) */
-    @media (max-width: 480px) {
-      .ls-proposal-banner {
-        height: 195px !important;
       }
       #ls-viewport-container,
       body.device-mobile #ls-viewport-container,
       body.device-tablet #ls-viewport-container,
       body.device-desktop #ls-viewport-container {
-        margin-top: 195px !important;
-        height: calc(100vh - 195px) !important;
+        margin-top: 70px !important;
+        height: calc(100vh - 70px) !important;
         padding: 0 !important;
         align-items: stretch !important;
         overflow: hidden !important;
@@ -2479,52 +2449,100 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         display: none !important;
       }
       .ls-marquee-wrapper {
-        height: 24px !important;
+        display: none !important; /* Hide marquee on mobile to save vertical space */
+      }
+      .ls-banner-devices {
+        display: none !important; /* Hide device switcher on mobile devices */
       }
       .ls-middle-layer {
-        height: 82px !important;
-        padding: 4px 8px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        height: auto !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        width: 45% !important;
         gap: 2px !important;
       }
-      .ls-timer-clock {
-        font-size: 15px !important;
+      .ls-welcome-box {
+        display: block !important;
+        font-size: 10px !important;
+        color: rgba(255, 255, 255, 0.6) !important;
+        margin: 0 !important;
+        text-align: left !important;
+        max-width: 150px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .ls-countdown-box {
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        margin: 0 !important;
       }
       .ls-timer-label {
-        font-size: 11px !important;
+        display: none !important; /* Hide label to save space */
       }
-      .ls-welcome-box {
-        font-size: 12px !important;
+      .ls-timer-clock {
+        font-size: 13px !important;
+        color: #f59e0b !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.5px !important;
       }
       .ls-bottom-layer {
-        height: 89px !important;
-        padding: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        height: auto !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        width: 50% !important;
       }
       .ls-buttons-container {
-        flex-direction: column !important;
-        gap: 6px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 8px !important;
+        width: auto !important;
         max-width: 100% !important;
-      }
-      .ls-btn-action {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 8px 12px !important;
-        border-radius: 8px !important;
-        font-size: 11px !important;
-      }
-      .ls-btn-wa-pulse {
-        flex: none !important;
-        order: 1 !important;
-        animation: none !important;
       }
       .ls-btn-container-sub {
         display: flex !important;
-        gap: 6px !important;
-        width: 100% !important;
-        order: 2 !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        width: auto !important;
+        order: 1 !important;
       }
-      .ls-btn-email-glow, .ls-btn-fiv-glow {
-        flex: 1 !important;
-        max-width: 50% !important;
+      .ls-btn-action {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        max-width: 36px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        font-size: 0 !important; /* Hides direct text like "EMAIL US" */
+      }
+      .ls-btn-action i {
+        font-size: 15px !important;
+        margin: 0 !important;
+      }
+      .ls-btn-txt {
+        display: none !important;
+      }
+      .ls-btn-badge-notif {
+        top: -3px !important;
+        right: -3px !important;
+        width: 14px !important;
+        height: 14px !important;
+        font-size: 8px !important;
       }
     }
   </style>

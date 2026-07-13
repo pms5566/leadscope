@@ -2062,6 +2062,31 @@
   },
   "activeVisits": [
     {
+      "leadId": "mock-lead",
+      "name": "Aura Store (Shopify 1)",
+      "openedAt": "2026-07-13T06:32:19.102Z",
+      "lastActiveAt": "2026-07-13T06:32:19.102Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Local Network",
+      "countryCode": "IN",
+      "isp": "Localhost",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T06:32:19.102Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
       "leadId": "preview_dentist_1783885546735",
       "name": "Bright Look Medical Center (dentist)",
       "openedAt": "2026-07-12T19:45:57.670Z",
