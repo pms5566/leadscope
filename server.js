@@ -2878,21 +2878,16 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       }
       ` : `
       // Inject Tawk.to Script on outer wrapper
+      // Widget is loaded silently for CRM/tracking — launcher bubble is hidden on ALL devices.
+      // Contact is handled by: top-bar WhatsApp/Email icons + bottom nav CHAT tab.
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
       Tawk_API.onLoad = function() {
-        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-          // On mobile: fully hide — the CHAT tab in the bottom nav handles this
-          Tawk_API.hideWidget();
-        } else {
-          // On desktop: keep minimized — only show the launcher bubble + red badge
-          // Never let the pre-chat popup auto-expand
-          Tawk_API.minimize();
-        }
+        // Always hide the visual launcher bubble and any greeting popup
+        Tawk_API.hideWidget();
       };
-      // Also prevent any auto-popup/greeting before the widget fully loads
-      Tawk_API.onChatMaximized = function() {};
+      // Suppress greeting/bubble before widget fully loads (fires earlier)
       Tawk_API.onBeforeLoad = function() {
-        Tawk_API.minimize();
+        Tawk_API.hideWidget();
       };
       (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
