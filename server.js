@@ -2266,7 +2266,8 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       display: flex !important;
     }
     iframe {
-      width: 100% !important;
+      width: 1px !important;
+      min-width: 100% !important;
       height: 100% !important;
       border: none !important;
       background: #ffffff !important;
@@ -2777,6 +2778,11 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       ` : `
       // Inject Tawk.to Script on outer wrapper
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      Tawk_API.onLoad = function() {
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+          Tawk_API.hideWidget();
+        }
+      };
       (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
         s1.async=true;
@@ -2879,6 +2885,13 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           const mobileChatLink = document.getElementById('mobile-nav-chat');
           if (mobileChatLink) {
             mobileChatLink.href = ${JSON.stringify(waLink)};
+            mobileChatLink.addEventListener('click', function(e) {
+              if (window.parent && window.parent.Tawk_API && typeof window.parent.Tawk_API.maximize === 'function') {
+                e.preventDefault();
+                window.parent.Tawk_API.showWidget();
+                window.parent.Tawk_API.maximize();
+              }
+            });
           }
         })();
       </script>

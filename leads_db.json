@@ -2065,7 +2065,7 @@
       "leadId": "mock-lead",
       "name": "Aura Store (Shopify 1)",
       "openedAt": "2026-07-13T06:32:19.102Z",
-      "lastActiveAt": "2026-07-13T06:40:15.749Z",
+      "lastActiveAt": "2026-07-13T07:36:33.938Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Local Network",
@@ -2086,6 +2086,13 @@
         {
           "event": "open",
           "timestamp": "2026-07-13T06:40:15.749Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T07:36:33.938Z",
           "details": {
             "device": "desktop"
           }

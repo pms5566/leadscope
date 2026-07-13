@@ -50,6 +50,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -3311,13 +3312,22 @@ h1, h2, h3, h4 {
 }
 
 @media screen and (max-width: 768px) {
+    html, body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
     .footer-container {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
     .footer-huge-email {
-        font-size: 2.2rem;
+        font-size: 1.5rem !important;
+        word-break: break-all !important;
+        white-space: normal !important;
+        display: block !important;
     }
 
     .footer-contact-block {
