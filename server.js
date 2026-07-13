@@ -2630,6 +2630,32 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         display: none !important;
       }
     }
+
+    /* ── Tawk.to: hide the widget container immediately at paint time ── */
+    /* Prevents the greeting popup ever flashing before JS fires        */
+    #tawkchat-container,
+    [id^="tawkchat"],
+    iframe[src*="tawk.to"],
+    iframe[title*="chat"],
+    .tawk-min-container,
+    .tawk-bubble-container {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    /* Shown only when user explicitly taps CHAT */
+    body.tawk-open #tawkchat-container,
+    body.tawk-open [id^="tawkchat"],
+    body.tawk-open iframe[src*="tawk.to"],
+    body.tawk-open iframe[title*="chat"],
+    body.tawk-open .tawk-min-container,
+    body.tawk-open .tawk-bubble-container {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      pointer-events: all !important;
+    }
   </style>
 </head>
 <body class="${defaultDeviceClass}">
@@ -2901,8 +2927,17 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       document.querySelectorAll('.bottom-nav-item').forEach(btn => {
         btn.addEventListener('click', function(e) {
           if (this.id === 'mobile-nav-chat') {
+            e.preventDefault();
+            // Un-hide all Tawk elements via CSS class, then open the chat
+            document.body.classList.add('tawk-open');
+            // Force any hidden Tawk iframes to be visible immediately
+            document.querySelectorAll('[id^="tawkchat"], iframe[src*="tawk.to"], .tawk-min-container, .tawk-bubble-container').forEach(function(el) {
+              el.style.removeProperty('display');
+              el.style.removeProperty('visibility');
+              el.style.removeProperty('opacity');
+              el.style.removeProperty('pointer-events');
+            });
             if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
-              e.preventDefault();
               window.Tawk_API.showWidget();
               window.Tawk_API.maximize();
             }
