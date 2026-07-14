@@ -2066,16 +2066,49 @@
     "bright-look-medical-center-mrco": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1783885546735?name=Bright%20Look%20Medical%20Center&phone=&address=",
     "chandan": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783922123918?name=Chandan&phone=&address=",
     "ab-pnhg": "https://parmeet123-leadscope.hf.space/preview/SPA/preview_SPA_1783923857161?name=AB&phone=&address=",
-    "ab-xnsv": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783923872470?name=AB&phone=&address="
+    "ab-xnsv": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1783923872470?name=AB&phone=&address=",
+    "ab-q2ao": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1784045791156?name=Ab&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "scr-husr35q",
+      "name": "Je Inara skin care and Aesthetic centre (dermatology)",
+      "openedAt": "2026-07-14T07:26:59.489Z",
+      "lastActiveAt": "2026-07-14T09:19:44.264Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Lucknow, Uttar Pradesh, India",
+      "countryCode": "IN",
+      "isp": "Reliance Jio Infocomm Limited",
+      "views": 2,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-14T07:26:59.489Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-14T09:19:44.264Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1783179492789-6",
       "name": "Dr Geeta Garg's skin clinic",
       "openedAt": "2026-07-13T18:42:37.382Z",
-      "lastActiveAt": "2026-07-13T18:42:43.208Z",
-      "duration": 0,
-      "scrollPercent": 0,
+      "lastActiveAt": "2026-07-13T18:43:15.492Z",
+      "duration": 30,
+      "scrollPercent": 2,
       "location": "Kathmandu, Bagmati Province, Nepal",
       "countryCode": "NP",
       "isp": "WorldLink Communications",
@@ -2096,6 +2129,33 @@
           "timestamp": "2026-07-13T18:42:43.208Z",
           "details": {
             "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:42:54.869Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:43:04.744Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:43:15.492Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 2
           }
         }
       ],
