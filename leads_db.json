@@ -1722,30 +1722,6 @@
       }
     },
     {
-      "id": "meta-1783872551730-21",
-      "name": "Shield Medical Center LLC, UAE",
-      "address": "UAE",
-      "phone": "N/A",
-      "email": null,
-      "facebook": "https://www.facebook.com/Shieldmed",
-      "instagram": "https://www.instagram.com/Shieldmed/",
-      "linkedin": null,
-      "tiktok": null,
-      "whatsapp": null,
-      "adPlatform": "meta",
-      "adActive": true,
-      "hasWebsite": false,
-      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Shield%20Medical%20Center%20LLC%2C%20UAE%20UAE",
-      "niche": "derma",
-      "location": "UAE",
-      "source": "Ad Scanner",
-      "status": "new",
-      "notes": "",
-      "addedAt": "2026-07-12T16:12:10.825Z",
-      "updatedAt": "2026-07-12T16:12:10.825Z",
-      "shortAlias": "shield-medical-center-llc-uae"
-    },
-    {
       "id": "meta-1783872551730-19",
       "name": "American Medical Centre/JLT",
       "address": "UAE",
@@ -2070,6 +2046,74 @@
     "ab-q2ao": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1784045791156?name=Ab&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_1783161066454",
+      "name": "ab (dentist)",
+      "openedAt": "2026-07-14T16:22:13.106Z",
+      "lastActiveAt": "2026-07-14T16:22:57.055Z",
+      "duration": 40,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "Datacamp Limited",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-14T16:22:13.106Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-14T16:22:24.403Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-14T16:22:34.292Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-14T16:22:44.289Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-14T16:22:54.433Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "fiverr_click",
+          "timestamp": "2026-07-14T16:22:57.055Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "scr-husr35q",
       "name": "Je Inara skin care and Aesthetic centre (dermatology)",
