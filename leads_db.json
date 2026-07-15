@@ -2294,10 +2294,18 @@
       "location": "UAE",
       "source": "Ad Scanner",
       "status": "new",
-      "notes": "",
+      "notes": "[8:06:20 AM] Opened Proposal Preview Link",
       "addedAt": "2026-07-15T07:42:27.014Z",
-      "updatedAt": "2026-07-15T07:42:27.014Z",
-      "shortAlias": "zayraq"
+      "updatedAt": "2026-07-15T08:06:20.548Z",
+      "shortAlias": "zayraq",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     }
   ],
   "shortLinks": {
@@ -2462,6 +2470,65 @@
     "daigo-health": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313569-24?name=Daigo%20Health&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
+    {
+      "leadId": "meta-1784101313569-23",
+      "name": "Zayraq",
+      "openedAt": "2026-07-15T08:06:20.548Z",
+      "lastActiveAt": "2026-07-15T08:06:20.548Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T08:06:20.548Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "meta-1784101313568-1",
+      "name": "Dr Reem Daoud",
+      "openedAt": "2026-07-15T07:46:28.080Z",
+      "lastActiveAt": "2026-07-15T07:46:39.227Z",
+      "duration": 10,
+      "scrollPercent": 0,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T07:46:28.080Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T07:46:39.227Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_1783161066454",
       "name": "ab (dentist)",
