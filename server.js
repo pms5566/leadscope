@@ -1737,17 +1737,26 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
           let totalSeconds = 0;
           let maxScroll = 0;
           
-          setInterval(() => {
-            totalSeconds += 10;
+          window.addEventListener('scroll', (e) => {
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+            let scrollHeight = document.documentElement.scrollHeight;
+            let clientHeight = document.documentElement.clientHeight;
             
-            const scrollTop = window.scrollY || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercent = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
+            if (e.target && e.target !== document && e.target !== window) {
+              scrollTop = e.target.scrollTop;
+              scrollHeight = e.target.scrollHeight;
+              clientHeight = e.target.clientHeight;
+            }
             
+            const denom = scrollHeight - clientHeight;
+            const scrollPercent = denom > 0 ? Math.round((scrollTop / denom) * 100) : 0;
             if (scrollPercent > maxScroll) {
               maxScroll = scrollPercent;
             }
-            
+          }, true);
+          
+          setInterval(() => {
+            totalSeconds += 10;
             sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll, page: ${JSON.stringify(pageFile)} });
           }, 10000);
         })();
@@ -1960,7 +1969,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       if (req.query.address) queryParams.set('address', req.query.address);
       queryParams.set('embed', 'true');
       const iframeSrc = `/preview/${encodeURIComponent(niche)}/${encodeURIComponent(leadId)}?${queryParams.toString()}`;
-      
+      const trackingUrlStr = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
       const wrapperHtml = `
 <!DOCTYPE html>
 <html lang="en">
@@ -2601,11 +2610,16 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
         const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
         const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
         
+        const trackingUrl = ${JSON.stringify(trackingUrlStr)};
         async function sendEvent(event, details = {}) {
           try {
-            await fetch('/api/track', {
+            const url = trackingUrl ? (trackingUrl.replace(/\\/$/, '') + '/api/track') : '/api/track';
+            await fetch(url, {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: { 
+                'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true'
+              },
               body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
             });
           } catch (err) {}
@@ -2738,17 +2752,26 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           let totalSeconds = 0;
           let maxScroll = 0;
           
-          setInterval(() => {
-            totalSeconds += 10;
+          window.addEventListener('scroll', (e) => {
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+            let scrollHeight = document.documentElement.scrollHeight;
+            let clientHeight = document.documentElement.clientHeight;
             
-            const scrollTop = window.scrollY || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercent = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
+            if (e.target && e.target !== document && e.target !== window) {
+              scrollTop = e.target.scrollTop;
+              scrollHeight = e.target.scrollHeight;
+              clientHeight = e.target.clientHeight;
+            }
             
+            const denom = scrollHeight - clientHeight;
+            const scrollPercent = denom > 0 ? Math.round((scrollTop / denom) * 100) : 0;
             if (scrollPercent > maxScroll) {
               maxScroll = scrollPercent;
             }
-            
+          }, true);
+          
+          setInterval(() => {
+            totalSeconds += 10;
             sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll });
           }, 10000);
         })();
