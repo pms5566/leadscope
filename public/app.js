@@ -1275,7 +1275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function pollActiveVisits() {
       try {
-        const response = await fetch(`${getPreviewBaseUrl()}/api/active-visits`, {
+        const response = await fetch('/api/active-visits', {
           credentials: 'include'
         });
         const data = await response.json();
