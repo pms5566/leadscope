@@ -2226,7 +2226,8 @@
     "ppp": "https://drab-citric-acid.ngrok-free.dev/preview/dentist/preview_dentist_1784107446403?name=ppp&phone=&address=",
     "ghdf": "https://drab-citric-acid.ngrok-free.dev/preview/dentist/preview_dentist_1784107987636?name=ghdf&phone=&address=",
     "ghjugjt": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784108193515?name=ghjugjt&phone=&address=",
-    "yuop": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784108272162?name=yuop&phone=&address="
+    "yuop": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784108272162?name=yuop&phone=&address=",
+    "yto": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784108699503?name=yto&phone=&address="
   },
   "activeVisits": [
     {
@@ -2290,6 +2291,157 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "meta-1783179492789-6",
+      "name": "Dr Geeta Garg's skin clinic",
+      "openedAt": "2026-07-13T18:42:37.382Z",
+      "lastActiveAt": "2026-07-15T09:23:43.560Z",
+      "duration": 30,
+      "scrollPercent": 2,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 2,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T18:42:37.382Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T18:42:43.208Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:42:54.869Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:43:04.744Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:43:15.492Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 2
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T09:16:03.710Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T09:23:43.560Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "mock-lead",
+      "name": "Aura Store (Shopify 1)",
+      "openedAt": "2026-07-13T06:32:19.102Z",
+      "lastActiveAt": "2026-07-15T08:26:43.830Z",
+      "duration": 20,
+      "scrollPercent": 100,
+      "location": "Local Network",
+      "countryCode": "IN",
+      "isp": "Localhost",
+      "views": 2,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T06:32:19.102Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T06:40:15.749Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T07:36:33.938Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T07:57:20.416Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T07:57:24.303Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T08:26:23.591Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T08:26:35.106Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T08:26:43.830Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
           }
         }
       ],
@@ -2396,37 +2548,62 @@
       "isHot": false
     },
     {
-      "leadId": "meta-1783179492789-6",
-      "name": "Dr Geeta Garg's skin clinic",
-      "openedAt": "2026-07-13T18:42:37.382Z",
-      "lastActiveAt": "2026-07-15T09:23:43.560Z",
-      "duration": 30,
-      "scrollPercent": 2,
+      "leadId": "preview_SPA_1783660701889",
+      "name": "Pms (SPA)",
+      "openedAt": "2026-07-10T05:18:46.214Z",
+      "lastActiveAt": "2026-07-13T18:42:13.156Z",
+      "duration": 290,
+      "scrollPercent": 100,
       "location": "Kathmandu, Bagmati Province, Nepal",
       "countryCode": "NP",
       "isp": "WorldLink Communications",
-      "views": 2,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
+      "views": 6,
+      "device": "mobile",
+      "os": "iOS",
+      "browser": "Safari",
       "events": [
         {
-          "event": "open",
-          "timestamp": "2026-07-13T18:42:37.382Z",
+          "event": "whatsapp_click",
+          "timestamp": "2026-07-10T05:27:21.322Z",
           "details": {
-            "device": "mobile"
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "fiverr_click",
+          "timestamp": "2026-07-10T05:27:22.904Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:23.633Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T05:27:33.091Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
           }
         },
         {
           "event": "open",
-          "timestamp": "2026-07-13T18:42:43.208Z",
+          "timestamp": "2026-07-10T09:32:44.257Z",
           "details": {
             "device": "mobile"
           }
         },
         {
           "event": "heartbeat",
-          "timestamp": "2026-07-13T18:42:54.869Z",
+          "timestamp": "2026-07-10T09:32:56.085Z",
           "details": {
             "device": "mobile",
             "seconds": 10,
@@ -2435,38 +2612,124 @@
         },
         {
           "event": "heartbeat",
-          "timestamp": "2026-07-13T18:43:04.744Z",
+          "timestamp": "2026-07-10T09:33:05.001Z",
           "details": {
             "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 8
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:15.558Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:25.250Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-10T09:33:35.025Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 27
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T18:06:42.236Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:06:53.035Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 52
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:07:02.936Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 52
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:07:12.911Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 52
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:07:22.898Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 52
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T18:07:30.273Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-13T18:07:40.968Z",
+          "details": {
+            "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
           }
         },
         {
+          "event": "open",
+          "timestamp": "2026-07-13T18:07:41.023Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-13T18:41:44.428Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
           "event": "heartbeat",
-          "timestamp": "2026-07-13T18:43:15.492Z",
+          "timestamp": "2026-07-13T18:42:13.156Z",
           "details": {
             "device": "mobile",
             "seconds": 10,
-            "scrollPercent": 2
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:16:03.710Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:23:43.560Z",
-          "details": {
-            "device": "desktop"
+            "scrollPercent": 0
           }
         }
       ],
-      "isHot": false
+      "isHot": true
     },
     {
       "leadId": "preview_Shopify_1_1783922123918",
@@ -2524,143 +2787,6 @@
             "device": "mobile",
             "seconds": 10,
             "scrollPercent": 17
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "mock-lead",
-      "name": "Aura Store (Shopify 1)",
-      "openedAt": "2026-07-13T06:32:19.102Z",
-      "lastActiveAt": "2026-07-15T08:26:43.830Z",
-      "duration": 20,
-      "scrollPercent": 100,
-      "location": "Local Network",
-      "countryCode": "IN",
-      "isp": "Localhost",
-      "views": 2,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T06:32:19.102Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T06:40:15.749Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T07:36:33.938Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T07:57:20.416Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T07:57:24.303Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T08:26:23.591Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:26:35.106Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:26:43.830Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_dentist_1783885546735",
-      "name": "Bright Look Medical Center (dentist)",
-      "openedAt": "2026-07-12T19:45:57.670Z",
-      "lastActiveAt": "2026-07-12T19:46:28.401Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Gallatin, Tennessee, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 2,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:45:57.670Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:46:08.715Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:46:18.429Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:46:23.243Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:46:28.401Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
           }
         }
       ],
@@ -2727,6 +2853,65 @@
           "timestamp": "2026-07-12T19:48:12.530Z",
           "details": {
             "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_dentist_1783885546735",
+      "name": "Bright Look Medical Center (dentist)",
+      "openedAt": "2026-07-12T19:45:57.670Z",
+      "lastActiveAt": "2026-07-12T19:46:28.401Z",
+      "duration": 30,
+      "scrollPercent": 0,
+      "location": "Gallatin, Tennessee, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 2,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T19:45:57.670Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:46:08.715Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:46:18.429Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-12T19:46:23.243Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-12T19:46:28.401Z",
+          "details": {
+            "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
           }
@@ -3296,274 +3481,6 @@
       "isHot": false
     },
     {
-      "leadId": "preview_SPA_1783660701889",
-      "name": "Pms (SPA)",
-      "openedAt": "2026-07-10T05:18:46.214Z",
-      "lastActiveAt": "2026-07-13T18:42:13.156Z",
-      "duration": 290,
-      "scrollPercent": 100,
-      "location": "Kathmandu, Bagmati Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 6,
-      "device": "mobile",
-      "os": "iOS",
-      "browser": "Safari",
-      "events": [
-        {
-          "event": "whatsapp_click",
-          "timestamp": "2026-07-10T05:27:21.322Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "fiverr_click",
-          "timestamp": "2026-07-10T05:27:22.904Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:27:23.633Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:27:33.091Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-10T09:32:44.257Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:32:56.085Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:33:05.001Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 8
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:33:15.558Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 27
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:33:25.250Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 27
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:33:35.025Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 27
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:06:42.236Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:06:53.035Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 52
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:07:02.936Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 52
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:07:12.911Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 52
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:07:22.898Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 52
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:07:30.273Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:07:40.968Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:07:41.023Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:41:44.428Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:42:13.156Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": true
-    },
-    {
-      "leadId": "preview_SPA_1783623792765",
-      "name": "Spa Alhana (SPA)",
-      "openedAt": "2026-07-09T19:03:30.364Z",
-      "lastActiveAt": "2026-07-09T19:15:44.127Z",
-      "duration": 50,
-      "scrollPercent": 91,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 3,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-09T19:03:30.364Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-09T19:06:25.751Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:06:36.607Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-09T19:15:03.137Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:15.179Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:24.130Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 2
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:34.129Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 18
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:44.127Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 91
-          }
-        }
-      ],
-      "isHot": true
-    },
-    {
       "leadId": "preview_dermatologist_1783534201853",
       "name": "Kirat (dermatologist)",
       "openedAt": "2026-07-09T19:00:08.329Z",
@@ -3760,6 +3677,90 @@
         }
       ],
       "isHot": false
+    },
+    {
+      "leadId": "preview_SPA_1783623792765",
+      "name": "Spa Alhana (SPA)",
+      "openedAt": "2026-07-09T19:03:30.364Z",
+      "lastActiveAt": "2026-07-09T19:15:44.127Z",
+      "duration": 50,
+      "scrollPercent": 91,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "Datacamp Limited",
+      "views": 3,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-09T19:03:30.364Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-09T19:06:25.751Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:06:36.607Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-09T19:15:03.137Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:15.179Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:24.130Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 2
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:34.129Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 18
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-09T19:15:44.127Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 91
+          }
+        }
+      ],
+      "isHot": true
     }
   ]
 }
