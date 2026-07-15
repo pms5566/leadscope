@@ -1626,6 +1626,7 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
   const { niche, leadId, page } = req.params;
   const pageFile = `${page}.html`;
   
+  try {
     // 1. Fetch lead
     const db = await readDb();
     let lead = latestScannedLeads.find(l => l.id === leadId) || db.leads.find(l => l.id === leadId);
