@@ -3764,5 +3764,9 @@
       ],
       "isHot": true
     }
-  ]
+  ],
+  "settings": {
+    "publicSharingDomain": "https://parmeet123-leadscope.hf.space",
+    "localTrackingUrl": "https://drab-citric-acid.ngrok-free.dev"
+  }
 }
