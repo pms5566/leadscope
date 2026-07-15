@@ -636,6 +636,17 @@ app.post('/api/config', async (req, res) => {
     if (publicSharingDomain !== undefined) process.env.PUBLIC_SHARING_DOMAIN = publicSharingDomain;
     if (localTrackingUrl !== undefined) process.env.LOCAL_TRACKING_URL = localTrackingUrl;
     if (tawkEmbedUrl !== undefined) process.env.TAWK_EMBED_URL = tawkEmbedUrl;
+
+    // 3. Keep settings synchronized inside the leads_db.json file
+    try {
+      const db = await readDb();
+      if (!db.settings) db.settings = {};
+      if (publicSharingDomain !== undefined) db.settings.publicSharingDomain = publicSharingDomain;
+      if (localTrackingUrl !== undefined) db.settings.localTrackingUrl = localTrackingUrl;
+      await writeDb(db, true); // Push database to GitHub to share config with Hugging Face Space
+    } catch (dbErr) {
+      console.error('[Config API] Failed to sync config to database:', dbErr.message);
+    }
     
     res.json({
       success: true,
@@ -1615,13 +1626,9 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
   const { niche, leadId, page } = req.params;
   const pageFile = `${page}.html`;
   
-  try {
     // 1. Fetch lead
-    let lead = latestScannedLeads.find(l => l.id === leadId);
-    if (!lead) {
-      const db = await readDb();
-      lead = db.leads.find(l => l.id === leadId);
-    }
+    const db = await readDb();
+    let lead = latestScannedLeads.find(l => l.id === leadId) || db.leads.find(l => l.id === leadId);
     if (!lead && req.query.name) {
       lead = { id: leadId, name: req.query.name, phone: req.query.phone || 'N/A', address: req.query.address || 'N/A' };
     }
@@ -1713,7 +1720,8 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
           const leadName = ${JSON.stringify(businessName + ' (' + niche + ' - ' + page + ')')};
           const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
           
-          const trackingUrl = ${JSON.stringify(process.env.LOCAL_TRACKING_URL || '')};
+          const trackingUrlStr = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
+          const trackingUrl = ${JSON.stringify(trackingUrlStr)};
           async function sendEvent(event, details = {}) {
             try {
               const url = trackingUrl ? (trackingUrl.replace(/\/$/, '') + '/api/track') : '/api/track';
@@ -1817,11 +1825,8 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
   
   try {
     // 1. Fetch lead from memory cache or CRM database
-    let lead = latestScannedLeads.find(l => l.id === leadId);
-    if (!lead) {
-      const db = await readDb();
-      lead = db.leads.find(l => l.id === leadId);
-    }
+    const db = await readDb();
+    let lead = latestScannedLeads.find(l => l.id === leadId) || db.leads.find(l => l.id === leadId);
     
     // Stateless fallback: if lead is not found, check if business details are supplied in query params
     if (!lead && req.query.name) {
@@ -2889,7 +2894,8 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
           const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
           
-          const trackingUrl = ${JSON.stringify(process.env.LOCAL_TRACKING_URL || '')};
+          const trackingUrlStr = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
+          const trackingUrl = ${JSON.stringify(trackingUrlStr)};
           async function sendEvent(event, details = {}) {
             try {
               const url = trackingUrl ? (trackingUrl.replace(/\/$/, '') + '/api/track') : '/api/track';
