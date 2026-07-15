@@ -2225,89 +2225,15 @@
     "dr-jaismeen-arora": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1784105297642?name=DR%20JAISMEEN%20ARORA&phone=&address=Promoitalia.uae",
     "ppp": "https://drab-citric-acid.ngrok-free.dev/preview/dentist/preview_dentist_1784107446403?name=ppp&phone=&address=",
     "ghdf": "https://drab-citric-acid.ngrok-free.dev/preview/dentist/preview_dentist_1784107987636?name=ghdf&phone=&address=",
-    "ghjugjt": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784108193515?name=ghjugjt&phone=&address="
+    "ghjugjt": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784108193515?name=ghjugjt&phone=&address=",
+    "yuop": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784108272162?name=yuop&phone=&address="
   },
   "activeVisits": [
-    {
-      "leadId": "meta-1783186895191-4",
-      "name": "Amaira Aesthetics",
-      "openedAt": "2026-07-15T09:37:36.096Z",
-      "lastActiveAt": "2026-07-15T09:37:36.096Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:37:36.096Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_dentist_1784108193515",
-      "name": "ghjugjt (dentist)",
-      "openedAt": "2026-07-15T09:36:40.154Z",
-      "lastActiveAt": "2026-07-15T09:36:40.154Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:36:40.154Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1783179492789-8",
-      "name": "N7aesthetics",
-      "openedAt": "2026-07-15T09:36:16.925Z",
-      "lastActiveAt": "2026-07-15T09:36:16.925Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:36:16.925Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
     {
       "leadId": "meta-1783179492789-4",
       "name": "Airine Skin Care Clinic",
       "openedAt": "2026-07-15T09:25:00.508Z",
-      "lastActiveAt": "2026-07-15T09:25:00.508Z",
+      "lastActiveAt": "2026-07-15T09:32:58.165Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Mumbai, Maharashtra, India",
@@ -2321,6 +2247,13 @@
         {
           "event": "open",
           "timestamp": "2026-07-15T09:25:00.508Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T09:32:58.165Z",
           "details": {
             "device": "desktop"
           }
