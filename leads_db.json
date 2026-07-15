@@ -2239,9 +2239,118 @@
     "ygh": "https://parmeet123-leadscope.hf.space/preview/Luxury%20Event%20Caterers%20%26%20Staffing/preview_Luxury_Event_Caterers_&_Staffing_1784111357435?name=ygh&phone=&address=",
     "bbc": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1784112100061?name=bbc&phone=&address=",
     "fdgdfg": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1784112799782?name=fdgdfg&phone=&address=",
-    "tatti": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784112839624?name=tatti&phone=&address="
+    "tatti": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784112839624?name=tatti&phone=&address=",
+    "tatti-cauy": "https://parmeet123-leadscope.hf.space/preview/garage/preview_garage_1784112965274?name=tatti&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym_1784112839624",
+      "name": "tatti (gym)",
+      "openedAt": "2026-07-15T10:54:14.218Z",
+      "lastActiveAt": "2026-07-15T10:55:54.204Z",
+      "duration": 100,
+      "scrollPercent": 0,
+      "location": "Tulsipur, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:54:14.218Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:54:25.923Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:54:34.390Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:54:44.391Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:54:55.434Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:55:04.381Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:55:15.728Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:55:39.395Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:55:46.988Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:55:54.204Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_dermatologist_1784112799782",
       "name": "fdgdfg (dermatologist)",
