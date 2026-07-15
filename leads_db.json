@@ -1974,13 +1974,13 @@
       "location": "UAE",
       "source": "Ad Scanner",
       "status": "new",
-      "notes": "[8:46:48 AM] Opened Proposal Preview Link",
+      "notes": "[8:46:48 AM] Opened Proposal Preview Link\n[8:46:59 AM] Visited for 10s (Scrolled: 0%)\n[8:47:06 AM] Opened Proposal Preview Link",
       "addedAt": "2026-07-15T07:42:17.112Z",
-      "updatedAt": "2026-07-15T08:46:48.445Z",
+      "updatedAt": "2026-07-15T08:47:06.167Z",
       "shortAlias": "oriana-hospital",
       "analytics": {
         "opened": "Yes",
-        "timeSpent": 0,
+        "timeSpent": 10,
         "maxScroll": 0,
         "fiverrClicked": "No",
         "whatsappClicked": "No",
@@ -2212,15 +2212,15 @@
       "leadId": "meta-1784101313569-13",
       "name": "Oriana Hospital",
       "openedAt": "2026-07-15T08:46:48.445Z",
-      "lastActiveAt": "2026-07-15T08:46:48.445Z",
-      "duration": 0,
+      "lastActiveAt": "2026-07-15T08:47:06.167Z",
+      "duration": 10,
       "scrollPercent": 0,
       "location": "Clonee, Leinster, Ireland",
       "countryCode": "IE",
       "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
+      "views": 2,
+      "device": "desktop",
+      "os": "Windows",
       "browser": "Chrome",
       "events": [
         {
@@ -2228,6 +2228,22 @@
           "timestamp": "2026-07-15T08:46:48.445Z",
           "details": {
             "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T08:46:59.759Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T08:47:06.167Z",
+          "details": {
+            "device": "desktop"
           }
         }
       ],
