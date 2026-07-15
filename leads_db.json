@@ -2204,30 +2204,6 @@
       "shortAlias": "balback-kennedy-brookeo"
     },
     {
-      "id": "meta-1784101313569-20",
-      "name": "Lumnae",
-      "address": "UAE",
-      "phone": "N/A",
-      "email": null,
-      "facebook": "https://www.facebook.com/61563006884987",
-      "instagram": null,
-      "linkedin": null,
-      "tiktok": null,
-      "whatsapp": null,
-      "adPlatform": "meta",
-      "adActive": true,
-      "hasWebsite": false,
-      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Lumnae%20UAE",
-      "niche": "Dermatologist",
-      "location": "UAE",
-      "source": "Ad Scanner",
-      "status": "new",
-      "notes": "",
-      "addedAt": "2026-07-15T07:42:27.013Z",
-      "updatedAt": "2026-07-15T07:42:27.013Z",
-      "shortAlias": "lumnae"
-    },
-    {
       "id": "meta-1784101313569-21",
       "name": "Oriana RAK",
       "address": "UAE",
@@ -2695,9 +2671,9 @@
       "leadId": "mock-lead",
       "name": "Aura Store (Shopify 1)",
       "openedAt": "2026-07-13T06:32:19.102Z",
-      "lastActiveAt": "2026-07-13T07:57:24.303Z",
-      "duration": 0,
-      "scrollPercent": 0,
+      "lastActiveAt": "2026-07-15T08:26:43.830Z",
+      "duration": 20,
+      "scrollPercent": 100,
       "location": "Local Network",
       "countryCode": "IN",
       "isp": "Localhost",
@@ -2739,6 +2715,31 @@
           "timestamp": "2026-07-13T07:57:24.303Z",
           "details": {
             "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T08:26:23.591Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T08:26:35.106Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T08:26:43.830Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
           }
         }
       ],
