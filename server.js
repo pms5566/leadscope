@@ -2327,98 +2327,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       overflow: hidden !important;
     }
 
-    /* Fallback Glassmorphic Live Chat widget overlay */
-    
-    .ls-chat-widget {
-      position: fixed !important;
-      bottom: 20px !important;
-      right: 20px !important;
-      width: 320px !important;
-      background: rgba(15, 23, 42, 0.9) !important;
-      backdrop-filter: blur(10px) !important;
-      -webkit-backdrop-filter: blur(10px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-      border-radius: 16px !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
-      z-index: 2147483647 !important;
-      overflow: hidden !important;
-      display: flex !important;
-      flex-direction: column !important;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
-      transform: translateY(150%) scale(0.9) !important;
-      opacity: 0 !important;
-    }
-    .ls-chat-widget.active {
-      transform: translateY(0) scale(1) !important;
-      opacity: 1 !important;
-    }
-    .ls-chat-header {
-      background: linear-gradient(135deg, #00d9f5 0%, #0072ff 100%) !important;
-      padding: 12px 16px !important;
-      color: #0f172a !important;
-      font-weight: 700 !important;
-      font-size: 13px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-    }
-    .ls-chat-close {
-      background: none !important;
-      border: none !important;
-      color: #0f172a !important;
-      cursor: pointer !important;
-      font-size: 18px !important;
-      line-height: 1 !important;
-      padding: 0 !important;
-      opacity: 0.7 !important;
-    }
-    .ls-chat-body {
-      padding: 14px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 10px !important;
-    }
-    .ls-chat-msg {
-      background: rgba(255, 255, 255, 0.05) !important;
-      color: #e2e8f0 !important;
-      padding: 10px 12px !important;
-      border-radius: 12px !important;
-      font-size: 12px !important;
-      line-height: 1.45 !important;
-    }
-    .ls-chat-input-container {
-      display: flex !important;
-      gap: 6px !important;
-    }
-    .ls-chat-input {
-      flex: 1 !important;
-      background: rgba(255, 255, 255, 0.06) !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      border-radius: 8px !important;
-      color: #ffffff !important;
-      padding: 8px 10px !important;
-      font-size: 12px !important;
-      outline: none !important;
-    }
-    .ls-chat-input:focus { border-color: #00d9f5 !important; }
-    .ls-chat-send {
-      background: #00d9f5 !important;
-      border: none !important;
-      border-radius: 8px !important;
-      color: #0f172a !important;
-      cursor: pointer !important;
-      padding: 8px 12px !important;
-      font-weight: 700 !important;
-      font-size: 12px !important;
-    }
-    .ls-chat-success-msg {
-      color: #10b981 !important;
-      font-size: 11px !important;
-      text-align: center !important;
-      margin-top: 2px !important;
-      display: none !important;
-    }
-
     /* Small Screen adaptations (Mobiles & Tablets under 768px) */
     @media (max-width: 768px) {
       .ls-proposal-banner {
@@ -2631,164 +2539,86 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     </div>
   </div>
 
-  <!-- Fallback Chat widget overlay -->
-  
-  <div class="ls-chat-widget" id="ls-chat-box">
-    <div class="ls-chat-header">
-      <span>💬 Design Consultation</span>
-      <button class="ls-chat-close" id="ls-chat-close-btn">&times;</button>
-    </div>
-    <div class="ls-chat-body">
-      <div class="ls-chat-msg">
-        Hi there! 👋 Let me know if you would like any custom changes, adjustments, or to request the source files for this design.
-      </div>
-      <div class="ls-chat-input-container">
-        <input type="text" class="ls-chat-input" id="ls-chat-msg-input" placeholder="Type a message..." maxlength="300">
-        <button class="ls-chat-send" id="ls-chat-send-btn">Send</button>
-      </div>
-      <div class="ls-chat-success-msg" id="ls-chat-success">✓ Sent to our design team!</div>
-    </div>
-  </div>
-
 
   <!-- Viewport Switch Controller Script -->
   <script>
-    (function() {
-      const body = document.body;
-      const btnDesktop = document.getElementById('btn-view-desktop');
-      const btnTablet = document.getElementById('btn-view-tablet');
-      const btnMobile = document.getElementById('btn-view-mobile');
+      (function() {
+        const body = document.body;
+        const btnDesktop = document.getElementById('btn-view-desktop');
+        const btnTablet = document.getElementById('btn-view-tablet');
+        const btnMobile = document.getElementById('btn-view-mobile');
 
-      function setDeviceView(viewName, activeBtn) {
-        body.className = '';
-        body.classList.add('device-' + viewName);
-        
-        document.querySelectorAll('.ls-device-btn').forEach(btn => btn.classList.remove('active'));
-        activeBtn.classList.add('active');
-      }
+        function setDeviceView(viewName, activeBtn) {
+          body.className = '';
+          body.classList.add('device-' + viewName);
+          
+          document.querySelectorAll('.ls-device-btn').forEach(btn => btn.classList.remove('active'));
+          activeBtn.classList.add('active');
+        }
 
-      if (btnDesktop) btnDesktop.addEventListener('click', () => setDeviceView('desktop', btnDesktop));
-      if (btnTablet) btnTablet.addEventListener('click', () => setDeviceView('tablet', btnTablet));
-      if (btnMobile) btnMobile.addEventListener('click', () => setDeviceView('mobile', btnMobile));
+        if (btnDesktop) btnDesktop.addEventListener('click', () => setDeviceView('desktop', btnDesktop));
+        if (btnTablet) btnTablet.addEventListener('click', () => setDeviceView('tablet', btnTablet));
+        if (btnMobile) btnMobile.addEventListener('click', () => setDeviceView('mobile', btnMobile));
 
-      // Real-time countdown timer script
-      function startCountdown() {
-        const clock = document.getElementById('ls-countdown-clock');
-        if (!clock) return;
-        
-        let hours = 23;
-        let minutes = 59;
-        let seconds = 59;
-        
-        function updateClock() {
-          seconds--;
-          if (seconds < 0) {
-            seconds = 59;
-            minutes--;
-            if (minutes < 0) {
-              minutes = 59;
-              hours--;
-              if (hours < 0) {
-                // Loop countdown back to 24h
-                hours = 23;
+        // Real-time countdown timer script
+        function startCountdown() {
+          const clock = document.getElementById('ls-countdown-clock');
+          if (!clock) return;
+          
+          let hours = 23;
+          let minutes = 59;
+          let seconds = 59;
+          
+          function updateClock() {
+            seconds--;
+            if (seconds < 0) {
+              seconds = 59;
+              minutes--;
+              if (minutes < 0) {
                 minutes = 59;
-                seconds = 59;
+                hours--;
+                if (hours < 0) {
+                  // Loop countdown back to 24h
+                  hours = 23;
+                  minutes = 59;
+                  seconds = 59;
+                }
               }
             }
+            
+            const hStr = String(hours).padStart(2, '0');
+            const mStr = String(minutes).padStart(2, '0');
+            const sStr = String(seconds).padStart(2, '0');
+            clock.textContent = hStr + " : " + mStr + " : " + sStr;
           }
           
-          const hStr = String(hours).padStart(2, '0');
-          const mStr = String(minutes).padStart(2, '0');
-          const sStr = String(seconds).padStart(2, '0');
-          clock.textContent = hStr + " : " + mStr + " : " + sStr;
+          setInterval(updateClock, 1000);
         }
+        startCountdown();
+
+        // Dispatch tracking events for proposal open and click events
+        const leadId = ${JSON.stringify(leadId)};
+        const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
+        const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
         
-        setInterval(updateClock, 1000);
-      }
-      startCountdown();
-
-      // Dispatch tracking events for proposal open and click events
-      const leadId = ${JSON.stringify(leadId)};
-      const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
-      const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
-      
-      async function sendEvent(event, details = {}) {
-        try {
-          await fetch('/api/track', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
-          });
-        } catch (err) {}
-      }
-      
-      // Page open tracking
-      sendEvent('open');
-      
-      // Clicks tracking
-      document.getElementById('ls-fiverr-lnk').addEventListener('click', () => sendEvent('fiverr_click'));
-      document.getElementById('ls-whatsapp-lnk').addEventListener('click', () => sendEvent('whatsapp_click'));
-      document.getElementById('ls-email-lnk').addEventListener('click', () => sendEvent('email_click'));
-
-      
-      // Chat Trigger
-      setTimeout(() => {
-        const chatBox = document.getElementById('ls-chat-box');
-        if (chatBox) chatBox.classList.add('active');
-      }, 15000);
-
-      // Chat Close
-      const closeBtn = document.getElementById('ls-chat-close-btn');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-          const chatBox = document.getElementById('ls-chat-box');
-          if (chatBox) chatBox.classList.remove('active');
-        });
-      }
-
-      // Chat Send
-      const sendBtn = document.getElementById('ls-chat-send-btn');
-      const msgInput = document.getElementById('ls-chat-msg-input');
-      const successMsg = document.getElementById('ls-chat-success');
-
-      if (sendBtn && msgInput) {
-        sendBtn.addEventListener('click', async () => {
-          const text = msgInput.value.trim();
-          if (!text) return;
-
-          sendBtn.disabled = true;
-          msgInput.disabled = true;
-          sendBtn.textContent = '...';
-
+        async function sendEvent(event, details = {}) {
           try {
-            const res = await fetch('/api/chat', {
+            await fetch('/api/track', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ leadId, leadName, message: text })
+              body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
             });
-            const data = await res.json();
-            if (data.success) {
-              successMsg.style.display = 'block';
-              sendBtn.style.display = 'none';
-              msgInput.style.display = 'none';
-            } else {
-              throw new Error('Failed');
-            }
-          } catch (e) {
-            alert('Failed to send message. Please try again.');
-            sendBtn.disabled = false;
-            msgInput.disabled = false;
-            sendBtn.textContent = 'Send';
-          }
-        });
-
-        msgInput.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') {
-            sendBtn.click();
-          }
-        });
-      }
-    })();
+          } catch (err) {}
+        }
+        
+        // Page open tracking
+        sendEvent('open');
+        
+        // Clicks tracking
+        document.getElementById('ls-fiverr-lnk').addEventListener('click', () => sendEvent('fiverr_click'));
+        document.getElementById('ls-whatsapp-lnk').addEventListener('click', () => sendEvent('whatsapp_click'));
+        document.getElementById('ls-email-lnk').addEventListener('click', () => sendEvent('email_click'));
+      })();
   </script>
 </body>
 </html>
