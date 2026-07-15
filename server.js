@@ -410,11 +410,17 @@ async function findNicheTemplate(niche) {
   return null;
 }
 
-// Enable CORS for cross-domain visitor logs tracking (e.g. from local dashboard to Hugging Face)
+// Enable CORS for cross-domain visitor logs tracking (e.g. from local dashboard to Hugging Face and ngrok)
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  const origin = req.headers.origin;
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, ngrok-skip-browser-warning');
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
   }
@@ -427,23 +433,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// Enable JSON parsing
+// CORS is handled above; JSON parsing is configured here
 app.use(express.json());
-
-// Enable CORS with credentials support for localhost, space domains and ngrok tunnels
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (origin) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization,ngrok-skip-browser-warning');
-  }
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-  next();
-});
 
 // Basic Authentication Middleware to protect internal LeadScope dashboard and CRM data from clients
 function basicAuth(req, res, next) {
