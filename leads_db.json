@@ -2410,6 +2410,30 @@
       "addedAt": "2026-07-15T07:42:27.014Z",
       "updatedAt": "2026-07-15T07:42:27.014Z",
       "shortAlias": "zayraq"
+    },
+    {
+      "id": "meta-1784101313569-24",
+      "name": "Daigo Health",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61555709767825",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Daigo%20Health%20UAE",
+      "niche": "Dermatologist",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-15T07:42:40.934Z",
+      "updatedAt": "2026-07-15T07:42:40.934Z",
+      "shortAlias": "daigo-health"
     }
   ],
   "shortLinks": {
@@ -2570,7 +2594,8 @@
     "lumnae": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313569-20?name=Lumnae&phone=N%2FA&address=UAE",
     "oriana-rak": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313569-21?name=Oriana%20RAK&phone=N%2FA&address=UAE",
     "cornish-clinic": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313569-22?name=Cornish%20Clinic&phone=N%2FA&address=UAE",
-    "zayraq": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313569-23?name=Zayraq&phone=N%2FA&address=UAE"
+    "zayraq": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313569-23?name=Zayraq&phone=N%2FA&address=UAE",
+    "daigo-health": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313569-24?name=Daigo%20Health&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
     {
