@@ -1858,6 +1858,30 @@
       "addedAt": "2026-07-15T07:42:00.417Z",
       "updatedAt": "2026-07-15T07:42:00.417Z",
       "shortAlias": "regrowth"
+    },
+    {
+      "id": "meta-1784101313568-1",
+      "name": "Dr Reem Daoud",
+      "address": "UAE",
+      "phone": "056 644 4366",
+      "email": "info@cornishclinic.com",
+      "facebook": "https://www.facebook.com/100084721681437",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": "https://wa.me/0566444366",
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Dr%20Reem%20Daoud%20UAE",
+      "niche": "Dermatologist",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-15T07:42:02.332Z",
+      "updatedAt": "2026-07-15T07:42:02.332Z",
+      "shortAlias": "dr-reem-daoud"
     }
   ],
   "shortLinks": {
@@ -1995,7 +2019,8 @@
     "dermatologist-dr-omnia-khater": "https://parmeet123-leadscope.hf.space/preview/dermatologist/scr-7ag3xif?name=Dermatologist%20Dr.%20Omnia%20Khater&phone=%2B971%2050%20603%208104&address=Sheikh%20Zayed%20Rd%20-%20Al%20Barsha%20First%20-%20Al%20Barsha%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "elegant-touch-dermatology-clinic-llc": "https://parmeet123-leadscope.hf.space/preview/dermatologist/scr-qyvi3sc?name=Elegant%20touch%20dermatology%20clinic%20llc&phone=%2B971%204%20824%202424&address=49th%20St%20-%20Jumeirah%20-%20Jumeira%20First%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "le-reve-clinic-by-dr-maya": "https://parmeet123-leadscope.hf.space/preview/dermatology/scr-b6ko0ea?name=Le%20Reve%20clinic%20by%20Dr.%20Maya&phone=%2B971%2054%20222%200005&address=Villa%20146B%20-%20Al%20Manara%20St%20-%20Al%20Manara%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "regrowth": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313568-0?name=Regrowth%2B&phone=7158-5299-888&address=UAE"
+    "regrowth": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313568-0?name=Regrowth%2B&phone=7158-5299-888&address=UAE",
+    "dr-reem-daoud": "https://parmeet123-leadscope.hf.space/preview/dermatologist/meta-1784101313568-1?name=Dr%20Reem%20Daoud&phone=056%20644%204366&address=UAE"
   },
   "activeVisits": [
     {
