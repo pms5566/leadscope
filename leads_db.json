@@ -268,13 +268,13 @@
       "location": "ludhiana",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "[9:37:36 AM] Opened Proposal Preview Link\n[10:52:59 AM] Opened Proposal Preview Link",
+      "notes": "[9:37:36 AM] Opened Proposal Preview Link\n[10:52:59 AM] Opened Proposal Preview Link\n[4:23:11 PM] Visited for 10s (Scrolled: 0%)",
       "addedAt": "2026-07-04T17:48:11.766Z",
-      "updatedAt": "2026-07-15T10:52:59.125Z",
+      "updatedAt": "2026-07-15T10:53:11.525Z",
       "shortAlias": "amaira-aesthetics",
       "analytics": {
         "opened": "Yes",
-        "timeSpent": 0,
+        "timeSpent": 10,
         "maxScroll": 0,
         "fiverrClicked": "No",
         "whatsappClicked": "No",
@@ -2237,15 +2237,16 @@
     "rtc-th3q": "https://parmeet123-leadscope.hf.space/preview/garage/preview_garage_1784111073827?name=rtc&phone=&address=",
     "rtc-vudx": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784111227853?name=rtc&phone=&address=",
     "ygh": "https://parmeet123-leadscope.hf.space/preview/Luxury%20Event%20Caterers%20%26%20Staffing/preview_Luxury_Event_Caterers_&_Staffing_1784111357435?name=ygh&phone=&address=",
-    "bbc": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1784112100061?name=bbc&phone=&address="
+    "bbc": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1784112100061?name=bbc&phone=&address=",
+    "fdgdfg": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1784112799782?name=fdgdfg&phone=&address="
   },
   "activeVisits": [
     {
       "leadId": "meta-1783186895191-4",
       "name": "Amaira Aesthetics",
       "openedAt": "2026-07-15T10:52:59.125Z",
-      "lastActiveAt": "2026-07-15T10:52:59.125Z",
-      "duration": 0,
+      "lastActiveAt": "2026-07-15T10:53:11.525Z",
+      "duration": 10,
       "scrollPercent": 0,
       "location": "Kathmandu, Bagmati Province, Nepal",
       "countryCode": "NP",
@@ -2260,6 +2261,15 @@
           "timestamp": "2026-07-15T10:52:59.125Z",
           "details": {
             "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:53:11.525Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
           }
         }
       ],
