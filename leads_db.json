@@ -1973,10 +1973,10 @@
       "niche": "Dermatologist",
       "location": "UAE",
       "source": "Ad Scanner",
-      "status": "new",
-      "notes": "[8:46:48 AM] Opened Proposal Preview Link\n[8:46:59 AM] Visited for 10s (Scrolled: 0%)\n[8:47:06 AM] Opened Proposal Preview Link",
+      "status": "pitched_ig",
+      "notes": "",
       "addedAt": "2026-07-15T07:42:17.112Z",
-      "updatedAt": "2026-07-15T08:47:06.167Z",
+      "updatedAt": "2026-07-15T08:47:54.986Z",
       "shortAlias": "oriana-hospital",
       "analytics": {
         "opened": "Yes",
@@ -2209,194 +2209,6 @@
   },
   "activeVisits": [
     {
-      "leadId": "meta-1784101313569-13",
-      "name": "Oriana Hospital",
-      "openedAt": "2026-07-15T08:46:48.445Z",
-      "lastActiveAt": "2026-07-15T08:47:06.167Z",
-      "duration": 10,
-      "scrollPercent": 0,
-      "location": "Clonee, Leinster, Ireland",
-      "countryCode": "IE",
-      "isp": "Facebook, Inc.",
-      "views": 2,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T08:46:48.445Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:46:59.759Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T08:47:06.167Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_Shopify_1_1784104949958",
-      "name": "Promoitalia.uae (Shopify 1)",
-      "openedAt": "2026-07-15T08:43:08.658Z",
-      "lastActiveAt": "2026-07-15T08:43:30.175Z",
-      "duration": 20,
-      "scrollPercent": 0,
-      "location": "Altoona, Iowa, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T08:43:08.658Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:43:20.626Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:43:30.175Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1784101313569-12",
-      "name": "Promoitalia.uae",
-      "openedAt": "2026-07-15T08:41:05.972Z",
-      "lastActiveAt": "2026-07-15T08:41:37.765Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Forest City, North Carolina, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T08:41:05.972Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:41:17.778Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:41:27.618Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:41:37.765Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1784101313569-10",
-      "name": "Dr. Khaled Hakam - د. خالد حكم",
-      "openedAt": "2026-07-15T08:35:58.523Z",
-      "lastActiveAt": "2026-07-15T08:36:29.484Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Prineville, Oregon, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T08:35:58.523Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:36:09.812Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:36:20.053Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T08:36:29.484Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
       "leadId": "preview_1783161066454",
       "name": "ab (dentist)",
       "openedAt": "2026-07-14T16:22:13.106Z",
@@ -2620,9 +2432,9 @@
       "leadId": "mock-lead",
       "name": "Aura Store (Shopify 1)",
       "openedAt": "2026-07-13T06:32:19.102Z",
-      "lastActiveAt": "2026-07-13T07:57:24.303Z",
-      "duration": 0,
-      "scrollPercent": 0,
+      "lastActiveAt": "2026-07-15T08:26:43.830Z",
+      "duration": 20,
+      "scrollPercent": 100,
       "location": "Local Network",
       "countryCode": "IN",
       "isp": "Localhost",
@@ -2664,6 +2476,31 @@
           "timestamp": "2026-07-13T07:57:24.303Z",
           "details": {
             "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T08:26:23.591Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T08:26:35.106Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T08:26:43.830Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
           }
         }
       ],
