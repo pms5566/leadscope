@@ -84,10 +84,18 @@
       "location": "chandigarh",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "",
+      "notes": "[9:36:16 AM] Opened Proposal Preview Link",
       "addedAt": "2026-07-04T15:38:51.500Z",
-      "updatedAt": "2026-07-08T05:28:02.440Z",
-      "shortAlias": "n7aesthetics"
+      "updatedAt": "2026-07-15T09:36:16.925Z",
+      "shortAlias": "n7aesthetics",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "meta-1783180428738-3",
@@ -2212,10 +2220,35 @@
   },
   "activeVisits": [
     {
+      "leadId": "meta-1783179492789-8",
+      "name": "N7aesthetics",
+      "openedAt": "2026-07-15T09:36:16.925Z",
+      "lastActiveAt": "2026-07-15T09:36:16.925Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "Datacamp Limited",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T09:36:16.925Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
       "leadId": "meta-1783179492789-4",
       "name": "Airine Skin Care Clinic",
       "openedAt": "2026-07-15T09:25:00.508Z",
-      "lastActiveAt": "2026-07-15T09:32:58.165Z",
+      "lastActiveAt": "2026-07-15T09:25:00.508Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Mumbai, Maharashtra, India",
@@ -2229,13 +2262,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-15T09:25:00.508Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:32:58.165Z",
           "details": {
             "device": "desktop"
           }
