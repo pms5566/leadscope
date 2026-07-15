@@ -1000,11 +1000,13 @@ async function readDb() {
 async function writeDb(data, syncToGithub = true) {
   return new Promise((resolve) => {
     dbQueue = dbQueue.then(async () => {
+      // Ensure activeVisits is stored in the main database cache object
+      data.activeVisits = activeVisits;
+
       // 1. Keep local file updated for local runtime fallback
       try {
         const dataCopy = { ...data };
         delete dataCopy.sha;
-        dataCopy.activeVisits = activeVisits; // Keep activeVisits persistent
         await fs.writeFile(DB_PATH, JSON.stringify(dataCopy, null, 2), 'utf8');
       } catch (error) {
         console.error('Failed to write local database file:', error);
