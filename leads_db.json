@@ -2238,9 +2238,46 @@
     "rtc-vudx": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784111227853?name=rtc&phone=&address=",
     "ygh": "https://parmeet123-leadscope.hf.space/preview/Luxury%20Event%20Caterers%20%26%20Staffing/preview_Luxury_Event_Caterers_&_Staffing_1784111357435?name=ygh&phone=&address=",
     "bbc": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1784112100061?name=bbc&phone=&address=",
-    "fdgdfg": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1784112799782?name=fdgdfg&phone=&address="
+    "fdgdfg": "https://parmeet123-leadscope.hf.space/preview/dermatologist/preview_dermatologist_1784112799782?name=fdgdfg&phone=&address=",
+    "tatti": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784112839624?name=tatti&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_dermatologist_1784112799782",
+      "name": "fdgdfg (dermatologist)",
+      "openedAt": "2026-07-15T10:53:34.390Z",
+      "lastActiveAt": "2026-07-15T10:53:54.384Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Tulsipur, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:53:34.390Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-15T10:53:54.384Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1783186895191-4",
       "name": "Amaira Aesthetics",
