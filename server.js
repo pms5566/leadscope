@@ -950,19 +950,21 @@ async function readDb() {
         return resolve(dbCache);
       }
 
-      // Try reading from GitHub if token is set
+      // Try reading from GitHub (even without a token if repository is public, e.g. on Hugging Face)
       const token = process.env.GITHUB_TOKEN;
-      if (token && token.startsWith('ghp_')) {
+      const hasToken = token && token.startsWith('ghp_');
+      if (hasToken || (GH_OWNER && GH_REPO)) {
         try {
+          const headers = {
+            Accept: 'application/vnd.github.v3+json',
+            'User-Agent': 'LeadScope-App'
+          };
+          if (hasToken) {
+            headers.Authorization = `token ${token}`;
+          }
           const response = await axios.get(
             `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
-            {
-              headers: {
-                Authorization: `token ${token}`,
-                Accept: 'application/vnd.github.v3+json',
-                'User-Agent': 'LeadScope-App'
-              }
-            }
+            { headers }
           );
           const base64Content = response.data.content;
           const sha = response.data.sha;
