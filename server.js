@@ -1725,7 +1725,7 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
           const trackingUrl = ${JSON.stringify(trackingUrlStr)};
           async function sendEvent(event, details = {}) {
             try {
-              const url = trackingUrl ? (trackingUrl.replace(/\/$/, '') + '/api/track') : '/api/track';
+              const url = trackingUrl ? (trackingUrl.replace(/\\/$/, '') + '/api/track') : '/api/track';
               await fetch(url, {
                 method: 'POST',
                 headers: { 
@@ -2899,7 +2899,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           const trackingUrl = ${JSON.stringify(trackingUrlStr)};
           async function sendEvent(event, details = {}) {
             try {
-              const url = trackingUrl ? (trackingUrl.replace(/\/$/, '') + '/api/track') : '/api/track';
+              const url = trackingUrl ? (trackingUrl.replace(/\\/$/, '') + '/api/track') : '/api/track';
               await fetch(url, {
                 method: 'POST',
                 headers: { 
