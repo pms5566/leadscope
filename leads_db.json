@@ -268,9 +268,9 @@
       "location": "ludhiana",
       "source": "Ad Scanner",
       "status": "pitched_ig",
-      "notes": "[9:37:36 AM] Opened Proposal Preview Link",
+      "notes": "[9:37:36 AM] Opened Proposal Preview Link\n[10:52:59 AM] Opened Proposal Preview Link",
       "addedAt": "2026-07-04T17:48:11.766Z",
-      "updatedAt": "2026-07-15T09:37:36.096Z",
+      "updatedAt": "2026-07-15T10:52:59.125Z",
       "shortAlias": "amaira-aesthetics",
       "analytics": {
         "opened": "Yes",
@@ -2240,6 +2240,56 @@
     "bbc": "https://parmeet123-leadscope.hf.space/preview/Shopify%201/preview_Shopify_1_1784112100061?name=bbc&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "meta-1783186895191-4",
+      "name": "Amaira Aesthetics",
+      "openedAt": "2026-07-15T10:52:59.125Z",
+      "lastActiveAt": "2026-07-15T10:52:59.125Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T10:52:59.125Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_Shopify_1_1784112100061",
+      "name": "bbc (Shopify 1)",
+      "openedAt": "2026-07-15T10:41:51.895Z",
+      "lastActiveAt": "2026-07-15T10:41:51.895Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Kathmandu, Bagmati Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T10:41:51.895Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1783179492789-4",
       "name": "Airine Skin Care Clinic",
