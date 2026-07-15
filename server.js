@@ -1717,7 +1717,10 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
               const url = trackingUrl ? (trackingUrl.replace(/\/$/, '') + '/api/track') : '/api/track';
               await fetch(url, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                  'Content-Type': 'application/json',
+                  'ngrok-skip-browser-warning': 'true'
+                },
                 body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
               });
             } catch (err) {}
@@ -2890,7 +2893,10 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
               const url = trackingUrl ? (trackingUrl.replace(/\/$/, '') + '/api/track') : '/api/track';
               await fetch(url, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                  'Content-Type': 'application/json',
+                  'ngrok-skip-browser-warning': 'true'
+                },
                 body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
               });
             } catch (err) {}
