@@ -1714,6 +1714,7 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
       </script>
     `;
 
+    const trackingUrlStr = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
     const trackingScript = `
       <script>
         (function() {
@@ -1721,7 +1722,6 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
           const leadName = ${JSON.stringify(businessName + ' (' + niche + ' - ' + page + ')')};
           const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
           
-          const trackingUrlStr = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
           const trackingUrl = ${JSON.stringify(trackingUrlStr)};
           async function sendEvent(event, details = {}) {
             try {
@@ -2888,6 +2888,7 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
       </script>
     `;
 
+    const trackingUrlStr = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
     const trackingScript = `
       <script>
         (function() {
@@ -2895,7 +2896,6 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
           const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
           
-          const trackingUrlStr = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
           const trackingUrl = ${JSON.stringify(trackingUrlStr)};
           async function sendEvent(event, details = {}) {
             try {
