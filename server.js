@@ -3355,20 +3355,22 @@ app.get('/api/templates', async (req, res) => {
     res.json({ success: true, templates: directories });
   } catch (err) {
     console.warn('[GitHub Listing Fail]:', err.message);
-    // Fallback: try reading from local my_raw_templates if GitHub fails
+    // Fallback: always read from local my_raw_templates folder dynamically
+    // This ensures any new template added to the folder appears automatically
     try {
       const fs2 = require('fs').promises;
       const localPath2 = path.join(__dirname, 'my_raw_templates');
       const files2 = await fs2.readdir(localPath2, { withFileTypes: true });
       const localFallback = files2
         .filter(d => d.isDirectory() && !d.name.startsWith('.') && !d.name.endsWith('-src'))
-        .map(d => d.name);
+        .map(d => d.name)
+        .sort();
       if (localFallback.length > 0) {
         return res.json({ success: true, templates: localFallback });
       }
     } catch (localErr2) { /* ignore */ }
-    // Last resort hardcoded list — only real templates we know exist
-    res.json({ success: true, templates: ['dermatologist', 'dentist', 'gym', 'doctor', 'garage', 'jewelry', 'nail-art', 'luxurious-salon-website', 'roofing contractors', 'SPA', 'Shopify 1'] });
+    // Last resort hardcoded list (includes all known templates)
+    res.json({ success: true, templates: ['Vanguard School', 'dermatologist', 'dentist', 'doctor', 'garage', 'gym', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation'] });
   }
 });
 
