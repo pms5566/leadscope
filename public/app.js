@@ -1708,6 +1708,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubTokenInput = document.getElementById('githubTokenInput');
 
     const publicSharingDomainInput = document.getElementById('publicSharingDomainInput');
+    const localTrackingUrlInput = document.getElementById('localTrackingUrlInput');
     const tawkEmbedUrlInput = document.getElementById('tawkEmbedUrlInput');
     const discordWebhookInput = document.getElementById('discordWebhookInput');
     const discordUserIdInput = document.getElementById('discordUserIdInput');
@@ -1760,6 +1761,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           publicSharingDomainInput.value = '';
           window.publicSharingDomain = '';
+        }
+        if (data.localTrackingUrl) {
+          localTrackingUrlInput.value = data.localTrackingUrl;
+        } else {
+          localTrackingUrlInput.value = '';
         }
         if (data.tawkEmbedUrl) {
           tawkEmbedUrlInput.value = data.tawkEmbedUrl;
@@ -1916,6 +1922,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const payload = {
           publicSharingDomain: publicSharingDomainInput.value.trim(),
+          localTrackingUrl: localTrackingUrlInput.value.trim(),
           tawkEmbedUrl: tawkEmbedUrlInput.value.trim(),
           discordWebhookUrl: discordWebhookInput.value.trim(),
           discordUserId: discordUserIdInput.value.trim()

@@ -430,10 +430,10 @@ app.use((req, res, next) => {
 // Enable JSON parsing
 app.use(express.json());
 
-// Enable CORS with credentials support for localhost and space domains
+// Enable CORS with credentials support for localhost, space domains and ngrok tunnels
 app.use((req, res, next) => {
   const origin = req.headers.origin;
-  if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1') || origin.includes('hf.space'))) {
+  if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1') || origin.includes('hf.space') || origin.includes('ngrok-free.dev'))) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
@@ -534,13 +534,14 @@ app.get('/api/config', (req, res) => {
     discordWebhookUrl: maskKey(process.env.DISCORD_WEBHOOK_URL),
     discordUserId: process.env.DISCORD_USER_ID || "",
     publicSharingDomain: process.env.PUBLIC_SHARING_DOMAIN || "",
+    localTrackingUrl: process.env.LOCAL_TRACKING_URL || "",
     tawkEmbedUrl: process.env.TAWK_EMBED_URL || ""
   });
 });
 
 // API Endpoint to save configuration
 app.post('/api/config', async (req, res) => {
-  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, publicSharingDomain, tawkEmbedUrl } = req.body;
+  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, publicSharingDomain, localTrackingUrl, tawkEmbedUrl } = req.body;
   
   try {
     let envContent = "";
@@ -583,6 +584,7 @@ app.post('/api/config', async (req, res) => {
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) envObj['DISCORD_WEBHOOK_URL'] = discordWebhookUrl;
     if (discordUserId !== undefined) envObj['DISCORD_USER_ID'] = discordUserId;
     if (publicSharingDomain !== undefined) envObj['PUBLIC_SHARING_DOMAIN'] = publicSharingDomain;
+    if (localTrackingUrl !== undefined) envObj['LOCAL_TRACKING_URL'] = localTrackingUrl;
     if (tawkEmbedUrl !== undefined) envObj['TAWK_EMBED_URL'] = tawkEmbedUrl;
     
     // Re-serialize
@@ -611,6 +613,7 @@ app.post('/api/config', async (req, res) => {
     newEnvContent += `DISCORD_USER_ID=${envObj['DISCORD_USER_ID'] || ''}\n\n`;
     newEnvContent += "# Public Sharing Configuration\n";
     newEnvContent += `PUBLIC_SHARING_DOMAIN=${envObj['PUBLIC_SHARING_DOMAIN'] || ''}\n`;
+    newEnvContent += `LOCAL_TRACKING_URL=${envObj['LOCAL_TRACKING_URL'] || ''}\n`;
     newEnvContent += `TAWK_EMBED_URL=${envObj['TAWK_EMBED_URL'] || ''}\n`;
     
     await fs.writeFile(path.join(__dirname, '.env'), newEnvContent, 'utf8');
@@ -631,6 +634,7 @@ app.post('/api/config', async (req, res) => {
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) process.env.DISCORD_WEBHOOK_URL = discordWebhookUrl;
     if (discordUserId !== undefined) process.env.DISCORD_USER_ID = discordUserId;
     if (publicSharingDomain !== undefined) process.env.PUBLIC_SHARING_DOMAIN = publicSharingDomain;
+    if (localTrackingUrl !== undefined) process.env.LOCAL_TRACKING_URL = localTrackingUrl;
     if (tawkEmbedUrl !== undefined) process.env.TAWK_EMBED_URL = tawkEmbedUrl;
     
     res.json({
@@ -1707,9 +1711,11 @@ app.get('/preview/:niche/:leadId/:page.html', async (req, res) => {
           const leadName = ${JSON.stringify(businessName + ' (' + niche + ' - ' + page + ')')};
           const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
           
+          const trackingUrl = ${JSON.stringify(process.env.LOCAL_TRACKING_URL || '')};
           async function sendEvent(event, details = {}) {
             try {
-              await fetch('/api/track', {
+              const url = trackingUrl ? (trackingUrl.replace(/\/$/, '') + '/api/track') : '/api/track';
+              await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
@@ -2878,9 +2884,11 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
           const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
           const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
           
+          const trackingUrl = ${JSON.stringify(process.env.LOCAL_TRACKING_URL || '')};
           async function sendEvent(event, details = {}) {
             try {
-              await fetch('/api/track', {
+              const url = trackingUrl ? (trackingUrl.replace(/\/$/, '') + '/api/track') : '/api/track';
+              await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
