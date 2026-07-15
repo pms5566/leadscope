@@ -3247,7 +3247,31 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // Endpoint for dashboard activity feed long-polling
-app.get('/api/active-visits', (req, res) => {
+app.get('/api/active-visits', async (req, res) => {
+  try {
+    const db = await readDb();
+    if (db && Array.isArray(db.activeVisits)) {
+      const mergedMap = new Map();
+      
+      // Load database visits first
+      db.activeVisits.forEach(v => mergedMap.set(v.leadId, v));
+      
+      // Override with local in-memory active visits (which might be actively receiving live tracking events)
+      activeVisits.forEach(v => {
+        const dbV = mergedMap.get(v.leadId);
+        if (!dbV || new Date(v.lastActiveAt) >= new Date(dbV.lastActiveAt)) {
+          mergedMap.set(v.leadId, v);
+        }
+      });
+      
+      // Update global activeVisits array
+      activeVisits = Array.from(mergedMap.values())
+        .sort((a, b) => new Date(b.lastActiveAt) - new Date(a.lastActiveAt))
+        .slice(0, 50);
+    }
+  } catch (err) {
+    console.warn('[Active Visits Sync Fail]:', err.message);
+  }
   res.json({ success: true, visits: activeVisits });
 });
 
