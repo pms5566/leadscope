@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>APEX GYM — Flex Beyond Limits</title>
+  <meta name="description" content="APEX GYM — Where elite fitness meets cutting-edge training. Join 12,000+ members transforming their bodies and lives. Expert trainers, premium equipment, flexible plans.">
+  <meta name="keywords" content="gym, fitness, workout, personal training, HIIT, strength training, yoga, boxing">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <ul class="navbar-links">
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#trainers">Trainers</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      
+      <a href="#home" class="navbar-logo">
+        <img src="images/logo-emblem-dark.png" alt="APEX GYM Logo" class="nav-logo-img">
+        APEX<span>GYM</span>
+      </a>
+      
+      <div class="navbar-cta">
+        <a href="#contact" class="nav-contact-btn">Contact Us</a>
+        <a href="javascript:void(0)" onclick="openProfileDrawer(event)" class="nav-profile-icon" aria-label="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+      </div>
+      
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#classes"  onclick="closeMobileMenu()">Classes</a>
+    <a href="#about"    onclick="closeMobileMenu()">About Us</a>
+    <a href="#trainers" onclick="closeMobileMenu()">Trainers</a>
+    <a href="#schedule" onclick="closeMobileMenu()">Schedule</a>
+    <a href="#gallery"  onclick="closeMobileMenu()">Gallery</a>
+    <a href="#pricing"  onclick="closeMobileMenu()">Pricing</a>
+    <a href="#contact"  onclick="closeMobileMenu()" class="mm-cta">Join Now Free →</a>
+  </div>
+  <div class="mm-overlay" id="mmOverlay" onclick="closeMobileMenu()"></div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-glow g1"></div>
+      <div class="hero-glow g2"></div>
+      <div class="hero-grid-bg"></div>
+    </div>
+    <div class="hero-content container">
+      <div class="hero-text" id="heroText">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Now Open · 5AM – 11PM Daily
+        </div>
+        <h1 class="hero-title">
+          <span class="ht-white">STRONGER</span>
+          <span class="ht-lime">EVERY</span>
+          <span class="ht-outline">DAY</span>
+          <span class="ht-white">FITTER</span>
+        </h1>
+        <p class="hero-desc">
+          Where fitness meets inspiration. Every drop of sweat tells a story of determination.
+          Join 12,000+ members who chose APEX to transform their bodies and lives.
+        </p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn-primary btn-lg">Start Today →</a>
+          <a href="#about"   class="btn-ghost btn-lg">▶ How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hs">
+            <span class="hs-num" data-count="12000" data-suffix="K+">0</span>
+            <span class="hs-lbl">Members</span>
+          </div>
+          <div class="hs-div"></div>
+          <div class="hs">
+            <span class="hs-num" data-count="40" data-suffix="+">0</span>
+            <span class="hs-lbl">Trainers</span>
+          </div>
+          <div class="hs-div"></div>
+          <div class="hs">
+            <span class="hs-num" data-count="10" data-suffix="yr">0</span>
+            <span class="hs-lbl">Experience</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" id="heroVisual">
+        <div class="hero-mockup">
+          <img src="images/gym-full.png" alt="APEX Gym Facility" class="dashboard-img">
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hs-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-track">
+      <span>💪 STRENGTH TRAINING</span><span>⚡ HIIT CARDIO</span>
+      <span>🧘 YOGA &amp; MINDFULNESS</span><span>🥊 COMBAT SPORTS</span>
+      <span>🚴 CYCLING STUDIO</span><span>👤 PERSONAL COACHING</span>
+      <span>🥗 NUTRITION PLANS</span><span>🛁 RECOVERY ZONE</span>
+      <span>💪 STRENGTH TRAINING</span><span>⚡ HIIT CARDIO</span>
+      <span>🧘 YOGA &amp; MINDFULNESS</span><span>🥊 COMBAT SPORTS</span>
+      <span>🚴 CYCLING STUDIO</span><span>👤 PERSONAL COACHING</span>
+      <span>🥗 NUTRITION PLANS</span><span>🛁 RECOVERY ZONE</span>
+    </div>
+  </div>
+
+  <!-- CLASSES -->
+  <section class="section" id="classes">
+    <div class="container">
+      <div class="sec-head anim-up">
+        <div>
+          <div class="sec-label">What We Offer</div>
+          <h2 class="sec-title">OUR <span>CLASSES</span></h2>
+          <p class="sec-sub">Find your perfect class — from high-intensity cardio to mindful recovery.</p>
+        </div>
+        <a href="#schedule" class="btn-ghost btn-sm desk-only">View Schedule →</a>
+      </div>
+      <div class="classes-grid">
+        <div class="cc anim-up" style="--d:.05s">
+          <div class="cc-bg" style="background-image: url('images/athlete.png');"></div>
+          <div class="cc-overlay"></div>
+          <div class="cc-icon">🏋️</div>
+          <div class="cc-name">Strength &amp; Power</div>
+          <div class="cc-desc">Build raw strength with compound lifting using free weights and machines.</div>
+          <div class="cc-foot"><span class="cc-dur">60 min</span><span class="cc-lvl">All Levels</span><span class="cc-arr">→</span></div>
+        </div>
+        <div class="cc anim-up" style="--d:.10s">
+          <div class="cc-bg" style="background-image: url('images/hiit.png');"></div>
+          <div class="cc-overlay"></div>
+          <div class="cc-icon">⚡</div>
+          <div class="cc-name">HIIT Cardio</div>
+          <div class="cc-desc">Torch calories and elevate your metabolism for 24+ hours post-workout.</div>
+          <div class="cc-foot"><span class="cc-dur">45 min</span><span class="cc-lvl">Intermediate</span><span class="cc-arr">→</span></div>
+        </div>
+        <div class="cc cc-featured anim-up" style="--d:.15s">
+          <div class="cc-bg" style="background-image: url('images/boxing.png');"></div>
+          <div class="cc-overlay"></div>
+          <div class="cc-icon">🥊</div>
+          <div class="cc-name">Combat HIIT</div>
+          <div class="cc-desc">Boxing fused with HIIT cardio — sharpen reflexes while burning serious fat.</div>
+          <div class="cc-foot"><span class="cc-dur">50 min</span><span class="cc-lvl">Advanced</span><span class="cc-arr">→</span></div>
+        </div>
+        <div class="cc anim-up" style="--d:.20s">
+          <div class="cc-bg" style="background-image: url('images/yoga.png');"></div>
+          <div class="cc-overlay"></div>
+          <div class="cc-icon">🧘</div>
+          <div class="cc-name">Yoga &amp; Flow</div>
+          <div class="cc-desc">Restore mobility and build core strength with dynamic yoga sessions.</div>
+          <div class="cc-foot"><span class="cc-dur">60 min</span><span class="cc-lvl">Beginner</span><span class="cc-arr">→</span></div>
+        </div>
+        <div class="cc anim-up" style="--d:.25s">
+          <div class="cc-bg" style="background-image: url('images/spin.png');"></div>
+          <div class="cc-overlay"></div>
+          <div class="cc-icon">🚴</div>
+          <div class="cc-name">Spin Studio</div>
+          <div class="cc-desc">Indoor cycling with immersive music &amp; LED lighting. Burn 600+ calories.</div>
+          <div class="cc-foot"><span class="cc-dur">45 min</span><span class="cc-lvl">All Levels</span><span class="cc-arr">→</span></div>
+        </div>
+        <div class="cc anim-up" style="--d:.30s">
+          <div class="cc-bg" style="background-image: url('images/interior.png');"></div>
+          <div class="cc-overlay"></div>
+          <div class="cc-icon">🏃</div>
+          <div class="cc-name">Functional Fit</div>
+          <div class="cc-desc">Train movements not muscles. Improve performance with athletic drills.</div>
+          <div class="cc-foot"><span class="cc-dur">55 min</span><span class="cc-lvl">All Levels</span><span class="cc-arr">→</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="si anim-up" style="--d:.00s"><div class="si-num" data-count="12000" data-suffix="K+">0</div><div class="si-lbl">Active Members</div></div>
+        <div class="si anim-up" style="--d:.08s"><div class="si-num" data-count="40"    data-suffix="+">0</div><div class="si-lbl">Expert Trainers</div></div>
+        <div class="si anim-up" style="--d:.16s"><div class="si-num" data-count="98"    data-suffix="%">0</div><div class="si-lbl">Satisfaction Rate</div></div>
+        <div class="si anim-up" style="--d:.24s"><div class="si-num" data-count="30"    data-suffix="+">0</div><div class="si-lbl">Weekly Classes</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left anim-left">
+          <div class="about-main-card">
+            <div class="amc-quote">"Built for those who choose<br><span>POWER</span>, Purpose &amp; Progress."</div>
+            <div class="amc-author">— APEX GYM PHILOSOPHY</div>
+            <div class="amc-glow"></div>
+          </div>
+          <div class="about-side-card">
+            <div class="asc-val">10+</div>
+            <div class="asc-lbl">Years of Excellence</div>
+          </div>
+        </div>
+        <div class="about-right anim-right">
+          <div class="sec-label">Who We Are</div>
+          <h2 class="sec-title">ELEVATE YOUR<br><span>FITNESS</span> JOURNEY</h2>
+          <p class="sec-sub">At APEX GYM, fitness is more than physical — it's a commitment to yourself. Our state-of-the-art facility and expert coaches help you unlock your true potential every single day.</p>
+          <div class="about-feats">
+            <div class="af"><div class="af-ico">⚙️</div><div><b>Cutting-Edge Equipment</b><p>100+ premium machines and free weights for every muscle group.</p></div></div>
+            <div class="af"><div class="af-ico">👥</div><div><b>Expert Guidance</b><p>Certified coaches with proven methods to accelerate your results.</p></div></div>
+            <div class="af"><div class="af-ico">🌟</div><div><b>Atmosphere &amp; Community</b><p>A motivating environment where every member feels supported.</p></div></div>
+            <div class="af"><div class="af-ico">🕐</div><div><b>Flexible Hours</b><p>Open 5AM–11PM daily. Your schedule never stops your fitness.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINERS -->
+  <section class="section section-alt" id="trainers">
+    <div class="container">
+      <div class="sec-head center anim-up">
+        <div class="sec-label" style="justify-content:center">Meet The Team</div>
+        <h2 class="sec-title">OUR <span>EXPERT</span> TRAINERS</h2>
+        <p class="sec-sub" style="max-width:500px;margin:12px auto 0">Certified professionals who bring passion and personalized attention to every session.</p>
+      </div>
+      <div class="trainers-grid">
+        <div class="tc anim-up" style="--d:.05s">
+          <div class="tc-img">
+            <img src="images/athlete.png" alt="Marcus Reeves">
+            <div class="tc-ov"></div>
+            <div class="tc-tags"><span>Strength</span><span>Powerlifting</span></div>
+          </div>
+          <div class="tc-body"><div class="tc-name">MARCUS REEVES</div><div class="tc-role">Head Strength Coach</div><div class="tc-stats"><span><b>8yr</b> Exp.</span><span><b>200+</b> Clients</span><span><b>4.9★</b></span></div></div>
+        </div>
+        <div class="tc anim-up" style="--d:.15s">
+          <div class="tc-img">
+            <img src="images/hiit.png" alt="Sarah Chen">
+            <div class="tc-ov"></div>
+            <div class="tc-tags"><span>HIIT</span><span>Cardio</span></div>
+          </div>
+          <div class="tc-body"><div class="tc-name">SARAH CHEN</div><div class="tc-role">HIIT &amp; Cardio Specialist</div><div class="tc-stats"><span><b>6yr</b> Exp.</span><span><b>180+</b> Clients</span><span><b>4.8★</b></span></div></div>
+        </div>
+        <div class="tc anim-up" style="--d:.25s">
+          <div class="tc-img">
+            <img src="images/boxing.png" alt="Derek Stone">
+            <div class="tc-ov"></div>
+            <div class="tc-tags"><span>Boxing</span><span>MMA</span></div>
+          </div>
+          <div class="tc-body"><div class="tc-name">DEREK STONE</div><div class="tc-role">Combat Sports Coach</div><div class="tc-stats"><span><b>10yr</b> Exp.</span><span><b>150+</b> Clients</span><span><b>5.0★</b></span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="sec-head anim-up">
+        <div>
+          <div class="sec-label">Book Your Session</div>
+          <h2 class="sec-title">WEEKLY <span>SCHEDULE</span></h2>
+          <p class="sec-sub">Reserve your spot. Classes fill fast — don't miss out.</p>
+        </div>
+      </div>
+      <div class="sched-tabs" id="schedTabs">
+        <button class="sched-tab active" data-day="mon">Mon</button>
+        <button class="sched-tab" data-day="tue">Tue</button>
+        <button class="sched-tab" data-day="wed">Wed</button>
+        <button class="sched-tab" data-day="thu">Thu</button>
+        <button class="sched-tab" data-day="fri">Fri</button>
+        <button class="sched-tab" data-day="sat">Sat</button>
+        <button class="sched-tab" data-day="sun">Sun</button>
+      </div>
+      <div class="sched-list anim-up" id="schedList"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section section-alt" id="gallery">
+    <div class="container">
+      <div class="sec-head center anim-up">
+        <div class="sec-label" style="justify-content:center">Virtual Tour</div>
+        <h2 class="sec-title">OUR <span>FACILITY</span></h2>
+        <p class="sec-sub" style="max-width:500px;margin:12px auto 0">Take a virtual tour of our premium spaces, top-of-the-line equipment, and dynamic fitness studios.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item anim-up tall" style="--d:.05s">
+          <img src="images/interior.png" alt="APEX Weight Room">
+          <div class="gi-overlay">
+            <div class="gi-content">
+              <span class="gi-tag">Strength Zone</span>
+              <h3 class="gi-title">Main Weight Floor</h3>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item anim-up" style="--d:.10s">
+          <img src="images/athlete.png" alt="Athlete Dumbbell Training">
+          <div class="gi-overlay">
+            <div class="gi-content">
+              <span class="gi-tag">Coaching</span>
+              <h3 class="gi-title">Personal Training Zone</h3>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item anim-up" style="--d:.15s">
+          <img src="images/boxing.png" alt="Boxing training">
+          <div class="gi-overlay">
+            <div class="gi-content">
+              <span class="gi-tag">Combat Studio</span>
+              <h3 class="gi-title">Heavy Bag Arena</h3>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item anim-up" style="--d:.20s">
+          <img src="images/yoga.png" alt="Yoga Class">
+          <div class="gi-overlay">
+            <div class="gi-content">
+              <span class="gi-tag">Mindfulness</span>
+              <h3 class="gi-title">Zen Yoga Studio</h3>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item anim-up tall" style="--d:.25s">
+          <img src="images/spin.png" alt="Spin Studio Cycles">
+          <div class="gi-overlay">
+            <div class="gi-content">
+              <span class="gi-tag">Cycling</span>
+              <h3 class="gi-title">Velo Spin Theater</h3>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item anim-up" style="--d:.30s">
+          <img src="images/hiit.png" alt="HIIT Class Group">
+          <div class="gi-overlay">
+            <div class="gi-content">
+              <span class="gi-tag">HIIT Studio</span>
+              <h3 class="gi-title">Group Circuit Arena</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section section-alt" id="pricing">
+    <div class="container">
+      <div class="sec-head center anim-up">
+        <div class="sec-label" style="justify-content:center">Simple Pricing</div>
+        <h2 class="sec-title">CHOOSE YOUR <span>PLAN</span></h2>
+        <p class="sec-sub" style="max-width:460px;margin:12px auto 0">No hidden fees. Cancel anytime. Start your transformation today.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pc anim-up" style="--d:.05s">
+          <div class="pc-tier">Daily Pass</div>
+          <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-count="12">12</span><span class="pc-per">/day</span></div>
+          <div class="pc-desc">Perfect for visitors or occasional training with no commitment.</div>
+          <div class="pc-feats">
+            <div class="pf yes">Full gym access</div>
+            <div class="pf yes">Locker rooms &amp; showers</div>
+            <div class="pf yes">1 Group class</div>
+            <div class="pf no">Personal trainer session</div>
+            <div class="pf no">Nutrition consultation</div>
+          </div>
+          <button class="pc-btn ghost" onclick="selectPlan('Daily Pass')">Get Day Pass</button>
+        </div>
+        <div class="pc pc-pop anim-up" style="--d:.15s">
+          <div class="pc-badge">Most Popular</div>
+          <div class="pc-tier">Monthly</div>
+          <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-count="89">89</span><span class="pc-per">/month</span></div>
+          <div class="pc-desc">Our most popular plan. Unlimited access to transform your fitness.</div>
+          <div class="pc-feats">
+            <div class="pf yes">Unlimited gym access</div>
+            <div class="pf yes">All group classes</div>
+            <div class="pf yes">2 PT sessions/month</div>
+            <div class="pf yes">Nutrition plan access</div>
+            <div class="pf no">Private coaching</div>
+          </div>
+          <button class="pc-btn solid" onclick="selectPlan('Monthly')">Start Monthly</button>
+        </div>
+        <div class="pc anim-up" style="--d:.25s">
+          <div class="pc-tier">Yearly Elite</div>
+          <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-count="799">799</span><span class="pc-per">/year</span></div>
+          <div class="pc-desc">Best value for serious athletes. Save $270+ vs monthly billing.</div>
+          <div class="pc-feats">
+            <div class="pf yes">Everything in Monthly</div>
+            <div class="pf yes">Weekly PT sessions</div>
+            <div class="pf yes">Private coaching</div>
+            <div class="pf yes">Body composition scans</div>
+            <div class="pf yes">Priority class booking</div>
+          </div>
+          <button class="pc-btn ghost" onclick="selectPlan('Yearly Elite')">Go Elite →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="sec-head anim-up">
+        <div>
+          <div class="sec-label">Real Results</div>
+          <h2 class="sec-title">FROM OUR <span>MEMBERS</span></h2>
+        </div>
+      </div>
+      <div class="testi-wrap">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><blockquote>"APEX changed my life. In 6 months I lost 30 pounds and gained confidence I never thought possible. The trainers are incredibly supportive."</blockquote><div class="testi-author"><div class="ta-ava">🙋‍♀️</div><div><b>Emily Rodriguez</b><span>Member since 2024</span></div></div></div>
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><blockquote>"The HIIT classes here are unmatched. Sarah Chen pushes you to your limit in the best way. I've never been in better shape."</blockquote><div class="testi-author"><div class="ta-ava">🙋‍♂️</div><div><b>James Kim</b><span>Member since 2023</span></div></div></div>
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><blockquote>"State-of-the-art equipment, amazing atmosphere, and coaches who genuinely care about your progress. Worth every penny."</blockquote><div class="testi-author"><div class="ta-ava">🙋‍♀️</div><div><b>Priya Sharma</b><span>Member since 2023</span></div></div></div>
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><blockquote>"Derek's Combat HIIT is something else entirely — brutal in the best way. My stamina and strength have gone through the roof."</blockquote><div class="testi-author"><div class="ta-ava">🙋‍♂️</div><div><b>Marcus Webb</b><span>Member since 2024</span></div></div></div>
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><blockquote>"The community here keeps me coming back every day. Everyone motivates each other. It doesn't feel like a gym — it feels like family."</blockquote><div class="testi-author"><div class="ta-ava">🙋‍♀️</div><div><b>Lisa Thompson</b><span>Member since 2022</span></div></div></div>
+        </div>
+      </div>
+      <div class="testi-dots" id="testiDots">
+        <button class="td active" data-i="0"></button>
+        <button class="td" data-i="1"></button>
+        <button class="td" data-i="2"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="cta-box anim-up">
+        <div class="cta-glow"></div>
+        <div class="cta-grid-bg"></div>
+        <div class="cta-inner">
+          <div class="sec-label" style="justify-content:center;margin-bottom:14px">Join The Movement</div>
+          <h2 class="cta-title">LET'S BUILD YOUR<br><span>BEST SELF</span></h2>
+          <p class="cta-desc">Get your free first session and see why thousands choose APEX. No commitment required.</p>
+          <form class="cta-form" onsubmit="handleCTA(event)">
+            <input type="email" class="cta-input" id="ctaEmail" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-primary btn-lg">Get Started →</button>
+          </form>
+          <p class="cta-fine">Free first session · No credit card · Cancel anytime</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="fb">
+          <div class="navbar-logo" style="font-size:22px;margin-bottom:12px;color:#FFFFFF;display:flex;align-items:center;">
+            <img src="images/logo-emblem-dark.png" alt="APEX GYM Logo" class="footer-logo-img">
+            APEX<span>GYM</span>
+          </div>
+          <p>Join our community of dedicated athletes. Transform your body. Transform your life.</p>
+          <div class="fb-socials">
+            <a href="#" class="soc" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="soc" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="soc" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+            <a href="#" class="soc" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="ft">Quick Links</div>
+          <ul class="fl"><li><a href="#home">Home</a></li><li><a href="#classes">Classes</a></li><li><a href="#about">About Us</a></li><li><a href="#trainers">Trainers</a></li><li><a href="#schedule">Schedule</a></li></ul>
+        </div>
+        <div>
+          <div class="ft">Programs</div>
+          <ul class="fl"><li><a href="#classes">Strength Training</a></li><li><a href="#classes">HIIT Cardio</a></li><li><a href="#classes">Yoga &amp; Flow</a></li><li><a href="#classes">Combat HIIT</a></li><li><a href="#classes">Personal Training</a></li></ul>
+        </div>
+        <div>
+          <div class="ft">Contact</div>
+          <ul class="fl"><li><a href="#">📍 123 Fitness Ave, NYC</a></li><li><a href="#">📞 +1 (800) 555-APEX</a></li><li><a href="#">✉️ hello@apexgym.com</a></li><li><a href="#">🕐 Mon–Sun: 5AM–11PM</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 APEX GYM. All Rights Reserved.</span>
+        <div><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="bottom-nav" id="bottomNav">
+    <div style="display:flex;justify-content:space-around;align-items:center;width:100%">
+      <button class="bn active" id="bn-home"     onclick="bnNav(this,'#home')">
+        <span>🏠</span><span>Home</span>
+      </button>
+      <button class="bn"        id="bn-classes"  onclick="bnNav(this,'#classes')"> 
+        <span>🏋️</span><span>Classes</span>
+      </button>
+      <button class="bn"        id="bn-schedule" onclick="bnNav(this,'#schedule')">
+        <span>📅</span><span>Schedule</span>
+      </button>
+      <button class="bn"        id="bn-pricing"  onclick="bnNav(this,'#pricing')">
+        <span>💳</span><span>Plans</span>
+      </button>
+      <button class="bn"        id="bn-contact"  onclick="bnNav(this,'#contact')">
+        <span>👤</span><span>Join</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- PROFILE DRAWER -->
+  <div class="profile-drawer" id="profileDrawer">
+    <div class="pd-header">
+      <div class="navbar-logo" style="font-size:18px;color:#FFFFFF;display:flex;align-items:center;">
+        <img src="images/logo-emblem-dark.png" alt="APEX GYM Logo" class="drawer-logo-img">
+        APEX<span>GYM</span>
+      </div>
+      <button class="pd-close" onclick="closeProfileDrawer()">×</button>
+    </div>
+    <div class="pd-body">
+      <div class="pd-user-info">
+        <div class="pd-avatar">AM</div>
+        <div>
+          <h4 class="pd-name">Alex Mercer</h4>
+          <span class="pd-badge">Elite Member</span>
+        </div>
+      </div>
+      
+      <div class="pd-stats-card">
+        <div class="pd-stats-row">
+          <div>
+            <div class="pd-stat-lbl">Check-Ins</div>
+            <div class="pd-stat-val">42</div>
+          </div>
+          <div>
+            <div class="pd-stat-lbl">Streak</div>
+            <div class="pd-stat-val">5 Days</div>
+          </div>
+          <div>
+            <div class="pd-stat-lbl">Level</div>
+            <div class="pd-stat-val">12</div>
+          </div>
+        </div>
+        
+        <div class="pd-barcode-zone">
+          <div class="pd-stat-lbl" style="margin-bottom:8px">Your Scan Pass</div>
+          <div class="pd-barcode">
+            <div class="pd-bar-line" style="width: 2px"></div>
+            <div class="pd-bar-line" style="width: 4px"></div>
+            <div class="pd-bar-line" style="width: 1px"></div>
+            <div class="pd-bar-line" style="width: 6px"></div>
+            <div class="pd-bar-line" style="width: 2px"></div>
+            <div class="pd-bar-line" style="width: 3px"></div>
+            <div class="pd-bar-line" style="width: 5px"></div>
+            <div class="pd-bar-line" style="width: 1px"></div>
+            <div class="pd-bar-line" style="width: 4px"></div>
+            <div class="pd-bar-line" style="width: 2px"></div>
+            <div class="pd-bar-line" style="width: 3px"></div>
+            <div class="pd-bar-line" style="width: 1px"></div>
+            <div class="pd-bar-line" style="width: 6px"></div>
+          </div>
+          <div class="pd-barcode-num">APX-9821-M01</div>
+        </div>
+      </div>
+      
+      <div class="pd-menu">
+        <div class="pd-menu-title">Account Settings</div>
+        <a href="javascript:void(0)" onclick="showToast('💳 Opening membership details...')">💳 My Membership</a>
+        <a href="javascript:void(0)" onclick="showToast('📅 Opening class bookings...')">🗓️ Booked Classes (3)</a>
+        <a href="javascript:void(0)" onclick="showToast('📊 Loading body metrics data...')">📊 Body Metrics History</a>
+        <a href="javascript:void(0)" onclick="showToast('⚙️ Opening settings...')">⚙️ Account Settings</a>
+      </div>
+      
+      <button class="pd-logout-btn" onclick="showToast('👋 Logged out successfully!')">Log Out</button>
+    </div>
+  </div>
+  <div class="pd-overlay" id="pdOverlay" onclick="closeProfileDrawer()"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
