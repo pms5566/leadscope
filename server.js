@@ -942,28 +942,41 @@ async function readDb() {
       }
 
       // Try reading from GitHub (even without a token if repository is public, e.g. on Hugging Face)
+      // Try reading from GitHub (even without a token if repository is public, e.g. on Hugging Face)
       const token = process.env.GITHUB_TOKEN;
       const hasToken = token && token.startsWith('ghp_');
       if (hasToken || (GH_OWNER && GH_REPO)) {
         try {
-          const headers = {
-            Accept: 'application/vnd.github.v3+json',
-            'User-Agent': 'LeadScope-App'
-          };
-          if (hasToken) {
-            headers.Authorization = `token ${token}`;
-          }
-          const response = await axios.get(
-            `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
-            { headers }
-          );
-          const base64Content = response.data.content;
-          const sha = response.data.sha;
-          const fileContent = Buffer.from(base64Content, 'base64').toString('utf8');
-          const parsed = JSON.parse(fileContent);
+          let fileContent = '';
+          let sha = '';
           
+          if (hasToken) {
+            // Authorized API request (needed to get SHA for subsequent writes)
+            const headers = {
+              Accept: 'application/vnd.github.v3+json',
+              'User-Agent': 'LeadScope-App',
+              Authorization: `token ${token}`
+            };
+            const response = await axios.get(
+              `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
+              { headers }
+            );
+            const base64Content = response.data.content;
+            sha = response.data.sha;
+            fileContent = Buffer.from(base64Content, 'base64').toString('utf8');
+          } else {
+            // Unauthenticated: Use raw.githubusercontent.com to bypass rate limit
+            const branch = process.env.GITHUB_BRANCH || 'main';
+            const rawUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${branch}/${GH_PATH}`;
+            const response = await axios.get(rawUrl, {
+              headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+            });
+            fileContent = typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
+          }
+          
+          const parsed = JSON.parse(fileContent);
           dbCache = parsed;
-          dbCache.sha = sha;
+          if (sha) dbCache.sha = sha;
           dbCacheTime = Date.now();
           
           return resolve(dbCache);
