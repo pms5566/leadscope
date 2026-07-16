@@ -2250,9 +2250,35 @@
     "lkl-xlbv": "https://parmeet123-leadscope.hf.space/preview/SPA/preview_SPA_1784200187872?name=lkl&phone=&address=",
     "abc-234k": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784200420975?name=abc&phone=&address=",
     "abc-3x39": "https://parmeet123-leadscope.hf.space/preview/luxurious-salon-website/preview_luxurious-salon-website_1784200437247?name=abc&phone=&address=",
-    "pms-74n5": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784200839435?name=pms&phone=&address="
+    "pms-74n5": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784200839435?name=pms&phone=&address=",
+    "pms-lc3h": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784200925709?name=pms&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784200887660",
+      "name": "ab (gym-website)",
+      "openedAt": "2026-07-16T11:21:29.771Z",
+      "lastActiveAt": "2026-07-16T11:21:29.771Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Tulsipur, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-16T11:21:29.771Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1783179492789-4",
       "name": "Airine Skin Care Clinic",
