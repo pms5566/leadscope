@@ -941,48 +941,23 @@ async function readDb() {
         return resolve(dbCache);
       }
 
-      // Try reading from GitHub (even without a token if repository is public, e.g. on Hugging Face)
-      // Try reading from GitHub (even without a token if repository is public, e.g. on Hugging Face)
-      const token = process.env.GITHUB_TOKEN;
-      const hasToken = token && token.startsWith('ghp_');
-      if (hasToken || (GH_OWNER && GH_REPO)) {
+      const isHuggingFace = !!process.env.SPACE_ID || (process.env.PUBLIC_SHARING_DOMAIN && process.env.PUBLIC_SHARING_DOMAIN.includes('hf.space') && !process.env.LOCAL_TRACKING_URL);
+
+      // Only pull from GitHub if we are running in the cloud (Hugging Face)
+      if (isHuggingFace && (GH_OWNER && GH_REPO)) {
         try {
-          let fileContent = '';
-          let sha = '';
-          
-          if (hasToken) {
-            // Authorized API request (needed to get SHA for subsequent writes)
-            const headers = {
-              Accept: 'application/vnd.github.v3+json',
-              'User-Agent': 'LeadScope-App',
-              Authorization: `token ${token}`
-            };
-            const response = await axios.get(
-              `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
-              { headers }
-            );
-            const base64Content = response.data.content;
-            sha = response.data.sha;
-            fileContent = Buffer.from(base64Content, 'base64').toString('utf8');
-          } else {
-            // Unauthenticated: Use raw.githubusercontent.com to bypass rate limit
-            const branch = process.env.GITHUB_BRANCH || 'main';
-            const rawUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${branch}/${GH_PATH}`;
-            const response = await axios.get(rawUrl, {
-              headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
-            });
-            fileContent = typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
-          }
-          
+          const branch = process.env.GITHUB_BRANCH || 'main';
+          const rawUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${branch}/${GH_PATH}`;
+          const response = await axios.get(rawUrl, {
+            headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+          });
+          const fileContent = typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
           const parsed = JSON.parse(fileContent);
           dbCache = parsed;
-          if (sha) dbCache.sha = sha;
           dbCacheTime = Date.now();
-          
           return resolve(dbCache);
         } catch (error) {
-          const errMsg = error.response && error.response.data ? JSON.stringify(error.response.data) : error.message;
-          console.error('[GitHub DB] Failed to read from GitHub, falling back to local file:', errMsg);
+          console.error('[GitHub DB] Failed to read raw file from GitHub:', error.message);
         }
       }
 
