@@ -26,6 +26,10 @@ let activeVisits = [];
 
 // Niche alias mapping for matching synonyms/sub-niches to template folder names
 const NICHE_ALIASES = {
+  // ── CrossFit Gym ────────────────────────────────────────────────────────────
+  'crossfit': 'cross_fit',
+  'crossfit_gym': 'cross_fit',
+  'cross_fit_gym': 'cross_fit',
   // ── Auto Detailing & Ceramic Coating Shops ──────────────────────────────────
   'vinyl_wrapping': 'auto_detailing_ceramic_coating_shops',
   'vinyl_wrapping_ppf': 'auto_detailing_ceramic_coating_shops',
