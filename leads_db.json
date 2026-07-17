@@ -2624,9 +2624,35 @@
     "force-fitness-dxb-pvvg": "https://parmeet123-leadscope.hf.space/preview/Cross%20Fit/preview_Cross_Fit_1784272290172?name=Force%20Fitness%20DXB&phone=&address=",
     "face-off-gym-clq7": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784273255295?name=Face%20off%20Gym&phone=&address=",
     "ffedf": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784273425515?name=ffedf&phone=&address=",
-    "ffedf-ibhz": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784273487034?name=ffedf&phone=&address="
+    "ffedf-ibhz": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784273487034?name=ffedf&phone=&address=",
+    "sands-fitness-dxb": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784273868841?name=Sands.%20Fitness.%20DXB&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784273255295",
+      "name": "Face off Gym (gym-website)",
+      "openedAt": "2026-07-17T07:31:55.765Z",
+      "lastActiveAt": "2026-07-17T07:31:55.765Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-17T07:31:55.765Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1784271882918-0",
       "name": "MMA Live Gym Dubai",
