@@ -1,0 +1,3046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prime Fitness DXB — Dubai's elite boutique 1-on-1 personal coaching. REPs certified trainers, home & gym visits, flexible Tabby payments. Claim your free trial session today." />
+  <meta name="theme-color" content="#0d0d0d" />
+  <title>Prime Fitness DXB | Elite 1-on-1 Personal Training Dubai</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================
+       DESIGN TOKENS & RESET
+    ===================================================== */
+    :root {
+      --bg-primary:    #0d0d0d;
+      --bg-secondary:  #121212;
+      --bg-card:       #1a1a1a;
+      --bg-card-hover: #202020;
+      --accent:        #E50914;
+      --accent-bright: #ff2a3b;
+      --accent-dim:    rgba(229, 9, 20, 0.15);
+      --accent-glow:   rgba(229, 9, 20, 0.35);
+      --text-white:    #ffffff;
+      --text-silver:   #a0a0a0;
+      --text-muted:    #666666;
+      --border:        rgba(255,255,255,0.07);
+      --glass-bg:      rgba(13,13,13,0.72);
+      --glass-border:  rgba(255,255,255,0.09);
+      --radius-sm:     8px;
+      --radius-md:     14px;
+      --radius-lg:     22px;
+      --transition:    0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-heading:  'Bebas Neue', sans-serif;
+      --font-body:     'Inter', sans-serif;
+      --nav-h:         70px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; text-decoration: none; }
+
+    button {
+      cursor: pointer;
+      font-family: var(--font-body);
+      border: none;
+      background: none;
+    }
+
+    ul { list-style: none; }
+
+    /* =====================================================
+       UTILITY CLASSES
+    ===================================================== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(229,9,20,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-bright);
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      min-height: 48px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.08);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px var(--accent-glow);
+    }
+
+    .btn-primary:hover::after { opacity: 1; }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      min-height: 48px;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+
+    /* =====================================================
+       BACKGROUND GRID EFFECT
+    ===================================================== */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+    #announcement-bar {
+      background: #1a0204;
+      border-bottom: 1px solid rgba(229, 9, 20, 0.2);
+      color: var(--text-silver);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px 20px;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1001;
+    }
+
+    #announcement-bar strong {
+      color: var(--accent-bright);
+    }
+
+    #navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: transform 0.35s ease, background 0.35s ease;
+      will-change: transform;
+    }
+
+    #navbar.hidden { transform: translateY(-100%); }
+
+    #navbar.scrolled {
+      background: rgba(10,10,10,0.92);
+      border-bottom-color: rgba(255,255,255,0.05);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-silver);
+      letter-spacing: 0.04em;
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta { display: none; }
+
+    /* Hamburger */
+    .hamburger {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
+      flex-shrink: 0;
+    }
+
+    .hamburger:hover { background: rgba(255,255,255,0.07); }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+      transform-origin: center;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; width: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu overlay */
+    #mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #mobile-menu a {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      letter-spacing: 0.08em;
+      color: var(--text-silver);
+      transition: color var(--transition), transform var(--transition);
+      transform: translateY(12px);
+    }
+
+    #mobile-menu.open a {
+      transform: translateY(0);
+      transition: color var(--transition), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    #mobile-menu a:hover { color: var(--accent); }
+
+    #mobile-menu .menu-cta {
+      margin-top: 12px;
+    }
+
+    /* =====================================================
+       MARQUEE BAND
+    ===================================================== */
+    .marquee-band {
+      background: var(--accent);
+      overflow: hidden;
+      padding: 11px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-scroll 28s linear infinite;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      color: #fff;
+      padding: 0 32px;
+    }
+
+    .marquee-dot {
+      width: 5px; height: 5px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* =====================================================
+       HERO SECTION
+    ===================================================== */
+    #hero {
+      min-height: calc(100svh - var(--nav-h) - 42px);
+      display: flex;
+      align-items: center;
+      padding: 60px 0 80px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to bottom, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.95) 100%), url('hero_bg.webp') no-repeat center center / cover;
+    }
+
+    @media (min-width: 768px) {
+      #hero {
+        background: linear-gradient(to right, rgba(13,13,13,0.92) 30%, rgba(13,13,13,0.4) 100%), url('hero_bg.webp') no-repeat center center / cover;
+      }
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -100px;
+      right: -150px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(229,9,20,0.18) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse-glow 4s ease-in-out infinite alternate;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -200px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(229,9,20,0.09) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse-glow 5s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes pulse-glow {
+      0%   { opacity: 0.7; transform: scale(1); }
+      100% { opacity: 1;   transform: scale(1.08); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(229,9,20,0.12);
+      border: 1px solid rgba(229,9,20,0.4);
+      border-radius: 100px;
+      padding: 7px 18px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 22px;
+    }
+
+    .hero-badge .pulse-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(229,9,20,0.5); }
+      50% { transform: scale(1.15); opacity: 0.9; box-shadow: 0 0 0 5px rgba(229,9,20,0); }
+    }
+
+    .hero-headline {
+      font-family: var(--font-heading);
+      line-height: 0.9;
+      letter-spacing: 0.03em;
+      margin-bottom: 28px;
+    }
+
+    .hero-headline .line { display: block; }
+    .hero-headline .line-white  { color: #fff;            font-size: clamp(5rem, 14vw, 9.5rem); }
+    .hero-headline .line-red    { color: var(--accent);   font-size: clamp(5rem, 14vw, 9.5rem); }
+    .hero-headline .line-stroke {
+      -webkit-text-stroke: 2px #fff;
+      color: transparent;
+      font-size: clamp(4.5rem, 12vw, 8.5rem);
+    }
+    .hero-headline .line-sub    { color: #fff; font-size: clamp(2.2rem, 7vw, 4.8rem); letter-spacing: 0.06em; }
+
+    .hero-subtitle {
+      font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+      color: var(--text-silver);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 38px;
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 52px;
+    }
+
+    .hero-counters {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .counter-item { display: flex; flex-direction: column; gap: 4px; }
+
+    .counter-value {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      letter-spacing: 0.04em;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .counter-value span { color: var(--accent); }
+
+    .counter-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* =====================================================
+       SERVICES GRID
+    ===================================================== */
+    #services {
+      padding: 90px 0;
+      background: var(--bg-secondary);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      color: #fff;
+    }
+
+    .section-title span { color: var(--accent); }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-silver);
+      margin-top: 12px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 16px;
+      padding-bottom: 16px;
+      /* hide scrollbar */
+      scrollbar-width: none;
+    }
+
+    .services-grid::-webkit-scrollbar { display: none; }
+
+    .service-card {
+      flex: 0 0 85%;
+      scroll-snap-align: start;
+    }
+
+    /* service-card base — flex/snap already defined in .services-grid block above */
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top left, var(--accent-dim) 0%, transparent 65%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(229,9,20,0.3);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(229,9,20,0.15);
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover::after  { opacity: 1; }
+
+    .service-icon {
+      width: 56px; height: 56px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(229,9,20,0.25);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 22px;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      background: rgba(229,9,20,0.22);
+      transform: scale(1.05);
+    }
+
+    .service-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: 22px;
+      border: 1px solid var(--border);
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover .service-img {
+      transform: scale(1.03);
+    }
+
+    .service-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: #f5a623;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .service-rating span {
+      color: var(--text-silver);
+      font-weight: 500;
+    }
+
+    .service-title {
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      letter-spacing: 0.04em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      font-size: 0.87rem;
+      color: var(--text-silver);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .service-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-bright);
+      background: var(--accent-dim);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    /* =====================================================
+       TABBY SECTION
+    ===================================================== */
+    #tabby {
+      padding: 90px 0;
+      background: var(--bg-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tabby-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .tabby-content .section-label { margin-bottom: 20px; }
+
+    .tabby-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .tabby-title span { color: var(--accent); }
+
+    .tabby-desc {
+      font-size: 0.95rem;
+      color: var(--text-silver);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .tabby-trust {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+      width: fit-content;
+      margin-top: 24px;
+    }
+
+    .tabby-trust-icon { font-size: 1.4rem; }
+
+    .tabby-trust-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-silver);
+      letter-spacing: 0.03em;
+    }
+
+    /* Payment visual */
+    .tabby-visual {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .tabby-package-total {
+      text-align: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .tabby-package-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .tabby-package-price {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      letter-spacing: 0.04em;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .tabby-package-price sup {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      vertical-align: super;
+      color: var(--text-silver);
+    }
+
+    .tabby-installments { display: flex; flex-direction: column; gap: 12px; }
+
+    .tabby-installment {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .tabby-installment.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .tabby-installment:nth-child(1) { transition-delay: 0.1s; }
+    .tabby-installment:nth-child(2) { transition-delay: 0.25s; }
+    .tabby-installment:nth-child(3) { transition-delay: 0.4s; }
+    .tabby-installment:nth-child(4) { transition-delay: 0.55s; }
+
+    .tabby-installment.paid { border-color: rgba(229,9,20,0.3); }
+
+    .installment-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .installment-num.done { background: var(--accent); color: #fff; }
+    .installment-num.pending { background: var(--bg-card); color: var(--text-silver); border: 1px solid var(--border); }
+
+    .installment-label {
+      flex: 1;
+      font-size: 0.85rem;
+      color: var(--text-silver);
+      font-weight: 500;
+    }
+
+    .installment-amount {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      color: #fff;
+    }
+
+    .tabby-calc-wrap {
+      margin-top: 28px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .tabby-calc-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-silver);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .tabby-calc-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .tabby-calc-input {
+      flex: 1;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: #fff;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .tabby-calc-input:focus { border-color: var(--accent); }
+
+    .tabby-calc-result {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .tabby-discount-hint {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-bright);
+      margin-top: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    /* =====================================================
+       TESTIMONIALS
+    ===================================================== */
+    #testimonials {
+      padding: 90px 0;
+      background: var(--bg-secondary);
+      overflow: hidden;
+    }
+
+    .carousel-outer {
+      position: relative;
+      margin-top: 48px;
+    }
+
+    .carousel-track-wrap {
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 22px;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .testimonial-card {
+      flex: 0 0 calc(100% - 0px);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color var(--transition);
+    }
+
+    .testimonial-card:hover { border-color: rgba(229,9,20,0.25); }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      color: #f5a623;
+      font-size: 1rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      color: var(--text-silver);
+      line-height: 1.75;
+      font-style: italic;
+      flex: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .author-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-dim), rgba(229,9,20,0.08));
+      border: 2px solid rgba(229,9,20,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .author-info { display: flex; flex-direction: column; gap: 3px; }
+
+    .author-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .author-detail {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .author-result {
+      margin-left: auto;
+      background: var(--accent-dim);
+      border: 1px solid rgba(229,9,20,0.25);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-bright);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .carousel-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+
+    .carousel-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.08);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .carousel-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+    }
+
+    /* =====================================================
+       FAQ SECTION
+    ===================================================== */
+    #faq {
+      padding: 90px 0;
+      background: var(--bg-primary);
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .faq-item.open { border-color: rgba(229,9,20,0.3); }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      cursor: pointer;
+      min-height: 64px;
+      width: 100%;
+      text-align: left;
+      color: #fff;
+      transition: background var(--transition);
+    }
+
+    .faq-question:hover { background: var(--bg-card-hover); }
+
+    .faq-q-text {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    .faq-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: background var(--transition), transform var(--transition), border-color var(--transition);
+      color: var(--text-silver);
+      font-style: normal;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: rotate(45deg);
+      color: #fff;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-answer.open { max-height: 300px; }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 0.88rem;
+      color: var(--text-silver);
+      line-height: 1.75;
+    }
+
+    /* =====================================================
+       STICKY BOTTOM CTA (MOBILE)
+    ===================================================== */
+    #sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 900;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(229,9,20,0.25);
+      padding: 12px 20px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #sticky-cta .sticky-text {
+      font-size: 0.78rem;
+      color: var(--text-silver);
+      flex: 1;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    #sticky-cta .sticky-text strong { color: #fff; display: block; font-size: 0.85rem; }
+
+    #sticky-cta .btn-primary { flex-shrink: 0; font-size: 0.82rem; padding: 12px 20px; }
+
+    /* =====================================================
+       FLOATING WHATSAPP BUTTON
+    ===================================================== */
+    #whatsapp-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 20px;
+      z-index: 950;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+      transition: transform var(--transition), box-shadow var(--transition);
+      overflow: visible;
+    }
+
+    #whatsapp-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 12px 32px rgba(37,211,102,0.55);
+    }
+
+    #whatsapp-btn svg {
+      width: 30px; height: 30px;
+      fill: #fff;
+    }
+
+    .wa-tooltip {
+      position: absolute;
+      right: 64px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: 6px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity var(--transition), transform var(--transition);
+      border: 1px solid var(--border);
+    }
+
+    #whatsapp-btn:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* =====================================================
+       BOOKING DRAWER
+    ===================================================== */
+    #booking-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      background: rgba(0,0,0,0.7);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    #booking-overlay.open { opacity: 1; pointer-events: all; }
+
+    #booking-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0; right: 0;
+      z-index: 1101;
+      background: var(--bg-card);
+      border-top: 1px solid rgba(229,9,20,0.2);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      transform: translateY(100%);
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      max-height: 92svh;
+      overflow-y: auto;
+      padding: 0 0 32px;
+    }
+
+    #booking-drawer.open { transform: translateY(0); }
+
+    .drawer-handle {
+      width: 40px; height: 4px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 24px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .drawer-title {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+      color: #fff;
+    }
+
+    .drawer-close {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-silver);
+      font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .drawer-close:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .drawer-body { padding: 24px 24px 0; }
+
+    /* Step progress */
+    .step-progress {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 28px;
+    }
+
+    .step-pip {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+
+    .step-pip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .step-pip.done   { background: rgba(229,9,20,0.4); border-color: var(--accent); color: #fff; }
+
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      position: relative;
+    }
+
+    .step-line-fill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      background: var(--accent);
+      width: 0;
+      transition: width 0.4s ease;
+    }
+
+    .step-panel {
+      display: none;
+    }
+
+    .step-panel.active { display: block; }
+
+    .step-heading {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .step-sub {
+      font-size: 0.82rem;
+      color: var(--text-silver);
+      margin-bottom: 22px;
+    }
+
+    .wizard-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .wizard-opt {
+      background: var(--bg-secondary);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .wizard-opt:hover {
+      border-color: rgba(229,9,20,0.4);
+      background: var(--accent-dim);
+    }
+
+    .wizard-opt.selected {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .wizard-opt-icon { font-size: 1.5rem; }
+
+    .wizard-opt-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-silver);
+      letter-spacing: 0.03em;
+    }
+
+    .wizard-opt.selected .wizard-opt-label { color: #fff; }
+
+    .wizard-nav {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .wizard-back {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-silver);
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      min-height: 48px;
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    .wizard-back:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+
+    .wizard-next {
+      flex: 1;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      min-height: 48px;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .wizard-next:hover {
+      background: var(--accent-bright);
+      transform: translateY(-2px);
+    }
+
+    /* Step 4 - Contact form */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-silver);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .form-input {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: #fff;
+      outline: none;
+      min-height: 48px;
+      transition: border-color var(--transition);
+      width: 100%;
+    }
+
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input:focus { border-color: var(--accent); }
+    .form-input.error { border-color: #ff4444; }
+
+    .form-error {
+      font-size: 0.72rem;
+      color: #ff4444;
+      display: none;
+    }
+
+    .form-error.visible { display: block; }
+
+    .wizard-summary {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .summary-chip {
+      background: var(--accent-dim);
+      border: 1px solid rgba(229,9,20,0.2);
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent-bright);
+      letter-spacing: 0.04em;
+    }
+
+    /* Success screen */
+    .drawer-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      padding: 16px 0 8px;
+    }
+
+    .drawer-success.visible { display: flex; }
+
+    .success-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.15);
+      border: 2px solid rgba(37,211,102,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes pop-in {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .success-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+
+    .success-msg {
+      font-size: 0.88rem;
+      color: var(--text-silver);
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    #footer {
+      background: #0a0a0a;
+      border-top: 1px solid var(--border);
+      padding-bottom: 80px; /* space for sticky CTA */
+    }
+
+    .footer-top {
+      padding: 52px 0 36px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 260px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--text-silver);
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .social-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* Accordion footer sections */
+    .footer-accordion-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-acc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      cursor: pointer;
+      min-height: 56px;
+    }
+
+    .footer-acc-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-silver);
+    }
+
+    .footer-acc-icon {
+      font-size: 1rem;
+      color: var(--text-muted);
+      transition: transform 0.3s ease;
+    }
+
+    .footer-accordion-item.open .footer-acc-icon { transform: rotate(45deg); }
+
+    .footer-acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .footer-accordion-item.open .footer-acc-body { max-height: 300px; }
+
+    .footer-acc-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 18px;
+    }
+
+    .footer-acc-links a {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .footer-acc-links a:hover { color: #fff; }
+
+    .footer-bottom {
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-copy {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .footer-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .footer-trust-item .trust-icon { font-size: 0.9rem; }
+
+    /* =====================================================
+       VALUE STACK CARD
+    ===================================================== */
+    .value-stack-card {
+      background: rgba(229,9,20,0.05);
+      border: 1px solid rgba(229,9,20,0.2);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin-bottom: 18px;
+    }
+
+    .value-stack-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .value-stack-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-silver);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .value-stack-item:last-of-type { border-bottom: none; }
+
+    .value-stack-check { color: #22c55e; font-size: 1rem; }
+
+    .value-stack-item strong { color: #fff; margin-left: auto; font-size: 0.78rem; }
+
+    .value-stack-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(229,9,20,0.3);
+    }
+
+    .value-stack-total span:first-child {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .value-stack-total .today {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: #22c55e;
+    }
+
+    /* =====================================================
+       DESKTOP RESPONSIVE — 768px+
+    ===================================================== */
+    @media (min-width: 768px) {
+      :root { --nav-h: 76px; }
+
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-flex; }
+      .hamburger { display: none; }
+
+      /* On tablet+, revert to original CSS-grid layout */
+      .services-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        overflow-x: unset;
+      }
+      .service-card { flex: unset; scroll-snap-align: unset; }
+
+      .tabby-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+
+      .testimonial-card { flex: 0 0 calc(50% - 11px); }
+
+      #sticky-cta { display: none !important; }
+
+      #whatsapp-btn { bottom: 32px; right: 28px; }
+
+      #booking-drawer {
+        top: 0; bottom: 0;
+        left: auto;
+        width: 420px;
+        border-radius: 0;
+        border-top: none;
+        border-left: 1px solid rgba(229,9,20,0.2);
+        transform: translateX(100%);
+        max-height: 100svh;
+      }
+
+      #booking-drawer.open { transform: translateX(0); }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .footer-brand { margin-bottom: 0; }
+
+      .footer-accordion-item {
+        border-bottom: none;
+      }
+
+      .footer-acc-header { cursor: default; }
+      .footer-acc-icon { display: none; }
+      .footer-acc-body { max-height: none !important; overflow: visible; }
+
+      .footer-accordions-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .wizard-options { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* =====================================================
+       DESKTOP RESPONSIVE — 1024px+
+    ===================================================== */
+    @media (min-width: 1024px) {
+      #hero { padding: 80px 0 100px; }
+
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+
+      .testimonial-card { flex: 0 0 calc(33.333% - 15px); }
+    }
+
+    /* =====================================================
+       MOBILE STICKY CTA
+    ===================================================== */
+    @media (max-width: 767px) {
+      #sticky-cta { display: flex; }
+      #footer { padding-bottom: 90px; }
+      #whatsapp-btn { bottom: 80px; }
+    }
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     ANNOUNCEMENT BAR
+===================================================== -->
+<div id="announcement-bar" role="complementary">
+  <span>⚡ Dubai Season Special: Only 4 Free Trial Slots Remaining for July. <strong>Book Now!</strong></span>
+</div>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="Prime Fitness DXB Home">PRIME<span>FITNESS</span></a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#tabby">Tabby</a></li>
+      <li><a href="#testimonials">Results</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+
+    <a href="#contact" class="btn-primary nav-cta" onclick="openDrawer(); return false;" id="nav-cta-btn">
+      Book Free Session
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#tabby"    onclick="closeMobileMenu()">Tabby</a>
+  <a href="#testimonials" onclick="closeMobileMenu()">Results</a>
+  <a href="#faq"      onclick="closeMobileMenu()">FAQ</a>
+  <div class="menu-cta">
+    <button class="btn-primary" onclick="closeMobileMenu(); openDrawer();" style="font-size:1rem; padding:16px 36px;">Book Free Session</button>
+  </div>
+</div>
+
+<!-- Marquee Band -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-track" id="marquee-track">
+    <!-- Items will be doubled by JS for seamless loop -->
+    <span class="marquee-item">💪 1-ON-1 COACHING <span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ HOME TRAINING <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🥊 KIDS MARTIAL ARTS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">💳 TABBY PAYMENTS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🏆 REPS CERTIFIED COACHES <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🏙️ DUBAI-WIDE SERVICE <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🎯 ZERO INTEREST PLANS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">✅ FREE TRIAL SESSION <span class="marquee-dot"></span></span>
+    <!-- Duplicated for seamless loop -->
+    <span class="marquee-item">💪 1-ON-1 COACHING <span class="marquee-dot"></span></span>
+    <span class="marquee-item">⚡ HOME TRAINING <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🥊 KIDS MARTIAL ARTS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">💳 TABBY PAYMENTS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🏆 REPS CERTIFIED COACHES <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🏙️ DUBAI-WIDE SERVICE <span class="marquee-dot"></span></span>
+    <span class="marquee-item">🎯 ZERO INTEREST PLANS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">✅ FREE TRIAL SESSION <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+<section id="hero" class="grid-bg">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-glow-2" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        Dubai's Elite Personal Training
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="line line-white">STRONGER</span>
+        <span class="line line-red">EVERY</span>
+        <span class="line line-stroke">DAY</span>
+        <span class="line line-sub">WITHOUT LIMITS</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Boutique 1-on-1 coaching delivered directly to your building gym, home, or preferred facility. Flexible plans, REPs certified trainers, and zero interest.
+      </p>
+
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="openDrawer()" id="hero-cta-primary">
+          Claim Free Trial Slot →
+        </button>
+        <a href="#services" class="btn-ghost" id="hero-cta-secondary">
+          ▶ View Programs
+        </a>
+      </div>
+
+      <div class="hero-counters">
+        <div class="counter-item">
+          <div class="counter-value"><span class="count-up" data-target="150">0</span>+</div>
+          <div class="counter-label">Success Stories</div>
+        </div>
+        <div class="counter-item">
+          <div class="counter-value" style="color: var(--accent);">REPs</div>
+          <div class="counter-label">Certified Coaches</div>
+        </div>
+        <div class="counter-item">
+          <div class="counter-value" style="color: var(--text-silver); font-size: clamp(1.4rem, 3.5vw, 2rem); display: flex; align-items: center;">Tabby</div>
+          <div class="counter-label">Available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SERVICES SECTION
+===================================================== -->
+<section id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title" id="services-heading">ELITE <span>PROGRAMS</span></h2>
+      <p class="section-subtitle">Every session is tailored to your goals, schedule, and preferred location across Dubai.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Card 1 -->
+      <div class="service-card reveal reveal-delay-1">
+        <img class="service-img" src="hero_bg.webp" alt="Personal trainer assisting client with weighted lunges in Dubai gym" loading="lazy" width="400" height="250" />
+        <div class="service-rating">⭐⭐⭐⭐⭐ <span>4.9 (112 reviews)</span></div>
+        <h3 class="service-title">1-ON-1 PERSONAL TRAINING</h3>
+        <p class="service-desc">Fully tailored fitness and nutrition coaching built around you. Your trainer focuses 100% on your form, progress, and results — no distractions, no shared attention.</p>
+        <div class="service-tags">
+          <span class="service-tag">Customized Plan</span>
+          <span class="service-tag">Nutrition Guidance</span>
+          <span class="service-tag">Progress Tracking</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card reveal reveal-delay-2">
+        <img class="service-img" src="home_training.webp" alt="Personal trainer coaching client inside a luxury apartment gym in Dubai" loading="lazy" width="400" height="250" />
+        <div class="service-rating">⭐⭐⭐⭐⭐ <span>5.0 (84 reviews)</span></div>
+        <h3 class="service-title">HOME & GYM VISITS</h3>
+        <p class="service-desc">We come to you. Whether it's your building gym, your living room, or any facility across Dubai — we bring the expertise. No commute, no excuses.</p>
+        <div class="service-tags">
+          <span class="service-tag">Dubai-Wide</span>
+          <span class="service-tag">Flexible Timing</span>
+          <span class="service-tag">Equipment Provided</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card reveal reveal-delay-3">
+        <img class="service-img" src="buddy_training.webp" alt="Couple training together under trainer supervision with Dubai skyline view" loading="lazy" width="400" height="250" />
+        <div class="service-rating">⭐⭐⭐⭐⭐ <span>4.8 (43 reviews)</span></div>
+        <h3 class="service-title">BUDDY / PARTNER TRAINING</h3>
+        <p class="service-desc">Train with a friend and split the cost — without splitting the quality. Perfect for couples, siblings, or training partners who want shared accountability and mutual motivation.</p>
+        <div class="service-tags">
+          <span class="service-tag">Cost Effective</span>
+          <span class="service-tag">Shared Goals</span>
+          <span class="service-tag">2 People Max</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card reveal reveal-delay-4">
+        <img class="service-img" src="kids_training.webp" alt="Kids practicing martial arts with trainer holding targets in private gym" loading="lazy" width="400" height="250" />
+        <div class="service-rating">⭐⭐⭐⭐⭐ <span>4.9 (32 reviews)</span></div>
+        <h3 class="service-title">KIDS FITNESS & MARTIAL ARTS</h3>
+        <p class="service-desc">Build active habits and confidence early. Our youth programs combine fun fitness drills with foundational martial arts — discipline, coordination, and healthy routines for life.</p>
+        <div class="service-tags">
+          <span class="service-tag">Ages 5–16</span>
+          <span class="service-tag">Martial Arts</span>
+          <span class="service-tag">Fun & Engaging</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     TABBY SECTION
+===================================================== -->
+<section id="tabby" aria-labelledby="tabby-heading">
+  <div class="container">
+    <div class="tabby-grid">
+      <!-- Content -->
+      <div class="tabby-content reveal">
+        <div class="section-label">Flexible Payments</div>
+        <h2 class="tabby-title" id="tabby-heading">SPLIT YOUR PACKAGE.<br/><span>ZERO INTEREST.</span></h2>
+        <p class="tabby-desc">
+          No reason to delay your health goals. With Tabby, you can start your premium 1-on-1 coaching package today and split the cost into 4 easy, equal monthly payments — absolutely zero interest, zero fees.
+        </p>
+        <button class="btn-primary" onclick="openDrawer()">Get Started with Tabby →</button>
+        <div class="tabby-trust">
+          <span class="tabby-trust-icon">💳</span>
+          <span class="tabby-trust-text">Credit Cards &amp; Tabby Accepted &nbsp;·&nbsp; Secure &amp; Encrypted</span>
+        </div>
+      </div>
+
+      <!-- Visual calculator -->
+      <div class="tabby-visual reveal reveal-delay-2" id="tabby-visual">
+        <div class="tabby-package-total">
+          <div class="tabby-package-label">Your Coaching Package</div>
+          <div class="tabby-package-price"><sup>AED</sup><span id="tabby-display-total">1,200</span></div>
+        </div>
+
+        <div class="tabby-installments" id="tabby-installments">
+          <div class="tabby-installment paid">
+            <div class="installment-num done">✓</div>
+            <div class="installment-label">Payment 1 — Today</div>
+            <div class="installment-amount">AED <span class="inst-val">300</span></div>
+          </div>
+          <div class="tabby-installment">
+            <div class="installment-num pending">2</div>
+            <div class="installment-label">Payment 2 — Month 2</div>
+            <div class="installment-amount">AED <span class="inst-val">300</span></div>
+          </div>
+          <div class="tabby-installment">
+            <div class="installment-num pending">3</div>
+            <div class="installment-label">Payment 3 — Month 3</div>
+            <div class="installment-amount">AED <span class="inst-val">300</span></div>
+          </div>
+          <div class="tabby-installment">
+            <div class="installment-num pending">4</div>
+            <div class="installment-label">Payment 4 — Month 4</div>
+            <div class="installment-amount">AED <span class="inst-val">300</span></div>
+          </div>
+        </div>
+
+        <!-- Calc -->
+        <div class="tabby-calc-wrap">
+          <div class="tabby-calc-label">🧮 Try with your package amount (AED)</div>
+          <div class="tabby-calc-row">
+            <input
+              type="number"
+              class="tabby-calc-input"
+              id="tabby-calc-input"
+              placeholder="e.g. 2400"
+              min="100"
+              max="99999"
+              aria-label="Package amount in AED"
+            />
+            <div class="tabby-calc-result" id="tabby-calc-result">÷4</div>
+          </div>
+          <div class="tabby-discount-hint" id="tabby-discount-hint">
+            💡 Or pay upfront and save 10% (AED <span id="tabby-discount-val">1,080</span>)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+<section id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Real Results</div>
+      <h2 class="section-title" id="testimonials-heading">CLIENT <span>HIGHLIGHTS</span></h2>
+      <p class="section-subtitle">Over 150 transformations and counting across Dubai — here's what our clients say.</p>
+    </div>
+
+    <div class="carousel-outer">
+      <div class="carousel-track-wrap" id="carousel-wrap">
+        <div class="carousel-track" id="carousel-track" role="list">
+
+          <!-- Card 1 -->
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <p class="testimonial-quote">"I'd tried countless gyms before, but nothing stuck. Prime Fitness sent a coach to my building gym in JLT and within 3 months I dropped 14kg. The 1-on-1 attention is unmatched."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">S</div>
+              <div class="author-info">
+                <div class="author-name">Sara A.</div>
+                <div class="author-detail">JLT, Dubai · 3 Months</div>
+              </div>
+              <div class="author-result">–14 KG</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <p class="testimonial-quote">"The Tabby payment option was the deciding factor for me. I could start a premium package without worrying about a large upfront cost. Best investment I've made in myself."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">M</div>
+              <div class="author-info">
+                <div class="author-name">Mohammed K.</div>
+                <div class="author-detail">Business Bay · 6 Months</div>
+              </div>
+              <div class="author-result">+8 KG MUSCLE</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <p class="testimonial-quote">"My son loves the martial arts sessions! His confidence and discipline have improved so much. Coach comes to our building on time every week. Couldn't be happier."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">L</div>
+              <div class="author-info">
+                <div class="author-name">Layla R.</div>
+                <div class="author-detail">Dubai Marina · Kids Program</div>
+              </div>
+              <div class="author-result">KIDS MARTIAL ARTS</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <p class="testimonial-quote">"My colleague and I signed up for buddy training. Same quality as 1-on-1 but we share the cost. Our trainer keeps us both accountable. Seriously impressive results in 2 months."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">R</div>
+              <div class="author-info">
+                <div class="author-name">Ravi P.</div>
+                <div class="author-detail">DIFC · Buddy Training</div>
+              </div>
+              <div class="author-result">BUDDY TRAINING</div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <p class="testimonial-quote">"As someone who travels constantly, having a coach who adapts sessions to wherever I am — home, hotel gym, or outdoors — has completely changed my consistency."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">N</div>
+              <div class="author-info">
+                <div class="author-name">Natasha V.</div>
+                <div class="author-detail">Downtown Dubai · 4 Months</div>
+              </div>
+              <div class="author-result">–10 KG</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carousel-prev" aria-label="Previous testimonial">&#8592;</button>
+        <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Testimonial navigation"></div>
+        <button class="carousel-btn" id="carousel-next" aria-label="Next testimonial">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     FAQ SECTION
+===================================================== -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Got Questions?</div>
+      <h2 class="section-title" id="faq-heading">FREQUENTLY <span>ASKED</span></h2>
+    </div>
+
+    <ul class="faq-list" role="list">
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Where do you train clients in Dubai?</span>
+          <i class="faq-icon" aria-hidden="true">+</i>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">We cover all major areas of Dubai — Dubai Marina, JLT, Business Bay, Downtown, DIFC, Jumeirah, Mirdif, Al Barsha, and more. We come directly to your building gym, home, or a public facility of your choice. If you're unsure about your area, just message us on WhatsApp.</div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">How does the free trial session work?</span>
+          <i class="faq-icon" aria-hidden="true">+</i>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Your first session is completely free — no commitment, no credit card required. Book via the form above, choose your training location and goal, and we'll match you with a certified coach. The trial is a full 60-minute session where you'll experience real training before deciding on a package.</div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Are your trainers REPs certified?</span>
+          <i class="faq-icon" aria-hidden="true">+</i>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Yes. All Prime Fitness DXB coaches hold active REPs (Register of Exercise Professionals) certification — the globally recognized standard for personal trainers. Many also hold additional specializations in strength & conditioning, nutrition, or martial arts.</div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">How does Tabby payment splitting work?</span>
+          <i class="faq-icon" aria-hidden="true">+</i>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Tabby is a "buy now, pay later" platform trusted by millions across the UAE. When you choose Tabby at checkout, your package price is split into 4 equal monthly payments with absolutely zero interest or hidden fees. You'll just need to sign up with Tabby (takes 2 minutes) and the rest is seamless.</div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">What's included in a coaching package?</span>
+          <i class="faq-icon" aria-hidden="true">+</i>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">All packages include a personalized training program, nutritional guidance, regular progress assessments, and direct WhatsApp access to your coach between sessions. We also provide basic training equipment for home sessions at no extra cost.</div>
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Do you offer online or remote training?</span>
+          <i class="faq-icon" aria-hidden="true">+</i>
+        </button>
+        <div class="faq-answer" role="region">
+          <div class="faq-answer-inner">Yes! We offer fully remote 1-on-1 coaching via video call for clients who travel frequently or prefer to train on their own schedule. You'll receive a custom program, live sessions, and full WhatsApp support — same standard as in-person, wherever you are in the world.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- =====================================================
+     STICKY BOTTOM CTA (MOBILE ONLY)
+===================================================== -->
+<div id="sticky-cta" role="complementary" aria-label="Book a session">
+  <div class="sticky-text">
+    <strong>Free Trial Available</strong>
+    No commitment required
+  </div>
+  <button class="btn-primary" onclick="openDrawer()" id="sticky-cta-btn">Book Free Session</button>
+</div>
+
+<!-- =====================================================
+     FLOATING WHATSAPP BUTTON
+===================================================== -->
+<a
+  id="whatsapp-btn"
+  href="https://wa.me/971500000000?text=Hi%20Prime%20Fitness%20DXB!%20I%27d%20like%20to%20enquire%20about%20personal%20training."
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with us on WhatsApp"
+>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- =====================================================
+     BOOKING DRAWER
+===================================================== -->
+<div id="booking-overlay" aria-hidden="true" onclick="closeDrawer()"></div>
+
+<div id="booking-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+  <div class="drawer-handle" aria-hidden="true"></div>
+
+  <div class="drawer-header">
+    <h2 class="drawer-title" id="drawer-title">BOOK YOUR <span style="color:var(--accent)">FREE TRIAL</span></h2>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close booking drawer">✕</button>
+  </div>
+
+  <div class="drawer-body">
+    <!-- Step progress indicator -->
+    <div class="step-progress" id="step-progress" aria-hidden="true">
+      <div class="step-pip active" id="sp-1">1</div>
+      <div class="step-line"><div class="step-line-fill" id="sl-1"></div></div>
+      <div class="step-pip" id="sp-2">2</div>
+      <div class="step-line"><div class="step-line-fill" id="sl-2"></div></div>
+      <div class="step-pip" id="sp-3">3</div>
+      <div class="step-line"><div class="step-line-fill" id="sl-3"></div></div>
+      <div class="step-pip" id="sp-4">4</div>
+    </div>
+
+    <!-- Step 1: Location -->
+    <div class="step-panel active" id="step-1">
+      <div class="step-heading">WHERE TO TRAIN?</div>
+      <div class="step-sub">Choose your preferred training location.</div>
+      <div class="wizard-options">
+        <button class="wizard-opt" data-step="1" data-value="My Home Gym" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">🏠</span>
+          <span class="wizard-opt-label">My Home / Building Gym</span>
+        </button>
+        <button class="wizard-opt" data-step="1" data-value="Public Gym" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">🏋️</span>
+          <span class="wizard-opt-label">Public Gym</span>
+        </button>
+        <button class="wizard-opt" data-step="1" data-value="Online / Remote" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">💻</span>
+          <span class="wizard-opt-label">Online / Remote</span>
+        </button>
+        <button class="wizard-opt" data-step="1" data-value="Outdoor" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">🌳</span>
+          <span class="wizard-opt-label">Outdoor / Park</span>
+        </button>
+      </div>
+      <div class="wizard-nav">
+        <div></div>
+        <button class="wizard-next" onclick="nextStep()" id="next-1">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Goal -->
+    <div class="step-panel" id="step-2">
+      <div class="step-heading">YOUR PRIMARY GOAL?</div>
+      <div class="step-sub">We'll match you with the right certified coach.</div>
+      <div class="wizard-options">
+        <button class="wizard-opt" data-step="2" data-value="Weight Loss" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">🔥</span>
+          <span class="wizard-opt-label">Weight Loss</span>
+        </button>
+        <button class="wizard-opt" data-step="2" data-value="Muscle Gain" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">💪</span>
+          <span class="wizard-opt-label">Muscle Gain</span>
+        </button>
+        <button class="wizard-opt" data-step="2" data-value="Boxing / Martial Arts" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">🥊</span>
+          <span class="wizard-opt-label">Boxing / Martial Arts</span>
+        </button>
+        <button class="wizard-opt" data-step="2" data-value="General Fitness" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">⚡</span>
+          <span class="wizard-opt-label">General Fitness</span>
+        </button>
+      </div>
+      <div class="wizard-nav">
+        <button class="wizard-back" onclick="prevStep()">← Back</button>
+        <button class="wizard-next" onclick="nextStep()" id="next-2">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Tabby -->
+    <div class="step-panel" id="step-3">
+      <div class="step-heading">PAYMENT PREFERENCE?</div>
+      <div class="step-sub">Split your package with zero interest using Tabby.</div>
+      <div class="wizard-options">
+        <button class="wizard-opt" data-step="3" data-value="Yes, split in 4" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">💳</span>
+          <span class="wizard-opt-label">Yes, split in 4 with Tabby</span>
+        </button>
+        <button class="wizard-opt" data-step="3" data-value="Pay Upfront" onclick="selectOpt(this)">
+          <span class="wizard-opt-icon">💰</span>
+          <span class="wizard-opt-label">Pay Upfront</span>
+        </button>
+      </div>
+      <div class="wizard-nav">
+        <button class="wizard-back" onclick="prevStep()">← Back</button>
+        <button class="wizard-next" onclick="nextStep()" id="next-3">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Contact Details -->
+    <div class="step-panel" id="step-4">
+      <div class="step-heading">ALMOST THERE!</div>
+      <div class="step-sub">Enter your details to secure your free trial slot.</div>
+
+      <!-- Value-Stacking Block -->
+      <div class="value-stack-card">
+        <div class="value-stack-title">🎁 YOUR FREE TRIAL INCLUDES</div>
+        <div class="value-stack-item">
+          <span class="value-stack-check">✓</span>
+          <span>60-Min Premium 1-on-1 Session</span>
+          <strong>AED 0</strong>
+        </div>
+        <div class="value-stack-item">
+          <span class="value-stack-check">✓</span>
+          <span>Full Body Fat & Muscle Scan</span>
+          <strong>AED 0</strong>
+        </div>
+        <div class="value-stack-item">
+          <span class="value-stack-check">✓</span>
+          <span>Custom Nutrition Consultation</span>
+          <strong>FREE</strong>
+        </div>
+        <div class="value-stack-total">
+          <span>AED 500+ Value</span>
+          <span class="today">Today: AED 0</span>
+        </div>
+      </div>
+
+      <!-- Selection summary -->
+      <div class="wizard-summary" id="wizard-summary" aria-live="polite"></div>
+
+      <div class="form-group">
+        <label class="form-label" for="booking-name">Full Name</label>
+        <input class="form-input" id="booking-name" type="text" placeholder="Your name" autocomplete="name" />
+        <span class="form-error" id="err-name">Please enter your full name.</span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="booking-whatsapp">WhatsApp Number</label>
+        <input class="form-input" id="booking-whatsapp" type="tel" inputmode="tel" pattern="[+0-9\s-]{9,}" placeholder="+971 50 000 0000" autocomplete="tel" />
+        <span class="form-error" id="err-whatsapp">Please enter a valid WhatsApp number.</span>
+      </div>
+
+      <div class="wizard-nav" style="flex-direction: column; gap: 10px;">
+        <button class="wizard-next" onclick="submitBooking()" id="submit-btn" style="width:100%;">
+          🎯 Secure My Free Trial Slot
+        </button>
+        <button class="wizard-back" onclick="prevStep()" style="width:100%; text-align:center;">← Back</button>
+      </div>
+    </div>
+
+    <!-- Success State -->
+    <div class="drawer-success" id="drawer-success" aria-live="polite">
+      <div class="success-icon">🎉</div>
+      <div class="success-title">YOU'RE IN!</div>
+      <p class="success-msg">We've received your request. A Prime Fitness coach will contact you on WhatsApp within 24 hours to confirm your free trial slot.</p>
+      <button class="btn-primary" onclick="closeDrawer()" style="margin-top:8px;">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer id="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">PRIME<span>FITNESS</span></div>
+        <p class="footer-tagline">Dubai's boutique 1-on-1 coaching service. We train where you are, when you're ready.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+          <a href="https://wa.me/971500000000" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+          <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+
+      <!-- Accordion sections -->
+      <div class="footer-accordions-wrap">
+        <div class="footer-accordion-item" id="footer-acc-services">
+          <button class="footer-acc-header" aria-expanded="false" aria-controls="footer-body-services" onclick="toggleFooterAcc('services')">
+            <span class="footer-acc-title">Services</span>
+            <span class="footer-acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="footer-acc-body" id="footer-body-services">
+            <ul class="footer-acc-links" role="list">
+              <li><a href="#services">1-on-1 Personal Training</a></li>
+              <li><a href="#services">Home &amp; Gym Visits</a></li>
+              <li><a href="#services">Buddy Training</a></li>
+              <li><a href="#services">Kids Martial Arts</a></li>
+              <li><a href="#services">Online Coaching</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-accordion-item" id="footer-acc-info">
+          <button class="footer-acc-header" aria-expanded="false" aria-controls="footer-body-info" onclick="toggleFooterAcc('info')">
+            <span class="footer-acc-title">Information</span>
+            <span class="footer-acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="footer-acc-body" id="footer-body-info">
+            <ul class="footer-acc-links" role="list">
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#tabby">Tabby Payment Plan</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="https://consumerrights.ae/" target="_blank" rel="noopener noreferrer">Dubai Consumer Rights</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-accordion-item" id="footer-acc-contact">
+          <button class="footer-acc-header" aria-expanded="false" aria-controls="footer-body-contact" onclick="toggleFooterAcc('contact')">
+            <span class="footer-acc-title">Contact</span>
+            <span class="footer-acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="footer-acc-body" id="footer-body-contact">
+            <ul class="footer-acc-links" role="list">
+              <li><a href="https://wa.me/971500000000" target="_blank" rel="noopener">WhatsApp Us</a></li>
+              <li><a href="mailto:hello@primefitnessdxb.com">hello@primefitnessdxb.com</a></li>
+              <li><a href="#">Dubai, UAE</a></li>
+              <li><a href="#">Book Free Trial</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Prime Fitness DXB. All rights reserved. Registered in Dubai, UAE.</p>
+      <div class="footer-trust">
+        <span class="footer-trust-item"><span class="trust-icon">🔒</span> SSL Secured</span>
+        <span class="footer-trust-item"><span class="trust-icon">✅</span> REPs Certified</span>
+        <span class="footer-trust-item"><span class="trust-icon">🇦🇪</span> Dubai Compliant</span>
+        <span class="footer-trust-item"><span class="trust-icon">💳</span> Tabby Partner</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================
+     VANILLA JS
+===================================================== -->
+<script>
+  'use strict';
+
+  /* =====================================================
+     1. NAVBAR — Sticky scroll-up/hide on scroll-down
+  ===================================================== */
+  (function() {
+    const nav = document.getElementById('navbar');
+    let lastY = 0;
+    let ticking = false;
+
+    function handleScroll() {
+      const y = window.scrollY;
+
+      if (y > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+
+      if (y > lastY && y > 120) {
+        nav.classList.add('hidden');
+      } else {
+        nav.classList.remove('hidden');
+      }
+
+      lastY = y;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+  /* =====================================================
+     2. HAMBURGER MENU
+  ===================================================== */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function openMobileMenu() {
+    hamburger.classList.add('active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function() {
+    if (mobileMenu.classList.contains('open')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  /* =====================================================
+     3. SCROLL REVEAL
+  ===================================================== */
+  (function() {
+    const revealEls = document.querySelectorAll('.reveal');
+    if (!revealEls.length) return;
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(function(el) { observer.observe(el); });
+  })();
+
+  /* =====================================================
+     4. COUNT-UP ANIMATION
+  ===================================================== */
+  (function() {
+    const counters = document.querySelectorAll('.count-up');
+    if (!counters.length) return;
+
+    function animate(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1800;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target);
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          animate(e.target);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function(el) { observer.observe(el); });
+  })();
+
+  /* =====================================================
+     5. TESTIMONIALS CAROUSEL
+  ===================================================== */
+  (function() {
+    const track   = document.getElementById('carousel-track');
+    const dotsWrap = document.getElementById('carousel-dots');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+
+    if (!track) return;
+
+    const cards = Array.from(track.children);
+    let current = 0;
+
+    function getPerPage() {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 768)  return 2;
+      return 1;
+    }
+
+    let perPage = getPerPage();
+    let maxIndex = Math.max(0, cards.length - perPage);
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      const total = maxIndex + 1;
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+        dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        dot.addEventListener('click', function() { goTo(i); });
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = dotsWrap.querySelectorAll('.carousel-dot');
+      dots.forEach(function(d, i) {
+        const isActive = i === current;
+        d.classList.toggle('active', isActive);
+        d.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+
+    // Fixed width/position calculation for sliding track
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, maxIndex));
+      const cardWidth = cards[0].offsetWidth + 22; // gap: 22px
+      track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
+      updateDots();
+    }
+
+    prevBtn.addEventListener('click', function() { goTo(current - 1); });
+    nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+    // Touch/swipe support
+    let startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        goTo(diff > 0 ? current + 1 : current - 1);
+      }
+    }, { passive: true });
+
+    function init() {
+      perPage = getPerPage();
+      maxIndex = Math.max(0, cards.length - perPage);
+      cards.forEach(function(c) {
+        c.style.flex = '0 0 calc(' + (100 / perPage) + '% - ' + (22 * (perPage - 1) / perPage) + 'px)';
+      });
+      current = Math.min(current, maxIndex);
+      buildDots();
+      goTo(current);
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(init, 120);
+    });
+
+    init();
+
+    // Auto-advance
+    let autoInterval = setInterval(function() {
+      goTo(current < maxIndex ? current + 1 : 0);
+    }, 5500);
+
+    // Pause auto advance when user interacts
+    function resetAutoAdvance() {
+      clearInterval(autoInterval);
+      autoInterval = setInterval(function() {
+        goTo(current < maxIndex ? current + 1 : 0);
+      }, 5500);
+    }
+
+    prevBtn.addEventListener('click', resetAutoAdvance);
+    nextBtn.addEventListener('click', resetAutoAdvance);
+    track.addEventListener('touchstart', resetAutoAdvance, { passive: true });
+  })();
+
+  /* =====================================================
+     6. FAQ ACCORDION
+  ===================================================== */
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const item   = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        i.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* =====================================================
+     7. FOOTER ACCORDION (MOBILE ONLY)
+  ===================================================== */
+  function toggleFooterAcc(key) {
+    if (window.innerWidth >= 768) return;
+    const item = document.getElementById('footer-acc-' + key);
+    if (!item) return;
+    const isOpen = item.classList.contains('open');
+    const body = item.querySelector('.footer-acc-body');
+
+    // Close all
+    document.querySelectorAll('.footer-accordion-item').forEach(function(i) {
+      i.classList.remove('open');
+      i.querySelector('.footer-acc-header').setAttribute('aria-expanded', 'false');
+      i.querySelector('.footer-acc-body').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('.footer-acc-header').setAttribute('aria-expanded', 'true');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  }
+
+  /* =====================================================
+     8. TABBY CALCULATOR
+  ===================================================== */
+  (function() {
+    const input   = document.getElementById('tabby-calc-input');
+    const result  = document.getElementById('tabby-calc-result');
+    const total   = document.getElementById('tabby-display-total');
+    const instVals = document.querySelectorAll('.inst-val');
+    const discountVal = document.getElementById('tabby-discount-val');
+
+    function formatNum(n) {
+      return n.toLocaleString('en-US');
+    }
+
+    function update(val) {
+      const num = parseFloat(val);
+      if (!isNaN(num) && num > 0) {
+        const split = Math.round(num / 4);
+        result.textContent = 'AED ' + formatNum(split) + '/mo';
+        total.textContent  = formatNum(num);
+        instVals.forEach(function(el) { el.textContent = formatNum(split); });
+        if (discountVal) {
+          discountVal.textContent = formatNum(Math.round(num * 0.9));
+        }
+      } else {
+        result.textContent = '÷4';
+        total.textContent  = '1,200';
+        instVals.forEach(function(el) { el.textContent = '300'; });
+        if (discountVal) {
+          discountVal.textContent = '1,080';
+        }
+      }
+    }
+
+    if (input) {
+      input.addEventListener('input', function() { update(input.value); });
+    }
+
+    // Animate Tabby installments on scroll
+    const tabbyVisual = document.getElementById('tabby-visual');
+    if (tabbyVisual) {
+      const observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          document.querySelectorAll('.tabby-installment').forEach(function(el) {
+            el.classList.add('visible');
+          });
+          observer.unobserve(tabbyVisual);
+        }
+      }, { threshold: 0.3 });
+      observer.observe(tabbyVisual);
+    }
+  })();
+
+  /* =====================================================
+     9. BOOKING DRAWER — State Machine
+  ===================================================== */
+  let currentStep = 1;
+  const totalSteps = 4;
+  const selections = { 1: null, 2: null, 3: null };
+
+  function openDrawer() {
+    const overlay = document.getElementById('booking-overlay');
+    const drawer  = document.getElementById('booking-drawer');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    // Reset to step 1
+    goToStep(1);
+  }
+
+  function closeDrawer() {
+    const overlay = document.getElementById('booking-overlay');
+    const drawer  = document.getElementById('booking-drawer');
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function selectOpt(btn) {
+    const step = parseInt(btn.dataset.step, 10);
+    // Deselect siblings
+    document.querySelectorAll('.wizard-opt[data-step="' + step + '"]').forEach(function(b) {
+      b.classList.remove('selected');
+    });
+    btn.classList.add('selected');
+    selections[step] = btn.dataset.value;
+  }
+
+  function goToStep(n) {
+    // Hide all panels
+    for (let i = 1; i <= totalSteps; i++) {
+      const panel = document.getElementById('step-' + i);
+      if (panel) panel.classList.remove('active');
+    }
+    // Hide success
+    document.getElementById('drawer-success').classList.remove('visible');
+
+    // Show target
+    const target = document.getElementById('step-' + n);
+    if (target) target.classList.add('active');
+
+    // Update progress pips
+    for (let i = 1; i <= totalSteps; i++) {
+      const pip = document.getElementById('sp-' + i);
+      if (!pip) continue;
+      pip.classList.remove('active', 'done');
+      if (i < n)  pip.classList.add('done');
+      if (i === n) pip.classList.add('active');
+    }
+
+    // Update line fills
+    for (let i = 1; i <= totalSteps - 1; i++) {
+      const line = document.getElementById('sl-' + i);
+      if (!line) continue;
+      line.style.width = i < n ? '100%' : '0%';
+    }
+
+    currentStep = n;
+    if (n === 4) updateSummary();
+  }
+
+  function nextStep() {
+    if (currentStep < totalSteps) {
+      // Validate option selected
+      if (currentStep < 4 && !selections[currentStep]) {
+        // Shake the options to hint
+        const opts = document.querySelectorAll('.wizard-opt[data-step="' + currentStep + '"]');
+        opts.forEach(function(o) {
+          o.style.animation = 'none';
+          o.getBoundingClientRect();
+          o.style.animation = 'shake 0.4s ease';
+        });
+        setTimeout(function() {
+          opts.forEach(function(o) { o.style.animation = ''; });
+        }, 450);
+        return;
+      }
+      goToStep(currentStep + 1);
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 1) {
+      goToStep(currentStep - 1);
+    }
+  }
+
+  // Populate summary on step 4
+  function updateSummary() {
+    const wrap = document.getElementById('wizard-summary');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    Object.values(selections).forEach(function(val) {
+      if (val) {
+        const chip = document.createElement('span');
+        chip.className = 'summary-chip';
+        chip.textContent = val;
+        wrap.appendChild(chip);
+      }
+    });
+  }
+
+  function submitBooking() {
+    const nameEl = document.getElementById('booking-name');
+    const waEl   = document.getElementById('booking-whatsapp');
+    const errName = document.getElementById('err-name');
+    const errWa   = document.getElementById('err-whatsapp');
+
+    let valid = true;
+
+    // Validate name
+    if (!nameEl.value.trim() || nameEl.value.trim().length < 2) {
+      nameEl.classList.add('error');
+      errName.classList.add('visible');
+      valid = false;
+    } else {
+      nameEl.classList.remove('error');
+      errName.classList.remove('visible');
+    }
+
+    // Validate WhatsApp (basic)
+    const wa = waEl.value.trim().replace(/\s/g, '');
+    if (!wa || wa.length < 9) {
+      waEl.classList.add('error');
+      errWa.classList.add('visible');
+      valid = false;
+    } else {
+      waEl.classList.remove('error');
+      errWa.classList.remove('visible');
+    }
+
+    if (!valid) return;
+
+    // Hide all steps
+    document.querySelectorAll('.step-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById('drawer-success').classList.add('visible');
+    document.getElementById('step-progress').style.display = 'none';
+
+    console.log('Booking submitted:', {
+      location: selections[1],
+      goal:     selections[2],
+      payment:  selections[3],
+      name:     nameEl.value.trim(),
+      whatsapp: waEl.value.trim()
+    });
+  }
+
+  // Re-show progress on open
+  function openDrawer() {
+    const overlay = document.getElementById('booking-overlay');
+    const drawer  = document.getElementById('booking-drawer');
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('step-progress').style.display = 'flex';
+    // Reset wizard
+    Object.keys(selections).forEach(function(k) { selections[k] = null; });
+    document.querySelectorAll('.wizard-opt').forEach(function(o) { o.classList.remove('selected'); });
+    document.getElementById('booking-name').value = '';
+    document.getElementById('booking-whatsapp').value = '';
+    document.querySelectorAll('.form-input').forEach(function(i) { i.classList.remove('error'); });
+    document.querySelectorAll('.form-error').forEach(function(e) { e.classList.remove('visible'); });
+    goToStep(1);
+  }
+
+  // Keyboard: close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (document.getElementById('booking-drawer').classList.contains('open')) closeDrawer();
+      if (mobileMenu.classList.contains('open')) closeMobileMenu();
+    }
+  });
+
+  // Add shake keyframe dynamically
+  const shakeStyle = document.createElement('style');
+  shakeStyle.textContent = '@keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-6px)} 40%,80%{transform:translateX(6px)} }';
+  document.head.appendChild(shakeStyle);
+
+</script>
+
+</body>
+</html>

@@ -3251,7 +3251,7 @@ app.get('/api/templates', async (req, res) => {
       }
     } catch (localErr2) { /* ignore */ }
     // Last resort hardcoded list (includes all known templates)
-    res.json({ success: true, templates: ['Vanguard School', 'dermatologist', 'dentist', 'doctor', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation'] });
+    res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation'] });
   }
 });
 
