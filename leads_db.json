@@ -2386,6 +2386,30 @@
         "whatsappClicked": "No",
         "emailClicked": "No"
       }
+    },
+    {
+      "id": "meta-1784276285241-0",
+      "name": "Gold zone collection",
+      "address": "UAE",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/goldzonecollection",
+      "instagram": "https://www.instagram.com/goldzonecollection/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Gold%20zone%20collection%20UAE",
+      "niche": "CrossFit",
+      "location": "UAE",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-17T08:21:09.275Z",
+      "updatedAt": "2026-07-17T08:21:09.275Z",
+      "shortAlias": "gold-zone-collection"
     }
   ],
   "shortLinks": {
@@ -2601,7 +2625,8 @@
     "face-off-gym-clq7": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784273255295?name=Face%20off%20Gym&phone=&address=",
     "ffedf": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784273425515?name=ffedf&phone=&address=",
     "ffedf-ibhz": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784273487034?name=ffedf&phone=&address=",
-    "sands-fitness-dxb": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784273868841?name=Sands.%20Fitness.%20DXB&phone=&address="
+    "sands-fitness-dxb": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784273868841?name=Sands.%20Fitness.%20DXB&phone=&address=",
+    "gold-zone-collection": "https://parmeet123-leadscope.hf.space/preview/crossfit/meta-1784276285241-0?name=Gold%20zone%20collection&phone=N%2FA&address=UAE"
   },
   "activeVisits": [
     {
