@@ -2398,10 +2398,18 @@
       "location": "Dubai",
       "source": "Ad Scanner",
       "status": "new",
-      "notes": "",
+      "notes": "[1:01:07 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-17T07:05:34.624Z",
-      "updatedAt": "2026-07-17T07:05:34.624Z",
-      "shortAlias": "mma-live-gym-dubai"
+      "updatedAt": "2026-07-17T07:31:07.341Z",
+      "shortAlias": "mma-live-gym-dubai",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     }
   ],
   "shortLinks": {
@@ -2618,6 +2626,31 @@
     "ffedf": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784273425515?name=ffedf&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "meta-1784271882918-0",
+      "name": "MMA Live Gym Dubai",
+      "openedAt": "2026-07-17T07:31:07.341Z",
+      "lastActiveAt": "2026-07-17T07:31:07.341Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-17T07:31:07.341Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "meta-1784271882919-12",
       "name": "Jerico Personal Trainer",
