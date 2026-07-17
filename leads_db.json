@@ -2102,10 +2102,18 @@
       "location": "Dubai",
       "source": "Ad Scanner",
       "status": "new",
-      "notes": "",
+      "notes": "[1:01:00 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-17T07:05:16.304Z",
-      "updatedAt": "2026-07-17T07:05:16.304Z",
-      "shortAlias": "jerico-personal-trainer"
+      "updatedAt": "2026-07-17T07:31:00.457Z",
+      "shortAlias": "jerico-personal-trainer",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "meta-1784271882919-11",
@@ -2610,6 +2618,31 @@
     "ffedf": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784273425515?name=ffedf&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "meta-1784271882919-12",
+      "name": "Jerico Personal Trainer",
+      "openedAt": "2026-07-17T07:31:00.457Z",
+      "lastActiveAt": "2026-07-17T07:31:00.457Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-17T07:31:00.457Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "scr-d550zjr",
       "name": "Dr Ankita Sangwan (MD dermatology) (dermatology)",
