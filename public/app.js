@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
     } else {
-      url = `${getPreviewBaseUrl()}/go/${lead.id}`;
+      url = `${window.location.origin}/go/${lead.id}`;
     }
 
     if (url) {
@@ -2995,7 +2995,8 @@ window.generateLink = async function () {
     }
 
     if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = shortUrl; }
-    if (openBtn) { openBtn.href = shortUrl; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
+    const localOpenUrl = window.location.origin + '/go/' + result.alias;
+    if (openBtn) { openBtn.href = localOpenUrl; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
 
     const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${shortUrl}`;
     if (waBtn) {
