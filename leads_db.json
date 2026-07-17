@@ -2058,6 +2058,30 @@
         "whatsappClicked": "No",
         "emailClicked": "No"
       }
+    },
+    {
+      "id": "meta-1784271882919-14",
+      "name": "Force Fitness DXB",
+      "address": "Dubai",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/100090378224658",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Force%20Fitness%20DXB%20Dubai",
+      "niche": "CrossFit",
+      "location": "Dubai",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-17T07:05:12.769Z",
+      "updatedAt": "2026-07-17T07:05:12.769Z",
+      "shortAlias": "force-fitness-dxb"
     }
   ],
   "shortLinks": {
@@ -2253,7 +2277,8 @@
     "pms-74n5": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784200839435?name=pms&phone=&address=",
     "pms-lc3h": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784200925709?name=pms&phone=&address=",
     "123-v21m": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784201360495?name=123&phone=&address=",
-    "123-jqyg": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784201400802?name=123&phone=&address="
+    "123-jqyg": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784201400802?name=123&phone=&address=",
+    "force-fitness-dxb": "https://parmeet123-leadscope.hf.space/preview/crossfit/meta-1784271882919-14?name=Force%20Fitness%20DXB&phone=N%2FA&address=Dubai"
   },
   "activeVisits": [
     {
