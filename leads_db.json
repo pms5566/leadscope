@@ -2628,9 +2628,53 @@
     "sole-therapy-dubai": "https://parmeet123-leadscope.hf.space/preview/crossfit/meta-1784271882919-3?name=Sole%20Therapy%20Dubai&phone=N%2FA&address=Dubai",
     "myestate": "https://parmeet123-leadscope.hf.space/preview/crossfit/meta-1784271882918-2?name=MyEstate&phone=N%2FA&address=Dubai",
     "rasikh-gems-dubai": "https://parmeet123-leadscope.hf.space/preview/crossfit/meta-1784271882918-1?name=Rasikh%20Gems%20Dubai&phone=N%2FA&address=Dubai",
-    "mma-live-gym-dubai": "https://parmeet123-leadscope.hf.space/preview/crossfit/meta-1784271882918-0?name=MMA%20Live%20Gym%20Dubai&phone=N%2FA&address=Dubai"
+    "mma-live-gym-dubai": "https://parmeet123-leadscope.hf.space/preview/crossfit/meta-1784271882918-0?name=MMA%20Live%20Gym%20Dubai&phone=N%2FA&address=Dubai",
+    "force-fitness-dxb-pvvg": "https://parmeet123-leadscope.hf.space/preview/Cross%20Fit/preview_Cross_Fit_1784272290172?name=Force%20Fitness%20DXB&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "scr-d550zjr",
+      "name": "Dr Ankita Sangwan (MD dermatology) (dermatology)",
+      "openedAt": "2026-07-17T07:10:18.010Z",
+      "lastActiveAt": "2026-07-17T07:10:38.372Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-17T07:10:18.010Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-17T07:10:28.402Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-17T07:10:38.372Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784200887660",
       "name": "ab (gym-website)",
