@@ -2301,10 +2301,10 @@
       "niche": "Private Personal Training",
       "location": "Dubai",
       "source": "Ad Scanner",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-18T13:58:05.780Z",
-      "updatedAt": "2026-07-18T13:58:05.780Z",
+      "updatedAt": "2026-07-18T16:32:01.604Z",
       "shortAlias": "ultimate-performance-dubai"
     },
     {
@@ -2840,6 +2840,49 @@
     "ultimate-performance-dubai-rhxb": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784392204952?name=Ultimate%20%20Performance%20%20Dubai&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784392204952",
+      "name": "Ultimate  Performance  Dubai (gym-website)",
+      "openedAt": "2026-07-18T16:31:05.908Z",
+      "lastActiveAt": "2026-07-18T16:31:27.913Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Luleå, Norrbotten County, Sweden",
+      "countryCode": "SE",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:31:05.908Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-18T16:31:17.982Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-18T16:31:27.913Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784391491087",
       "name": "The Fit Club Co. (gym-website)",
