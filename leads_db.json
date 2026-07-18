@@ -2210,6 +2210,30 @@
       "addedAt": "2026-07-18T13:53:20.547Z",
       "updatedAt": "2026-07-18T13:53:20.547Z",
       "shortAlias": "the-fit-club-co"
+    },
+    {
+      "id": "meta-1784382725634-2",
+      "name": "PTD Fitness UAE",
+      "address": "Dubai",
+      "phone": "+971 58 816",
+      "email": "contact@fitty.ae",
+      "facebook": "https://www.facebook.com/PTDFITNESSUAE1",
+      "instagram": "https://www.instagram.com/PTDFITNESSUAE1/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=PTD%20Fitness%20UAE%20Dubai",
+      "niche": "Private Personal Training",
+      "location": "Dubai",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-18T13:58:02.579Z",
+      "updatedAt": "2026-07-18T13:58:02.579Z",
+      "shortAlias": "ptd-fitness-uae"
     }
   ],
   "shortLinks": {
@@ -2430,7 +2454,8 @@
     "ab-1l2a": "https://parmeet123-leadscope.hf.space/preview/fitness%20trainer/preview_fitness_trainer_1784348535291?name=ab&phone=&address=",
     "jerico-personal-trainer-qhcj": "https://parmeet123-leadscope.hf.space/preview/fitness%20trainer/preview_fitness_trainer_1784350004596?name=Jerico%20%20Personal%20%20Trainer&phone=&address=",
     "coach-mubu-bu6b": "https://parmeet123-leadscope.hf.space/preview/fitness%20trainer/preview_fitness_trainer_1784350625456?name=Coach%20Mubu&phone=&address=",
-    "the-fit-club-co": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725634-0?name=The%20Fit%20Club%20Co.&phone=%2B971%2050%20412&address=Dubai"
+    "the-fit-club-co": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725634-0?name=The%20Fit%20Club%20Co.&phone=%2B971%2050%20412&address=Dubai",
+    "ptd-fitness-uae": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725634-2?name=PTD%20Fitness%20UAE&phone=%2B971%2058%20816&address=Dubai"
   },
   "activeVisits": [
     {
