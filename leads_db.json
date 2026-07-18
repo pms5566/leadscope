@@ -2236,30 +2236,6 @@
       "shortAlias": "ptd-fitness-uae"
     },
     {
-      "id": "meta-1784382725634-1",
-      "name": "Milos Djukic",
-      "address": "Dubai",
-      "phone": "+971 58 816",
-      "email": "contact@fitty.ae",
-      "facebook": "https://www.facebook.com/100094900130010",
-      "instagram": null,
-      "linkedin": null,
-      "tiktok": null,
-      "whatsapp": null,
-      "adPlatform": "meta",
-      "adActive": true,
-      "hasWebsite": false,
-      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Milos%20Djukic%20Dubai",
-      "niche": "Private Personal Training",
-      "location": "Dubai",
-      "source": "Ad Scanner",
-      "status": "new",
-      "notes": "",
-      "addedAt": "2026-07-18T13:58:05.779Z",
-      "updatedAt": "2026-07-18T13:58:05.779Z",
-      "shortAlias": "milos-djukic"
-    },
-    {
       "id": "meta-1784382725634-4",
       "name": "Abdylla Tayhanov Personal MMA Coach",
       "address": "Dubai",
@@ -2842,6 +2818,91 @@
     "christin_muthoni-2uk2": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784392530819?name=christin_muthoni&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_wellness-project_1784392530819",
+      "name": "christin_muthoni (wellness-project)",
+      "openedAt": "2026-07-18T16:36:04.851Z",
+      "lastActiveAt": "2026-07-18T16:38:59.293Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 5,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:36:04.851Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:36:09.548Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:36:32.861Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:38:55.991Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:38:59.293Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": true
+    },
+    {
+      "leadId": "preview_fitness_trainer_1784392514705",
+      "name": "christin_muthoni (fitness trainer)",
+      "openedAt": "2026-07-18T16:36:27.127Z",
+      "lastActiveAt": "2026-07-18T16:38:50.127Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 2,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:36:27.127Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:38:50.127Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784392204952",
       "name": "Ultimate  Performance  Dubai (gym-website)",
