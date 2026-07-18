@@ -2546,30 +2546,6 @@
       "addedAt": "2026-07-18T13:58:32.026Z",
       "updatedAt": "2026-07-18T13:58:32.026Z",
       "shortAlias": "asf-personal-training-services"
-    },
-    {
-      "id": "meta-1784382725635-17",
-      "name": "Primefit",
-      "address": "Dubai",
-      "phone": "N/A",
-      "email": null,
-      "facebook": "https://www.facebook.com/primefitae",
-      "instagram": "https://www.instagram.com/primefitae/",
-      "linkedin": null,
-      "tiktok": null,
-      "whatsapp": null,
-      "adPlatform": "meta",
-      "adActive": true,
-      "hasWebsite": false,
-      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Primefit%20Dubai",
-      "niche": "Private Personal Training",
-      "location": "Dubai",
-      "source": "Ad Scanner",
-      "status": "new",
-      "notes": "",
-      "addedAt": "2026-07-18T13:58:32.026Z",
-      "updatedAt": "2026-07-18T13:58:32.026Z",
-      "shortAlias": "primefit"
     }
   ],
   "shortLinks": {
