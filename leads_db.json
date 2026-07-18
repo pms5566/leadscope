@@ -2858,15 +2858,16 @@
     "primefit": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-17?name=Primefit&phone=N%2FA&address=Dubai",
     "the-fit-club-co-9ojn": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784390032014?name=The%20Fit%20Club%20Co.&phone=&address=",
     "the-fit-club-co-q5nb": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784391464998?name=The%20Fit%20Club%20Co.&phone=&address=",
-    "the-fit-club-co-j31e": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784391491087?name=The%20Fit%20Club%20Co.&phone=&address="
+    "the-fit-club-co-j31e": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784391491087?name=The%20Fit%20Club%20Co.&phone=&address=",
+    "the-fit-club-co-ivtk": "https://parmeet123-leadscope.hf.space/preview/Cross%20Fit/preview_Cross_Fit_1784391544713?name=The%20Fit%20Club%20Co.&phone=&address="
   },
   "activeVisits": [
     {
       "leadId": "preview_gym_1784391464998",
       "name": "The Fit Club Co. (gym)",
       "openedAt": "2026-07-18T16:17:53.806Z",
-      "lastActiveAt": "2026-07-18T16:18:04.248Z",
-      "duration": 10,
+      "lastActiveAt": "2026-07-18T16:18:14.989Z",
+      "duration": 20,
       "scrollPercent": 38,
       "location": "Nepalgunj, Lumbini Province, Nepal",
       "countryCode": "NP",
@@ -2886,6 +2887,15 @@
         {
           "event": "heartbeat",
           "timestamp": "2026-07-18T16:18:04.248Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 38
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-18T16:18:14.989Z",
           "details": {
             "device": "mobile",
             "seconds": 10,
