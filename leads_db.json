@@ -2856,23 +2856,24 @@
     "trainwithrahis-b9wb": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-15?name=Trainwithrahis&phone=N%2FA&address=Dubai",
     "asf-personal-training-services": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-16?name=ASF%20-%20Personal%20Training%20Services&phone=N%2FA&address=Dubai",
     "primefit": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-17?name=Primefit&phone=N%2FA&address=Dubai",
-    "the-fit-club-co-9ojn": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784390032014?name=The%20Fit%20Club%20Co.&phone=&address="
+    "the-fit-club-co-9ojn": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784390032014?name=The%20Fit%20Club%20Co.&phone=&address=",
+    "the-fit-club-co-q5nb": "https://parmeet123-leadscope.hf.space/preview/gym/preview_gym_1784391464998?name=The%20Fit%20Club%20Co.&phone=&address="
   },
   "activeVisits": [
     {
       "leadId": "preview_wellness-project_1784390032014",
       "name": "The Fit Club Co. (wellness-project)",
       "openedAt": "2026-07-18T15:54:55.805Z",
-      "lastActiveAt": "2026-07-18T15:55:26.749Z",
-      "duration": 30,
-      "scrollPercent": 0,
+      "lastActiveAt": "2026-07-18T16:13:32.097Z",
+      "duration": 70,
+      "scrollPercent": 101,
       "location": "Luleå, Norrbotten County, Sweden",
       "countryCode": "SE",
       "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
+      "views": 2,
+      "device": "mobile",
+      "os": "iOS",
+      "browser": "Safari",
       "events": [
         {
           "event": "open",
@@ -2906,6 +2907,49 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:12:52.470Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-18T16:13:02.092Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 35
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-18T16:13:12.032Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 35
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-18T16:13:22.045Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 35
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-18T16:13:32.097Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 101
           }
         }
       ],
