@@ -2747,47 +2747,23 @@
     "bwell-coaching-49j3": "https://parmeet123-leadscope.hf.space/preview/fitness%20trainer/preview_fitness_trainer_1784394143802?name=b.well%20coaching&phone=&address=",
     "bwell-coaching-jcqj": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784394161554?name=b.well%20coaching&phone=&address=",
     "bwell-coaching-su06": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784394223880?name=b.well%20coaching&phone=&address=",
-    "bwell-coaching-vlgg": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784394265572?name=b.well%20coaching&phone=&address="
+    "bwell-coaching-vlgg": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784394265572?name=b.well%20coaching&phone=&address=",
+    "bwell-coaching-rz7y": "https://parmeet123-leadscope.hf.space/preview/Cross%20Fit/preview_Cross_Fit_1784394392254?name=b.well%20coaching&phone=&address="
   },
   "activeVisits": [
-    {
-      "leadId": "preview_gym-website_1784394223880",
-      "name": "b.well coaching (gym-website)",
-      "openedAt": "2026-07-18T17:03:50.120Z",
-      "lastActiveAt": "2026-07-18T17:03:50.120Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:03:50.120Z",
-          "details": {
-            "device": "mobile"
-          }
-        }
-      ],
-      "isHot": false
-    },
     {
       "leadId": "preview_fitness_trainer_1784394143802",
       "name": "b.well coaching (fitness trainer)",
       "openedAt": "2026-07-18T17:02:45.524Z",
-      "lastActiveAt": "2026-07-18T17:03:42.153Z",
-      "duration": 80,
-      "scrollPercent": 0,
+      "lastActiveAt": "2026-07-18T17:05:35.399Z",
+      "duration": 90,
+      "scrollPercent": 100,
       "location": "Clonee, Leinster, Ireland",
       "countryCode": "IE",
       "isp": "Facebook, Inc.",
-      "views": 2,
-      "device": "desktop",
-      "os": "Windows",
+      "views": 3,
+      "device": "mobile",
+      "os": "Android",
       "browser": "Chrome",
       "events": [
         {
@@ -2874,6 +2850,47 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T17:05:23.823Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-18T17:05:35.399Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        }
+      ],
+      "isHot": true
+    },
+    {
+      "leadId": "preview_gym-website_1784394223880",
+      "name": "b.well coaching (gym-website)",
+      "openedAt": "2026-07-18T17:03:50.120Z",
+      "lastActiveAt": "2026-07-18T17:03:50.120Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T17:03:50.120Z",
+          "details": {
+            "device": "mobile"
           }
         }
       ],
