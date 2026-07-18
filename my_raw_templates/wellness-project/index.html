@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Fit Co. | Elite 1-on-1 Coaching & Wellness</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Transform your body and mind with Aura Fit Co. Premium 1-on-1 online fitness coaching, customized nutrition plans, and mindset support by WFF Bikini Pro. Serving clients in Dubai, India, and globally.">
+  <meta name="keywords" content="fitness coaching, nutrition plans, online trainer, wellness coaching, WFF Bikini Pro, Dubai fitness, India fitness">
+  <meta name="author" content="Aura Fit Co.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Aura Fit Co. | Elite 1-on-1 Coaching & Wellness">
+  <meta property="og:description" content="Premium online fitness coaching and custom nutrition plans by WFF Bikini Pro. Achieve sustainable results globally.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=1200">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for modern aesthetic -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM & CSS VARIABLES (Modern, Premium Palette)
+       ========================================================================== */
+    :root {
+      /* Colors */
+      --primary-dark: #122d26;       /* Deep Forest Green (Luxury theme) */
+      --primary-dark-hover: #0a1b17;
+      --secondary-light: #f4f7f2;     /* Warm Sage/Cream background */
+      --accent-gold: #c29f68;         /* Luxury Gold accents */
+      --accent-gold-hover: #a9854e;
+      --accent-gold-light: #faf7f2;   /* Very light beige */
+      --accent-green: #e1e9db;        /* Soft sage accent */
+      --white: #ffffff;
+      --black: #111413;
+      --text-main: #1d2522;           /* Near black dark charcoal */
+      --text-muted: #5e6b66;          /* Muted charcoal for descriptions */
+      --border-color: rgba(18, 45, 38, 0.08);
+      --border-color-dark: rgba(18, 45, 38, 0.15);
+
+      /* Typography */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+
+      /* Spacing & Transitions */
+      --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 4px 12px rgba(18, 45, 38, 0.03);
+      --shadow-md: 0 12px 32px rgba(18, 45, 38, 0.06);
+      --shadow-lg: 0 24px 64px rgba(18, 45, 38, 0.12);
+      
+      /* Layout height safety */
+      --header-height: 80px;
+    }
+
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--secondary-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 0; /* Updated dynamically via JS on mobile for bottom bar */
+    }
+
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      color: var(--primary-dark);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-smooth);
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+      font-size: inherit;
+      outline: none;
+      border: none;
+    }
+
+    button {
+      cursor: pointer;
+      background: none;
+      transition: var(--transition-smooth);
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Global Badges & Buttons */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent-green);
+      color: var(--primary-dark);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+      min-height: 48px; /* Apple/Google Touch Target minimum */
+    }
+
+    .btn-primary {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary-dark);
+      border: 1px solid var(--primary-dark);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(18, 45, 38, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background-color: var(--accent-gold);
+      color: var(--white);
+    }
+
+    .btn-gold:hover {
+      background-color: var(--accent-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Text Utility classes */
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ==========================================================================
+       2. TOP ANNOUNCEMENT BAR
+       ========================================================================== */
+    .announcement-bar {
+      background-color: var(--primary-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      position: relative;
+      z-index: 1001;
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION HEADER
+       ========================================================================== */
+    .header {
+      background-color: var(--secondary-light);
+      height: var(--header-height);
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+      transition: transform 0.4s ease, background-color 0.3s ease;
+    }
+
+    /* Hide/Show on scroll behavior */
+    .header.header-hidden {
+      transform: translateY(-100%);
+    }
+
+    .header.header-scrolled {
+      background-color: rgba(244, 247, 242, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    /* Logo styling */
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo i {
+      font-size: 1.4rem;
+      color: var(--accent-gold);
+    }
+
+    /* Desktop Navigation Menu */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--primary-dark);
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-gold);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Mobile Hamburger Trigger */
+    .mobile-menu-trigger {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      padding: 8px;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 60px 0 100px;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--secondary-light);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      margin-bottom: 20px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    /* Hero Quick Stats (Embrace Theme Mix) */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      border-top: 1px solid var(--border-color-dark);
+      padding-top: 32px;
+      width: 100%;
+    }
+
+    .stat-item h3 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* Hero Media Visuals */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      object-position: center;
+      transition: var(--transition-smooth);
+    }
+
+    .hero-image-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Floating Badges on Hero Image */
+    .floating-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 16px 20px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .floating-card-1 {
+      bottom: 24px;
+      left: -24px;
+      animation: floatEffect 6s ease-in-out infinite;
+    }
+
+    .floating-card-2 {
+      top: 40px;
+      right: -16px;
+      animation: floatEffect 6s ease-in-out infinite 3s;
+    }
+
+    .floating-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--primary-dark);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .floating-icon.gold {
+      background-color: var(--accent-gold);
+    }
+
+    .floating-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .floating-info p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Floating Avatars overlap */
+    .avatar-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar-group img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      margin-left: -8px;
+    }
+
+    .avatar-group img:first-child {
+      margin-left: 0;
+    }
+
+    @keyframes floatEffect {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ==========================================================================
+       5. CLIENT / TRUST SECTION
+       ========================================================================== */
+    .trust-section {
+      background-color: var(--white);
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .trust-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .trust-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .trust-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .trust-logo {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--primary-dark);
+      opacity: 0.5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .trust-logo:hover {
+      opacity: 0.9;
+    }
+
+    /* ==========================================================================
+       6. PILLARS OF WELLNESS / SERVICES (Mendly-Inspired Tab Component)
+       ========================================================================== */
+    .services-section {
+      padding: 100px 0;
+      background-color: var(--secondary-light);
+    }
+
+    /* Custom Filter Tabs */
+    .tab-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      background: rgba(18, 45, 38, 0.04);
+      padding: 6px;
+      border-radius: 100px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary-dark);
+    }
+
+    .tab-btn.active {
+      background-color: var(--primary-dark);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Tab Content layout */
+    .services-content {
+      position: relative;
+      min-height: 420px;
+    }
+
+    .tab-panel {
+      display: none;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .tab-panel.active {
+      display: grid;
+    }
+
+    .tab-panel-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .tab-panel-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .tab-panel-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .tab-panel-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 16px;
+    }
+
+    .tab-panel-desc {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+    }
+
+    /* List inclusions */
+    .tab-panel-features {
+      list-style: none;
+      margin-bottom: 32px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .tab-panel-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .tab-panel-features li i {
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       7. TRANSFORMATIONS SECTION (Swipeable Carousel)
+       ========================================================================== */
+    .transformations-section {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+
+    /* Swipeable Carousel Container */
+    .carousel-outer {
+      position: relative;
+      margin-top: 48px;
+    }
+
+    .carousel-track-container {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Hide standard Firefox scrollbar */
+      -ms-overflow-style: none; /* Hide IE scrollbar */
+      display: flex;
+      gap: 24px;
+      padding-bottom: 20px;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    /* Hide standard chrome scrollbar */
+    .carousel-track-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-card {
+      flex: 0 0 calc(33.333% - 16px);
+      scroll-snap-align: start;
+      background-color: var(--secondary-light);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+    }
+
+    .carousel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .carousel-images {
+      position: relative;
+      height: 340px;
+      overflow: hidden;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    .label-before, .label-after {
+      position: absolute;
+      bottom: 12px;
+      background-color: rgba(18, 45, 38, 0.8);
+      color: var(--white);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .label-before { left: 12px; }
+    .label-after { right: 12px; }
+
+    .carousel-info {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .carousel-stars {
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .carousel-quote {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .carousel-client {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+    }
+
+    .client-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .client-details h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .client-details p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Carousel Pagination Indicators */
+    .carousel-nav-arrows {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .arrow-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--primary-dark);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      background-color: transparent;
+      transition: var(--transition-smooth);
+    }
+
+    .arrow-btn:hover {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+
+    /* ==========================================================================
+       8. PROGRAMS & PRICING (Koaching-Inspired Grid with Toggle)
+       ========================================================================== */
+    .pricing-section {
+      padding: 100px 0;
+      background-color: var(--secondary-light);
+    }
+
+    .pricing-toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .pricing-toggle-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: var(--transition-smooth);
+    }
+
+    .pricing-toggle-label.active {
+      color: var(--primary-dark);
+    }
+
+    /* Switch styling */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 32px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--accent-green);
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 4px;
+      bottom: 4px;
+      background-color: var(--primary-dark);
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-dark);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(28px);
+      background-color: var(--white);
+    }
+
+    .save-badge {
+      background-color: var(--accent-gold);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 100px;
+    }
+
+    /* Pricing Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background-color: var(--white);
+      border-radius: 24px;
+      padding: 40px 32px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .pricing-card.popular {
+      border: 2px solid var(--accent-gold);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-8px);
+    }
+
+    .pricing-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--accent-gold);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-card-header {
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+    }
+
+    .plan-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-top: 12px;
+    }
+
+    .price-symbol {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-family: var(--font-heading);
+    }
+
+    .price-value {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      font-family: var(--font-heading);
+      line-height: 1;
+    }
+
+    .price-period {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .plan-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    .pricing-card-features {
+      list-style: none;
+      margin-bottom: 40px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pricing-card-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .pricing-card-features li i {
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+
+    .pricing-card-features li.disabled {
+      color: var(--text-muted);
+      opacity: 0.55;
+    }
+
+    .pricing-card-features li.disabled i {
+      color: var(--text-muted);
+    }
+
+    .pricing-card-footer {
+      margin-top: auto;
+    }
+
+    .pricing-card-footer .btn {
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       9. FAQ SECTION (Expandable Accordion)
+       ========================================================================== */
+    .faq-section {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background-color: var(--secondary-light);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .faq-header {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      gap: 20px;
+    }
+
+    .faq-question {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .faq-toggle-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--primary-dark);
+      transition: var(--transition-smooth);
+      border: 1px solid var(--border-color);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq-content {
+      padding: 0 24px 24px 24px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Open FAQ State styling */
+    .faq-item.open {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--border-color-dark);
+    }
+
+    .faq-item.open .faq-toggle-icon {
+      transform: rotate(180deg);
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+
+    /* ==========================================================================
+       10. APPLICATION DRAWER (Slide-in Form panel)
+       ========================================================================== */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(18, 45, 38, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 500px;
+      height: 100%;
+      background-color: var(--white);
+      box-shadow: var(--shadow-lg);
+      z-index: 2001;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .drawer.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .drawer-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--secondary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+    }
+
+    .drawer-close:hover {
+      background-color: var(--accent-green);
+    }
+
+    .drawer-body {
+      padding: 32px 24px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .drawer-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color-dark);
+      background-color: var(--secondary-light);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+
+    .form-input:focus {
+      border-color: var(--accent-gold);
+      background-color: var(--white);
+      box-shadow: 0 0 0 3px rgba(194, 159, 104, 0.15);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .form-checkbox-group input {
+      margin-top: 4px;
+    }
+
+    .form-checkbox-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .drawer-footer .btn {
+      width: 100%;
+    }
+
+    /* Successful submit screen */
+    .drawer-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      padding: 40px 24px;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--secondary-light);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+      border: 2px solid var(--accent-gold);
+    }
+
+    .success-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .success-message {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    /* ==========================================================================
+       11. FLOATING BUTTON & MOBILE CTA (mobile-ecommerce-skill Specification)
+       ========================================================================== */
+    /* Floating WhatsApp Chat Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background-color: #25d366;
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+      z-index: 999;
+      transition: var(--transition-smooth);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateY(-3px);
+      background-color: #20ba5a;
+    }
+
+    /* Sticky Bottom Mobile Bar */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      box-shadow: 0 -8px 24px rgba(18, 45, 38, 0.08);
+      z-index: 998;
+      border-top: 1px solid var(--border-color);
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-sticky-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-sticky-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .mobile-sticky-price {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .mobile-sticky-bar .btn {
+      flex-grow: 1;
+      max-width: 200px;
+    }
+
+    /* Bottom Nav Bar (Alternative Mobile Nav) */
+    .mobile-bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--white);
+      height: 64px;
+      border-top: 1px solid var(--border-color);
+      z-index: 997;
+      display: none;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 8px;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      flex: 1;
+      height: 100%;
+    }
+
+    .mobile-nav-item i {
+      font-size: 1.25rem;
+    }
+
+    .mobile-nav-item.active {
+      color: var(--primary-dark);
+    }
+
+    /* ==========================================================================
+       12. FOOTER (With Mobile Accordion Support)
+       ========================================================================== */
+    .footer {
+      background-color: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 80px 0 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      color: var(--white);
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-logo i {
+      color: var(--accent-gold);
+    }
+
+    .footer-desc {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--white);
+      transition: var(--transition-smooth);
+    }
+
+    .social-icon:hover {
+      background-color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    /* Columns */
+    .footer-col h4 {
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-col h4 i {
+      display: none; /* Only visible on mobile accordion */
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-gold);
+      padding-left: 4px;
+    }
+
+    /* Footer Newsletter Input */
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .newsletter-input {
+      padding: 12px 16px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    .newsletter-input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Bottom Copyright & Compliance (Grievance Officer link) */
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--white);
+    }
+
+    /* ==========================================================================
+       13. RESPONSIVE DESIGN (Breakpoints & Media Queries)
+       ========================================================================== */
+    
+    /* Desktop Large (Min 1024px) */
+    @media (min-width: 1025px) {
+      .header-actions .btn {
+        display: inline-flex;
+      }
+    }
+
+    /* Medium/Tablet Viewport (Max 1024px) */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .hero-content {
+        align-items: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-image-wrapper img {
+        height: 450px;
+      }
+
+      .tab-panel {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .pricing-card.popular {
+        transform: none;
+      }
+
+      .carousel-card {
+        flex: 0 0 calc(50% - 12px);
+      }
+    }
+
+    /* Mobile Viewport (Max 768px) */
+    @media (max-width: 768px) {
+      body {
+        /* Add spacing at the bottom so the sticky buttons don't block footer elements */
+        padding-bottom: 72px; 
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      /* Sticky Header Adjustments */
+      .nav-menu {
+        display: none; /* Replaced by bottom nav / mobile menu */
+      }
+
+      .header-actions .btn {
+        display: none; /* Hide header btn, rely on mobile sticky cta */
+      }
+
+      .mobile-menu-trigger {
+        display: block;
+      }
+
+      /* Hero Floating Badges reposition */
+      .floating-card-1 {
+        left: 10px;
+        bottom: 10px;
+      }
+      .floating-card-2 {
+        right: 10px;
+        top: 10px;
+      }
+
+      /* Services Tabs Scroll on mobile */
+      .tab-container {
+        overflow-x: auto;
+        justify-content: flex-start;
+        max-width: 100%;
+        border-radius: 12px;
+        padding: 4px;
+      }
+
+      .tab-btn {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+      }
+
+      .tab-panel-features {
+        grid-template-columns: 1fr;
+      }
+
+      /* Pricing / Programs Side Scroll */
+      .pricing-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 24px;
+        padding-bottom: 20px;
+        padding-left: 4px;
+        padding-right: 4px;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+
+      .pricing-grid::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+      }
+
+      .pricing-card {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+      }
+
+      /* Carousel Swipe for Transformations */
+      .carousel-card {
+        flex: 0 0 85%; /* Make it clear that user can swipe */
+      }
+
+      /* Floating buttons */
+      .whatsapp-float {
+        bottom: 80px; /* Above the sticky bottom bars */
+        right: 16px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+      }
+
+      /* Display Mobile Elements (sticky cta or bottom nav) */
+      .mobile-sticky-bar {
+        display: flex;
+      }
+
+      /* Footer Collapsible Accordion */
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-col {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 12px;
+      }
+
+      .footer-col h4 {
+        margin-bottom: 0;
+        cursor: pointer;
+        padding: 12px 0;
+      }
+
+      .footer-col h4 i {
+        display: block;
+        transition: var(--transition-smooth);
+      }
+
+      .footer-col.open h4 i {
+        transform: rotate(180deg);
+      }
+
+      .footer-links {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        gap: 8px;
+        padding-top: 0;
+      }
+
+      .footer-col.open .footer-links {
+        max-height: 300px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .footer-brand {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    ⚡ Special Offer: Get 20% off on Elite WFF Bikini Pro plans. Apply before the drawer closes!
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="header" id="mainHeader">
+    <div class="container header-nav-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-leaf"></i>
+        <span>Aura Fit Co.</span>
+      </a>
+      
+      <ul class="nav-menu">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#transformations" class="nav-link">Transformations</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="toggleDrawer(true)">Apply Now</button>
+        <button class="mobile-menu-trigger" aria-label="Open navigation menu" onclick="toggleDrawer(true)">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge">
+            <i class="fa-solid fa-trophy"></i>
+            Premium Coaching by WFF Bikini Pro
+          </div>
+          <h1 class="hero-title">Transforming Lives Worldwide</h1>
+          <p class="hero-subtitle">
+            Experience premium 1-on-1 fitness coaching and custom nutrition plans designed by elite trainers. Elevate your body, master your mindset, and live with absolute confidence.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="toggleDrawer(true)">
+              Start Your Journey <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <a href="#transformations" class="btn btn-secondary">
+              View Transformations
+            </a>
+          </div>
+          <!-- Hero Stats (Embrace design layout) -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>45K+</h3>
+              <p>Clients Guided</p>
+            </div>
+            <div class="stat-item">
+              <h3>98%</h3>
+              <p>Success Rate</p>
+            </div>
+            <div class="stat-item">
+              <h3>100M+</h3>
+              <p>Mindful Minutes</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=1200" alt="Premium Wellness Fitness Coach" loading="eager">
+          </div>
+          <!-- Floating Overlay Badge 1 -->
+          <div class="floating-card floating-card-1">
+            <div class="floating-icon">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="floating-info">
+              <h4>Custom Nutrition</h4>
+              <p>100% tailored macro profiles</p>
+            </div>
+          </div>
+          <!-- Floating Overlay Badge 2 -->
+          <div class="floating-card floating-card-2">
+            <div class="avatar-group">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Client 1">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="Client 2">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=100" alt="Client 3">
+            </div>
+            <div class="floating-info">
+              <h4>200+ Coached</h4>
+              <p>Active global community</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar (Fitness Pro / Mendly Mix) -->
+  <section class="trust-section">
+    <div class="container trust-container">
+      <p class="trust-title">Trusted by clients in global hubs</p>
+      <div class="trust-logos">
+        <span class="trust-logo"><i class="fa-solid fa-city"></i> Dubai</span>
+        <span class="trust-logo"><i class="fa-solid fa-landmark"></i> India</span>
+        <span class="trust-logo"><i class="fa-solid fa-bridge"></i> London</span>
+        <span class="trust-logo"><i class="fa-solid fa-plane"></i> Global Online</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars of Transformation Section (Mendly-Inspired Filter Tabs) -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="text-center mx-auto" style="max-width: 600px; margin-bottom: 48px;">
+        <div class="badge">Our Pillars</div>
+        <h2 class="section-title">Coaching Designed Around You</h2>
+        <p class="section-subtitle mx-auto">
+          We combine bespoke physical training, exact scientific nutrition, and accountability mindset support to deliver long-term results.
+        </p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="tab-container">
+        <button class="tab-btn active" onclick="switchTab(event, 'one-on-one')">1-on-1 Coaching</button>
+        <button class="tab-btn" onclick="switchTab(event, 'nutrition')">Nutrition Plans</button>
+        <button class="tab-btn" onclick="switchTab(event, 'mindset')">Mindset & Habits</button>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="services-content">
+        <!-- Panel 1 -->
+        <div id="one-on-one" class="tab-panel active">
+          <div class="tab-panel-image">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=600" alt="1-on-1 Coaching Session" loading="lazy">
+          </div>
+          <div class="tab-panel-info">
+            <div class="badge">Elite Guidance</div>
+            <h3 class="tab-panel-title">Personalized 1-on-1 Online Coaching</h3>
+            <p class="tab-panel-desc">
+              Your workouts should be as unique as your anatomy. Access highly customized routines via our private training app. Every repetition, progression, and rest period is tailored to match your specific biomechanics, whether training at home or in elite commercial gyms.
+            </p>
+            <ul class="tab-panel-features">
+              <li><i class="fa-solid fa-circle-check"></i> Customized weekly split</li>
+              <li><i class="fa-solid fa-circle-check"></i> Video form analysis</li>
+              <li><i class="fa-solid fa-circle-check"></i> Mobile app logging</li>
+              <li><i class="fa-solid fa-circle-check"></i> Live check-in calls</li>
+            </ul>
+            <button class="btn btn-primary" onclick="toggleDrawer(true)">Apply For 1-on-1 Coaching</button>
+          </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div id="nutrition" class="tab-panel">
+          <div class="tab-panel-image">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=600" alt="Custom Nutrition Planning" loading="lazy">
+          </div>
+          <div class="tab-panel-info">
+            <div class="badge">Science-Backed Diet</div>
+            <h3 class="tab-panel-title">Custom Nutrition & Dietary Programming</h3>
+            <p class="tab-panel-desc">
+              No starvation. No strict restrictions. Get macro profiles and structured meal guides that fit your lifestyle, social commitments, and regional foods. Designed for energy, metabolic health, and building clean, sustainable lean muscle.
+            </p>
+            <ul class="tab-panel-features">
+              <li><i class="fa-solid fa-circle-check"></i> Bespoke macro profiles</li>
+              <li><i class="fa-solid fa-circle-check"></i> Easy grocery lists</li>
+              <li><i class="fa-solid fa-circle-check"></i> Dining out playbook</li>
+              <li><i class="fa-solid fa-circle-check"></i> Weekly adjustments</li>
+            </ul>
+            <button class="btn btn-primary" onclick="toggleDrawer(true)">Build Your Nutrition Plan</button>
+          </div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div id="mindset" class="tab-panel">
+          <div class="tab-panel-image">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600" alt="Mindset and Habits Coaching" loading="lazy">
+          </div>
+          <div class="tab-panel-info">
+            <div class="badge">Lifestyle Architecture</div>
+            <h3 class="tab-panel-title">Habit-Building & Stress Management</h3>
+            <p class="tab-panel-desc">
+              Long-term health is won in the mind. We build sustainable daily habits around sleep optimization, stress reduction, and mental clarity. Learn tools to break self-sabotaging patterns and keep your wellness routine robust, even during peak stressful business weeks.
+            </p>
+            <ul class="tab-panel-features">
+              <li><i class="fa-solid fa-circle-check"></i> Sleep cycle protocols</li>
+              <li><i class="fa-solid fa-circle-check"></i> Daily stress reduction</li>
+              <li><i class="fa-solid fa-circle-check"></i> Accountability tracking</li>
+              <li><i class="fa-solid fa-circle-check"></i> Cognitive reframing</li>
+            </ul>
+            <button class="btn btn-primary" onclick="toggleDrawer(true)">Build Elite Habits</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transformations Carousel Section (Before/After Swipeable Carousel) -->
+  <section class="transformations-section" id="transformations">
+    <div class="container">
+      <div class="text-center mx-auto" style="max-width: 600px; margin-bottom: 24px;">
+        <div class="badge">Success Stories</div>
+        <h2 class="section-title">Results That Speak For Themselves</h2>
+        <p class="section-subtitle mx-auto">
+          Every number and photo represents a real client who made small, consistent, daily habits into life-altering transformations.
+        </p>
+      </div>
+
+      <!-- Carousel Container -->
+      <div class="carousel-outer">
+        <div class="carousel-track-container" id="carouselTrack">
+          <!-- Card 1 -->
+          <div class="carousel-card">
+            <div class="carousel-images">
+              <img src="transformation_emily.png" alt="Emily's Transformation" loading="lazy">
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="carousel-quote">
+                "I used to feel exhausted after my corporate shifts in Dubai. Aura Fit Co. reorganized my nutrition and simple training routines. I lost 18 pounds and gained incredible confidence!"
+              </p>
+              <div class="carousel-client">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" class="client-avatar" alt="Emily Carte" loading="lazy">
+                <div class="client-details">
+                  <h4>Emily Carte</h4>
+                  <p>Coached for 12 weeks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="carousel-card">
+            <div class="carousel-images">
+              <img src="transformation_sarah.png" alt="Sarah's Transformation" loading="lazy">
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="carousel-quote">
+                "The customized diet was a game changer for my hectic work travel schedules between London and India. I built lean muscle, lost fat, and never felt like I was restricting myself."
+              </p>
+              <div class="carousel-client">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" class="client-avatar" alt="Sarah Miller" loading="lazy">
+                <div class="client-details">
+                  <h4>Sarah Miller</h4>
+                  <p>Coached for 16 weeks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="carousel-card">
+            <div class="carousel-images">
+              <img src="transformation_michael.png" alt="Michael's Transformation" loading="lazy">
+            </div>
+            <div class="carousel-info">
+              <div class="carousel-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="carousel-quote">
+                "Balancing long office hours, family commitments, and training felt impossible. The daily habit structure from Aura Fit Co. reduced my chronic stress levels significantly while toning my body."
+              </p>
+              <div class="carousel-client">
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=100" class="client-avatar" alt="Michael Jones" loading="lazy">
+                <div class="client-details">
+                  <h4>Michael Jones</h4>
+                  <p>Coached for 24 weeks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows for desktop/manual sliding -->
+        <div class="carousel-nav-arrows">
+          <button class="arrow-btn" aria-label="Previous transformation card" onclick="slideCarousel(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="arrow-btn" aria-label="Next transformation card" onclick="slideCarousel(1)">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs & Pricing Section (Koaching Layout Mix) -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="text-center mx-auto" style="max-width: 600px; margin-bottom: 48px;">
+        <div class="badge">Invest In Yourself</div>
+        <h2 class="section-title">Pricing & Programs</h2>
+        <p class="section-subtitle mx-auto">
+          Choose a plan designed to give you exactly the level of support, structure, and accountability you need to reach your goals.
+        </p>
+
+        <!-- Toggle Switch -->
+        <div class="pricing-toggle-container">
+          <span class="pricing-toggle-label active" id="labelMonthly">Monthly</span>
+          <label class="switch" for="billingToggle">
+            <input type="checkbox" id="billingToggle" onchange="toggleBilling(this.checked)">
+            <span class="slider"></span>
+          </label>
+          <span class="pricing-toggle-label" id="labelYearly">Yearly <span class="save-badge">Save 20%</span></span>
+        </div>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="pricing-grid">
+        <!-- Starter Plan -->
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <h3 class="plan-name">Active Starter</h3>
+            <p class="plan-desc">Perfect for self-motivated individuals looking for a customized plan and monthly reviews.</p>
+            <div class="plan-price">
+              <span class="price-symbol">$</span>
+              <span class="price-value" id="priceStarter">299</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <ul class="pricing-card-features">
+            <li><i class="fa-solid fa-circle-check"></i> Customized Monthly Training Plans</li>
+            <li><i class="fa-solid fa-circle-check"></i> Personalized Macro Targets</li>
+            <li><i class="fa-solid fa-circle-check"></i> Weekly Progress Form Checks</li>
+            <li><i class="fa-solid fa-circle-check"></i> Mobile Training App Access</li>
+            <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> 24/7 Priority WhatsApp Chat</li>
+            <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> Bi-weekly 1-on-1 Video Calls</li>
+          </ul>
+          <div class="pricing-card-footer">
+            <button class="btn btn-secondary" onclick="toggleDrawer(true, 'Active Starter')">Get Started</button>
+          </div>
+        </div>
+
+        <!-- Pro Plan (Popular) -->
+        <div class="pricing-card popular">
+          <span class="popular-tag">Most Popular</span>
+          <div class="pricing-card-header">
+            <h3 class="plan-name">Pro Coaching</h3>
+            <p class="plan-desc">Our flagship program. Intensive 1-on-1 accountability coaching by WFF Bikini Pro.</p>
+            <div class="plan-price">
+              <span class="price-symbol">$</span>
+              <span class="price-value" id="pricePro">499</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <ul class="pricing-card-features">
+            <li><i class="fa-solid fa-circle-check"></i> Bespoke Bi-weekly Training Adjustments</li>
+            <li><i class="fa-solid fa-circle-check"></i> Custom Nutrition Guides & Menus</li>
+            <li><i class="fa-solid fa-circle-check"></i> 24/7 Priority WhatsApp Chat Support</li>
+            <li><i class="fa-solid fa-circle-check"></i> Bi-weekly 1-on-1 Strategy Video Calls</li>
+            <li><i class="fa-solid fa-circle-check"></i> Live Form Corrections & Video Audits</li>
+            <li class="disabled"><i class="fa-solid fa-circle-xmark"></i> Direct WFF Bikini Pro Hot-line</li>
+          </ul>
+          <div class="pricing-card-footer">
+            <button class="btn btn-primary" onclick="toggleDrawer(true, 'Pro Coaching')">Get Started</button>
+          </div>
+        </div>
+
+        <!-- Elite Plan -->
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <h3 class="plan-name">Elite Luxury</h3>
+            <p class="plan-desc">Bespoke complete physical & mental lifestyle overhaul with highest tier VIP access.</p>
+            <div class="plan-price">
+              <span class="price-symbol">$</span>
+              <span class="price-value" id="priceElite">799</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <ul class="pricing-card-features">
+            <li><i class="fa-solid fa-circle-check"></i> Daily Direct Check-ins & Adaptations</li>
+            <li><i class="fa-solid fa-circle-check"></i> Premium Custom Organic Menus</li>
+            <li><i class="fa-solid fa-circle-check"></i> Daily Direct WFF Bikini Pro Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Check-in Video Consultations</li>
+            <li><i class="fa-solid fa-circle-check"></i> Hormonal & Sleep Optimization Support</li>
+            <li><i class="fa-solid fa-circle-check"></i> Priority Booking for Local Retreats</li>
+          </ul>
+          <div class="pricing-card-footer">
+            <button class="btn btn-secondary" onclick="toggleDrawer(true, 'Elite Luxury')">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Expandable Accordion) -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="text-center mx-auto" style="max-width: 600px; margin-bottom: 48px;">
+        <div class="badge">Common Inquiries</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle mx-auto">
+          Got questions? We've compiled details to help clarify how online premium coaching and training works.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <!-- Item 1 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">How does online fitness & nutrition coaching work?</h3>
+            <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Upon applying and selecting your package, we schedule a deep-dive strategy video call. We analyze your history, gym accessibility, dietary needs, and physiological markers. We load your routines and macros into our private training app. You log workouts, check in weekly with photos/measurements, and receive personalized video feedback and plan adjustments.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">Do I need access to a full commercial gym?</h3>
+            <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Absolutely not. We write custom protocols tailored specifically to your environment. Whether you have access to a five-star luxury gym, a basic hotel gym during business travel, or simply a pair of dumbbells at home, we build the training program to maximize your available resources.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">What makes Aura Fit Co. coaching different from other programs?</h3>
+            <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Most programs offer static, generic PDF templates. Aura Fit Co. provides hyper-customized bio-individual design. Guided by a certified WFF Bikini Pro, we don't just assign exercises; we monitor biomechanical form, adjust macro plans based on hormonal response, and structure stress-management systems to support your nervous system.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">Is there a minimum commitment period?</h3>
+            <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              To build lasting neural pathways and physiological adaptation, we recommend a minimum commitment of 12 weeks. Real, permanent lifestyle change takes time, and our best case transformations are achieved within 12 to 24 weeks of consistency.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Slide-in Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer(false)"></div>
+  <div class="drawer" id="applicationDrawer">
+    <!-- Close Header -->
+    <div class="drawer-header">
+      <h3 class="drawer-title">Submit Application</h3>
+      <button class="drawer-close" aria-label="Close form drawer" onclick="toggleDrawer(false)">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Scrollable Body for Fields -->
+    <div class="drawer-body" id="drawerBody">
+      <p class="drawer-intro">
+        Let's take the first step towards your premium transformation. Tell us a bit about your lifestyle and wellness targets.
+      </p>
+
+      <form id="applicationForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="clientName">Full Name</label>
+          <input type="text" id="clientName" class="form-input" placeholder="e.g. Priyanika Sen" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="clientEmail">Email Address</label>
+          <input type="email" id="clientEmail" class="form-input" placeholder="e.g. name@domain.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="clientPhone">Phone Number</label>
+          <input type="tel" id="clientPhone" class="form-input" placeholder="e.g. +91 98765 43210" required autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="coachingProgram">Select Program</label>
+          <select id="coachingProgram" class="form-input" required>
+            <option value="" disabled>Choose a package</option>
+            <option value="Active Starter">Active Starter ($299/mo)</option>
+            <option value="Pro Coaching" selected>Pro Coaching ($499/mo)</option>
+            <option value="Elite Luxury">Elite Luxury ($799/mo)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="clientGoals">What are your primary goals?</label>
+          <textarea id="clientGoals" class="form-input" placeholder="Describe what you want to achieve (e.g., fat loss, building lean muscle, hormone balance, stress management)..." required></textarea>
+        </div>
+
+        <div class="form-checkbox-group">
+          <input type="checkbox" id="termsCheck" required>
+          <label class="form-checkbox-label" for="termsCheck">
+            I agree to the privacy policy and understand that results require consistent daily commitment.
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <!-- Sticky Drawer Footer Submit -->
+    <div class="drawer-footer" id="drawerFooter">
+      <button type="submit" form="applicationForm" class="btn btn-primary">
+        Send Application <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+
+    <!-- Success Screen (Replaces content on successful submit) -->
+    <div class="drawer-success" id="drawerSuccess">
+      <div class="success-icon">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3 class="success-title">Application Sent!</h3>
+      <p class="success-message">
+        Thank you for taking the first step. Our team will review your application and get in touch via WhatsApp / Email within 24 hours.
+      </p>
+      <button class="btn btn-primary" onclick="toggleDrawer(false)">Close Panel</button>
+    </div>
+  </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919876543210?text=Hi%20Aura%20Fit%20Co.,%20I'd%20like%20to%20learn%20more%20about%20your%20coaching%20programs." 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Chat with us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Sticky Bottom Mobile CTA Bar (Mobile Web Performance Option) -->
+  <div class="mobile-sticky-bar" id="mobileStickyBar">
+    <div class="mobile-sticky-info">
+      <span class="mobile-sticky-label">Pro Coaching</span>
+      <span class="mobile-sticky-price">$499/mo</span>
+    </div>
+    <button class="btn btn-gold" onclick="toggleDrawer(true, 'Pro Coaching')">
+      Apply Now <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Bottom Tab Navigation Bar (For Quick Sections Navigation) -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <a href="#" class="mobile-nav-item active">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="#services" class="mobile-nav-item">
+      <i class="fa-solid fa-spa"></i>
+      <span>Services</span>
+    </a>
+    <a href="#pricing" class="mobile-nav-item">
+      <i class="fa-solid fa-tags"></i>
+      <span>Pricing</span>
+    </a>
+    <a href="#" class="mobile-nav-item" onclick="event.preventDefault(); toggleDrawer(true)">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <span>Apply</span>
+    </a>
+  </nav>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Block -->
+        <div class="footer-brand">
+          <a href="#" class="footer-logo">
+            <i class="fa-solid fa-leaf"></i>
+            <span>Aura Fit Co.</span>
+          </a>
+          <p class="footer-desc">
+            Transforming bodies, minds, and habits globally. Dedicated 1-on-1 premium coaching to help modern high-achieving women achieve lasting strength.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Links Col 1 (Accordion on Mobile) -->
+        <div class="footer-col" id="footerColLinks">
+          <h4 onclick="toggleFooterCol(this)">Explore <i class="fa-solid fa-chevron-down"></i></h4>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Our Pillars</a></li>
+            <li><a href="#transformations">Transformations</a></li>
+            <li><a href="#pricing">Programs & Rates</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 2 (Accordion on Mobile) -->
+        <div class="footer-col" id="footerColContact">
+          <h4 onclick="toggleFooterCol(this)">Support & Hub <i class="fa-solid fa-chevron-down"></i></h4>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@aurafit.co">hello@aurafit.co</a></li>
+            <li><a href="tel:+919876543210">+91 98765 43210 (Global)</a></li>
+            <li><a href="#">Dubai Marina Office, UAE</a></li>
+            <li><a href="#">New Delhi Branch, India</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 3 (Accordion on Mobile) -->
+        <div class="footer-col" id="footerColNewsletter">
+          <h4 onclick="toggleFooterCol(this)">Weekly Insights <i class="fa-solid fa-chevron-down"></i></h4>
+          <div class="footer-links">
+            <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 12px;">
+              Subscribe to get scientific fat-loss and mindset tips weekly.
+            </p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+              <input type="email" class="newsletter-input" placeholder="Your best email address" required aria-label="Email address for newsletter">
+              <button type="submit" class="btn btn-gold" style="padding: 10px 16px; font-size: 0.85rem; width: 100%;">
+                Subscribe Now
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright and Compliance Links -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Aura Fit Co. All rights reserved. Designed with premium wellness aesthetics.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <!-- India Compliance Specific Link -->
+          <a href="#" onclick="event.preventDefault(); alert('Grievance Officer: Mr. Parmeet Singh \nContact Email: grievance@aurafit.co \nUnder IT Rules 2021');">Grievance Officer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT & INTERACTION LOGIC
+       ========================================================================== */ -->
+  <script>
+    /* 1. Header scroll-up/down sticky hide behavior */
+    let lastScrollTop = 0;
+    const header = document.getElementById('mainHeader');
+    const headerHeight = header.offsetHeight;
+
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Add scrolled style class for blur background
+      if (scrollTop > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+
+      // Hide header on scroll-down, reveal on scroll-up
+      if (scrollTop > lastScrollTop && scrollTop > headerHeight * 2) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    });
+
+    /* 2. Interactive Services Tabs (Mendly filter style) */
+    function switchTab(event, panelId) {
+      // Deactivate all tab buttons
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Deactivate all panels
+      const panels = document.querySelectorAll('.tab-panel');
+      panels.forEach(panel => panel.classList.remove('active'));
+      
+      // Activate clicked button and matching panel
+      event.target.classList.add('active');
+      const activePanel = document.getElementById(panelId);
+      activePanel.classList.add('active');
+    }
+
+    /* 3. Horizontal Testimonial/Transformation Swipe Carousel (Manual trigger helper) */
+    const track = document.getElementById('carouselTrack');
+    
+    function slideCarousel(direction) {
+      const cardWidth = track.querySelector('.carousel-card').offsetWidth + 24; // Card width + gap
+      track.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+
+    /* 4. Pricing Billing Switch (Monthly vs Yearly - save 20%) */
+    function toggleBilling(isYearly) {
+      const priceStarter = document.getElementById('priceStarter');
+      const pricePro = document.getElementById('pricePro');
+      const priceElite = document.getElementById('priceElite');
+      
+      const labelMonthly = document.getElementById('labelMonthly');
+      const labelYearly = document.getElementById('labelYearly');
+
+      if (isYearly) {
+        // 20% discount prices
+        priceStarter.textContent = "239";
+        pricePro.textContent = "399";
+        priceElite.textContent = "639";
+        
+        labelYearly.classList.add('active');
+        labelMonthly.classList.remove('active');
+      } else {
+        // Default standard monthly rates
+        priceStarter.textContent = "299";
+        pricePro.textContent = "499";
+        priceElite.textContent = "799";
+
+        labelMonthly.classList.add('active');
+        labelYearly.classList.remove('active');
+      }
+    }
+
+    /* 5. FAQ Accordion toggle */
+    function toggleFaq(headerElement) {
+      const faqItem = headerElement.parentElement;
+      const faqBody = faqItem.querySelector('.faq-body');
+      const allFaqItems = document.querySelectorAll('.faq-item');
+      
+      // Close other open FAQ items (Optional, for accordion behaviour)
+      allFaqItems.forEach(item => {
+        if (item !== faqItem && item.classList.contains('open')) {
+          item.classList.remove('open');
+          item.querySelector('.faq-body').style.maxHeight = null;
+        }
+      });
+
+      // Toggle current item
+      if (faqItem.classList.contains('open')) {
+        faqItem.classList.remove('open');
+        faqBody.style.maxHeight = null;
+      } else {
+        faqItem.classList.add('open');
+        faqBody.style.maxHeight = faqBody.scrollHeight + "px";
+      }
+    }
+
+    /* 6. Application Slide-in Drawer Toggle & Management */
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const drawer = document.getElementById('applicationDrawer');
+    const drawerBody = document.getElementById('drawerBody');
+    const drawerFooter = document.getElementById('drawerFooter');
+    const drawerSuccess = document.getElementById('drawerSuccess');
+    const selectProgramField = document.getElementById('coachingProgram');
+
+    function toggleDrawer(isOpen, selectedPackage = '') {
+      if (isOpen) {
+        // Reset states
+        drawerBody.style.display = 'block';
+        drawerFooter.style.display = 'block';
+        drawerSuccess.style.display = 'none';
+        
+        // Autoselect program if provided from pricing button
+        if (selectedPackage) {
+          selectProgramField.value = selectedPackage;
+        }
+
+        drawer.classList.add('open');
+        drawerOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Disable page scrolling behind drawer
+      } else {
+        drawer.classList.remove('open');
+        drawerOverlay.classList.remove('open');
+        document.body.style.overflow = ''; // Enable page scrolling
+      }
+    }
+
+    // Form submit capture
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      // Gather inputs (for mock validation & logging)
+      const name = document.getElementById('clientName').value;
+      const email = document.getElementById('clientEmail').value;
+      const phone = document.getElementById('clientPhone').value;
+      const program = selectProgramField.value;
+      const goals = document.getElementById('clientGoals').value;
+
+      console.log('Application Submitted:', { name, email, phone, program, goals });
+
+      // Shift drawer view to success panel
+      drawerBody.style.display = 'none';
+      drawerFooter.style.display = 'none';
+      drawerSuccess.style.display = 'flex';
+      
+      // Reset form
+      document.getElementById('applicationForm').reset();
+    }
+
+    /* 7. Collapsible Footer Accordion for Mobile Viewports */
+    function toggleFooterCol(headerElement) {
+      if (window.innerWidth <= 768) {
+        const col = headerElement.parentElement;
+        col.classList.toggle('open');
+      }
+    }
+  </script>
+</body>
+</html>

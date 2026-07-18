@@ -30,6 +30,12 @@ const NICHE_ALIASES = {
   'crossfit': 'cross_fit',
   'crossfit_gym': 'cross_fit',
   'cross_fit_gym': 'cross_fit',
+  // ── Wellness Project ────────────────────────────────────────────────────────
+  'wellness': 'wellness_project',
+  'wellness_project': 'wellness_project',
+  'wellness_coach': 'wellness_project',
+  'nutritionist': 'wellness_project',
+  'dietitian': 'wellness_project',
   // ── Fitness Trainer ─────────────────────────────────────────────────────────
   'personal_trainer': 'fitness_trainer',
   'fitness_coach': 'fitness_trainer',
@@ -3260,7 +3266,7 @@ app.get('/api/templates', async (req, res) => {
       }
     } catch (localErr2) { /* ignore */ }
     // Last resort hardcoded list (includes all known templates)
-    res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'fitness trainer', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation'] });
+    res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'fitness trainer', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation', 'wellness-project'] });
   }
 });
 
