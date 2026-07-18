@@ -30,6 +30,11 @@ const NICHE_ALIASES = {
   'crossfit': 'cross_fit',
   'crossfit_gym': 'cross_fit',
   'cross_fit_gym': 'cross_fit',
+  // ── Fitness Trainer ─────────────────────────────────────────────────────────
+  'personal_trainer': 'fitness_trainer',
+  'fitness_coach': 'fitness_trainer',
+  'personal_coach': 'fitness_trainer',
+  'fitness': 'fitness_trainer',
   // ── Auto Detailing & Ceramic Coating Shops ──────────────────────────────────
   'vinyl_wrapping': 'auto_detailing_ceramic_coating_shops',
   'vinyl_wrapping_ppf': 'auto_detailing_ceramic_coating_shops',
@@ -3255,7 +3260,7 @@ app.get('/api/templates', async (req, res) => {
       }
     } catch (localErr2) { /* ignore */ }
     // Last resort hardcoded list (includes all known templates)
-    res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation'] });
+    res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'fitness trainer', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation'] });
   }
 });
 
