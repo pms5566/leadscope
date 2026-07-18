@@ -2570,6 +2570,54 @@
       "addedAt": "2026-07-18T13:58:24.778Z",
       "updatedAt": "2026-07-18T13:58:24.778Z",
       "shortAlias": "trainwithrahis-b9wb"
+    },
+    {
+      "id": "meta-1784382725635-16",
+      "name": "ASF - Personal Training Services",
+      "address": "Dubai",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61561552820774",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=ASF%20-%20Personal%20Training%20Services%20Dubai",
+      "niche": "Private Personal Training",
+      "location": "Dubai",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-18T13:58:32.026Z",
+      "updatedAt": "2026-07-18T13:58:32.026Z",
+      "shortAlias": "asf-personal-training-services"
+    },
+    {
+      "id": "meta-1784382725635-17",
+      "name": "Primefit",
+      "address": "Dubai",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/primefitae",
+      "instagram": "https://www.instagram.com/primefitae/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Primefit%20Dubai",
+      "niche": "Private Personal Training",
+      "location": "Dubai",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-18T13:58:32.026Z",
+      "updatedAt": "2026-07-18T13:58:32.026Z",
+      "shortAlias": "primefit"
     }
   ],
   "shortLinks": {
@@ -2805,7 +2853,9 @@
     "zarya-wellness-health-club": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-12?name=Zarya%20Wellness%20Health%20Club&phone=N%2FA&address=Dubai",
     "bwell-coaching": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-13?name=b.well%20coaching&phone=N%2FA&address=Dubai",
     "coach-mubu-ochj": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-14?name=Coach%20Mubu&phone=N%2FA&address=Dubai",
-    "trainwithrahis-b9wb": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-15?name=Trainwithrahis&phone=N%2FA&address=Dubai"
+    "trainwithrahis-b9wb": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-15?name=Trainwithrahis&phone=N%2FA&address=Dubai",
+    "asf-personal-training-services": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-16?name=ASF%20-%20Personal%20Training%20Services&phone=N%2FA&address=Dubai",
+    "primefit": "https://parmeet123-leadscope.hf.space/preview/private-personal-training/meta-1784382725635-17?name=Primefit&phone=N%2FA&address=Dubai"
   },
   "activeVisits": [
     {
