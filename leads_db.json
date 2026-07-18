@@ -2746,9 +2746,35 @@
     "christin_muthoni-2uk2": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784392530819?name=christin_muthoni&phone=&address=",
     "bwell-coaching-49j3": "https://parmeet123-leadscope.hf.space/preview/fitness%20trainer/preview_fitness_trainer_1784394143802?name=b.well%20coaching&phone=&address=",
     "bwell-coaching-jcqj": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784394161554?name=b.well%20coaching&phone=&address=",
-    "bwell-coaching-su06": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784394223880?name=b.well%20coaching&phone=&address="
+    "bwell-coaching-su06": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784394223880?name=b.well%20coaching&phone=&address=",
+    "bwell-coaching-vlgg": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784394265572?name=b.well%20coaching&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784394223880",
+      "name": "b.well coaching (gym-website)",
+      "openedAt": "2026-07-18T17:03:50.120Z",
+      "lastActiveAt": "2026-07-18T17:03:50.120Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T17:03:50.120Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_fitness_trainer_1784394143802",
       "name": "b.well coaching (fitness trainer)",
