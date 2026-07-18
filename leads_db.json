@@ -2229,10 +2229,10 @@
       "niche": "Private Personal Training",
       "location": "Dubai",
       "source": "Ad Scanner",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-18T13:58:02.579Z",
-      "updatedAt": "2026-07-18T13:58:02.579Z",
+      "updatedAt": "2026-07-18T16:22:37.661Z",
       "shortAlias": "ptd-fitness-uae"
     },
     {
@@ -2863,6 +2863,31 @@
     "the-fit-club-co-eamw": "https://parmeet123-leadscope.hf.space/preview/fitness%20trainer/preview_fitness_trainer_1784391567286?name=The%20Fit%20Club%20Co.&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784391491087",
+      "name": "The Fit Club Co. (gym-website)",
+      "openedAt": "2026-07-18T16:21:50.786Z",
+      "lastActiveAt": "2026-07-18T16:21:50.786Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:21:50.786Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym_1784391464998",
       "name": "The Fit Club Co. (gym)",
