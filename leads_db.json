@@ -2469,10 +2469,10 @@
       "niche": "Private Personal Training",
       "location": "Dubai",
       "source": "Ad Scanner",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-18T13:58:24.774Z",
-      "updatedAt": "2026-07-18T13:58:24.774Z",
+      "updatedAt": "2026-07-18T17:13:45.285Z",
       "shortAlias": "bwell-coaching"
     },
     {
@@ -2755,13 +2755,13 @@
       "leadId": "preview_fitness_trainer_1784394143802",
       "name": "b.well coaching (fitness trainer)",
       "openedAt": "2026-07-18T17:02:45.524Z",
-      "lastActiveAt": "2026-07-18T17:05:35.399Z",
+      "lastActiveAt": "2026-07-18T17:13:27.574Z",
       "duration": 90,
       "scrollPercent": 100,
       "location": "Clonee, Leinster, Ireland",
       "countryCode": "IE",
       "isp": "Facebook, Inc.",
-      "views": 3,
+      "views": 6,
       "device": "mobile",
       "os": "Android",
       "browser": "Chrome",
@@ -2867,46 +2867,81 @@
             "seconds": 10,
             "scrollPercent": 100
           }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T17:09:03.739Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T17:09:52.739Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T17:13:27.574Z",
+          "details": {
+            "device": "mobile"
+          }
         }
       ],
       "isHot": true
     },
     {
-      "leadId": "preview_gym-website_1784394223880",
-      "name": "b.well coaching (gym-website)",
-      "openedAt": "2026-07-18T17:03:50.120Z",
-      "lastActiveAt": "2026-07-18T17:03:50.120Z",
+      "leadId": "preview_fitness_trainer_1784392514705",
+      "name": "christin_muthoni (fitness trainer)",
+      "openedAt": "2026-07-18T16:36:27.127Z",
+      "lastActiveAt": "2026-07-18T17:12:16.851Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Nepalgunj, Lumbini Province, Nepal",
       "countryCode": "NP",
       "isp": "WorldLink Communications",
-      "views": 1,
+      "views": 3,
       "device": "mobile",
       "os": "Android",
       "browser": "Chrome",
       "events": [
         {
           "event": "open",
-          "timestamp": "2026-07-18T17:03:50.120Z",
+          "timestamp": "2026-07-18T16:36:27.127Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T16:38:50.127Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T17:12:16.851Z",
           "details": {
             "device": "mobile"
           }
         }
       ],
-      "isHot": false
+      "isHot": true
     },
     {
       "leadId": "preview_wellness-project_1784392530819",
       "name": "christin_muthoni (wellness-project)",
       "openedAt": "2026-07-18T16:36:04.851Z",
-      "lastActiveAt": "2026-07-18T16:38:59.293Z",
+      "lastActiveAt": "2026-07-18T17:12:07.754Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Nepalgunj, Lumbini Province, Nepal",
       "countryCode": "NP",
       "isp": "WorldLink Communications",
-      "views": 5,
+      "views": 6,
       "device": "mobile",
       "os": "Android",
       "browser": "Chrome",
@@ -2945,35 +2980,35 @@
           "details": {
             "device": "mobile"
           }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-18T17:12:07.754Z",
+          "details": {
+            "device": "mobile"
+          }
         }
       ],
       "isHot": true
     },
     {
-      "leadId": "preview_fitness_trainer_1784392514705",
-      "name": "christin_muthoni (fitness trainer)",
-      "openedAt": "2026-07-18T16:36:27.127Z",
-      "lastActiveAt": "2026-07-18T16:38:50.127Z",
+      "leadId": "preview_gym-website_1784394223880",
+      "name": "b.well coaching (gym-website)",
+      "openedAt": "2026-07-18T17:03:50.120Z",
+      "lastActiveAt": "2026-07-18T17:03:50.120Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Nepalgunj, Lumbini Province, Nepal",
       "countryCode": "NP",
       "isp": "WorldLink Communications",
-      "views": 2,
+      "views": 1,
       "device": "mobile",
       "os": "Android",
       "browser": "Chrome",
       "events": [
         {
           "event": "open",
-          "timestamp": "2026-07-18T16:36:27.127Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:38:50.127Z",
+          "timestamp": "2026-07-18T17:03:50.120Z",
           "details": {
             "device": "mobile"
           }
