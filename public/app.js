@@ -3042,15 +3042,18 @@ window.generateLink = async function () {
 
     const shortUrl = result.shortUrl;
 
+    // Determine the active link to show and copy (Vercel if configured, otherwise short link)
+    const activeLink = window.templateHost ? longUrl : shortUrl;
+
     if (outputEl) {
-      outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Trust Link</span>` + shortUrl;
+      outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;
     }
 
-    if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = shortUrl; }
-    const localOpenUrl = window.location.origin + '/go/' + result.alias;
+    if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = activeLink; }
+    const localOpenUrl = window.templateHost ? longUrl : (window.location.origin + '/go/' + result.alias);
     if (openBtn) { openBtn.href = localOpenUrl; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
 
-    const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${shortUrl}`;
+    const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${activeLink}`;
     if (waBtn) {
       waBtn.href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
       waBtn.style.pointerEvents = 'auto';
@@ -3058,14 +3061,14 @@ window.generateLink = async function () {
     }
 
     const emailSubject = `Your Free Website Demo — ${name}`;
-    const emailBody    = `Hi,\n\nI've created a personalised website demo for ${name}. Click the link below to view it:\n\n${shortUrl}\n\nLet me know what you think!\n\nBest regards`;
+    const emailBody    = `Hi,\n\nI've created a personalised website demo for ${name}. Click the link below to view it:\n\n${activeLink}\n\nLet me know what you think!\n\nBest regards`;
     if (emailBtn) {
       emailBtn.href = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
       emailBtn.style.pointerEvents = 'auto';
       emailBtn.style.opacity = '1';
     }
 
-    const smsMsg = `Hi! Here's your free website demo: ${shortUrl}`;
+    const smsMsg = `Hi! Here's your free website demo: ${activeLink}`;
     if (smsBtn) {
       smsBtn.href = `sms:?body=${encodeURIComponent(smsMsg)}`;
       smsBtn.style.pointerEvents = 'auto';
