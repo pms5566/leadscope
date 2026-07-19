@@ -3214,9 +3214,83 @@
     "yes-bro-5h75": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784482246510&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "yes-bro-wke7": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482264622&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "yes-bro-sqr3": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784482330880&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "yes-bro-m444": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784482385496&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "yes-bro-m444": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784482385496&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "yes-bro-nxcu": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784482445981&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym_1784482385496",
+      "name": "yes bro (gym)",
+      "openedAt": "2026-07-19T17:33:14.892Z",
+      "lastActiveAt": "2026-07-19T17:34:00.689Z",
+      "duration": 30,
+      "scrollPercent": 100,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 4,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:33:14.892Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T17:33:26.709Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T17:33:36.707Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T17:33:46.698Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:33:53.647Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:33:56.592Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:34:00.689Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": true
+    },
     {
       "leadId": "preview_gym-website_1784482264622",
       "name": "yes bro (gym-website)",
@@ -6151,58 +6225,6 @@
         {
           "event": "heartbeat",
           "timestamp": "2026-07-12T19:45:07.559Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_Shopify_1_1783881466333",
-      "name": "Asal Zindagi (Shopify 1)",
-      "openedAt": "2026-07-12T19:00:56.386Z",
-      "lastActiveAt": "2026-07-12T19:01:27.761Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Luleå, Norrbotten County, Sweden",
-      "countryCode": "SE",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "mobile",
-      "os": "iOS",
-      "browser": "Safari",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:00:56.386Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:01:07.908Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:01:18.290Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:01:27.761Z",
           "details": {
             "device": "mobile",
             "seconds": 10,
