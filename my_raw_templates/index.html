@@ -500,6 +500,66 @@
         const address = urlParams.get('address') || 'Our Location';
         const trackingUrlStr = urlParams.get('trackUrl') || '';
 
+        // 🔐 Check Active/Locked Status dynamically if trackUrl is set
+        if (trackingUrlStr) {
+          try {
+            const checkUrl = trackingUrlStr.replace(/\/$/, '') + '/api/crm/status/' + encodeURIComponent(leadId);
+            const statusRes = await fetch(checkUrl);
+            if (statusRes.ok) {
+              const statusData = await statusRes.json();
+              if (statusData.active === false) {
+                // Render Locked Access Screen inside parent document
+                document.body.innerHTML = `
+                  <div style="background-color: #0b0f19; color: #f1f5f9; font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0;">
+                    <div style="background-color: #131b2e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2.5rem; max-width: 440px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+                      <div style="font-size: 3rem; color: #ef4444; margin-bottom: 1.5rem;"><i class="fa-solid fa-lock"></i></div>
+                      <h1 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Proposal Private</h1>
+                      <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5; margin-bottom: 2rem;">This customized design mockup built for <strong>\${escapeHtml(businessName)}</strong> is currently locked or private. If you are the owner, you can request instant activation by clicking below.</p>
+                      <button id="btn-request-access" style="background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #0b0f19; border: none; padding: 12px 28px; font-weight: bold; font-size: 0.95rem; border-radius: 9999px; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-key"></i> Request Access</button>
+                      <div id="status-msg-locked" style="margin-top: 1rem; font-size: 0.85rem; color: #10b981; display: none; font-weight: bold;"></div>
+                    </div>
+                  </div>
+                `;
+                
+                function escapeHtml(str) {
+                  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+                }
+                
+                document.getElementById('btn-request-access').addEventListener('click', async () => {
+                  const btn = document.getElementById('btn-request-access');
+                  const status = document.getElementById('status-msg-locked');
+                  btn.disabled = true;
+                  btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Requesting...';
+                  try {
+                    const reqUrl = trackingUrlStr.replace(/\/$/, '') + '/api/crm/request-access';
+                    const res = await fetch(reqUrl, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ leadId, leadName: businessName })
+                    });
+                    const d = await res.json();
+                    if (d.success) {
+                      status.textContent = "✅ Access request sent successfully! You will be notified shortly.";
+                      status.style.display = "block";
+                      btn.style.display = "none";
+                    } else {
+                      throw new Error();
+                    }
+                  } catch(e) {
+                    status.textContent = "❌ Failed to send request. Please try again.";
+                    status.style.display = "block";
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa-solid fa-key"></i> Request Access';
+                  }
+                });
+                return; // Stop rendering the proposal wrapper
+              }
+            }
+          } catch(e) {
+            console.warn('[Status Check Failed]', e);
+          }
+        }
+
         // 2. Resolve Niche Folder Name with Alias Map
         const NICHE_ALIASES = {
           'crossfit': 'cross_fit',

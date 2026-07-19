@@ -1450,6 +1450,11 @@ app.get('/go/:alias', async (req, res) => {
     const templateHost = db.settings?.templateHost || process.env.TEMPLATE_HOST || '';
     const trackingUrl = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
 
+    // 🔐 Check active status
+    if (lead && lead.active === false) {
+      return res.send(getLockedPageHtml(lead.name, lead.id, trackingUrl));
+    }
+
     if (lead) {
       const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
       const tNiche = lead.portfolioLink || cleanNiche;
@@ -2071,6 +2076,11 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
     // 1. Fetch lead from memory cache or CRM database
     let lead = latestScannedLeads.find(l => l.id === leadId) || db.leads.find(l => l.id === leadId);
     
+    // 🔐 Check active status
+    if (lead && lead.active === false) {
+      return res.send(getLockedPageHtml(lead.name, lead.id, trackingUrl));
+    }
+
     // Stateless fallback: if lead is not found, check if business details are supplied in query params
     if (!lead && req.query.name) {
       lead = {
@@ -3111,6 +3121,168 @@ async function getIpLocation(ip) {
   }
   return { location: 'Unknown Location', countryCode: '', isp: 'Unknown ISP' };
 }
+
+// Locked Access Page layout helper
+function getLockedPageHtml(leadName, leadId, trackUrl) {
+  return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Mockup Private — Access Required</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <style>
+        body {
+          background-color: #0b0f19;
+          color: #f1f5f9;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+        }
+        .card {
+          background-color: #131b2e;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 16px;
+          padding: 2.5rem;
+          max-width: 440px;
+          text-align: center;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+        .icon {
+          font-size: 3rem;
+          color: #ef4444;
+          margin-bottom: 1.5rem;
+          animation: pulse 2s infinite ease-in-out;
+        }
+        h1 {
+          font-size: 1.5rem;
+          font-weight: 800;
+          margin-bottom: 1rem;
+        }
+        p {
+          color: #94a3b8;
+          font-size: 0.95rem;
+          line-height: 1.5;
+          margin-bottom: 2rem;
+        }
+        .btn {
+          background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+          color: #0b0f19;
+          border: none;
+          padding: 12px 28px;
+          font-weight: bold;
+          font-size: 0.95rem;
+          border-radius: 9999px;
+          cursor: pointer;
+          transition: transform 0.2s, box-shadow 0.2s;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          text-decoration: none;
+        }
+        .btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+        .btn:disabled {
+          background: #475569 !important;
+          color: #94a3b8 !important;
+          cursor: not-allowed !important;
+          box-shadow: none !important;
+          transform: none !important;
+        }
+        #status-msg {
+          margin-top: 1rem;
+          font-size: 0.85rem;
+          color: #10b981;
+          display: none;
+          font-weight: bold;
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.08); }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <div class="icon"><i class="fa-solid fa-lock"></i></div>
+        <h1>Proposal Private</h1>
+        <p>This customized design mockup built for <strong>${leadName}</strong> is currently locked or private. If you are the owner, you can request instant activation by clicking below.</p>
+        <button class="btn" id="btn-request"><i class="fa-solid fa-key"></i> Request Access</button>
+        <div id="status-msg"></div>
+      </div>
+      <script>
+        document.getElementById('btn-request').addEventListener('click', async () => {
+          const btn = document.getElementById('btn-request');
+          const status = document.getElementById('status-msg');
+          btn.disabled = true;
+          btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Requesting...';
+          
+          try {
+            const res = await fetch('${trackUrl ? trackUrl.replace(/\/$/, "") : ""}/api/crm/request-access', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ leadId: "${leadId}", leadName: "${leadName}" })
+            });
+            const data = await res.json();
+            if (data.success) {
+              status.textContent = "✅ Access request sent successfully! You will be notified shortly.";
+              status.style.display = "block";
+              btn.style.display = "none";
+            } else {
+              throw new Error();
+            }
+          } catch(e) {
+            status.textContent = "❌ Failed to send request. Please try again.";
+            status.style.display = "block";
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-key"></i> Request Access';
+          }
+        });
+      <\/script>
+    </body>
+    </html>
+  `;
+}
+
+// Endpoint to retrieve active status of a lead
+app.get('/api/crm/status/:leadId', async (req, res) => {
+  try {
+    const { leadId } = req.params;
+    const db = await readDb();
+    const lead = db.leads.find(l => l.id === leadId || l.shortAlias === leadId);
+    if (lead) {
+      return res.json({ active: lead.active !== false });
+    }
+    res.json({ active: true });
+  } catch (e) {
+    res.json({ active: true });
+  }
+});
+
+// Endpoint to request access for a locked lead
+app.post('/api/crm/request-access', async (req, res) => {
+  try {
+    const { leadId, leadName } = req.body;
+    
+    // Resolve location
+    const rawIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const clientIp = rawIp ? rawIp.split(',')[0].trim() : '';
+    const geo = await getIpLocation(clientIp);
+
+    const alertMessage = `🔐 <b>Access Requested!</b>\n"${leadName}" has requested access to their locked website proposal mockup!\n📍 Location: ${geo.location} (${geo.isp})`;
+    await sendPhoneNotification(alertMessage);
+
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
 
 // Global view counter in-memory
 if (!global.viewCounts) global.viewCounts = {};

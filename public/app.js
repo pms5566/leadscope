@@ -1114,6 +1114,19 @@ document.addEventListener('DOMContentLoaded', () => {
           activeShortLink = proposalUrl;
         }
 
+        const isActive = lead.active !== false;
+        const toggleHtml = `
+          <div style="display: flex; align-items: center; gap: 6px; margin-top: 4px;">
+            <label class="ls-switch" style="position: relative; display: inline-block; width: 28px; height: 16px; margin: 0;">
+              <input type="checkbox" class="crm-active-toggle" data-id="${lead.id}" ${isActive ? 'checked' : ''} style="opacity: 0; width: 0; height: 0;">
+              <span class="ls-slider" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #475569; transition: .3s; border-radius: 34px;"></span>
+            </label>
+            <span style="font-size: 0.65rem; color: ${isActive ? 'var(--color-green)' : '#ef4444'}; font-weight: bold;">
+              ${isActive ? 'Active' : 'Locked'}
+            </span>
+          </div>
+        `;
+
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
             <a class="crm-proposal-link" href="${activeShortLink}" target="_blank" data-id="${lead.id}" data-name="${escapeHtml(lead.name || '')}" data-phone="${escapeHtml(lead.phone || '')}" data-address="${escapeHtml(lead.address || '')}" style="font-size: 0.75rem; color: var(--color-cyan); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;" title="Preview proposal page">
@@ -1121,6 +1134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </a>
             ${buildTemplateSelectorHtml(lead, true, lead.id)}
             ${buildCrmShortLinkHtml(lead, proposalUrl)}
+            ${toggleHtml}
           </div>
         `;
 
@@ -1196,6 +1210,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dateInput = e.target.closest('.crm-followup-date-input');
       const checkbox = e.target.closest('.crm-audit-checkbox');
       const templateSelect = e.target.closest('.crm-template-select');
+      const activeToggle = e.target.closest('.crm-active-toggle');
       
       if (select) {
         const id = select.getAttribute('data-id');
@@ -1210,6 +1225,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const field = checkbox.getAttribute('data-field');
         const val = checkbox.checked;
         updateCrmField(id, { [field]: val });
+      } else if (activeToggle) {
+        const id = activeToggle.getAttribute('data-id');
+        const isActiveVal = activeToggle.checked;
+        updateCrmField(id, { active: isActiveVal });
       } else if (templateSelect) {
         const id = templateSelect.getAttribute('data-id');
         const val = templateSelect.value;
