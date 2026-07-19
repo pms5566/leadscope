@@ -1389,7 +1389,7 @@ app.delete('/api/crm/:id', async (req, res) => {
 
 // URL Shortening & Redirect APIs
 function getBaseUrlFromReq(req) {
-  let domain = process.env.PUBLIC_SHARING_DOMAIN;
+  let domain = process.env.LOCAL_TRACKING_URL;
   if (domain && domain.trim() !== '') {
     domain = domain.trim();
     if (!domain.startsWith('http://') && !domain.startsWith('https://')) {
