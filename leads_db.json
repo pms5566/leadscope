@@ -6154,7 +6154,8 @@
     }
   ],
   "settings": {
-    "publicSharingDomain": "https://parmeet123-leadscope.hf.space",
-    "localTrackingUrl": "https://drab-citric-acid.ngrok-free.dev"
+    "publicSharingDomain": "",
+    "localTrackingUrl": "https://drab-citric-acid.ngrok-free.dev",
+    "templateHost": "https://leadscope-bice.vercel.app"
   }
 }
