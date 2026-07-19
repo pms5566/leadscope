@@ -2648,10 +2648,18 @@
       "niche": "CrossFit",
       "location": "Dubai",
       "status": "new",
-      "notes": "",
+      "notes": "[2:23:01 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-19T08:33:16.501Z",
-      "updatedAt": "2026-07-19T08:33:16.501Z",
-      "shortAlias": "247-gym-the-fitness-district"
+      "updatedAt": "2026-07-19T08:53:01.458Z",
+      "shortAlias": "247-gym-the-fitness-district",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "scr-v6j6usw",
@@ -3026,6 +3034,31 @@
     "thrive-fitness-4pir": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784450974797?name=Thrive%20Fitness&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "scr-r60gqec",
+      "name": "247 Gym - The Fitness District",
+      "openedAt": "2026-07-19T08:53:01.458Z",
+      "lastActiveAt": "2026-07-19T08:53:01.458Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T08:53:01.458Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "scr-ji4s69c",
       "name": "Camp Star Gym",
