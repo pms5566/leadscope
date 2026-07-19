@@ -1427,20 +1427,46 @@ app.get('/go/:alias', async (req, res) => {
     const shortLinks = db.shortLinks || {};
     
     let longUrl = shortLinks[alias];
+    let lead = null;
     
     // Fallback: Check active scan cache first, then CRM database
     if (!longUrl) {
-      let lead = latestScannedLeads.find(l => l.id === alias);
+      lead = latestScannedLeads.find(l => l.id === alias);
       if (!lead && db.leads) {
         lead = db.leads.find(l => l.shortAlias === alias || l.id === alias);
       }
-      if (lead) {
+    } else {
+      if (db.leads) {
+        lead = db.leads.find(l => l.shortAlias === alias || l.id === alias);
+      }
+    }
+
+    // Resolve template host for Vercel redirection
+    const templateHost = db.settings?.templateHost || process.env.TEMPLATE_HOST || '';
+    const trackingUrl = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
+
+    if (lead) {
+      const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+      const tNiche = lead.portfolioLink || cleanNiche;
+      
+      if (templateHost) {
+        const queryParams = new URLSearchParams();
+        queryParams.set('niche', tNiche);
+        queryParams.set('leadId', lead.id);
+        queryParams.set('name', lead.name || '');
+        queryParams.set('phone', lead.phone || '');
+        queryParams.set('address', lead.address || '');
+        queryParams.set('trackUrl', trackingUrl);
+        
+        const vercelUrl = `${templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
+        return res.redirect(vercelUrl);
+      }
+      
+      if (!longUrl) {
         const baseUrl = getBaseUrlFromReq(req);
-        const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
         if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
           longUrl = lead.portfolioLink;
         } else {
-          const tNiche = lead.portfolioLink || cleanNiche;
           longUrl = `${baseUrl}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
         }
       }
@@ -1451,6 +1477,31 @@ app.get('/go/:alias', async (req, res) => {
         const idx = longUrl.indexOf('/preview/');
         longUrl = longUrl.substring(idx);
       }
+      
+      // If we are redirecting to preview and have a Vercel template host configured, translate it
+      if (templateHost && longUrl.startsWith('/preview/')) {
+        try {
+          const u = new URL('http://localhost' + longUrl);
+          const parts = u.pathname.split('/');
+          const nicheVal = parts[2];
+          const leadIdVal = parts[3];
+          const nameVal = u.searchParams.get('name') || '';
+          const phoneVal = u.searchParams.get('phone') || '';
+          const addressVal = u.searchParams.get('address') || '';
+          
+          const queryParams = new URLSearchParams();
+          queryParams.set('niche', nicheVal);
+          queryParams.set('leadId', leadIdVal);
+          queryParams.set('name', nameVal);
+          queryParams.set('phone', phoneVal);
+          queryParams.set('address', addressVal);
+          queryParams.set('trackUrl', trackingUrl);
+          
+          const vercelUrl = `${templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
+          return res.redirect(vercelUrl);
+        } catch (e) { /* fallback */ }
+      }
+      
       return res.redirect(longUrl);
     }
 
@@ -1996,8 +2047,23 @@ app.get('/preview/:niche/:leadId', async (req, res) => {
   const { niche, leadId } = req.params;
   
   try {
-    // 1. Fetch lead from memory cache or CRM database
     const db = await readDb();
+    const templateHost = db.settings?.templateHost || process.env.TEMPLATE_HOST || '';
+    const trackingUrl = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
+
+    // If template host (Vercel) is configured, perform lightweight redirect instead of rendering
+    if (templateHost) {
+      const queryParams = new URLSearchParams(req.query);
+      queryParams.set('niche', niche);
+      queryParams.set('leadId', leadId);
+      if (!queryParams.has('trackUrl')) {
+        queryParams.set('trackUrl', trackingUrl);
+      }
+      const vercelUrl = `${templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
+      return res.redirect(vercelUrl);
+    }
+
+    // 1. Fetch lead from memory cache or CRM database
     let lead = latestScannedLeads.find(l => l.id === leadId) || db.leads.find(l => l.id === leadId);
     
     // Stateless fallback: if lead is not found, check if business details are supplied in query params
