@@ -820,7 +820,7 @@
 
         // 8. Fetch, Personalize and Inject Template HTML inside the iframe doc
         try {
-          const rawUrl = encodeURIComponent(resolvedFolder) + '/index.html';
+          const rawUrl = '/' + encodeURIComponent(resolvedFolder) + '/index.html';
           const res = await fetch(rawUrl);
           if (!res.ok) throw new Error('Failed to fetch template HTML');
           let html = await res.text();
