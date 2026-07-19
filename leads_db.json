@@ -2538,13 +2538,13 @@
       "niche": "CrossFit",
       "location": "Dubai",
       "status": "new",
-      "notes": "[3:37:42 PM] Opened Proposal Preview Link\n[3:37:52 PM] Visited for 10s (Scrolled: 0%)\n[3:38:02 PM] Visited for 20s (Scrolled: 0%)",
+      "notes": "[3:37:42 PM] Opened Proposal Preview Link\n[3:37:52 PM] Visited for 10s (Scrolled: 0%)\n[3:38:02 PM] Visited for 20s (Scrolled: 0%)\n[3:38:12 PM] Visited for 30s (Scrolled: 0%)",
       "addedAt": "2026-07-19T08:33:07.101Z",
-      "updatedAt": "2026-07-19T10:08:02.783Z",
+      "updatedAt": "2026-07-19T10:08:12.601Z",
       "shortAlias": "crony-fitness",
       "analytics": {
         "opened": "Yes",
-        "timeSpent": 20,
+        "timeSpent": 30,
         "maxScroll": 0,
         "fiverrClicked": "No",
         "whatsappClicked": "No",
@@ -3025,15 +3025,16 @@
     "battalion-fitness-lgcm": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784451734102?name=Battalion%20Fitness&phone=&address=",
     "hiitbox-noid": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784451905802?name=Hiitbox&phone=&address=",
     "hitbox": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455368923?name=Hitbox&phone=&address=",
-    "crony-fitness-cd3a": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455683217?name=Crony%20Fitness&phone=&address="
+    "crony-fitness-cd3a": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455683217?name=Crony%20Fitness&phone=&address=",
+    "crony-fitness-5219": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455726074?name=Crony%20Fitness&phone=&address="
   },
   "activeVisits": [
     {
       "leadId": "scr-uykn20l",
       "name": "Crony Fitness",
       "openedAt": "2026-07-19T10:07:42.349Z",
-      "lastActiveAt": "2026-07-19T10:08:02.783Z",
-      "duration": 20,
+      "lastActiveAt": "2026-07-19T10:08:12.601Z",
+      "duration": 30,
       "scrollPercent": 0,
       "location": "Prineville, Oregon, United States",
       "countryCode": "US",
@@ -3062,6 +3063,15 @@
         {
           "event": "heartbeat",
           "timestamp": "2026-07-19T10:08:02.783Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:08:12.601Z",
           "details": {
             "device": "desktop",
             "seconds": 10,
