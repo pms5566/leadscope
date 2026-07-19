@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/website-mockup/:alias",
+      "destination": "/index.html?mockup=:alias"
+    }
+  ]
+}
