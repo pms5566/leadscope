@@ -3210,9 +3210,35 @@
     "yes-bro": "https://leadscope-bice.vercel.app/?niche=Cross+Fit&leadId=preview_Cross_Fit_1784482194583&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "yes-bro-sswv": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482213163&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "yes-bro-w6rn": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784482222846&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "yes-bro-7fil": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482231199&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "yes-bro-7fil": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482231199&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "yes-bro-5h75": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784482246510&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784482231199",
+      "name": "yes bro (gym-website)",
+      "openedAt": "2026-07-19T17:30:37.110Z",
+      "lastActiveAt": "2026-07-19T17:30:37.110Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:30:37.110Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_fitness_trainer_1784481913092",
       "name": "hot (fitness trainer)",
@@ -6148,49 +6174,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 100
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_Artificial_Turf_Installation_1783852703198",
-      "name": "AB (Artificial Turf Installation)",
-      "openedAt": "2026-07-12T10:38:27.569Z",
-      "lastActiveAt": "2026-07-12T10:38:49.287Z",
-      "duration": 20,
-      "scrollPercent": 91,
-      "location": "Kathmandu, Bagmati Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T10:38:27.569Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T10:38:39.448Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 75
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T10:38:49.287Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 91
           }
         }
       ],
