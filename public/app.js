@@ -1095,10 +1095,24 @@ document.addEventListener('DOMContentLoaded', () => {
           proposalUrl = lead.portfolioLink;
         } else {
           const tNiche = lead.portfolioLink || cleanNiche;
-          proposalUrl = `${getPreviewBaseUrl()}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+          if (window.templateHost) {
+            const queryParams = new URLSearchParams();
+            queryParams.set('niche', tNiche);
+            queryParams.set('leadId', lead.id);
+            queryParams.set('name', lead.name || '');
+            queryParams.set('phone', lead.phone || '');
+            queryParams.set('address', lead.address || '');
+            queryParams.set('trackUrl', window.localTrackingUrl || '');
+            proposalUrl = `${window.templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
+          } else {
+            proposalUrl = `${getPreviewBaseUrl()}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
+          }
         }
         
-        const activeShortLink = lead.shortAlias ? `${getPreviewBaseUrl()}/go/${lead.shortAlias}` : `${getPreviewBaseUrl()}/go/${lead.id}`;
+        let activeShortLink = lead.shortAlias ? `${getPreviewBaseUrl()}/go/${lead.shortAlias}` : `${getPreviewBaseUrl()}/go/${lead.id}`;
+        if (window.templateHost) {
+          activeShortLink = proposalUrl;
+        }
 
         const proposalLinkHtml = `
           <div style="margin-top: 0.35rem; display: flex; flex-direction: column; gap: 4px;">
@@ -1708,6 +1722,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubTokenInput = document.getElementById('githubTokenInput');
 
     const publicSharingDomainInput = document.getElementById('publicSharingDomainInput');
+    const templateHostInput = document.getElementById('templateHostInput');
     const localTrackingUrlInput = document.getElementById('localTrackingUrlInput');
     const tawkEmbedUrlInput = document.getElementById('tawkEmbedUrlInput');
     const discordWebhookInput = document.getElementById('discordWebhookInput');
@@ -1762,10 +1777,19 @@ document.addEventListener('DOMContentLoaded', () => {
           publicSharingDomainInput.value = '';
           window.publicSharingDomain = '';
         }
+        if (data.templateHost) {
+          templateHostInput.value = data.templateHost;
+          window.templateHost = data.templateHost;
+        } else {
+          templateHostInput.value = '';
+          window.templateHost = '';
+        }
         if (data.localTrackingUrl) {
           localTrackingUrlInput.value = data.localTrackingUrl;
+          window.localTrackingUrl = data.localTrackingUrl;
         } else {
           localTrackingUrlInput.value = '';
+          window.localTrackingUrl = '';
         }
         if (data.tawkEmbedUrl) {
           tawkEmbedUrlInput.value = data.tawkEmbedUrl;
@@ -1922,6 +1946,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const payload = {
           publicSharingDomain: publicSharingDomainInput.value.trim(),
+          templateHost: templateHostInput.value.trim(),
           localTrackingUrl: localTrackingUrlInput.value.trim(),
           tawkEmbedUrl: tawkEmbedUrlInput.value.trim(),
           discordWebhookUrl: discordWebhookInput.value.trim(),

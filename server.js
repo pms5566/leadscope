@@ -704,13 +704,14 @@ app.get('/api/config', (req, res) => {
     discordUserId: process.env.DISCORD_USER_ID || "",
     publicSharingDomain: process.env.PUBLIC_SHARING_DOMAIN || "",
     localTrackingUrl: process.env.LOCAL_TRACKING_URL || "",
-    tawkEmbedUrl: process.env.TAWK_EMBED_URL || ""
+    tawkEmbedUrl: process.env.TAWK_EMBED_URL || "",
+    templateHost: process.env.TEMPLATE_HOST || ""
   });
 });
 
 // API Endpoint to save configuration
 app.post('/api/config', async (req, res) => {
-  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, publicSharingDomain, localTrackingUrl, tawkEmbedUrl } = req.body;
+  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, publicSharingDomain, localTrackingUrl, tawkEmbedUrl, templateHost } = req.body;
   
   try {
     let envContent = "";
@@ -755,6 +756,7 @@ app.post('/api/config', async (req, res) => {
     if (publicSharingDomain !== undefined) envObj['PUBLIC_SHARING_DOMAIN'] = publicSharingDomain;
     if (localTrackingUrl !== undefined) envObj['LOCAL_TRACKING_URL'] = localTrackingUrl;
     if (tawkEmbedUrl !== undefined) envObj['TAWK_EMBED_URL'] = tawkEmbedUrl;
+    if (templateHost !== undefined) envObj['TEMPLATE_HOST'] = templateHost;
     
     // Re-serialize
     let newEnvContent = "";
@@ -784,6 +786,7 @@ app.post('/api/config', async (req, res) => {
     newEnvContent += `PUBLIC_SHARING_DOMAIN=${envObj['PUBLIC_SHARING_DOMAIN'] || ''}\n`;
     newEnvContent += `LOCAL_TRACKING_URL=${envObj['LOCAL_TRACKING_URL'] || ''}\n`;
     newEnvContent += `TAWK_EMBED_URL=${envObj['TAWK_EMBED_URL'] || ''}\n`;
+    newEnvContent += `TEMPLATE_HOST=${envObj['TEMPLATE_HOST'] || ''}\n`;
     
     await fs.writeFile(path.join(__dirname, '.env'), newEnvContent, 'utf8');
     
@@ -805,6 +808,7 @@ app.post('/api/config', async (req, res) => {
     if (publicSharingDomain !== undefined) process.env.PUBLIC_SHARING_DOMAIN = publicSharingDomain;
     if (localTrackingUrl !== undefined) process.env.LOCAL_TRACKING_URL = localTrackingUrl;
     if (tawkEmbedUrl !== undefined) process.env.TAWK_EMBED_URL = tawkEmbedUrl;
+    if (templateHost !== undefined) process.env.TEMPLATE_HOST = templateHost;
 
     // 3. Keep settings synchronized inside the leads_db.json file
     try {
@@ -812,6 +816,7 @@ app.post('/api/config', async (req, res) => {
       if (!db.settings) db.settings = {};
       if (publicSharingDomain !== undefined) db.settings.publicSharingDomain = publicSharingDomain;
       if (localTrackingUrl !== undefined) db.settings.localTrackingUrl = localTrackingUrl;
+      if (templateHost !== undefined) db.settings.templateHost = templateHost;
       await writeDb(db, true); // Push database to GitHub to share config with Hugging Face Space
     } catch (dbErr) {
       console.error('[Config API] Failed to sync config to database:', dbErr.message);
