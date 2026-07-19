@@ -2538,10 +2538,18 @@
       "niche": "CrossFit",
       "location": "Dubai",
       "status": "new",
-      "notes": "",
+      "notes": "[3:37:42 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-19T08:33:07.101Z",
-      "updatedAt": "2026-07-19T08:33:07.101Z",
-      "shortAlias": "crony-fitness"
+      "updatedAt": "2026-07-19T10:07:42.349Z",
+      "shortAlias": "crony-fitness",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "scr-n1xmoye",
@@ -3019,6 +3027,31 @@
     "hitbox": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455368923?name=Hitbox&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "scr-uykn20l",
+      "name": "Crony Fitness",
+      "openedAt": "2026-07-19T10:07:42.349Z",
+      "lastActiveAt": "2026-07-19T10:07:42.349Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Prineville, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T10:07:42.349Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784451563843",
       "name": "Champions Gym (gym-website)",
