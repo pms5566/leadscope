@@ -3302,6 +3302,13 @@ app.get('/api/templates', async (req, res) => {
     res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'fitness trainer', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation', 'wellness-project'] });
   }
 });
+// Global Express Error Handler to capture request-level exceptions
+app.use((err, req, res, next) => {
+  const stack = err && err.stack ? err.stack : String(err);
+  crashLogs.push(`[Express Error] [${new Date().toISOString()}] ${req.method} ${req.url} - ${stack}`);
+  if (crashLogs.length > 150) crashLogs.shift();
+  next(err);
+});
 
 
 const server = app.listen(PORT, '0.0.0.0', async () => {
