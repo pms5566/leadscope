@@ -3218,9 +3218,76 @@
     "yes-bro-nxcu": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784482445981&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "you9": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784482670441&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "you9-2crn": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482696494&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "you9-y70e": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482708524&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "you9-y70e": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482708524&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "pmt": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482936714&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym_1784481312176",
+      "name": "Town Center Fitness (gym)",
+      "openedAt": "2026-07-19T17:41:17.640Z",
+      "lastActiveAt": "2026-07-19T17:41:17.640Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:41:17.640Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_fitness_trainer_1784481913092",
+      "name": "hot (fitness trainer)",
+      "openedAt": "2026-07-19T17:29:31.945Z",
+      "lastActiveAt": "2026-07-19T17:41:06.440Z",
+      "duration": 10,
+      "scrollPercent": 65,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:29:31.945Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:40:55.146Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T17:41:06.440Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 65
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym_1784482670441",
       "name": "you9 (gym)",
@@ -3410,31 +3477,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-19T17:30:37.110Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_fitness_trainer_1784481913092",
-      "name": "hot (fitness trainer)",
-      "openedAt": "2026-07-19T17:29:31.945Z",
-      "lastActiveAt": "2026-07-19T17:29:31.945Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:29:31.945Z",
           "details": {
             "device": "desktop"
           }
@@ -6128,65 +6170,6 @@
           "timestamp": "2026-07-12T19:48:12.530Z",
           "details": {
             "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_dentist_1783885546735",
-      "name": "Bright Look Medical Center (dentist)",
-      "openedAt": "2026-07-12T19:45:57.670Z",
-      "lastActiveAt": "2026-07-12T19:46:28.401Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Gallatin, Tennessee, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 2,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:45:57.670Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:46:08.715Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:46:18.429Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:46:23.243Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:46:28.401Z",
-          "details": {
-            "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
           }
