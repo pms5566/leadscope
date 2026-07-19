@@ -3228,9 +3228,42 @@
     "00t00-k17q": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784483569399&name=00t00&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "00t00-ptow": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784483579158&name=00t00&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "00t00-euqh": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784483589031&name=00t00&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "jyfg": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784483842913&name=jyfg&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "jyfg": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784483842913&name=jyfg&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "jyfg-vueu": "https://leadscope-bice.vercel.app/?niche=Shopify+1&leadId=preview_Shopify_1_1784483914498&name=jyfg&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784483842913",
+      "name": "jyfg (gym-website)",
+      "openedAt": "2026-07-19T17:57:36.770Z",
+      "lastActiveAt": "2026-07-19T17:58:30.056Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 2,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:57:36.770Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:58:30.056Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784483553453",
       "name": "00t00 (gym-website)",
@@ -5909,74 +5942,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 100
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_1783161066454",
-      "name": "ab (dentist)",
-      "openedAt": "2026-07-14T16:22:13.106Z",
-      "lastActiveAt": "2026-07-14T16:22:57.055Z",
-      "duration": 40,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-14T16:22:13.106Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-14T16:22:24.403Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-14T16:22:34.292Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-14T16:22:44.289Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-14T16:22:54.433Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "fiverr_click",
-          "timestamp": "2026-07-14T16:22:57.055Z",
-          "details": {
-            "device": "desktop"
           }
         }
       ],
