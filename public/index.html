@@ -949,13 +949,6 @@
               <div style="padding: 1.5rem;">
                 <form id="discordSettingsForm">
                   <div class="input-group" style="margin-bottom: 1.25rem;">
-                    <label for="publicSharingDomainInput">Public Sharing Domain <span style="font-size:0.75rem; opacity:0.6;">(e.g. https://parmeet123-leadscope.hf.space)</span></label>
-                    <div class="input-wrapper">
-                      <input type="text" id="publicSharingDomainInput" placeholder="Enter Hugging Face Space URL or Custom Domain">
-                      <i class="fa-solid fa-globe"></i>
-                    </div>
-                  </div>
-                  <div class="input-group" style="margin-bottom: 1.25rem;">
                     <label for="templateHostInput">Template Host URL (Cloudflare/Vercel) <span style="font-size:0.75rem; opacity:0.6;">(e.g. https://proposals.pages.dev)</span></label>
                     <div class="input-wrapper">
                       <input type="text" id="templateHostInput" placeholder="Enter your active Cloudflare Pages or Vercel URL">
@@ -967,13 +960,6 @@
                     <div class="input-wrapper">
                       <input type="text" id="localTrackingUrlInput" placeholder="Enter your active ngrok tunnel URL for Live Spy tracking">
                       <i class="fa-solid fa-satellite-dish"></i>
-                    </div>
-                  </div>
-                  <div class="input-group" style="margin-bottom: 1.25rem;">
-                    <label for="tawkEmbedUrlInput">Tawk.to Embed URL <span style="font-size:0.75rem; opacity:0.6;">(Optional - Live Chat upgrade)</span></label>
-                    <div class="input-wrapper">
-                      <input type="text" id="tawkEmbedUrlInput" placeholder="Enter Direct Chat Link or Script source URL (https://embed.tawk.to/...)">
-                      <i class="fa-solid fa-comments"></i>
                     </div>
                   </div>
                   <div class="input-group" style="margin-bottom: 1.25rem;">
@@ -994,11 +980,9 @@
                     </div>
                   </div>
                   <span class="input-help" style="display: block; margin-top: -0.75rem; margin-bottom: 1.5rem; line-height: 1.4;">
-                    1. <strong>Public Sharing Domain</strong> is used to automatically generate proposal links that point to your live Hugging Face instance instead of localhost.<br>
-                    2. <strong>Tawk.to Embed URL</strong> (Optional): Paste your direct chat widget URL here (from Admin -> Chat Widget -> Direct Chat Link on tawk.to) to get 2-way real-time client chat on your proposals!<br>
-                    3. Create a Discord server or open one you own (takes 10 seconds).<br>
-                    4. Go to your channel settings -> **Integrations** -> **Webhooks** -> click **Create Webhook** -> copy the Webhook URL above.<br>
-                    5. **Recommended for Phone Alerts**: Turn on **Developer Mode** in Discord Settings -> Advanced. Right-click your profile picture/name in a chat and click **Copy User ID**, then paste it above to get prioritized direct mobile notifications!
+                    1. Create a Discord server or open one you own (takes 10 seconds).<br>
+                    2. Go to your channel settings -> **Integrations** -> **Webhooks** -> click **Create Webhook** -> copy the Webhook URL above.<br>
+                    3. **Recommended for Phone Alerts**: Turn on **Developer Mode** in Discord Settings -> Advanced. Right-click your profile picture/name in a chat and click **Copy User ID**, then paste it above to get prioritized direct mobile notifications!
                   </span>
 
                   <button type="submit" class="btn-action" style="width: 100%; justify-content: center; background: linear-gradient(135deg, var(--color-green) 0%, #00d9f5 100%); color: #07080d; font-weight: 700;">

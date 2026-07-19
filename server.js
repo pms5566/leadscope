@@ -702,16 +702,14 @@ app.get('/api/config', (req, res) => {
     telegramChatId: process.env.TELEGRAM_CHAT_ID === "your_telegram_chat_id_here" ? "" : (process.env.TELEGRAM_CHAT_ID || ""),
     discordWebhookUrl: maskKey(process.env.DISCORD_WEBHOOK_URL),
     discordUserId: process.env.DISCORD_USER_ID || "",
-    publicSharingDomain: process.env.PUBLIC_SHARING_DOMAIN || "",
     localTrackingUrl: process.env.LOCAL_TRACKING_URL || "",
-    tawkEmbedUrl: process.env.TAWK_EMBED_URL || "",
     templateHost: process.env.TEMPLATE_HOST || ""
   });
 });
 
 // API Endpoint to save configuration
 app.post('/api/config', async (req, res) => {
-  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, publicSharingDomain, localTrackingUrl, tawkEmbedUrl, templateHost } = req.body;
+  const { placesKey, serperKey, yelpKey, searchKey, searchEngineId, githubUsername, githubRepo, githubBranch, githubToken, telegramToken, telegramChatId, discordWebhookUrl, discordUserId, localTrackingUrl, templateHost } = req.body;
   
   try {
     let envContent = "";
@@ -753,9 +751,7 @@ app.post('/api/config', async (req, res) => {
     if (telegramChatId !== undefined) envObj['TELEGRAM_CHAT_ID'] = telegramChatId;
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) envObj['DISCORD_WEBHOOK_URL'] = discordWebhookUrl;
     if (discordUserId !== undefined) envObj['DISCORD_USER_ID'] = discordUserId;
-    if (publicSharingDomain !== undefined) envObj['PUBLIC_SHARING_DOMAIN'] = publicSharingDomain;
     if (localTrackingUrl !== undefined) envObj['LOCAL_TRACKING_URL'] = localTrackingUrl;
-    if (tawkEmbedUrl !== undefined) envObj['TAWK_EMBED_URL'] = tawkEmbedUrl;
     if (templateHost !== undefined) envObj['TEMPLATE_HOST'] = templateHost;
     
     // Re-serialize
@@ -783,9 +779,7 @@ app.post('/api/config', async (req, res) => {
     newEnvContent += `DISCORD_WEBHOOK_URL=${envObj['DISCORD_WEBHOOK_URL'] || 'your_discord_webhook_url_here'}\n`;
     newEnvContent += `DISCORD_USER_ID=${envObj['DISCORD_USER_ID'] || ''}\n\n`;
     newEnvContent += "# Public Sharing Configuration\n";
-    newEnvContent += `PUBLIC_SHARING_DOMAIN=${envObj['PUBLIC_SHARING_DOMAIN'] || ''}\n`;
     newEnvContent += `LOCAL_TRACKING_URL=${envObj['LOCAL_TRACKING_URL'] || ''}\n`;
-    newEnvContent += `TAWK_EMBED_URL=${envObj['TAWK_EMBED_URL'] || ''}\n`;
     newEnvContent += `TEMPLATE_HOST=${envObj['TEMPLATE_HOST'] || ''}\n`;
     
     await fs.writeFile(path.join(__dirname, '.env'), newEnvContent, 'utf8');
@@ -805,16 +799,13 @@ app.post('/api/config', async (req, res) => {
     if (telegramChatId !== undefined) process.env.TELEGRAM_CHAT_ID = telegramChatId;
     if (discordWebhookUrl !== undefined && !isMasked(discordWebhookUrl)) process.env.DISCORD_WEBHOOK_URL = discordWebhookUrl;
     if (discordUserId !== undefined) process.env.DISCORD_USER_ID = discordUserId;
-    if (publicSharingDomain !== undefined) process.env.PUBLIC_SHARING_DOMAIN = publicSharingDomain;
     if (localTrackingUrl !== undefined) process.env.LOCAL_TRACKING_URL = localTrackingUrl;
-    if (tawkEmbedUrl !== undefined) process.env.TAWK_EMBED_URL = tawkEmbedUrl;
     if (templateHost !== undefined) process.env.TEMPLATE_HOST = templateHost;
 
     // 3. Keep settings synchronized inside the leads_db.json file
     try {
       const db = await readDb();
       if (!db.settings) db.settings = {};
-      if (publicSharingDomain !== undefined) db.settings.publicSharingDomain = publicSharingDomain;
       if (localTrackingUrl !== undefined) db.settings.localTrackingUrl = localTrackingUrl;
       if (templateHost !== undefined) db.settings.templateHost = templateHost;
       await writeDb(db, true); // Push database to GitHub to share config with Hugging Face Space

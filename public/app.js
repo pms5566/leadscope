@@ -1740,10 +1740,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubBranchInput = document.getElementById('githubBranchInput');
     const githubTokenInput = document.getElementById('githubTokenInput');
 
-    const publicSharingDomainInput = document.getElementById('publicSharingDomainInput');
     const templateHostInput = document.getElementById('templateHostInput');
     const localTrackingUrlInput = document.getElementById('localTrackingUrlInput');
-    const tawkEmbedUrlInput = document.getElementById('tawkEmbedUrlInput');
     const discordWebhookInput = document.getElementById('discordWebhookInput');
     const discordUserIdInput = document.getElementById('discordUserIdInput');
     
@@ -1789,13 +1787,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.githubBranch) githubBranchInput.value = data.githubBranch;
         if (data.githubToken) githubTokenInput.value = data.githubToken;
 
-        if (data.publicSharingDomain) {
-          publicSharingDomainInput.value = data.publicSharingDomain;
-          window.publicSharingDomain = data.publicSharingDomain;
-        } else {
-          publicSharingDomainInput.value = '';
-          window.publicSharingDomain = '';
-        }
         if (data.templateHost) {
           templateHostInput.value = data.templateHost;
           window.templateHost = data.templateHost;
@@ -1809,11 +1800,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           localTrackingUrlInput.value = '';
           window.localTrackingUrl = '';
-        }
-        if (data.tawkEmbedUrl) {
-          tawkEmbedUrlInput.value = data.tawkEmbedUrl;
-        } else {
-          tawkEmbedUrlInput.value = '';
         }
         if (data.discordWebhookUrl) discordWebhookInput.value = data.discordWebhookUrl;
         if (data.discordUserId) discordUserIdInput.value = data.discordUserId;
@@ -1964,10 +1950,8 @@ document.addEventListener('DOMContentLoaded', () => {
       discordSettingsForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const payload = {
-          publicSharingDomain: publicSharingDomainInput.value.trim(),
           templateHost: templateHostInput.value.trim(),
           localTrackingUrl: localTrackingUrlInput.value.trim(),
-          tawkEmbedUrl: tawkEmbedUrlInput.value.trim(),
           discordWebhookUrl: discordWebhookInput.value.trim(),
           discordUserId: discordUserIdInput.value.trim()
         };
