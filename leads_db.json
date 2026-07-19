@@ -2960,9 +2960,193 @@
     "maya-blu": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784456697322?name=Maya%20Blu&phone=&address=",
     "maya-blu-tupn": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784456746702?name=Maya%20Blu&phone=&address=",
     "taal-studio-dubai-crhw": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784456818916?name=Taal%20Studio%20Dubai&phone=&address=",
-    "herinox-studio": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784457023446?name=Herinox%20Studio&phone=&address="
+    "herinox-studio": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784457023446?name=Herinox%20Studio&phone=&address=",
+    "ab-v6o6": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784459045302?name=ab&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784456818916",
+      "name": "Taal Studio Dubai (gym-website)",
+      "openedAt": "2026-07-19T10:55:39.957Z",
+      "lastActiveAt": "2026-07-19T11:03:33.016Z",
+      "duration": 130,
+      "scrollPercent": 0,
+      "location": "Dubai, Dubai, United Arab Emirates",
+      "countryCode": "AE",
+      "isp": "Emirates Integrated Telecommunications Company PJSC",
+      "views": 2,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T10:55:39.957Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:55:51.057Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:56:01.026Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:56:11.090Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:56:21.120Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:56:31.057Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:56:41.072Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T10:57:21.400Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:57:33.284Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:58:33.034Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:59:33.847Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:00:33.118Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:01:33.013Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:02:33.017Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:03:33.016Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_gym-website_1784457023446",
+      "name": "Herinox Studio (gym-website)",
+      "openedAt": "2026-07-19T10:36:52.210Z",
+      "lastActiveAt": "2026-07-19T10:37:02.341Z",
+      "duration": 10,
+      "scrollPercent": 13,
+      "location": "Dubai, Dubai, United Arab Emirates",
+      "countryCode": "AE",
+      "isp": "Emirates Telecommunications Corporation",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T10:36:52.210Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:37:02.341Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 13
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784455726074",
       "name": "Crony Fitness (gym-website)",
