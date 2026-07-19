@@ -3230,9 +3230,76 @@
     "00t00-euqh": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784483589031&name=00t00&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "jyfg": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784483842913&name=jyfg&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "jyfg-vueu": "https://leadscope-bice.vercel.app/?niche=Shopify+1&leadId=preview_Shopify_1_1784483914498&name=jyfg&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "bvty": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784296187142&name=bvty&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "bvty": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784296187142&name=bvty&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "fitness-founders-qvdc": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784485145720&name=Fitness+Founders&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_Cross_Fit_1784478367528",
+      "name": "gg (Cross Fit)",
+      "openedAt": "2026-07-19T18:17:44.834Z",
+      "lastActiveAt": "2026-07-19T18:17:44.834Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T18:17:44.834Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_gym-website_1784296187142",
+      "name": "bvty (gym-website)",
+      "openedAt": "2026-07-19T18:10:23.771Z",
+      "lastActiveAt": "2026-07-19T18:11:21.527Z",
+      "duration": 10,
+      "scrollPercent": 100,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 2,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T18:10:23.771Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T18:11:10.869Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T18:11:21.527Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_Shopify_1_1784483914498",
       "name": "jyfg (Shopify 1)",
@@ -5788,113 +5855,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-15T10:41:51.895Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_dentist_1784107446403",
-      "name": "ppp (dentist)",
-      "openedAt": "2026-07-15T09:24:11.465Z",
-      "lastActiveAt": "2026-07-15T09:24:24.137Z",
-      "duration": 10,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:24:11.465Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T09:24:24.137Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1783179492789-6",
-      "name": "Dr Geeta Garg's skin clinic",
-      "openedAt": "2026-07-13T18:42:37.382Z",
-      "lastActiveAt": "2026-07-15T09:23:43.560Z",
-      "duration": 30,
-      "scrollPercent": 2,
-      "location": "Kathmandu, Bagmati Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 2,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:42:37.382Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:42:43.208Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:42:54.869Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:43:04.744Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:43:15.492Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 2
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:16:03.710Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:23:43.560Z",
           "details": {
             "device": "desktop"
           }
