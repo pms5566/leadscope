@@ -133,7 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildCrmShortLinkHtml(lead, proposalUrl) {
     const shortAlias = lead.shortAlias || '';
     const base = getPreviewBaseUrl();
-    const shortUrl = lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : '');
+    const shortUrl = window.templateHost ? `${window.templateHost.replace(/\/$/, '')}/?go=${shortAlias}` : (lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : ''));
+    const displayLabel = window.templateHost ? `/?go=${shortAlias}` : `/go/${shortAlias}`;
 
     if (shortAlias) {
       return `
@@ -143,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </span>
           <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
             <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
-              /go/${shortAlias}
+              ${displayLabel}
             </a>
             <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied short link!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Short Link">
               <i class="fa-solid fa-copy"></i>
@@ -3042,15 +3043,15 @@ window.generateLink = async function () {
 
     const shortUrl = result.shortUrl;
 
-    // Determine the active link to show and copy (Vercel if configured, otherwise short link)
-    const activeLink = window.templateHost ? longUrl : shortUrl;
+    // Determine the active link to show and copy (Vercel short link if configured, otherwise fallback short link)
+    const activeLink = window.templateHost ? `${window.templateHost.replace(/\/$/, '')}/?go=${result.alias}` : shortUrl;
 
     if (outputEl) {
       outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;
     }
 
     if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = activeLink; }
-    const localOpenUrl = window.templateHost ? longUrl : (window.location.origin + '/go/' + result.alias);
+    const localOpenUrl = activeLink;
     if (openBtn) { openBtn.href = localOpenUrl; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
 
     const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${activeLink}`;

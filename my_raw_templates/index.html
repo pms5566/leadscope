@@ -490,9 +490,60 @@
 
   <!-- Viewport Switch Controller Script -->
   <script>
+      const GITHUB_REPO_PATH = "pms5566/leadscope";
+
       (async function() {
         // 1. Read Query Parameters
         const urlParams = new URLSearchParams(window.location.search);
+        
+        // 🔗 Resolve ?go=alias client-side from GitHub leads_db.json
+        const goAlias = urlParams.get('go');
+        if (goAlias) {
+          try {
+            document.body.innerHTML = `
+              <div style="background-color: #0b0f19; color: #f1f5f9; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0;">
+                <div style="font-size: 2rem; color: #00f2fe; margin-bottom: 1rem;"><i class="fa-solid fa-circle-notch fa-spin"></i></div>
+                <h2 style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0.25rem;">Personalizing Demo...</h2>
+                <p style="color: #64748b; font-size: 0.8rem;">Connecting securely to LeadScope cloud...</p>
+              </div>
+            `;
+            
+            const dbRes = await fetch(`https://raw.githubusercontent.com/${GITHUB_REPO_PATH}/main/leads_db.json?t=${Date.now()}`);
+            if (!dbRes.ok) throw new Error('Database fetch failed');
+            const db = await dbRes.json();
+            
+            let targetUrl = db.shortLinks ? db.shortLinks[goAlias] : null;
+            if (!targetUrl && db.leads) {
+              const leadObj = db.leads.find(l => l.shortAlias === goAlias || l.id === goAlias);
+              if (leadObj) {
+                const cleanNiche = (leadObj.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+                const tNiche = leadObj.portfolioLink || cleanNiche;
+                const trackingUrl = db.settings?.localTrackingUrl || '';
+                targetUrl = `/?niche=${tNiche}&leadId=${leadObj.id}&name=${encodeURIComponent(leadObj.name)}&phone=${encodeURIComponent(leadObj.phone || '')}&address=${encodeURIComponent(leadObj.address || '')}&trackUrl=${encodeURIComponent(trackingUrl)}`;
+              }
+            }
+
+            if (targetUrl) {
+              const urlObj = new URL(targetUrl, window.location.origin);
+              window.location.replace(window.location.origin + window.location.pathname + urlObj.search);
+              return;
+            } else {
+              document.body.innerHTML = `
+                <div style="background-color: #0b0f19; color: #f1f5f9; font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0;">
+                  <div style="background-color: #131b2e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2.5rem; max-width: 440px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+                    <div style="font-size: 3rem; color: #ef4444; margin-bottom: 1.5rem;"><i class="fa-solid fa-circle-xmark"></i></div>
+                    <h1 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Demo Not Found</h1>
+                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">This customized proposal has expired or is unavailable.</p>
+                  </div>
+                </div>
+              `;
+              return;
+            }
+          } catch (err) {
+            console.error('[Alias Lookup Error]', err);
+          }
+        }
+
         const niche = urlParams.get('niche') || 'SPA';
         const leadId = urlParams.get('leadId') || 'test-lead';
         const businessName = urlParams.get('name') || 'Our Premium Business';

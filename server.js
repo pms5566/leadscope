@@ -812,6 +812,19 @@ app.post('/api/config', async (req, res) => {
     } catch (dbErr) {
       console.error('[Config API] Failed to sync config to database:', dbErr.message);
     }
+
+    // 4. Update GITHUB_REPO_PATH inside my_raw_templates/index.html
+    if (githubUsername && githubRepo) {
+      try {
+        const indexPath = path.join(__dirname, 'my_raw_templates', 'index.html');
+        let indexContent = await fs.readFile(indexPath, 'utf8');
+        indexContent = indexContent.replace(/const GITHUB_REPO_PATH = "[^"]*";/, `const GITHUB_REPO_PATH = "${githubUsername}/${githubRepo}";`);
+        await fs.writeFile(indexPath, indexContent, 'utf8');
+        console.log('[Config] Updated GITHUB_REPO_PATH in index.html to:', `${githubUsername}/${githubRepo}`);
+      } catch (err) {
+        console.warn('[Config] Failed to update GITHUB_REPO_PATH in index.html:', err.message);
+      }
+    }
     
     res.json({
       success: true,
@@ -1098,8 +1111,8 @@ app.post('/api/scan-directory', async (req, res) => {
 const fs = require('fs').promises;
 const DB_PATH = path.join(__dirname, 'leads_db.json');
 
-const GH_OWNER = 'pms5566';
-const GH_REPO = 'leadscope';
+const GH_OWNER = process.env.GITHUB_USERNAME || 'pms5566';
+const GH_REPO = process.env.GITHUB_REPO || 'leadscope';
 const GH_PATH = 'leads_db.json';
 
 let dbQueue = Promise.resolve();
