@@ -514,17 +514,21 @@
               </div>
             `;
             
-            let dbRes;
-            try {
-               // Try the uncached real-time proxy first
-               dbRes = await fetch(`https://raw.githack.com/${GITHUB_REPO_PATH}/main/leads_db.json?t=${Date.now()}`);
-               if (!dbRes.ok) throw new Error();
-            } catch (e) {
-              // Fallback to the official raw CDN (might contain up to 5 mins of caching)
-              dbRes = await fetch(`https://raw.githubusercontent.com/${GITHUB_REPO_PATH}/main/leads_db.json?t=${Date.now()}`);
-              if (!dbRes.ok) throw new Error('Database fetch failed');
-            }
-            const db = await dbRes.json();
+            let db;
+             try {
+                // Try the uncached real-time GitHub REST API contents endpoint first (bypasses raw CDN cache)
+                const apiRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO_PATH}/contents/leads_db.json`);
+                if (!apiRes.ok) throw new Error();
+                const apiData = await apiRes.json();
+                const base64Content = apiData.content.replace(/\s/g, '');
+                const decodedStr = decodeURIComponent(escape(atob(base64Content)));
+                db = JSON.parse(decodedStr);
+             } catch (apiErr) {
+               // Fallback to the official raw CDN (might contain up to 5 mins of caching)
+               const fallbackRes = await fetch(`https://raw.githubusercontent.com/${GITHUB_REPO_PATH}/main/leads_db.json?t=${Date.now()}`);
+               if (!fallbackRes.ok) throw new Error('Database fetch failed');
+               db = await fallbackRes.json();
+             }
             
             let targetUrl = db.shortLinks ? db.shortLinks[goAlias] : null;
             if (!targetUrl && db.leads) {
