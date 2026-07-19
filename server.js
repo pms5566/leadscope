@@ -461,11 +461,12 @@ function basicAuth(req, res, next) {
     return next();
   }
 
-  // 2. Bypass authentication for client-facing routes, previews, tracking and service workers
+  // 2. Bypass authentication for client-facing routes, previews, tracking, health check and service workers
   if (
     reqPath.startsWith('/go/') || 
     reqPath.startsWith('/preview/') || 
     reqPath.startsWith('/api/track') || 
+    reqPath.startsWith('/api/health') || 
     reqPath.startsWith('/sw.js') ||
     reqPath === '/favicon.ico'
   ) {
@@ -513,6 +514,11 @@ function maskKey(key) {
   if (key.length <= 8) return "***";
   return key.substring(0, 6) + "..." + key.substring(key.length - 4);
 }
+
+// Public API Endpoint for uptime monitoring and health checks
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', time: new Date().toISOString() });
+});
 
 // API Endpoint to check configuration status
 app.get('/api/config', (req, res) => {
