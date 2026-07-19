@@ -134,8 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildCrmShortLinkHtml(lead, proposalUrl) {
     const shortAlias = lead.shortAlias || '';
     const base = getPreviewBaseUrl();
-    const shortUrl = window.templateHost ? `${window.templateHost.replace(/\/$/, '')}/${shortAlias}` : (lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : ''));
-    const displayLabel = window.templateHost ? `/${shortAlias}` : `/go/${shortAlias}`;
+    // Always use branded clean URL: templateHost/alias
+    const shortUrl = window.templateHost && shortAlias
+      ? `${window.templateHost.replace(/\/$/, '')}/${shortAlias}`
+      : (lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : ''));
+    const displayLabel = window.templateHost && shortAlias
+      ? `${window.templateHost.replace(/\/$/, '')}/${shortAlias}`
+      : (shortAlias ? `/go/${shortAlias}` : '');
 
     if (shortAlias) {
       return `
@@ -202,8 +207,13 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(result.error || 'Failed to shorten');
       }
 
-      const shortUrl = result.shortUrl;
       const shortAlias = result.alias;
+      const shortUrl = window.templateHost
+        ? `${window.templateHost.replace(/\/$/, '')}/${shortAlias}`
+        : result.shortUrl;
+      const displayLabel = window.templateHost
+        ? `${window.templateHost.replace(/\/$/, '')}/${shortAlias}`
+        : `/go/${shortAlias}`;
 
       // Update UI
       if (container) {
@@ -212,10 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fa-solid fa-shield-halved"></i> Trust Link:
           </span>
           <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
-            <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.72rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Short Link">
-              /go/${shortAlias}
+            <a class="crm-short-link-anchor" href="${shortUrl}" target="_blank" style="font-size: 0.68rem; color: var(--color-green); text-decoration: none; font-family: monospace; word-break: break-all;" title="Open Link">
+              ${displayLabel}
             </a>
-            <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied short link!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Short Link">
+            <button onclick="navigator.clipboard.writeText('${shortUrl}'); alert('Copied!');" style="background: transparent; border: none; color: var(--color-green); font-size: 0.7rem; cursor: pointer; padding: 0 4px;" title="Copy Link">
               <i class="fa-solid fa-copy"></i>
             </button>
             <button onclick="this.parentElement.nextElementSibling.style.display='flex'; this.parentElement.style.display='none';" style="background: transparent; border: none; color: var(--color-cyan); font-size: 0.65rem; cursor: pointer; padding: 0 4px;" title="Customize Alias">
@@ -1097,7 +1107,10 @@ document.addEventListener('DOMContentLoaded', () => {
           proposalUrl = lead.portfolioLink;
         } else {
           const tNiche = lead.portfolioLink || cleanNiche;
-          if (window.templateHost) {
+          // If shortAlias exists, always use the clean branded URL
+          if (window.templateHost && lead.shortAlias) {
+            proposalUrl = `${window.templateHost.replace(/\/$/, '')}/${lead.shortAlias}`;
+          } else if (window.templateHost) {
             const queryParams = new URLSearchParams();
             queryParams.set('niche', tNiche);
             queryParams.set('leadId', lead.id);
@@ -1111,9 +1124,14 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
         
-        let activeShortLink = lead.shortAlias ? `${getPreviewBaseUrl()}/go/${lead.shortAlias}` : `${getPreviewBaseUrl()}/go/${lead.id}`;
-        if (window.templateHost) {
+        // activeShortLink: prefer clean branded alias URL
+        let activeShortLink;
+        if (window.templateHost && lead.shortAlias) {
+          activeShortLink = `${window.templateHost.replace(/\/$/, '')}/${lead.shortAlias}`;
+        } else if (window.templateHost) {
           activeShortLink = proposalUrl;
+        } else {
+          activeShortLink = lead.shortAlias ? `${getPreviewBaseUrl()}/go/${lead.shortAlias}` : `${getPreviewBaseUrl()}/go/${lead.id}`;
         }
 
         const isActive = lead.active !== false;
@@ -2964,6 +2982,7 @@ window.generateLinkDraft = function () {
   const base      = getPreviewBaseUrl();
   const leadId    = 'preview_' + niche.replace(/\s+/g, '_') + '_' + Date.now();
   const fullName  = tag ? `${name} - ${tag}` : name;
+  // Draft preview: show full query URL (alias not yet generated)
   let url         = '';
   if (window.templateHost) {
     const queryParams = new URLSearchParams();
@@ -3016,6 +3035,7 @@ window.generateLink = async function () {
   const base      = getPreviewBaseUrl();
   const leadId    = 'preview_' + niche.replace(/\s+/g, '_') + '_' + Date.now();
   const fullName  = tag ? `${name} - ${tag}` : name;
+  // longUrl is sent to /api/shorten; the result alias becomes the clean branded URL
   let longUrl     = '';
   if (window.templateHost) {
     const queryParams = new URLSearchParams();
