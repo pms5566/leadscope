@@ -2830,8 +2830,9 @@
       "status": "new",
       "notes": "",
       "addedAt": "2026-07-19T11:54:46.359Z",
-      "updatedAt": "2026-07-19T11:54:46.359Z",
-      "shortAlias": "bodyzone-star-gym"
+      "updatedAt": "2026-07-19T16:07:10.397Z",
+      "shortAlias": "bodyzone-star-gym",
+      "active": false
     },
     {
       "id": "scr-xmdmas1",
@@ -3174,7 +3175,7 @@
     "new-cityman-fitness-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit-gym/scr-i7xcxng?name=New%20Cityman%20Fitness%20Gym&phone=%2B971%204%20457%209986&address=21st%20St%20-%20Al%20Bada'%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "unique-body-fitness": "https://parmeet123-leadscope.hf.space/preview/crossfit-gym/scr-zomogh9?name=Unique%20Body%20Fitness&phone=%2B971%2055%20570%201705&address=Musaffah%20-%20M3%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "olympia-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit-gym/scr-v2u2gxi?name=Olympia%20gym&phone=%2B971%2056%20895%205588&address=Apollo%20Medical%201%2C%20Liberty%20Building%20-%20Maleha%20St%20-%20Muwaileh%20Commercial%20-%20Industrial%20Area%20-%20Sharjah%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "bodyzone-star-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit-gym/scr-8wjo6nf?name=Bodyzone%20Star%20Gym&phone=%2B971%204%20262%207646&address=Fish%20Market%20-%2020B%20St%20-%20behind%20Karama%20-%20Al%20Karama%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "bodyzone-star-gym": "http://localhost:3000/preview/crossfit-gym/scr-8wjo6nf?name=Bodyzone%20Star%20Gym&phone=%2B971%204%20262%207646&address=Fish%20Market%20-%2020B%20St%20-%20behind%20Karama%20-%20Al%20Karama%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "jab-crossfit-zone": "https://parmeet123-leadscope.hf.space/preview/crossfit-gym/scr-xmdmas1?name=Jab%20CrossFit%20Zone&phone=%2B971%2056%20118%200688&address=Al%20Reem%20Island%20-%20RS6%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fitness-founders": "https://parmeet123-leadscope.hf.space/preview/crossfit-gym/scr-ka2cr0b?name=Fitness%20Founders&phone=%2B971%2050%20979%204412&address=305%2C%20DIP-1%20Green%20Community.%20Opp%20Choitram%20Mayfair%20Building%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fitness-founders-5884": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784463346775?name=Fitness%20Founders&phone=&address=",
@@ -3187,6 +3188,49 @@
     "vcxz": "http://localhost:3000/preview/gym-website/preview_gym-website_1784477083749?name=vcxz&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784477083749",
+      "name": "vcxz (gym-website)",
+      "openedAt": "2026-07-19T16:04:50.747Z",
+      "lastActiveAt": "2026-07-19T16:05:10.762Z",
+      "duration": 20,
+      "scrollPercent": 100,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T16:04:50.747Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T16:05:00.747Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T16:05:10.762Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784476732531",
       "name": "45tr (gym-website)",
@@ -6149,65 +6193,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_dermatologist_1783699314801",
-      "name": "Perfect 5 Clinic (dermatologist)",
-      "openedAt": "2026-07-10T16:02:56.467Z",
-      "lastActiveAt": "2026-07-10T16:03:37.944Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Clonee, Leinster, Ireland",
-      "countryCode": "IE",
-      "isp": "Facebook, Inc.",
-      "views": 2,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-10T16:02:56.467Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T16:03:07.429Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T16:03:17.228Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T16:03:36.991Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-10T16:03:37.944Z",
-          "details": {
-            "device": "mobile"
           }
         }
       ],
