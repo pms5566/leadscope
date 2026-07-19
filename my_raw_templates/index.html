@@ -497,7 +497,13 @@
         const urlParams = new URLSearchParams(window.location.search);
         
         // 🔗 Resolve ?mockup=alias client-side from GitHub leads_db.json
-        const goAlias = urlParams.get('mockup') || urlParams.get('go');
+        let goAlias = urlParams.get('mockup') || urlParams.get('go');
+        if (!goAlias) {
+          const pathParts = window.location.pathname.split('/').filter(Boolean);
+          if (pathParts.length === 1 && !pathParts[0].includes('.')) {
+            goAlias = pathParts[0];
+          }
+        }
         if (goAlias) {
           try {
             document.body.innerHTML = `
