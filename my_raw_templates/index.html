@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Proposal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Reset and Styling */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: #0b0f19 !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      overflow: hidden !important;
+      color: #f1f5f9 !important;
+      box-sizing: border-box !important;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit !important;
+    }
+
+    /* 3-Layer Sticky Header Banner */
+    .ls-proposal-banner {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 140px !important;
+      background: #0b0f19 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      z-index: 2147483647 !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    #ls-viewport-container {
+      margin-top: 140px !important;
+      width: 100% !important;
+      height: calc(100vh - 140px) !important;
+      overflow: auto !important;
+      background: #090d16 !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      transition: all 0.3s ease !important;
+      padding: 0 !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    #ls-viewport-container::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    /* TOP LAYER: Marquee styling */
+    .ls-marquee-wrapper {
+      background: linear-gradient(90deg, #d31a1a 0%, #f97316 100%) !important;
+      height: 28px !important;
+      display: flex !important;
+      align-items: center !important;
+      overflow: hidden !important;
+      width: 100% !important;
+    }
+    .ls-marquee-content {
+      display: inline-block !important;
+      white-space: nowrap !important;
+      animation: ls_marquee 25s linear infinite !important;
+      color: #ffffff !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+      padding-left: 100% !important;
+    }
+    @keyframes ls_marquee {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+
+    /* MIDDLE LAYER styling */
+    .ls-middle-layer {
+      height: 50px !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 0 24px !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+      background: #131b2e !important;
+    }
+    .ls-countdown-box {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .ls-timer-label {
+      font-size: 12px !important;
+      color: #94a3b8 !important;
+      font-weight: 500 !important;
+    }
+    .ls-timer-clock {
+      font-family: 'Courier New', Courier, monospace !important;
+      font-size: 18px !important;
+      font-weight: 800 !important;
+      color: #f97316 !important;
+      text-shadow: 0 0 10px rgba(249, 115, 22, 0.3) !important;
+    }
+    .ls-welcome-box {
+      font-size: 13px !important;
+      color: #e2e8f0 !important;
+    }
+    .ls-highlight-name {
+      color: #00d9f5 !important;
+      text-shadow: 0 0 8px rgba(0, 217, 245, 0.2) !important;
+    }
+
+    /* Central Device Switcher buttons */
+    .ls-banner-devices {
+      display: flex !important;
+      align-items: center !important;
+      background: rgba(255, 255, 255, 0.04) !important;
+      padding: 3px !important;
+      border-radius: 9999px !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      gap: 2px !important;
+    }
+    .ls-device-btn {
+      background: none !important;
+      border: none !important;
+      color: #64748b !important;
+      padding: 4px 12px !important;
+      border-radius: 9999px !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      outline: none !important;
+    }
+    .ls-device-btn:hover {
+      color: #cbd5e1 !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+    }
+    .ls-device-btn.active {
+      background: #00d9f5 !important;
+      color: #0f172a !important;
+      font-weight: 700 !important;
+      box-shadow: 0 2px 8px rgba(0, 217, 245, 0.3) !important;
+    }
+    .ls-device-btn svg {
+      width: 14px !important;
+      height: 14px !important;
+      fill: currentColor !important;
+    }
+
+    /* BOTTOM LAYER: Buttons container */
+    .ls-bottom-layer {
+      height: 62px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 24px !important;
+      background: #0b0f19 !important;
+    }
+    .ls-buttons-container {
+      display: flex !important;
+      gap: 12px !important;
+      width: 100% !important;
+      max-width: 900px !important;
+      justify-content: center !important;
+    }
+    .ls-btn-container-sub {
+      display: contents !important;
+    }
+
+    /* BUTTONS styling */
+    .ls-btn-action {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      padding: 10px 24px !important;
+      border-radius: 9999px !important;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      white-space: nowrap !important;
+      letter-spacing: 0.5px !important;
+    }
+    .ls-btn-action:hover {
+      transform: translateY(-2px) !important;
+    }
+    .ls-btn-action:active {
+      transform: translateY(-0.5px) !important;
+    }
+
+    /* WhatsApp Button styling (Heartbeat Scale + Notification Badge) */
+    .ls-btn-wa-pulse {
+      background: #25d366 !important;
+      color: #ffffff !important;
+      animation: ls_wa_heartbeat 1.8s infinite ease-in-out !important;
+      flex: 1.4 !important;
+      max-width: 320px !important;
+      position: relative !important;
+      overflow: visible !important;
+    }
+    
+    .ls-btn-wa-pulse i,
+    .ls-btn-wa-pulse .ls-btn-txt {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+
+    .ls-btn-wa-pulse:hover {
+      animation: none !important;
+      transform: scale(1.05) translateY(-2px) !important;
+      background: #20ba5a !important;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+    }
+    
+    /* Red Notification Badge */
+    .ls-btn-badge-notif {
+      position: absolute !important;
+      top: -6px !important;
+      right: -6px !important;
+      background: #ef4444 !important;
+      color: #ffffff !important;
+      font-size: 10px !important;
+      font-weight: 900 !important;
+      width: 18px !important;
+      height: 18px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5) !important;
+      border: 1.5px solid #0f172a !important;
+      z-index: 10 !important;
+      animation: ls_badge_wiggle 2.5s infinite ease-in-out !important;
+    }
+
+    @keyframes ls_wa_heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      40% { transform: scale(1.02); }
+      55% { transform: scale(1.06); }
+    }
+
+    @keyframes ls_badge_wiggle {
+      0%, 80%, 100% { transform: scale(1) rotate(0deg); }
+      83% { transform: scale(1.25) rotate(15deg); }
+      86% { transform: scale(1.25) rotate(-15deg); }
+      89% { transform: scale(1.25) rotate(15deg); }
+      92% { transform: scale(1.25) rotate(-15deg); }
+      95% { transform: scale(1.1) rotate(0deg); }
+    }
+
+    /* Email button */
+    .ls-btn-email-glow {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: 2px solid #00d9f5 !important;
+      box-shadow: 0 0 8px rgba(0, 217, 245, 0.1) !important;
+      flex: 1 !important;
+      max-width: 200px !important;
+    }
+    .ls-btn-email-glow:hover {
+      background: rgba(0, 217, 245, 0.1) !important;
+      box-shadow: 0 0 15px rgba(0, 217, 245, 0.3) !important;
+    }
+
+    /* Fiverr button */
+    .ls-btn-fiv-glow {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: 2px solid #f59e0b !important;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.1) !important;
+      animation: ls_wa_heartbeat 1.8s infinite ease-in-out !important;
+      animation-delay: 0.3s !important;
+      flex: 1 !important;
+      max-width: 200px !important;
+      position: relative !important;
+      overflow: visible !important;
+    }
+    .ls-btn-fiv-glow i,
+    .ls-btn-fiv-glow .ls-btn-txt {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .ls-btn-fiv-glow:hover {
+      animation: none !important;
+      transform: scale(1.05) translateY(-2px) !important;
+      background: rgba(245, 158, 11, 0.1) !important;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.3) !important;
+    }
+
+    /* Viewport screens iframe bezels */
+    #ls-viewport-screen {
+      width: 100% !important;
+      height: 100% !important;
+      background: #ffffff !important;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      display: flex !important;
+    }
+    iframe {
+      width: 1px !important;
+      min-width: 100% !important;
+      height: 100% !important;
+      border: none !important;
+      background: #ffffff !important;
+    }
+
+    body.device-mobile #ls-viewport-container {
+      padding: 40px 10px !important;
+      align-items: flex-start !important;
+    }
+    body.device-mobile #ls-viewport-screen {
+      box-sizing: content-box !important;
+      width: 375px !important;
+      height: 812px !important;
+      min-height: 812px !important;
+      max-height: 812px !important;
+      border: 12px solid #1e293b !important;
+      border-radius: 40px !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+      overflow: hidden !important;
+    }
+    body.device-mobile #ls-viewport-screen::before {
+      content: "" !important;
+      position: absolute !important;
+      top: -1px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 140px !important;
+      height: 24px !important;
+      background: #1e293b !important;
+      border-bottom-left-radius: 16px !important;
+      border-bottom-right-radius: 16px !important;
+      z-index: 999999 !important;
+      pointer-events: none !important;
+    }
+
+    body.device-tablet #ls-viewport-container {
+      padding: 40px 10px !important;
+      align-items: flex-start !important;
+    }
+    body.device-tablet #ls-viewport-screen {
+      box-sizing: content-box !important;
+      width: 768px !important;
+      height: 1024px !important;
+      min-height: 1024px !important;
+      max-height: 1024px !important;
+      border: 16px solid #1e293b !important;
+      border-radius: 28px !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+      overflow: hidden !important;
+    }
+
+    /* Small Screen adaptations (Mobiles & Tablets under 768px) */
+    @media (max-width: 768px) {
+      .ls-proposal-banner {
+        height: 172px !important;
+      }
+      #ls-viewport-container {
+        margin-top: 172px !important;
+        height: calc(100vh - 172px) !important;
+      }
+      .ls-middle-layer {
+        height: 44px !important;
+        padding: 0 12px !important;
+      }
+      .ls-welcome-box {
+        display: none !important;
+      }
+      .ls-countdown-box {
+        flex: 1 !important;
+        justify-content: center !important;
+      }
+      .ls-banner-devices {
+        display: none !important;
+      }
+      .ls-bottom-layer {
+        height: 100px !important;
+        padding: 10px 12px !important;
+      }
+      .ls-buttons-container {
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+      }
+      .ls-btn-container-sub {
+        display: flex !important;
+        gap: 8px !important;
+        width: 100% !important;
+      }
+      .ls-btn-action {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 12px 16px !important;
+        font-size: 11px !important;
+        border-radius: 8px !important;
+      }
+      .ls-btn-wa-pulse {
+        flex: none !important;
+        animation: none !important;
+        background: #25d366 !important;
+      }
+      .ls-btn-fiv-glow {
+        animation: none !important;
+        flex: 1 !important;
+      }
+      .ls-btn-email-glow {
+        flex: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="device-desktop">
+
+  <!-- Fixed Proposal Banner overlay -->
+  <div class="ls-proposal-banner">
+    <!-- TOP LAYER: Scrolling marquee -->
+    <div class="ls-marquee-wrapper">
+      <div class="ls-marquee-content">
+        <span>📉 80% of customers search online first · Don't lose them to competitors who have a website · 📉 80% of customers search online first · Don't lose them to competitors who have a website</span>
+      </div>
+    </div>
+    
+    <!-- MIDDLE LAYER: countdown and personalized message -->
+    <div class="ls-middle-layer">
+      <div class="ls-countdown-box">
+        <span class="ls-timer-label">⏳ Offer expires in:</span>
+        <span class="ls-timer-clock" id="ls-countdown-clock">23:59:59</span>
+      </div>
+      
+      <!-- Central Device Switcher buttons -->
+      <div class="ls-banner-devices">
+        <button class="ls-device-btn active" id="btn-view-desktop" title="Desktop View">
+          <svg viewBox="0 0 576 512"><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"/></svg>
+        </button>
+        <button class="ls-device-btn" id="btn-view-tablet" title="Tablet View">
+          <svg viewBox="0 0 448 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM256 464c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zM384 64V384H64V64H384z"/></svg>
+        </button>
+        <button class="ls-device-btn" id="btn-view-mobile" title="Mobile View">
+          <svg viewBox="0 0 384 512"><path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zM192 464c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zM320 64V384H64V64H320z"/></svg>
+        </button>
+      </div>
+
+      <div class="ls-welcome-box">
+        <span>👋 Built exclusively for <strong class="ls-highlight-name" id="ls-brand-name">Business Name</strong></span>
+      </div>
+    </div>
+
+    <!-- BOTTOM LAYER: Contact / Order Buttons -->
+    <div class="ls-bottom-layer">
+      <div class="ls-buttons-container">
+        <!-- WhatsApp -->
+        <a href="#" target="_blank" class="ls-btn-action ls-btn-wa-pulse" id="ls-whatsapp-lnk">
+          <i class="fa-brands fa-whatsapp"></i> <span class="ls-btn-txt">MESSAGE ON WHATSAPP</span>
+          <div class="ls-btn-badge-notif">1</div>
+        </a>
+        <div class="ls-btn-container-sub">
+          <!-- Email -->
+          <a href="#" target="_blank" class="ls-btn-action ls-btn-email-glow" id="ls-email-lnk">
+            <i class="fa-solid fa-envelope"></i> <span class="ls-btn-txt">EMAIL US</span>
+          </a>
+          <!-- Fiverr -->
+          <a href="#" target="_blank" class="ls-btn-action ls-btn-fiv-glow" id="ls-fiverr-lnk">
+            <i class="fa-solid fa-cart-shopping"></i> <span class="ls-btn-txt">ORDER ON FIVERR</span>
+            <div class="ls-btn-badge-notif" style="animation-delay: 0.5s !important;">1</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Inner Iframe Viewer screen -->
+  <div id="ls-viewport-container">
+    <div id="ls-viewport-screen">
+      <iframe id="ls-proposal-iframe" src=""></iframe>
+    </div>
+  </div>
+
+
+  <!-- Viewport Switch Controller Script -->
+  <script>
+      (async function() {
+        // 1. Read Query Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const niche = urlParams.get('niche') || 'SPA';
+        const leadId = urlParams.get('leadId') || 'test-lead';
+        const businessName = urlParams.get('name') || 'Our Premium Business';
+        const phone = urlParams.get('phone') || 'Contact Us';
+        const address = urlParams.get('address') || 'Our Location';
+        const trackingUrlStr = urlParams.get('trackUrl') || '';
+
+        // 2. Resolve Niche Folder Name with Alias Map
+        const NICHE_ALIASES = {
+          'crossfit': 'cross_fit',
+          'crossfit_gym': 'cross_fit',
+          'cross_fit_gym': 'cross_fit',
+          'wellness': 'wellness_project',
+          'wellness_project': 'wellness_project',
+          'wellness_coach': 'wellness_project',
+          'nutritionist': 'wellness_project',
+          'dietitian': 'wellness_project',
+          'personal_trainer': 'fitness_trainer',
+          'fitness_coach': 'fitness_trainer',
+          'personal_coach': 'fitness_trainer',
+          'fitness': 'fitness_trainer',
+          'vinyl_wrapping': 'auto_detailing_ceramic_coating_shops',
+          'vinyl_wrapping_ppf': 'auto_detailing_ceramic_coating_shops',
+          'vinyl_wrapping_and_ppf': 'auto_detailing_ceramic_coating_shops',
+          'ppf': 'auto_detailing_ceramic_coating_shops',
+          'paint_protection_film': 'auto_detailing_ceramic_coating_shops',
+          'window_tinting': 'auto_detailing_ceramic_coating_shops',
+          'detailing': 'dynamic_auto',
+          'car_detailing': 'dynamic_auto',
+          'auto_detailing': 'dynamic_auto',
+          'car_wash': 'dynamic_auto',
+          'ceramic_coating': 'dynamic_auto',
+          'dynamic_auto': 'dynamic_auto',
+          'car_vinyl_wrap': 'auto_detailing_ceramic_coating_shops',
+          'car_vinyl_wrapping': 'auto_detailing_ceramic_coating_shops',
+          'vinyl_wrap': 'auto_detailing_ceramic_coating_shops',
+          'vinyl_wrap_shop': 'auto_detailing_ceramic_coating_shops',
+          'vinyl_wraps': 'auto_detailing_ceramic_coating_shops',
+          'car_wrapping': 'auto_detailing_ceramic_coating_shops',
+          'car_wrap': 'auto_detailing_ceramic_coating_shops',
+          'car_wraps': 'auto_detailing_ceramic_coating_shops',
+          'caterers': 'luxury_event_caterers_staffing',
+          'catering': 'luxury_event_caterers_staffing',
+          'caterer': 'luxury_event_caterers_staffing',
+          'wedding_planners': 'luxury_yacht_wedding_planners',
+          'wedding_planner': 'luxury_yacht_wedding_planners',
+          'yacht_weddings': 'luxury_yacht_wedding_planners',
+          'yacht_wedding': 'luxury_yacht_wedding_planners',
+          'aesthetic_clinic': 'aesthetic_anti_aging_medicine',
+          'aesthetic_medicine': 'aesthetic_anti_aging_medicine',
+          'anti_aging': 'aesthetic_anti_aging_medicine',
+          'anti_aging_clinic': 'aesthetic_anti_aging_medicine',
+          'medispa': 'aesthetic_anti_aging_medicine',
+          'med_spa': 'aesthetic_anti_aging_medicine',
+          'medspa': 'aesthetic_anti_aging_medicine',
+          'botox_clinic': 'aesthetic_anti_aging_medicine',
+          'botox': 'aesthetic_anti_aging_medicine',
+          'filler_clinic': 'aesthetic_anti_aging_medicine',
+          'skin_clinic': 'aesthetic_anti_aging_medicine',
+          'dermatology_clinic': 'aesthetic_anti_aging_medicine',
+          'aesthetic_anti_aging': 'aesthetic_anti_aging_medicine',
+          'student_pg': 'student_pg_accommodation',
+          'pg_accommodation': 'student_pg_accommodation',
+          'paying_guest': 'student_pg_accommodation',
+          'paying_guest_hostel': 'student_pg_accommodation',
+          'pg_hostel': 'student_pg_accommodation',
+          'student_accommodation': 'student_pg_accommodation',
+          'student_hostel': 'student_pg_accommodation',
+          'pg_rooms': 'student_pg_accommodation',
+          'pg': 'student_pg_accommodation',
+          'hostel': 'student_pg_accommodation',
+          'dermatologist': 'dermatologist',
+          'dermatology': 'dermatologist',
+          'skin_doctor': 'dermatologist',
+          'skin_specialist': 'dermatologist',
+          'skin_care_clinic': 'dermatologist',
+          'derma_clinic': 'dermatologist',
+          'acne_treatment': 'dermatologist',
+          'laser_skin_clinic': 'dermatologist',
+          'cosmetic_dermatologist': 'dermatologist',
+          'dentist': 'dentist',
+          'dental_clinic': 'dentist',
+          'dental': 'dentist',
+          'teeth_whitening': 'dentist',
+          'cosmetic_dentistry': 'dentist',
+          'orthodontist': 'dentist',
+          'braces_clinic': 'dentist',
+          'dental_implants': 'dentist',
+          'family_dentist': 'dentist',
+          'tooth_clinic': 'dentist',
+          'oral_care': 'dentist',
+          'smile_clinic': 'dentist',
+          'luxurious_salon': 'luxurious-salon-website',
+          'salon': 'luxurious-salon-website',
+          'beauty_salon': 'luxurious-salon-website',
+          'hair_salon': 'luxurious-salon-website',
+          'nail_salon': 'nail-art',
+          'spa': 'SPA',
+          'beauty_spa': 'SPA',
+          'massage_center': 'SPA',
+          'wellness_spa': 'SPA',
+          'massage': 'SPA',
+          'massage_spa': 'SPA',
+          'day_spa': 'SPA',
+          'hair_styling': 'luxurious-salon-website',
+          'skincare_clinic': 'luxurious-salon-website',
+          'luxury_salon': 'luxurious-salon-website',
+          'atelier': 'luxurious-salon-website',
+          'salon_website': 'luxurious-salon-website',
+          'nail_art': 'nail-art',
+          'nails': 'nail-art',
+          'manicure': 'nail-art',
+          'pedicure': 'nail-art',
+          'nail_care': 'nail-art',
+          'acrylic_nails': 'nail-art',
+          'gel_nails': 'nail-art',
+          'gel_manicure': 'nail-art',
+          'nail_studio': 'nail-art',
+          'nail_bar': 'nail-art',
+          'shopify': 'Shopify 1',
+          'shopify_store': 'Shopify 1'
+        };
+
+        const cleanNiche = niche.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
+        const resolvedFolder = NICHE_ALIASES[cleanNiche] || niche;
+
+        // 3. Set personalized titles and names
+        document.title = "Website Proposal — " + businessName;
+        document.getElementById('ls-brand-name').textContent = businessName;
+
+        // 4. Setup Action Buttons Links
+        const whatsappPhone = '917696507509';
+        const fiverrUrl = 'https://www.fiverr.com/s/gDeZRvL';
+        const emailAddress = 'nobizweb@gmail.com';
+        
+        const waText = encodeURIComponent('Hi! I am looking at the custom website proposal for my business, "' + businessName + '". I would like to request some custom modifications!');
+        document.getElementById('ls-whatsapp-lnk').href = 'https://wa.me/' + whatsappPhone + '?text=' + waText;
+
+        const emailSubject = encodeURIComponent('Feedback on Custom Website Proposal for ' + businessName);
+        const emailBody = encodeURIComponent('Hi!\n\nI was looking at the custom website proposal draft you created for my business, "' + businessName + '". I would like to request some modifications!');
+        document.getElementById('ls-email-lnk').href = 'mailto:' + emailAddress + '?subject=' + emailSubject + '&body=' + emailBody;
+        document.getElementById('ls-fiverr-lnk').href = fiverrUrl;
+
+        // 5. Device View Switcher
+        const body = document.body;
+        const btnDesktop = document.getElementById('btn-view-desktop');
+        const btnTablet = document.getElementById('btn-view-tablet');
+        const btnMobile = document.getElementById('btn-view-mobile');
+
+        function setDeviceView(viewName, activeBtn) {
+          body.className = '';
+          body.classList.add('device-' + viewName);
+          document.querySelectorAll('.ls-device-btn').forEach(btn => btn.classList.remove('active'));
+          activeBtn.classList.add('active');
+        }
+
+        if (btnDesktop) btnDesktop.addEventListener('click', () => setDeviceView('desktop', btnDesktop));
+        if (btnTablet) btnTablet.addEventListener('click', () => setDeviceView('tablet', btnTablet));
+        if (btnMobile) btnMobile.addEventListener('click', () => setDeviceView('mobile', btnMobile));
+
+        // 6. Countdown timer
+        function startCountdown() {
+          const clock = document.getElementById('ls-countdown-clock');
+          if (!clock) return;
+          let hours = 23;
+          let minutes = 59;
+          let seconds = 59;
+          
+          function updateClock() {
+            seconds--;
+            if (seconds < 0) {
+              seconds = 59;
+              minutes--;
+              if (minutes < 0) {
+                minutes = 59;
+                hours--;
+                if (hours < 0) {
+                  hours = 23;
+                  minutes = 59;
+                  seconds = 59;
+                }
+              }
+            }
+            clock.textContent = String(hours).padStart(2, '0') + " : " + String(minutes).padStart(2, '0') + " : " + String(seconds).padStart(2, '0');
+          }
+          setInterval(updateClock, 1000);
+        }
+        startCountdown();
+
+        // 7. Telemetry Analytics Tracking pings helper
+        const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+        async function sendEvent(event, details = {}) {
+          try {
+            const url = trackingUrlStr ? (trackingUrlStr.replace(/\/$/, '') + '/api/track') : '/api/track';
+            await fetch(url, {
+              method: 'POST',
+              headers: { 
+                'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true'
+              },
+              body: JSON.stringify({ leadId, leadName: businessName + " (" + niche + ")", event, details: { device, ...details } })
+            });
+          } catch (err) {}
+        }
+        
+        // Page open tracking
+        sendEvent('open');
+        
+        // Click tracking
+        document.getElementById('ls-fiverr-lnk').addEventListener('click', () => sendEvent('fiverr_click'));
+        document.getElementById('ls-whatsapp-lnk').addEventListener('click', () => sendEvent('whatsapp_click'));
+        document.getElementById('ls-email-lnk').addEventListener('click', () => sendEvent('email_click'));
+
+        // 8. Fetch, Personalize and Inject Template HTML inside the iframe doc
+        try {
+          const rawUrl = encodeURIComponent(resolvedFolder) + '/index.html';
+          const res = await fetch(rawUrl);
+          if (!res.ok) throw new Error('Failed to fetch template HTML');
+          let html = await res.text();
+
+          // 🔒 Client-side replacements
+          html = html.replace(/\{\{BUSINESS_NAME\}\}/g, businessName);
+          html = html.replace(/\{\{PHONE\}\}/g, phone);
+          html = html.replace(/\{\{ADDRESS\}\}/g, address);
+
+          // 🔗 Inject relative path base tag
+          html = html.replace('<head>', '<head><base href="' + encodeURIComponent(resolvedFolder) + '/">');
+
+          // Rewrite link targets to preview inside wrapper on Vercel
+          const nameParam = `name=${encodeURIComponent(businessName)}`;
+          const phoneParam = `phone=${encodeURIComponent(phone)}`;
+          const addrParam = `address=${encodeURIComponent(address)}`;
+          const queryStr = `?niche=${encodeURIComponent(niche)}&leadId=${encodeURIComponent(leadId)}&trackUrl=${encodeURIComponent(trackingUrlStr)}&${nameParam}&${phoneParam}&${addrParam}`;
+
+          html = html.replace(/href="(?!\/\/|http|https|mailto|tel|#)([^"]+\.html)([^"]*)"/g, (match, p, hash) => {
+            const cleanUrl = p.replace(/\.html$/, '');
+            return `href="../?page=${cleanUrl}&${queryStr.substring(1)}${hash || ''}"`;
+          });
+
+          // Inject personalization and scroll/heartbeat analytics script inside iframe
+          const personalizationScript = `
+            <script>
+              (function() {
+                // Address & Map embeds personalization
+                const realAddress = ${JSON.stringify(address)};
+                const realName = ${JSON.stringify(businessName)};
+                const realPhone = ${JSON.stringify(phone)};
+
+                // Replace mock map embeds
+                const mapIframe = document.querySelector('iframe[src*="google.com/maps"]');
+                if (mapIframe && realAddress && realAddress !== 'N/A') {
+                  mapIframe.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(realAddress) + '&t=&z=13&ie=UTF8&iwloc=&output=embed';
+                }
+              })();
+            <\/script>
+          `;
+
+          const trackingScript = `
+            <script>
+              (function() {
+                const leadId = ${JSON.stringify(leadId)};
+                const leadName = ${JSON.stringify(businessName + ' (' + niche + ')')};
+                const device = /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+                const trackingUrl = ${JSON.stringify(trackingUrlStr)};
+
+                async function sendEvent(event, details = {}) {
+                  try {
+                    const url = trackingUrl ? (trackingUrl.replace(/\\/$/, '') + '/api/track') : '/api/track';
+                    await fetch(url, {
+                      method: 'POST',
+                      headers: { 
+                        'Content-Type': 'application/json',
+                        'ngrok-skip-browser-warning': 'true'
+                      },
+                      body: JSON.stringify({ leadId, leadName, event, details: { device, ...details } })
+                    });
+                  } catch (err) {}
+                }
+
+                let totalSeconds = 0;
+                let maxScroll = 0;
+                
+                window.addEventListener('scroll', (e) => {
+                  let scrollTop = window.scrollY || document.documentElement.scrollTop;
+                  let scrollHeight = document.documentElement.scrollHeight;
+                  let clientHeight = document.documentElement.clientHeight;
+                  
+                  if (e.target && e.target !== document && e.target !== window) {
+                    scrollTop = e.target.scrollTop;
+                    scrollHeight = e.target.scrollHeight;
+                    clientHeight = e.target.clientHeight;
+                  }
+                  
+                  const denom = scrollHeight - clientHeight;
+                  const scrollPercent = denom > 0 ? Math.round((scrollTop / denom) * 100) : 0;
+                  if (scrollPercent > maxScroll) {
+                    maxScroll = scrollPercent;
+                  }
+                }, true);
+                
+                setInterval(() => {
+                  totalSeconds += 10;
+                  sendEvent('heartbeat', { seconds: 10, scrollPercent: maxScroll });
+                }, 10000);
+              })();
+            <\/script>
+          `;
+
+          const hideScrollbarStyle = `
+            <style>
+              ::-webkit-scrollbar {
+                display: none !important;
+                width: 0 !important;
+                height: 0 !important;
+              }
+              html, body {
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+              }
+            </style>
+          `;
+
+          html = html.replace('</head>', hideScrollbarStyle + '</head>');
+          html = html.replace('</body>', personalizationScript + trackingScript + '</body>');
+
+          // Inject into iframe doc safely
+          const iframe = document.getElementById('ls-proposal-iframe');
+          const doc = iframe.contentDocument || iframe.contentWindow.document;
+          doc.open();
+          doc.write(html);
+          doc.close();
+
+        } catch (err) {
+          console.error('[Proposal Render Error]', err);
+          document.getElementById('ls-viewport-container').innerHTML = `
+            <div style="padding: 40px; text-align: center; color: #ef4444; font-weight: bold;">
+              <h2>Failed to Load Design Proposal</h2>
+              <p>Please check the niche alias and templates folder.</p>
+            </div>
+          `;
+        }
+      })();
+  </script>
+</body>
+</html>
