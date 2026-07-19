@@ -2688,9 +2688,9 @@
       "niche": "CrossFit gym",
       "location": "uae",
       "status": "new",
-      "notes": "[9:02:19 PM] Opened Proposal Preview Link",
+      "notes": "[9:02:19 PM] Opened Proposal Preview Link\n[9:27:56 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-19T11:51:56.433Z",
-      "updatedAt": "2026-07-19T15:32:19.465Z",
+      "updatedAt": "2026-07-19T15:57:56.173Z",
       "shortAlias": "strong-gym-hq",
       "analytics": {
         "opened": "Yes",
@@ -3383,7 +3383,7 @@
       "leadId": "scr-802c1en",
       "name": "Strong Gym HQ",
       "openedAt": "2026-07-19T15:32:19.465Z",
-      "lastActiveAt": "2026-07-19T15:32:19.465Z",
+      "lastActiveAt": "2026-07-19T15:57:56.173Z",
       "duration": 0,
       "scrollPercent": 0,
       "location": "Mumbai, Maharashtra, India",
@@ -3397,6 +3397,13 @@
         {
           "event": "open",
           "timestamp": "2026-07-19T15:32:19.465Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:57:56.173Z",
           "details": {
             "device": "desktop"
           }
