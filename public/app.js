@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildCrmShortLinkHtml(lead, proposalUrl) {
     const shortAlias = lead.shortAlias || '';
     const base = getPreviewBaseUrl();
-    const shortUrl = shortAlias ? `${base}/go/${shortAlias}` : '';
+    const shortUrl = lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : '');
 
     if (shortAlias) {
       return `

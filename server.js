@@ -1402,6 +1402,18 @@ function getBaseUrlFromReq(req) {
   return `${protocol}://${host}`;
 }
 
+async function getTinyUrl(longUrl) {
+  try {
+    const res = await axios.get(`http://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`, { timeout: 4500 });
+    if (res.status === 200 && res.data && res.data.startsWith('http')) {
+      return res.data.trim();
+    }
+  } catch (e) {
+    console.error('[TinyURL Error]:', e.message);
+  }
+  return null;
+}
+
 function slugify(text) {
   return text
     .toString()
@@ -1694,7 +1706,16 @@ app.post('/api/shorten', async (req, res) => {
     await writeDb(db);
 
     const baseUrl = getBaseUrlFromReq(req);
-    res.json({ success: true, shortUrl: `${baseUrl}/go/${alias}`, alias });
+    let shortUrl = `${baseUrl}/go/${alias}`;
+
+    // Dynamically shorten Vercel/Cloudflare URLs using TinyURL for 24/7 reliability
+    let tinyUrl = null;
+    const templateHost = db.settings?.templateHost || process.env.TEMPLATE_HOST || '';
+    if (longUrl.includes('vercel.app') || longUrl.includes('pages.dev') || templateHost) {
+      tinyUrl = await getTinyUrl(longUrl);
+    }
+
+    res.json({ success: true, shortUrl: tinyUrl || shortUrl, alias, rawShortUrl: shortUrl, tinyUrl });
   } catch (error) {
     console.error('Failed to shorten link:', error);
     res.status(500).json({ error: 'Failed to shorten link: ' + error.message });
@@ -1799,11 +1820,24 @@ app.post('/api/crm/shorten', async (req, res) => {
     // Determine the actual long URL for this lead
     const baseUrl = getBaseUrlFromReq(req);
     const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
+    const tNiche = lead.portfolioLink || cleanNiche;
     let longUrl = '';
+    
+    const templateHost = db.settings?.templateHost || process.env.TEMPLATE_HOST || '';
+    const trackingUrl = db.settings?.localTrackingUrl || process.env.LOCAL_TRACKING_URL || '';
+
     if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
       longUrl = lead.portfolioLink;
+    } else if (templateHost) {
+      const queryParams = new URLSearchParams();
+      queryParams.set('niche', tNiche);
+      queryParams.set('leadId', lead.id);
+      queryParams.set('name', lead.name || '');
+      queryParams.set('phone', lead.phone || '');
+      queryParams.set('address', lead.address || '');
+      queryParams.set('trackUrl', trackingUrl);
+      longUrl = `${templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
     } else {
-      const tNiche = lead.portfolioLink || cleanNiche;
       longUrl = `${baseUrl}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
     }
 
@@ -1813,11 +1847,21 @@ app.post('/api/crm/shorten', async (req, res) => {
     // Save shortAlias inside lead object
     lead.shortAlias = alias;
     lead.updatedAt = new Date().toISOString();
-    db.leads[leadIndex] = lead;
 
+    // Dynamically shorten Vercel URL with TinyURL for 24/7 access
+    let tinyUrl = null;
+    if (longUrl.includes('vercel.app') || longUrl.includes('pages.dev') || templateHost) {
+      tinyUrl = await getTinyUrl(longUrl);
+      if (tinyUrl) {
+        lead.tinyUrl = tinyUrl;
+      }
+    }
+
+    db.leads[leadIndex] = lead;
     await writeDb(db);
 
-    res.json({ success: true, shortUrl: `${baseUrl}/go/${alias}`, alias });
+    const shortUrl = `${baseUrl}/go/${alias}`;
+    res.json({ success: true, shortUrl: tinyUrl || shortUrl, alias, tinyUrl });
   } catch (error) {
     console.error('Failed to shorten CRM lead link:', error);
     res.status(500).json({ error: 'Failed to shorten lead link: ' + error.message });
