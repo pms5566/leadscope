@@ -2736,14 +2736,14 @@
       "niche": "CrossFit",
       "location": "Dubai",
       "status": "new",
-      "notes": "[2:06:17 PM] Opened Proposal Preview Link",
+      "notes": "[2:06:17 PM] Opened Proposal Preview Link\n[2:06:28 PM] Visited for 10s (Scrolled: 100%)",
       "addedAt": "2026-07-19T08:33:20.211Z",
-      "updatedAt": "2026-07-19T08:36:17.533Z",
+      "updatedAt": "2026-07-19T08:36:28.175Z",
       "shortAlias": "camp-star-gym",
       "analytics": {
         "opened": "Yes",
-        "timeSpent": 0,
-        "maxScroll": 0,
+        "timeSpent": 10,
+        "maxScroll": 100,
         "fiverrClicked": "No",
         "whatsappClicked": "No",
         "emailClicked": "No"
@@ -3019,16 +3019,17 @@
     "thrive-fitness": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-v6j6usw?name=Thrive%20Fitness&phone=N%2FA&address=Umm%20Suqeim%20St%20-%20Al%20Barsha%20Second%20-%201%2F22%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fitness-style-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-206ofoq?name=Fitness%20Style%20Gym&phone=%2B971%2052%20772%206741&address=Persia%20Cluster%2C%20Building%20N-15%2C%20International%20City%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fitness-empire": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-wnubiwf?name=Fitness%20Empire&phone=%2B971%2052%20117%200691&address=Al%20Muraqqabat%20-%20Deira%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "camp-star-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-ji4s69c?name=Camp%20Star%20Gym&phone=%2B971%2055%20849%204455&address=Warsan%20First%20-%20France%20Cluster%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "camp-star-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-ji4s69c?name=Camp%20Star%20Gym&phone=%2B971%2055%20849%204455&address=Warsan%20First%20-%20France%20Cluster%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "camp-star-gym-d07a": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784450229208?name=Camp%20Star%20Gym&phone=&address="
   },
   "activeVisits": [
     {
       "leadId": "scr-ji4s69c",
       "name": "Camp Star Gym",
       "openedAt": "2026-07-19T08:36:17.533Z",
-      "lastActiveAt": "2026-07-19T08:36:17.533Z",
-      "duration": 0,
-      "scrollPercent": 0,
+      "lastActiveAt": "2026-07-19T08:36:28.175Z",
+      "duration": 10,
+      "scrollPercent": 100,
       "location": "Nepalgunj, Lumbini Province, Nepal",
       "countryCode": "NP",
       "isp": "WorldLink Communications",
@@ -3042,6 +3043,15 @@
           "timestamp": "2026-07-19T08:36:17.533Z",
           "details": {
             "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T08:36:28.175Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
           }
         }
       ],
