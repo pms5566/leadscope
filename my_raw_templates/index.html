@@ -516,9 +516,9 @@
             
             let dbRes;
             try {
-              // Try the uncached real-time proxy first
-              dbRes = await fetch(`https://raw.githack.com/${GITHUB_REPO_PATH}/main/leads_db.json`);
-              if (!dbRes.ok) throw new Error();
+               // Try the uncached real-time proxy first
+               dbRes = await fetch(`https://raw.githack.com/${GITHUB_REPO_PATH}/main/leads_db.json?t=${Date.now()}`);
+               if (!dbRes.ok) throw new Error();
             } catch (e) {
               // Fallback to the official raw CDN (might contain up to 5 mins of caching)
               dbRes = await fetch(`https://raw.githubusercontent.com/${GITHUB_REPO_PATH}/main/leads_db.json?t=${Date.now()}`);
