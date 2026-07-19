@@ -2520,6 +2520,28 @@
       "addedAt": "2026-07-19T08:32:54.749Z",
       "updatedAt": "2026-07-19T08:32:54.749Z",
       "shortAlias": "restart-fitness-center-gym"
+    },
+    {
+      "id": "scr-uykn20l",
+      "name": "Crony Fitness",
+      "address": "Souq Block C - Warsan First - Warsan 2 - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 4 570 3888",
+      "googleMapsUri": "https://www.google.com/maps/place/Crony+Fitness/data=!4m7!3m6!1s0x3e5f674b071456ab:0x30f088f26e1cac55!8m2!3d25.156482!4d55.3998787!16s%2Fg%2F11l3x3rsfs!19sChIJq1YUB0tnXz4RVawcbvKI8DA?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/cronyfitness/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/97145703888",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Dubai",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-19T08:33:07.101Z",
+      "updatedAt": "2026-07-19T08:33:07.101Z",
+      "shortAlias": "crony-fitness"
     }
   ],
   "shortLinks": {
@@ -2781,7 +2803,8 @@
     "taal-studio-dubai": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268816-6?name=Taal%20Studio%20Dubai&phone=N%2FA&address=Dubai",
     "savant-dubai": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268817-12?name=Savant%20Dubai&phone=N%2FA&address=Dubai",
     "maya-blu-yoga-studio": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268817-18?name=Maya%20blu%20yoga%20studio&phone=N%2FA&address=Dubai",
-    "restart-fitness-center-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-0mga4pz?name=ReStart%20Fitness%20Center%20%26%20Gym&phone=%2B971%2056%20873%209633&address=18%20Kuwait%20St%20-%20Al%20Raffa%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "restart-fitness-center-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-0mga4pz?name=ReStart%20Fitness%20Center%20%26%20Gym&phone=%2B971%2056%20873%209633&address=18%20Kuwait%20St%20-%20Al%20Raffa%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "crony-fitness": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-uykn20l?name=Crony%20Fitness&phone=%2B971%204%20570%203888&address=Souq%20Block%20C%20-%20Warsan%20First%20-%20Warsan%202%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
