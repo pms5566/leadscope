@@ -3171,9 +3171,58 @@
     "fitness-founders": "https://parmeet123-leadscope.hf.space/preview/crossfit-gym/scr-ka2cr0b?name=Fitness%20Founders&phone=%2B971%2050%20979%204412&address=305%2C%20DIP-1%20Green%20Community.%20Opp%20Choitram%20Mayfair%20Building%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fitness-founders-5884": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784463346775?name=Fitness%20Founders&phone=&address=",
     "abnyt": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784471896580?name=abnyt&phone=&address=",
-    "t0": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784474300768?name=t0&phone=&address="
+    "t0": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784474300768?name=t0&phone=&address=",
+    "ab-svhi": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784474513929?name=ab&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784474300768",
+      "name": "t0 (gym-website)",
+      "openedAt": "2026-07-19T15:18:27.226Z",
+      "lastActiveAt": "2026-07-19T15:18:54.926Z",
+      "duration": 10,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 3,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:18:27.226Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:18:33.561Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T15:18:44.002Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:18:54.926Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": true
+    },
     {
       "leadId": "preview_gym-website_1784456818916",
       "name": "Taal Studio Dubai (gym-website)",
@@ -6377,90 +6426,6 @@
         }
       ],
       "isHot": false
-    },
-    {
-      "leadId": "preview_SPA_1783623792765",
-      "name": "Spa Alhana (SPA)",
-      "openedAt": "2026-07-09T19:03:30.364Z",
-      "lastActiveAt": "2026-07-09T19:15:44.127Z",
-      "duration": 50,
-      "scrollPercent": 91,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 3,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-09T19:03:30.364Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-09T19:06:25.751Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:06:36.607Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-09T19:15:03.137Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:15.179Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:24.130Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 2
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:34.129Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 18
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:44.127Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 91
-          }
-        }
-      ],
-      "isHot": true
     }
   ],
   "settings": {
