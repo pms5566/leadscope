@@ -2330,6 +2330,30 @@
       "addedAt": "2026-07-18T13:58:24.778Z",
       "updatedAt": "2026-07-18T16:59:38.651Z",
       "shortAlias": "coach-mubu-ochj"
+    },
+    {
+      "id": "meta-1784439268816-2",
+      "name": "Step N Groove Dance Studio",
+      "address": "Dubai",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/StepNGrooveDance",
+      "instagram": "https://www.instagram.com/StepNGrooveDance/",
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Step%20N%20Groove%20Dance%20Studio%20Dubai",
+      "niche": "yoga studio",
+      "location": "Dubai",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-19T05:39:47.119Z",
+      "updatedAt": "2026-07-19T05:39:47.119Z",
+      "shortAlias": "step-n-groove-dance-studio"
     }
   ],
   "shortLinks": {
@@ -2583,7 +2607,8 @@
     "bwell-coaching-rz7y": "https://parmeet123-leadscope.hf.space/preview/Cross%20Fit/preview_Cross_Fit_1784394392254?name=b.well%20coaching&phone=&address=",
     "zarya-wellness-health-club-nlfy": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784395087073?name=Zarya%20%20Wellness%20%20Health%20Club&phone=&address=",
     "fitmomdubai-rntv": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784395199985?name=Fitmomdubai&phone=&address=",
-    "fitty-health-club-2ej7": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784395601558?name=Fitty%20Health%20Club&phone=&address="
+    "fitty-health-club-2ej7": "https://parmeet123-leadscope.hf.space/preview/wellness-project/preview_wellness-project_1784395601558?name=Fitty%20Health%20Club&phone=&address=",
+    "step-n-groove-dance-studio": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268816-2?name=Step%20N%20Groove%20Dance%20Studio&phone=N%2FA&address=Dubai"
   },
   "activeVisits": [
     {
