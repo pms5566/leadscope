@@ -3224,9 +3224,35 @@
     "pmt-b5y3": "https://leadscope-bice.vercel.app/?niche=dermatologist&leadId=preview_dermatologist_1784482983053&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "pmt-7j6i": "https://leadscope-bice.vercel.app/?niche=roofing+contractors&leadId=preview_roofing_contractors_1784483069978&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "pmt-gl7h": "https://leadscope-bice.vercel.app/?niche=doctor&leadId=preview_doctor_1784483129460&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "00t00": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784483553453&name=00t00&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "00t00": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784483553453&name=00t00&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "00t00-k17q": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784483569399&name=00t00&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784483553453",
+      "name": "00t00 (gym-website)",
+      "openedAt": "2026-07-19T17:52:42.964Z",
+      "lastActiveAt": "2026-07-19T17:52:42.964Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:52:42.964Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_roofing_contractors_1784483069978",
       "name": "p[mt (roofing contractors)",
@@ -5948,38 +5974,6 @@
           "timestamp": "2026-07-14T16:22:57.055Z",
           "details": {
             "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "scr-husr35q",
-      "name": "Je Inara skin care and Aesthetic centre (dermatology)",
-      "openedAt": "2026-07-14T07:26:59.489Z",
-      "lastActiveAt": "2026-07-14T09:19:44.264Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Lucknow, Uttar Pradesh, India",
-      "countryCode": "IN",
-      "isp": "Reliance Jio Infocomm Limited",
-      "views": 2,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-14T07:26:59.489Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-14T09:19:44.264Z",
-          "details": {
-            "device": "mobile"
           }
         }
       ],
