@@ -779,7 +779,7 @@
           html = html.replace(/\{\{ADDRESS\}\}/g, address);
 
           // 🔗 Inject relative path base tag
-          html = html.replace('<head>', '<head><base href="' + encodeURIComponent(resolvedFolder) + '/">');
+          html = html.replace(/<head>/i, '<head><base href="' + window.location.origin + '/' + encodeURIComponent(resolvedFolder) + '/">');
 
           // Rewrite link targets to preview inside wrapper on Vercel
           const nameParam = `name=${encodeURIComponent(businessName)}`;
