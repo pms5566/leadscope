@@ -516,9 +516,9 @@
             
             let db;
              try {
-                // Try the uncached real-time GitHub REST API contents endpoint first (bypasses raw CDN cache)
-                 const apiRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO_PATH}/contents/leads_db.json`);
-                 if (!apiRes.ok) throw new Error();
+                 // Try the uncached real-time GitHub REST API contents endpoint first (bypasses raw CDN cache)
+                  const apiRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO_PATH}/contents/leads_db.json?t=${Date.now()}`, { cache: 'no-store' });
+                  if (!apiRes.ok) throw new Error();
                  const apiData = await apiRes.json();
                  const base64Content = apiData.content.replace(/\s/g, '');
                  const binaryString = atob(base64Content);
