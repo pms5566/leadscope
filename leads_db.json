@@ -3181,9 +3181,204 @@
     "abnyt": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784471896580?name=abnyt&phone=&address=",
     "t0": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784474300768?name=t0&phone=&address=",
     "ab-svhi": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784474513929?name=ab&phone=&address=",
-    "1q": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475112111?name=1q&phone=&address="
+    "1q": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475112111?name=1q&phone=&address=",
+    "ab-f7nt": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475356317?name=AB&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784456498999",
+      "name": "ReStart  Fitness  Center  & Gym (gym-website)",
+      "openedAt": "2026-07-19T11:09:25.379Z",
+      "lastActiveAt": "2026-07-19T15:32:34.889Z",
+      "duration": 390,
+      "scrollPercent": 100,
+      "location": "Masdar City, Abu Dhabi, United Arab Emirates",
+      "countryCode": "AE",
+      "isp": "EMIRATES TELECOMMUNICATIONS GROUP COMPANY (ETISALAT GROUP) PJSC",
+      "views": 2,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:13:05.782Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:13:15.887Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:13:25.922Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:13:35.905Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:13:45.785Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:13:55.925Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:14:05.854Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:14:15.894Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:14:25.928Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:14:35.990Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:14:46.038Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:14:56.032Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:15:05.861Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:15:15.900Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:15:25.968Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:15:35.963Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:15:45.903Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "whatsapp_click",
+          "timestamp": "2026-07-19T11:15:55.622Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T11:15:55.791Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:32:34.889Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "scr-802c1en",
       "name": "Strong Gym HQ",
@@ -3475,202 +3670,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 57
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784456498999",
-      "name": "ReStart  Fitness  Center  & Gym (gym-website)",
-      "openedAt": "2026-07-19T11:09:25.379Z",
-      "lastActiveAt": "2026-07-19T11:15:55.791Z",
-      "duration": 390,
-      "scrollPercent": 100,
-      "location": "Masdar City, Abu Dhabi, United Arab Emirates",
-      "countryCode": "AE",
-      "isp": "EMIRATES TELECOMMUNICATIONS GROUP COMPANY (ETISALAT GROUP) PJSC",
-      "views": 2,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:12:55.831Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:05.782Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:15.887Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:25.922Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:35.905Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:45.785Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:55.925Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:05.854Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:15.894Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:25.928Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:35.990Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:46.038Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:56.032Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:05.861Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:15.900Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:25.968Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:35.963Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:45.903Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "whatsapp_click",
-          "timestamp": "2026-07-19T11:15:55.622Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:55.791Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
           }
         }
       ],
