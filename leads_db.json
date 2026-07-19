@@ -2538,13 +2538,13 @@
       "niche": "CrossFit",
       "location": "Dubai",
       "status": "new",
-      "notes": "[3:37:42 PM] Opened Proposal Preview Link",
+      "notes": "[3:37:42 PM] Opened Proposal Preview Link\n[3:37:52 PM] Visited for 10s (Scrolled: 0%)\n[3:38:02 PM] Visited for 20s (Scrolled: 0%)",
       "addedAt": "2026-07-19T08:33:07.101Z",
-      "updatedAt": "2026-07-19T10:07:42.349Z",
+      "updatedAt": "2026-07-19T10:08:02.783Z",
       "shortAlias": "crony-fitness",
       "analytics": {
         "opened": "Yes",
-        "timeSpent": 0,
+        "timeSpent": 20,
         "maxScroll": 0,
         "fiverrClicked": "No",
         "whatsappClicked": "No",
@@ -3024,15 +3024,16 @@
     "champions-gym-t1bp": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784451563843?name=Champions%20Gym&phone=&address=",
     "battalion-fitness-lgcm": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784451734102?name=Battalion%20Fitness&phone=&address=",
     "hiitbox-noid": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784451905802?name=Hiitbox&phone=&address=",
-    "hitbox": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455368923?name=Hitbox&phone=&address="
+    "hitbox": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455368923?name=Hitbox&phone=&address=",
+    "crony-fitness-cd3a": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455683217?name=Crony%20Fitness&phone=&address="
   },
   "activeVisits": [
     {
       "leadId": "scr-uykn20l",
       "name": "Crony Fitness",
       "openedAt": "2026-07-19T10:07:42.349Z",
-      "lastActiveAt": "2026-07-19T10:07:42.349Z",
-      "duration": 0,
+      "lastActiveAt": "2026-07-19T10:08:02.783Z",
+      "duration": 20,
       "scrollPercent": 0,
       "location": "Prineville, Oregon, United States",
       "countryCode": "US",
@@ -3047,6 +3048,24 @@
           "timestamp": "2026-07-19T10:07:42.349Z",
           "details": {
             "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:07:52.844Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:08:02.783Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
           }
         }
       ],
