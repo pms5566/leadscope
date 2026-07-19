@@ -2688,10 +2688,18 @@
       "niche": "CrossFit gym",
       "location": "uae",
       "status": "new",
-      "notes": "",
+      "notes": "[9:02:19 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-19T11:51:56.433Z",
-      "updatedAt": "2026-07-19T11:51:56.433Z",
-      "shortAlias": "strong-gym-hq"
+      "updatedAt": "2026-07-19T15:32:19.465Z",
+      "shortAlias": "strong-gym-hq",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "scr-8zxvlfc",
@@ -3176,6 +3184,56 @@
     "1q": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475112111?name=1q&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "scr-802c1en",
+      "name": "Strong Gym HQ",
+      "openedAt": "2026-07-19T15:32:19.465Z",
+      "lastActiveAt": "2026-07-19T15:32:19.465Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:32:19.465Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_gym-website_1784475112111",
+      "name": "1q (gym-website)",
+      "openedAt": "2026-07-19T15:32:02.910Z",
+      "lastActiveAt": "2026-07-19T15:32:02.910Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:32:02.910Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784474300768",
       "name": "t0 (gym-website)",
@@ -6094,339 +6152,6 @@
         }
       ],
       "isHot": true
-    },
-    {
-      "leadId": "meta-1783326084804-13",
-      "name": "Medlounges Express - Kochi",
-      "openedAt": "2026-07-10T05:45:58.638Z",
-      "lastActiveAt": "2026-07-10T08:33:55.780Z",
-      "duration": 130,
-      "scrollPercent": 86,
-      "location": "Kochi, Kerala, India",
-      "countryCode": "IN",
-      "isp": "Vodafone Essar Limited-Value Added Services",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:45:58.638Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:46:08.937Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:46:18.783Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:46:28.903Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:46:38.811Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:46:49.205Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T08:33:04.923Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T08:33:05.726Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T08:33:15.726Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T08:33:25.941Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T08:33:35.732Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T08:33:46.805Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T08:33:55.780Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 86
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_dermatologist_1783534201853",
-      "name": "Kirat (dermatologist)",
-      "openedAt": "2026-07-09T19:00:08.329Z",
-      "lastActiveAt": "2026-07-09T20:50:53.397Z",
-      "duration": 280,
-      "scrollPercent": 76,
-      "location": "Pune, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "BSNL Internet",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Edge",
-      "events": [
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:08:08.249Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:09:08.242Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:10:08.325Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:11:12.986Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:12:08.423Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:13:08.701Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:14:08.221Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:15:08.090Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:16:08.233Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:17:13.633Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:18:08.211Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:19:08.356Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:36:36.374Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:54:36.965Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:55:36.833Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:56:36.849Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:57:36.901Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:58:36.860Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T19:59:36.870Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-09T20:50:53.397Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 76
-          }
-        }
-      ],
-      "isHot": false
     }
   ],
   "settings": {
