@@ -525,7 +525,8 @@
 
             if (targetUrl) {
               const urlObj = new URL(targetUrl, window.location.origin);
-              window.location.replace(window.location.origin + window.location.pathname + urlObj.search);
+              // ✅ Redirect to root '/' so Vercel does NOT re-match the /:alias rewrite rule
+              window.location.replace(window.location.origin + '/' + urlObj.search);
               return;
             } else {
               document.body.innerHTML = `
