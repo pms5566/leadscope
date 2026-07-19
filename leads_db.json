@@ -2625,10 +2625,10 @@
       "foundWebsiteUrl": null,
       "niche": "CrossFit",
       "location": "Dubai",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-19T08:33:16.500Z",
-      "updatedAt": "2026-07-19T08:33:16.500Z",
+      "updatedAt": "2026-07-19T09:01:00.809Z",
       "shortAlias": "champions-gym"
     },
     {
@@ -3038,6 +3038,31 @@
     "champions-gym-t1bp": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784451563843?name=Champions%20Gym&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784451563843",
+      "name": "Champions Gym (gym-website)",
+      "openedAt": "2026-07-19T09:00:46.306Z",
+      "lastActiveAt": "2026-07-19T09:00:46.306Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T09:00:46.306Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "scr-r60gqec",
       "name": "247 Gym - The Fitness District",
