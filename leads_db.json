@@ -3219,9 +3219,35 @@
     "you9": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784482670441&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "you9-2crn": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482696494&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "you9-y70e": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482708524&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "pmt": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482936714&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "pmt": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482936714&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "pmt-wx09": "https://leadscope-bice.vercel.app/?niche=dermatologist&leadId=preview_dermatologist_1784482959482&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784482936714",
+      "name": "p[mt (gym-website)",
+      "openedAt": "2026-07-19T17:42:24.444Z",
+      "lastActiveAt": "2026-07-19T17:42:24.444Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:42:24.444Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym_1784481312176",
       "name": "Town Center Fitness (gym)",
@@ -6104,74 +6130,6 @@
             "device": "mobile",
             "seconds": 10,
             "scrollPercent": 17
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_dentist_1783885512033",
-      "name": "BEAUTY BUZZ (dentist)",
-      "openedAt": "2026-07-12T19:45:27.905Z",
-      "lastActiveAt": "2026-07-12T19:48:12.530Z",
-      "duration": 40,
-      "scrollPercent": 0,
-      "location": "Portland, Oregon, United States",
-      "countryCode": "US",
-      "isp": "Amazon.com, Inc.",
-      "views": 2,
-      "device": "mobile",
-      "os": "iOS",
-      "browser": "Safari",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:45:27.905Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:45:39.767Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:47:39.698Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:47:51.300Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:48:00.714Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:48:12.530Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
           }
         }
       ],
