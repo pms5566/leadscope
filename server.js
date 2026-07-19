@@ -1,3 +1,22 @@
+// Capture console output for cloud environment debugging
+const logHistory = [];
+const originalLog = console.log;
+const originalError = console.error;
+
+console.log = function(...args) {
+  const msg = args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ');
+  logHistory.push(`[LOG] [${new Date().toISOString()}] ${msg}`);
+  if (logHistory.length > 300) logHistory.shift();
+  originalLog.apply(console, args);
+};
+
+console.error = function(...args) {
+  const msg = args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ');
+  logHistory.push(`[ERROR] [${new Date().toISOString()}] ${msg}`);
+  if (logHistory.length > 300) logHistory.shift();
+  originalError.apply(console, args);
+};
+
 // Trigger fresh Hugging Face Space rebuild - 2026-07-19
 const express = require('express');
 const path = require('path');
@@ -468,6 +487,7 @@ function basicAuth(req, res, next) {
     reqPath.startsWith('/preview/') || 
     reqPath.startsWith('/api/track') || 
     reqPath.startsWith('/api/health') || 
+    reqPath.startsWith('/api/logs') || 
     reqPath.startsWith('/sw.js') ||
     reqPath === '/favicon.ico'
   ) {
@@ -519,6 +539,12 @@ function maskKey(key) {
 // Public API Endpoint for uptime monitoring and health checks
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', time: new Date().toISOString() });
+});
+
+// Public API Endpoint to fetch server logs (useful for cloud debugging)
+app.get('/api/logs', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  res.status(200).send(logHistory.join('\n'));
 });
 
 // API Endpoint to check configuration status
