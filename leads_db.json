@@ -3182,9 +3182,63 @@
     "t0": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784474300768?name=t0&phone=&address=",
     "ab-svhi": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784474513929?name=ab&phone=&address=",
     "1q": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475112111?name=1q&phone=&address=",
-    "ab-f7nt": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475356317?name=AB&phone=&address="
+    "ab-f7nt": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475356317?name=AB&phone=&address=",
+    "45tr": "http://localhost:3000/preview/gym-website/preview_gym-website_1784476732531?name=45tr&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "meta-1783179492789-4",
+      "name": "Airine Skin Care Clinic",
+      "openedAt": "2026-07-15T09:25:00.508Z",
+      "lastActiveAt": "2026-07-19T15:58:30.840Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "Datacamp Limited",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T09:25:00.508Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T09:32:58.165Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-15T11:05:10.365Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-16T11:09:40.899Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:58:30.840Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "scr-802c1en",
       "name": "Strong Gym HQ",
@@ -4622,59 +4676,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-16T11:21:29.771Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1783179492789-4",
-      "name": "Airine Skin Care Clinic",
-      "openedAt": "2026-07-15T09:25:00.508Z",
-      "lastActiveAt": "2026-07-19T15:58:30.840Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:25:00.508Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:32:58.165Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T11:05:10.365Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-16T11:09:40.899Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:58:30.840Z",
           "details": {
             "device": "desktop"
           }
