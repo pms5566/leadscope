@@ -468,7 +468,18 @@ app.use((req, res, next) => {
 // CORS is handled above; JSON parsing is configured here
 app.use(express.json());
 
-// Basic Authentication Middleware to protect internal LeadScope dashboard and CRM data from clients
+// Cookie-based Authentication to protect internal LeadScope dashboard and CRM data
+function getCookie(req, name) {
+  const rc = req.headers.cookie;
+  if (!rc) return null;
+  const list = {};
+  rc.split(';').forEach(cookie => {
+    const parts = cookie.split('=');
+    list[parts.shift().trim()] = decodeURI(parts.join('='));
+  });
+  return list[name];
+}
+
 function basicAuth(req, res, next) {
   const reqPath = req.path;
   
@@ -490,27 +501,146 @@ function basicAuth(req, res, next) {
   ) {
     return next();
   }
-  
-  // 3. Protect dashboard, CRM API routes and internal assets
-  const authHeader = req.headers.authorization;
-  if (!authHeader) {
-    res.setHeader('WWW-Authenticate', 'Basic realm="LeadScope Dashboard"');
-    return res.status(401).send('Authentication required.');
+
+  // 3. Check login POST request
+  if (reqPath === '/api/login' && req.method === 'POST') {
+    const password = req.body.password;
+    const adminPass = process.env.ADMIN_PASSWORD || 'leadscope99';
+    if (password === adminPass) {
+      res.setHeader('Set-Cookie', 'leadscope_auth=authenticated; Path=/; HttpOnly; Max-Age=2592000; SameSite=Lax');
+      return res.json({ success: true });
+    }
+    return res.status(401).json({ success: false, error: 'Invalid password' });
   }
-
-  const auth = Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
-  const user = auth[0];
-  const pass = auth[1];
-
-  const adminUser = process.env.ADMIN_USER || 'admin';
-  const adminPass = process.env.ADMIN_PASSWORD || 'leadscope99';
-
-  if (user === adminUser && pass === adminPass) {
+  
+  // 4. Validate session cookie
+  const authCookie = getCookie(req, 'leadscope_auth');
+  if (authCookie === 'authenticated') {
     return next();
   }
 
-  res.setHeader('WWW-Authenticate', 'Basic realm="LeadScope Dashboard"');
-  return res.status(401).send('Authentication required.');
+  // 5. If not authenticated, serve the login page HTML directly
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  return res.status(200).send(`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadScope AI — Login</title>
+  <style>
+    :root {
+      --color-bg: #0b0f19;
+      --color-surface: #111827;
+      --color-border: #1f2937;
+      --color-text: #f3f4f6;
+      --color-text-dim: #9ca3af;
+      --color-primary: #10b981;
+      --color-primary-hover: #059669;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    p {
+      color: var(--color-text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      outline: none;
+    }
+    input:focus {
+      border-color: var(--color-primary);
+    }
+    button {
+      width: 100%;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: var(--color-primary-hover);
+    }
+    .error {
+      color: #ef4444;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>LeadScope Dashboard</h2>
+    <p>Please enter your access password</p>
+    <input type="password" id="password" placeholder="Password" onkeydown="if(event.key==='Enter')login()">
+    <button onclick="login()">Access Dashboard</button>
+    <div id="error" class="error"></div>
+  </div>
+  <script>
+    async function login() {
+      const password = document.getElementById('password').value;
+      const errorDiv = document.getElementById('error');
+      errorDiv.style.display = 'none';
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password })
+        });
+        const data = await res.json();
+        if (data.success) {
+          window.location.reload();
+        } else {
+          errorDiv.textContent = data.error || 'Login failed';
+          errorDiv.style.display = 'block';
+        }
+      } catch (e) {
+        errorDiv.textContent = 'Server error';
+        errorDiv.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
+  `);
 }
 
 app.use(basicAuth);
