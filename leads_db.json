@@ -3221,9 +3221,62 @@
     "you9-y70e": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482708524&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "pmt": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482936714&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "pmt-wx09": "https://leadscope-bice.vercel.app/?niche=dermatologist&leadId=preview_dermatologist_1784482959482&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "pmt-b5y3": "https://leadscope-bice.vercel.app/?niche=dermatologist&leadId=preview_dermatologist_1784482983053&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "pmt-b5y3": "https://leadscope-bice.vercel.app/?niche=dermatologist&leadId=preview_dermatologist_1784482983053&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "pmt-7j6i": "https://leadscope-bice.vercel.app/?niche=roofing+contractors&leadId=preview_roofing_contractors_1784483069978&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_dermatologist_1784482983053",
+      "name": "p[mt (dermatologist)",
+      "openedAt": "2026-07-19T17:43:30.159Z",
+      "lastActiveAt": "2026-07-19T17:44:00.179Z",
+      "duration": 30,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:43:30.159Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T17:43:40.178Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T17:43:50.188Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T17:44:00.179Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784482936714",
       "name": "p[mt (gym-website)",
@@ -6074,67 +6127,6 @@
         }
       ],
       "isHot": true
-    },
-    {
-      "leadId": "preview_Shopify_1_1783922123918",
-      "name": "Chandan (Shopify 1)",
-      "openedAt": "2026-07-13T18:05:34.266Z",
-      "lastActiveAt": "2026-07-13T18:06:15.775Z",
-      "duration": 40,
-      "scrollPercent": 17,
-      "location": "Kathmandu, Bagmati Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:05:34.266Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:05:45.230Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 10
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:05:55.129Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 17
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:06:10.314Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 17
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:06:15.775Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 17
-          }
-        }
-      ],
-      "isHot": false
     }
   ],
   "settings": {
