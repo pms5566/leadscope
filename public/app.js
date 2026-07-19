@@ -797,13 +797,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Determine what proposal link to pitch (use short link format only)
       let pitchLink = '';
       const baseUrl = getPreviewBaseUrl();
-      if (lead.shortAlias) {
-        pitchLink = `${baseUrl}/go/${lead.shortAlias}`;
-      } else if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
+      if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
         pitchLink = lead.portfolioLink;
+      } else if (window.templateHost) {
+        pitchLink = `${window.templateHost.replace(/\/$/, '')}/${lead.shortAlias || lead.id}`;
       } else {
-        // Fallback to the short lead ID route
-        pitchLink = `${baseUrl}/go/${lead.id}`;
+        pitchLink = lead.shortAlias ? `${baseUrl}/go/${lead.shortAlias}` : `${baseUrl}/go/${lead.id}`;
       }
       
       // Add custom hooks based on CRM Audit checklist choices
