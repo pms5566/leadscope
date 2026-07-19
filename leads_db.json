@@ -2828,11 +2828,19 @@
       "niche": "CrossFit gym",
       "location": "uae",
       "status": "new",
-      "notes": "",
+      "notes": "[9:37:21 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-19T11:54:46.359Z",
-      "updatedAt": "2026-07-19T16:07:18.016Z",
+      "updatedAt": "2026-07-19T16:07:21.668Z",
       "shortAlias": "bodyzone-star-gym",
-      "active": true
+      "active": true,
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     },
     {
       "id": "scr-xmdmas1",
@@ -3188,6 +3196,31 @@
     "vcxz": "http://localhost:3000/preview/gym-website/preview_gym-website_1784477083749?name=vcxz&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "scr-8wjo6nf",
+      "name": "Bodyzone Star Gym",
+      "openedAt": "2026-07-19T16:07:21.668Z",
+      "lastActiveAt": "2026-07-19T16:07:21.668Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T16:07:21.668Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784477083749",
       "name": "vcxz (gym-website)",
@@ -6141,58 +6174,6 @@
           "timestamp": "2026-07-12T07:08:19.539Z",
           "details": {
             "device": "mobile"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1783785788377-1",
-      "name": "Skin & Hair",
-      "openedAt": "2026-07-12T07:05:38.672Z",
-      "lastActiveAt": "2026-07-12T07:06:09.071Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Prineville, Oregon, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T07:05:38.672Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T07:05:49.551Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T07:05:59.164Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T07:06:09.071Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
           }
         }
       ],
