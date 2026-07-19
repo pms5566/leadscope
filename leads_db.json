@@ -3183,9 +3183,139 @@
     "ab-svhi": "https://parmeet123-leadscope.hf.space/preview/dentist/preview_dentist_1784474513929?name=ab&phone=&address=",
     "1q": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475112111?name=1q&phone=&address=",
     "ab-f7nt": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784475356317?name=AB&phone=&address=",
-    "45tr": "http://localhost:3000/preview/gym-website/preview_gym-website_1784476732531?name=45tr&phone=&address="
+    "45tr": "http://localhost:3000/preview/gym-website/preview_gym-website_1784476732531?name=45tr&phone=&address=",
+    "vcxz": "http://localhost:3000/preview/gym-website/preview_gym-website_1784477083749?name=vcxz&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784476732531",
+      "name": "45tr (gym-website)",
+      "openedAt": "2026-07-19T15:58:59.094Z",
+      "lastActiveAt": "2026-07-19T16:02:22.769Z",
+      "duration": 100,
+      "scrollPercent": 68,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 3,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T15:58:59.094Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T15:59:09.709Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 38
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T15:59:19.728Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 68
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T15:59:29.706Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 68
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T15:59:39.759Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 68
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T15:59:49.715Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 68
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T15:59:59.717Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 68
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T16:00:10.025Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 68
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T16:00:20.021Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 68
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T16:00:30.013Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 68
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T16:02:12.489Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T16:02:21.869Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T16:02:22.769Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": true
+    },
     {
       "leadId": "meta-1783179492789-4",
       "name": "Airine Skin Care Clinic",
@@ -6082,90 +6212,6 @@
         }
       ],
       "isHot": false
-    },
-    {
-      "leadId": "meta-1783612097140-13",
-      "name": "Perfect 5 Clinic - Rajouri Garden",
-      "openedAt": "2026-07-10T16:00:21.243Z",
-      "lastActiveAt": "2026-07-10T16:00:59.875Z",
-      "duration": 50,
-      "scrollPercent": 0,
-      "location": "Prineville, Oregon, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 3,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-10T16:00:21.243Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-10T16:00:21.259Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T16:00:33.181Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T16:00:35.419Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T16:00:42.931Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T16:00:46.279Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T16:00:52.938Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-10T16:00:59.875Z",
-          "details": {
-            "device": "mobile"
-          }
-        }
-      ],
-      "isHot": true
     }
   ],
   "settings": {
