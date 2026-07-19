@@ -193,7 +193,7 @@ async function fetchFromGithub(pathWithinRepo, responseType = 'text') {
     headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
   }
   
-  const response = await axios.get(url, { headers, responseType });
+  const response = await axios.get(url, { headers, responseType, timeout: 8000 });
   return response.data;
 }
 
@@ -997,7 +997,8 @@ async function readDb() {
           const branch = process.env.GITHUB_BRANCH || 'main';
           const rawUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${branch}/${GH_PATH}`;
           const response = await axios.get(rawUrl, {
-            headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+            headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' },
+            timeout: 5000
           });
           const fileContent = typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
           const parsed = JSON.parse(fileContent);
@@ -1069,7 +1070,8 @@ async function writeDb(data, syncToGithub = true) {
                     Authorization: `token ${token}`,
                     Accept: 'application/vnd.github.v3+json',
                     'User-Agent': 'LeadScope-App'
-                  }
+                  },
+                  timeout: 8000
                 }
               );
               sha = metaResponse.data.sha;
@@ -1096,7 +1098,8 @@ async function writeDb(data, syncToGithub = true) {
                 Authorization: `token ${token}`,
                 Accept: 'application/vnd.github.v3+json',
                 'User-Agent': 'LeadScope-App'
-              }
+              },
+              timeout: 8000
             }
           );
           
