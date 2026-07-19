@@ -133,8 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildCrmShortLinkHtml(lead, proposalUrl) {
     const shortAlias = lead.shortAlias || '';
     const base = getPreviewBaseUrl();
-    const shortUrl = window.templateHost ? `${window.templateHost.replace(/\/$/, '')}/?go=${shortAlias}` : (lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : ''));
-    const displayLabel = window.templateHost ? `/?go=${shortAlias}` : `/go/${shortAlias}`;
+    const shortUrl = window.templateHost ? `${window.templateHost.replace(/\/$/, '')}/?mockup=${shortAlias}` : (lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : ''));
+    const displayLabel = window.templateHost ? `/?mockup=${shortAlias}` : `/go/${shortAlias}`;
 
     if (shortAlias) {
       return `
@@ -3044,7 +3044,7 @@ window.generateLink = async function () {
     const shortUrl = result.shortUrl;
 
     // Determine the active link to show and copy (Vercel short link if configured, otherwise fallback short link)
-    const activeLink = window.templateHost ? `${window.templateHost.replace(/\/$/, '')}/?go=${result.alias}` : shortUrl;
+    const activeLink = window.templateHost ? `${window.templateHost.replace(/\/$/, '')}/?mockup=${result.alias}` : shortUrl;
 
     if (outputEl) {
       outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;

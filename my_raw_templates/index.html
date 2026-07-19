@@ -496,8 +496,8 @@
         // 1. Read Query Parameters
         const urlParams = new URLSearchParams(window.location.search);
         
-        // 🔗 Resolve ?go=alias client-side from GitHub leads_db.json
-        const goAlias = urlParams.get('go');
+        // 🔗 Resolve ?mockup=alias client-side from GitHub leads_db.json
+        const goAlias = urlParams.get('mockup') || urlParams.get('go');
         if (goAlias) {
           try {
             document.body.innerHTML = `
