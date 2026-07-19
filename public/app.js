@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   window.getPreviewBaseUrl = function() {
-    if (window.publicSharingDomain && window.publicSharingDomain.trim() !== '') {
-      let domain = window.publicSharingDomain.trim();
+    if (window.localTrackingUrl && window.localTrackingUrl.trim() !== '') {
+      let domain = window.localTrackingUrl.trim();
       if (!domain.startsWith('http://') && !domain.startsWith('https://')) {
         domain = 'https://' + domain;
       }
@@ -2962,7 +2962,19 @@ window.generateLinkDraft = function () {
   const base      = getPreviewBaseUrl();
   const leadId    = 'preview_' + niche.replace(/\s+/g, '_') + '_' + Date.now();
   const fullName  = tag ? `${name} - ${tag}` : name;
-  const url       = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+  let url         = '';
+  if (window.templateHost) {
+    const queryParams = new URLSearchParams();
+    queryParams.set('niche', niche);
+    queryParams.set('leadId', leadId);
+    queryParams.set('name', fullName);
+    queryParams.set('phone', phone);
+    queryParams.set('address', address);
+    queryParams.set('trackUrl', window.localTrackingUrl || '');
+    url = `${window.templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
+  } else {
+    url = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+  }
 
   if (outputEl) {
     outputEl.innerHTML = `<span style="font-size:0.75rem; color:#facc15; font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-triangle-exclamation"></i> Draft Preview (Click "Generate Link" to Shorten)</span>` + url;
@@ -3002,7 +3014,19 @@ window.generateLink = async function () {
   const base      = getPreviewBaseUrl();
   const leadId    = 'preview_' + niche.replace(/\s+/g, '_') + '_' + Date.now();
   const fullName  = tag ? `${name} - ${tag}` : name;
-  const longUrl   = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+  let longUrl     = '';
+  if (window.templateHost) {
+    const queryParams = new URLSearchParams();
+    queryParams.set('niche', niche);
+    queryParams.set('leadId', leadId);
+    queryParams.set('name', fullName);
+    queryParams.set('phone', phone);
+    queryParams.set('address', address);
+    queryParams.set('trackUrl', window.localTrackingUrl || '');
+    longUrl = `${window.templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
+  } else {
+    longUrl = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+  }
 
   try {
     const response = await fetch('/api/shorten', {
