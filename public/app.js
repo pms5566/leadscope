@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  window.templateHost = 'https://website-mockup.vercel.app';
   // DOM Elements
   const scanForm = document.getElementById('scanForm');
   const nicheInput = document.getElementById('nicheInput');
@@ -1792,8 +1793,8 @@ document.addEventListener('DOMContentLoaded', () => {
           templateHostInput.value = data.templateHost;
           window.templateHost = data.templateHost;
         } else {
-          templateHostInput.value = '';
-          window.templateHost = '';
+          templateHostInput.value = 'https://website-mockup.vercel.app';
+          window.templateHost = 'https://website-mockup.vercel.app';
         }
         if (data.localTrackingUrl) {
           localTrackingUrlInput.value = data.localTrackingUrl;
