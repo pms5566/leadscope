@@ -2450,6 +2450,30 @@
       "addedAt": "2026-07-19T05:45:29.092Z",
       "updatedAt": "2026-07-19T05:45:29.092Z",
       "shortAlias": "taal-studio-dubai"
+    },
+    {
+      "id": "meta-1784439268817-12",
+      "name": "Savant Dubai",
+      "address": "Dubai",
+      "phone": "N/A",
+      "email": null,
+      "facebook": "https://www.facebook.com/61590423833532",
+      "instagram": null,
+      "linkedin": null,
+      "tiktok": null,
+      "whatsapp": null,
+      "adPlatform": "meta",
+      "adActive": true,
+      "hasWebsite": false,
+      "googleMapsUri": "https://www.google.com/maps/search/?api=1&query=Savant%20Dubai%20Dubai",
+      "niche": "yoga studio",
+      "location": "Dubai",
+      "source": "Ad Scanner",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-19T05:52:34.481Z",
+      "updatedAt": "2026-07-19T05:52:34.481Z",
+      "shortAlias": "savant-dubai"
     }
   ],
   "shortLinks": {
@@ -2708,7 +2732,8 @@
     "herinox-studio-dubai": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268816-3?name=Herinox%20Studio%20Dubai&phone=N%2FA&address=Dubai",
     "g8ts": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268816-4?name=G8TS&phone=N%2FA&address=Dubai",
     "bodify-dubai": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268816-5?name=Bodify%20Dubai&phone=N%2FA&address=Dubai",
-    "taal-studio-dubai": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268816-6?name=Taal%20Studio%20Dubai&phone=N%2FA&address=Dubai"
+    "taal-studio-dubai": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268816-6?name=Taal%20Studio%20Dubai&phone=N%2FA&address=Dubai",
+    "savant-dubai": "https://parmeet123-leadscope.hf.space/preview/yoga-studio/meta-1784439268817-12?name=Savant%20Dubai&phone=N%2FA&address=Dubai"
   },
   "activeVisits": [
     {
