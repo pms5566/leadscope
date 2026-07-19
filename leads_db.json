@@ -2736,10 +2736,18 @@
       "niche": "CrossFit",
       "location": "Dubai",
       "status": "new",
-      "notes": "",
+      "notes": "[2:06:17 PM] Opened Proposal Preview Link",
       "addedAt": "2026-07-19T08:33:20.211Z",
-      "updatedAt": "2026-07-19T08:33:20.211Z",
-      "shortAlias": "camp-star-gym"
+      "updatedAt": "2026-07-19T08:36:17.533Z",
+      "shortAlias": "camp-star-gym",
+      "analytics": {
+        "opened": "Yes",
+        "timeSpent": 0,
+        "maxScroll": 0,
+        "fiverrClicked": "No",
+        "whatsappClicked": "No",
+        "emailClicked": "No"
+      }
     }
   ],
   "shortLinks": {
@@ -3014,6 +3022,31 @@
     "camp-star-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-ji4s69c?name=Camp%20Star%20Gym&phone=%2B971%2055%20849%204455&address=Warsan%20First%20-%20France%20Cluster%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
+    {
+      "leadId": "scr-ji4s69c",
+      "name": "Camp Star Gym",
+      "openedAt": "2026-07-19T08:36:17.533Z",
+      "lastActiveAt": "2026-07-19T08:36:17.533Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T08:36:17.533Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_fitness_trainer_1784394143802",
       "name": "b.well coaching (fitness trainer)",
