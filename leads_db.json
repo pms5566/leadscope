@@ -2608,6 +2608,50 @@
       "addedAt": "2026-07-19T08:33:10.563Z",
       "updatedAt": "2026-07-19T08:33:10.563Z",
       "shortAlias": "beach-crossfit"
+    },
+    {
+      "id": "scr-fuyv9zd",
+      "name": "Champions Gym",
+      "address": "Kuwait St - Al Karama - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 854 5999",
+      "googleMapsUri": "https://www.google.com/maps/place/Champions+Gym/data=!4m7!3m6!1s0x3e5f42d7c8ec63dd:0x89ba47edaa415b4a!8m2!3d25.2451008!4d55.3054621!16s%2Fg%2F11b82489wr!19sChIJ3WPsyNdCXz4RSltBqu1Huok?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/uaechampions/",
+      "instagram": "https://www.instagram.com/championsuae/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971508545999",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Dubai",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-19T08:33:16.500Z",
+      "updatedAt": "2026-07-19T08:33:16.500Z",
+      "shortAlias": "champions-gym"
+    },
+    {
+      "id": "scr-r60gqec",
+      "name": "247 Gym - The Fitness District",
+      "address": "2nd St - Oud Metha - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 58 524 0247",
+      "googleMapsUri": "https://www.google.com/maps/place/247+Gym+-+The+Fitness+District/data=!4m7!3m6!1s0x3e5f437cd01409f7:0xb6d7e2b3f903e66c!8m2!3d25.2403125!4d55.3087578!16s%2Fg%2F11q94m4s5c!19sChIJ9wkU0HxDXz4RbOYD-bPi17Y?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/247GymDXB/",
+      "instagram": "https://www.instagram.com/247gymdxb/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971585240247",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Dubai",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-19T08:33:16.501Z",
+      "updatedAt": "2026-07-19T08:33:16.501Z",
+      "shortAlias": "247-gym-the-fitness-district"
     }
   ],
   "shortLinks": {
@@ -2873,7 +2917,9 @@
     "crony-fitness": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-uykn20l?name=Crony%20Fitness&phone=%2B971%204%20570%203888&address=Souq%20Block%20C%20-%20Warsan%20First%20-%20Warsan%202%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "hiitbox": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-n1xmoye?name=Hiitbox&phone=%2B971%2052%20564%208007&address=1%20Al%20SafaAl%20Safa%201%20-%20Al%20Safa%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "battalion-fitness": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-o5wjo0t?name=Battalion%20Fitness&phone=%2B971%2052%20319%204993&address=DSO%2C%20IT%20PLAZA%20-%20Nadd%20Hessa%20-%20Dubai%20Silicon%20Oasis%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "beach-crossfit": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-vsdxl4v?name=Beach%20CrossFit&phone=N%2FA&address=88CV%2B6Q%20-%20Al%20Mamzar%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "beach-crossfit": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-vsdxl4v?name=Beach%20CrossFit&phone=N%2FA&address=88CV%2B6Q%20-%20Al%20Mamzar%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "champions-gym": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-fuyv9zd?name=Champions%20Gym&phone=%2B971%2050%20854%205999&address=Kuwait%20St%20-%20Al%20Karama%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "247-gym-the-fitness-district": "https://parmeet123-leadscope.hf.space/preview/crossfit/scr-r60gqec?name=247%20Gym%20-%20The%20Fitness%20District&phone=%2B971%2058%20524%200247&address=2nd%20St%20-%20Oud%20Metha%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
