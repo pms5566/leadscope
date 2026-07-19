@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/website-mockup/:alias",
+      "source": "/:alias((?!.*\\.).*)",
       "destination": "/index.html?mockup=:alias"
     }
   ]
