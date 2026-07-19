@@ -3216,9 +3216,44 @@
     "yes-bro-sqr3": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784482330880&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "yes-bro-m444": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784482385496&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "yes-bro-nxcu": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784482445981&name=yes+bro&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "you9": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784482670441&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "you9": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784482670441&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "you9-2crn": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482696494&name=you9&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym_1784482670441",
+      "name": "you9 (gym)",
+      "openedAt": "2026-07-19T17:37:59.025Z",
+      "lastActiveAt": "2026-07-19T17:38:09.279Z",
+      "duration": 10,
+      "scrollPercent": 100,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:37:59.025Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T17:38:09.279Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym_1784482385496",
       "name": "yes bro (gym)",
@@ -6151,83 +6186,6 @@
           "timestamp": "2026-07-12T19:46:28.401Z",
           "details": {
             "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1783872551730-22",
-      "name": "Bright Look Medical Center",
-      "openedAt": "2026-07-12T19:44:36.826Z",
-      "lastActiveAt": "2026-07-12T19:45:07.559Z",
-      "duration": 50,
-      "scrollPercent": 0,
-      "location": "Forest City, North Carolina, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 2,
-      "device": "mobile",
-      "os": "iOS",
-      "browser": "Safari",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:44:36.826Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-12T19:44:37.678Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:44:47.560Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:44:47.721Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:44:57.617Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:44:57.724Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-12T19:45:07.559Z",
-          "details": {
-            "device": "mobile",
             "seconds": 10,
             "scrollPercent": 0
           }
