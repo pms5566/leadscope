@@ -3222,9 +3222,49 @@
     "pmt": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784482936714&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "pmt-wx09": "https://leadscope-bice.vercel.app/?niche=dermatologist&leadId=preview_dermatologist_1784482959482&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "pmt-b5y3": "https://leadscope-bice.vercel.app/?niche=dermatologist&leadId=preview_dermatologist_1784482983053&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "pmt-7j6i": "https://leadscope-bice.vercel.app/?niche=roofing+contractors&leadId=preview_roofing_contractors_1784483069978&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "pmt-7j6i": "https://leadscope-bice.vercel.app/?niche=roofing+contractors&leadId=preview_roofing_contractors_1784483069978&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "pmt-gl7h": "https://leadscope-bice.vercel.app/?niche=doctor&leadId=preview_doctor_1784483129460&name=p%5Bmt&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_roofing_contractors_1784483069978",
+      "name": "p[mt (roofing contractors)",
+      "openedAt": "2026-07-19T17:44:36.042Z",
+      "lastActiveAt": "2026-07-19T17:45:22.997Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 3,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:44:36.042Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:44:42.899Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T17:45:22.997Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": true
+    },
     {
       "leadId": "preview_dermatologist_1784482983053",
       "name": "p[mt (dermatologist)",
@@ -5943,190 +5983,6 @@
         }
       ],
       "isHot": false
-    },
-    {
-      "leadId": "preview_SPA_1783660701889",
-      "name": "Pms (SPA)",
-      "openedAt": "2026-07-10T05:18:46.214Z",
-      "lastActiveAt": "2026-07-13T18:42:13.156Z",
-      "duration": 290,
-      "scrollPercent": 100,
-      "location": "Kathmandu, Bagmati Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 6,
-      "device": "mobile",
-      "os": "iOS",
-      "browser": "Safari",
-      "events": [
-        {
-          "event": "whatsapp_click",
-          "timestamp": "2026-07-10T05:27:21.322Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "fiverr_click",
-          "timestamp": "2026-07-10T05:27:22.904Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:27:23.633Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T05:27:33.091Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-10T09:32:44.257Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:32:56.085Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:33:05.001Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 8
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:33:15.558Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 27
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:33:25.250Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 27
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-10T09:33:35.025Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 27
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:06:42.236Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:06:53.035Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 52
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:07:02.936Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 52
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:07:12.911Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 52
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:07:22.898Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 52
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:07:30.273Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:07:40.968Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:07:41.023Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-13T18:41:44.428Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-13T18:42:13.156Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": true
     }
   ],
   "settings": {
