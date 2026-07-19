@@ -2537,10 +2537,10 @@
       "foundWebsiteUrl": null,
       "niche": "CrossFit",
       "location": "Dubai",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "[3:37:42 PM] Opened Proposal Preview Link\n[3:37:52 PM] Visited for 10s (Scrolled: 0%)\n[3:38:02 PM] Visited for 20s (Scrolled: 0%)\n[3:38:12 PM] Visited for 30s (Scrolled: 0%)",
       "addedAt": "2026-07-19T08:33:07.101Z",
-      "updatedAt": "2026-07-19T10:08:12.601Z",
+      "updatedAt": "2026-07-19T10:20:40.840Z",
       "shortAlias": "crony-fitness",
       "analytics": {
         "opened": "Yes",
@@ -3029,6 +3029,58 @@
     "crony-fitness-5219": "https://parmeet123-leadscope.hf.space/preview/gym-website/preview_gym-website_1784455726074?name=Crony%20Fitness&phone=&address="
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784455726074",
+      "name": "Crony Fitness (gym-website)",
+      "openedAt": "2026-07-19T10:09:00.322Z",
+      "lastActiveAt": "2026-07-19T10:09:31.352Z",
+      "duration": 30,
+      "scrollPercent": 0,
+      "location": "Gallatin, Tennessee, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-19T10:09:00.322Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:09:11.282Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:09:21.313Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-19T10:09:31.352Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "scr-uykn20l",
       "name": "Crony Fitness",
