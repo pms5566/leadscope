@@ -3485,9 +3485,8 @@ app.post('/api/track', async (req, res) => {
         updatedAt: timestamp
       };
       
-      // Heartbeats are written locally only to prevent spamming GitHub push builds
-      const syncToGithub = (event !== 'heartbeat');
-      await writeDb(db, syncToGithub);
+      // Tracking events are written locally only to prevent spamming GitHub and causing write conflicts
+      await writeDb(db, false);
     } else {
       // Unsaved lead: update activeVisits locally on disk (no GitHub push)
       await writeDb(db, false);
