@@ -3343,10 +3343,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:38:16.516Z",
-      "updatedAt": "2026-07-20T14:38:16.516Z",
+      "updatedAt": "2026-07-20T16:24:41.544Z",
       "shortAlias": "happy-paradise-spa-center-abu-dhabi"
     },
     {
@@ -4332,6 +4332,49 @@
     "happy-paradise-spa-center-abu-dhabi-fq1o": "https://leadscope-bice.vercel.app/?niche=SPA&leadId=preview_SPA_1784564606017&name=Happy+Paradise+Spa+Center+Abu+Dhabi&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_SPA_1784564606017",
+      "name": "Happy Paradise Spa Center Abu Dhabi (SPA)",
+      "openedAt": "2026-07-20T16:24:06.778Z",
+      "lastActiveAt": "2026-07-20T16:24:28.053Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Forest City, North Carolina, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T16:24:06.778Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:24:18.754Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:24:28.053Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784564519016",
       "name": "Happy Paradise Spa Center Abu Dhabi (gym-website)",
@@ -6806,101 +6849,6 @@
             "device": "mobile",
             "seconds": 10,
             "scrollPercent": 38
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_wellness-project_1784390032014",
-      "name": "The Fit Club Co. (wellness-project)",
-      "openedAt": "2026-07-18T15:54:55.805Z",
-      "lastActiveAt": "2026-07-18T16:13:32.097Z",
-      "duration": 70,
-      "scrollPercent": 101,
-      "location": "Luleå, Norrbotten County, Sweden",
-      "countryCode": "SE",
-      "isp": "Facebook, Inc.",
-      "views": 2,
-      "device": "mobile",
-      "os": "iOS",
-      "browser": "Safari",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T15:54:55.805Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T15:55:06.607Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T15:55:16.556Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T15:55:26.749Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:12:52.470Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T16:13:02.092Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 35
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T16:13:12.032Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 35
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T16:13:22.045Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 35
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T16:13:32.097Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 101
           }
         }
       ],
