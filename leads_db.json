@@ -4224,15 +4224,16 @@
     "workout-world-fitness-center": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784565066495&name=WORKOUT+WORLD+FITNESS+CENTER&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "la-padma": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784565535796&name=WORKOUT+WORLD+FITNESS+CENTER&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "bodyline-gym": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784566230011&name=BODYLINE+GYM&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "bio-fitness-center": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784566414442&name=Bio+fitness+center&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "bio-fitness-center": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784566414442&name=Bio+fitness+center&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "ava-spa-center-fv94": "https://leadscope-bice.vercel.app/?niche=SPA&leadId=preview_SPA_1784566538255&name=AVA+SPA+CENTER&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
     {
       "leadId": "preview_gym-website_1784566414442",
       "name": "Bio fitness center (gym-website)",
       "openedAt": "2026-07-20T16:54:09.116Z",
-      "lastActiveAt": "2026-07-20T16:54:09.116Z",
-      "duration": 0,
+      "lastActiveAt": "2026-07-20T16:54:39.833Z",
+      "duration": 30,
       "scrollPercent": 0,
       "location": "Prineville, Oregon, United States",
       "countryCode": "US",
@@ -4247,6 +4248,33 @@
           "timestamp": "2026-07-20T16:54:09.116Z",
           "details": {
             "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:54:20.790Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:54:30.209Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:54:39.833Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
           }
         }
       ],
