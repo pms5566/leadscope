@@ -3563,10 +3563,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:38:49.090Z",
-      "updatedAt": "2026-07-20T14:38:49.090Z",
+      "updatedAt": "2026-07-20T17:18:54.283Z",
       "shortAlias": "evolve-ladies-fitness-club-mussafah"
     },
     {
@@ -4189,6 +4189,31 @@
     "evolve-ladies-fitness-club": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784567823077&name=Evolve+Ladies+Fitness+Club&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784567823077",
+      "name": "Evolve Ladies Fitness Club (gym-website)",
+      "openedAt": "2026-07-20T17:18:48.781Z",
+      "lastActiveAt": "2026-07-20T17:18:48.781Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T17:18:48.781Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784567635167",
       "name": "Dynamic Fitness (gym-website)",
@@ -6651,40 +6676,6 @@
           "timestamp": "2026-07-19T08:53:01.458Z",
           "details": {
             "device": "mobile"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "scr-ji4s69c",
-      "name": "Camp Star Gym",
-      "openedAt": "2026-07-19T08:36:17.533Z",
-      "lastActiveAt": "2026-07-19T08:36:28.175Z",
-      "duration": 10,
-      "scrollPercent": 100,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T08:36:17.533Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T08:36:28.175Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
           }
         }
       ],
