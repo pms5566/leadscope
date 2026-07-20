@@ -4328,9 +4328,53 @@
     "ms-gym-academy-vecg": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784563413781&name=MS+Gym+Academy&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "power-house-gym-21x8": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784563633107&name=Power+House+Gym&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "butterfly-sport-academy-2phn": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784564323680&name=Butterfly+Sport+Academy&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "happy-paradise-spa-center-abu-dhabi-2rl8": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784564519016&name=Happy+Paradise+Spa+Center+Abu+Dhabi&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "happy-paradise-spa-center-abu-dhabi-2rl8": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784564519016&name=Happy+Paradise+Spa+Center+Abu+Dhabi&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "happy-paradise-spa-center-abu-dhabi-fq1o": "https://leadscope-bice.vercel.app/?niche=SPA&leadId=preview_SPA_1784564606017&name=Happy+Paradise+Spa+Center+Abu+Dhabi&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784564519016",
+      "name": "Happy Paradise Spa Center Abu Dhabi (gym-website)",
+      "openedAt": "2026-07-20T16:22:39.421Z",
+      "lastActiveAt": "2026-07-20T16:23:00.444Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Clonee, Leinster, Ireland",
+      "countryCode": "IE",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T16:22:39.421Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:22:51.175Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:23:00.444Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784562898611",
       "name": "Empire Rhythmic Gymnastics (gym-website)",
@@ -6857,49 +6901,6 @@
             "device": "mobile",
             "seconds": 10,
             "scrollPercent": 101
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_fitness_trainer_1784350004596",
-      "name": "Jerico  Personal  Trainer (fitness trainer)",
-      "openedAt": "2026-07-18T04:47:33.187Z",
-      "lastActiveAt": "2026-07-18T04:47:55.380Z",
-      "duration": 20,
-      "scrollPercent": 0,
-      "location": "Clonee, Leinster, Ireland",
-      "countryCode": "IE",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T04:47:33.187Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T04:47:45.825Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T04:47:55.380Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
           }
         }
       ],
