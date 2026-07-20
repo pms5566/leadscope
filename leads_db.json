@@ -3600,9 +3600,119 @@
     "tiger-karate-martial": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784544274530&name=Tiger+Karate+Martial&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "al-taneen-body-fitness-karate-institute-jgrd": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784544733148&name=Al+Taneen+Body++Fitness+%26++Karate++Institute&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "karate-sports-centre-z02x": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784544959260&name=Karate+Sports+Centre&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "the-champion-club-kj1i": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784545059477&name=The+Champion+Club&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "the-champion-club-kj1i": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784545059477&name=The+Champion+Club&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "bma-academy-mgh1": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784548609383&name=BMA+ACADEMY&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784544274530",
+      "name": "Tiger Karate Martial (gym-website)",
+      "openedAt": "2026-07-20T11:37:58.990Z",
+      "lastActiveAt": "2026-07-20T11:38:30.099Z",
+      "duration": 30,
+      "scrollPercent": 100,
+      "location": "Dubai, Dubai, United Arab Emirates",
+      "countryCode": "AE",
+      "isp": "EMIRATES TELECOMMUNICATIONS GROUP COMPANY (ETISALAT GROUP) PJSC",
+      "views": 3,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T11:37:58.990Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T11:37:59.045Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T11:37:59.689Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T11:38:10.085Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T11:38:20.367Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 5
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T11:38:30.099Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        }
+      ],
+      "isHot": true
+    },
+    {
+      "leadId": "preview_gym-website_1784545059477",
+      "name": "The Champion Club (gym-website)",
+      "openedAt": "2026-07-20T10:58:21.099Z",
+      "lastActiveAt": "2026-07-20T10:58:42.143Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T10:58:21.099Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T10:58:32.079Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T10:58:42.143Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784544959260",
       "name": "Karate Sports Centre (gym-website)",
@@ -5991,74 +6101,6 @@
           "timestamp": "2026-07-17T07:31:07.341Z",
           "details": {
             "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1784271882919-12",
-      "name": "Jerico Personal Trainer",
-      "openedAt": "2026-07-17T07:31:00.457Z",
-      "lastActiveAt": "2026-07-17T07:31:00.457Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-17T07:31:00.457Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "scr-d550zjr",
-      "name": "Dr Ankita Sangwan (MD dermatology) (dermatology)",
-      "openedAt": "2026-07-17T07:10:18.010Z",
-      "lastActiveAt": "2026-07-17T07:10:38.372Z",
-      "duration": 20,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "PacketHub S.A.",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-17T07:10:18.010Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-17T07:10:28.402Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-17T07:10:38.372Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
           }
         }
       ],
