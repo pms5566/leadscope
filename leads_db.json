@@ -3570,28 +3570,6 @@
       "shortAlias": "evolve-ladies-fitness-club-mussafah"
     },
     {
-      "id": "scr-0qftvzh",
-      "name": "TATTVA YOGA ASHRAM",
-      "address": "Al Thanyah First - Desert Springs Village - Dubai - संयुक्त अरब इमिराट्स",
-      "phone": "+971 52 853 5276",
-      "googleMapsUri": "https://www.google.com/maps/place/TATTVA+YOGA+ASHRAM/data=!4m7!3m6!1s0x3e5f6b6a04ccf2a9:0x667fa8c00ce5370c!8m2!3d25.1020168!4d55.1768643!16s%2Fg%2F11rkn7s05d!19sChIJqfLMBGprXz4RDDflDMCof2Y?authuser=0&hl=ne&rclk=1",
-      "facebook": "https://www.facebook.com/tattvayogadubai/",
-      "instagram": "https://www.instagram.com/tattvayogaashram/",
-      "linkedin": null,
-      "whatsapp": "https://wa.me/971528535276",
-      "tiktok": null,
-      "email": null,
-      "hasWebsiteInBio": false,
-      "foundWebsiteUrl": null,
-      "niche": "yoga retreat",
-      "location": "UAE",
-      "status": "new",
-      "notes": "",
-      "addedAt": "2026-07-20T14:39:32.274Z",
-      "updatedAt": "2026-07-20T14:39:32.274Z",
-      "shortAlias": "tattva-yoga-ashram"
-    },
-    {
       "id": "scr-y8nvw9l",
       "name": "Pura Eco Retreat - Jubail Island",
       "address": "Pura Eco Retreat, Jubail Island - Abu Dhabi - संयुक्त अरब इमिराट्स",
@@ -4193,8 +4171,8 @@
       "leadId": "preview_gym-website_1784567823077",
       "name": "Evolve Ladies Fitness Club (gym-website)",
       "openedAt": "2026-07-20T17:18:48.781Z",
-      "lastActiveAt": "2026-07-20T17:18:48.781Z",
-      "duration": 0,
+      "lastActiveAt": "2026-07-20T17:18:59.638Z",
+      "duration": 10,
       "scrollPercent": 0,
       "location": "Nepalgunj, Lumbini Province, Nepal",
       "countryCode": "NP",
@@ -4209,6 +4187,15 @@
           "timestamp": "2026-07-20T17:18:48.781Z",
           "details": {
             "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:18:59.638Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
           }
         }
       ],
