@@ -2908,6 +2908,28 @@
       "addedAt": "2026-07-20T05:12:28.540Z",
       "updatedAt": "2026-07-20T05:12:28.540Z",
       "shortAlias": "caroline-folhadella-fitness-wellness"
+    },
+    {
+      "id": "scr-owl3boc",
+      "name": "Jebel Heights Gym",
+      "address": "7460, Gharb Al Dhahran, 4508, Saudi Arabia, Dhahran 34473, साउदी अरब",
+      "phone": "+966 13 872 0109",
+      "googleMapsUri": "https://www.google.com/maps/place/Jebel+Heights+Gym/data=!4m7!3m6!1s0x3e49e1e6767cb523:0xc2adcebfc5259f!8m2!3d26.2897343!4d50.1014387!16s%2Fg%2F11rslh2_l1!19sChIJI7V8dubhST4RnyXFv86twgA?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": "https://uk.linkedin.com/in/andrew-smith-207628344",
+      "whatsapp": "https://wa.me/966138720109",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "female gym",
+      "location": "Saudi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-20T05:17:24.936Z",
+      "updatedAt": "2026-07-20T05:17:24.936Z",
+      "shortAlias": "jebel-heights-gym"
     }
   ],
   "shortLinks": {
@@ -3263,7 +3285,8 @@
     "strong-gym-hq-189c": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784487621242&name=Strong+Gym+HQ&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "letfds": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784522442072&name=letfds&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "powerlife-gym": "https://drab-citric-acid.ngrok-free.dev/preview/gym/scr-okz3t42?name=Powerlife%20Gym&phone=%2B966%2057%20514%200811&address=2339%20Asad%20Ibn%20Al%20Fourat%2C%20street%2C%20Riyadh%2012643%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
-    "caroline-folhadella-fitness-wellness": "https://drab-citric-acid.ngrok-free.dev/preview/women-s-fitness/scr-e1evsik?name=Caroline%20Folhadella%20-%20Fitness%20%26%20Wellness&phone=%2B49%201522%203785892&address=Al%20Janadriyyah%2C%202869%20-%208881%20Riyadh%20SA%2C%20District%2013611%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
+    "caroline-folhadella-fitness-wellness": "https://drab-citric-acid.ngrok-free.dev/preview/women-s-fitness/scr-e1evsik?name=Caroline%20Folhadella%20-%20Fitness%20%26%20Wellness&phone=%2B49%201522%203785892&address=Al%20Janadriyyah%2C%202869%20-%208881%20Riyadh%20SA%2C%20District%2013611%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "jebel-heights-gym": "https://drab-citric-acid.ngrok-free.dev/preview/female-gym/scr-owl3boc?name=Jebel%20Heights%20Gym&phone=%2B966%2013%20872%200109&address=7460%2C%20Gharb%20Al%20Dhahran%2C%204508%2C%20Saudi%20Arabia%2C%20Dhahran%2034473%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
