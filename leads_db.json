@@ -3453,10 +3453,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:38:33.569Z",
-      "updatedAt": "2026-07-20T14:38:33.569Z",
+      "updatedAt": "2026-07-20T16:57:22.143Z",
       "shortAlias": "ava-spa-center"
     },
     {
@@ -4228,6 +4228,58 @@
     "ava-spa-center-fv94": "https://leadscope-bice.vercel.app/?niche=SPA&leadId=preview_SPA_1784566538255&name=AVA+SPA+CENTER&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_SPA_1784566538255",
+      "name": "AVA SPA CENTER (SPA)",
+      "openedAt": "2026-07-20T16:56:32.889Z",
+      "lastActiveAt": "2026-07-20T16:57:03.277Z",
+      "duration": 30,
+      "scrollPercent": 0,
+      "location": "Altoona, Iowa, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T16:56:32.889Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:56:43.433Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:56:53.362Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:57:03.277Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784566414442",
       "name": "Bio fitness center (gym-website)",
@@ -6733,31 +6785,6 @@
         }
       ],
       "isHot": true
-    },
-    {
-      "leadId": "preview_gym-website_1784394223880",
-      "name": "b.well coaching (gym-website)",
-      "openedAt": "2026-07-18T17:03:50.120Z",
-      "lastActiveAt": "2026-07-18T17:03:50.120Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:03:50.120Z",
-          "details": {
-            "device": "mobile"
-          }
-        }
-      ],
-      "isHot": false
     }
   ],
   "settings": {
