@@ -2998,28 +2998,6 @@
       "shortAlias": "the-champion-club"
     },
     {
-      "id": "scr-j0w7sru",
-      "name": "Emirates Karate And Kickboxing",
-      "address": "Hamdan Bin Mohammed St - Al Danah - Zone 1 - Abu Dhabi - संयुक्त अरब इमिराट्स",
-      "phone": "+971 54 516 1286",
-      "googleMapsUri": "https://www.google.com/maps/place/Emirates+Karate+And+Kickboxing/data=!4m7!3m6!1s0x3e5e6720d2d4654d:0xebc2ff87b9026228!8m2!3d24.4887281!4d54.3599994!16s%2Fg%2F11fct8460f!19sChIJTWXU0iBnXj4RKGICuYf_wus?authuser=0&hl=ne&rclk=1",
-      "facebook": "https://www.facebook.com/EmiratesKarate/",
-      "instagram": "https://www.instagram.com/emirates_karate/",
-      "linkedin": null,
-      "whatsapp": "https://wa.me/971545161286",
-      "tiktok": null,
-      "email": null,
-      "hasWebsiteInBio": false,
-      "foundWebsiteUrl": null,
-      "niche": "MMA club",
-      "location": "UAE",
-      "status": "new",
-      "notes": "",
-      "addedAt": "2026-07-20T09:30:38.831Z",
-      "updatedAt": "2026-07-20T09:30:38.831Z",
-      "shortAlias": "emirates-karate-and-kickboxing"
-    },
-    {
       "id": "scr-xz34kdv",
       "name": "TNT COMBAT SPORTS & FITNESS",
       "address": "Al joud center office M11 - Dubai - संयुक्त अरब इमिराट्स",
@@ -3586,6 +3564,49 @@
     "tnt-combat-sports-fitness-73ap": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784549533673&name=TNT+COMBAT+SPORTS+%26+FITNESS&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784549533673",
+      "name": "TNT COMBAT SPORTS & FITNESS (gym-website)",
+      "openedAt": "2026-07-20T12:13:21.124Z",
+      "lastActiveAt": "2026-07-20T12:13:30.480Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T12:13:21.124Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T12:13:29.109Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T12:13:30.480Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784548609383",
       "name": "BMA ACADEMY (gym-website)",
@@ -6103,31 +6124,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 100
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784273255295",
-      "name": "Face off Gym (gym-website)",
-      "openedAt": "2026-07-17T07:31:55.765Z",
-      "lastActiveAt": "2026-07-17T07:31:55.765Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-17T07:31:55.765Z",
-          "details": {
-            "device": "desktop"
           }
         }
       ],
