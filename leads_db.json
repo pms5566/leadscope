@@ -2903,10 +2903,10 @@
       "foundWebsiteUrl": null,
       "niche": "women's fitness",
       "location": "Riyadh",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T05:12:28.540Z",
-      "updatedAt": "2026-07-20T05:12:28.540Z",
+      "updatedAt": "2026-07-20T08:58:42.784Z",
       "shortAlias": "caroline-folhadella-fitness-wellness"
     }
   ],
@@ -3271,6 +3271,40 @@
     "powerlife-gym-tely": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784527919492&name=Powerlife+Gym&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784527919492",
+      "name": "Powerlife Gym (gym-website)",
+      "openedAt": "2026-07-20T06:12:58.846Z",
+      "lastActiveAt": "2026-07-20T06:13:26.147Z",
+      "duration": 10,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T06:12:58.846Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T06:13:26.147Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_fitness_trainer_1784527633015",
       "name": "Hey Caroline Folhadella - Fitness & Wellness! Love your profile page. 📸 I noticed you have amazing reviews here in Riyadh but don't have a website listed on your profile. I actually designed a quick, modern 1-page website mockup for you: https://leadscope-bice.vercel.app/caroline-folhadella-fitness-wellness (fitness trainer)",
@@ -5826,114 +5860,6 @@
         {
           "event": "heartbeat",
           "timestamp": "2026-07-15T11:05:09.986Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym_1784112839624",
-      "name": "tatti (gym)",
-      "openedAt": "2026-07-15T10:54:14.218Z",
-      "lastActiveAt": "2026-07-15T10:55:54.204Z",
-      "duration": 100,
-      "scrollPercent": 0,
-      "location": "Tulsipur, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:54:14.218Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:54:25.923Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:54:34.390Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:54:44.391Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:54:55.434Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:55:04.381Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:55:15.728Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:55:39.395Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:55:46.988Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:55:54.204Z",
           "details": {
             "device": "desktop",
             "seconds": 10,
