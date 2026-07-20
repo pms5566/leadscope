@@ -2974,6 +2974,28 @@
       "addedAt": "2026-07-20T09:13:37.285Z",
       "updatedAt": "2026-07-20T09:18:09.995Z",
       "shortAlias": "ghost-muaythai-gym"
+    },
+    {
+      "id": "scr-1rtjhtc",
+      "name": "The Champion Club",
+      "address": "Icon Towers 2 - Cluster L - Al Thanyah Fifth - Jumeirah Lakes Towers - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 4 447 4980",
+      "googleMapsUri": "https://www.google.com/maps/place/The+Champion+Club/data=!4m7!3m6!1s0x3e5f6cb2f9c0d91d:0x4081f63b759ad43e!8m2!3d25.065448!4d55.140213!16s%2Fg%2F11h0j7kjs!19sChIJHdnA-bJsXz4RPtSadTv2gUA?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/TheChampionClub/",
+      "instagram": "https://www.instagram.com/thechampionclubdubai/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/97144474980",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "MMA club",
+      "location": "UAE",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-20T09:30:35.728Z",
+      "updatedAt": "2026-07-20T09:30:35.728Z",
+      "shortAlias": "the-champion-club"
     }
   ],
   "shortLinks": {
@@ -3341,7 +3363,8 @@
     "lehadus-boxing": "https://drab-citric-acid.ngrok-free.dev/preview/boxing-gym/scr-2iaoavk?name=Lehadus%20Boxing&phone=%2B971%2055%20866%200771&address=Jumeira%203%20Al%20Wasl%20Road%20-%20Al%20Bailee%20Street%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "ghost-muaythai-gym": "https://drab-citric-acid.ngrok-free.dev/preview/boxing-gym/scr-6mk9s2x?name=Ghost%20Muaythai%20Gym&phone=%2B971%2052%20678%204256&address=Just%20play%20-%20Al%20Qouz%20Ind.first%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "lehadus-boxing-op57": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784538841232&name=Lehadus+Boxing&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "ghost-muaythai-gym-ffa9": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784538996615&name=Ghost+Muaythai+Gym&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "ghost-muaythai-gym-ffa9": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784538996615&name=Ghost+Muaythai+Gym&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "the-champion-club": "https://drab-citric-acid.ngrok-free.dev/preview/mma-club/scr-1rtjhtc?name=The%20Champion%20Club&phone=%2B971%204%20447%204980&address=Icon%20Towers%202%20-%20Cluster%20L%20-%20Al%20Thanyah%20Fifth%20-%20Jumeirah%20Lakes%20Towers%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
