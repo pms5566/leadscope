@@ -3387,10 +3387,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:38:20.008Z",
-      "updatedAt": "2026-07-20T14:38:20.008Z",
+      "updatedAt": "2026-07-20T16:32:53.703Z",
       "shortAlias": "workout-world-fitness-center-for-gents-and-ladiesgroup-classes-in-every-hours"
     },
     {
@@ -4334,6 +4334,49 @@
     "workout-world-fitness-center": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784565066495&name=WORKOUT+WORLD+FITNESS+CENTER&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784565066495",
+      "name": "WORKOUT WORLD FITNESS CENTER (gym-website)",
+      "openedAt": "2026-07-20T16:32:25.665Z",
+      "lastActiveAt": "2026-07-20T16:32:45.933Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Clonee, Leinster, Ireland",
+      "countryCode": "IE",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T16:32:25.665Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:32:36.005Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T16:32:45.933Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_SPA_1784564606017",
       "name": "Happy Paradise Spa Center Abu Dhabi (SPA)",
@@ -6808,49 +6851,6 @@
           "timestamp": "2026-07-18T16:21:50.786Z",
           "details": {
             "device": "mobile"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym_1784391464998",
-      "name": "The Fit Club Co. (gym)",
-      "openedAt": "2026-07-18T16:17:53.806Z",
-      "lastActiveAt": "2026-07-18T16:18:14.989Z",
-      "duration": 20,
-      "scrollPercent": 38,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:17:53.806Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T16:18:04.248Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 38
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T16:18:14.989Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 38
           }
         }
       ],
