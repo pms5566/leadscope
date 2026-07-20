@@ -3431,10 +3431,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:38:33.568Z",
-      "updatedAt": "2026-07-20T14:38:33.568Z",
+      "updatedAt": "2026-07-20T16:54:16.134Z",
       "shortAlias": "bio-women-body-fitness-center"
     },
     {
@@ -4227,6 +4227,31 @@
     "bio-fitness-center": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784566414442&name=Bio+fitness+center&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784566414442",
+      "name": "Bio fitness center (gym-website)",
+      "openedAt": "2026-07-20T16:54:09.116Z",
+      "lastActiveAt": "2026-07-20T16:54:09.116Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Prineville, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T16:54:09.116Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_wellness-project_1784565535796",
       "name": "WORKOUT WORLD FITNESS CENTER (wellness-project)",
@@ -6701,49 +6726,6 @@
           "timestamp": "2026-07-18T17:03:50.120Z",
           "details": {
             "device": "mobile"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784392204952",
-      "name": "Ultimate  Performance  Dubai (gym-website)",
-      "openedAt": "2026-07-18T16:31:05.908Z",
-      "lastActiveAt": "2026-07-18T16:31:27.913Z",
-      "duration": 20,
-      "scrollPercent": 0,
-      "location": "Luleå, Norrbotten County, Sweden",
-      "countryCode": "SE",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:31:05.908Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T16:31:17.982Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T16:31:27.913Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
           }
         }
       ],
