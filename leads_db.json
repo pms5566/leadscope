@@ -3629,10 +3629,10 @@
       "foundWebsiteUrl": null,
       "niche": "yoga retreat",
       "location": "UAE",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:39:45.509Z",
-      "updatedAt": "2026-07-20T14:39:45.509Z",
+      "updatedAt": "2026-07-20T17:28:51.527Z",
       "shortAlias": "friends-of-yoga"
     },
     {
@@ -4126,6 +4126,31 @@
     "friends-of-yoga-8y4j": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784568437486&name=Friends+of+Yoga&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_wellness-project_1784568437486",
+      "name": "Friends of Yoga (wellness-project)",
+      "openedAt": "2026-07-20T17:28:11.992Z",
+      "lastActiveAt": "2026-07-20T17:28:11.992Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Luleå, Norrbotten County, Sweden",
+      "countryCode": "SE",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T17:28:11.992Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_wellness-project_1784568302480",
       "name": "Yore  Yoga (wellness-project)",
@@ -6575,58 +6600,6 @@
           "timestamp": "2026-07-19T10:09:31.352Z",
           "details": {
             "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "scr-uykn20l",
-      "name": "Crony Fitness",
-      "openedAt": "2026-07-19T10:07:42.349Z",
-      "lastActiveAt": "2026-07-19T10:08:12.601Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Prineville, Oregon, United States",
-      "countryCode": "US",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T10:07:42.349Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T10:07:52.844Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T10:08:02.783Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T10:08:12.601Z",
-          "details": {
-            "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
           }
