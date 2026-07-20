@@ -2864,6 +2864,28 @@
       "addedAt": "2026-07-19T11:54:50.015Z",
       "updatedAt": "2026-07-19T18:27:13.855Z",
       "shortAlias": "fitness-founders"
+    },
+    {
+      "id": "scr-okz3t42",
+      "name": "Powerlife Gym",
+      "address": "2339 Asad Ibn Al Fourat, street, Riyadh 12643, साउदी अरब",
+      "phone": "+966 57 514 0811",
+      "googleMapsUri": "https://www.google.com/maps/place/Powerlife+Gym/data=!4m7!3m6!1s0x3e2f05ad88972cb1:0x9955909f2936f77f!8m2!3d24.6422061!4d46.7185212!16s%2Fg%2F11f_zp6wvx!19sChIJsSyXiK0FLz4Rf_c2KZ-QVZk?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/p/Powerlifeksa-100063704676689/",
+      "instagram": "https://www.instagram.com/powerlifeksaa/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/966575140811",
+      "tiktok": "https://www.tiktok.com/content/prime-pulse-gym-riyadh?lang=ru-RU",
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "gym",
+      "location": "Riyadh",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-20T05:10:35.188Z",
+      "updatedAt": "2026-07-20T05:10:35.188Z",
+      "shortAlias": "powerlife-gym"
     }
   ],
   "shortLinks": {
@@ -3217,9 +3239,65 @@
     "new-cityman-fitness-gym-7gzu": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784487143703&name=New+Cityman+Fitness+Gym&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "fitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784487380463&name=Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "strong-gym-hq-189c": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784487621242&name=Strong+Gym+HQ&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "letfds": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784522442072&name=letfds&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "letfds": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784522442072&name=letfds&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "powerlife-gym": "https://drab-citric-acid.ngrok-free.dev/preview/gym/scr-okz3t42?name=Powerlife%20Gym&phone=%2B966%2057%20514%200811&address=2339%20Asad%20Ibn%20Al%20Fourat%2C%20street%2C%20Riyadh%2012643%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_dentist_1784522442072",
+      "name": "letfds (dentist)",
+      "openedAt": "2026-07-20T04:40:51.403Z",
+      "lastActiveAt": "2026-07-20T04:41:04.359Z",
+      "duration": 10,
+      "scrollPercent": 100,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T04:40:51.403Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "whatsapp_click",
+          "timestamp": "2026-07-20T04:41:00.526Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T04:41:01.278Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "email_click",
+          "timestamp": "2026-07-20T04:41:02.378Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "fiverr_click",
+          "timestamp": "2026-07-20T04:41:04.359Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784485145720",
       "name": "Fitness Founders (gym-website)",
@@ -5830,40 +5908,6 @@
         {
           "event": "heartbeat",
           "timestamp": "2026-07-15T10:53:54.384Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "meta-1783186895191-4",
-      "name": "Amaira Aesthetics",
-      "openedAt": "2026-07-15T10:52:59.125Z",
-      "lastActiveAt": "2026-07-15T10:53:11.525Z",
-      "duration": 10,
-      "scrollPercent": 0,
-      "location": "Kathmandu, Bagmati Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T10:52:59.125Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-15T10:53:11.525Z",
           "details": {
             "device": "desktop",
             "seconds": 10,
