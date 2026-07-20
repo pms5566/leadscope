@@ -2886,6 +2886,28 @@
       "addedAt": "2026-07-20T05:10:35.188Z",
       "updatedAt": "2026-07-20T05:10:35.188Z",
       "shortAlias": "powerlife-gym"
+    },
+    {
+      "id": "scr-e1evsik",
+      "name": "Caroline Folhadella - Fitness & Wellness",
+      "address": "Al Janadriyyah, 2869 - 8881 Riyadh SA, District 13611, साउदी अरब",
+      "phone": "+49 1522 3785892",
+      "googleMapsUri": "https://www.google.com/maps/place/Caroline+Folhadella+-+Fitness+%26+Wellness/data=!4m7!3m6!1s0x3e2e5510d2147cc1:0xf7dd0f87eb6003c8!8m2!3d24.8127503!4d46.8513361!16s%2Fg%2F11mrlltb8r!19sChIJwXwU0hBVLj4RyANg64cP3fc?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/4915223785892",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "women's fitness",
+      "location": "Riyadh",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-20T05:12:28.540Z",
+      "updatedAt": "2026-07-20T05:12:28.540Z",
+      "shortAlias": "caroline-folhadella-fitness-wellness"
     }
   ],
   "shortLinks": {
@@ -3240,7 +3262,8 @@
     "fitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784487380463&name=Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "strong-gym-hq-189c": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784487621242&name=Strong+Gym+HQ&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "letfds": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784522442072&name=letfds&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "powerlife-gym": "https://drab-citric-acid.ngrok-free.dev/preview/gym/scr-okz3t42?name=Powerlife%20Gym&phone=%2B966%2057%20514%200811&address=2339%20Asad%20Ibn%20Al%20Fourat%2C%20street%2C%20Riyadh%2012643%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
+    "powerlife-gym": "https://drab-citric-acid.ngrok-free.dev/preview/gym/scr-okz3t42?name=Powerlife%20Gym&phone=%2B966%2057%20514%200811&address=2339%20Asad%20Ibn%20Al%20Fourat%2C%20street%2C%20Riyadh%2012643%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "caroline-folhadella-fitness-wellness": "https://drab-citric-acid.ngrok-free.dev/preview/women-s-fitness/scr-e1evsik?name=Caroline%20Folhadella%20-%20Fitness%20%26%20Wellness&phone=%2B49%201522%203785892&address=Al%20Janadriyyah%2C%202869%20-%208881%20Riyadh%20SA%2C%20District%2013611%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
