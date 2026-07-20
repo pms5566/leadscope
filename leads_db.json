@@ -3519,10 +3519,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:38:42.126Z",
-      "updatedAt": "2026-07-20T14:38:42.126Z",
+      "updatedAt": "2026-07-20T17:12:41.117Z",
       "shortAlias": "olympia-fitness-club"
     },
     {
@@ -4187,6 +4187,58 @@
     "olympia-fitness-club-ofil": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784567401040&name=Olympia+Fitness+Club&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784567401040",
+      "name": "Olympia Fitness Club (gym-website)",
+      "openedAt": "2026-07-20T17:10:44.343Z",
+      "lastActiveAt": "2026-07-20T17:11:14.896Z",
+      "duration": 30,
+      "scrollPercent": 0,
+      "location": "Luleå, Norrbotten County, Sweden",
+      "countryCode": "SE",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T17:10:44.343Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:10:55.314Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:11:04.721Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:11:14.896Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_dermatologist_1784566943236",
       "name": "Al Falah Health Care (dermatologist)",
@@ -6700,45 +6752,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-18T17:13:27.574Z",
-          "details": {
-            "device": "mobile"
-          }
-        }
-      ],
-      "isHot": true
-    },
-    {
-      "leadId": "preview_fitness_trainer_1784392514705",
-      "name": "christin_muthoni (fitness trainer)",
-      "openedAt": "2026-07-18T16:36:27.127Z",
-      "lastActiveAt": "2026-07-18T17:12:16.851Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 3,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:36:27.127Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:38:50.127Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:12:16.851Z",
           "details": {
             "device": "mobile"
           }
