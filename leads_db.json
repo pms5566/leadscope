@@ -3541,10 +3541,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:38:49.088Z",
-      "updatedAt": "2026-07-20T14:38:49.088Z",
+      "updatedAt": "2026-07-20T17:15:16.626Z",
       "shortAlias": "dynamic-fitness-best-gym-for-ladies-and-gents-musaffah-abu-dhabi"
     },
     {
@@ -4188,6 +4188,76 @@
     "dynamic-fitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784567635167&name=Dynamic+Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784567635167",
+      "name": "Dynamic Fitness (gym-website)",
+      "openedAt": "2026-07-20T17:14:42.180Z",
+      "lastActiveAt": "2026-07-20T17:15:14.373Z",
+      "duration": 50,
+      "scrollPercent": 0,
+      "location": "Altoona, Iowa, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T17:14:42.180Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:14:53.382Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:14:54.450Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:15:03.221Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:15:04.027Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:15:14.373Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784567401040",
       "name": "Olympia Fitness Club (gym-website)",
@@ -6618,147 +6688,6 @@
         }
       ],
       "isHot": false
-    },
-    {
-      "leadId": "preview_fitness_trainer_1784394143802",
-      "name": "b.well coaching (fitness trainer)",
-      "openedAt": "2026-07-18T17:02:45.524Z",
-      "lastActiveAt": "2026-07-18T17:13:27.574Z",
-      "duration": 90,
-      "scrollPercent": 100,
-      "location": "Clonee, Leinster, Ireland",
-      "countryCode": "IE",
-      "isp": "Facebook, Inc.",
-      "views": 6,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:02:45.524Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:02:46.268Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:02:55.096Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:02:59.788Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:03:05.107Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:03:09.278Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:03:15.186Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:03:19.298Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:03:31.299Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:03:42.153Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:05:23.823Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T17:05:35.399Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:09:03.739Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:09:52.739Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:13:27.574Z",
-          "details": {
-            "device": "mobile"
-          }
-        }
-      ],
-      "isHot": true
     }
   ],
   "settings": {
