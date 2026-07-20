@@ -3599,15 +3599,16 @@
     "shito-ryu-karate": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784544025797&name=Shito+ryu+Karate&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "tiger-karate-martial": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784544274530&name=Tiger+Karate+Martial&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "al-taneen-body-fitness-karate-institute-jgrd": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784544733148&name=Al+Taneen+Body++Fitness+%26++Karate++Institute&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "karate-sports-centre-z02x": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784544959260&name=Karate+Sports+Centre&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "karate-sports-centre-z02x": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784544959260&name=Karate+Sports+Centre&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "the-champion-club-kj1i": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784545059477&name=The+Champion+Club&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
     {
       "leadId": "preview_gym-website_1784544959260",
       "name": "Karate Sports Centre (gym-website)",
       "openedAt": "2026-07-20T10:56:53.596Z",
-      "lastActiveAt": "2026-07-20T10:57:04.835Z",
-      "duration": 10,
+      "lastActiveAt": "2026-07-20T10:57:15.685Z",
+      "duration": 20,
       "scrollPercent": 0,
       "location": "Portland, Oregon, United States",
       "countryCode": "US",
@@ -3627,6 +3628,15 @@
         {
           "event": "heartbeat",
           "timestamp": "2026-07-20T10:57:04.835Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T10:57:15.685Z",
           "details": {
             "device": "mobile",
             "seconds": 10,
