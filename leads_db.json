@@ -2930,6 +2930,28 @@
       "addedAt": "2026-07-20T09:13:18.245Z",
       "updatedAt": "2026-07-20T09:13:18.245Z",
       "shortAlias": "british-boxing-club-rvis"
+    },
+    {
+      "id": "scr-2iaoavk",
+      "name": "Lehadus Boxing",
+      "address": "Jumeira 3 Al Wasl Road - Al Bailee Street - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 55 866 0771",
+      "googleMapsUri": "https://www.google.com/maps/place/Lehadus+Boxing/data=!4m7!3m6!1s0x3e5f6b79901c8c6b:0x6e974cc643f7855f!8m2!3d25.1869933!4d55.2372971!16s%2Fg%2F11c54zz0l4!19sChIJa4wckHlrXz4RX4X3Q8ZMl24?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/lehadusboxing/",
+      "instagram": "https://www.instagram.com/lehadusboxing/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971558660771",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "boxing gym",
+      "location": "Dubai",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-20T09:13:33.614Z",
+      "updatedAt": "2026-07-20T09:13:33.614Z",
+      "shortAlias": "lehadus-boxing"
     }
   ],
   "shortLinks": {
@@ -3293,7 +3315,8 @@
     "powerlife-gym-tely": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784527919492&name=Powerlife+Gym&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "british-boxing-club": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784538274099&name=British+Boxing+Club&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "british-boxing-club-v26r": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784538280586&name=British+Boxing+Club&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "british-boxing-club-rvis": "https://drab-citric-acid.ngrok-free.dev/preview/boxing-gym/scr-c3maiqd?name=British%20Boxing%20Club&phone=%2B971%204%20892%203477&address=Al%20Qouz%20Ind.first%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "british-boxing-club-rvis": "https://drab-citric-acid.ngrok-free.dev/preview/boxing-gym/scr-c3maiqd?name=British%20Boxing%20Club&phone=%2B971%204%20892%203477&address=Al%20Qouz%20Ind.first%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "lehadus-boxing": "https://drab-citric-acid.ngrok-free.dev/preview/boxing-gym/scr-2iaoavk?name=Lehadus%20Boxing&phone=%2B971%2055%20866%200771&address=Jumeira%203%20Al%20Wasl%20Road%20-%20Al%20Bailee%20Street%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
