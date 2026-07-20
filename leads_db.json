@@ -3348,6 +3348,28 @@
       "addedAt": "2026-07-20T14:34:01.020Z",
       "updatedAt": "2026-07-20T14:34:01.020Z",
       "shortAlias": "butterfly-sport-academy"
+    },
+    {
+      "id": "scr-xzpgoah",
+      "name": "Happy Paradise Spa Center Abu Dhabi",
+      "address": "Baynunah tower 2 corniche Baynunah tower 2 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 55 303 8599",
+      "googleMapsUri": "https://www.google.com/maps/place/Happy+Paradise+Spa+Center+Abu+Dhabi/data=!4m7!3m6!1s0x3e5e51a211288a0b:0xe19537b208ccfd36!8m2!3d24.4824791!4d54.3501376!16s%2Fg%2F11q3_z_kjb!19sChIJC4ooEaJRXj4RNv3MCLI3leE?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/61579559292494?locale=cy_GB",
+      "instagram": "https://www.instagram.com/happy_paradise_uae/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971553038599",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-20T14:38:16.516Z",
+      "updatedAt": "2026-07-20T14:38:16.516Z",
+      "shortAlias": "happy-paradise-spa-center-abu-dhabi"
     }
   ],
   "shortLinks": {
@@ -3745,7 +3767,8 @@
     "power-house-gym": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastic-center/scr-t7gyp6x?name=Power%20House%20Gym&phone=%2B971%2050%20672%203487&address=8GGJ%2BQ8F%20-%20Mohamed%20Bin%20Zayed%20City%20-%20ME11%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "al-ruwad": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastic-center/scr-gyp88og?name=Al%20Ruwad&phone=N%2FA&address=F97J%2BP72%20-%20Al%20Nahyan%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "champs-gymnastics-club": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastic-center/scr-vo94s37?name=Champs%20Gymnastics%20Club&phone=%2B971%2055%20564%200206&address=Al%20Raha%20Beach%2C%20Al%20Raha%20Mall%20-%201st%20Floor%20-%20Al%20Rahah%20-%20RBW13%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "butterfly-sport-academy": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastic-center/scr-cbwvv27?name=Butterfly%20Sport%20Academy&phone=%2B971%2052%20935%203369&address=JVC%20JSS%20International%20School%20-%20Al%20Barsha%20South%20Fourth%20-%20Jumeirah%20Village%20Circle%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "butterfly-sport-academy": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastic-center/scr-cbwvv27?name=Butterfly%20Sport%20Academy&phone=%2B971%2052%20935%203369&address=JVC%20JSS%20International%20School%20-%20Al%20Barsha%20South%20Fourth%20-%20Jumeirah%20Village%20Circle%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "happy-paradise-spa-center-abu-dhabi": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-xzpgoah?name=Happy%20Paradise%20Spa%20Center%20Abu%20Dhabi&phone=%2B971%2055%20303%208599&address=Baynunah%20tower%202%20corniche%20Baynunah%20tower%202%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
