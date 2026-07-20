@@ -3607,10 +3607,10 @@
       "foundWebsiteUrl": null,
       "niche": "yoga retreat",
       "location": "UAE",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:39:35.884Z",
-      "updatedAt": "2026-07-20T14:39:35.884Z",
+      "updatedAt": "2026-07-20T17:26:20.788Z",
       "shortAlias": "yore-yoga"
     },
     {
@@ -4125,6 +4125,31 @@
     "yore-yoga-mtfy": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784568302480&name=Yore++Yoga&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_wellness-project_1784568302480",
+      "name": "Yore  Yoga (wellness-project)",
+      "openedAt": "2026-07-20T17:25:57.547Z",
+      "lastActiveAt": "2026-07-20T17:25:57.547Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Clonee, Leinster, Ireland",
+      "countryCode": "IE",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T17:25:57.547Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_wellness-project_1784568129397",
       "name": "Little Grains Kids Yoga Dubai (wellness-project)",
@@ -6603,31 +6628,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784451563843",
-      "name": "Champions Gym (gym-website)",
-      "openedAt": "2026-07-19T09:00:46.306Z",
-      "lastActiveAt": "2026-07-19T09:00:46.306Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T09:00:46.306Z",
-          "details": {
-            "device": "mobile"
           }
         }
       ],
