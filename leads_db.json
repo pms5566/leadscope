@@ -3497,10 +3497,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:38:33.573Z",
-      "updatedAt": "2026-07-20T14:38:33.573Z",
+      "updatedAt": "2026-07-20T17:04:35.087Z",
       "shortAlias": "wellness-boulevard"
     },
     {
@@ -4230,6 +4230,67 @@
     "al-falah-health-care": "https://leadscope-bice.vercel.app/?niche=dermatologist&leadId=preview_dermatologist_1784566943236&name=Al+Falah+Health+Care&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_dermatologist_1784566943236",
+      "name": "Al Falah Health Care (dermatologist)",
+      "openedAt": "2026-07-20T17:03:09.580Z",
+      "lastActiveAt": "2026-07-20T17:03:38.972Z",
+      "duration": 40,
+      "scrollPercent": 0,
+      "location": "Clonee, Leinster, Ireland",
+      "countryCode": "IE",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T17:03:09.580Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:03:20.537Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:03:30.267Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:03:30.543Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T17:03:38.972Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_SPA_1784566538255",
       "name": "AVA SPA CENTER (SPA)",
@@ -6721,66 +6782,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-18T17:12:16.851Z",
-          "details": {
-            "device": "mobile"
-          }
-        }
-      ],
-      "isHot": true
-    },
-    {
-      "leadId": "preview_wellness-project_1784392530819",
-      "name": "christin_muthoni (wellness-project)",
-      "openedAt": "2026-07-18T16:36:04.851Z",
-      "lastActiveAt": "2026-07-18T17:12:07.754Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 6,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:36:04.851Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:36:09.548Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:36:32.861Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:38:55.991Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:38:59.293Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T17:12:07.754Z",
           "details": {
             "device": "mobile"
           }
