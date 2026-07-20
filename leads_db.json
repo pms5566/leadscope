@@ -3211,10 +3211,10 @@
       "foundWebsiteUrl": null,
       "niche": "gymnastic center",
       "location": "Abu Dhabi",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-20T14:32:12.202Z",
-      "updatedAt": "2026-07-20T14:32:12.202Z",
+      "updatedAt": "2026-07-20T15:56:21.293Z",
       "shortAlias": "empire-rhythmic-gymnastics"
     },
     {
@@ -4348,6 +4348,49 @@
     "empire-rhythmic-gymnastics-de28": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784562898611&name=Empire+Rhythmic+Gymnastics&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784562898611",
+      "name": "Empire Rhythmic Gymnastics (gym-website)",
+      "openedAt": "2026-07-20T15:55:57.572Z",
+      "lastActiveAt": "2026-07-20T15:56:11.339Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T15:55:57.572Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T15:56:00.651Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-20T15:56:11.339Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784549533673",
       "name": "TNT COMBAT SPORTS & FITNESS (gym-website)",
@@ -6874,40 +6917,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_fitness_trainer_1784348535291",
-      "name": "ab (fitness trainer)",
-      "openedAt": "2026-07-18T04:22:19.737Z",
-      "lastActiveAt": "2026-07-18T04:22:29.946Z",
-      "duration": 10,
-      "scrollPercent": 100,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T04:22:19.737Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-18T04:22:29.946Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
           }
         }
       ],
