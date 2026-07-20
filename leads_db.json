@@ -3656,6 +3656,50 @@
       "addedAt": "2026-07-20T14:38:42.126Z",
       "updatedAt": "2026-07-20T14:38:42.126Z",
       "shortAlias": "olympia-fitness-club"
+    },
+    {
+      "id": "scr-spt90tf",
+      "name": "Dynamic Fitness | Best Gym for Ladies and Gents | Musaffah, Abu Dhabi",
+      "address": "Mohamed Bin Zayed City - ME10 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 54 337 3768",
+      "googleMapsUri": "https://www.google.com/maps/place/Dynamic+Fitness+%7C+Best+Gym+for+Ladies+and+Gents+%7C+Musaffah,+Abu+Dhabi/data=!4m7!3m6!1s0x3e5e390027c544f3:0x17990a360dd512ef!8m2!3d24.3368986!4d54.5304774!16s%2Fg%2F11x6lt5q1f!19sChIJ80TFJwA5Xj4R7xLVDTYKmRc?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/p/Dynamic-Fitness-61575352199355/",
+      "instagram": "https://www.instagram.com/dynamicfitnessuae/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971543373768",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-20T14:38:49.088Z",
+      "updatedAt": "2026-07-20T14:38:49.088Z",
+      "shortAlias": "dynamic-fitness-best-gym-for-ladies-and-gents-musaffah-abu-dhabi"
+    },
+    {
+      "id": "scr-ztmp879",
+      "name": "Evolve Ladies Fitness Club Mussafah",
+      "address": "10 Masda St - Mohamed Bin Zayed City - ME10 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 55 614 5583",
+      "googleMapsUri": "https://www.google.com/maps/place/Evolve+Ladies+Fitness+Club+Mussafah/data=!4m7!3m6!1s0x3e5e3914435c275f:0x4eefe83fb3ffaae!8m2!3d24.3374676!4d54.5332124!16s%2Fg%2F11hds3jwb8!19sChIJXydcQxQ5Xj4Rrvo_-4P-7gQ?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/evolveladiesfitnessclub/",
+      "instagram": "https://www.instagram.com/evolveladiesfitness/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971556145583",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-20T14:38:49.090Z",
+      "updatedAt": "2026-07-20T14:38:49.090Z",
+      "shortAlias": "evolve-ladies-fitness-club-mussafah"
     }
   ],
   "shortLinks": {
@@ -4067,7 +4111,9 @@
     "wellness-boulevard": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-hsveqyh?name=Wellness%20Boulevard&phone=%2B971%2055%20980%202600&address=Khalifa%20City%20-%20Sector%2013%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "healthy-health-beauty-and-slimming": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-o51xnib?name=Healthy%20Health%20Beauty%20and%20Slimming&phone=%2B971%202%20666%209964&address=Al%20Nahyan%20-%20E19%2002%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fortune-wellness-care": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-o7hm4yn?name=FORTUNE%20Wellness%20Care&phone=%2B971%2050%20820%205403&address=Al%20Nahyan%20-%20E19%2002%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "olympia-fitness-club": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-ygin5hk?name=Olympia%20Fitness%20Club&phone=%2B971%202%20546%200111&address=Al%20Ashum%20Street%20-%20%D8%A7%D9%84%D9%84%D9%82%D8%A7%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "olympia-fitness-club": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-ygin5hk?name=Olympia%20Fitness%20Club&phone=%2B971%202%20546%200111&address=Al%20Ashum%20Street%20-%20%D8%A7%D9%84%D9%84%D9%82%D8%A7%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "dynamic-fitness-best-gym-for-ladies-and-gents-musaffah-abu-dhabi": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-spt90tf?name=Dynamic%20Fitness%20%7C%20Best%20Gym%20for%20Ladies%20and%20Gents%20%7C%20Musaffah%2C%20Abu%20Dhabi&phone=%2B971%2054%20337%203768&address=Mohamed%20Bin%20Zayed%20City%20-%20ME10%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "evolve-ladies-fitness-club-mussafah": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-ztmp879?name=Evolve%20Ladies%20Fitness%20Club%20Mussafah&phone=%2B971%2055%20614%205583&address=10%20Masda%20St%20-%20Mohamed%20Bin%20Zayed%20City%20-%20ME10%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
