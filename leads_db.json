@@ -3812,28 +3812,6 @@
       "shortAlias": "ayuryoga-yoga-classes-in-sharjah-yoga-classes-ajman-yoga-classes-dubai"
     },
     {
-      "id": "scr-4fm2nba",
-      "name": "ديرة الغزال 1 Dirat Al-Ghizal",
-      "address": "ديرة الغزال Dirat - Al-Ghizal - Ras Al Khaimah - संयुक्त अरब इमिराट्स",
-      "phone": "+971 56 889 9869",
-      "googleMapsUri": "https://www.google.com/maps/place/%D8%AF%D9%8A%D8%B1%D8%A9+%D8%A7%D9%84%D8%BA%D8%B2%D8%A7%D9%84+1+Dirat+Al-Ghizal%E2%80%AD/data=!4m7!3m6!1s0x3ef5c70043483337:0x4de43b78a812ca37!8m2!3d25.4429401!4d55.9923675!16s%2Fg%2F11vymwdcln!19sChIJNzNIQwDH9T4RN8oSqHg75E0?authuser=0&hl=ne&rclk=1",
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "whatsapp": "https://wa.me/971568899869",
-      "tiktok": null,
-      "email": null,
-      "hasWebsiteInBio": false,
-      "foundWebsiteUrl": null,
-      "niche": "yoga retreat",
-      "location": "UAE",
-      "status": "new",
-      "notes": "",
-      "addedAt": "2026-07-20T14:39:45.514Z",
-      "updatedAt": "2026-07-20T14:39:45.514Z",
-      "shortAlias": "1-dirat-al-ghizal"
-    },
-    {
       "id": "scr-8fduq18",
       "name": "La Padma Lifestyle Coaching Services",
       "address": "Abdullah Meheiri Building - 513 - Dubai - संयुक्त अरब इमिराट्स",
@@ -4291,6 +4269,31 @@
     "la-padma": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784565535796&name=WORKOUT+WORLD+FITNESS+CENTER&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_wellness-project_1784565535796",
+      "name": "WORKOUT WORLD FITNESS CENTER (wellness-project)",
+      "openedAt": "2026-07-20T16:41:44.767Z",
+      "lastActiveAt": "2026-07-20T16:41:44.767Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Fort Worth, Texas, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T16:41:44.767Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784565066495",
       "name": "WORKOUT WORLD FITNESS CENTER (gym-website)",
@@ -6783,31 +6786,6 @@
             "device": "mobile",
             "seconds": 10,
             "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784391491087",
-      "name": "The Fit Club Co. (gym-website)",
-      "openedAt": "2026-07-18T16:21:50.786Z",
-      "lastActiveAt": "2026-07-18T16:21:50.786Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-18T16:21:50.786Z",
-          "details": {
-            "device": "mobile"
           }
         }
       ],
