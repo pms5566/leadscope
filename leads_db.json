@@ -4008,6 +4008,50 @@
       "addedAt": "2026-07-21T07:57:07.351Z",
       "updatedAt": "2026-07-21T07:57:07.351Z",
       "shortAlias": "fitspace"
+    },
+    {
+      "id": "scr-svbcohr",
+      "name": "Fit Box Gym",
+      "address": "34MX+XH3 - Marsa Dubai - Dubai Marina - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "N/A",
+      "googleMapsUri": "https://www.google.com/maps/place/Fit+Box+Gym/data=!4m7!3m6!1s0x3e5f6ba771047fed:0xf47e201a1ff7c68!8m2!3d25.0848827!4d55.1489288!16s%2Fg%2F11mh9cxpw8!19sChIJ7X8EcadrXz4RaHz_oQHiRw8?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/fitboxgymmarina/",
+      "instagram": "https://www.instagram.com/ubxmarinagate/",
+      "linkedin": null,
+      "whatsapp": null,
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit box",
+      "location": "Dubai Marina",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T07:57:14.006Z",
+      "updatedAt": "2026-07-21T07:57:14.006Z",
+      "shortAlias": "fit-box-gym"
+    },
+    {
+      "id": "scr-wb0fe60",
+      "name": "Mamba fitness",
+      "address": "JBR marina - Marsa Dubai - Jumeirah Beach Residence - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "N/A",
+      "googleMapsUri": "https://www.google.com/maps/place/Mamba+fitness/data=!4m7!3m6!1s0x3e5f15ea13be3a05:0x17667a40f71cbfdc!8m2!3d25.0800439!4d55.1368191!16s%2Fg%2F11j5fsx0p1!19sChIJBTq-E-oVXz4R3L8c90B6Zhc?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/mambafitnessznz/",
+      "linkedin": null,
+      "whatsapp": null,
+      "tiktok": null,
+      "email": "hello@mambafitnessznz.com",
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit box",
+      "location": "Dubai Marina",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T07:57:14.006Z",
+      "updatedAt": "2026-07-21T07:57:14.006Z",
+      "shortAlias": "mamba-fitness-ju6p"
     }
   ],
   "shortLinks": {
@@ -4469,7 +4513,9 @@
     "personal-trainers-dubai": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-4zkpjgh?name=Personal%20Trainers%20Dubai&phone=%2B971%2056%20297%207049&address=12a%20St%20-%20Al%20Qouz%20Ind.first%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "lana-by-functional-fitness-supply-ye3r": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-56c7rf3?name=LANA%20by%20Functional%20Fitness%20Supply&phone=N%2FA&address=Warehouse%2012%204th%20St%20-%20Al%20Qouz%20Ind.third%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "thrive-fitness-71k8": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-thvtr3h?name=Thrive%20Fitness&phone=N%2FA&address=Umm%20Suqeim%20St%20-%20Al%20Barsha%20Second%20-%201%2F22%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "fitspace": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-jufglgy?name=FitSpace&phone=%2B971%2058%20535%204660&address=JVC%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "fitspace": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-jufglgy?name=FitSpace&phone=%2B971%2058%20535%204660&address=JVC%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "fit-box-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-svbcohr?name=Fit%20Box%20Gym&phone=N%2FA&address=34MX%2BXH3%20-%20Marsa%20Dubai%20-%20Dubai%20Marina%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "mamba-fitness-ju6p": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-wb0fe60?name=Mamba%20fitness&phone=N%2FA&address=JBR%20marina%20-%20Marsa%20Dubai%20-%20Jumeirah%20Beach%20Residence%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
