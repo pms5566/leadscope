@@ -4294,6 +4294,50 @@
       "addedAt": "2026-07-21T14:22:50.377Z",
       "updatedAt": "2026-07-21T14:22:50.377Z",
       "shortAlias": "la-gym"
+    },
+    {
+      "id": "scr-uxzzej8",
+      "name": "Universal Fitness",
+      "address": "Silver Tower - Khalifa Bin Zayed The First St - Al Danah - Zone 1 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 404 3644",
+      "googleMapsUri": "https://www.google.com/maps/place/Universal+Fitness/data=!4m7!3m6!1s0x3e5e67fc681d2147:0xbdc006a47f45d95f!8m2!3d24.4924576!4d54.3588004!16s%2Fg%2F11tfw248yl!19sChIJRyEdaPxnXj4RX9lFf6QGwL0?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/universalfitnessauh/",
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971504043644",
+      "tiktok": "https://www.tiktok.com/@_universal_fitness",
+      "email": "info@365fitness.ae",
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit gym",
+      "location": "Corniche Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T14:22:56.617Z",
+      "updatedAt": "2026-07-21T14:22:56.617Z",
+      "shortAlias": "universal-fitness"
+    },
+    {
+      "id": "scr-17bw7fx",
+      "name": "Female personal trainer",
+      "address": "F9H4+WF9 - Al Hisn - W4 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 850 0169",
+      "googleMapsUri": "https://www.google.com/maps/place/Female+personal+trainer/data=!4m7!3m6!1s0x3e5e6591455bfb01:0x3c630c478e023a40!8m2!3d24.4797729!4d54.3562288!16s%2Fg%2F11zk4jdqjb!19sChIJAftbRZFlXj4RQDoCjkcMYzw?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971508500169",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit gym",
+      "location": "Corniche Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T14:22:56.617Z",
+      "updatedAt": "2026-07-21T14:22:56.617Z",
+      "shortAlias": "female-personal-trainer"
     }
   ],
   "shortLinks": {
@@ -4815,7 +4859,9 @@
     "powerlift-fitness-uhfb": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-azvsuvb?name=Powerlift%20Fitness&phone=N%2FA&address=Zayed%20The%20First%20St%20-%20Al%20Zahiyah%20-%20E15%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "california-gym-abu-dhabi": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-os6k8rl?name=California%20Gym%20Abu%20dhabi&phone=%2B971%2056%20246%202561&address=F9F2%2BJ2G%20-%20Al%20Hisn%20-%20W4%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "conquest-fitness-centre-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-gktqdlm?name=%D9%83%D9%88%D9%86%D8%B3%D8%AA%20%D8%AC%D9%8A%D9%85%20Conquest%20fitness%20Centre%20(gym)&phone=%2B971%2058%20156%200114&address=905%20Al%20Falah%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "la-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-kn0bhkr?name=La%20Gym&phone=%2B971%2054%20597%202507&address=13%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%AA%D9%90%D8%B4%D9%91%D9%8E%D8%A7%D9%84%D9%8E%D8%A9%20-%20Al%20Khalidiyah%20-%20W9%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "la-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-kn0bhkr?name=La%20Gym&phone=%2B971%2054%20597%202507&address=13%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%AA%D9%90%D8%B4%D9%91%D9%8E%D8%A7%D9%84%D9%8E%D8%A9%20-%20Al%20Khalidiyah%20-%20W9%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "universal-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-uxzzej8?name=Universal%20Fitness&phone=%2B971%2050%20404%203644&address=Silver%20Tower%20-%20Khalifa%20Bin%20Zayed%20The%20First%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "female-personal-trainer": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-17bw7fx?name=Female%20personal%20trainer&phone=%2B971%2050%20850%200169&address=F9H4%2BWF9%20-%20Al%20Hisn%20-%20W4%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
