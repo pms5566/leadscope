@@ -5090,9 +5090,56 @@
     "fitness-avenue": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-h33i6ri?name=Fitness%20Avenue&phone=%2B971%204%20238%204427&address=1st%20Floor%20Warsan%20Tower%2010%2C%20Al%20Rabee%E2%80%99a%202%20Barsha%20Heights%20-%20Barsha%20Heights%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "mamba-fitness-r2bv": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-ib5n3p5?name=Mamba%20fitness&phone=N%2FA&address=JBR%20marina%20-%20Marsa%20Dubai%20-%20Jumeirah%20Beach%20Residence%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "mamba-fitness-hs3y": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-1c6efj6?name=Mamba%20fitness&phone=N%2FA&address=JBR%20marina%20-%20Marsa%20Dubai%20-%20Jumeirah%20Beach%20Residence%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "lana-by-functional-fitness-supply-fzj2": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-d4psgyx?name=LANA%20by%20Functional%20Fitness%20Supply&phone=N%2FA&address=Warehouse%2012%204th%20St%20-%20Al%20Qouz%20Ind.third%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "lana-by-functional-fitness-supply-fzj2": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-d4psgyx?name=LANA%20by%20Functional%20Fitness%20Supply&phone=N%2FA&address=Warehouse%2012%204th%20St%20-%20Al%20Qouz%20Ind.third%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "mamba-fitness-o8vx": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784624863413&name=Mamba+fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_wellness-project_1784568437486",
+      "name": "Friends of Yoga (wellness-project)",
+      "openedAt": "2026-07-20T17:28:11.992Z",
+      "lastActiveAt": "2026-07-21T09:01:57.790Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Luleå, Norrbotten County, Sweden",
+      "countryCode": "SE",
+      "isp": "Facebook, Inc.",
+      "views": 3,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-20T17:28:11.992Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-21T09:01:55.338Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-21T09:01:57.511Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-21T09:01:57.790Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": true
+    },
     {
       "leadId": "preview_gym-website_1784563633107",
       "name": "Power House Gym (gym-website)",
@@ -5113,31 +5160,6 @@
           "timestamp": "2026-07-20T18:02:31.250Z",
           "details": {
             "device": "mobile"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_wellness-project_1784568437486",
-      "name": "Friends of Yoga (wellness-project)",
-      "openedAt": "2026-07-20T17:28:11.992Z",
-      "lastActiveAt": "2026-07-20T17:28:11.992Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Luleå, Norrbotten County, Sweden",
-      "countryCode": "SE",
-      "isp": "Facebook, Inc.",
-      "views": 1,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-20T17:28:11.992Z",
-          "details": {
-            "device": "desktop"
           }
         }
       ],
