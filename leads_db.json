@@ -4338,6 +4338,50 @@
       "addedAt": "2026-07-21T14:22:56.617Z",
       "updatedAt": "2026-07-21T14:22:56.617Z",
       "shortAlias": "female-personal-trainer"
+    },
+    {
+      "id": "scr-rqy9ly4",
+      "name": "Code M Crossfit",
+      "address": "Al Reehan. Behind Holiday Inn, Danet Tower B - Al Sa`Adah - Zone 1 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "N/A",
+      "googleMapsUri": "https://www.google.com/maps/place/Code+M+Crossfit/data=!4m7!3m6!1s0x3e5e4278aa76f683:0x647789e51221cb6c!8m2!3d24.4294558!4d54.4341757!16s%2Fg%2F11b6hjrlsd!19sChIJg_Z2qnhCXj4RbMshEuWJd2Q?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": null,
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit gym",
+      "location": "Corniche Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T14:23:01.149Z",
+      "updatedAt": "2026-07-21T14:23:01.149Z",
+      "shortAlias": "code-m-crossfit"
+    },
+    {
+      "id": "scr-dy5moou",
+      "name": "Al Gurm CrossFit",
+      "address": "1268 Al Khaleej Al Arabi St - Al Qurm - W50 01 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 52 836 2967",
+      "googleMapsUri": "https://www.google.com/maps/place/Al+Gurm+CrossFit/data=!4m7!3m6!1s0x3e5e69f373b002b9:0x46c7c17f5a46c6f9!8m2!3d24.4241974!4d54.4069462!16s%2Fg%2F11h0g_hx94!19sChIJuQKwc_NpXj4R-cZGWn_Bx0Y?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/uaejjfitness/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971528362967",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit gym",
+      "location": "Corniche Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T14:23:01.150Z",
+      "updatedAt": "2026-07-21T14:23:01.150Z",
+      "shortAlias": "al-gurm-crossfit"
     }
   ],
   "shortLinks": {
@@ -4861,7 +4905,9 @@
     "conquest-fitness-centre-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-gktqdlm?name=%D9%83%D9%88%D9%86%D8%B3%D8%AA%20%D8%AC%D9%8A%D9%85%20Conquest%20fitness%20Centre%20(gym)&phone=%2B971%2058%20156%200114&address=905%20Al%20Falah%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "la-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-kn0bhkr?name=La%20Gym&phone=%2B971%2054%20597%202507&address=13%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%AA%D9%90%D8%B4%D9%91%D9%8E%D8%A7%D9%84%D9%8E%D8%A9%20-%20Al%20Khalidiyah%20-%20W9%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "universal-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-uxzzej8?name=Universal%20Fitness&phone=%2B971%2050%20404%203644&address=Silver%20Tower%20-%20Khalifa%20Bin%20Zayed%20The%20First%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "female-personal-trainer": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-17bw7fx?name=Female%20personal%20trainer&phone=%2B971%2050%20850%200169&address=F9H4%2BWF9%20-%20Al%20Hisn%20-%20W4%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "female-personal-trainer": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-17bw7fx?name=Female%20personal%20trainer&phone=%2B971%2050%20850%200169&address=F9H4%2BWF9%20-%20Al%20Hisn%20-%20W4%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "code-m-crossfit": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-rqy9ly4?name=Code%20M%20Crossfit&phone=N%2FA&address=Al%20Reehan.%20Behind%20Holiday%20Inn%2C%20Danet%20Tower%20B%20-%20Al%20Sa%60Adah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "al-gurm-crossfit": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-dy5moou?name=Al%20Gurm%20CrossFit&phone=%2B971%2052%20836%202967&address=1268%20Al%20Khaleej%20Al%20Arabi%20St%20-%20Al%20Qurm%20-%20W50%2001%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
