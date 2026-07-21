@@ -3854,6 +3854,50 @@
       "addedAt": "2026-07-21T07:54:54.515Z",
       "updatedAt": "2026-07-21T07:54:54.515Z",
       "shortAlias": "talise-fitness-at-madinat-jumeirah-rebranded-to-j-club-at-jumeirah-mina-asalam"
+    },
+    {
+      "id": "scr-vwu5uqd",
+      "name": "Habibi Bootcamp",
+      "address": "46WG+832 - 15A St - Al Qouz Ind.first - Al Quoz - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 702 0950",
+      "googleMapsUri": "https://www.google.com/maps/place/Habibi+Bootcamp/data=!4m7!3m6!1s0x3e5f6bf2a1a54365:0xfbdb75684723b63c!8m2!3d25.1457596!4d55.2251201!16s%2Fg%2F11zbv7d92z!19sChIJZUOlofJrXz4RPLYjR2h12_s?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/barrysuae/p/Bv6BcqxnBGd/?hl=ja",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971507020950",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit Gym",
+      "location": "Dubai Marina",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T07:55:00.988Z",
+      "updatedAt": "2026-07-21T07:55:00.988Z",
+      "shortAlias": "habibi-bootcamp"
+    },
+    {
+      "id": "scr-xl874ck",
+      "name": "Project Fitness",
+      "address": "Sarab Community - Majan - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 4 325 8432",
+      "googleMapsUri": "https://www.google.com/maps/place/Project+Fitness/data=!4m7!3m6!1s0x3e5f6fa7dd909631:0x9f503fc080450788!8m2!3d25.0879379!4d55.3141481!16s%2Fg%2F11rxspfk89!19sChIJMZaQ3advXz4RiAdFgMA_UJ8?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/97143258432",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit Gym",
+      "location": "Dubai Marina",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T07:55:00.989Z",
+      "updatedAt": "2026-07-21T07:55:00.989Z",
+      "shortAlias": "project-fitness"
     }
   ],
   "shortLinks": {
@@ -4308,7 +4352,9 @@
     "damac-hills-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-23q87zd?name=Damac%20Hills%20-%20Gym&phone=N%2FA&address=2793%2BG97%20-%20Unnamed%20Road%20-%20DAMAC%20Hills%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "ignite-sport-services": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-i84qqhw?name=IGNITE%20Sport%20Services&phone=%2B971%2052%20249%205311&address=Office%20120%2C%20Deyaar%20Building%20-%20Al%20Barsha%20First%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "lana-by-functional-fitness-supply": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-cvdkg1n?name=LANA%20by%20Functional%20Fitness%20Supply&phone=N%2FA&address=Warehouse%2012%204th%20St%20-%20Al%20Qouz%20Ind.third%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "talise-fitness-at-madinat-jumeirah-rebranded-to-j-club-at-jumeirah-mina-asalam": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-dd32cy5?name=Talise%20Fitness%20at%20Madinat%20Jumeirah%20(Rebranded%20to%20J%20Club%20at%20Jumeirah%20Mina%20A'Salam)&phone=%2B971%204%20366%206818&address=Al%20Sufouh%201%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "talise-fitness-at-madinat-jumeirah-rebranded-to-j-club-at-jumeirah-mina-asalam": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-dd32cy5?name=Talise%20Fitness%20at%20Madinat%20Jumeirah%20(Rebranded%20to%20J%20Club%20at%20Jumeirah%20Mina%20A'Salam)&phone=%2B971%204%20366%206818&address=Al%20Sufouh%201%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "habibi-bootcamp": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-vwu5uqd?name=Habibi%20Bootcamp&phone=%2B971%2050%20702%200950&address=46WG%2B832%20-%2015A%20St%20-%20Al%20Qouz%20Ind.first%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "project-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-xl874ck?name=Project%20Fitness&phone=%2B971%204%20325%208432&address=Sarab%20Community%20-%20Majan%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
