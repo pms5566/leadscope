@@ -4052,6 +4052,28 @@
       "addedAt": "2026-07-21T07:57:14.006Z",
       "updatedAt": "2026-07-21T07:57:14.006Z",
       "shortAlias": "mamba-fitness-ju6p"
+    },
+    {
+      "id": "scr-mtnhkpn",
+      "name": "DIFC FIT",
+      "address": "Sheikh Zayed Rd - Trade Center First - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 54 757 6467",
+      "googleMapsUri": "https://www.google.com/maps/place/DIFC+FIT/data=!4m7!3m6!1s0x3e5f4381a3f4db31:0x6ddb7717aa82da89!8m2!3d25.2211245!4d55.2802964!16s%2Fg%2F11yww9m3r6!19sChIJMdv0o4FDXz4RidqCqhd3220?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/yofit_difc/",
+      "linkedin": "https://www.linkedin.com/company/difc",
+      "whatsapp": "https://wa.me/971547576467",
+      "tiktok": null,
+      "email": "yofithotstudios@gmail.com",
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "DIFC Dubai",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T07:58:16.803Z",
+      "updatedAt": "2026-07-21T07:58:16.803Z",
+      "shortAlias": "difc-fit"
     }
   ],
   "shortLinks": {
@@ -4515,7 +4537,8 @@
     "thrive-fitness-71k8": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-thvtr3h?name=Thrive%20Fitness&phone=N%2FA&address=Umm%20Suqeim%20St%20-%20Al%20Barsha%20Second%20-%201%2F22%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fitspace": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-jufglgy?name=FitSpace&phone=%2B971%2058%20535%204660&address=JVC%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fit-box-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-svbcohr?name=Fit%20Box%20Gym&phone=N%2FA&address=34MX%2BXH3%20-%20Marsa%20Dubai%20-%20Dubai%20Marina%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "mamba-fitness-ju6p": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-wb0fe60?name=Mamba%20fitness&phone=N%2FA&address=JBR%20marina%20-%20Marsa%20Dubai%20-%20Jumeirah%20Beach%20Residence%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "mamba-fitness-ju6p": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-box/scr-wb0fe60?name=Mamba%20fitness&phone=N%2FA&address=JBR%20marina%20-%20Marsa%20Dubai%20-%20Jumeirah%20Beach%20Residence%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "difc-fit": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-mtnhkpn?name=DIFC%20FIT&phone=%2B971%2054%20757%206467&address=Sheikh%20Zayed%20Rd%20-%20Trade%20Center%20First%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
