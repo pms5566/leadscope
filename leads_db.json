@@ -3744,6 +3744,50 @@
       "addedAt": "2026-07-21T07:54:46.650Z",
       "updatedAt": "2026-07-21T07:54:46.650Z",
       "shortAlias": "thrive-fitness-ylxb"
+    },
+    {
+      "id": "scr-yd639n3",
+      "name": "Start Point GYM ستارت بوينت جيم",
+      "address": "Al QuozAl Qouz - Al Qouz Ind.third - Al Quoz - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 55 118 2626",
+      "googleMapsUri": "https://www.google.com/maps/place/Start+Point+GYM+%D8%B3%D8%AA%D8%A7%D8%B1%D8%AA+%D8%A8%D9%88%D9%8A%D9%86%D8%AA+%D8%AC%D9%8A%D9%85%E2%80%AD/data=!4m7!3m6!1s0x3e5f6b5702099441:0x8315da201e0e4c07!8m2!3d25.1176333!4d55.2146118!16s%2Fg%2F11k5bqflwt!19sChIJQZQJAldrXz4RB0wOHiDaFYM?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971551182626",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit Gym",
+      "location": "Dubai Marina",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T07:54:50.525Z",
+      "updatedAt": "2026-07-21T07:54:50.525Z",
+      "shortAlias": "start-point-gym"
+    },
+    {
+      "id": "scr-23q87zd",
+      "name": "Damac Hills - Gym",
+      "address": "2793+G97 - Unnamed Road - DAMAC Hills - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "N/A",
+      "googleMapsUri": "https://www.google.com/maps/place/Damac+Hills+-+Gym/data=!4m7!3m6!1s0x3e5f71e173d413f1:0x576833687181211f!8m2!3d25.0187877!4d55.2534236!16s%2Fg%2F11ll3xyqs3!19sChIJ8RPUc-FxXz4RHyGBcWgzaFc?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": null,
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit Gym",
+      "location": "Dubai Marina",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T07:54:50.526Z",
+      "updatedAt": "2026-07-21T07:54:50.526Z",
+      "shortAlias": "damac-hills-gym"
     }
   ],
   "shortLinks": {
@@ -4193,7 +4237,9 @@
     "mamba-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-z7yajjx?name=Mamba%20fitness&phone=N%2FA&address=JBR%20marina%20-%20Marsa%20Dubai%20-%20Jumeirah%20Beach%20Residence%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "mamba-fitness-ppdw": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-56fge1s?name=Mamba%20fitness&phone=N%2FA&address=JBR%20marina%20-%20Marsa%20Dubai%20-%20Jumeirah%20Beach%20Residence%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "hype-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-qrb3l7u?name=HYPE%20FITNESS&phone=%2B971%2052%20155%206610&address=34HJ%2B4VM%20JBR%20BEACH%20-%20Marsa%20Dubai%20-%20Dubai%20Marina%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "thrive-fitness-ylxb": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-zjy58vo?name=Thrive%20Fitness&phone=N%2FA&address=Umm%20Suqeim%20St%20-%20Al%20Barsha%20Second%20-%201%2F22%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "thrive-fitness-ylxb": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-zjy58vo?name=Thrive%20Fitness&phone=N%2FA&address=Umm%20Suqeim%20St%20-%20Al%20Barsha%20Second%20-%201%2F22%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "start-point-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-yd639n3?name=Start%20Point%20GYM%20%D8%B3%D8%AA%D8%A7%D8%B1%D8%AA%20%D8%A8%D9%88%D9%8A%D9%86%D8%AA%20%D8%AC%D9%8A%D9%85&phone=%2B971%2055%20118%202626&address=Al%20QuozAl%20Qouz%20-%20Al%20Qouz%20Ind.third%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "damac-hills-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-23q87zd?name=Damac%20Hills%20-%20Gym&phone=N%2FA&address=2793%2BG97%20-%20Unnamed%20Road%20-%20DAMAC%20Hills%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
