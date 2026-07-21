@@ -165,6 +165,16 @@ const NICHE_ALIASES = {
   'gel_manicure': 'nail-art',
   'nail_studio': 'nail-art',
   'nail_bar': 'nail-art',
+  // ── Vanguard School ─────────────────────────────────────────────────────────
+  'vanguard_school': 'Vanguard School',
+  'vanguard_school_website': 'Vanguard School',
+  'school': 'Vanguard School',
+  'private_school': 'Vanguard School',
+  'high_school': 'Vanguard School',
+  'academy': 'Vanguard School',
+  'preschool': 'Vanguard School',
+  'k12': 'Vanguard School',
+  'education': 'Vanguard School',
   // ── Shopify 1 ────────────────────────────────────────────────────────────────
   'shopify': 'Shopify 1',
   'shopify_store': 'Shopify 1',

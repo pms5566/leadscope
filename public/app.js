@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (error) {
       console.warn('Failed to load GitHub templates:', error);
-      githubTemplates = ['cafe', 'gym', 'bakery', 'dentist', 'plumber'];
+      githubTemplates = ['cafe', 'gym', 'bakery', 'dentist', 'plumber', 'Vanguard School'];
     }
   }
 
