@@ -3827,10 +3827,10 @@
       "foundWebsiteUrl": null,
       "niche": "CrossFit box",
       "location": "Dubai Marina",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-21T07:57:14.006Z",
-      "updatedAt": "2026-07-21T07:57:14.006Z",
+      "updatedAt": "2026-07-21T11:11:13.521Z",
       "shortAlias": "fit-box-gym"
     },
     {
@@ -4904,6 +4904,56 @@
     "ubx-marina-gate": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784632174881&name=UBX+Marina+Gate&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784632174881",
+      "name": "UBX Marina Gate (gym-website)",
+      "openedAt": "2026-07-21T11:10:46.965Z",
+      "lastActiveAt": "2026-07-21T11:11:06.156Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 2,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-21T11:10:46.965Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-21T11:10:50.093Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-21T11:11:00.819Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-21T11:11:06.156Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_fitness_trainer_1784626197279",
       "name": "Personal  Trainers (fitness trainer)",
@@ -7331,40 +7381,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 57
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_dentist_1784459045302",
-      "name": "ab (dentist)",
-      "openedAt": "2026-07-19T11:04:10.122Z",
-      "lastActiveAt": "2026-07-19T11:04:21.063Z",
-      "duration": 10,
-      "scrollPercent": 100,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T11:04:10.122Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:04:21.063Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
           }
         }
       ],
