@@ -4382,6 +4382,28 @@
       "addedAt": "2026-07-21T14:23:01.150Z",
       "updatedAt": "2026-07-21T14:23:01.150Z",
       "shortAlias": "al-gurm-crossfit"
+    },
+    {
+      "id": "scr-tkkuio7",
+      "name": "Primal Gym Al Reem Island Branch",
+      "address": "AL Amaya tower, Reem Island - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 296 2157",
+      "googleMapsUri": "https://www.google.com/maps/place/Primal+Gym+Al+Reem+Island+Branch/data=!4m7!3m6!1s0x3e5e6709eab20c45:0xf3b2c5b4376b1068!8m2!3d24.5107779!4d54.4059202!16s%2Fg%2F11b7rtw43_!19sChIJRQyy6glnXj4RaBBrN7TFsvM?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971502962157",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Al Maryah Island Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T14:24:25.684Z",
+      "updatedAt": "2026-07-21T14:24:25.684Z",
+      "shortAlias": "primal-gym-al-reem-island-branch"
     }
   ],
   "shortLinks": {
@@ -4907,7 +4929,8 @@
     "universal-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-uxzzej8?name=Universal%20Fitness&phone=%2B971%2050%20404%203644&address=Silver%20Tower%20-%20Khalifa%20Bin%20Zayed%20The%20First%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "female-personal-trainer": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-17bw7fx?name=Female%20personal%20trainer&phone=%2B971%2050%20850%200169&address=F9H4%2BWF9%20-%20Al%20Hisn%20-%20W4%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "code-m-crossfit": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-rqy9ly4?name=Code%20M%20Crossfit&phone=N%2FA&address=Al%20Reehan.%20Behind%20Holiday%20Inn%2C%20Danet%20Tower%20B%20-%20Al%20Sa%60Adah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "al-gurm-crossfit": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-dy5moou?name=Al%20Gurm%20CrossFit&phone=%2B971%2052%20836%202967&address=1268%20Al%20Khaleej%20Al%20Arabi%20St%20-%20Al%20Qurm%20-%20W50%2001%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "al-gurm-crossfit": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-dy5moou?name=Al%20Gurm%20CrossFit&phone=%2B971%2052%20836%202967&address=1268%20Al%20Khaleej%20Al%20Arabi%20St%20-%20Al%20Qurm%20-%20W50%2001%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "primal-gym-al-reem-island-branch": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-tkkuio7?name=Primal%20Gym%20Al%20Reem%20Island%20Branch&phone=%2B971%2050%20296%202157&address=AL%20Amaya%20tower%2C%20Reem%20Island%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
