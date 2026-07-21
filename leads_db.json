@@ -4919,9 +4919,35 @@
     "project-fitness-3hy6": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784625943745&name=Project+Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "primal-fitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784626038968&name=Primal+Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "personal-trainers": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784626197279&name=Personal++Trainers&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "personal-trainers-2": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784626358399&name=Personal++Trainers+2&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "personal-trainers-2": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784626358399&name=Personal++Trainers+2&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "lana-by-functional-fitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784631620392&name=LANA+by+Functional+Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_fitness_trainer_1784626197279",
+      "name": "Personal  Trainers (fitness trainer)",
+      "openedAt": "2026-07-21T09:32:59.886Z",
+      "lastActiveAt": "2026-07-21T09:32:59.886Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Altoona, Iowa, United States",
+      "countryCode": "US",
+      "isp": "Facebook, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Unknown OS",
+      "browser": "Unknown Browser",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-21T09:32:59.886Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_wellness-project_1784568437486",
       "name": "Friends of Yoga (wellness-project)",
@@ -7358,40 +7384,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 100
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784457023446",
-      "name": "Herinox Studio (gym-website)",
-      "openedAt": "2026-07-19T10:36:52.210Z",
-      "lastActiveAt": "2026-07-19T10:37:02.341Z",
-      "duration": 10,
-      "scrollPercent": 13,
-      "location": "Dubai, Dubai, United Arab Emirates",
-      "countryCode": "AE",
-      "isp": "Emirates Telecommunications Corporation",
-      "views": 1,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T10:36:52.210Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T10:37:02.341Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 13
           }
         }
       ],
