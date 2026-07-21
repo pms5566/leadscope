@@ -4514,6 +4514,50 @@
       "addedAt": "2026-07-21T14:29:09.422Z",
       "updatedAt": "2026-07-21T14:29:09.422Z",
       "shortAlias": "hardwalls-gym"
+    },
+    {
+      "id": "scr-j9nrd8b",
+      "name": "Personal Trainer and Fitness Coach",
+      "address": "Khalifa university - Airport Rd - Al Nahyan - Zone 1 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 759 2246",
+      "googleMapsUri": "https://www.google.com/maps/place/Personal+Trainer+and+Fitness+Coach/data=!4m7!3m6!1s0x3e5e69dff5c01a8d:0xe4d0158437014c01!8m2!3d24.4654555!4d54.3761406!16s%2Fg%2F11rqg463r9!19sChIJjRrA9d9pXj4RAUwBN4QV0OQ?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/chrischalfoun/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971507592246",
+      "tiktok": null,
+      "email": "Christophe12123@gmail.com",
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit gym",
+      "location": "Saadiyat Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T14:29:16.961Z",
+      "updatedAt": "2026-07-21T14:29:16.961Z",
+      "shortAlias": "personal-trainer-and-fitness-coach"
+    },
+    {
+      "id": "scr-t8h6sli",
+      "name": "Black Belt Sports Center",
+      "address": "39 Al Falah St - Al Danah - Zone 1 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 613 7009",
+      "googleMapsUri": "https://www.google.com/maps/place/Black+Belt+Sports+Center/data=!4m7!3m6!1s0x3e5e66471715283b:0xceb805ad8578fd00!8m2!3d24.4809556!4d54.373633!16s%2Fg%2F11gzz7l5r!19sChIJOygVF0dmXj4RAP14ha0FuM4?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971506137009",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit gym",
+      "location": "Saadiyat Abu Dhabi",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T14:29:16.962Z",
+      "updatedAt": "2026-07-21T14:29:16.962Z",
+      "shortAlias": "black-belt-sports-center"
     }
   ],
   "shortLinks": {
@@ -5045,7 +5089,9 @@
     "crash-gym-al-raha": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-8s8gfp0?name=Crash%20Gym%20Al%20raha&phone=N%2FA&address=Al%20Aryani%20Bldg%20-%20C2042%20-%20Al%20Rahah%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "vybo-sports-contracting": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-d3bv13k?name=VYBO%20Sports%20Contracting&phone=%2B971%2058%20533%208926&address=Room%23208%2C%20Golden%20Tulip%20Hotel%20Downtown%20-%20Hamdan%20Bin%20Mohammed%20St%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "jumbo-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-eqdzfu2?name=JUMBO%20GYM&phone=%2B971%2052%20397%200181&address=Musaffah%20-%20M14%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "hardwalls-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-rp0h2yt?name=HARDWALLS%20GYM&phone=%2B971%2052%20731%200109&address=Musaffah%20sanayya%20-%20M6%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "hardwalls-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-rp0h2yt?name=HARDWALLS%20GYM&phone=%2B971%2052%20731%200109&address=Musaffah%20sanayya%20-%20M6%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "personal-trainer-and-fitness-coach": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-j9nrd8b?name=Personal%20Trainer%20and%20Fitness%20Coach&phone=%2B971%2050%20759%202246&address=Khalifa%20university%20-%20Airport%20Rd%20-%20Al%20Nahyan%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "black-belt-sports-center": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-t8h6sli?name=Black%20Belt%20Sports%20Center&phone=%2B971%2050%20613%207009&address=39%20Al%20Falah%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
