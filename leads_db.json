@@ -4817,9 +4817,35 @@
     "hardwalls-gym-gqtt": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784649137093&name=HARDWALLS+GYM&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "jumbo-gym-wuaq": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784649537086&name=JUMBO+GYM&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "folakemi-ty02": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784649812648&name=Folakemi&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "schopm": "https://leadscope-bice.vercel.app/?niche=Vanguard+School&leadId=preview_Vanguard_School_1784650306469&name=schopm&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "schopm": "https://leadscope-bice.vercel.app/?niche=Vanguard+School&leadId=preview_Vanguard_School_1784650306469&name=schopm&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "little-heart-playway-school": "https://leadscope-bice.vercel.app/?niche=Vanguard+School&leadId=preview_Vanguard_School_1784653362539&name=Little+heart+playway+school&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_Vanguard_School_1784650306469",
+      "name": "schopm (Vanguard School)",
+      "openedAt": "2026-07-21T16:11:57.132Z",
+      "lastActiveAt": "2026-07-21T16:11:57.132Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "Datacamp Limited",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-21T16:11:57.132Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784649137093",
       "name": "HARDWALLS GYM (gym-website)",
@@ -7089,54 +7115,6 @@
         }
       ],
       "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784474300768",
-      "name": "t0 (gym-website)",
-      "openedAt": "2026-07-19T15:18:27.226Z",
-      "lastActiveAt": "2026-07-19T15:18:54.926Z",
-      "duration": 10,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "PacketHub S.A.",
-      "views": 3,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:18:27.226Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:18:33.561Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T15:18:44.002Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:18:54.926Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": true
     }
   ],
   "settings": {
