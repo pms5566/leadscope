@@ -4316,6 +4316,28 @@
       "addedAt": "2026-07-21T08:00:15.888Z",
       "updatedAt": "2026-07-21T08:00:15.888Z",
       "shortAlias": "fitness-world-gym"
+    },
+    {
+      "id": "scr-xcorb8e",
+      "name": "Beach CrossFit",
+      "address": "88CV+6Q - Al Mamzar - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "N/A",
+      "googleMapsUri": "https://www.google.com/maps/place/Beach+CrossFit/data=!4m7!3m6!1s0x3e5f5bdff03c7d21:0xbe42183196289f5c!8m2!3d25.3206246!4d55.3444353!16s%2Fg%2F11t607tvh9!19sChIJIX088N9bXz4RXJ8oljEYQr4?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": null,
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Bay Dubai",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T08:04:52.824Z",
+      "updatedAt": "2026-07-21T08:04:52.824Z",
+      "shortAlias": "beach-crossfit-tjgn"
     }
   ],
   "shortLinks": {
@@ -4791,7 +4813,8 @@
     "thrive-fitness-pxp7": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-7zsbmoy?name=Thrive%20Fitness&phone=N%2FA&address=Umm%20Suqeim%20St%20-%20Al%20Barsha%20Second%20-%201%2F22%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "lana-by-functional-fitness-supply-8m6q": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-iykgvyq?name=LANA%20by%20Functional%20Fitness%20Supply&phone=N%2FA&address=Warehouse%2012%204th%20St%20-%20Al%20Qouz%20Ind.third%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "beach-crossfit-ruam": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-2aiweta?name=Beach%20CrossFit&phone=N%2FA&address=88CV%2B6Q%20-%20Al%20Mamzar%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "fitness-world-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-qg0qp4c?name=FITNESS%20WORLD%20GYM&phone=%2B971%2058%20637%203583&address=Italy%20Cluster%20-%20U2%20-%20Warsan%20First%20-%20Dubai%20International%20City%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "fitness-world-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-qg0qp4c?name=FITNESS%20WORLD%20GYM&phone=%2B971%2058%20637%203583&address=Italy%20Cluster%20-%20U2%20-%20Warsan%20First%20-%20Dubai%20International%20City%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "beach-crossfit-tjgn": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-xcorb8e?name=Beach%20CrossFit&phone=N%2FA&address=88CV%2B6Q%20-%20Al%20Mamzar%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
