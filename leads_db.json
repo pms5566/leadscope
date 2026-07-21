@@ -3898,6 +3898,28 @@
       "addedAt": "2026-07-21T07:55:00.989Z",
       "updatedAt": "2026-07-21T07:55:00.989Z",
       "shortAlias": "project-fitness"
+    },
+    {
+      "id": "scr-hpu2abu",
+      "name": "Primal Fitness Dubai",
+      "address": "N/A",
+      "phone": "+971 50 724 4947",
+      "googleMapsUri": "https://www.google.com/maps/place/Primal+Fitness+Dubai/data=!4m7!3m6!1s0x2d873175da9e61d3:0xeed8b2f3904b557e!8m2!3d25.0760224!4d55.227488!16s%2Fg%2F11k4k5t7s3!19sChIJ02Ge2nUxhy0RflVLkPOy2O4?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/primal.ae/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971507244947",
+      "tiktok": null,
+      "email": "Info@primalgymauh.ae",
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit Gym",
+      "location": "Dubai Marina",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T07:55:05.450Z",
+      "updatedAt": "2026-07-21T07:55:05.450Z",
+      "shortAlias": "primal-fitness-dubai"
     }
   ],
   "shortLinks": {
@@ -4354,7 +4376,8 @@
     "lana-by-functional-fitness-supply": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-cvdkg1n?name=LANA%20by%20Functional%20Fitness%20Supply&phone=N%2FA&address=Warehouse%2012%204th%20St%20-%20Al%20Qouz%20Ind.third%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "talise-fitness-at-madinat-jumeirah-rebranded-to-j-club-at-jumeirah-mina-asalam": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-dd32cy5?name=Talise%20Fitness%20at%20Madinat%20Jumeirah%20(Rebranded%20to%20J%20Club%20at%20Jumeirah%20Mina%20A'Salam)&phone=%2B971%204%20366%206818&address=Al%20Sufouh%201%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "habibi-bootcamp": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-vwu5uqd?name=Habibi%20Bootcamp&phone=%2B971%2050%20702%200950&address=46WG%2B832%20-%2015A%20St%20-%20Al%20Qouz%20Ind.first%20-%20Al%20Quoz%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "project-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-xl874ck?name=Project%20Fitness&phone=%2B971%204%20325%208432&address=Sarab%20Community%20-%20Majan%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "project-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-xl874ck?name=Project%20Fitness&phone=%2B971%204%20325%208432&address=Sarab%20Community%20-%20Majan%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "primal-fitness-dubai": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-hpu2abu?name=Primal%20Fitness%20Dubai&phone=%2B971%2050%20724%204947&address=N%2FA"
   },
   "activeVisits": [
     {
