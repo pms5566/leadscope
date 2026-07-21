@@ -4360,6 +4360,28 @@
       "addedAt": "2026-07-21T08:04:57.049Z",
       "updatedAt": "2026-07-21T08:04:57.049Z",
       "shortAlias": "thrive-fitness-yjgf"
+    },
+    {
+      "id": "scr-s4xpg7s",
+      "name": "THE YARD",
+      "address": "22 73C Street - Mirdif - Dubai - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 715 9149",
+      "googleMapsUri": "https://www.google.com/maps/place/THE+YARD/data=!4m7!3m6!1s0x3e5f61899e20717d:0xf695dfb54a1ca454!8m2!3d25.229738!4d55.4140759!16s%2Fg%2F11n04lp3l_!19sChIJfXEgnolhXz4RVKQcSrXflfY?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/TheYard.UAE/",
+      "instagram": "https://www.instagram.com/yard.dubai/",
+      "linkedin": "https://ae.linkedin.com/company/yard-dubai",
+      "whatsapp": "https://wa.me/971507159149",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Bay Dubai",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-21T08:05:00.518Z",
+      "updatedAt": "2026-07-21T08:05:00.518Z",
+      "shortAlias": "the-yard"
     }
   ],
   "shortLinks": {
@@ -4837,7 +4859,8 @@
     "beach-crossfit-ruam": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-2aiweta?name=Beach%20CrossFit&phone=N%2FA&address=88CV%2B6Q%20-%20Al%20Mamzar%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fitness-world-gym": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-qg0qp4c?name=FITNESS%20WORLD%20GYM&phone=%2B971%2058%20637%203583&address=Italy%20Cluster%20-%20U2%20-%20Warsan%20First%20-%20Dubai%20International%20City%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "beach-crossfit-tjgn": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-xcorb8e?name=Beach%20CrossFit&phone=N%2FA&address=88CV%2B6Q%20-%20Al%20Mamzar%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "thrive-fitness-yjgf": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-9h2ujm8?name=Thrive%20Fitness&phone=N%2FA&address=Umm%20Suqeim%20St%20-%20Al%20Barsha%20Second%20-%201%2F22%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "thrive-fitness-yjgf": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-9h2ujm8?name=Thrive%20Fitness&phone=N%2FA&address=Umm%20Suqeim%20St%20-%20Al%20Barsha%20Second%20-%201%2F22%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "the-yard": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-s4xpg7s?name=THE%20YARD&phone=%2B971%2050%20715%209149&address=22%2073C%20Street%20-%20Mirdif%20-%20Dubai%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
