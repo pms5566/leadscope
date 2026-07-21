@@ -4902,9 +4902,44 @@
     "universal-fitness-xzyr": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784648355542&name=Universal+Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "coach-kavi": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784648576253&name=Coach+KAVI&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "uaejjfitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784648794041&name=UAEJJFitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "hardwalls-gym-gqtt": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784649137093&name=HARDWALLS+GYM&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "hardwalls-gym-gqtt": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784649137093&name=HARDWALLS+GYM&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "jumbo-gym-wuaq": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784649537086&name=JUMBO+GYM&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784649137093",
+      "name": "HARDWALLS GYM (gym-website)",
+      "openedAt": "2026-07-21T15:53:56.366Z",
+      "lastActiveAt": "2026-07-21T15:54:06.655Z",
+      "duration": 10,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-21T15:53:56.366Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-21T15:54:06.655Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784632174881",
       "name": "UBX Marina Gate (gym-website)",
@@ -7188,204 +7223,6 @@
         }
       ],
       "isHot": true
-    },
-    {
-      "leadId": "preview_gym-website_1784456818916",
-      "name": "Taal Studio Dubai (gym-website)",
-      "openedAt": "2026-07-19T10:55:39.957Z",
-      "lastActiveAt": "2026-07-19T11:47:30.676Z",
-      "duration": 620,
-      "scrollPercent": 57,
-      "location": "Dubai, Dubai, United Arab Emirates",
-      "countryCode": "AE",
-      "isp": "Emirates Integrated Telecommunications Company PJSC",
-      "views": 2,
-      "device": "desktop",
-      "os": "Windows",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:33:32.986Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:34:33.134Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:35:33.041Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:36:33.042Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:37:33.050Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:38:32.998Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:39:33.669Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:40:33.067Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:41:33.025Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:42:33.119Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:43:32.988Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:44:33.006Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:45:33.078Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:46:33.390Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:46:49.390Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:46:50.708Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:47:00.690Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 27
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:47:10.794Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 57
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:47:20.663Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 57
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:47:30.676Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 57
-          }
-        }
-      ],
-      "isHot": false
     }
   ],
   "settings": {
