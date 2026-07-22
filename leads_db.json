@@ -5108,6 +5108,50 @@
       "addedAt": "2026-07-22T16:11:41.636Z",
       "updatedAt": "2026-07-22T16:11:41.636Z",
       "shortAlias": "wellness-spa-center-rod"
+    },
+    {
+      "id": "scr-c3kfoho",
+      "name": "KFSH&RC Wellness Center",
+      "address": "7652, Al Maather, 2593, Saudi Arabia, Riyadh 12713, साउदी अरब",
+      "phone": "N/A",
+      "googleMapsUri": "https://www.google.com/maps/place/KFSH%26RC+Wellness+Center/data=!4m7!3m6!1s0x3e2f0344bf2d19ef:0x25f3c72036c339a6!8m2!3d24.6708933!4d46.6750846!16s%2Fg%2F11p7201gf2!19sChIJ7xktv0QDLz4RpjnDNiDH8yU?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": "https://rs.linkedin.com/company/kfshrc?trk=public_profile_experience-item_profile-section-card_image-click",
+      "whatsapp": null,
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Riyadh Saudi Arabia",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T16:11:45.796Z",
+      "updatedAt": "2026-07-22T16:11:45.796Z",
+      "shortAlias": "kfshrc-wellness-center"
+    },
+    {
+      "id": "scr-ac83jot",
+      "name": "مركز خاصتي للمساج حي المنار | Khassty spa and massage",
+      "address": "Al Imam Al Shafei, Al Manar, Riyadh 14222, साउदी अरब",
+      "phone": "+966 55 065 3255",
+      "googleMapsUri": "https://www.google.com/maps/place/%D9%85%D8%B1%D9%83%D8%B2+%D8%AE%D8%A7%D8%B5%D8%AA%D9%8A+%D9%84%D9%84%D9%85%D8%B3%D8%A7%D8%AC+%D8%AD%D9%8A+%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B1+%7C+Khassty+spa+and+massage%E2%80%AD/data=!4m7!3m6!1s0x3e2f019360ee0647:0xcabd33976d2f78a!8m2!3d24.7207146!4d46.7891912!16s%2Fg%2F11kjg9qv49!19sChIJRwbuYJMBLz4RivfSdjnTqww?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/966550653255",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Riyadh Saudi Arabia",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T16:11:45.797Z",
+      "updatedAt": "2026-07-22T16:11:45.797Z",
+      "shortAlias": "khassty-spa-and-massage"
     }
   ],
   "shortLinks": {
@@ -5692,7 +5736,9 @@
     "3days-gym-al-rawda-ladies-branch": "https://drab-citric-acid.ngrok-free.dev/preview/ladies-gym/scr-6uq64oz?name=3days%20Gym-%20Al%20Rawda%20Ladies%20Branch&phone=%2B966%2053%20673%207118&address=3486%20Prince%20Bandar%20Ibn%20Abd%20Al%20Aziz%2C%20Al%20Khaleej%2C%20Riyadh%2013223%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "j-f-revolution-ems-justfit-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/women-s-fitness/scr-i5fh82a?name=J.%20F.%20REVOLUTION%20EMS%20Justfit%20Fitness&phone=%2B966%2055%20258%201368&address=7664%20Al%20Hussein%20Ibn%20Ali%2C%20At%20Taawun%2C%203592%2C%20Riyadh%2012478%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "endorphins-fitness-studio": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-studio/scr-l3h6oxv?name=Endorphins%20fitness%20studio&phone=%2B966%2055%20088%208662&address=QP68%2B89J%2C%20Uthman%20Ibn%20Affan%20Rd%2C%20An%20Nuzhah%2C%20Riyadh%2012474%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
-    "wellness-spa-center-rod": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-zjo09kx?name=Wellness%20Spa%20Center%20(%20ROD%20)&phone=%2B966%2056%20515%203648&address=Ishbiliyah%2C%20Riyadh%2013243%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
+    "wellness-spa-center-rod": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-zjo09kx?name=Wellness%20Spa%20Center%20(%20ROD%20)&phone=%2B966%2056%20515%203648&address=Ishbiliyah%2C%20Riyadh%2013243%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "kfshrc-wellness-center": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-c3kfoho?name=KFSH%26RC%20Wellness%20Center&phone=N%2FA&address=7652%2C%20Al%20Maather%2C%202593%2C%20Saudi%20Arabia%2C%20Riyadh%2012713%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "khassty-spa-and-massage": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-ac83jot?name=%D9%85%D8%B1%D9%83%D8%B2%20%D8%AE%D8%A7%D8%B5%D8%AA%D9%8A%20%D9%84%D9%84%D9%85%D8%B3%D8%A7%D8%AC%20%D8%AD%D9%8A%20%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B1%20%7C%20Khassty%20spa%20and%20massage&phone=%2B966%2055%20065%203255&address=Al%20Imam%20Al%20Shafei%2C%20Al%20Manar%2C%20Riyadh%2014222%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
