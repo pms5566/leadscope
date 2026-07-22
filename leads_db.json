@@ -4272,6 +4272,28 @@
       "addedAt": "2026-07-21T14:29:16.962Z",
       "updatedAt": "2026-07-21T14:51:47.626Z",
       "shortAlias": "black-belt-sports-center"
+    },
+    {
+      "id": "scr-ao2p2r1",
+      "name": "ustrong",
+      "address": "Anas Ibn Malik Rd, Alyasmin, Riyadh 13322, साउदी अरब",
+      "phone": "N/A",
+      "googleMapsUri": "https://www.google.com/maps/place/ustrong/data=!4m7!3m6!1s0x3e2ee5c9d2200d71:0x6790fcaebbef4b9b!8m2!3d24.8198259!4d46.6466928!16s%2Fg%2F11qq3zk3pv!19sChIJcQ0g0snlLj4Rm0vvu678kGc?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": "https://www.linkedin.com/in/fahim-zuberi-80720331",
+      "whatsapp": null,
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit gym",
+      "location": "Riyadh Saudi Arabia",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T15:53:05.300Z",
+      "updatedAt": "2026-07-22T15:53:05.300Z",
+      "shortAlias": "ustrong"
     }
   ],
   "shortLinks": {
@@ -4818,7 +4840,8 @@
     "jumbo-gym-wuaq": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784649537086&name=JUMBO+GYM&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "folakemi-ty02": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784649812648&name=Folakemi&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "schopm": "https://leadscope-bice.vercel.app/?niche=Vanguard+School&leadId=preview_Vanguard_School_1784650306469&name=schopm&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "little-heart-playway-school": "https://leadscope-bice.vercel.app/?niche=Vanguard+School&leadId=preview_Vanguard_School_1784653362539&name=Little+heart+playway+school&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "little-heart-playway-school": "https://leadscope-bice.vercel.app/?niche=Vanguard+School&leadId=preview_Vanguard_School_1784653362539&name=Little+heart+playway+school&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "ustrong": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-ao2p2r1?name=ustrong&phone=N%2FA&address=Anas%20Ibn%20Malik%20Rd%2C%20Alyasmin%2C%20Riyadh%2013322%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
