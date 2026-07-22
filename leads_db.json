@@ -4338,6 +4338,28 @@
       "addedAt": "2026-07-22T17:25:42.033Z",
       "updatedAt": "2026-07-22T17:25:42.033Z",
       "shortAlias": "iron-sight-gym"
+    },
+    {
+      "id": "scr-78plzy4",
+      "name": "Texas Iron",
+      "address": "1061 Dividend St F, Midlothian, TX 76065, संयुक्त राज्य",
+      "phone": "+1 817-673-0958",
+      "googleMapsUri": "https://www.google.com/maps/place/Texas+Iron/data=!4m7!3m6!1s0x864ef38cd688e209:0xa13ca1f432e08e9e!8m2!3d32.4721947!4d-96.9562195!16s%2Fg%2F11ybbkrx3p!19sChIJCeKI1ozzToYRno7gMvShPKE?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/p/Texas-Iron-DFW-61573164700453/",
+      "instagram": "https://www.instagram.com/texasirondfw/",
+      "linkedin": "https://www.linkedin.com/company/texas-iron-and-steel",
+      "whatsapp": "https://wa.me/18176730958",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "powerlifting gym",
+      "location": "Texas TX",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T17:25:46.153Z",
+      "updatedAt": "2026-07-22T17:25:46.153Z",
+      "shortAlias": "texas-iron"
     }
   ],
   "shortLinks": {
@@ -4946,7 +4968,8 @@
     "crossfit-hap": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-hiqqcix?name=CROSSFIT%20HAP&phone=N%2FA&address=2708%20Virginia%20Pkwy%2C%20McKinney%2C%20TX%2075071%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
     "crossfit-north-irving-7ry1": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-hq8hmvi?name=Crossfit%20North%20Irving&phone=N%2FA&address=3100%20Premier%20Dr%20%23126%2C%20Irving%2C%20TX%2075063%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
     "conroe-fitness-personal-training": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-yaytts3?name=Conroe%20Fitness%20Personal%20Training&phone=%2B1%20936-203-5856&address=1925%20Longmire%20Rd%20Unit%207%2C%20Conroe%2C%20TX%2077304%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
-    "iron-sight-gym": "https://drab-citric-acid.ngrok-free.dev/preview/powerlifting-gym/scr-mjmfp3l?name=Iron%20Sight%20Gym&phone=N%2FA&address=6006%20Plainview%20St%2C%20Houston%2C%20TX%2077087%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF"
+    "iron-sight-gym": "https://drab-citric-acid.ngrok-free.dev/preview/powerlifting-gym/scr-mjmfp3l?name=Iron%20Sight%20Gym&phone=N%2FA&address=6006%20Plainview%20St%2C%20Houston%2C%20TX%2077087%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
+    "texas-iron": "https://drab-citric-acid.ngrok-free.dev/preview/powerlifting-gym/scr-78plzy4?name=Texas%20Iron&phone=%2B1%20817-673-0958&address=1061%20Dividend%20St%20F%2C%20Midlothian%2C%20TX%2076065%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF"
   },
   "activeVisits": [
     {
