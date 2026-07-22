@@ -5284,6 +5284,28 @@
       "addedAt": "2026-07-22T16:16:49.748Z",
       "updatedAt": "2026-07-22T16:16:49.748Z",
       "shortAlias": "elite-sports-academy-downe-house-riyadh"
+    },
+    {
+      "id": "scr-rdw214r",
+      "name": "Mike Tyson Boxing Club",
+      "address": "Hittin, Abha 13516, साउदी अरब",
+      "phone": "+966 066182680",
+      "googleMapsUri": "https://www.google.com/maps/place/Mike+Tyson+Boxing+Club/data=!4m7!3m6!1s0x3e2ee30014bb4967:0xfd4850bb15525838!8m2!3d24.7710714!4d46.6027514!16s%2Fg%2F11x8yvnbsc!19sChIJZ0m7FADjLj4ROFhSFbtQSP0?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/miketysonboxingclub/",
+      "linkedin": "https://www.linkedin.com/company/mike-tyson-boxing-club",
+      "whatsapp": "https://wa.me/966066182680",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "boxing gym",
+      "location": "Riyadh Saudi Arabia",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T16:20:13.873Z",
+      "updatedAt": "2026-07-22T16:20:13.873Z",
+      "shortAlias": "mike-tyson-boxing-club"
     }
   ],
   "shortLinks": {
@@ -5876,7 +5898,8 @@
     "rhythmic-gymnastics-academy": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastics/scr-cagmhet?name=Rhythmic%20gymnastics%20Academy&phone=N%2FA&address=7236%20Al%20Majaz%2C%20Al%20Falah%2C%20RAFA3801%2C%203801%2C%20Riyadh%2013314%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "absolute-gymnastics-ghirnatah": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastics/scr-08j25x5?name=Absolute%20Gymnastics%20-%20Ghirnatah&phone=%2B966%2054%20244%208510&address=7863%20Abdulrahman%20Ibn%20Tahir%2C%20Ghirnatah%2C%20Reigate%20Grammar%20School%20Riyadh%2C%20Ghirnatah%202641%2C%20Riyadh%2013242%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "rhythmic-gymnastics-academy-nha6": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastic-center/scr-s8rfrnq?name=Rhythmic%20gymnastics%20Academy&phone=N%2FA&address=7236%20Al%20Majaz%2C%20Al%20Falah%2C%20RAFA3801%2C%203801%2C%20Riyadh%2013314%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
-    "elite-sports-academy-downe-house-riyadh": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastic-center/scr-tspzfx5?name=Elite%20Sports%20Academy%20-%20Downe%20House%20Riyadh&phone=%2B966%2053%20434%206003&address=QJ6G%2BFW%2C%20Al%20Aqiq%2C%20Riyadh%2013511%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
+    "elite-sports-academy-downe-house-riyadh": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastic-center/scr-tspzfx5?name=Elite%20Sports%20Academy%20-%20Downe%20House%20Riyadh&phone=%2B966%2053%20434%206003&address=QJ6G%2BFW%2C%20Al%20Aqiq%2C%20Riyadh%2013511%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "mike-tyson-boxing-club": "https://drab-citric-acid.ngrok-free.dev/preview/boxing-gym/scr-rdw214r?name=Mike%20Tyson%20Boxing%20Club&phone=%2B966%20066182680&address=Hittin%2C%20Abha%2013516%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
