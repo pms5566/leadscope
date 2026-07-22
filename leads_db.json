@@ -5416,6 +5416,28 @@
       "addedAt": "2026-07-22T16:21:52.288Z",
       "updatedAt": "2026-07-22T16:21:52.288Z",
       "shortAlias": "black-tiger-team"
+    },
+    {
+      "id": "scr-6o55r3p",
+      "name": "Just A Mat",
+      "address": "Prince Muhammad Ibn Saad Ibn Abdulaziz Rd, Al Malqa, Riyadh 13525, साउदी अरब",
+      "phone": "+966 50 887 7503",
+      "googleMapsUri": "https://www.google.com/maps/place/Just+A+Mat/data=!4m7!3m6!1s0x3e2ee5006ce559bd:0xb07ee1a8cf253c3d!8m2!3d24.8047492!4d46.6031415!16s%2Fg%2F11yskx0yn5!19sChIJvVnlbADlLj4RPTwlz6jhfrA?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/justamat.bjj/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/966508877503",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "martial arts",
+      "location": "Riyadh Saudi Arabia",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T16:22:49.342Z",
+      "updatedAt": "2026-07-22T16:22:49.342Z",
+      "shortAlias": "just-a-mat"
     }
   ],
   "shortLinks": {
@@ -6014,7 +6036,8 @@
     "blue-gloves-gym": "https://drab-citric-acid.ngrok-free.dev/preview/boxing-gym/scr-gpiku8q?name=Blue%20Gloves%20Gym%20%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D9%82%D9%81%D8%A7%D8%B2%20%D8%A7%D9%84%D8%A3%D8%B2%D8%B1%D9%82%20%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%20-%20%D9%81%D8%B1%D8%B9%20%D8%A7%D9%84%D8%B1%D9%88%D8%B6%D8%A9&phone=%2B966%2053%20986%207053&address=Street%2C%20Hafsah%20Bint%20Omar%2C%20Ar%20Rawdah%2C%20Riyadh%2013211%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "fight-club": "https://drab-citric-acid.ngrok-free.dev/preview/boxing-gym/scr-1bof2iv?name=Fight%20Club&phone=%2B966%2053%20033%205050&address=near%207007%2C%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1%20%D8%AA%D8%B1%D9%83%D9%8A%20%D8%A8%D9%86%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%8C%20Al%20Muruj%2C%20Riyadh%2012281%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "nomads-brazilian-jiu-jitsu": "https://drab-citric-acid.ngrok-free.dev/preview/mma-club/scr-hjp5r25?name=Nomads%20Brazilian%20Jiu%20Jitsu&phone=%2B966%2053%20842%203449&address=King%20Abdulaziz%20Rd%2C%20Alyasmin%2C%20Riyadh%2013325%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
-    "black-tiger-team": "https://drab-citric-acid.ngrok-free.dev/preview/fight-gym/scr-wg7q7u4?name=%D9%81%D9%86%D9%88%D9%86%20%D9%82%D8%AA%D8%A7%D9%84%D9%8A%D9%87%20%D9%88%D8%AF%D9%81%D8%A7%D8%B9%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%86%D9%81%D8%B3%20%D9%81%D8%B1%D9%8A%D9%82BLACK%20TIGER%20TEAM&phone=%2B966%2054%20140%202785&address=Hassan%20Ibn%20Thabet%2C%20An%20Nasim%20Al%20Gharbi%2C%20Riyadh%2014232%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
+    "black-tiger-team": "https://drab-citric-acid.ngrok-free.dev/preview/fight-gym/scr-wg7q7u4?name=%D9%81%D9%86%D9%88%D9%86%20%D9%82%D8%AA%D8%A7%D9%84%D9%8A%D9%87%20%D9%88%D8%AF%D9%81%D8%A7%D8%B9%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%86%D9%81%D8%B3%20%D9%81%D8%B1%D9%8A%D9%82BLACK%20TIGER%20TEAM&phone=%2B966%2054%20140%202785&address=Hassan%20Ibn%20Thabet%2C%20An%20Nasim%20Al%20Gharbi%2C%20Riyadh%2014232%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "just-a-mat": "https://drab-citric-acid.ngrok-free.dev/preview/martial-arts/scr-6o55r3p?name=Just%20A%20Mat&phone=%2B966%2050%20887%207503&address=Prince%20Muhammad%20Ibn%20Saad%20Ibn%20Abdulaziz%20Rd%2C%20Al%20Malqa%2C%20Riyadh%2013525%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
