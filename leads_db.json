@@ -4756,6 +4756,28 @@
       "addedAt": "2026-07-22T16:02:00.711Z",
       "updatedAt": "2026-07-22T16:02:00.711Z",
       "shortAlias": "fitness-house"
+    },
+    {
+      "id": "scr-vvkp1c6",
+      "name": "PwC Academy Middle East",
+      "address": "Laysen Valley Tower 12 & 13, King Khalid Br Rd، Ground Floor, Riyadh 11482, साउदी अरब",
+      "phone": "+966 11 211 0400",
+      "googleMapsUri": "https://www.google.com/maps/place/PwC+Academy+Middle+East/data=!4m7!3m6!1s0x3e2f032811b6eac5:0x2145774b9ce1bbc9!8m2!3d24.6926338!4d46.63392!16s%2Fg%2F11f24x6ztz!19sChIJxeq2ESgDLz4RybvhnEt3RSE?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/PWCsAcademyMiddleEast/",
+      "instagram": "https://www.instagram.com/pwc_academy_me/",
+      "linkedin": "https://www.linkedin.com/company/pwc-academy-middle-east",
+      "whatsapp": "https://wa.me/966112110400",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "1-on-1 training",
+      "location": "Riyadh Saudi Arabia",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T16:04:42.306Z",
+      "updatedAt": "2026-07-22T16:04:42.306Z",
+      "shortAlias": "pwc-academy-middle-east"
     }
   ],
   "shortLinks": {
@@ -5324,7 +5346,8 @@
     "relive-studio": "https://drab-citric-acid.ngrok-free.dev/preview/fitness-coach/scr-7zp7tyy?name=Relive%20Studio&phone=%2B966%2053%20515%201542&address=Prince%20Muhammad%20Ibn%20Saad%20Ibn%20Abdulaziz%20Rd%2C%20Al%20Aqiq%2C%20Riyadh%2013515%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "team-zero-parkour": "https://drab-citric-acid.ngrok-free.dev/preview/fitness-coach/scr-kjb6ez2?name=Team%20Zero%20Parkour&phone=%2B966%2056%20172%207280&address=Altaksusui%2C%20Riyadh%2012341%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "zenned-wellness": "https://drab-citric-acid.ngrok-free.dev/preview/fitness-coach/scr-yoezxop?name=Zenned%20Wellness&phone=%2B966%2055%20333%201062&address=An%20Nuzhah%2C%20Riyadh%2012472%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
-    "fitness-house": "https://drab-citric-acid.ngrok-free.dev/preview/fitness-coach/scr-zgodwa7?name=Fitness%20House&phone=%2B966%2054%20233%206849&address=Haroon%20Al%20Rashid%20Rd%D8%8C%20%D8%B7%D8%B1%D9%8A%D9%82%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A9%2C%20Riyadh%2014253%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
+    "fitness-house": "https://drab-citric-acid.ngrok-free.dev/preview/fitness-coach/scr-zgodwa7?name=Fitness%20House&phone=%2B966%2054%20233%206849&address=Haroon%20Al%20Rashid%20Rd%D8%8C%20%D8%B7%D8%B1%D9%8A%D9%82%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A9%2C%20Riyadh%2014253%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "pwc-academy-middle-east": "https://drab-citric-acid.ngrok-free.dev/preview/1-on-1-training/scr-vvkp1c6?name=PwC%20Academy%20Middle%20East&phone=%2B966%2011%20211%200400&address=Laysen%20Valley%20Tower%2012%20%26%2013%2C%20King%20Khalid%20Br%20Rd%D8%8C%20Ground%20Floor%2C%20Riyadh%2011482%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
