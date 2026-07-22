@@ -5218,6 +5218,28 @@
       "addedAt": "2026-07-22T16:15:05.978Z",
       "updatedAt": "2026-07-22T16:15:05.978Z",
       "shortAlias": "rhythmic-gymnastics-academy"
+    },
+    {
+      "id": "scr-08j25x5",
+      "name": "Absolute Gymnastics - Ghirnatah",
+      "address": "7863 Abdulrahman Ibn Tahir, Ghirnatah, Reigate Grammar School Riyadh, Ghirnatah 2641, Riyadh 13242, साउदी अरब",
+      "phone": "+966 54 244 8510",
+      "googleMapsUri": "https://www.google.com/maps/place/Absolute+Gymnastics+-+Ghirnatah/data=!4m7!3m6!1s0x3e2efd2e91f5eec5:0x9e8f4691f5513f65!8m2!3d24.8008508!4d46.7467606!16s%2Fg%2F11yx1y42qv!19sChIJxe71kS79Lj4RZT9R9ZFGj54?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/966542448510",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "gymnastics",
+      "location": "UAE Riyadh Saudi Arabia",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T16:15:10.217Z",
+      "updatedAt": "2026-07-22T16:15:10.217Z",
+      "shortAlias": "absolute-gymnastics-ghirnatah"
     }
   ],
   "shortLinks": {
@@ -5807,7 +5829,8 @@
     "khassty-spa-and-massage": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-ac83jot?name=%D9%85%D8%B1%D9%83%D8%B2%20%D8%AE%D8%A7%D8%B5%D8%AA%D9%8A%20%D9%84%D9%84%D9%85%D8%B3%D8%A7%D8%AC%20%D8%AD%D9%8A%20%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B1%20%7C%20Khassty%20spa%20and%20massage&phone=%2B966%2055%20065%203255&address=Al%20Imam%20Al%20Shafei%2C%20Al%20Manar%2C%20Riyadh%2014222%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "ovii-space": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-duhzy73?name=Ovii%20Space&phone=N%2FA&address=%D8%AD%D9%8A%2C%20Alyasmin%2C%20%D8%B7%D8%B1%D9%8A%D9%82%20%D8%A7%D8%A8%D9%88%D8%A8%D9%83%D8%B1%20%D8%A7%D9%84%D8%B5%D8%AF%D9%8A%D9%82%20%D8%A7%D9%84%D8%AF%D9%88%D8%B1%20%D9%A2%D8%8C%20%D9%85%D9%83%D8%AA%D8%A8%20%D8%B1%D9%82%D9%85%2075%D8%8C%20%D9%81%D9%8A%D9%88%20%D8%B3%D9%83%D9%88%D9%8A%D8%B1%2C%20Riyadh%2013326%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "ranem": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-v20xvh4?name=Ranem&phone=N%2FA&address=Al%20Yarmuk%2C%20Riyadh%2013251%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
-    "rhythmic-gymnastics-academy": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastics/scr-cagmhet?name=Rhythmic%20gymnastics%20Academy&phone=N%2FA&address=7236%20Al%20Majaz%2C%20Al%20Falah%2C%20RAFA3801%2C%203801%2C%20Riyadh%2013314%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
+    "rhythmic-gymnastics-academy": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastics/scr-cagmhet?name=Rhythmic%20gymnastics%20Academy&phone=N%2FA&address=7236%20Al%20Majaz%2C%20Al%20Falah%2C%20RAFA3801%2C%203801%2C%20Riyadh%2013314%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "absolute-gymnastics-ghirnatah": "https://drab-citric-acid.ngrok-free.dev/preview/gymnastics/scr-08j25x5?name=Absolute%20Gymnastics%20-%20Ghirnatah&phone=%2B966%2054%20244%208510&address=7863%20Abdulrahman%20Ibn%20Tahir%2C%20Ghirnatah%2C%20Reigate%20Grammar%20School%20Riyadh%2C%20Ghirnatah%202641%2C%20Riyadh%2013242%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
