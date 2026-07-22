@@ -4536,6 +4536,28 @@
       "addedAt": "2026-07-22T15:58:31.406Z",
       "updatedAt": "2026-07-22T15:58:31.406Z",
       "shortAlias": "in2fitness"
+    },
+    {
+      "id": "scr-499i0xj",
+      "name": "ABSolutely! Al-Murooj",
+      "address": "7842 King Abdul Aziz Branch Rd, Al Muruj, Riyadh 12284, साउदी अरब",
+      "phone": "+966 55 670 6716",
+      "googleMapsUri": "https://www.google.com/maps/place/ABSolutely!+Al-Murooj/data=!4m7!3m6!1s0x3e2efd355f9be015:0x223af684ebb7e670!8m2!3d24.7622668!4d46.6716136!16s%2Fg%2F11c47zqf_b!19sChIJFeCbXzX9Lj4RcOa364T2OiI?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/ABSolutelyksa/",
+      "instagram": "https://www.instagram.com/absolutelyksa/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/966556706716",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "personal trainer",
+      "location": "Riyadh Saudi Arabia",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-22T15:58:38.277Z",
+      "updatedAt": "2026-07-22T15:58:38.277Z",
+      "shortAlias": "absolutely-al-murooj"
     }
   ],
   "shortLinks": {
@@ -5094,7 +5116,8 @@
     "sea-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/personal-trainer/scr-iist4sf?name=Sea%20Fitness&phone=%2B966%2055%20701%207467&address=Al%20Yarmuk%2C%20Riyadh%2013252%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "country-club-fitness": "https://drab-citric-acid.ngrok-free.dev/preview/personal-trainer/scr-cc9k2w5?name=Country%20Club%20Fitness&phone=%2B966%2056%20304%200220&address=MP45%2B8F2%2C%20Zarga%20Alyamamah%2C%20Al%20Murabba%2C%20Riyadh%2012613%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
     "private": "https://drab-citric-acid.ngrok-free.dev/preview/personal-trainer/scr-mf7mi32?name=Private&phone=N%2FA&address=PJ3C%2BW88%D8%8C%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%AC%D9%86%D8%A7%D8%AD%D8%8C%20st%2C%20Riyadh%2014242%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
-    "in2fitness": "https://drab-citric-acid.ngrok-free.dev/preview/personal-trainer/scr-9njvqgj?name=iN2Fitness&phone=%2B966%209200%2017861&address=4522%20Prince%20Bandar%20Ibn%20Abd%20Al%20Aziz%2C%20King%20Faisal%20Dt.%2C%20Riyadh%2013215%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
+    "in2fitness": "https://drab-citric-acid.ngrok-free.dev/preview/personal-trainer/scr-9njvqgj?name=iN2Fitness&phone=%2B966%209200%2017861&address=4522%20Prince%20Bandar%20Ibn%20Abd%20Al%20Aziz%2C%20King%20Faisal%20Dt.%2C%20Riyadh%2013215%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC",
+    "absolutely-al-murooj": "https://drab-citric-acid.ngrok-free.dev/preview/personal-trainer/scr-499i0xj?name=ABSolutely!%20Al-Murooj&phone=%2B966%2055%20670%206716&address=7842%20King%20Abdul%20Aziz%20Branch%20Rd%2C%20Al%20Muruj%2C%20Riyadh%2012284%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%89%E0%A4%A6%E0%A5%80%20%E0%A4%85%E0%A4%B0%E0%A4%AC"
   },
   "activeVisits": [
     {
