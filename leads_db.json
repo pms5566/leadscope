@@ -4971,9 +4971,60 @@
     "iron-sight-gym": "https://drab-citric-acid.ngrok-free.dev/preview/powerlifting-gym/scr-mjmfp3l?name=Iron%20Sight%20Gym&phone=N%2FA&address=6006%20Plainview%20St%2C%20Houston%2C%20TX%2077087%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
     "texas-iron": "https://drab-citric-acid.ngrok-free.dev/preview/powerlifting-gym/scr-78plzy4?name=Texas%20Iron&phone=%2B1%20817-673-0958&address=1061%20Dividend%20St%20F%2C%20Midlothian%2C%20TX%2076065%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
     "faceofffitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784798580408&name=faceoff.fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "pm": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822762607&name=pm&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "pm": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822762607&name=pm&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "liberty-smiles-dental-clinic": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822812923&name=+Liberty+Smiles+Dental+Clinic&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_dentist_1784822762607",
+      "name": "pm (dentist)",
+      "openedAt": "2026-07-23T16:06:10.025Z",
+      "lastActiveAt": "2026-07-23T16:06:38.049Z",
+      "duration": 20,
+      "scrollPercent": 100,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 2,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-23T16:06:10.025Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-23T16:06:20.607Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-23T16:06:30.626Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 100
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-23T16:06:38.049Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784798580408",
       "name": "faceoff.fitness (gym-website)",
@@ -7093,200 +7144,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-19T15:57:56.173Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784456498999",
-      "name": "ReStart  Fitness  Center  & Gym (gym-website)",
-      "openedAt": "2026-07-19T11:09:25.379Z",
-      "lastActiveAt": "2026-07-19T15:32:34.889Z",
-      "duration": 390,
-      "scrollPercent": 100,
-      "location": "Masdar City, Abu Dhabi, United Arab Emirates",
-      "countryCode": "AE",
-      "isp": "EMIRATES TELECOMMUNICATIONS GROUP COMPANY (ETISALAT GROUP) PJSC",
-      "views": 2,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:05.782Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:15.887Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:25.922Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:35.905Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:45.785Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:13:55.925Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:05.854Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:15.894Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:25.928Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:35.990Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:46.038Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:14:56.032Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:05.861Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:15.900Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:25.968Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:35.963Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:45.903Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "whatsapp_click",
-          "timestamp": "2026-07-19T11:15:55.622Z",
-          "details": {
-            "device": "mobile"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T11:15:55.791Z",
-          "details": {
-            "device": "mobile",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:32:34.889Z",
           "details": {
             "device": "desktop"
           }
