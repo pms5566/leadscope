@@ -4970,9 +4970,60 @@
     "conroe-fitness-personal-training": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit-gym/scr-yaytts3?name=Conroe%20Fitness%20Personal%20Training&phone=%2B1%20936-203-5856&address=1925%20Longmire%20Rd%20Unit%207%2C%20Conroe%2C%20TX%2077304%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
     "iron-sight-gym": "https://drab-citric-acid.ngrok-free.dev/preview/powerlifting-gym/scr-mjmfp3l?name=Iron%20Sight%20Gym&phone=N%2FA&address=6006%20Plainview%20St%2C%20Houston%2C%20TX%2077087%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
     "texas-iron": "https://drab-citric-acid.ngrok-free.dev/preview/powerlifting-gym/scr-78plzy4?name=Texas%20Iron&phone=%2B1%20817-673-0958&address=1061%20Dividend%20St%20F%2C%20Midlothian%2C%20TX%2076065%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
-    "faceofffitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784798580408&name=faceoff.fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "faceofffitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784798580408&name=faceoff.fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "pm": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822762607&name=pm&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784798580408",
+      "name": "faceoff.fitness (gym-website)",
+      "openedAt": "2026-07-23T09:23:54.477Z",
+      "lastActiveAt": "2026-07-23T09:27:14.638Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Luleå, Norrbotten County, Sweden",
+      "countryCode": "SE",
+      "isp": "Facebook, Inc.",
+      "views": 2,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-23T09:23:54.477Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-23T09:24:05.415Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-23T09:24:15.305Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-23T09:27:14.638Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_Vanguard_School_1784650306469",
       "name": "schopm (Vanguard School)",
@@ -7236,31 +7287,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-19T15:32:34.889Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784475112111",
-      "name": "1q (gym-website)",
-      "openedAt": "2026-07-19T15:32:02.910Z",
-      "lastActiveAt": "2026-07-19T15:32:02.910Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "PacketHub S.A.",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:32:02.910Z",
           "details": {
             "device": "desktop"
           }
