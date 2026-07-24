@@ -4333,10 +4333,10 @@
       "foundWebsiteUrl": null,
       "niche": "CrossFit",
       "location": "Singapore",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-24T07:54:04.416Z",
-      "updatedAt": "2026-07-24T07:54:04.416Z",
+      "updatedAt": "2026-07-24T07:57:07.836Z",
       "shortAlias": "tfx-funan"
     },
     {
@@ -4985,8 +4985,8 @@
       "leadId": "preview_gym-website_1784879570665",
       "name": "TFX gyms (gym-website)",
       "openedAt": "2026-07-24T07:53:52.386Z",
-      "lastActiveAt": "2026-07-24T07:53:56.548Z",
-      "duration": 20,
+      "lastActiveAt": "2026-07-24T07:54:16.973Z",
+      "duration": 40,
       "scrollPercent": 0,
       "location": "Portland, Oregon, United States",
       "countryCode": "US",
@@ -5008,6 +5008,24 @@
         {
           "event": "heartbeat",
           "timestamp": "2026-07-24T07:53:56.548Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-24T07:54:08.976Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-24T07:54:16.973Z",
           "details": {
             "device": "desktop",
             "seconds": 10,
