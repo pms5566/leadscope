@@ -4294,6 +4294,28 @@
       "addedAt": "2026-07-24T07:41:52.996Z",
       "updatedAt": "2026-07-24T07:41:52.996Z",
       "shortAlias": "hiit-run-sg"
+    },
+    {
+      "id": "scr-rwmau1i",
+      "name": "Crossfit Statera",
+      "address": "48 Woodleigh Prk, Unit #6, The Arena, सिङ्गापुर 357844",
+      "phone": "+65 8793 7808",
+      "googleMapsUri": "https://www.google.com/maps/place/Crossfit+Statera/data=!4m7!3m6!1s0x31da17d290731fcd:0x84a751142d3abd30!8m2!3d1.3424382!4d103.8677277!16s%2Fg%2F11clsjmjg9!19sChIJzR9zkNIX2jERML06LRRRp4Q?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://m.facebook.com/thearena.sg/photos/get-20-more-classes-when-you-sign-up-this-month-at-crossfit-statera-please-conta/2384444978444884/",
+      "instagram": "https://www.instagram.com/staterapersonaltraining/",
+      "linkedin": "https://sg.linkedin.com/in/kevin-loo-423141b5",
+      "whatsapp": "https://wa.me/6587937808",
+      "tiktok": null,
+      "email": "getfit@solitudeofstrength.com",
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Singapore",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T07:54:00.895Z",
+      "updatedAt": "2026-07-24T07:54:00.895Z",
+      "shortAlias": "crossfit-statera"
     }
   ],
   "shortLinks": {
@@ -4909,9 +4931,46 @@
     "liberty-smiles-dental-clinic": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822812923&name=+Liberty+Smiles+Dental+Clinic&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "hiit-run-sg": "https://drab-citric-acid.ngrok-free.dev/preview/hiit-class/scr-wf7vscc?name=HIIT%20%26%20Run%20SG&phone=%2B65%209645%200320&address=5%20Jln%20Saudara%20Ku%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20457442",
     "statera-performance": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784879065360&name=STATERA+PERFORMANCE&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "tfx-gyms": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784879570665&name=TFX+gyms&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "tfx-gyms": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784879570665&name=TFX+gyms&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "crossfit-statera": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-rwmau1i?name=Crossfit%20Statera&phone=%2B65%208793%207808&address=48%20Woodleigh%20Prk%2C%20Unit%20%236%2C%20The%20Arena%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20357844"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784879570665",
+      "name": "TFX gyms (gym-website)",
+      "openedAt": "2026-07-24T07:53:52.386Z",
+      "lastActiveAt": "2026-07-24T07:53:56.548Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-24T07:53:52.386Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-24T07:53:56.548Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_fitness_trainer_1784879065360",
       "name": "STATERA PERFORMANCE (fitness trainer)",
@@ -7045,59 +7104,6 @@
         }
       ],
       "isHot": true
-    },
-    {
-      "leadId": "meta-1783179492789-4",
-      "name": "Airine Skin Care Clinic",
-      "openedAt": "2026-07-15T09:25:00.508Z",
-      "lastActiveAt": "2026-07-19T15:58:30.840Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "Datacamp Limited",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:25:00.508Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T09:32:58.165Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-15T11:05:10.365Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-16T11:09:40.899Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:58:30.840Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
     }
   ],
   "settings": {
