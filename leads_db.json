@@ -4294,6 +4294,28 @@
       "addedAt": "2026-07-24T07:54:04.416Z",
       "updatedAt": "2026-07-24T07:57:07.836Z",
       "shortAlias": "tfx-funan"
+    },
+    {
+      "id": "scr-viyukln",
+      "name": "Studio Paulista: Pilates,Ginástica & Cia",
+      "address": "R. Batataes, 174 - Jardim Paulista, São Paulo - SP, 01423-010, ब्राजिल",
+      "phone": "+55 11 93957-9053",
+      "googleMapsUri": "https://www.google.com/maps/place/Studio+Paulista:+Pilates,Gin%C3%A1stica+%26+Cia/data=!4m7!3m6!1s0x94ce59c10fbc3ba9:0x77e89b48c2f7be9c!8m2!3d-23.5716942!4d-46.6557572!16s%2Fg%2F11c6vzkr6y!19sChIJqTu8D8FZzpQRnL73wkib6Hc?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/studiopaulistasp/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/5511939579053",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "Pilates studio",
+      "location": "São Paulo",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T14:43:33.990Z",
+      "updatedAt": "2026-07-24T14:43:33.990Z",
+      "shortAlias": "studio-paulista-pilatesginstica-cia"
     }
   ],
   "shortLinks": {
@@ -4914,9 +4936,35 @@
     "tfx-funan": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-bxerpzq?name=TFX%20Funan&phone=%2B65%206690%202388&address=107%20N%20Bridge%20Rd%2C%20%2304-18%20Funan%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20179105",
     "elite-performance-training": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-1jwl3nb?name=Elite%20Performance%20Training&phone=%2B65%208300%207578&address=806%20Upper%20Serangoon%20Rd%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20534674",
     "dental-skillhouse": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784880709847&name=Dental+SkillHouse&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "dental-skillhouse-dblb": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784880945588&name=Dental+SkillHouse&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "dental-skillhouse-dblb": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784880945588&name=Dental+SkillHouse&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "studio-paulista-pilatesginstica-cia": "https://drab-citric-acid.ngrok-free.dev/preview/pilates-studio/scr-viyukln?name=Studio%20Paulista%3A%20Pilates%2CGin%C3%A1stica%20%26%20Cia&phone=%2B55%2011%2093957-9053&address=R.%20Batataes%2C%20174%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001423-010%2C%20%E0%A4%AC%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%BF%E0%A4%B2"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784880945588",
+      "name": "Dental SkillHouse (gym-website)",
+      "openedAt": "2026-07-24T09:03:28.282Z",
+      "lastActiveAt": "2026-07-24T09:03:28.282Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "New Delhi, National Capital Territory of Delhi, India",
+      "countryCode": "IN",
+      "isp": "Bharti Airtel Limited",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T09:03:28.282Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784879570665",
       "name": "TFX gyms (gym-website)",
@@ -6975,135 +7023,6 @@
         }
       ],
       "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784476732531",
-      "name": "45tr (gym-website)",
-      "openedAt": "2026-07-19T15:58:59.094Z",
-      "lastActiveAt": "2026-07-19T16:02:22.769Z",
-      "duration": 100,
-      "scrollPercent": 68,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "PacketHub S.A.",
-      "views": 3,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:58:59.094Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T15:59:09.709Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 38
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T15:59:19.728Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 68
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T15:59:29.706Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 68
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T15:59:39.759Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 68
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T15:59:49.715Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 68
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T15:59:59.717Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 68
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T16:00:10.025Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 68
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T16:00:20.021Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 68
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T16:00:30.013Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 68
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T16:02:12.489Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T16:02:21.869Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T16:02:22.769Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": true
     }
   ],
   "settings": {
