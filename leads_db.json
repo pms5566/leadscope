@@ -4404,6 +4404,50 @@
       "addedAt": "2026-07-24T15:56:37.270Z",
       "updatedAt": "2026-07-24T15:56:37.270Z",
       "shortAlias": "no-massage-center"
+    },
+    {
+      "id": "scr-qmxzchc",
+      "name": "Xtreme Fitness & Martial Arts International Self Defense Club",
+      "address": "73 شارع اليَحَر - Al Hisn - W4 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 52 773 3726",
+      "googleMapsUri": "https://www.google.com/maps/place/Xtreme+Fitness+%26+Martial+Arts+International+Self+Defense+Club/data=!4m7!3m6!1s0x3e5e6747b74575cd:0x7ecffd484678a936!8m2!3d24.4778677!4d54.3560399!16s%2Fg%2F11l38zj78m!19sChIJzXVFt0dnXj4RNql4Rkj9z34?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/xtreme.martial.arts/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971527733726",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Abu Dhabi UAE",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T15:56:42.594Z",
+      "updatedAt": "2026-07-24T15:56:42.594Z",
+      "shortAlias": "xtreme-fitness-martial-arts-international-self-defense-club"
+    },
+    {
+      "id": "scr-yc9ned0",
+      "name": "FORTUNE Wellness Care",
+      "address": "Al Nahyan - E19 02 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 50 820 5403",
+      "googleMapsUri": "https://www.google.com/maps/place/FORTUNE+Wellness+Care/data=!4m7!3m6!1s0x3e5e65e0e82e4ee1:0xc67a9f79c8dbe30c!8m2!3d24.4692812!4d54.3810595!16s%2Fg%2F11c5xvrzz0!19sChIJ4U4u6OBlXj4RDOPbyHmfesY?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/wellness.ocean.spa/",
+      "instagram": "https://www.instagram.com/spa.fortune/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971508205403",
+      "tiktok": null,
+      "email": "wellness.spa.lig@gmail.com",
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Abu Dhabi UAE",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T15:56:42.594Z",
+      "updatedAt": "2026-07-24T15:56:42.594Z",
+      "shortAlias": "fortune-wellness-care-arsp"
     }
   ],
   "shortLinks": {
@@ -5035,7 +5079,9 @@
     "sway-studio-ae": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-studio/scr-48g7kj1?name=Sway%20Studio%20AE&phone=%2B971%2056%20333%207614&address=553%20Shk.%20Fatima%20Bint%20Mubarak%20St%20-%20Al%20Manhal%20-%20W14%2001%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "fly-fit-fitness-center-7gaw": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-w1hzlb8?name=Fly%20Fit%20Fitness%20Center&phone=%2B971%2055%20441%205335&address=10%2018th%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "zivon-fitness-center-koa6": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-ipo529k?name=Zivon%20Fitness%20Center&phone=%2B971%2055%20969%208393&address=Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "no-massage-center": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-5of6dih?name=No%20massage%20center&phone=%2B971%2055%20815%207910&address=20th%20St%20-%20Mohamed%20Bin%20Zayed%20City%20-%20ME11%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "no-massage-center": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-5of6dih?name=No%20massage%20center&phone=%2B971%2055%20815%207910&address=20th%20St%20-%20Mohamed%20Bin%20Zayed%20City%20-%20ME11%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "xtreme-fitness-martial-arts-international-self-defense-club": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-qmxzchc?name=Xtreme%20Fitness%20%26%20Martial%20Arts%20International%20Self%20Defense%20Club&phone=%2B971%2052%20773%203726&address=73%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D9%8A%D9%8E%D8%AD%D9%8E%D8%B1%20-%20Al%20Hisn%20-%20W4%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "fortune-wellness-care-arsp": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-yc9ned0?name=FORTUNE%20Wellness%20Care&phone=%2B971%2050%20820%205403&address=Al%20Nahyan%20-%20E19%2002%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
