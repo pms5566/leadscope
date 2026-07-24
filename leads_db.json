@@ -4360,6 +4360,50 @@
       "addedAt": "2026-07-24T15:56:32.205Z",
       "updatedAt": "2026-07-24T15:56:32.205Z",
       "shortAlias": "fly-fit-fitness-center-7gaw"
+    },
+    {
+      "id": "scr-ipo529k",
+      "name": "Zivon Fitness Center",
+      "address": "Al Danah - Zone 1 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 55 969 8393",
+      "googleMapsUri": "https://www.google.com/maps/place/Zivon+Fitness+Center/data=!4m7!3m6!1s0x3e5e67cfd78047b9:0x9526f6a74187a7bd!8m2!3d24.4981925!4d54.3705664!16s%2Fg%2F11tp2sdp8k!19sChIJuUeA189nXj4RvaeHQaf2JpU?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/p/ZIVON-Fitness-Center-100094118170368/",
+      "instagram": "https://www.instagram.com/zivonfitnessuae2023/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971559698393",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Abu Dhabi UAE",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T15:56:37.267Z",
+      "updatedAt": "2026-07-24T15:56:37.267Z",
+      "shortAlias": "zivon-fitness-center-koa6"
+    },
+    {
+      "id": "scr-5of6dih",
+      "name": "No massage center",
+      "address": "20th St - Mohamed Bin Zayed City - ME11 - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 55 815 7910",
+      "googleMapsUri": "https://www.google.com/maps/place/No+massage+center/data=!4m7!3m6!1s0x3e5e39b2fd6dbfff:0x697d2aff06a259c7!8m2!3d24.3283628!4d54.5349693!16s%2Fg%2F11llwyp672!19sChIJ_79t_bI5Xj4Rx1miBv8qfWk?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/p/Massaggio-massage-spa-in-Abu-Dhabi-100070374937979/",
+      "instagram": null,
+      "linkedin": null,
+      "whatsapp": "https://wa.me/971558157910",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "wellness center",
+      "location": "Abu Dhabi UAE",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T15:56:37.270Z",
+      "updatedAt": "2026-07-24T15:56:37.270Z",
+      "shortAlias": "no-massage-center"
     }
   ],
   "shortLinks": {
@@ -4989,7 +5033,9 @@
     "studio-paulista": "https://leadscope-bice.vercel.app/?niche=luxurious-salon-website&leadId=preview_luxurious-salon-website_1784905401110&name=STUDIO+PAULISTA&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "samarppanam-yoga-hamdan": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-studio/scr-oce9jei?name=Samarppanam%20Yoga%20Hamdan&phone=%2B971%2058%20533%204460&address=Hamdan%20Bin%20Mohammed%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "sway-studio-ae": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-studio/scr-48g7kj1?name=Sway%20Studio%20AE&phone=%2B971%2056%20333%207614&address=553%20Shk.%20Fatima%20Bint%20Mubarak%20St%20-%20Al%20Manhal%20-%20W14%2001%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "fly-fit-fitness-center-7gaw": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-w1hzlb8?name=Fly%20Fit%20Fitness%20Center&phone=%2B971%2055%20441%205335&address=10%2018th%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "fly-fit-fitness-center-7gaw": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-w1hzlb8?name=Fly%20Fit%20Fitness%20Center&phone=%2B971%2055%20441%205335&address=10%2018th%20St%20-%20Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "zivon-fitness-center-koa6": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-ipo529k?name=Zivon%20Fitness%20Center&phone=%2B971%2055%20969%208393&address=Al%20Danah%20-%20Zone%201%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "no-massage-center": "https://drab-citric-acid.ngrok-free.dev/preview/wellness-center/scr-5of6dih?name=No%20massage%20center&phone=%2B971%2055%20815%207910&address=20th%20St%20-%20Mohamed%20Bin%20Zayed%20City%20-%20ME11%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
