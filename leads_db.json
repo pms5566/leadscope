@@ -4316,6 +4316,50 @@
       "addedAt": "2026-07-24T07:54:00.895Z",
       "updatedAt": "2026-07-24T07:54:00.895Z",
       "shortAlias": "crossfit-statera"
+    },
+    {
+      "id": "scr-bxerpzq",
+      "name": "TFX Funan",
+      "address": "107 N Bridge Rd, #04-18 Funan, सिङ्गापुर 179105",
+      "phone": "+65 6690 2388",
+      "googleMapsUri": "https://www.google.com/maps/place/TFX+Funan/data=!4m7!3m6!1s0x31da191c74bcd737:0x6f58fc444b6b3d9f!8m2!3d1.2914206!4d103.8498227!16s%2Fg%2F11fmmdwns5!19sChIJN9e8dBwZ2jERnz1rS0T8WG8?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/tfx.sg/",
+      "instagram": "https://www.instagram.com/tfx.fitness/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/6566902388",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Singapore",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T07:54:04.416Z",
+      "updatedAt": "2026-07-24T07:54:04.416Z",
+      "shortAlias": "tfx-funan"
+    },
+    {
+      "id": "scr-1jwl3nb",
+      "name": "Elite Performance Training",
+      "address": "806 Upper Serangoon Rd, सिङ्गापुर 534674",
+      "phone": "+65 8300 7578",
+      "googleMapsUri": "https://www.google.com/maps/place/Elite+Performance+Training/data=!4m7!3m6!1s0x31da173554ba8581:0x72ae833fe2429a74!8m2!3d1.3552054!4d103.8800888!16s%2Fg%2F11r_txpzd8!19sChIJgYW6VDUX2jERdJpC4j-DrnI?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/eptsg/",
+      "instagram": "https://www.instagram.com/ept_sg/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/6583007578",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "CrossFit",
+      "location": "Singapore",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T07:54:04.417Z",
+      "updatedAt": "2026-07-24T07:54:04.417Z",
+      "shortAlias": "elite-performance-training"
     }
   ],
   "shortLinks": {
@@ -4932,7 +4976,9 @@
     "hiit-run-sg": "https://drab-citric-acid.ngrok-free.dev/preview/hiit-class/scr-wf7vscc?name=HIIT%20%26%20Run%20SG&phone=%2B65%209645%200320&address=5%20Jln%20Saudara%20Ku%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20457442",
     "statera-performance": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784879065360&name=STATERA+PERFORMANCE&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "tfx-gyms": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784879570665&name=TFX+gyms&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "crossfit-statera": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-rwmau1i?name=Crossfit%20Statera&phone=%2B65%208793%207808&address=48%20Woodleigh%20Prk%2C%20Unit%20%236%2C%20The%20Arena%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20357844"
+    "crossfit-statera": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-rwmau1i?name=Crossfit%20Statera&phone=%2B65%208793%207808&address=48%20Woodleigh%20Prk%2C%20Unit%20%236%2C%20The%20Arena%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20357844",
+    "tfx-funan": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-bxerpzq?name=TFX%20Funan&phone=%2B65%206690%202388&address=107%20N%20Bridge%20Rd%2C%20%2304-18%20Funan%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20179105",
+    "elite-performance-training": "https://drab-citric-acid.ngrok-free.dev/preview/crossfit/scr-1jwl3nb?name=Elite%20Performance%20Training&phone=%2B65%208300%207578&address=806%20Upper%20Serangoon%20Rd%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20534674"
   },
   "activeVisits": [
     {
