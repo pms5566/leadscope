@@ -4272,6 +4272,28 @@
       "addedAt": "2026-07-21T14:29:16.962Z",
       "updatedAt": "2026-07-21T14:51:47.626Z",
       "shortAlias": "black-belt-sports-center"
+    },
+    {
+      "id": "scr-wf7vscc",
+      "name": "HIIT & Run SG",
+      "address": "5 Jln Saudara Ku, सिङ्गापुर 457442",
+      "phone": "+65 9645 0320",
+      "googleMapsUri": "https://www.google.com/maps/place/HIIT+%26+Run+SG/data=!4m7!3m6!1s0x31da23e532944ac5:0x53e9d2609410139f!8m2!3d1.3107995!4d103.9204034!16s%2Fg%2F11lh3bx2d0!19sChIJxUqUMuUj2jERnxMQlGDS6VM?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/hiitandrun.sg/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/6596450320",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "HIIT class",
+      "location": "Singapore",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T07:41:52.996Z",
+      "updatedAt": "2026-07-24T07:41:52.996Z",
+      "shortAlias": "hiit-run-sg"
     }
   ],
   "shortLinks": {
@@ -4884,7 +4906,8 @@
     "texas-iron": "https://drab-citric-acid.ngrok-free.dev/preview/powerlifting-gym/scr-78plzy4?name=Texas%20Iron&phone=%2B1%20817-673-0958&address=1061%20Dividend%20St%20F%2C%20Midlothian%2C%20TX%2076065%2C%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%8D%E0%A4%AF",
     "faceofffitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784798580408&name=faceoff.fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "pm": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822762607&name=pm&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "liberty-smiles-dental-clinic": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822812923&name=+Liberty+Smiles+Dental+Clinic&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "liberty-smiles-dental-clinic": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822812923&name=+Liberty+Smiles+Dental+Clinic&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "hiit-run-sg": "https://drab-citric-acid.ngrok-free.dev/preview/hiit-class/scr-wf7vscc?name=HIIT%20%26%20Run%20SG&phone=%2B65%209645%200320&address=5%20Jln%20Saudara%20Ku%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20457442"
   },
   "activeVisits": [
     {
