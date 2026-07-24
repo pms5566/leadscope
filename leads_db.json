@@ -4908,9 +4908,53 @@
     "pm": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822762607&name=pm&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "liberty-smiles-dental-clinic": "https://leadscope-bice.vercel.app/?niche=dentist&leadId=preview_dentist_1784822812923&name=+Liberty+Smiles+Dental+Clinic&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "hiit-run-sg": "https://drab-citric-acid.ngrok-free.dev/preview/hiit-class/scr-wf7vscc?name=HIIT%20%26%20Run%20SG&phone=%2B65%209645%200320&address=5%20Jln%20Saudara%20Ku%2C%20%E0%A4%B8%E0%A4%BF%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%BE%E0%A4%AA%E0%A5%81%E0%A4%B0%20457442",
-    "statera-performance": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784879065360&name=STATERA+PERFORMANCE&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "statera-performance": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784879065360&name=STATERA+PERFORMANCE&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "tfx-gyms": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784879570665&name=TFX+gyms&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_fitness_trainer_1784879065360",
+      "name": "STATERA PERFORMANCE (fitness trainer)",
+      "openedAt": "2026-07-24T07:45:35.420Z",
+      "lastActiveAt": "2026-07-24T07:45:56.344Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T07:45:35.420Z",
+          "details": {
+            "device": "desktop"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-24T07:45:46.976Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-24T07:45:56.344Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_dentist_1784822762607",
       "name": "pm (dentist)",
@@ -7048,38 +7092,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-19T15:58:30.840Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "scr-802c1en",
-      "name": "Strong Gym HQ",
-      "openedAt": "2026-07-19T15:32:19.465Z",
-      "lastActiveAt": "2026-07-19T15:57:56.173Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "PacketHub S.A.",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:32:19.465Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T15:57:56.173Z",
           "details": {
             "device": "desktop"
           }
