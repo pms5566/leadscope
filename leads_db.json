@@ -5295,9 +5295,35 @@
     "the-studio": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-gtqbd6e?name=The%20Studio&phone=%2B971%202%20621%200000&address=Saadiyat%20Rotana%20Hotel%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "the-studio-8q7f": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784908806324&name=The+Studio&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "sway-studio": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784909386820&name=Sway+Studio&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "af": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784909448332&name=af&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "af": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784909448332&name=af&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "af-zvc4": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784909465379&name=af&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_wellness-project_1784909448332",
+      "name": "af (wellness-project)",
+      "openedAt": "2026-07-24T16:10:59.004Z",
+      "lastActiveAt": "2026-07-24T16:10:59.004Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Mumbai, Maharashtra, India",
+      "countryCode": "IN",
+      "isp": "PacketHub S.A.",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:10:59.004Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_wellness-project_1784909386820",
       "name": "Sway Studio (wellness-project)",
@@ -7359,31 +7385,6 @@
         {
           "event": "fiverr_click",
           "timestamp": "2026-07-19T17:31:59.757Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784482231199",
-      "name": "yes bro (gym-website)",
-      "openedAt": "2026-07-19T17:30:37.110Z",
-      "lastActiveAt": "2026-07-19T17:30:37.110Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:30:37.110Z",
           "details": {
             "device": "desktop"
           }
