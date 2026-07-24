@@ -4311,10 +4311,10 @@
       "foundWebsiteUrl": null,
       "niche": "yoga studio",
       "location": "Abu Dhabi UAE",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-24T15:53:47.477Z",
-      "updatedAt": "2026-07-24T15:53:47.477Z",
+      "updatedAt": "2026-07-24T16:21:46.082Z",
       "shortAlias": "sway-studio-ae"
     },
     {
@@ -5303,6 +5303,40 @@
     "sway-studio-hraw": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784909957876&name=Sway+Studio&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784909957876",
+      "name": "Sway Studio (gym-website)",
+      "openedAt": "2026-07-24T16:21:20.906Z",
+      "lastActiveAt": "2026-07-24T16:21:31.538Z",
+      "duration": 10,
+      "scrollPercent": 26,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:21:20.906Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-24T16:21:31.538Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 26
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_luxurious-salon-website_1784905401110",
       "name": "STUDIO PAULISTA (luxurious-salon-website)",
@@ -7330,31 +7364,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-19T17:42:24.444Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym_1784481312176",
-      "name": "Town Center Fitness (gym)",
-      "openedAt": "2026-07-19T17:41:17.640Z",
-      "lastActiveAt": "2026-07-19T17:41:17.640Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Mumbai, Maharashtra, India",
-      "countryCode": "IN",
-      "isp": "PacketHub S.A.",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:41:17.640Z",
           "details": {
             "device": "desktop"
           }
