@@ -4712,6 +4712,28 @@
       "addedAt": "2026-07-24T15:57:57.348Z",
       "updatedAt": "2026-07-24T15:57:57.348Z",
       "shortAlias": "studio-bada"
+    },
+    {
+      "id": "scr-gtqbd6e",
+      "name": "The Studio",
+      "address": "Saadiyat Rotana Hotel - Abu Dhabi - संयुक्त अरब इमिराट्स",
+      "phone": "+971 2 621 0000",
+      "googleMapsUri": "https://www.google.com/maps/place/The+Studio/data=!4m7!3m6!1s0x3e5e65e7e78fb2cb:0x9252df715193fa2a!8m2!3d24.5417479!4d54.4307013!16s%2Fg%2F11g72fr67g!19sChIJy7KP5-dlXj4RKvqTUXHfUpI?authuser=0&hl=ne&rclk=1",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/thestudiouae/",
+      "linkedin": null,
+      "whatsapp": "https://wa.me/redtyping",
+      "tiktok": null,
+      "email": "info@thestudiouae.com",
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "yoga retreat",
+      "location": "Abu Dhabi UAE",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-24T15:58:09.428Z",
+      "updatedAt": "2026-07-24T15:58:09.428Z",
+      "shortAlias": "the-studio"
     }
   ],
   "shortLinks": {
@@ -5357,7 +5379,8 @@
     "energy-institute": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-4afbqkv?name=Energy%20Institute&phone=%2B971%2050%20663%207119&address=sh.%20zayed%20st%20-%20Al%20Manhal%20-%20W15%2001%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "pura-eco-retreat-jubail-island-ildg": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-7hug8p1?name=Pura%20Eco%20Retreat%20-%20Jubail%20Island&phone=N%2FA&address=Pura%20Eco%20Retreat%2C%20Jubail%20Island%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
     "abu-dhabi-golf-resort-e5ng": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-v1ahn7c?name=Abu%20Dhabi%20Golf%20Resort&phone=N%2FA&address=Sas%20Al%20Nakhl%20-%20SW17%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
-    "studio-bada": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-359qcap?name=Studio%20Bada&phone=%2B971%2056%20761%209757&address=Saadiyat%20-%20SDE3%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
+    "studio-bada": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-359qcap?name=Studio%20Bada&phone=%2B971%2056%20761%209757&address=Saadiyat%20-%20SDE3%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8",
+    "the-studio": "https://drab-citric-acid.ngrok-free.dev/preview/yoga-retreat/scr-gtqbd6e?name=The%20Studio&phone=%2B971%202%20621%200000&address=Saadiyat%20Rotana%20Hotel%20-%20Abu%20Dhabi%20-%20%E0%A4%B8%E0%A4%82%E0%A4%AF%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%A4%20%E0%A4%85%E0%A4%B0%E0%A4%AC%20%E0%A4%87%E0%A4%AE%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%9F%E0%A5%8D%E0%A4%B8"
   },
   "activeVisits": [
     {
