@@ -5296,9 +5296,129 @@
     "the-studio-8q7f": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784908806324&name=The+Studio&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "sway-studio": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784909386820&name=Sway+Studio&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "af": "https://leadscope-bice.vercel.app/?niche=wellness-project&leadId=preview_wellness-project_1784909448332&name=af&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "af-zvc4": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784909465379&name=af&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "af-zvc4": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784909465379&name=af&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "af-mej6": "https://leadscope-bice.vercel.app/?niche=fitness+trainer&leadId=preview_fitness_trainer_1784909668809&name=af&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_wellness-project_1784908806324",
+      "name": "The Studio (wellness-project)",
+      "openedAt": "2026-07-24T16:12:46.045Z",
+      "lastActiveAt": "2026-07-24T16:14:19.270Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 2,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:12:46.045Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:14:19.270Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
+    {
+      "leadId": "preview_luxurious-salon-website_1784905401110",
+      "name": "STUDIO PAULISTA (luxurious-salon-website)",
+      "openedAt": "2026-07-24T16:11:54.801Z",
+      "lastActiveAt": "2026-07-24T16:13:43.186Z",
+      "duration": 10,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 4,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:11:54.801Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:12:59.675Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:13:13.888Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-24T16:13:24.431Z",
+          "details": {
+            "device": "mobile",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:13:43.186Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": true
+    },
+    {
+      "leadId": "preview_wellness-project_1784909386820",
+      "name": "Sway Studio (wellness-project)",
+      "openedAt": "2026-07-24T16:10:00.803Z",
+      "lastActiveAt": "2026-07-24T16:11:57.575Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:10:00.803Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-24T16:11:57.575Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_wellness-project_1784909448332",
       "name": "af (wellness-project)",
@@ -5319,31 +5439,6 @@
           "timestamp": "2026-07-24T16:10:59.004Z",
           "details": {
             "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_wellness-project_1784909386820",
-      "name": "Sway Studio (wellness-project)",
-      "openedAt": "2026-07-24T16:10:00.803Z",
-      "lastActiveAt": "2026-07-24T16:10:00.803Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "mobile",
-      "os": "Android",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-24T16:10:00.803Z",
-          "details": {
-            "device": "mobile"
           }
         }
       ],
@@ -7250,143 +7345,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 100
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym_1784482385496",
-      "name": "yes bro (gym)",
-      "openedAt": "2026-07-19T17:33:14.892Z",
-      "lastActiveAt": "2026-07-19T17:34:00.689Z",
-      "duration": 30,
-      "scrollPercent": 100,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 4,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:33:14.892Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T17:33:26.709Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T17:33:36.707Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T17:33:46.698Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:33:53.647Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:33:56.592Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:34:00.689Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": true
-    },
-    {
-      "leadId": "preview_gym-website_1784482264622",
-      "name": "yes bro (gym-website)",
-      "openedAt": "2026-07-19T17:31:37.931Z",
-      "lastActiveAt": "2026-07-19T17:31:59.757Z",
-      "duration": 20,
-      "scrollPercent": 100,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:31:37.931Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "whatsapp_click",
-          "timestamp": "2026-07-19T17:31:47.804Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T17:31:48.707Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "email_click",
-          "timestamp": "2026-07-19T17:31:50.833Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T17:31:58.227Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 100
-          }
-        },
-        {
-          "event": "fiverr_click",
-          "timestamp": "2026-07-19T17:31:59.757Z",
-          "details": {
-            "device": "desktop"
           }
         }
       ],
