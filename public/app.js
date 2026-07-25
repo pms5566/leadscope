@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  window.templateHost = '';
+  window.templateHost = 'https://leadscope-bice.vercel.app';
   // DOM Elements
   const scanForm = document.getElementById('scanForm');
   const nicheInput = document.getElementById('nicheInput');
@@ -1808,8 +1808,8 @@ document.addEventListener('DOMContentLoaded', () => {
           templateHostInput.value = data.templateHost;
           window.templateHost = data.templateHost;
         } else {
-          templateHostInput.value = '';
-          window.templateHost = '';
+          templateHostInput.value = 'https://leadscope-bice.vercel.app';
+          window.templateHost = 'https://leadscope-bice.vercel.app';
         }
         if (data.localTrackingUrl) {
           localTrackingUrlInput.value = data.localTrackingUrl;
@@ -3061,8 +3061,18 @@ window.generateLink = async function () {
 
     const shortUrl = result.shortUrl;
 
-    // Use TinyURL (server-generated, routed via ngrok) as primary link — templateHost is a static site, not an alias router
-    const activeLink = result.tinyUrl || shortUrl;
+    // Generate clean branded Vercel URL: leadscope-bice.vercel.app/{niche}?name=...&phone=...
+    // vercel.json rewrite rule handles /:slug → /?niche=:slug (passing all query params through)
+    const nicheSlug = niche.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    const slugParams = new URLSearchParams();
+    if (fullName) slugParams.set('name', fullName);
+    if (phone) slugParams.set('phone', phone);
+    if (address) slugParams.set('address', address);
+    if (window.localTrackingUrl) slugParams.set('trackUrl', window.localTrackingUrl || '');
+    const slugParamStr = slugParams.toString();
+    const activeLink = window.templateHost
+      ? `${window.templateHost.replace(/\/$/, '')}/${nicheSlug}${slugParamStr ? '?' + slugParamStr : ''}`
+      : (result.tinyUrl || shortUrl);
 
     if (outputEl) {
       outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;
