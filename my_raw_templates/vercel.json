@@ -1,9 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/:alias([a-zA-Z0-9_-]+)/?",
-      "destination": "/index.html?mockup=:alias"
-    }
-  ]
-}
-
