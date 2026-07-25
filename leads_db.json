@@ -4399,10 +4399,10 @@
       "foundWebsiteUrl": null,
       "niche": "wellness center",
       "location": "Abu Dhabi UAE",
-      "status": "new",
+      "status": "pitched_ig",
       "notes": "",
       "addedAt": "2026-07-24T15:56:49.353Z",
-      "updatedAt": "2026-07-24T15:56:49.353Z",
+      "updatedAt": "2026-07-25T15:04:16.091Z",
       "shortAlias": "eight-pack-fitness-world-best-gym-in-mussafah-abu-dhabi"
     },
     {
@@ -5132,6 +5132,42 @@
     "eight-pack-fitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784991725970&name=Eight+Pack+Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_gym-website_1784991725970",
+      "name": "Eight Pack Fitness (gym-website)",
+      "openedAt": "2026-07-25T15:03:51.420Z",
+      "lastActiveAt": "2026-07-25T15:03:58.961Z",
+      "duration": 20,
+      "scrollPercent": 0,
+      "location": "Portland, Oregon, United States",
+      "countryCode": "US",
+      "isp": "Amazon.com, Inc.",
+      "views": 1,
+      "device": "desktop",
+      "os": "Windows",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-25T15:03:51.420Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        },
+        {
+          "event": "heartbeat",
+          "timestamp": "2026-07-25T15:03:58.961Z",
+          "details": {
+            "device": "desktop",
+            "seconds": 10,
+            "scrollPercent": 0
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784909957876",
       "name": "Sway Studio (gym-website)",
@@ -7170,31 +7206,6 @@
             "device": "desktop",
             "seconds": 10,
             "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784482936714",
-      "name": "p[mt (gym-website)",
-      "openedAt": "2026-07-19T17:42:24.444Z",
-      "lastActiveAt": "2026-07-19T17:42:24.444Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:42:24.444Z",
-          "details": {
-            "device": "desktop"
           }
         }
       ],
