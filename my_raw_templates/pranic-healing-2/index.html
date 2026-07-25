@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pranic Healing Academy — Heal, Transform, Evolve</title>
+  <meta name="description" content="Discover the science and art of Pranic Healing. Learn to cleanse energy fields, accelerate self-healing, and cultivate inner peace with our professional certification courses.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Styling System / Design Tokens */
+    :root {
+      --primary: #3b1f6e;
+      --primary-rgb: 59, 31, 110;
+      --primary-light: #522d99;
+      --primary-dark: #27144b;
+      --accent: #c9a84c;
+      --accent-hover: #b89539;
+      --accent-rgb: 201, 168, 76;
+      --bg-warm: #faf7f2;
+      --bg-white: #ffffff;
+      --text-main: #2d2a33;
+      --text-muted: #625d6b;
+      --success: #1a7a4a;
+      --shadow-sm: 0 2px 8px rgba(59, 31, 110, 0.04);
+      --shadow-md: 0 8px 20px rgba(59, 31, 110, 0.08);
+      --shadow-lg: 0 16px 36px rgba(59, 31, 110, 0.12);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --border-radius: 12px;
+    }
+
+    /* Reset and Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-warm);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--primary);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    button, input, textarea {
+      font-family: inherit;
+    }
+
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Container Utility */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Common Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.8rem 1.8rem;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: var(--primary);
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(201, 168, 76, 0.1);
+      color: #ffffff;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Navigation Bar */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(250, 247, 242, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(var(--primary-rgb), 0.06);
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      background: rgba(250, 247, 242, 0.95);
+      box-shadow: var(--shadow-sm);
+      padding: 0.5rem 0;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      transition: var(--transition);
+    }
+
+    .header.scrolled .navbar {
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .logo svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-nav-enroll {
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      background-color: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .btn-nav-enroll:hover {
+      background-color: var(--primary);
+      color: var(--accent);
+      transform: none;
+      box-shadow: none;
+      border-color: var(--primary);
+    }
+
+    /* Burger Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Sections Shared Styling */
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .section-header h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .section-header h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background-color: var(--accent);
+      margin: 0.8rem auto 0 auto;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #ffffff;
+      padding-top: 10rem;
+      padding-bottom: 7rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-mandala-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 800px;
+      height: auto;
+      opacity: 0.06;
+      pointer-events: none;
+      animation: rotateSlow 80s linear infinite;
+    }
+
+    @keyframes rotateSlow {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-size: 4.2rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    /* Stat Counters */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Instructor Story */
+    .instructor {
+      background-color: var(--bg-white);
+    }
+
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .instructor-media {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .instructor-avatar-container {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 2px dashed rgba(var(--accent-rgb), 0.4);
+      padding: 12px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .instructor-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid var(--accent);
+    }
+
+    .instructor-avatar svg {
+      width: 70%;
+      height: 70%;
+      fill: var(--accent);
+    }
+
+    .instructor-info h3 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .instructor-subtitle {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .instructor-story {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .instructor-info .btn-secondary {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .instructor-info .btn-secondary:hover {
+      background-color: rgba(59, 31, 110, 0.05);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Courses Section */
+    .courses {
+      background-color: var(--bg-warm);
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .course-card {
+      background: var(--bg-white);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      border: 1px solid rgba(var(--primary-rgb), 0.06);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition);
+      z-index: 1;
+    }
+
+    .course-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--border-radius);
+      border: 2px solid var(--accent);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .course-card:hover::after {
+      opacity: 1;
+    }
+
+    .course-icon-wrapper {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: rgba(var(--accent-rgb), 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .course-card:hover .course-icon-wrapper {
+      background: var(--primary);
+      color: var(--accent);
+    }
+
+    .course-icon-wrapper svg {
+      width: 36px;
+      height: 36px;
+      fill: currentColor;
+    }
+
+    .course-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .course-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .course-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(var(--primary-rgb), 0.06);
+      padding-top: 1.5rem;
+      margin-top: auto;
+    }
+
+    .course-price {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-price-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .course-price-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .course-card .btn-primary {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+      border-radius: 8px;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      background-color: var(--bg-white);
+      overflow: hidden;
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+      margin-top: 2rem;
+    }
+
+    /* Horizontal connecting line */
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 45px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      background: repeating-linear-gradient(to right, var(--accent) 0, var(--accent) 6px, transparent 6px, transparent 12px);
+      z-index: 1;
+    }
+
+    .step-item {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-number-wrapper {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .step-number {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: var(--bg-warm);
+      border: 3px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .step-item:hover .step-number {
+      background: var(--primary);
+      color: var(--accent);
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    .step-number svg {
+      width: 36px;
+      height: 36px;
+      fill: currentColor;
+    }
+
+    .step-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 28px;
+      height: 28px;
+      background-color: var(--accent);
+      color: var(--primary);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--bg-white);
+    }
+
+    .step-item h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 220px;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background-color: var(--bg-warm);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-white);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .quote-icon {
+      margin-bottom: 1.5rem;
+      color: rgba(var(--accent-rgb), 0.3);
+    }
+
+    .quote-icon svg {
+      width: 42px;
+      height: 42px;
+      fill: currentColor;
+    }
+
+    .testimonial-text {
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+    }
+
+    .testimonial-stars svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    /* Success Stories Section */
+    .success-stories {
+      background-color: var(--bg-white);
+    }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    .story-card {
+      background: var(--bg-warm);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      display: flex;
+      border: 1px solid rgba(var(--primary-rgb), 0.04);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .story-illustration {
+      flex: 0 0 160px;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      color: var(--accent);
+    }
+
+    .story-illustration svg {
+      width: 90px;
+      height: 90px;
+      fill: currentColor;
+    }
+
+    .story-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story-body h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .story-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .story-body .btn-secondary {
+      align-self: flex-start;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .story-body .btn-secondary:hover {
+      background-color: var(--primary);
+      color: var(--accent);
+      border-color: var(--primary);
+    }
+
+    /* Free Resources Section */
+    .resources {
+      background-color: var(--bg-warm);
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .resource-card {
+      background: var(--bg-white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(var(--primary-rgb), 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .resource-thumb {
+      height: 180px;
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .resource-thumb svg.thumb-artwork {
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+    }
+
+    .resource-thumb svg.thumb-icon {
+      width: 48px;
+      height: 48px;
+      fill: currentColor;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+
+    .resource-info {
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .resource-type {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .resource-info h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .resource-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .resource-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      transition: var(--transition);
+    }
+
+    .resource-card:hover .resource-link svg {
+      transform: translateX(4px);
+    }
+
+    .resources-footer {
+      text-align: center;
+    }
+
+    .resources-footer .btn-secondary {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .resources-footer .btn-secondary:hover {
+      background-color: var(--primary);
+      color: var(--accent);
+      border-color: var(--primary);
+    }
+
+    /* Contact / CTA Section */
+    .contact {
+      background-color: var(--bg-white);
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: flex-start;
+    }
+
+    .contact-info h3 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .channel-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .channel-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(var(--primary-rgb), 0.05);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .channel-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .channel-text h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .channel-text p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 0.9rem 2rem;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128c7e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+    }
+
+    .whatsapp-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .contact-form-card {
+      background: var(--bg-warm);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(var(--primary-rgb), 0.04);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid rgba(var(--primary-rgb), 0.15);
+      border-radius: 8px;
+      background-color: var(--bg-white);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form-card .btn-primary {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(var(--primary-dark-rgb), 0.6);
+      background-color: rgba(39, 20, 75, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--bg-white);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 460px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(26, 122, 74, 0.1);
+      color: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .modal-icon svg {
+      width: 48px;
+      height: 48px;
+      fill: currentColor;
+    }
+
+    .modal-content h3 {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .modal-content p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .modal-content .btn-primary {
+      padding: 0.75rem 2rem;
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--accent);
+    }
+
+    .modal-content .btn-primary:hover {
+      background-color: var(--primary-light);
+      border-color: var(--primary-light);
+      color: #ffffff;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background-color: #25d366;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      z-index: 999;
+      transition: var(--transition);
+      animation: pulseAnimation 2s infinite;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+      background-color: #128c7e;
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.6);
+    }
+
+    .floating-whatsapp svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    @keyframes pulseAnimation {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Footer Section */
+    .footer {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      padding: 5rem 0 2rem 0;
+      border-top: 2px solid var(--accent);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1.8fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-about {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-about .logo {
+      color: #ffffff;
+    }
+
+    .footer-about p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .footer-links-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-links-col h4 {
+      color: var(--accent);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .footer-links-grid a {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.9rem;
+    }
+
+    .footer-links-grid a:hover {
+      color: var(--accent);
+      padding-left: 5px;
+    }
+
+    .footer-social-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-social-col h4 {
+      color: var(--accent);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .social-icons-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-link:hover {
+      background: var(--accent);
+      color: var(--primary);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .hero-content h1 {
+        font-size: 3.4rem;
+      }
+      .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .steps-row::before {
+        display: none; /* Hide horizontal connecting line on smaller screens */
+      }
+      .steps-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+      .footer-social-col {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Navigation Drawer */
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-warm);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: var(--shadow-md);
+        border-bottom: 2px solid var(--accent);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: var(--transition);
+      }
+
+      .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1.2rem;
+        border-bottom: 1px solid rgba(var(--primary-rgb), 0.04);
+      }
+
+      .nav-actions {
+        display: none; /* Let the primary button move or stay in header, but we hide it for simplicty */
+      }
+
+      /* Sections General */
+      section {
+        padding: 4rem 0;
+      }
+      
+      .section-header h2 {
+        font-size: 2.2rem;
+      }
+
+      /* Hero */
+      .hero {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+      }
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+      .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        max-width: 300px;
+        margin: 0 auto 3rem auto;
+      }
+      .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1.5rem;
+        gap: 1.5rem;
+      }
+      .stat-num {
+        font-size: 2.4rem;
+      }
+
+      /* Instructor */
+      .instructor-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+      .instructor-media {
+        order: -1;
+      }
+      .instructor-avatar-container {
+        width: 240px;
+        height: 240px;
+      }
+
+      /* Courses */
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* How it Works */
+      .steps-row {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .step-item p {
+        max-width: 280px;
+      }
+
+      /* Testimonials (Scroll horizontally) */
+      .testimonials-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 1.5rem;
+        padding: 1rem 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .testimonial-card {
+        flex: 0 0 290px;
+        scroll-snap-align: start;
+      }
+
+      /* Success Stories */
+      .stories-grid {
+        grid-template-columns: 1fr;
+      }
+      .story-card {
+        flex-direction: column;
+      }
+      .story-illustration {
+        flex: 0 0 140px;
+      }
+      .story-body {
+        padding: 1.5rem;
+      }
+
+      /* Resources */
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Contact */
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      /* Footer */
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .footer-social-col {
+        grid-column: span 1;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. NAVBAR -->
+  <header class="header" id="header">
+    <div class="container navbar">
+      <a href="#home" class="logo">
+        <!-- Lotus SVG Icon -->
+        <svg viewBox="0 0 100 100">
+          <path d="M50 15 C52 35 60 45 75 45 C60 45 52 55 50 85 C48 55 40 45 25 45 C40 45 48 35 50 15 Z" />
+          <path d="M50 28 C51.5 42 58 48 68 48 C58 48 51.5 54 50 72 C48.5 54 42 48 32 48 C42 48 48.5 42 50 28 Z" opacity="0.7" />
+          <path d="M50 40 C50.8 48 54 51 60 51 C54 51 50.8 54 50 62 C49.2 54 46 51 40 51 C46 51 49.2 48 50 40 Z" opacity="0.5" />
+        </svg>
+        <span>Pranic Healing Academy</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#success">Success Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#courses" class="btn btn-nav-enroll">Enroll Now</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 2. HERO -->
+  <section class="hero" id="home">
+    <!-- Inline SVG Mandala Background Pattern -->
+    <svg class="hero-mandala-bg" viewBox="0 0 200 200" fill="none" stroke="#c9a84c" stroke-width="0.5">
+      <circle cx="100" cy="100" r="90" stroke-dasharray="2 2" />
+      <circle cx="100" cy="100" r="75" />
+      <circle cx="100" cy="100" r="60" stroke-dasharray="4 2" />
+      <circle cx="100" cy="100" r="45" />
+      <circle cx="100" cy="100" r="30" />
+      <!-- Radial Lines -->
+      <line x1="10" y1="100" x2="190" y2="100" />
+      <line x1="100" y1="10" x2="100" y2="190" />
+      <line x1="36.36" y1="36.36" x2="163.64" y2="163.64" />
+      <line x1="36.36" y1="163.64" x2="163.64" y2="36.36" />
+      <!-- Mandala Loops -->
+      <path d="M100 10 C120 40 140 40 160 100 C140 160 120 160 100 190 C80 160 60 160 40 100 C60 40 80 40 100 10 Z" />
+      <path d="M10 100 C40 120 40 140 100 160 C160 140 160 120 190 100 C160 80 160 60 100 40 C40 60 40 80 10 100 Z" />
+      <path d="M100 40 A 60 60 0 1 0 100 160 A 60 60 0 1 0 100 40" stroke-dasharray="1 3" stroke-width="1.5" />
+      <!-- Star Petals -->
+      <polygon points="100,25 120,70 165,55 130,90 175,100 130,110 165,145 120,130 100,175 80,130 35,145 70,110 25,100 70,90 35,55 80,70" />
+    </svg>
+
+    <div class="container hero-content">
+      <h1 class="reveal">Heal. Transform. Evolve.</h1>
+      <p class="reveal">Join thousands of students who have transformed their health, relationships, and inner peace through the science of Pranic Healing.</p>
+      
+      <div class="hero-ctas reveal">
+        <a href="#courses" class="btn btn-primary">Explore Courses</a>
+        <a href="#resources" class="btn btn-secondary">Watch Free Video</a>
+      </div>
+
+      <!-- Counter Stats -->
+      <div class="stats-container reveal">
+        <div class="stat-item">
+          <div class="stat-num counter-val" data-target="120" data-suffix="+">0</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num counter-val" data-target="5000" data-suffix="+">0</div>
+          <div class="stat-label">Students Trained</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num counter-val" data-target="50" data-suffix="+">0</div>
+          <div class="stat-label">Webinars</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num counter-val" data-target="6" data-suffix="">0</div>
+          <div class="stat-label">Courses</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. INSTRUCTOR STORY -->
+  <section class="instructor" id="about">
+    <div class="container">
+      <div class="instructor-grid">
+        <div class="instructor-media reveal">
+          <div class="instructor-avatar-container">
+            <div class="instructor-avatar">
+              <!-- Sacred Geometry Avatar SVG -->
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" stroke="#c9a84c" stroke-width="1.5" fill="none" />
+                <circle cx="50" cy="50" r="28" stroke="#c9a84c" stroke-width="1" fill="none" stroke-dasharray="2 2" />
+                <!-- Lotus Inside -->
+                <path d="M50 25 C51 35 55 40 65 40 C55 40 51 45 50 65 C49 45 45 40 35 40 C45 40 49 35 50 25 Z" fill="#c9a84c" />
+                <!-- Surrounding Rays -->
+                <line x1="50" y1="10" x2="50" y2="20" stroke="#c9a84c" stroke-width="1.5" />
+                <line x1="50" y1="80" x2="50" y2="90" stroke="#c9a84c" stroke-width="1.5" />
+                <line x1="10" y1="50" x2="20" y2="50" stroke="#c9a84c" stroke-width="1.5" />
+                <line x1="80" y1="50" x2="90" y2="50" stroke="#c9a84c" stroke-width="1.5" />
+                <line x1="22" y1="22" x2="30" y2="30" stroke="#c9a84c" stroke-width="1" />
+                <line x1="70" y1="70" x2="78" y2="78" stroke="#c9a84c" stroke-width="1" />
+                <line x1="22" y1="78" x2="30" y2="70" stroke="#c9a84c" stroke-width="1" />
+                <line x1="70" y1="30" x2="78" y2="22" stroke="#c9a84c" stroke-width="1" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="instructor-info reveal">
+          <span class="instructor-subtitle">Our Journey</span>
+          <h3>Bridging Ancient Wisdom & Modern Science</h3>
+          <p class="instructor-story">After years of searching for answers to chronic stress and health challenges, our lead instructor discovered Pranic Healing — and everything changed. What began as a personal transformation soon became a mission: to make this ancient science accessible to every family. Today, with over 15 years of teaching experience across multiple cities, our instructors have guided thousands of students toward healthier, happier lives.</p>
+          <a href="#" class="btn btn-secondary" onclick="event.preventDefault();">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. COURSES SECTION -->
+  <section class="courses" id="courses">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Our Courses</h2>
+        <p>Embark on a structured spiritual curriculum. Learn safe, systematic techniques starting from foundational energy scanning up to advanced meditations.</p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- Course 1 -->
+        <div class="course-card reveal">
+          <div class="course-icon-wrapper">
+            <!-- Healing Energy Waves SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <h3>Basic Pranic Healing</h3>
+          <p class="course-desc">Learn foundational energy scanning, cleansing, and healing techniques.</p>
+          <div class="course-footer">
+            <div class="course-price">
+              <span class="course-price-label">Price</span>
+              <span class="course-price-value">Rs. 4,999</span>
+            </div>
+            <a href="#contact" class="btn btn-primary">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card reveal">
+          <div class="course-icon-wrapper">
+            <!-- Advanced Color Prana Star SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+          </div>
+          <h3>Advanced Pranic Healing</h3>
+          <p class="course-desc">Master colour prana and advanced protocols for accelerated healing.</p>
+          <div class="course-footer">
+            <div class="course-price">
+              <span class="course-price-label">Price</span>
+              <span class="course-price-value">Rs. 6,999</span>
+            </div>
+            <a href="#contact" class="btn btn-primary">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card reveal">
+          <div class="course-icon-wrapper">
+            <!-- Psychology Shield SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+          </div>
+          <h3>Pranic Psychotherapy</h3>
+          <p class="course-desc">Apply energy healing to emotional and psychological conditions.</p>
+          <div class="course-footer">
+            <div class="course-price">
+              <span class="course-price-label">Price</span>
+              <span class="course-price-value">Rs. 7,499</span>
+            </div>
+            <a href="#contact" class="btn btn-primary">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card reveal">
+          <div class="course-icon-wrapper">
+            <!-- Forgiveness Heart/Lotus SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <h3>Forgiveness & Inner Peace</h3>
+          <p class="course-desc">Release emotional blockages and cultivate deep inner compassion.</p>
+          <div class="course-footer">
+            <div class="course-price">
+              <span class="course-price-label">Price</span>
+              <span class="course-price-value">Rs. 4,499</span>
+            </div>
+            <a href="#contact" class="btn btn-primary">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="course-card reveal">
+          <div class="course-icon-wrapper">
+            <!-- Meditating Figure / Oneness SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 4c-2.33 0-6.94 1.17-7 3.5V16h14v-2.5c-.06-2.33-4.67-3.5-7-3.5zm-5 4c.22-.72 2.63-1.5 5-1.5s4.78.78 5 1.5H7zm5 4c-1.66 0-3 1.34-3 3h6c0-1.66-1.34-3-3-3z"/>
+            </svg>
+          </div>
+          <h3>Achieving Oneness</h3>
+          <p class="course-desc">Align with your Higher Self through meditation and inner practices.</p>
+          <div class="course-footer">
+            <div class="course-price">
+              <span class="course-price-label">Price</span>
+              <span class="course-price-value">Rs. 7,999</span>
+            </div>
+            <a href="#contact" class="btn btn-primary">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- Course 6 -->
+        <div class="course-card reveal">
+          <div class="course-icon-wrapper">
+            <!-- Spiritual Growth Spiral SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.92c-3.32-.42-6-2.92-6.42-6.24L10 12c0-1.1.9-2 2-2s2 .9 2 2l3.42-.32c-.42 3.32-3.1 5.82-6.42 6.24z"/>
+            </svg>
+          </div>
+          <h3>Arhatic Yoga</h3>
+          <p class="course-desc">An advanced system of meditation, ethics, and energy work for spiritual growth.</p>
+          <div class="course-footer">
+            <div class="course-price">
+              <span class="course-price-label">Price</span>
+              <span class="course-price-value">Rs. 8,999</span>
+            </div>
+            <a href="#contact" class="btn btn-primary">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>How It Works</h2>
+        <p>Start your transformational journey in four simple and secure steps.</p>
+      </div>
+
+      <div class="steps-row">
+        <!-- Step 1 -->
+        <div class="step-item reveal">
+          <div class="step-number-wrapper">
+            <div class="step-number">
+              <!-- Clipboard SVG -->
+              <svg viewBox="0 0 24 24">
+                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+              </svg>
+              <div class="step-badge">1</div>
+            </div>
+          </div>
+          <h3>Enroll</h3>
+          <p>Choose your course and complete payment securely</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-item reveal">
+          <div class="step-number-wrapper">
+            <div class="step-number">
+              <!-- Key/Access SVG -->
+              <svg viewBox="0 0 24 24">
+                <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+              </svg>
+              <div class="step-badge">2</div>
+            </div>
+          </div>
+          <h3>Get Access</h3>
+          <p>Receive login credentials instantly via email</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-item reveal">
+          <div class="step-number-wrapper">
+            <div class="step-number">
+              <!-- Watch SVG -->
+              <svg viewBox="0 0 24 24">
+                <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zm-5-6l-7 4V7l7 4z"/>
+              </svg>
+              <div class="step-badge">3</div>
+            </div>
+          </div>
+          <h3>Watch & Learn</h3>
+          <p>Access your video portal anytime, on any device</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-item reveal">
+          <div class="step-number-wrapper">
+            <div class="step-number">
+              <!-- Transform/Sunrise SVG -->
+              <svg viewBox="0 0 24 24">
+                <path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01zM3.82 8.35C4.85 7.6 7.93 5 12 5c4.07 0 7.15 2.6 8.18 3.35L12 18.54 3.82 8.35z"/>
+              </svg>
+              <div class="step-badge">4</div>
+            </div>
+          </div>
+          <h3>Transform</h3>
+          <p>Apply techniques and experience real life changes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Student Stories</h2>
+        <p>Listen to direct personal experiences from graduates who integrated energy healing techniques into their daily routines.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card reveal">
+          <div class="quote-icon">
+            <!-- Quote SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+          </div>
+          <p class="testimonial-text">"I struggled with chronic migraines for over five years. After applying the basic self-healing techniques I learned here, the frequency of my headaches dropped by 90% in just two weeks. It felt like a miracle."</p>
+          <div class="testimonial-stars">
+            <!-- 5 Stars -->
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="testimonial-author">Priya, Mumbai</div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card reveal">
+          <div class="quote-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+          </div>
+          <p class="testimonial-text">"As a corporate manager, stress was taking over my life. The meditation techniques and energy cleansing practices have given me a sanctuary of inner peace and clarity."</p>
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="testimonial-author">Rajesh, Bengaluru</div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card reveal">
+          <div class="quote-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+          </div>
+          <p class="testimonial-text">"Learning the forgiveness meditation completely mended my relationship with my family. The blockages I was carrying for years melted away, leaving only peace and love."</p>
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="testimonial-author">Ananya, Delhi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SUCCESS STORIES PREVIEW -->
+  <section class="success-stories" id="success">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Healing Stories</h2>
+        <p>Explore case highlights showcasing physical and emotional recovery through targeted prana applications.</p>
+      </div>
+
+      <div class="stories-grid">
+        <!-- Story 1 -->
+        <div class="story-card reveal">
+          <div class="story-illustration">
+            <!-- Back Pain Relief Icon (Spine/Energy Points) -->
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a84c" stroke-width="1" stroke-dasharray="3 3" />
+              <!-- Back Silhouette / Spine -->
+              <path d="M50 15 C54 30 54 40 50 85 M46 15 C50 30 50 40 46 85" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6" />
+              <!-- Energy Points / Chakras along spine -->
+              <circle cx="48" cy="22" r="5" fill="#c9a84c" />
+              <circle cx="48" cy="35" r="5" fill="#c9a84c" />
+              <circle cx="48" cy="48" r="5" fill="#c9a84c" />
+              <circle cx="48" cy="62" r="5" fill="#c9a84c" />
+              <circle cx="48" cy="75" r="5" fill="#c9a84c" />
+              <!-- Wave Aura -->
+              <path d="M30 45 C40 40 45 40 48 48 C45 56 40 56 30 51" stroke="#c9a84c" stroke-width="1.5" fill="none" />
+              <path d="M70 45 C60 40 55 40 52 48 C55 56 60 56 70 51" stroke="#c9a84c" stroke-width="1.5" fill="none" />
+            </svg>
+          </div>
+          <div class="story-body">
+            <h3>Reclaiming Mobility: How Pranic Healing Relieved Chronic Back Pain</h3>
+            <p>For a decade, chronic lower back pain dictated what I could and couldn't do. Through targeted advanced healing protocols, the energy congestion cleared, and today I am completely pain-free and active again.</p>
+            <a href="#" class="btn btn-secondary" onclick="event.preventDefault();">Read More</a>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="story-card reveal">
+          <div class="story-illustration">
+            <!-- Mental Balance / Relationship Icon -->
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a84c" stroke-width="1" stroke-dasharray="3 3" />
+              <!-- Two profiles / figures connected -->
+              <path d="M35 70 C35 55 42 50 45 45 C42 43 40 40 40 35 C40 28 45 25 50 25 C55 25 60 28 60 35 C60 40 58 43 55 45 C58 50 65 55 65 70" fill="none" stroke="#ffffff" stroke-width="2" />
+              <!-- Lotus/Heart blooming in the center -->
+              <path d="M50 38 C51 43 53 45 57 45 C53 45 51 47 50 52 C49 47 47 45 43 45 C47 45 49 43 50 38 Z" fill="#c9a84c" />
+              <circle cx="50" cy="45" r="12" stroke="#c9a84c" stroke-width="1" fill="none" stroke-dasharray="2 1" />
+            </svg>
+          </div>
+          <div class="story-body">
+            <h3>From Panic to Peace: A Journey of Emotional and Relational Healing</h3>
+            <p>Severe anxiety was destroying my personal and professional life. The psychological protocols and meditation alignment restored my emotional balance, transforming how I connect with myself and others.</p>
+            <a href="#" class="btn btn-secondary" onclick="event.preventDefault();">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FREE VIDEO / BLOG PREVIEW -->
+  <section class="resources" id="resources">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Free Resources</h2>
+        <p>Explore articles and guides to start understanding your energy ecosystem today.</p>
+      </div>
+
+      <div class="resources-grid">
+        <!-- Card 1 (Video) -->
+        <div class="resource-card reveal">
+          <div class="resource-thumb">
+            <!-- Background art overlay -->
+            <svg class="thumb-artwork" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#c9a84c" stroke-width="0.5" />
+              <polygon points="50,15 60,40 85,50 60,60 50,85 40,60 15,50 40,40" fill="none" stroke="#c9a84c" stroke-width="0.5" />
+            </svg>
+            <!-- Play Icon -->
+            <svg class="thumb-icon" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+          </div>
+          <div class="resource-info">
+            <span class="resource-type">Video Lesson</span>
+            <h3>Introduction to Pranic Healing — What is Prana?</h3>
+            <a href="#" class="resource-link" onclick="event.preventDefault();">
+              Watch Now
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 (Blog) -->
+        <div class="resource-card reveal">
+          <div class="resource-thumb">
+            <svg class="thumb-artwork" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="30" fill="none" stroke="#c9a84c" stroke-width="0.5" />
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#c9a84c" stroke-width="0.5" stroke-dasharray="2 2" />
+            </svg>
+            <!-- Article/Book Icon -->
+            <svg class="thumb-icon" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </div>
+          <div class="resource-info">
+            <span class="resource-type">Article</span>
+            <h3>5 Ways Pranic Healing Can Improve Your Daily Life</h3>
+            <a href="#" class="resource-link" onclick="event.preventDefault();">
+              Read Article
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 (Blog) -->
+        <div class="resource-card reveal">
+          <div class="resource-thumb">
+            <svg class="thumb-artwork" viewBox="0 0 100 100">
+              <path d="M15 50 Q 50 15 85 50 Q 50 85 15 50 Z" fill="none" stroke="#c9a84c" stroke-width="0.5" />
+              <circle cx="50" cy="50" r="10" fill="none" stroke="#c9a84c" stroke-width="0.5" />
+            </svg>
+            <!-- Aura/Energy Field Icon -->
+            <svg class="thumb-icon" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93h2c0 3.05 2.19 5.58 5 6.13v1.8zM12 4c3.95.49 7 3.85 7 7.93h-2c0-3.05-2.19-5.58-5-6.13V4z"/>
+            </svg>
+          </div>
+          <div class="resource-info">
+            <span class="resource-type">Guide</span>
+            <h3>Understanding the Human Energy Field</h3>
+            <a href="#" class="resource-link" onclick="event.preventDefault();">
+              Read Guide
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="resources-footer reveal">
+        <a href="#" class="btn btn-secondary" onclick="event.preventDefault();">View All Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CONTACT / CTA SECTION -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span>Begin Your Journey Today</span>
+          <h3>Have questions? We'd love to help you find the right course.</h3>
+          <p>Get in touch with our program coordinators. We are happy to guide you on which level corresponds best to your goals and spiritual path.</p>
+          
+          <div class="contact-channels">
+            <div class="channel-item">
+              <div class="channel-icon">
+                <!-- Mail Icon -->
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </div>
+              <div class="channel-text">
+                <h4>Email Admissions</h4>
+                <p>admissions@pranichealingacademy.demo</p>
+              </div>
+            </div>
+
+            <div class="channel-item">
+              <div class="channel-icon">
+                <!-- Phone Icon -->
+                <svg viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.82 3.76 5.14 6.62 6.62l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+              </div>
+              <div class="channel-text">
+                <h4>Call Desk</h4>
+                <p>+91 (022) 555-1234 (Mon-Sat, 9AM - 6PM)</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="whatsapp-btn" onclick="event.preventDefault();">
+            <!-- WhatsApp SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12.031 2a9.978 9.978 0 0 0-9.969 9.97c0 1.887.525 3.73 1.516 5.314L2.062 22l4.833-1.266a9.904 9.904 0 0 0 5.137 1.426h.003a9.98 9.98 0 0 0 9.969-9.97A9.982 9.982 0 0 0 12.031 2zm-4.755 4.915c.12-.272.247-.278.362-.28h.308c.11 0 .285.041.434.204.148.163.57.557.696.816.127.258.064.516-.02.685-.085.17-.142.272-.276.428-.135.156-.284.346-.404.465-.135.127-.278.265-.12.537.156.271.696 1.144 1.492 1.854.8.71 1.474.93 1.758 1.047.285.119.45.102.618-.088.168-.19.728-.848.922-1.137.195-.288.389-.24.656-.14.268.098 1.7.801 1.992.947.292.146.486.217.558.34.072.122.072.709-.217 1.522-.29.813-1.693 1.592-2.33 1.632-.637.04-1.253-.18-2.75-.774-1.794-.712-3.15-2.613-3.037-2.695 0 0-.063.085-1.017-1.196-.954-1.282-.622-2.302-.622-2.302s.06-.118.156-.234z"/>
+            </svg>
+            Chat with Us
+          </a>
+        </div>
+
+        <div class="contact-form-card reveal">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="formName">Full Name</label>
+              <input type="text" id="formName" class="form-control" placeholder="E.g. Priya Sharma" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="formEmail">Email Address</label>
+              <input type="email" id="formEmail" class="form-control" placeholder="E.g. priya@domain.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="formPhone">Phone Number</label>
+              <input type="tel" id="formPhone" class="form-control" placeholder="E.g. +91 98765 43210" required>
+            </div>
+
+            <div class="form-group">
+              <label for="formMessage">Your Message</label>
+              <textarea id="formMessage" class="form-control" placeholder="Tell us which course you are interested in..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="#home" class="logo">
+          <svg viewBox="0 0 100 100">
+            <path d="M50 15 C52 35 60 45 75 45 C60 45 52 55 50 85 C48 55 40 45 25 45 C40 45 48 35 50 15 Z" />
+            <path d="M50 28 C51.5 42 58 48 68 48 C58 48 51.5 54 50 72 C48.5 54 42 48 32 48 C42 48 48.5 42 50 28 Z" opacity="0.7" />
+          </svg>
+          <span>Pranic Healing Academy</span>
+        </a>
+        <p>A professional demo platform offering course portals to study the science of pranic restoration, meditations, and energy anatomy. Strictly for demonstration purposes.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links-grid">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#success">Success Stories</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" onclick="event.preventDefault();">Privacy Policy</a></li>
+          <li><a href="#" onclick="event.preventDefault();">Refund Policy</a></li>
+          <li><a href="#" onclick="event.preventDefault();">Terms of Use</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social-col">
+        <h4>Connect With Us</h4>
+        <div class="social-icons-row">
+          <!-- Instagram -->
+          <a href="#" class="social-link" aria-label="Instagram" onclick="event.preventDefault();">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="social-link" aria-label="YouTube" onclick="event.preventDefault();">
+            <svg viewBox="0 0 24 24">
+              <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" class="social-link" aria-label="Facebook" onclick="event.preventDefault();">
+            <svg viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="#" class="social-link" aria-label="WhatsApp" onclick="event.preventDefault();">
+            <svg viewBox="0 0 24 24">
+              <path d="M12.031 2a9.978 9.978 0 0 0-9.969 9.97c0 1.887.525 3.73 1.516 5.314L2.062 22l4.833-1.266a9.904 9.904 0 0 0 5.137 1.426h.003a9.98 9.98 0 0 0 9.969-9.97A9.982 9.982 0 0 0 12.031 2zm-4.755 4.915c.12-.272.247-.278.362-.28h.308c.11 0 .285.041.434.204.148.163.57.557.696.816.127.258.064.516-.02.685-.085.17-.142.272-.276.428-.135.156-.284.346-.404.465-.135.127-.278.265-.12.537.156.271.696 1.144 1.492 1.854.8.71 1.474.93 1.758 1.047.285.119.45.102.618-.088.168-.19.728-.848.922-1.137.195-.288.389-.24.656-.14.268.098 1.7.801 1.992.947.292.146.486.217.558.34.072.122.072.709-.217 1.522-.29.813-1.693 1.592-2.33 1.632-.637.04-1.253-.18-2.75-.774-1.794-.712-3.15-2.613-3.037-2.695 0 0-.063.085-1.017-1.196-.954-1.282-.622-2.302-.622-2.302s.06-.118.156-.234z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <span>&copy; <span id="currentYear">2026</span> Pranic Healing Academy. All Rights Reserved.</span>
+    </div>
+  </footer>
+
+  <!-- Sticky Floating WhatsApp Button -->
+  <a href="#" class="floating-whatsapp" aria-label="Chat with Us on WhatsApp" onclick="event.preventDefault();">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 2a9.978 9.978 0 0 0-9.969 9.97c0 1.887.525 3.73 1.516 5.314L2.062 22l4.833-1.266a9.904 9.904 0 0 0 5.137 1.426h.003a9.98 9.98 0 0 0 9.969-9.97A9.982 9.982 0 0 0 12.031 2zm-4.755 4.915c.12-.272.247-.278.362-.28h.308c.11 0 .285.041.434.204.148.163.57.557.696.816.127.258.064.516-.02.685-.085.17-.142.272-.276.428-.135.156-.284.346-.404.465-.135.127-.278.265-.12.537.156.271.696 1.144 1.492 1.854.8.71 1.474.93 1.758 1.047.285.119.45.102.618-.088.168-.19.728-.848.922-1.137.195-.288.389-.24.656-.14.268.098 1.7.801 1.992.947.292.146.486.217.558.34.072.122.072.709-.217 1.522-.29.813-1.693 1.592-2.33 1.632-.637.04-1.253-.18-2.75-.774-1.794-.712-3.15-2.613-3.037-2.695 0 0-.063.085-1.017-1.196-.954-1.282-.622-2.302-.622-2.302s.06-.118.156-.234z"/>
+    </svg>
+  </a>
+
+  <!-- 9. CONTACT MODAL DIALOG -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content">
+      <div class="modal-icon">
+        <!-- Checkmark SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </svg>
+      </div>
+      <h3>Message Received</h3>
+      <p>We will get back to you within 24 hours.</p>
+      <button class="btn btn-primary" id="closeModalBtn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking nav links
+    const navItems = navLinks.querySelectorAll('a');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Close mobile menu on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // 2. Header Scroll Effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // 3. Counter Stats Animation (starts on load)
+    document.addEventListener('DOMContentLoaded', () => {
+      const counters = document.querySelectorAll('.counter-val');
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const duration = 2000; // ms
+        const startTime = performance.now();
+
+        const updateCount = (timestamp) => {
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing out quad
+          const easeProgress = progress * (2 - progress);
+          const currentVal = easeProgress * target;
+
+          if (target >= 1000) {
+            counter.innerText = Math.floor(currentVal).toLocaleString('en-IN') + suffix;
+          } else {
+            counter.innerText = Math.floor(currentVal) + suffix;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            if (target >= 1000) {
+              counter.innerText = target.toLocaleString('en-IN') + suffix;
+            } else {
+              counter.innerText = target + suffix;
+            }
+          }
+        };
+
+        requestAnimationFrame(updateCount);
+      });
+    });
+
+    // 4. Scroll Reveal (IntersectionObserver)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target); // Animate once
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is in full view
+    });
+
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // 5. Contact Form Submission & Modal Pop-up
+    const contactForm = document.getElementById('contactForm');
+    const successModal = document.getElementById('successModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactForm.reset();
+      
+      // Open Modal
+      successModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    const closeModal = () => {
+      successModal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    closeModalBtn.addEventListener('click', closeModal);
+    
+    // Close modal when clicking backdrop
+    successModal.addEventListener('click', (e) => {
+      if (e.target === successModal) {
+        closeModal();
+      }
+    });
+
+    // Escape key closes modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && successModal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // Dynamic Copyright Year
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>

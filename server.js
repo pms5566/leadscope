@@ -182,7 +182,16 @@ const NICHE_ALIASES = {
   'ecommerce': 'Shopify 1',
   'e-commerce': 'Shopify 1',
   'online_store': 'Shopify 1',
-  'shopify_developer': 'Shopify 1'
+  // ── Pranic Healing ──────────────────────────────────────────────────────────
+  'pranic_healing': 'pranic-healing-2',
+  'pranic_healing_2': 'pranic-healing-2',
+  'healing': 'pranic-healing-2',
+  'healer': 'pranic-healing-2',
+  'energy_healing': 'pranic-healing-2',
+  'meditation': 'pranic-healing-2',
+  'meditation_center': 'pranic-healing-2',
+  'yoga_studio': 'pranic-healing-2',
+  'spiritual_healing': 'pranic-healing-2'
 };
 
 // Helper to fetch files from configured GitHub repository
@@ -3732,7 +3741,7 @@ app.get('/api/templates', async (req, res) => {
       }
     } catch (localErr2) { /* ignore */ }
     // Last resort hardcoded list (includes all known templates)
-    res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'fitness trainer', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation', 'wellness-project'] });
+    res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'fitness trainer', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation', 'wellness-project', 'pranic-healing-2'] });
   }
 });
 // Global Express Error Handler to capture request-level exceptions
