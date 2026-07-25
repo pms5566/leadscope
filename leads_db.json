@@ -4470,6 +4470,28 @@
       "addedAt": "2026-07-24T15:58:09.428Z",
       "updatedAt": "2026-07-24T16:02:13.660Z",
       "shortAlias": "the-studio"
+    },
+    {
+      "id": "scr-9ijj0sy",
+      "name": "GMCKS Pranic Healing Centre",
+      "address": "998, 3rd Cross Rd, HRBR Layout 1st Block, HRBR Layout, Kalyan Nagar, Bengaluru, Karnataka 560043, भारत",
+      "phone": "+91 98404 74285",
+      "googleMapsUri": "https://www.google.com/maps/place/GMCKS+Pranic+Healing+Centre/data=!4m7!3m6!1s0x3bae172b294f744d:0x4495f00845e09c0b!8m2!3d13.01834!4d77.653255!16s%2Fg%2F11g6xl5w25!19sChIJTXRPKSsXrjsRC5zgRQjwlUQ?authuser=0&hl=ne&rclk=1",
+      "facebook": "https://www.facebook.com/pranichealing.bangalore/",
+      "instagram": "https://www.instagram.com/sohamphbangalore/",
+      "linkedin": "https://in.linkedin.com/in/ethiraj-muthumalla-88135215",
+      "whatsapp": "https://wa.me/919840474285",
+      "tiktok": null,
+      "email": null,
+      "hasWebsiteInBio": false,
+      "foundWebsiteUrl": null,
+      "niche": "Pranic Healing",
+      "location": "Bengaluru",
+      "status": "new",
+      "notes": "",
+      "addedAt": "2026-07-25T16:59:25.431Z",
+      "updatedAt": "2026-07-25T16:59:25.431Z",
+      "shortAlias": "gmcks-pranic-healing-centre"
     }
   ],
   "shortLinks": {
@@ -5133,7 +5155,8 @@
     "ab-ntsi": "https://leadscope-bice.vercel.app/?niche=pranic-healing-2&leadId=preview_pranic-healing-2_1784995614277&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "ab-yquo": "https://leadscope-bice.vercel.app/?niche=jewelry&leadId=preview_jewelry_1784995633828&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "ab-yhvy": "https://leadscope-bice.vercel.app/?niche=gym&leadId=preview_gym_1784995662428&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "ab-3n0r": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784995668504&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "ab-3n0r": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784995668504&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "gmcks-pranic-healing-centre": "https://drab-citric-acid.ngrok-free.dev/preview/pranic-healing/scr-9ijj0sy?name=GMCKS%20Pranic%20Healing%20Centre&phone=%2B91%2098404%2074285&address=998%2C%203rd%20Cross%20Rd%2C%20HRBR%20Layout%201st%20Block%2C%20HRBR%20Layout%2C%20Kalyan%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560043%2C%20%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4"
   },
   "activeVisits": [
     {
