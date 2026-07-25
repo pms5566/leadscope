@@ -5802,9 +5802,35 @@
     "reiki-healing-pastlife-and-yoga-center-training": "https://drab-citric-acid.ngrok-free.dev/preview/pranic-healing/scr-3nf9flv?name=Reiki%20Healing%2C%20Pastlife%20and%20Yoga%20Center%20training&phone=%2B91%2081059%2079906&address=90%2C%203rd%20Main%20Rd%2C%20opp.%20jain%20temple%20ahead%2C%20opp.%20jiya%20dental%20care%2C%20Chamrajpet%2C%20Bengaluru%2C%20Karnataka%20560018%2C%20%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4",
     "the-true-north-gmcks-pranic-healing-and-arhatic-yoga-center": "https://drab-citric-acid.ngrok-free.dev/preview/pranic-healing/scr-e3hfmuc?name=The%20True%20North%20GMCKS%20Pranic%20Healing%20and%20Arhatic%20Yoga%20center&phone=%2B91%2077188%2010256&address=BRIGADE%20COSMOPOLIS%2C%20K%200145%2C%20Whitefield%20Main%20Rd%2C%20Palm%20Meadows%2C%20Whitefield%2C%20Bengaluru%2C%20Karnataka%20560066%2C%20%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4",
     "ab-r14u": "https://leadscope-bice.vercel.app/?niche=pranic-healing-2&leadId=preview_pranic-healing-2_1784998866755&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "dsfdf": "https://leadscope-bice.vercel.app/?niche=pranic-healing-2&leadId=preview_pranic-healing-2_1784999287918&name=dsfdf&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "dsfdf": "https://leadscope-bice.vercel.app/?niche=pranic-healing-2&leadId=preview_pranic-healing-2_1784999287918&name=dsfdf&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "dsfdf-45uk": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784999300133&name=dsfdf&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_pranic-healing-2_1784999287918",
+      "name": "dsfdf (pranic-healing-2)",
+      "openedAt": "2026-07-25T17:08:16.038Z",
+      "lastActiveAt": "2026-07-25T17:08:16.038Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 1,
+      "device": "desktop",
+      "os": "macOS",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-25T17:08:16.038Z",
+          "details": {
+            "device": "desktop"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_pranic-healing-2_1784998866755",
       "name": "Ab (pranic-healing-2)",
@@ -7818,31 +7844,6 @@
         {
           "event": "open",
           "timestamp": "2026-07-19T17:58:30.056Z",
-          "details": {
-            "device": "desktop"
-          }
-        }
-      ],
-      "isHot": false
-    },
-    {
-      "leadId": "preview_gym-website_1784483553453",
-      "name": "00t00 (gym-website)",
-      "openedAt": "2026-07-19T17:52:42.964Z",
-      "lastActiveAt": "2026-07-19T17:52:42.964Z",
-      "duration": 0,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:52:42.964Z",
           "details": {
             "device": "desktop"
           }
