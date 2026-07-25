@@ -5130,9 +5130,42 @@
     "a2z-ladies-gym-394r": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784911367770&name=A2Z+Ladies+Gym&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "crazy-fitness-gym": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784991487443&name=CRAZY+FITNESS+GYM&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
     "eight-pack-fitness": "https://leadscope-bice.vercel.app/?niche=gym-website&leadId=preview_gym-website_1784991725970&name=Eight+Pack+Fitness&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
-    "ab-ntsi": "https://leadscope-bice.vercel.app/?niche=pranic-healing-2&leadId=preview_pranic-healing-2_1784995614277&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
+    "ab-ntsi": "https://leadscope-bice.vercel.app/?niche=pranic-healing-2&leadId=preview_pranic-healing-2_1784995614277&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev",
+    "ab-yquo": "https://leadscope-bice.vercel.app/?niche=jewelry&leadId=preview_jewelry_1784995633828&name=Ab&phone=&address=&trackUrl=https%3A%2F%2Fdrab-citric-acid.ngrok-free.dev"
   },
   "activeVisits": [
+    {
+      "leadId": "preview_pranic-healing-2_1784995614277",
+      "name": "Ab (pranic-healing-2)",
+      "openedAt": "2026-07-25T16:07:03.436Z",
+      "lastActiveAt": "2026-07-25T16:07:09.916Z",
+      "duration": 0,
+      "scrollPercent": 0,
+      "location": "Nepalgunj, Lumbini Province, Nepal",
+      "countryCode": "NP",
+      "isp": "WorldLink Communications",
+      "views": 2,
+      "device": "mobile",
+      "os": "Android",
+      "browser": "Chrome",
+      "events": [
+        {
+          "event": "open",
+          "timestamp": "2026-07-25T16:07:03.436Z",
+          "details": {
+            "device": "mobile"
+          }
+        },
+        {
+          "event": "open",
+          "timestamp": "2026-07-25T16:07:09.916Z",
+          "details": {
+            "device": "mobile"
+          }
+        }
+      ],
+      "isHot": false
+    },
     {
       "leadId": "preview_gym-website_1784991725970",
       "name": "Eight Pack Fitness (gym-website)",
@@ -7159,58 +7192,6 @@
         }
       ],
       "isHot": true
-    },
-    {
-      "leadId": "preview_dermatologist_1784482983053",
-      "name": "p[mt (dermatologist)",
-      "openedAt": "2026-07-19T17:43:30.159Z",
-      "lastActiveAt": "2026-07-19T17:44:00.179Z",
-      "duration": 30,
-      "scrollPercent": 0,
-      "location": "Nepalgunj, Lumbini Province, Nepal",
-      "countryCode": "NP",
-      "isp": "WorldLink Communications",
-      "views": 1,
-      "device": "desktop",
-      "os": "macOS",
-      "browser": "Chrome",
-      "events": [
-        {
-          "event": "open",
-          "timestamp": "2026-07-19T17:43:30.159Z",
-          "details": {
-            "device": "desktop"
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T17:43:40.178Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T17:43:50.188Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        },
-        {
-          "event": "heartbeat",
-          "timestamp": "2026-07-19T17:44:00.179Z",
-          "details": {
-            "device": "desktop",
-            "seconds": 10,
-            "scrollPercent": 0
-          }
-        }
-      ],
-      "isHot": false
     }
   ],
   "settings": {
