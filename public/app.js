@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  window.templateHost = 'https://website-mockup.vercel.app';
+  window.templateHost = '';
   // DOM Elements
   const scanForm = document.getElementById('scanForm');
   const nicheInput = document.getElementById('nicheInput');
@@ -134,10 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function buildCrmShortLinkHtml(lead, proposalUrl) {
     const shortAlias = lead.shortAlias || '';
     const base = getPreviewBaseUrl();
-    // Always use branded clean URL: templateHost/alias
-    const shortUrl = window.templateHost && shortAlias
-      ? `${window.templateHost.replace(/\/$/, '')}/${shortAlias}`
-      : (lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : ''));
+    // Always prefer TinyURL (reliable 24/7 via ngrok/server); fall back to templateHost/alias only if no tinyUrl
+    const shortUrl = lead.tinyUrl || (shortAlias ? `${base}/go/${shortAlias}` : '');
     const displayLabel = window.templateHost && shortAlias
       ? `${window.templateHost.replace(/\/$/, '')}/${shortAlias}`
       : (shortAlias ? `/go/${shortAlias}` : '');
@@ -1810,8 +1808,8 @@ document.addEventListener('DOMContentLoaded', () => {
           templateHostInput.value = data.templateHost;
           window.templateHost = data.templateHost;
         } else {
-          templateHostInput.value = 'https://website-mockup.vercel.app';
-          window.templateHost = 'https://website-mockup.vercel.app';
+          templateHostInput.value = '';
+          window.templateHost = '';
         }
         if (data.localTrackingUrl) {
           localTrackingUrlInput.value = data.localTrackingUrl;
@@ -3063,8 +3061,8 @@ window.generateLink = async function () {
 
     const shortUrl = result.shortUrl;
 
-    // Determine the active link to show and copy (Vercel short link if configured, otherwise fallback short link)
-    const activeLink = window.templateHost ? `${window.templateHost.replace(/\/$/, '')}/${result.alias}` : shortUrl;
+    // Use TinyURL (server-generated, routed via ngrok) as primary link — templateHost is a static site, not an alias router
+    const activeLink = result.tinyUrl || shortUrl;
 
     if (outputEl) {
       outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;
