@@ -35,7 +35,7 @@ const getSerperKey = () => {
 };
 
 const app = express();
-const PORT = parseInt(process.env.PORT, 10) || 3000;
+const PORT = parseInt(process.env.PORT, 10) || 3050;
 
 // In-memory cache for latest scanned leads and visitor tracking
 let latestScannedLeads = [];
