@@ -800,13 +800,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const tHost = (window.templateHost || 'https://leadscope-bice.vercel.app').replace(/\/$/, '');
         const nicheSlug = (lead.niche || 'cafe').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
         const qParams = new URLSearchParams();
-        qParams.set('niche', nicheSlug);
-        if (lead.id) qParams.set('leadId', lead.id);
         if (lead.name) qParams.set('name', lead.name);
         if (lead.phone) qParams.set('phone', lead.phone);
         if (lead.address) qParams.set('address', lead.address);
-        if (window.localTrackingUrl) qParams.set('trackUrl', window.localTrackingUrl);
-        pitchLink = `${tHost}/?${qParams.toString()}`;
+        const qStr = qParams.toString();
+        pitchLink = `${tHost}/${nicheSlug}/${qStr ? '?' + qStr : ''}`;
       }
       
       // Add custom hooks based on CRM Audit checklist choices
@@ -1112,13 +1110,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const tHost = (window.templateHost || 'https://leadscope-bice.vercel.app').replace(/\/$/, '');
           const nicheSlug = cleanNiche.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
           const qParams = new URLSearchParams();
-          qParams.set('niche', nicheSlug);
-          if (lead.id) qParams.set('leadId', lead.id);
           if (lead.name) qParams.set('name', lead.name);
           if (lead.phone) qParams.set('phone', lead.phone);
           if (lead.address) qParams.set('address', lead.address);
-          if (window.localTrackingUrl) qParams.set('trackUrl', window.localTrackingUrl);
-          proposalUrl = `${tHost}/?${qParams.toString()}`;
+          const qStr = qParams.toString();
+          proposalUrl = `${tHost}/${nicheSlug}/${qStr ? '?' + qStr : ''}`;
         }
         
         let activeShortLink = proposalUrl;
@@ -3022,14 +3018,19 @@ window.generateLink = async function () {
   const nicheSlug = niche.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
   const host = (window.templateHost || 'https://leadscope-bice.vercel.app').replace(/\/$/, '');
-  const qParams = new URLSearchParams();
-  qParams.set('niche', niche);
-  qParams.set('leadId', leadId);
-  if (fullName) qParams.set('name', fullName);
-  if (phone) qParams.set('phone', phone);
-  if (address) qParams.set('address', address);
-  if (window.localTrackingUrl) qParams.set('trackUrl', window.localTrackingUrl);
-  const activeLink = `${host}/?${qParams.toString()}`;
+  let activeLink = '';
+  if (customAlias && customAlias.trim()) {
+    const cleanAlias = customAlias.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    activeLink = `${host}/${cleanAlias}`;
+  } else {
+    const nicheSlug = niche.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    const qParams = new URLSearchParams();
+    if (fullName) qParams.set('name', fullName);
+    if (phone) qParams.set('phone', phone);
+    if (address) qParams.set('address', address);
+    const qStr = qParams.toString();
+    activeLink = `${host}/${nicheSlug}/${qStr ? '?' + qStr : ''}`;
+  }
 
   if (outputEl) {
     outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;
