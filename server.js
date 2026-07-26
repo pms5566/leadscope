@@ -3662,55 +3662,40 @@ app.use((err, req, res, next) => {
 });
 
 
-const server = app.listen(PORT, '0.0.0.0', async () => {
-  console.log(`====================================================`);
-  console.log(`        LOCAL BUSINESS LEAD SCANNER SERVER`);
-  console.log(`====================================================`);
-  console.log(`Server is running at: http://0.0.0.0:${PORT}`);
-  console.log(`Live mode configured: ${isLiveModeConfigured() ? 'Yes' : 'No (falling back to Mock Mode)'}`);
-  console.log(`====================================================`);
+function startServer(retryCount = 0) {
+  const serverInstance = app.listen(PORT, '0.0.0.0', async () => {
+    console.log(`====================================================`);
+    console.log(`        LOCAL BUSINESS LEAD SCANNER SERVER`);
+    console.log(`====================================================`);
+    console.log(`Server is running at: http://0.0.0.0:${PORT}`);
+    console.log(`Live mode configured: ${isLiveModeConfigured() ? 'Yes' : 'No (falling back to Mock Mode)'}`);
+    console.log(`====================================================`);
 
-  // Load persistent active visits into memory cache on startup
-  try {
-    const db = await readDb();
-    if (Array.isArray(db.activeVisits)) {
-      activeVisits = db.activeVisits;
-      console.log(`[Startup] Loaded ${activeVisits.length} active visits from database.`);
-    }
-  } catch (e) {
-    console.error('[Startup] Failed to load active visits:', e.message);
-  }
-
-  // 🔒 Fix any existing shortlinks that point to localhost on startup
-  const publicDomain = process.env.PUBLIC_SHARING_DOMAIN ? process.env.PUBLIC_SHARING_DOMAIN.trim().replace(/\/$/, '') : null;
-  if (publicDomain) {
     try {
       const db = await readDb();
-      const shortLinks = db.shortLinks || {};
-      let fixed = 0;
-      for (const [alias, url] of Object.entries(shortLinks)) {
-        try {
-          const parsed = new URL(url);
-          if (parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1') {
-            parsed.hostname = new URL(publicDomain).hostname;
-            parsed.protocol = new URL(publicDomain).protocol;
-            parsed.port = '';
-            db.shortLinks[alias] = parsed.toString();
-            fixed++;
-          }
-        } catch (e) { /* skip non-URLs */ }
-      }
-      if (fixed > 0) {
-        await writeDb(db);
-        console.log(`[Startup] Fixed ${fixed} shortlink(s) that pointed to localhost → now pointing to ${publicDomain}`);
-      } else {
-        console.log(`[Startup] All shortlinks OK — no localhost URLs found.`);
+      if (Array.isArray(db.activeVisits)) {
+        activeVisits = db.activeVisits;
+        console.log(`[Startup] Loaded ${activeVisits.length} active visits from database.`);
       }
     } catch (e) {
-      console.warn('[Startup] Could not run shortlink cleanup:', e.message);
+      console.error('[Startup] Failed to load active visits:', e.message);
     }
-  }
-});
+  });
 
-// Set server timeout to 3 minutes (180,000 ms)
-server.timeout = 180000;
+  serverInstance.on('error', (err) => {
+    if (err.code === 'EADDRINUSE' && retryCount < 3) {
+      console.warn(`[Port ${PORT} Busy] Automatically clearing existing process on port ${PORT}...`);
+      try {
+        require('child_process').execSync(`lsof -ti :${PORT} | xargs kill -9 2>/dev/null`);
+      } catch (killErr) {}
+      setTimeout(() => startServer(retryCount + 1), 1000);
+    } else {
+      console.error('[Server Error]:', err);
+    }
+  });
+
+  serverInstance.timeout = 180000;
+  return serverInstance;
+}
+
+const server = startServer();
