@@ -2228,9 +2228,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger config check and CRM load on startup
     checkServerConfig();
     loadConfigSettings();
-    loadGithubTemplates().then(() => {
-      loadCrmLeads();
-    });
+    loadGithubTemplates();
+    loadCrmLeads();
     
     // Poll visitor tracking logs
     pollActiveVisits();
