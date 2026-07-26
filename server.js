@@ -3531,31 +3531,7 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // Endpoint for dashboard activity feed long-polling
-app.get('/api/active-visits', async (req, res) => {
-  try {
-    const db = await readDb();
-    if (db && Array.isArray(db.activeVisits)) {
-      const mergedMap = new Map();
-      
-      // Load database visits first
-      db.activeVisits.forEach(v => mergedMap.set(v.leadId, v));
-      
-      // Override with local in-memory active visits (which might be actively receiving live tracking events)
-      activeVisits.forEach(v => {
-        const dbV = mergedMap.get(v.leadId);
-        if (!dbV || new Date(v.lastActiveAt) >= new Date(dbV.lastActiveAt)) {
-          mergedMap.set(v.leadId, v);
-        }
-      });
-      
-      // Update global activeVisits array
-      activeVisits = Array.from(mergedMap.values())
-        .sort((a, b) => new Date(b.lastActiveAt) - new Date(a.lastActiveAt))
-        .slice(0, 50);
-    }
-  } catch (err) {
-    console.warn('[Active Visits Sync Fail]:', err.message);
-  }
+app.get('/api/active-visits', (req, res) => {
   res.json({ success: true, visits: activeVisits });
 });
 
@@ -3662,40 +3638,35 @@ app.use((err, req, res, next) => {
 });
 
 
-function startServer(retryCount = 0) {
-  const serverInstance = app.listen(PORT, async () => {
-    console.log(`====================================================`);
-    console.log(`        LOCAL BUSINESS LEAD SCANNER SERVER`);
-    console.log(`====================================================`);
-    console.log(`Server is running at: http://localhost:${PORT} (127.0.0.1 & [::1])`);
-    console.log(`Live mode configured: ${isLiveModeConfigured() ? 'Yes' : 'No (falling back to Mock Mode)'}`);
-    console.log(`====================================================`);
-
-    try {
-      const db = await readDb();
-      if (Array.isArray(db.activeVisits)) {
-        activeVisits = db.activeVisits;
-        console.log(`[Startup] Loaded ${activeVisits.length} active visits from database.`);
-      }
-    } catch (e) {
-      console.error('[Startup] Failed to load active visits:', e.message);
+function listenPort(port) {
+  try {
+    require('child_process').execSync(`lsof -ti :${port} | xargs kill -9 2>/dev/null`);
+  } catch (e) {}
+  
+  const s = app.listen(port, () => {
+    console.log(`[Server] Active & Listening on http://localhost:${port}`);
+  });
+  s.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      try { require('child_process').execSync(`lsof -ti :${port} | xargs kill -9 2>/dev/null`); } catch(e){}
+      setTimeout(() => listenPort(port), 1000);
     }
   });
-
-  serverInstance.on('error', (err) => {
-    if (err.code === 'EADDRINUSE' && retryCount < 3) {
-      console.warn(`[Port ${PORT} Busy] Automatically clearing existing process on port ${PORT}...`);
-      try {
-        require('child_process').execSync(`lsof -ti :${PORT} | xargs kill -9 2>/dev/null`);
-      } catch (killErr) {}
-      setTimeout(() => startServer(retryCount + 1), 1000);
-    } else {
-      console.error('[Server Error]:', err);
-    }
-  });
-
-  serverInstance.timeout = 180000;
-  return serverInstance;
+  s.timeout = 180000;
+  return s;
 }
 
-const server = startServer();
+console.log(`====================================================`);
+console.log(`        LOCAL BUSINESS LEAD SCANNER SERVER`);
+console.log(`====================================================`);
+
+// Load persistent active visits into memory cache on startup
+readDb().then(db => {
+  if (db && Array.isArray(db.activeVisits)) {
+    activeVisits = db.activeVisits;
+    console.log(`[Startup] Loaded ${activeVisits.length} active visits from database.`);
+  }
+}).catch(e => console.error('[Startup] Failed to load active visits:', e.message));
+
+const server = listenPort(3000);
+listenPort(3050);
