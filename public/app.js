@@ -3024,89 +3024,57 @@ window.generateLink = async function () {
     return;
   }
 
-  if (outputEl) {
-    outputEl.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Generating trust link...`;
-  }
-
   const base      = getPreviewBaseUrl();
   const leadId    = 'preview_' + niche.replace(/\s+/g, '_') + '_' + Date.now();
   const fullName  = tag ? `${name} - ${tag}` : name;
-  // longUrl is sent to /api/shorten; the result alias becomes the clean branded URL
-  let longUrl     = '';
-  if (window.templateHost) {
-    const queryParams = new URLSearchParams();
-    queryParams.set('niche', niche);
-    queryParams.set('leadId', leadId);
-    queryParams.set('name', fullName);
-    queryParams.set('phone', phone);
-    queryParams.set('address', address);
-    queryParams.set('trackUrl', window.localTrackingUrl || '');
-    longUrl = `${window.templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
-  } else {
-    longUrl = `${base}/preview/${encodeURIComponent(niche)}/${leadId}?name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+  const nicheSlug = niche.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+  const slugParams = new URLSearchParams();
+  if (fullName) slugParams.set('name', fullName);
+  if (phone) slugParams.set('phone', phone);
+  if (address) slugParams.set('address', address);
+  if (window.localTrackingUrl) slugParams.set('trackUrl', window.localTrackingUrl || '');
+  const slugParamStr = slugParams.toString();
+
+  const host = window.templateHost || 'https://leadscope-bice.vercel.app';
+  const activeLink = `${host.replace(/\/$/, '')}/${nicheSlug}${slugParamStr ? '?' + slugParamStr : ''}`;
+
+  if (outputEl) {
+    outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;
   }
 
-  try {
-    const response = await fetch('/api/shorten', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ longUrl, customAlias, name: fullName })
-    });
-    
-    const result = await response.json();
-    if (!response.ok || !result.success) {
-      throw new Error(result.error || 'Failed to shorten link');
-    }
+  if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = activeLink; }
+  if (openBtn) { openBtn.href = activeLink; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
 
-    const shortUrl = result.shortUrl;
-
-    // Generate clean branded Vercel URL: leadscope-bice.vercel.app/{niche}?name=...&phone=...
-    // vercel.json rewrite rule handles /:slug → /?niche=:slug (passing all query params through)
-    const nicheSlug = niche.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-    const slugParams = new URLSearchParams();
-    if (fullName) slugParams.set('name', fullName);
-    if (phone) slugParams.set('phone', phone);
-    if (address) slugParams.set('address', address);
-    if (window.localTrackingUrl) slugParams.set('trackUrl', window.localTrackingUrl || '');
-    const slugParamStr = slugParams.toString();
-    const activeLink = window.templateHost
-      ? `${window.templateHost.replace(/\/$/, '')}/${nicheSlug}${slugParamStr ? '?' + slugParamStr : ''}`
-      : (result.tinyUrl || shortUrl);
-
-    if (outputEl) {
-      outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;
-    }
-
-    if (copyBtn) { copyBtn.disabled = false; copyBtn.dataset.url = activeLink; }
-    const localOpenUrl = activeLink;
-    if (openBtn) { openBtn.href = localOpenUrl; openBtn.style.pointerEvents = 'auto'; openBtn.style.opacity = '1'; }
-
-    const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${activeLink}`;
-    if (waBtn) {
-      waBtn.href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
-      waBtn.style.pointerEvents = 'auto';
-      waBtn.style.opacity = '1';
-    }
-
-    const emailSubject = `Your Free Website Demo — ${name}`;
-    const emailBody    = `Hi,\n\nI've created a personalised website demo for ${name}. Click the link below to view it:\n\n${activeLink}\n\nLet me know what you think!\n\nBest regards`;
-    if (emailBtn) {
-      emailBtn.href = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-      emailBtn.style.pointerEvents = 'auto';
-      emailBtn.style.opacity = '1';
-    }
-
-    const smsMsg = `Hi! Here's your free website demo: ${activeLink}`;
-    if (smsBtn) {
-      smsBtn.href = `sms:?body=${encodeURIComponent(smsMsg)}`;
-      smsBtn.style.pointerEvents = 'auto';
-      smsBtn.style.opacity = '1';
-    }
-  } catch (err) {
-    if (outputEl) {
-      outputEl.innerHTML = `<span style="color: var(--color-rose);"><i class="fa-solid fa-circle-exclamation"></i> Error: ${err.message}</span>`;
-    }
+  const waMsg = `Hi! I've built you a personalised website demo. Have a look 👉 ${activeLink}`;
+  if (waBtn) {
+    waBtn.href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
+    waBtn.style.pointerEvents = 'auto';
+    waBtn.style.opacity = '1';
   }
+
+  const emailSubject = `Your Free Website Demo — ${name}`;
+  const emailBody    = `Hi,\n\nI've created a personalised website demo for ${name}. Click the link below to view it:\n\n${activeLink}\n\nLet me know what you think!\n\nBest regards`;
+  if (emailBtn) {
+    emailBtn.href = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    emailBtn.style.pointerEvents = 'auto';
+    emailBtn.style.opacity = '1';
+  }
+
+  const smsMsg = `Hi! Here's your free website demo: ${activeLink}`;
+  if (smsBtn) {
+    smsBtn.href = `sms:?body=${encodeURIComponent(smsMsg)}`;
+    smsBtn.style.pointerEvents = 'auto';
+    smsBtn.style.opacity = '1';
+  }
+
+  // Persist link and alias to server in background
+  const longUrl = `${host.replace(/\/$/, '')}/?niche=${encodeURIComponent(niche)}&leadId=${encodeURIComponent(leadId)}&name=${encodeURIComponent(fullName)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}`;
+  fetch('/api/shorten', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ longUrl, customAlias, name: fullName })
+  }).catch(err => console.warn('[Background Shorten Warning]', err));
 };
 
 window.copyProposalLink = function () {
