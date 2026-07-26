@@ -140,38 +140,72 @@ function getMockSocialMedia(name, location) {
  * Checks if the configured Google API keys are valid (non-placeholder).
  */
 function isLiveModeConfigured() {
-  const placesKey = process.env.GOOGLE_PLACES_API_KEY;
   const serperKey = getSerperKey();
+  const placesKey = process.env.GOOGLE_PLACES_API_KEY;
   const searchKey = process.env.GOOGLE_SEARCH_API_KEY;
   const cxId = process.env.GOOGLE_SEARCH_ENGINE_ID;
   
-  const hasPlaces = placesKey && placesKey !== "your_google_places_api_key_here" && placesKey.trim() !== "";
   const hasSerper = serperKey && serperKey !== "your_serper_api_key_here" && serperKey.trim() !== "";
+  const hasPlaces = placesKey && placesKey !== "your_google_places_api_key_here" && placesKey.trim() !== "";
   const hasGoogleSearch = searchKey && searchKey !== "your_google_search_api_key_here" && searchKey.trim() !== "" &&
                          cxId && cxId !== "your_google_search_engine_id_here" && cxId.trim() !== "";
                          
-  return hasPlaces && (hasSerper || hasGoogleSearch);
+  return hasSerper || hasPlaces || hasGoogleSearch;
 }
 
 /**
- * Scan local businesses using Google Places API (New).
+ * Scan local businesses using Serper Places API or Google Places API.
  */
 async function fetchLivePlaces(niche, location) {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  const url = "https://places.googleapis.com/v1/places:searchText";
-  
-  const headers = {
-    "Content-Type": "application/json",
-    "X-Goog-Api-Key": apiKey,
-    "X-Goog-FieldMask": "places.displayName,places.formattedAddress,places.websiteUri,places.nationalPhoneNumber,places.id"
-  };
-  
-  const payload = {
-    textQuery: `${niche} in ${location}`
-  };
-  
-  const response = await axios.post(url, payload, { headers });
-  return response.data.places || [];
+  const serperKey = getSerperKey();
+  const placesKey = process.env.GOOGLE_PLACES_API_KEY;
+
+  if (serperKey) {
+    try {
+      console.log(`[Scanner] Fetching places via Serper API for "${niche} in ${location}"...`);
+      const response = await axios.post('https://google.serper.dev/places', {
+        q: `${niche} in ${location}`
+      }, {
+        headers: {
+          'X-API-KEY': serperKey,
+          'Content-Type': 'application/json'
+        },
+        timeout: 8000
+      });
+
+      const places = response.data.places || [];
+      if (places.length > 0) {
+        return places.map((p, idx) => ({
+          id: p.cid || `serper-${idx}-${Date.now()}`,
+          displayName: { text: p.title || p.name || 'Local Business' },
+          formattedAddress: p.address || location,
+          nationalPhoneNumber: p.phoneNumber || 'N/A',
+          websiteUri: p.website || null,
+          googleMapsUri: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((p.title || '') + ' ' + (p.address || ''))}`
+        }));
+      }
+    } catch (err) {
+      console.error('[Scanner Error] Serper places API failed:', err.message);
+    }
+  }
+
+  if (placesKey && placesKey !== 'your_google_places_api_key_here' && placesKey.trim() !== '') {
+    try {
+      const url = "https://places.googleapis.com/v1/places:searchText";
+      const headers = {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": placesKey,
+        "X-Goog-FieldMask": "places.displayName,places.formattedAddress,places.websiteUri,places.nationalPhoneNumber,places.id"
+      };
+      const payload = { textQuery: `${niche} in ${location}` };
+      const response = await axios.post(url, payload, { headers, timeout: 8000 });
+      return response.data.places || [];
+    } catch (err) {
+      console.error('[Scanner Error] Google Places API failed:', err.message);
+    }
+  }
+
+  return generateMockLeads(niche, location);
 }
 
 /**
@@ -209,7 +243,7 @@ async function searchLiveSocialMedia(businessName, location) {
       };
       const payload = { q: query, num: 10 };
       console.log(`[Scanner] Fetching social media search via Serper.dev API...`);
-      const response = await axios.post(url, payload, { headers });
+      const response = await axios.post(url, payload, { headers, timeout: 3000 });
       items = response.data.organic || [];
     } else if (googleKey && googleKey !== "your_google_search_api_key_here" && cx && cx !== "your_google_search_engine_id_here") {
       const url = "https://www.googleapis.com/customsearch/v1";
@@ -946,28 +980,27 @@ async function scanLocalLeads(niche, location, forceMock = false) {
       return scanLocalLeads(niche, location, true);
     }
     
-    const leadsWithoutWebsite = rawPlaces.filter(place => !place.websiteUri);
-    const enrichedLeads = [];
+    let leadsWithoutWebsite = rawPlaces.filter(place => !place.websiteUri);
+    if (leadsWithoutWebsite.length < 4) {
+      const remaining = rawPlaces.filter(place => place.websiteUri);
+      leadsWithoutWebsite = [...leadsWithoutWebsite, ...remaining].slice(0, 8);
+    }
     
-    for (const place of leadsWithoutWebsite) {
+    const enrichedPromises = leadsWithoutWebsite.map(async (place) => {
       const name = place.displayName?.text || "Unknown Business";
       const address = place.formattedAddress || "N/A";
       const phone = place.nationalPhoneNumber || "N/A";
       let social = { facebook: null, instagram: null, linkedin: null, whatsapp: null, tiktok: null, email: null, hasWebsiteInBio: false, foundWebsiteUrl: null };
       
       try {
-        social = await searchLiveSocialMedia(name, location);
-        await new Promise(resolve => setTimeout(resolve, 300));
+        social = await Promise.race([
+          searchLiveSocialMedia(name, location),
+          new Promise(resolve => setTimeout(() => resolve(social), 2000))
+        ]);
       } catch (error) {
         console.error(`[Scanner Error] Failed to enrich details for "${name}":`, error.message);
       }
       
-      if (social.hasWebsiteInBio) {
-        console.log(`[Scanner] Filtering out "${name}" because website was found in social search: ${social.foundWebsiteUrl}`);
-        continue;
-      }
-      
-      // Auto-generate WhatsApp link if not found but phone is present
       let whatsapp = social.whatsapp;
       if (!whatsapp && phone && phone !== 'N/A') {
         const cleanPhone = phone.replace(/[^0-9]/g, '');
@@ -976,16 +1009,25 @@ async function scanLocalLeads(niche, location, forceMock = false) {
         }
       }
 
-      enrichedLeads.push({
+      return {
         id: place.id,
         name,
         address,
         phone,
-        googleMapsUri: place.googleMapsUri || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}&query_place_id=${place.id}`,
+        websiteUri: place.websiteUri || null,
+        googleMapsUri: place.googleMapsUri || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`,
         ...social,
         whatsapp
-      });
+      };
+    });
+
+    const results = await Promise.all(enrichedPromises);
+    const enrichedLeads = results.filter(Boolean);
+    
+    if (enrichedLeads.length === 0) {
+      return scanLocalLeads(niche, location, true);
     }
+    
     return enrichedLeads;
   }
   
