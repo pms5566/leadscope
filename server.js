@@ -3663,11 +3663,11 @@ app.use((err, req, res, next) => {
 
 
 function startServer(retryCount = 0) {
-  const serverInstance = app.listen(PORT, '0.0.0.0', async () => {
+  const serverInstance = app.listen(PORT, async () => {
     console.log(`====================================================`);
     console.log(`        LOCAL BUSINESS LEAD SCANNER SERVER`);
     console.log(`====================================================`);
-    console.log(`Server is running at: http://0.0.0.0:${PORT}`);
+    console.log(`Server is running at: http://localhost:${PORT} (127.0.0.1 & [::1])`);
     console.log(`Live mode configured: ${isLiveModeConfigured() ? 'Yes' : 'No (falling back to Mock Mode)'}`);
     console.log(`====================================================`);
 
