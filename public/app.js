@@ -792,15 +792,19 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBizName.textContent = lead.name;
       modalBizMeta.textContent = `${niche.toUpperCase()} — ${city.toUpperCase()}`;
       
-      // Determine what proposal link to pitch (use short link format only)
+      // Determine what proposal link to pitch (always clean Vercel URL)
       let pitchLink = '';
-      const baseUrl = getPreviewBaseUrl();
       if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
         pitchLink = lead.portfolioLink;
-      } else if (window.templateHost) {
-        pitchLink = `${window.templateHost.replace(/\/$/, '')}/${lead.shortAlias || lead.id}`;
       } else {
-        pitchLink = lead.shortAlias ? `${baseUrl}/go/${lead.shortAlias}` : `${baseUrl}/go/${lead.id}`;
+        const tHost = (window.templateHost || 'https://leadscope-bice.vercel.app').replace(/\/$/, '');
+        const nicheSlug = (lead.niche || 'cafe').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        const qParams = new URLSearchParams();
+        if (lead.name) qParams.set('name', lead.name);
+        if (lead.phone) qParams.set('phone', lead.phone);
+        if (lead.address) qParams.set('address', lead.address);
+        const qStr = qParams.toString();
+        pitchLink = `${tHost}/${nicheSlug}${qStr ? '?' + qStr : ''}`;
       }
       
       // Add custom hooks based on CRM Audit checklist choices
@@ -1097,39 +1101,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const waHtml = lead.whatsapp ? `<a href="${lead.whatsapp}" target="_blank" class="social-pill wa" style="font-size:0.75rem;"><i class="fa-brands fa-whatsapp"></i></a>` : '';
         const mailHtml = lead.email ? `<a href="mailto:${lead.email}" target="_blank" class="social-pill mail" style="font-size:0.75rem;"><i class="fa-solid fa-envelope"></i></a>` : '';
 
-        // Generate proposal and custom portfolio links
+        // Generate proposal and custom portfolio links (always clean Vercel URL)
         const cleanNiche = (lead.niche || 'cafe').toLowerCase().trim().replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-');
         let proposalUrl = '';
         if (lead.portfolioLink && (lead.portfolioLink.startsWith('http://') || lead.portfolioLink.startsWith('https://'))) {
           proposalUrl = lead.portfolioLink;
         } else {
-          const tNiche = lead.portfolioLink || cleanNiche;
-          // If shortAlias exists, always use the clean branded URL
-          if (window.templateHost && lead.shortAlias) {
-            proposalUrl = `${window.templateHost.replace(/\/$/, '')}/${lead.shortAlias}`;
-          } else if (window.templateHost) {
-            const queryParams = new URLSearchParams();
-            queryParams.set('niche', tNiche);
-            queryParams.set('leadId', lead.id);
-            queryParams.set('name', lead.name || '');
-            queryParams.set('phone', lead.phone || '');
-            queryParams.set('address', lead.address || '');
-            queryParams.set('trackUrl', window.localTrackingUrl || '');
-            proposalUrl = `${window.templateHost.replace(/\/$/, '')}/?${queryParams.toString()}`;
-          } else {
-            proposalUrl = `${getPreviewBaseUrl()}/preview/${tNiche}/${lead.id}?name=${encodeURIComponent(lead.name || '')}&phone=${encodeURIComponent(lead.phone || '')}&address=${encodeURIComponent(lead.address || '')}`;
-          }
+          const tHost = (window.templateHost || 'https://leadscope-bice.vercel.app').replace(/\/$/, '');
+          const nicheSlug = cleanNiche.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+          const qParams = new URLSearchParams();
+          if (lead.name) qParams.set('name', lead.name);
+          if (lead.phone) qParams.set('phone', lead.phone);
+          if (lead.address) qParams.set('address', lead.address);
+          const qStr = qParams.toString();
+          proposalUrl = `${tHost}/${nicheSlug}${qStr ? '?' + qStr : ''}`;
         }
         
-        // activeShortLink: prefer clean branded alias URL
-        let activeShortLink;
-        if (window.templateHost && lead.shortAlias) {
-          activeShortLink = `${window.templateHost.replace(/\/$/, '')}/${lead.shortAlias}`;
-        } else if (window.templateHost) {
-          activeShortLink = proposalUrl;
-        } else {
-          activeShortLink = lead.shortAlias ? `${getPreviewBaseUrl()}/go/${lead.shortAlias}` : `${getPreviewBaseUrl()}/go/${lead.id}`;
-        }
+        let activeShortLink = proposalUrl;
 
         const isActive = lead.active !== false;
         const toggleHtml = `
