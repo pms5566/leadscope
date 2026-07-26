@@ -804,7 +804,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lead.phone) qParams.set('phone', lead.phone);
         if (lead.address) qParams.set('address', lead.address);
         const qStr = qParams.toString();
-        pitchLink = `${tHost}/${nicheSlug}${qStr ? '?' + qStr : ''}`;
+        pitchLink = `${tHost}/${nicheSlug}/${qStr ? '?' + qStr : ''}`;
       }
       
       // Add custom hooks based on CRM Audit checklist choices
@@ -1114,7 +1114,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (lead.phone) qParams.set('phone', lead.phone);
           if (lead.address) qParams.set('address', lead.address);
           const qStr = qParams.toString();
-          proposalUrl = `${tHost}/${nicheSlug}${qStr ? '?' + qStr : ''}`;
+          proposalUrl = `${tHost}/${nicheSlug}/${qStr ? '?' + qStr : ''}`;
         }
         
         let activeShortLink = proposalUrl;
@@ -3025,7 +3025,7 @@ window.generateLink = async function () {
   const slugParamStr = slugParams.toString();
 
   const host = window.templateHost || 'https://leadscope-bice.vercel.app';
-  const activeLink = `${host.replace(/\/$/, '')}/${nicheSlug}${slugParamStr ? '?' + slugParamStr : ''}`;
+  const activeLink = `${host.replace(/\/$/, '')}/${nicheSlug}/${slugParamStr ? '?' + slugParamStr : ''}`;
 
   if (outputEl) {
     outputEl.innerHTML = `<span style="font-size:0.75rem; color:var(--color-green); font-weight:bold; display:block; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> Active Proposal Link</span>` + activeLink;

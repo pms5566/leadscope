@@ -1,8 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/:slug",
-      "destination": "/?niche=:slug"
-    }
-  ]
+  "cleanUrls": false,
+  "trailingSlash": true
 }
