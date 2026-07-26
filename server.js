@@ -1134,148 +1134,99 @@ const GH_OWNER = process.env.GITHUB_USERNAME || 'pms5566';
 const GH_REPO = process.env.GITHUB_REPO || 'leadscope';
 const GH_PATH = 'leads_db.json';
 
-let dbQueue = Promise.resolve();
 let dbCache = null;
 let dbCacheTime = 0;
 const CACHE_TTL = 10000; // 10 seconds cache TTL for read performance
 
 async function readDb() {
-  return new Promise((resolve) => {
-    dbQueue = dbQueue.then(async () => {
-      // Return memory cache if fresh
-      if (dbCache && (Date.now() - dbCacheTime < CACHE_TTL)) {
-        return resolve(dbCache);
-      }
-
-      const isHuggingFace = !!process.env.SPACE_ID || (process.env.PUBLIC_SHARING_DOMAIN && process.env.PUBLIC_SHARING_DOMAIN.includes('hf.space') && !process.env.LOCAL_TRACKING_URL);
-
-      // Only pull from GitHub if we are running in the cloud (Hugging Face)
-      if (isHuggingFace && (GH_OWNER && GH_REPO)) {
-        try {
-          const branch = process.env.GITHUB_BRANCH || 'main';
-          const rawUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${branch}/${GH_PATH}`;
-          const response = await axios.get(rawUrl, {
-            headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' },
-            timeout: 5000
-          });
-          const fileContent = typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
-          const parsed = JSON.parse(fileContent);
-          dbCache = parsed;
-          dbCacheTime = Date.now();
-          return resolve(dbCache);
-        } catch (error) {
-          console.error('[GitHub DB] Failed to read raw file from GitHub:', error.message);
-        }
-      }
-
-      // Fallback: Read local file
+  if (dbCache && (Date.now() - dbCacheTime < CACHE_TTL)) {
+    return dbCache;
+  }
+  try {
+    const data = await fs.readFile(DB_PATH, 'utf8');
+    const parsed = JSON.parse(data);
+    dbCache = parsed;
+    dbCacheTime = Date.now();
+    return dbCache;
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      const defaultDb = { leads: [], shortLinks: {} };
       try {
-        const data = await fs.readFile(DB_PATH, 'utf8');
-        const parsed = JSON.parse(data);
-        dbCache = parsed;
-        dbCacheTime = Date.now();
-        resolve(dbCache);
-      } catch (error) {
-        if (error.code === 'ENOENT') {
-          const defaultDb = { leads: [], shortLinks: {} };
-          try {
-            await fs.writeFile(DB_PATH, JSON.stringify(defaultDb, null, 2), 'utf8');
-          } catch (writeErr) {
-            console.error('Failed to initialize empty leads_db.json:', writeErr);
-          }
-          resolve(defaultDb);
-        } else {
-          console.error('Failed to read leads_db.json:', error);
-          resolve({ leads: [], shortLinks: {} });
-        }
-      }
-    }).catch(err => {
-      console.error('Queue error in readDb:', err);
-      resolve({ leads: [], shortLinks: {} });
-    });
-  });
+        await fs.writeFile(DB_PATH, JSON.stringify(defaultDb, null, 2), 'utf8');
+      } catch (writeErr) {}
+      dbCache = defaultDb;
+      dbCacheTime = Date.now();
+      return defaultDb;
+    }
+    return dbCache || { leads: [], shortLinks: {} };
+  }
 }
 
 async function writeDb(data, syncToGithub = true) {
-  return new Promise((resolve) => {
-    dbQueue = dbQueue.then(async () => {
-      // Ensure activeVisits is stored in the main database cache object
-      data.activeVisits = activeVisits;
+  data.activeVisits = activeVisits;
+  dbCache = data;
+  dbCacheTime = Date.now();
 
-      // 1. Keep local file updated for local runtime fallback
+  const dataCopy = { ...data };
+  delete dataCopy.sha;
+
+  try {
+    await fs.writeFile(DB_PATH, JSON.stringify(dataCopy, null, 2), 'utf8');
+  } catch (err) {
+    console.error('Failed to write local database file:', err);
+  }
+
+  const token = process.env.GITHUB_TOKEN;
+  if (syncToGithub && token && token.startsWith('ghp_')) {
+    setImmediate(async () => {
       try {
-        const dataCopy = { ...data };
-        delete dataCopy.sha;
-        await fs.writeFile(DB_PATH, JSON.stringify(dataCopy, null, 2), 'utf8');
-      } catch (error) {
-        console.error('Failed to write local database file:', error);
-      }
-
-      dbCache = data;
-      dbCacheTime = Date.now();
-
-      // 2. Synchronize to GitHub repository if token is set and sync is enabled
-      const token = process.env.GITHUB_TOKEN;
-      if (syncToGithub && token && token.startsWith('ghp_')) {
-        try {
-          let sha = data.sha;
-          if (!sha) {
-            try {
-              const metaResponse = await axios.get(
-                `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
-                {
-                  headers: {
-                    Authorization: `token ${token}`,
-                    Accept: 'application/vnd.github.v3+json',
-                    'User-Agent': 'LeadScope-App'
-                  },
-                  timeout: 8000
-                }
-              );
-              sha = metaResponse.data.sha;
-            } catch (metaErr) {
-              console.warn('[GitHub DB] No existing database file found on GitHub (creating new).');
-            }
-          }
-
-          const dataCopy = { ...data };
-          delete dataCopy.sha;
-          dataCopy.activeVisits = activeVisits; // Keep activeVisits persistent on GitHub
-          const jsonStr = JSON.stringify(dataCopy, null, 2);
-          const base64Content = Buffer.from(jsonStr).toString('base64');
-
-          const updateResponse = await axios.put(
-            `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
-            {
-              message: 'db: synchronize CRM database',
-              content: base64Content,
-              sha: sha
-            },
-            {
-              headers: {
-                Authorization: `token ${token}`,
-                Accept: 'application/vnd.github.v3+json',
-                'User-Agent': 'LeadScope-App'
-              },
-              timeout: 8000
-            }
-          );
-          
-          data.sha = updateResponse.data.content.sha;
-          console.log('[GitHub DB] Successfully synchronized database with GitHub.');
-          return resolve(true);
-        } catch (error) {
-          const errMsg = error.response && error.response.data ? JSON.stringify(error.response.data) : error.message;
-          console.error('[GitHub DB] Failed to push database to GitHub:', errMsg);
+        let sha = data.sha;
+        if (!sha) {
+          try {
+            const metaResponse = await axios.get(
+              `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
+              {
+                headers: {
+                  Authorization: `token ${token}`,
+                  Accept: 'application/vnd.github.v3+json',
+                  'User-Agent': 'LeadScope-App'
+                },
+                timeout: 4000
+              }
+            );
+            sha = metaResponse.data.sha;
+          } catch (metaErr) {}
         }
-      }
 
-      resolve(true);
-    }).catch(err => {
-      console.error('Queue error in writeDb:', err);
-      resolve(true);
+        const jsonStr = JSON.stringify(dataCopy, null, 2);
+        const base64Content = Buffer.from(jsonStr).toString('base64');
+
+        const updateResponse = await axios.put(
+          `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,
+          {
+            message: 'db: synchronize CRM database',
+            content: base64Content,
+            sha: sha
+          },
+          {
+            headers: {
+              Authorization: `token ${token}`,
+              Accept: 'application/vnd.github.v3+json',
+              'User-Agent': 'LeadScope-App'
+            },
+            timeout: 4000
+          }
+        );
+
+        data.sha = updateResponse.data.content.sha;
+        console.log('[GitHub DB] Background database sync complete.');
+      } catch (error) {
+        console.warn('[GitHub DB] Background sync skipped/failed:', error.message);
+      }
     });
-  });
+  }
+
+  return true;
 }
 
 // CRM Endpoints
@@ -3687,61 +3638,19 @@ app.get('/api/credits-check', async (req, res) => {
   res.json({ success: true, credits: results, checkedAt: new Date().toISOString() });
 });
 
-// Endpoint to list template folders dynamically from GitHub API
+// Endpoint to list template folders dynamically
 app.get('/api/templates', async (req, res) => {
-  // Try local first
   try {
-    const fs = require('fs').promises;
+    const fsPromises = require('fs').promises;
     const localPath = path.join(__dirname, 'my_raw_templates');
-    const files = await fs.readdir(localPath, { withFileTypes: true });
+    const files = await fsPromises.readdir(localPath, { withFileTypes: true });
     const localTemplates = files
       .filter(dirent => dirent.isDirectory() && !dirent.name.startsWith('.') && !dirent.name.endsWith('-src'))
-      .map(dirent => dirent.name);
-    if (localTemplates.length > 0) {
-      return res.json({ success: true, templates: localTemplates });
-    }
+      .map(dirent => dirent.name)
+      .sort();
+    return res.json({ success: true, templates: localTemplates });
   } catch (localErr) {
-    // Fall back to GitHub listing
-  }
-
-  const owner = process.env.GITHUB_USERNAME || 'pms5566';
-  const repo = process.env.GITHUB_REPO || 'my-leadscope-templates';
-  const pathPrefix = repo === 'leadscope' ? '/my_raw_templates' : '';
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents${pathPrefix}`;
-  
-  const headers = {
-    'User-Agent': 'LeadScope-SaaS-App'
-  };
-  
-  if (process.env.GITHUB_TOKEN && process.env.GITHUB_TOKEN !== 'your_github_token_here') {
-    headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
-  }
-  
-  try {
-    const response = await axios.get(url, { headers });
-    const directories = response.data
-      .filter(item => item.type === 'dir' && !item.name.startsWith('.') && !item.name.endsWith('-src'))
-      .map(item => item.name);
-      
-    res.json({ success: true, templates: directories });
-  } catch (err) {
-    console.warn('[GitHub Listing Fail]:', err.message);
-    // Fallback: always read from local my_raw_templates folder dynamically
-    // This ensures any new template added to the folder appears automatically
-    try {
-      const fs2 = require('fs').promises;
-      const localPath2 = path.join(__dirname, 'my_raw_templates');
-      const files2 = await fs2.readdir(localPath2, { withFileTypes: true });
-      const localFallback = files2
-        .filter(d => d.isDirectory() && !d.name.startsWith('.') && !d.name.endsWith('-src'))
-        .map(d => d.name)
-        .sort();
-      if (localFallback.length > 0) {
-        return res.json({ success: true, templates: localFallback });
-      }
-    } catch (localErr2) { /* ignore */ }
-    // Last resort hardcoded list (includes all known templates)
-    res.json({ success: true, templates: ['Cross Fit', 'Vanguard School', 'dermatologist', 'dentist', 'doctor', 'fitness trainer', 'garage', 'gym', 'gym-website', 'jewelry', 'luxurious-salon-website', 'nail-art', 'roofing contractors', 'SPA', 'Shopify 1', 'Student PG Accommodation', 'wellness-project', 'pranic-healing-2'] });
+    return res.json({ success: true, templates: ['dentist', 'dermatologist', 'SPA', 'gym', 'nail-art', 'pranic-healing-2'] });
   }
 });
 // Global Express Error Handler to capture request-level exceptions
