@@ -74,47 +74,66 @@ const MOCK_BUSINESSES = {
 };
 
 /**
- * Generate a list of mock local businesses for demonstration and testing.
+ * Universal Mock Lead Generator for any Niche & City.
  */
 function generateMockLeads(niche, location) {
-  const normNiche = niche.toLowerCase();
-  const normLoc = location.toLowerCase();
-  
-  // Try to find matching template or fallback
-  let nicheData = MOCK_BUSINESSES.bakery; // default fallback
-  for (const key of Object.keys(MOCK_BUSINESSES)) {
-    if (normNiche.includes(key)) {
-      nicheData = MOCK_BUSINESSES[key];
-      break;
-    }
-  }
-  
-  const namesList = nicheData.names[normLoc] || nicheData.names.default;
-  const addressList = nicheData.addresses[normLoc] || nicheData.addresses.default;
-  
+  const cleanNiche = (niche || 'business').trim().replace(/[^a-zA-Z0-9\s]/g, '');
+  const titleNiche = cleanNiche.split(' ').map(w => w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : '').join(' ');
+  const cleanLoc = (location || 'City').trim().split(/[,]/)[0].trim();
+  const titleLoc = cleanLoc.charAt(0).toUpperCase() + cleanLoc.slice(1).toLowerCase();
+
+  const prefixes = ['Apex', 'Elite', 'Pro', 'Urban', 'City', 'Master', 'Premier', 'Prime', 'Royal', 'Global'];
+  const suffixes = ['Center', 'Studio', 'Services', 'Clinic', 'Hub', 'Care', 'Lounge', 'Co.', 'Group', 'Lab'];
+
+  const addressesByCity = {
+    'new york': ['120 Broadway', '450 Lexington Ave', '88 Seventh Ave', '350 Fifth Ave', '125 Wall St', '57 Bleecker St', '210 West 42nd St', '75 Park Ave'],
+    'london': ['45 Regent St', '12 Oxford St', '88 Baker St', '15 Park Lane', '33 Piccadilly', '10 King Road', '54 Fleet St', '22 Kensington High St'],
+    'paris': ['12 Rue de la Paix', '45 Boulevard Saint-Germain', '78 Rue de Rivoli', '15 Avenue de l Opéra', '89 Rue de Rennes', '34 Rue de Castiglione'],
+    'dubai': ['12 Sheikh Zayed Rd', '45 Marina Promenade', '78 Downtown Blvd', '15 Business Bay Dr', '89 JBR Walk', '23 Al Wasl Rd'],
+    'toronto': ['100 Yonge St', '450 Bay St', '88 King St W', '350 Queen St W', '125 Bloor St W', '57 University Ave'],
+    'sydney': ['45 George St', '12 Pitt St', '88 Martin Place', '15 Macquarie St', '33 Bridge St', '10 Castlereagh St'],
+    'mumbai': ['12 MG Road', '45 Linking Road', '78 Marine Drive', '15 Bandra Kurla Complex', '89 Colaba Causeway'],
+    'delhi': ['12 Connaught Place', '45 Saket District', '78 Cyber City', '15 Rajpath Ave', '89 Greater Kailash']
+  };
+
+  const locKey = cleanLoc.toLowerCase();
+  const addressPool = addressesByCity[locKey] || [
+    `12 Main St, ${titleLoc}`,
+    `45 Commercial Ave, ${titleLoc}`,
+    `78 Central Blvd, ${titleLoc}`,
+    `100 Plaza Way, ${titleLoc}`,
+    `55 Market St, ${titleLoc}`,
+    `88 High St, ${titleLoc}`,
+    `210 Grand Ave, ${titleLoc}`,
+    `35 Broadway, ${titleLoc}`
+  ];
+
   const results = [];
-  
-  // Generate 8 businesses, some will have websites and some won't
   for (let i = 0; i < 8; i++) {
-    const name = namesList[i % namesList.length] + (i >= namesList.length ? ` (${i + 1})` : "");
-    const address = addressList[i % addressList.length] + `, ${location}`;
-    const phone = location.toLowerCase() === "paris" 
+    const prefix = prefixes[i % prefixes.length];
+    const suffix = suffixes[i % suffixes.length];
+    const bizName = `${prefix} ${titleNiche} ${suffix}`;
+    const rawAddr = addressPool[i % addressPool.length];
+    const address = rawAddr.toLowerCase().includes(titleLoc.toLowerCase()) ? rawAddr : `${rawAddr}, ${titleLoc}`;
+
+    const phone = (locKey === 'paris')
       ? `+33 1 ${Math.floor(10000000 + Math.random() * 90000000)}`
+      : (locKey === 'london')
+      ? `+44 20 ${Math.floor(70000000 + Math.random() * 9000000)}`
       : `+1 (${Math.floor(200 + Math.random() * 800)}) 555-${Math.floor(1000 + Math.random() * 9000)}`;
-      
-    // 30% of businesses have a website in our mock data, 70% do not (leads!)
-    const hasWebsite = i % 3 === 0;
-    const websiteUri = hasWebsite ? `https://www.${name.toLowerCase().replace(/[^a-z0-9]/g, "")}.com` : null;
-    
+
+    const slug = (prefix + '-' + titleNiche + '-' + suffix).toLowerCase().replace(/[^a-z0-9]/g, '-');
+
     results.push({
-      displayName: { text: name },
+      id: `lead-${i + 1}-${slug}`,
+      displayName: { text: bizName },
       formattedAddress: address,
       nationalPhoneNumber: phone,
-      websiteUri: websiteUri,
-      id: `mock-id-${i + 1}-${name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`
+      websiteUri: null, // Unserviced business with no website (prime target lead!)
+      googleMapsUri: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(bizName + ' ' + titleLoc)}`
     });
   }
-  
+
   return results;
 }
 
