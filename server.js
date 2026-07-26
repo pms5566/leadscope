@@ -37,6 +37,17 @@ const getSerperKey = () => {
 const app = express();
 const PORT = parseInt(process.env.PORT, 10) || 3050;
 
+// Enable CORS for all incoming cross-origin requests from Vercel & client applications
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, ngrok-skip-browser-warning');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 // In-memory cache for latest scanned leads and visitor tracking
 let latestScannedLeads = [];
 let activeVisits = [];
