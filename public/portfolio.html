@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Web Design Portfolio Showcase — 26+ Premium Niche Templates</title>
+  <meta name="description" content="Explore our library of 26+ high-converting, mobile-optimized website design templates for healthcare, fitness, luxury events, trades, and e-commerce.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: #131b2e;
+      --accent-cyan: #00f2fe;
+      --accent-blue: #4facfe;
+      --accent-purple: #7000ff;
+      --text-main: #f1f5f9;
+      --text-sub: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .portfolio-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      background: rgba(19, 27, 46, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .portfolio-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .portfolio-logo i {
+      color: var(--accent-cyan);
+      font-size: 1.5rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-github {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.6rem 1.2rem;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-github:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .btn-cta {
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+      color: #0b0f19;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 242, 254, 0.5);
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 4rem 1.5rem 3rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      color: var(--accent-cyan);
+      padding: 0.4rem 1rem;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin: 0 0 1.25rem 0;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-sub);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-sub);
+      padding: 0.5rem 1.25rem;
+      border-radius: 99px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(0, 242, 254, 0.12);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem 1.5rem;
+    }
+
+    .template-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+    }
+
+    .template-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      border-color: rgba(0, 242, 254, 0.4);
+    }
+
+    .card-preview-header {
+      height: 200px;
+      background: #0f172a;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preview-bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(0, 242, 254, 0.15), transparent 70%);
+    }
+
+    .preview-icon {
+      font-size: 3.5rem;
+      color: rgba(0, 242, 254, 0.6);
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .template-card:hover .preview-icon {
+      transform: scale(1.15);
+      color: var(--accent-cyan);
+    }
+
+    .badge-category {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-color);
+      color: var(--accent-cyan);
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .template-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: #fff;
+    }
+
+    .template-desc {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    .features-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.6rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.25rem;
+    }
+
+    .btn-action {
+      flex: 1;
+      text-align: center;
+      padding: 0.6rem 0.5rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-demo {
+      background: rgba(0, 242, 254, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+    }
+
+    .btn-demo:hover {
+      background: var(--accent-cyan);
+      color: #0b0f19;
+    }
+
+    .btn-code {
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-code:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .btn-copy-pitch {
+      background: rgba(112, 0, 255, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(112, 0, 255, 0.3);
+    }
+
+    .btn-copy-pitch:hover {
+      background: #7000ff;
+      color: #fff;
+    }
+
+    /* Modal Device Preview */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 1100px;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: #0b0f19;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .modal-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .device-switcher {
+      display: flex;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.25rem;
+      border-radius: 8px;
+    }
+
+    .device-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .device-btn.active {
+      background: var(--accent-cyan);
+      color: #0b0f19;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #ef4444;
+    }
+
+    .modal-iframe-container {
+      flex: 1;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .preview-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      transition: width 0.3s ease;
+    }
+
+    .preview-iframe.tablet {
+      width: 768px;
+      height: 100%;
+      border-left: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+    }
+
+    .preview-iframe.mobile {
+      width: 375px;
+      height: 100%;
+      border-left: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-sub);
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #10b981;
+      color: #0b0f19;
+      padding: 0.75rem 1.5rem;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 2000;
+    }
+
+    .toast.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="portfolio-navbar">
+    <a href="#" class="portfolio-logo">
+      <i class="fa-solid fa-layer-group"></i>
+      <span>Niche Showcase Portfolio</span>
+    </a>
+    <div class="nav-actions">
+      <a href="https://github.com/pms5566/leadscope" target="_blank" class="btn-github">
+        <i class="fa-brands fa-github"></i> GitHub Source Repo
+      </a>
+      <a href="http://localhost:3000" class="btn-cta">
+        <i class="fa-solid fa-bolt"></i> Launch LeadScope AI
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero-section">
+    <div class="hero-badge">
+      <i class="fa-solid fa-sparkles"></i> 26+ Premium Client Templates
+    </div>
+    <h1 class="hero-title">High-Converting Niche Website Designs</h1>
+    <p class="hero-subtitle">
+      Explore our curated collection of mobile-first, high-ticket website templates. 
+      Click <strong>Live Demo</strong> to test interactive features or access full source code on <strong>GitHub</strong>.
+    </p>
+  </section>
+
+  <!-- Category Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> All Work (26)</button>
+    <button class="filter-btn" data-filter="healthcare"><i class="fa-solid fa-heart-pulse"></i> Healthcare & Wellness (7)</button>
+    <button class="filter-btn" data-filter="fitness"><i class="fa-solid fa-dumbbell"></i> Fitness & Athletics (4)</button>
+    <button class="filter-btn" data-filter="luxury"><i class="fa-solid fa-gem"></i> Luxury & Events (5)</button>
+    <button class="filter-btn" data-filter="automotive"><i class="fa-solid fa-screwdriver-wrench"></i> Automotive & Trades (6)</button>
+    <button class="filter-btn" data-filter="ecommerce"><i class="fa-solid fa-store"></i> E-Commerce & Education (4)</button>
+  </div>
+
+  <!-- Templates Grid -->
+  <div class="templates-grid" id="templatesContainer">
+    <!-- Template cards will be rendered dynamically via JS -->
+  </div>
+
+  <!-- Device Preview Modal -->
+  <div class="modal-overlay" id="previewModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <i class="fa-solid fa-desktop" style="color: var(--accent-cyan);"></i>
+          <h3 style="margin: 0; color: #fff; font-size: 1.1rem;" id="modalTemplateTitle">Template Preview</h3>
+        </div>
+        <div class="device-switcher">
+          <button class="device-btn active" data-device="desktop"><i class="fa-solid fa-desktop"></i> Desktop</button>
+          <button class="device-btn" data-device="tablet"><i class="fa-solid fa-tablet-screen-button"></i> Tablet</button>
+          <button class="device-btn" data-device="mobile"><i class="fa-solid fa-mobile-screen-button"></i> Mobile</button>
+        </div>
+        <button class="modal-close" id="btnCloseModal">&times;</button>
+      </div>
+      <div class="modal-iframe-container">
+        <iframe id="modalIframe" class="preview-iframe" src=""></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Pitch link copied to clipboard!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Powered by <strong>LeadScope AI Agency Portfolio Engine</strong> &bull; Hosted on <a href="https://leadscope-bice.vercel.app" target="_blank">Vercel</a> & <a href="https://github.com/pms5566/leadscope" target="_blank">GitHub</a></p>
+  </footer>
+
+  <script>
+    const GITHUB_REPO = "https://github.com/pms5566/leadscope/tree/main/my_raw_templates";
+    const VERCEL_HOST = "https://leadscope-bice.vercel.app";
+
+    const TEMPLATES_DATA = [
+      {
+        id: "gym-website",
+        title: "APEX Fitness & Gym Pro",
+        category: "fitness",
+        icon: "fa-dumbbell",
+        desc: "High-intensity dark mode gym template with interactive class schedules, membership pricing calculator, and instant booking modal.",
+        features: ["Dark Mode Aesthetic", "Class Schedule", "Membership Calculator", "Instant Booking"],
+        folder: "gym-website"
+      },
+      {
+        id: "pranic-healing-2",
+        title: "Pranic Healing & Holistic Wellness",
+        category: "healthcare",
+        icon: "fa-leaf",
+        desc: "Mobile-optimized holistic wellness center with sticky WhatsApp CTA, treatment booking, reviews slider, and calming gradient palette.",
+        features: ["Mobile First", "WhatsApp Widget", "Reviews Slider", "Treatment Booking"],
+        folder: "pranic-healing-2"
+      },
+      {
+        id: "luxurious-salon-website",
+        title: "Luxe Hair & Beauty Salon",
+        category: "luxury",
+        icon: "fa-scissors",
+        desc: "Premium luxury salon template with service menu, stylist showcases, glassmorphism hero banner, and online appointment booking.",
+        features: ["Glassmorphism UI", "Service Menu", "Stylist Bios", "Online Booking"],
+        folder: "luxurious-salon-website"
+      },
+      {
+        id: "Aesthetic & Anti-Aging Medicine",
+        title: "Aesthetic & Anti-Aging Medicine",
+        category: "healthcare",
+        icon: "fa-user-doctor",
+        desc: "High-ticket medical spa & anti-aging clinic website featuring treatment galleries, consultation forms, and doctor credentials.",
+        features: ["High Ticket Clinic", "Treatment Gallery", "Doctor Credentials", "Consultation Form"],
+        folder: "Aesthetic & Anti-Aging Medicine"
+      },
+      {
+        id: "Auto Detailing & Ceramic Coating Shops",
+        title: "Auto Detailing & Ceramic Coating",
+        category: "automotive",
+        icon: "fa-car",
+        desc: "High-gloss auto detailing & ceramic coating storefront with before/after sliders, package pricing cards, and instant quote generator.",
+        features: ["Before/After Slider", "Package Pricing", "Ceramic Coating Calc", "Quote Form"],
+        folder: "Auto Detailing & Ceramic Coating Shops"
+      },
+      {
+        id: "Luxury Yacht Wedding Planners",
+        title: "Luxury Yacht Wedding Planners",
+        category: "luxury",
+        icon: "fa-ship",
+        desc: "Ultra-high-ticket destination wedding website with yacht charter packages, venue virtual tours, and private inquiry forms.",
+        features: ["Destination Wedding", "Yacht Charter", "Virtual Tour", "Inquiry Form"],
+        folder: "Luxury Yacht Wedding Planners"
+      },
+      {
+        id: "Luxury Event Caterers & Staffing",
+        title: "Luxury Event Caterers & Staffing",
+        category: "luxury",
+        icon: "fa-utensils",
+        desc: "Exclusive catering & event staffing template with interactive menu builder, tasting requests, and client testimonials.",
+        features: ["Interactive Menu", "Tasting Request", "Event Staffing", "Client Reviews"],
+        folder: "Luxury Event Caterers & Staffing"
+      },
+      {
+        id: "Commercial Espresso Machine Distributors",
+        title: "Commercial Espresso Distributors",
+        category: "automotive",
+        icon: "fa-mug-hot",
+        desc: "B2B coffee equipment distribution portal with machine spec sheets, commercial lease calculator, and wholesale lead forms.",
+        features: ["B2B Equipment", "Spec Sheets", "Lease Calculator", "Wholesale Leads"],
+        folder: "Commercial Espresso Machine Distributors"
+      },
+      {
+        id: "Cross Fit",
+        title: "CrossFit & High Intensity Athletics",
+        category: "fitness",
+        icon: "fa-person-running",
+        desc: "Bold, high-energy CrossFit box website featuring WOD schedules, coach bios, free trial pass signup, and community feed.",
+        features: ["WOD Schedule", "Coach Bios", "Free Trial Pass", "Community Feed"],
+        folder: "Cross Fit"
+      },
+      {
+        id: "Artificial Turf Installation",
+        title: "Artificial Turf Installation",
+        category: "automotive",
+        icon: "fa-tree",
+        desc: "Residential & commercial synthetic lawn installer template with cost estimator, project gallery, and free estimate request.",
+        features: ["Turf Estimator", "Project Gallery", "Commercial Landscaping", "Estimate Form"],
+        folder: "Artificial Turf Installation"
+      },
+      {
+        id: "nail-art",
+        title: "Nail Art & Beauty Studio",
+        category: "luxury",
+        icon: "fa-hand-sparkles",
+        desc: "Modern nail salon & nail art studio template with manicure galleries, service add-on selector, and online booking.",
+        features: ["Manicure Gallery", "Nail Art Catalog", "Add-on Selector", "Online Booking"],
+        folder: "nail-art"
+      },
+      {
+        id: "SPA",
+        title: "Luxury Wellness & SPA Sanctuary",
+        category: "healthcare",
+        icon: "fa-spa",
+        desc: "Serene spa & massage therapy website with treatment packages, gift cards purchase, and peaceful ambient layout.",
+        features: ["Spa Packages", "Massage Therapy", "Gift Cards UI", "Peaceful Layout"],
+        folder: "SPA"
+      },
+      {
+        id: "dentist",
+        title: "Dental Care & Orthodontics",
+        category: "healthcare",
+        icon: "fa-tooth",
+        desc: "Trustworthy dental practice template with emergency care info, patient smile transformations, and appointment scheduling.",
+        features: ["Smile Transformation", "Emergency Line", "Patient Reviews", "Appointment Booking"],
+        folder: "dentist"
+      },
+      {
+        id: "dermatologist",
+        title: "Dermatology & Skin Aesthetics",
+        category: "healthcare",
+        icon: "fa-hand-holding-medical",
+        desc: "Clean medical dermatology website showcasing skin treatments, doctor credentials, and online consultation booking.",
+        features: ["Skin Treatments", "Doctor Credentials", "Acne & Laser Care", "Online Booking"],
+        folder: "dermatologist"
+      },
+      {
+        id: "doctor",
+        title: "Medical Clinic & Healthcare",
+        category: "healthcare",
+        icon: "fa-hospital",
+        desc: "Healthcare clinic template with doctor directory, department listings, insurance check, and patient portal.",
+        features: ["Doctor Directory", "Department List", "Insurance Checker", "Patient Portal"],
+        folder: "doctor"
+      },
+      {
+        id: "fitness trainer",
+        title: "Personal Fitness Trainer & Coach",
+        category: "fitness",
+        icon: "fa-dumbbell",
+        desc: "Dynamic 1-on-1 personal trainer site with transformation results, custom workout plans, and client application form.",
+        features: ["1-on-1 Coaching", "Client Results", "Custom Workouts", "Application Form"],
+        folder: "fitness trainer"
+      },
+      {
+        id: "garage",
+        title: "Dynamic Auto Repair & Garage",
+        category: "automotive",
+        icon: "fa-wrench",
+        desc: "Mechanics & automotive repair shop website with service price list, diagnostic appointment booking, and emergency call button.",
+        features: ["Service Pricing", "Diagnostic Booking", "Mechanic Guarantee", "Emergency Call"],
+        folder: "garage"
+      },
+      {
+        id: "jewelry",
+        title: "Fine Jewelry & Luxury Accessories",
+        category: "luxury",
+        icon: "fa-gem",
+        desc: "Elegant e-commerce boutique for high-end jewelry, diamond rings, custom engravings, and luxury brand storytelling.",
+        features: ["Diamond Showcase", "Custom Engravings", "Boutique Gallery", "Brand Story"],
+        folder: "jewelry"
+      },
+      {
+        id: "roofing contractors",
+        title: "Roofing Contractors & Home Care",
+        category: "automotive",
+        icon: "fa-house-chimney-crack",
+        desc: "High-converting contractor website for roof repair, storm damage claims, warranty info, and instant inspection booking.",
+        features: ["Roof Inspection", "Storm Claims", "Warranty Info", "Contractor Quote"],
+        folder: "roofing contractors"
+      },
+      {
+        id: "wellness-project",
+        title: "Wellness Coaching & Holistic Health",
+        category: "fitness",
+        icon: "fa-heart",
+        desc: "Holistic lifestyle & nutrition coaching template with program guides, client success stories, and discovery call booking.",
+        features: ["Nutrition Guide", "Holistic Coaching", "Success Stories", "Discovery Call"],
+        folder: "wellness-project"
+      },
+      {
+        id: "Student PG Accommodation",
+        title: "Student PG & Luxury Coliving",
+        category: "ecommerce",
+        icon: "fa-building-user",
+        desc: "Modern student PG & coliving rental portal with room virtual tours, amenity checklists, and instant bed reservation.",
+        features: ["Coliving Rental", "Virtual Room Tour", "Amenity Checklist", "Bed Reservation"],
+        folder: "Student PG Accommodation"
+      },
+      {
+        id: "Vanguard School",
+        title: "Vanguard School & Academy",
+        category: "ecommerce",
+        icon: "fa-graduation-cap",
+        desc: "Private school & academy website with curriculum overview, admissions portal, campus virtual tour, and tuition guide.",
+        features: ["Curriculum Overview", "Admissions Portal", "Campus Tour", "Tuition Guide"],
+        folder: "Vanguard School"
+      },
+      {
+        id: "city portal",
+        title: "City Portal & Local Directory",
+        category: "ecommerce",
+        icon: "fa-city",
+        desc: "Community & business directory hub showcasing top local services, tourist attractions, and verified merchant listings.",
+        features: ["Local Directory", "Merchant Listings", "City Guide", "Verified Badges"],
+        folder: "city portal"
+      },
+      {
+        id: "Shopify 1",
+        title: "Shopify E-Commerce Storefront",
+        category: "ecommerce",
+        icon: "fa-bag-shopping",
+        desc: "Sleek, high-converting product storefront template with cart drawer, customer review badges, and express checkout UI.",
+        features: ["Cart Drawer", "Express Checkout", "Customer Badges", "Product Gallery"],
+        folder: "Shopify 1"
+      }
+    ];
+
+    // Render Templates Grid
+    const container = document.getElementById('templatesContainer');
+
+    function renderTemplates(filter = 'all') {
+      container.innerHTML = '';
+      
+      const filtered = filter === 'all' 
+        ? TEMPLATES_DATA 
+        : TEMPLATES_DATA.filter(t => t.category === filter);
+
+      filtered.forEach(tmpl => {
+        const liveDemoUrl = `${VERCEL_HOST}/${encodeURIComponent(tmpl.folder)}/`;
+        const githubCodeUrl = `${GITHUB_REPO}/${encodeURIComponent(tmpl.folder)}`;
+
+        const card = document.createElement('div');
+        card.className = 'template-card';
+        card.innerHTML = `
+          <div class="card-preview-header">
+            <div class="preview-bg-gradient"></div>
+            <span class="badge-category">${tmpl.category}</span>
+            <i class="fa-solid ${tmpl.icon} preview-icon"></i>
+          </div>
+          <div class="card-body">
+            <h3 class="template-title">${tmpl.title}</h3>
+            <p class="template-desc">${tmpl.desc}</p>
+            <div class="features-list">
+              ${tmpl.features.map(f => `<span class="feature-tag">${f}</span>`).join('')}
+            </div>
+            <div class="card-actions">
+              <button class="btn-action btn-demo" onclick="openPreviewModal('${tmpl.title}', '${liveDemoUrl}')">
+                <i class="fa-solid fa-eye"></i> Live Demo
+              </button>
+              <a href="${githubCodeUrl}" target="_blank" class="btn-action btn-code">
+                <i class="fa-brands fa-github"></i> GitHub Code
+              </a>
+              <button class="btn-action btn-copy-pitch" onclick="copyPitchLink('${tmpl.title}', '${liveDemoUrl}', '${githubCodeUrl}')">
+                <i class="fa-solid fa-share-nodes"></i> Pitch Link
+              </button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Filter Button Click Handlers
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTemplates(btn.getAttribute('data-filter'));
+      });
+    });
+
+    // Modal Handlers
+    const modal = document.getElementById('previewModal');
+    const iframe = document.getElementById('modalIframe');
+    const modalTitle = document.getElementById('modalTemplateTitle');
+
+    function openPreviewModal(title, url) {
+      modalTitle.textContent = title;
+      iframe.src = url;
+      modal.classList.add('active');
+    }
+
+    document.getElementById('btnCloseModal').addEventListener('click', () => {
+      modal.classList.remove('active');
+      iframe.src = '';
+    });
+
+    // Device Switcher
+    document.querySelectorAll('.device-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.device-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const device = btn.getAttribute('data-device');
+        iframe.className = `preview-iframe ${device}`;
+      });
+    });
+
+    // Copy Pitch Link Helper
+    function copyPitchLink(title, liveUrl, githubUrl) {
+      const pitchMsg = `Hey there! Check out our high-converting website design proposal for ${title}:\n\n` +
+        `🌐 Live Interactive Preview: ${liveUrl}\n` +
+        `💻 GitHub Source Code: ${githubUrl}\n\n` +
+        `Let me know if you would like us to customize this live for your business!`;
+
+      navigator.clipboard.writeText(pitchMsg).then(() => {
+        showToast(`Copied proposal pitch & GitHub link for ${title}!`);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.add('active');
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, 3000);
+    }
+
+    // Initialize
+    renderTemplates('all');
+  </script>
+</body>
+</html>
